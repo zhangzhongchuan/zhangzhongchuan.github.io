@@ -2,7 +2,8 @@
 <!-- hexo-inject:begin --><!-- hexo-inject:end --><script src="js/html5shiv.min.js"></script>
 <script src="js/respond.min.js"></script>
 <![endif]--><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="My blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head><body><header class="row-flex-row limit-width vh-center"><a href="/" class="logo"><img src="/favicon.png"></a><nav><ul class="nav-list"><li class="nav-list-item"><a href="/" class="nav-link">Home</a></li><li class="nav-list-item"><a href="/archives/" class="nav-link active">   Blog</a></li><li class="nav-list-item"><a href="https://zhangzhongchuan.github.io/" target="_blank" class="nav-link">github</a></li><li class="nav-list-item"><a target="_blank" class="nav-link">coding</a></li><li class="nav-list-item"><a target="_blank" class="nav-link">weibo</a></li><li class="nav-list-item"><a href="/atom.xml" class="nav-link">rss</a></li></ul></nav></header><div class="container limit-width"><section class="row-flex-row"><div class="post"><article class="post-block"><h2 class="post-title"><a href="/2019/08/16/pro_demo/" class="post-title-link">解决问题博客模板</a></h2><div class="post-meta"><ul class="post-tag-list"><li class="post-tag-item"><a href="/tags/demo/" class="post-tag-link">demo</a></li></ul><div class="post-time">Friday, August 16th 2019</div></div><div class="post-content"><div class="note info">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head><body><header class="row-flex-row limit-width vh-center"><a href="/" class="logo"><img src="/favicon.png"></a><nav><ul class="nav-list"><li class="nav-list-item"><a href="/" class="nav-link">Home</a></li><li class="nav-list-item"><a href="/archives/" class="nav-link active">   Blog</a></li><li class="nav-list-item"><a href="https://zhangzhongchuan.github.io/" target="_blank" class="nav-link">github</a></li><li class="nav-list-item"><a target="_blank" class="nav-link">coding</a></li><li class="nav-list-item"><a target="_blank" class="nav-link">weibo</a></li><li class="nav-list-item"><a href="/atom.xml" class="nav-link">rss</a></li></ul></nav></header><div class="container limit-width"><section class="row-flex-row"><div class="post"><article class="post-block"><h2 class="post-title"><a href="/2019/08/16/pro_demo/" class="post-title-link">解决问题博客模板</a></h2><div class="post-meta"><ul class="post-tag-list"><li class="post-tag-item"><a href="/tags/demo/" class="post-tag-link">demo</a></li></ul><div class="post-time">Friday, August 16th 2019</div></div><div class="post-content"><div class="note info">
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><h5>1.问题描述</h5>
     <p>使用Pycharm IDE使用unittest框架，代码执行完成且没有报错，没有在指定目录下生成测试报告。</p>
 </div>
@@ -14,13 +15,8 @@
 
 <p>2.1 代码</p>
 <p>test.py</p>
-<pre class=" language-sass"><code class="language-sass"><span class="token selector">class </span><span class="token function">Baidu</span><span class="token selector">(unittest</span><span class="token number">.</span><span class="token selector">TestCase):</span>
-    
-    <span class="token selector">def </span><span class="token function">setUp</span><span class="token selector">(self) -> None:</span>
-        <span class="token selector">self</span><span class="token number">.</span><span class="token selector">driver = webdriver</span><span class="token number">.</span><span class="token function">Chrome</span><span class="token selector">()</span>
-        <span class="token selector">self</span><span class="token number">.</span><span class="token selector">driver</span><span class="token number">.</span><span class="token selector">implicitly_</span><span class="token function">wait</span><span class="token selector">(</span><span class="token number">10</span><span class="token selector">)</span>
-        <span class="token selector">self</span><span class="token number">.</span><span class="token selector">base_url = </span><span class="token string">'http://www.baidu.com'</span>
-</code></pre>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs sass"><code class="language-hljs sass">class Baidu(unittest.TestCase):<br>	<br>    def setUp(self) -> None:<br>        self.driver &#x3D; webdriver.Chrome()<br>        self.driver.implicitly_wait(10)<br>        self.base_url &#x3D; 'http:&#x2F;&#x2F;www.baidu.com'<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+
 <div class="note">
     <h5>3.解决方法</h5>
     <p>使用普通模式执行该单元测试，切换普通模式方法如下：</p>

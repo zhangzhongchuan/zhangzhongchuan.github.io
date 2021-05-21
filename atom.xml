@@ -170,7 +170,7 @@
     <link href="https://zhangzhongchuan.github.io/2019/08/14/cname/"/>
     <id>https://zhangzhongchuan.github.io/2019/08/14/cname/</id>
     <published>2019-08-14T10:57:40.000Z</published>
-    <updated>2021-05-21T07:49:28.181Z</updated>
+    <updated>2021-05-21T08:56:56.538Z</updated>
     
     <content type="html"><![CDATA[<div class="note info">    <h5>1.问题描述</h5>    <p>使用hexo搭建GitHub Page博客后，第一次正常，第二次上传后，博客网页显示404页面。</p></div><div class="note warning">    <h5>2.问题原因</h5>    <p>因为绑定了域名，所以在github仓库根目录下有一个CNAME的文件，文件中写有需要绑定的域名。而使用hexo远程部署时会删除这个文件。所以页面会报404错误。</p></div><div class="note">    <h5>3.解决方法</h5>    <p>只要在github仓库根目录下添加一个CNAME文件，且上传时不会被覆盖即可，方法如下：</p></div><p>3.1 在hexo指定文件夹下的source文件夹下添加CNAME文件，CNAME文件中添加域名。</p><img src="/2019/08/14/cname/Xnip2019-08-15_20-35-35.png" class="" title="p1"><img src="/2019/08/14/cname/Xnip2019-08-15_20-36-55.png" class="" title="p1"><p>3.2 然后在Terminal执行</p><pre class=" language-bash"><code class="language-bash">hexo cleanhexo ghexo d</code></pre><p>3.3 查看github仓库根目录有该CNAME且博客可以正常访问</p><img src="/2019/08/14/cname/Xnip2019-08-15_21-01-09.png" class="" title="p1">]]></content>
     
@@ -221,13 +221,13 @@
     
     <category term="软件测试" scheme="https://zhangzhongchuan.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
     
-    <category term="python" scheme="https://zhangzhongchuan.github.io/tags/python/"/>
-    
-    <category term="pycharm" scheme="https://zhangzhongchuan.github.io/tags/pycharm/"/>
-    
     <category term="自动化测试" scheme="https://zhangzhongchuan.github.io/tags/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/"/>
     
+    <category term="python" scheme="https://zhangzhongchuan.github.io/tags/python/"/>
+    
     <category term="selenium" scheme="https://zhangzhongchuan.github.io/tags/selenium/"/>
+    
+    <category term="pycharm" scheme="https://zhangzhongchuan.github.io/tags/pycharm/"/>
     
   </entry>
   

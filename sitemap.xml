@@ -2,14 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://zhangzhongchuan.github.io/2019/08/13/pycharm_model/</loc>
+    <loc>https://zhangzhongchuan.github.io/2021/05/21/%E8%A7%A3%E5%86%B3hexo%E9%83%A8%E7%BD%B2%E5%87%BA%E7%8E%B0Error-ENOTEMPTY%E7%9A%84%E9%97%AE%E9%A2%98/</loc>
     
     <lastmod>2021-05-21</lastmod>
     
   </url>
   
   <url>
-    <loc>https://zhangzhongchuan.github.io/2021/05/21/%E8%A7%A3%E5%86%B3hexo%E9%83%A8%E7%BD%B2%E5%87%BA%E7%8E%B0Error-ENOTEMPTY%E7%9A%84%E9%97%AE%E9%A2%98/</loc>
+    <loc>https://zhangzhongchuan.github.io/2019/08/13/pycharm_model/</loc>
     
     <lastmod>2021-05-21</lastmod>
     
@@ -88,6 +88,13 @@
 
   
   <url>
+    <loc>https://zhangzhongchuan.github.io/tags/demo/</loc>
+    <lastmod>2021-05-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zhangzhongchuan.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/</loc>
     <lastmod>2021-05-21</lastmod>
     <changefreq>daily</changefreq>
@@ -159,13 +166,6 @@
   
   <url>
     <loc>https://zhangzhongchuan.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</loc>
-    <lastmod>2021-05-21</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhangzhongchuan.github.io/tags/demo/</loc>
     <lastmod>2021-05-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

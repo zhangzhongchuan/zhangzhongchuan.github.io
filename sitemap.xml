@@ -88,13 +88,6 @@
 
   
   <url>
-    <loc>https://zhangzhongchuan.github.io/tags/demo/</loc>
-    <lastmod>2021-05-21</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zhangzhongchuan.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/</loc>
     <lastmod>2021-05-21</lastmod>
     <changefreq>daily</changefreq>
@@ -116,7 +109,21 @@
   </url>
   
   <url>
+    <loc>https://zhangzhongchuan.github.io/tags/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/</loc>
+    <lastmod>2021-05-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zhangzhongchuan.github.io/tags/python/</loc>
+    <lastmod>2021-05-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhangzhongchuan.github.io/tags/selenium/</loc>
     <lastmod>2021-05-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -130,14 +137,7 @@
   </url>
   
   <url>
-    <loc>https://zhangzhongchuan.github.io/tags/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/</loc>
-    <lastmod>2021-05-21</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhangzhongchuan.github.io/tags/selenium/</loc>
+    <loc>https://zhangzhongchuan.github.io/tags/%E6%B5%8B%E8%AF%95%E6%96%87%E6%A1%A3/</loc>
     <lastmod>2021-05-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -158,14 +158,14 @@
   </url>
   
   <url>
-    <loc>https://zhangzhongchuan.github.io/tags/%E6%B5%8B%E8%AF%95%E6%96%87%E6%A1%A3/</loc>
+    <loc>https://zhangzhongchuan.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</loc>
     <lastmod>2021-05-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://zhangzhongchuan.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</loc>
+    <loc>https://zhangzhongchuan.github.io/tags/demo/</loc>
     <lastmod>2021-05-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

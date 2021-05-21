@@ -221,13 +221,13 @@
     
     <category term="软件测试" scheme="https://zhangzhongchuan.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
     
-    <category term="python" scheme="https://zhangzhongchuan.github.io/tags/python/"/>
-    
-    <category term="pycharm" scheme="https://zhangzhongchuan.github.io/tags/pycharm/"/>
-    
     <category term="自动化测试" scheme="https://zhangzhongchuan.github.io/tags/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/"/>
     
+    <category term="python" scheme="https://zhangzhongchuan.github.io/tags/python/"/>
+    
     <category term="selenium" scheme="https://zhangzhongchuan.github.io/tags/selenium/"/>
+    
+    <category term="pycharm" scheme="https://zhangzhongchuan.github.io/tags/pycharm/"/>
     
   </entry>
   

@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>My blog</title>
+  
+  
+  <link href="https://zhangzhongchuan.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://zhangzhongchuan.github.io/"/>
+  <updated>2021-05-21T08:33:15.976Z</updated>
+  <id>https://zhangzhongchuan.github.io/</id>
+  
+  <author>
+    <name>zzc</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>requirements总结</title>
+    <link href="https://zhangzhongchuan.github.io/2021/05/21/requirements%E6%80%BB%E7%BB%93/"/>
+    <id>https://zhangzhongchuan.github.io/2021/05/21/requirements%E6%80%BB%E7%BB%93/</id>
+    <published>2021-05-21T07:21:39.000Z</published>
+    <updated>2021-05-21T08:33:15.976Z</updated>
+    
+    <content type="html"><![CDATA[<div class="note info">    <h5>1.问题描述</h5>    <p>在搭建Liunx服务器时，需要在新的Python环境中安装项目需要的包的依赖，一条一条pip install太慢，有没有可以批量安装方法？</p></div><div class="note">    <h5>2.解决方法</h5>    <p>百度后，方法如下：</p></div><p>在旧环境下执行:</p><pre class=" language-bash"><code class="language-bash">pip freeze <span class="token operator">></span> requirements.txt</code></pre><p>执行后，会在当前项目下生成一个requirements.txt的文件，然后将该文件上传到新的环境项目下，在新环境下执行:</p><pre class=" language-bash"><code class="language-bash">pip <span class="token function">install</span> -r requirements.txt</code></pre>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;div class=&quot;note info&quot;&gt;
+    &lt;h5&gt;1.问题描述&lt;/h5&gt;
+    &lt;p&gt;在搭建Liunx服务器时，需要在新的Python环境中安装项目需要的包的依赖，一条一条pip install太慢，有没有可以批量安装方法？&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div cl</summary>
+      
+    
+    
+    
+    
+    <category term="python" scheme="https://zhangzhongchuan.github.io/tags/python/"/>
+    
+    <category term="pycharm" scheme="https://zhangzhongchuan.github.io/tags/pycharm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>解决问题博客模板</title>
+    <link href="https://zhangzhongchuan.github.io/2019/08/16/pro_demo/"/>
+    <id>https://zhangzhongchuan.github.io/2019/08/16/pro_demo/</id>
+    <published>2019-08-16T11:47:19.000Z</published>
+    <updated>2019-08-20T07:54:54.506Z</updated>
+    
+    <content type="html"><![CDATA[<div class="note info">    <h5>1.问题描述</h5>    <p>使用Pycharm IDE使用unittest框架，代码执行完成且没有报错，没有在指定目录下生成测试报告。</p></div><div class="note warning">    <h5>2.问题原因</h5>    <p>PyCharm会默认使用自带的框架如(unittest/pytest)来执行单元测试，不会执行main函数中的代码，所以不生成测试报告。</p></div><p>2.1 代码</p><p>test.py</p><pre class=" language-sass"><code class="language-sass"><span class="token selector">class </span><span class="token function">Baidu</span><span class="token selector">(unittest</span><span class="token number">.</span><span class="token selector">TestCase):</span>        <span class="token selector">def </span><span class="token function">setUp</span><span class="token selector">(self) -> None:</span>        <span class="token selector">self</span><span class="token number">.</span><span class="token selector">driver = webdriver</span><span class="token number">.</span><span class="token function">Chrome</span><span class="token selector">()</span>        <span class="token selector">self</span><span class="token number">.</span><span class="token selector">driver</span><span class="token number">.</span><span class="token selector">implicitly_</span><span class="token function">wait</span><span class="token selector">(</span><span class="token number">10</span><span class="token selector">)</span>        <span class="token selector">self</span><span class="token number">.</span><span class="token selector">base_url = </span><span class="token string">'http://www.baidu.com'</span></code></pre><div class="note">    <h5>3.解决方法</h5>    <p>使用普通模式执行该单元测试，切换普通模式方法如下：</p></div><p>3.1 点击PyCharm右上角的“Uittests in test_baidu.py”下拉框，选择“Edit Configuration”</p><div class="note unreleased">    <h5>&nbsp &nbsp4.相关参考</h5>    <p>&nbsp &nbsp</p></div><p>4.1 代码来源于书《selenium2自动化测试实战基于Python语言》—虫师<br>4.2 参考于该<a href="https://blog.csdn.net/alchaochao/article/details/79630830">CSDN博客</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;div class=&quot;note info&quot;&gt;
+    &lt;h5&gt;1.问题描述&lt;/h5&gt;
+    &lt;p&gt;使用Pycharm IDE使用unittest框架，代码执行完成且没有报错，没有在指定目录下生成测试报告。&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;note warnin</summary>
+      
+    
+    
+    
+    
+    <category term="demo" scheme="https://zhangzhongchuan.github.io/tags/demo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>demo</title>
+    <link href="https://zhangzhongchuan.github.io/2019/08/16/demo/"/>
+    <id>https://zhangzhongchuan.github.io/2019/08/16/demo/</id>
+    <published>2019-08-15T16:09:58.347Z</published>
+    <updated>2019-08-16T03:28:34.572Z</updated>
+    
+    <content type="html"><![CDATA[<p>如果你使用过 Sass 3.3 之前的版本，那么你一定对那段时光颇有感触，那时候没有现如今这么好的条件，那时候的 Map 还只能用多重列表（lists of list）来模拟。多重列表可以实现复杂数据的嵌套定义，但却不是以键值对的形式实现的，所有当我们需要获取其中特定的某一项时就会比较麻烦。Map 这种数据类型天生就是基于键值对的形式，非常便于组织数据。</p><p>自从可以使用 Map 之后，开发者们开始毫无顾忌地定义 Map 存储数据，比如断点宽度、颜色值、栅格布局等等响应式排版的细节，都被一股脑的塞进了 Map 中。</p><p>那么，有了 Map 之后，我们还有必要使用 List 吗？可能某些人会觉得为了保持向后兼容应该继续使用多重列表模拟 Map，因为可能有些开发者仍然在使用老版本的 Sass 编译器，但实际上，这是多此一举了，Sass 的版本通常由 <code>package.json</code> 或者其他同类型的项目配置文件所控制，往往只需一条命令（<code>gem update sass</code>）即可更新 Sass 的版本，因此基本上无需考虑对老版本的兼容问题。</p><span id="more"></span><p>使用多重列表替代 Map 的优势之一就是减少代码量。下面让我们来比较一下多种列表和 Map 的语法结构以及遍历方式。</p><h2 id="测试表格"><a href="#测试表格" class="headerlink" title="测试表格"></a>测试表格</h2><table><thead><tr><th>Variable</th><th>Description</th></tr></thead><tbody><tr><td><code>site</code></td><td>Sitewide information.</td></tr><tr><td><code>page</code></td><td>Page specific information and custom variables set in front-matter.</td></tr><tr><td><code>config</code></td><td>Site configuration</td></tr><tr><td><code>theme</code></td><td>Theme configuration. Inherits from site configuration.</td></tr><tr><td><code>_</code> (single underscore)</td><td><a href="http://lodash.com/">Lodash</a> library</td></tr><tr><td><code>path</code></td><td>Path of current page</td></tr><tr><td><code>url</code></td><td>Full URL of current page</td></tr><tr><td><code>env</code></td><td>Environment variables</td></tr></tbody></table><h2 id="语法比较"><a href="#语法比较" class="headerlink" title="语法比较"></a>语法比较</h2><div class="note">    <h5>测试标题</h5>    <p>在下面的示例中，我创建了一个用于控制响应式布局的数据，该数据一共有四个断点，每一个断点都包含了 `min-width`、`max-width`、`font-size` 和 `line-height` 四个样式。</p></div><h4 id="Map-语法"><a href="#Map-语法" class="headerlink" title="Map 语法"></a>Map 语法</h4><p>下面就是使用 Map 存储的数据，具体来说，该 Map 中首先存储了四个用于标识断点的 Key，相对应的是保存具体属性值得 Value。虽然这种形式可读性更高，但是总体代码量却高达 26 行 450 个字符。</p><pre class=" language-sass"><code class="language-sass"><span class="token variable-line"><span class="token variable">$breakpoint-map</span><span class="token punctuation">:</span> (</span>    <span class="token selector">small: (</span>        <span class="token selector">min-width: null</span><span class="token selector">,</span>        <span class="token selector">max-width: </span><span class="token number">479</span><span class="token selector">px</span><span class="token selector">,</span>        <span class="token selector">base-font: </span><span class="token number">16</span><span class="token selector">px</span><span class="token selector">,</span>        <span class="token selector">vertical-rhythm: </span><span class="token number">1.3</span>    <span class="token selector">)</span><span class="token selector">,</span>    <span class="token selector">medium: (</span>        <span class="token selector">min-width: </span><span class="token number">480</span><span class="token selector">px</span><span class="token selector">,</span>        <span class="token selector">max-width: </span><span class="token number">959</span><span class="token selector">px</span><span class="token selector">,</span>        <span class="token selector">base-font: </span><span class="token number">18</span><span class="token selector">px</span><span class="token selector">,</span>        <span class="token selector">vertical-rhythm: </span><span class="token number">1.414</span>    <span class="token selector">)</span><span class="token selector">,</span>    <span class="token selector">large: (</span>        <span class="token selector">min-width: </span><span class="token number">960</span><span class="token selector">px</span><span class="token selector">,</span>        <span class="token selector">max-width: </span><span class="token number">1099</span><span class="token selector">px</span><span class="token selector">,</span>        <span class="token selector">base-font: </span><span class="token number">18</span><span class="token selector">px</span><span class="token selector">,</span>        <span class="token selector">vertical-rhythm: </span><span class="token number">1.5</span>    <span class="token selector">)</span><span class="token selector">,</span>    <span class="token selector">xlarge: (</span>        <span class="token selector">min-width: </span><span class="token number">1100</span><span class="token selector">px</span><span class="token selector">,</span>        <span class="token selector">max-width: null</span><span class="token selector">,</span>        <span class="token selector">base-font: </span><span class="token number">21</span><span class="token selector">px</span><span class="token selector">,</span>        <span class="token selector">vertical-rhythm: </span><span class="token number">1.618</span>    <span class="token selector">)</span><span class="token selector">);</span></code></pre><h4 id="多重列表语法"><a href="#多重列表语法" class="headerlink" title="多重列表语法"></a>多重列表语法</h4><p>下面的多重列表存储了和上面 Map 同样的数据，在多重列表中没有 Key-Value 的对应关系，这意味着要想找到特定的值，必须使用遍历或 <code>nth()</code> 的方式来实现了。从另一个角度来看，多种列表又比 Map 的代码量小得多，总共只有六行 180 个字符。</p><pre class=" language-sass"><code class="language-sass"><span class="token variable-line"><span class="token variable">$breakpoint-list</span><span class="token punctuation">:</span> (</span>    <span class="token selector">(small, null, </span><span class="token number">479</span><span class="token selector">px, </span><span class="token number">16</span><span class="token selector">px, </span><span class="token number">1.3</span><span class="token selector">)</span><span class="token selector">,</span>    <span class="token selector">(medium, </span><span class="token number">480</span><span class="token selector">px, </span><span class="token number">959</span><span class="token selector">px, </span><span class="token number">18</span><span class="token selector">px, </span><span class="token number">1.414</span><span class="token selector">)</span><span class="token selector">,</span>    <span class="token selector">(large, </span><span class="token number">960</span><span class="token selector">px, </span><span class="token number">1099</span><span class="token selector">px, </span><span class="token number">18</span><span class="token selector">px, </span><span class="token number">1.5</span><span class="token selector">)</span><span class="token selector">,</span>    <span class="token selector">(xlarge, </span><span class="token number">1100</span><span class="token selector">px, null, </span><span class="token number">21</span><span class="token selector">px, </span><span class="token number">1.618</span><span class="token selector">)</span><span class="token selector">);</span></code></pre><h2 id="遍历比较"><a href="#遍历比较" class="headerlink" title="遍历比较"></a>遍历比较</h2><div class="note info">    <h5>测试标题</h5>    <p>从上面简单地比较中可以粗略的看出，多种列表的代码量明显少于 Map。但是，如果我们需要遍历这些值得话，复杂度又是怎样的呢？</p></div><h4 id="遍历-Map"><a href="#遍历-Map" class="headerlink" title="遍历 Map"></a>遍历 Map</h4><p>我们可以使用如下的代码遍历 Map：</p><pre class=" language-sass"><code class="language-sass"><span class="token atrule-line"><span class="token atrule">@each</span> $label, $map in $breakpoint-map &amp;#123;&amp;#125;</span></code></pre><p>这里的变量 <code>$label</code> 和 <code>$map</code> 会随着对 <code>$breakpoint-map</code> 的遍历被动态地赋值，<code>$label</code> 将会被赋值为 <code>$breakpoint-map</code> 的 Key，而 <code>$map</code> 会被赋值为 <code>$breakpoint-map</code> 的 Value。为了在遍历过程中获取特定值，我们就需要使用 Sass 原生的 <code>map-get()</code> 函数，使用该函数需要传入两个参数：Map 的名字和求取的 Key，最后返回该 Map 中匹配该 Key 的 Value。</p><p>具体的做法就是使用 <code>@each</code> 遍历 Map，然后使用 <code>map-get()</code> 获取特定值，最终只需要六行代码 220 个字符即可完成整个遍历：</p><pre class=" language-sass"><code class="language-sass"><span class="token atrule-line"><span class="token atrule">@each</span> $label, $map in $breakpoint-map &amp;#123;</span>    <span class="token selector">$min-width: </span><span class="token function">map-get</span><span class="token selector">($map, min-width);</span>    <span class="token selector">$max-width: </span><span class="token function">map-get</span><span class="token selector">($map, max-width);</span>    <span class="token selector">$base-font: </span><span class="token function">map-get</span><span class="token selector">($map, base-font);</span>    <span class="token selector">$vertical-rhythm: </span><span class="token function">map-get</span><span class="token selector">($map, vertical-rhythm);</span><span class="token selector">&amp;</span><span class="token hexcode">#125</span><span class="token selector">;</span></code></pre><h4 id="遍历多重列表"><a href="#遍历多重列表" class="headerlink" title="遍历多重列表"></a>遍历多重列表</h4><p>遍历多重列表不必像遍历 Map 一样动态获取到 Map 后再使用 <code>map-get()</code> 函数取特定值，直接遍历一遍即可获得特定值。</p><p>因为多种列表内层的每一个列表结构相同，都有按照相同顺序排列的五个值，所以我们可以持续遍历每个值并赋值给特定的变量。无需调用 <code>map-get()</code>，直接引用这些变量即可进行赋值等裸机操作。最终遍历多重列表只使用了两行代码 100 个字符：</p><pre class=" language-sass"><code class="language-sass"><span class="token atrule-line"><span class="token atrule">@each</span> $label, $min-width, $max-width, $base-font, $vertical-rhythm in $breakpoint-list &amp;#123;</span><span class="token selector">&amp;</span><span class="token hexcode">#125</span><span class="token selector">;</span></code></pre><h2 id="慎用多重列表"><a href="#慎用多重列表" class="headerlink" title="慎用多重列表"></a>慎用多重列表</h2><div class="note warning">    <h5>测试标题</h5>    <p>经过上述的比对，看起来多重列表各方面都在碾压 Map，实则不然，Sass 中添加 Map 有一条非常重要的原因就是：Key-Value 的映射关系。</p></div><h4 id="遗漏键值"><a href="#遗漏键值" class="headerlink" title="遗漏键值"></a>遗漏键值</h4><p>如果要使用多重列表，那么就必须保证自己非常熟悉多重列表内部的每一项所代表的意义。下面我们举个例子，来看看遗漏了某些值的情况：</p><pre class=" language-sass"><code class="language-sass"><span class="token variable-line"><span class="token variable">$breakpoint-list</span><span class="token punctuation">:</span> (</span>    <span class="token selector">(small, null, </span><span class="token number">479</span><span class="token selector">px, </span><span class="token number">16</span><span class="token selector">px, </span><span class="token number">1.3</span><span class="token selector">)</span><span class="token selector">,</span>    <span class="token selector">(medium, </span><span class="token number">480</span><span class="token selector">px, </span><span class="token number">959</span><span class="token selector">px, </span><span class="token number">18</span><span class="token selector">px, </span><span class="token number">1.414</span><span class="token selector">)</span><span class="token selector">,</span>    <span class="token selector">(large, </span><span class="token number">960</span><span class="token selector">px, </span><span class="token number">1099</span><span class="token selector">px, </span><span class="token number">18</span><span class="token selector">px, </span><span class="token number">1.5</span><span class="token selector">)</span><span class="token selector">,</span>    <span class="token selector">(xlarge, </span><span class="token number">1100</span><span class="token selector">px, </span><span class="token number">21</span><span class="token selector">px, </span><span class="token number">1.618</span><span class="token selector">)</span><span class="token selector">);</span><span class="token selector">p &amp;</span><span class="token hexcode">#123</span><span class="token selector">;</span>    <span class="token selector">@each $label, $min-width, $max-width, $base-font, $vertical-rhythm in $breakpoint-list &amp;</span><span class="token hexcode">#123</span><span class="token selector">;</span>        <span class="token selector">@if $min-width &amp;</span><span class="token hexcode">#123</span><span class="token selector">;</span>            <span class="token selector">@include </span><span class="token function">breakpoint</span><span class="token selector">( $min-width ) &amp;</span><span class="token hexcode">#123</span><span class="token selector">;</span>                <span class="token selector">font-size: $base-font;</span>                <span class="token selector">line-height: $vertical-rhythm;</span>            <span class="token selector">&amp;</span><span class="token hexcode">#125</span><span class="token selector">;</span>        <span class="token selector">&amp;</span><span class="token hexcode">#125</span><span class="token selector">; @else &amp;</span><span class="token hexcode">#123</span><span class="token selector">;</span>            <span class="token selector">font-size: $base-font;</span>            <span class="token selector">line-height: $vertical-rhythm;</span>        <span class="token selector">&amp;</span><span class="token hexcode">#125</span><span class="token selector">;</span>    <span class="token selector">&amp;</span><span class="token hexcode">#125</span><span class="token selector">;</span><span class="token selector">&amp;</span><span class="token hexcode">#125</span><span class="token selector">;</span></code></pre><p>当我们尝试运行这段代码时，结果肯定是错误地，因为在 <code>$breakpoint-list</code> 的最后一行，<code>xlarge</code> 被赋值给了 <code>$label</code>，<code>1100px</code> 被赋值给了 <code>$min-width</code>，<code>21px</code> 被赋值给了 <code>$max-width</code>, <code>1.618</code> 被赋值给了 <code>$base-font</code>，最终导致 <code>$vertical-rhythm</code> 没有被赋值，结果就是 <code>font-size</code> 的属性值是错的，<code>line-height</code> 的属性值是空的。此外，Sass 还不会对此抛出错误，导致我们无从知晓错误所在。</p><p>如果我们使用 Map 来代替这里的多重列表，那么使用 <code>map-get()</code> 函数即使遇见空值也能正确获得想要的结果。这就是值得我们慎重思考的地方：多种列表虽然简单快速，但是丧失了 Map 中的容错能力和快速取值能力。</p><h4 id="查找特定列表"><a href="#查找特定列表" class="headerlink" title="查找特定列表"></a>查找特定列表</h4><p>在多重列表中查找特定列表简直就是一种折磨。如果使用 Map，那么配合 <code>map-get()</code> 函数可以快速定位到特定子 Map：</p><pre class=" language-sass"><code class="language-sass"><span class="token variable-line"><span class="token variable">$medium-map</span><span class="token punctuation">:</span> map-get(<span class="token variable">$maps</span>, medium);</span></code></pre><p>但如果要获取多种列表 <code>medium</code> 列表，麻烦可就大了：</p><pre class=" language-sass"><code class="language-sass"><span class="token atrule-line"><span class="token atrule">@function</span> get-list($label) &amp;#123;</span>    <span class="token selector">@each $list in $breakpoint-list &amp;</span><span class="token hexcode">#123</span><span class="token selector">;</span>        <span class="token selector">@if </span><span class="token function">nth</span><span class="token selector">($list, </span><span class="token number">1</span><span class="token selector">) == $label &amp;</span><span class="token hexcode">#123</span><span class="token selector">;</span>            <span class="token selector">@return $list;</span>        <span class="token selector">&amp;</span><span class="token hexcode">#125</span><span class="token selector">;</span>    <span class="token selector">&amp;</span><span class="token hexcode">#125</span><span class="token selector">;</span>    <span class="token selector">@return null;</span><span class="token selector">&amp;</span><span class="token hexcode">#125</span><span class="token selector">;</span><span class="token variable-line"><span class="token variable">$medium-list</span><span class="token punctuation">:</span> get-list(medium);</span></code></pre><p>这段代码的逻辑就是遍历整个多重列表，知道找到第一个匹配项，然后返回，如果一直没有找到匹配项，就一直遍历到末尾，然后返回 <code>null</code>。这实际上就是手工实现了 <code>map-get()</code> 的逻辑。</p><h4 id="缺少原生的-Map-函数"><a href="#缺少原生的-Map-函数" class="headerlink" title="缺少原生的 Map 函数"></a>缺少原生的 Map 函数</h4><p>Sass 提供了诸多的原生函数用于处理 Map 数据类型，但是多重列表是没法调用这些函数的，比如，使用 <code>map-merge()</code> 可以合并两个 Map，如果两个 Map 有相同的值，则取第二个 Map 的值为最终值。当然你也可以在多重列表中使用 <code>join()</code> 或 <code>append()</code> 来增加新列表，从而模拟出 <code>map-merge()</code> 的效果。</p><p>另一个实用的 Map 函数就是 <code>map-has-key()</code>，对于依赖 <code>map-get()</code> 的自定义函数来说，<code>map-has-key()</code> 可以用来验证特定的 Key 是否存在。但在列表中是完全没有相似的方法。</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><div class="note unreleased">    <h5>Test Title</h5>    <p>相比起列表来说，Key-Value 模型的 Map 显然更有力量，原生的 Sass Map 函数更是提供了强力的数据查找和验证工具。</p></div><p>虽然多重列表代码量少，但并不能像 Map 一样进行错误检查或验证参数。在大多数时候，相比较多重列表而言，我相信 Map 是更好的选择。如果是为了更少的代码量和其他简单地调用，那么我偶尔会用用多重列表，但是从项目的宏观控制和数据存储方面显然更优秀。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;如果你使用过 Sass 3.3 之前的版本，那么你一定对那段时光颇有感触，那时候没有现如今这么好的条件，那时候的 Map 还只能用多重列表（lists of list）来模拟。多重列表可以实现复杂数据的嵌套定义，但却不是以键值对的形式实现的，所有当我们需要获取其中特定的某一项时就会比较麻烦。Map 这种数据类型天生就是基于键值对的形式，非常便于组织数据。&lt;/p&gt;
+&lt;p&gt;自从可以使用 Map 之后，开发者们开始毫无顾忌地定义 Map 存储数据，比如断点宽度、颜色值、栅格布局等等响应式排版的细节，都被一股脑的塞进了 Map 中。&lt;/p&gt;
+&lt;p&gt;那么，有了 Map 之后，我们还有必要使用 List 吗？可能某些人会觉得为了保持向后兼容应该继续使用多重列表模拟 Map，因为可能有些开发者仍然在使用老版本的 Sass 编译器，但实际上，这是多此一举了，Sass 的版本通常由 &lt;code&gt;package.json&lt;/code&gt; 或者其他同类型的项目配置文件所控制，往往只需一条命令（&lt;code&gt;gem update sass&lt;/code&gt;）即可更新 Sass 的版本，因此基本上无需考虑对老版本的兼容问题。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="demo" scheme="https://zhangzhongchuan.github.io/tags/demo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>童年的秘密</title>
+    <link href="https://zhangzhongchuan.github.io/2019/08/14/%E7%AB%A5%E5%B9%B4%E7%9A%84%E7%A7%98%E5%AF%86/"/>
+    <id>https://zhangzhongchuan.github.io/2019/08/14/%E7%AB%A5%E5%B9%B4%E7%9A%84%E7%A7%98%E5%AF%86/</id>
+    <published>2019-08-14T13:14:59.000Z</published>
+    <updated>2019-08-16T03:28:44.020Z</updated>
+    
+    
+    
+    
+    
+    <category term="读书" scheme="https://zhangzhongchuan.github.io/tags/%E8%AF%BB%E4%B9%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何用kindle高效学习</title>
+    <link href="https://zhangzhongchuan.github.io/2019/08/14/%E5%A6%82%E4%BD%95%E7%94%A8kindle%E9%AB%98%E6%95%88%E5%AD%A6%E4%B9%A0/"/>
+    <id>https://zhangzhongchuan.github.io/2019/08/14/%E5%A6%82%E4%BD%95%E7%94%A8kindle%E9%AB%98%E6%95%88%E5%AD%A6%E4%B9%A0/</id>
+    <published>2019-08-14T12:03:49.000Z</published>
+    <updated>2021-05-21T07:25:01.991Z</updated>
+    
+    <content type="html"><![CDATA[<div class="note info">    <h5>1.书摘</h5>    <p>富家不用买良田，书中自有千钟粟。</p></div>1.读书要有所得，必须要有思考，而思考的最佳验收方式就是输出。不论是书评还是读书笔记，怎样都好，只要是经过你理解的输出，就非常有价值。<p>2.</p><div class="note info">    <h5>2.读书心得</h5>    <p>安居不用架高楼，书中自有黄金屋。</p></div>简单的阅读感受和启发，或者深入的书评，无论长短都可以，有收获最重要。<div class="note info">    <h5>3.知识积累</h5>    <p>出门莫恨无人随，书中车马多如簇。</p></div>使用kindle技巧：<p>技巧1：截屏<br>截屏的方法很简单，只要记住一个对角线原则就好。大家在“左上右下”或“左下右上”的角落位置同时按住，即可完成截图操作注意事项：①必须同时按到对角线两边的圆形区域；②当屏幕闪现一下则代表截屏成功，否则就再试一次。</p><p>结束动作后，你的截屏将会在Kindle根目录中以图片的形式（png）出现，如果你想导出它们，只需要将Kindle连接电脑，从根目录中将图片拖出即可。</p><p>技巧2：字号拉伸字号拉伸是个比较隐蔽的功能，作用说大不大，说小不小，就是减少了大家放大或缩小字体的难度，增强了交互体验。那么应该如何操作呢？其实非常简单，只要我们进入了阅读模式，即点击进入某读物的时候，我们可以将两个手指同时放在屏幕中，通过向内或向外的同时位移来完成放大或缩小的操作。</p><div class="note info">    <h5>4.思维导图</h5>    <p>娶妻无媒毋须恨，书中有女颜如玉。</p></div><div class="note info">    <h5>5.遗留问题</h5>    <p>男儿欲遂平生志，勤向窗前多读书。</p></div>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;div class=&quot;note info&quot;&gt;
+    &lt;h5&gt;1.书摘&lt;/h5&gt;
+    &lt;p&gt;富家不用买良田，书中自有千钟粟。&lt;/p&gt;
+&lt;/div&gt;
+1.读书要有所得，必须要有思考，而思考的最佳验收方式就是输出。不论是书评还是读书笔记，怎样都好，只要是经过你理解的输出，就非常</summary>
+      
+    
+    
+    
+    
+    <category term="读书" scheme="https://zhangzhongchuan.github.io/tags/%E8%AF%BB%E4%B9%A6/"/>
+    
+    <category term="Kindle" scheme="https://zhangzhongchuan.github.io/tags/Kindle/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用hexo搭建GitHub Page博客后，网页显示404的问题解决</title>
+    <link href="https://zhangzhongchuan.github.io/2019/08/14/cname/"/>
+    <id>https://zhangzhongchuan.github.io/2019/08/14/cname/</id>
+    <published>2019-08-14T10:57:40.000Z</published>
+    <updated>2021-05-21T07:49:28.181Z</updated>
+    
+    <content type="html"><![CDATA[<div class="note info">    <h5>1.问题描述</h5>    <p>使用hexo搭建GitHub Page博客后，第一次正常，第二次上传后，博客网页显示404页面。</p></div><div class="note warning">    <h5>2.问题原因</h5>    <p>因为绑定了域名，所以在github仓库根目录下有一个CNAME的文件，文件中写有需要绑定的域名。而使用hexo远程部署时会删除这个文件。所以页面会报404错误。</p></div><div class="note">    <h5>3.解决方法</h5>    <p>只要在github仓库根目录下添加一个CNAME文件，且上传时不会被覆盖即可，方法如下：</p></div><p>3.1 在hexo指定文件夹下的source文件夹下添加CNAME文件，CNAME文件中添加域名。</p><img src="/2019/08/14/cname/Xnip2019-08-15_20-35-35.png" class="" title="p1"><img src="/2019/08/14/cname/Xnip2019-08-15_20-36-55.png" class="" title="p1"><p>3.2 然后在Terminal执行</p><pre class=" language-bash"><code class="language-bash">hexo cleanhexo ghexo d</code></pre><p>3.3 查看github仓库根目录有该CNAME且博客可以正常访问</p><img src="/2019/08/14/cname/Xnip2019-08-15_21-01-09.png" class="" title="p1">]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;div class=&quot;note info&quot;&gt;
+    &lt;h5&gt;1.问题描述&lt;/h5&gt;
+    &lt;p&gt;使用hexo搭建GitHub Page博客后，第一次正常，第二次上传后，博客网页显示404页面。&lt;/p&gt;
+&lt;/div&gt;
+
+
+&lt;div class=&quot;note warning&quot;&gt;
+</summary>
+      
+    
+    
+    
+    
+    <category term="环境搭建" scheme="https://zhangzhongchuan.github.io/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
+    
+    <category term="hexo" scheme="https://zhangzhongchuan.github.io/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Pycharm使用HTMLTestRunner不能生成测试报告解决方法</title>
+    <link href="https://zhangzhongchuan.github.io/2019/08/13/pycharm_model/"/>
+    <id>https://zhangzhongchuan.github.io/2019/08/13/pycharm_model/</id>
+    <published>2019-08-13T11:47:19.000Z</published>
+    <updated>2021-05-21T07:23:14.830Z</updated>
+    
+    <content type="html"><![CDATA[<div class="note info">    <h5>1.问题描述</h5>    <p>使用Pycharm IDE使用unittest框架，代码执行完成且没有报错，没有在指定目录下生成测试报告。</p></div><div class="note warning">    <h5>2.问题原因</h5>    <p>PyCharm会默认使用自带的框架如(unittest/pytest)来执行单元测试，不会执行main函数中的代码，所以不生成测试报告。</p></div><p>2.1 代码</p><p>test.py</p><pre class=" language-sass"><code class="language-sass"><span class="token selector">from selenium import webdriver    </span><span class="token selector">import unittest</span><span class="token selector">from HTMLTestRunner import HTMLTestRunner</span>    <span class="token selector">class </span><span class="token function">Baidu</span><span class="token selector">(unittest</span><span class="token number">.</span><span class="token selector">TestCase):</span>        <span class="token selector">def </span><span class="token function">setUp</span><span class="token selector">(self) -> None:</span>        <span class="token selector">self</span><span class="token number">.</span><span class="token selector">driver = webdriver</span><span class="token number">.</span><span class="token function">Chrome</span><span class="token selector">()</span>        <span class="token selector">self</span><span class="token number">.</span><span class="token selector">driver</span><span class="token number">.</span><span class="token selector">implicitly_</span><span class="token function">wait</span><span class="token selector">(</span><span class="token number">10</span><span class="token selector">)</span>        <span class="token selector">self</span><span class="token number">.</span><span class="token selector">base_url = </span><span class="token string">'http://www.baidu.com'</span>        <span class="token selector">def test_baidu_</span><span class="token function">search</span><span class="token selector">(self):</span>        <span class="token selector">driver = self</span><span class="token number">.</span><span class="token selector">driver</span>        <span class="token selector">driver</span><span class="token number">.</span><span class="token function">get</span><span class="token selector">(self</span><span class="token number">.</span><span class="token selector">base_url)</span>        <span class="token selector">driver</span><span class="token number">.</span><span class="token selector">find_element_by_</span><span class="token function">id</span><span class="token selector">(</span><span class="token string">"kw"</span><span class="token selector">)</span><span class="token number">.</span><span class="token selector">send_</span><span class="token function">keys</span><span class="token selector">(</span><span class="token string">"HTMLTestRunner"</span><span class="token selector">)</span>        <span class="token selector">driver</span><span class="token number">.</span><span class="token selector">find_element_by_</span><span class="token function">id</span><span class="token selector">(</span><span class="token string">"su"</span><span class="token selector">)</span><span class="token number">.</span><span class="token function">click</span><span class="token selector">()</span>        <span class="token selector">def </span><span class="token function">tearDown</span><span class="token selector">(self) -> None:</span>        <span class="token selector">self</span><span class="token number">.</span><span class="token selector">driver</span><span class="token number">.</span><span class="token function">quit</span><span class="token selector">()</span>    <span class="token selector">if __name__ == </span><span class="token string">'__main__'</span><span class="token selector">:</span>    <span class="token function">print</span><span class="token selector">(</span><span class="token string">'test11111111'</span><span class="token selector">)</span>    <span class="token selector">testunit = unittest</span><span class="token number">.</span><span class="token function">TestSuite</span><span class="token selector">()</span>    <span class="token selector">testunit</span><span class="token number">.</span><span class="token function">addTest</span><span class="token selector">(</span><span class="token function">Baidu</span><span class="token selector">(</span><span class="token string">'test_baidu_search'</span><span class="token selector">))</span>        <span class="token function">print</span><span class="token selector">(</span><span class="token string">'test22222222'</span><span class="token selector">)</span>    <span class="token selector"># 定义报告存放路径</span>    <span class="token selector">fp = </span><span class="token function">open</span><span class="token selector">(</span><span class="token string">'./result.html'</span><span class="token selector">, </span><span class="token string">'wb'</span><span class="token selector">)</span>    <span class="token selector"># 定义测试报告</span>    <span class="token selector">runner = </span><span class="token function">HTMLTestRunner</span><span class="token selector">(stream=fp, title=</span><span class="token string">'百度搜索测试报告'</span><span class="token selector">, description=</span><span class="token string">'用例执行情况：'</span><span class="token selector">)</span>    <span class="token selector"># 运行测试用例</span>    <span class="token selector">runner</span><span class="token number">.</span><span class="token function">run</span><span class="token selector">(testunit)</span>    <span class="token selector"># 关闭报告文件</span>    <span class="token selector">fp</span><span class="token number">.</span><span class="token function">close</span><span class="token selector">()</span></code></pre><div class="note">    <h5>3.解决方法</h5>    <p>使用普通模式执行该单元测试，切换普通模式方法如下：</p></div><p>3.1 点击PyCharm右上角的“Uittests in test_baidu.py”下拉框，选择“Edit Configuration”</p><p>3.2 点击“+”按钮，在下拉菜单中选择“Python”选项</p><p>3.3 点击“Script Path”后的选择路径按钮，选择该文件的存储路径</p><p>3.4 在Unittest框架下选择该文件，然后点击“-”按钮，删除该文件</p><p>3.5 然后重新执行该源代码即可在指定目录下生成测试报告</p><img src="/2019/08/13/pycharm_model/Xnip2019-08-15_16-12-18.png" class="" title="p3.5.1"><p>测试报告</p><img src="/2019/08/13/pycharm_model/Xnip2019-08-15_16-15-26.png" class="" title="p3.5.2"><div class="note unreleased">    <h5>&nbsp &nbsp4.相关参考</h5>    <p>&nbsp &nbsp</p></div><p>4.1 代码来源于书《selenium2自动化测试实战基于Python语言》—虫师<br>4.2 参考于该<a href="https://blog.csdn.net/alchaochao/article/details/79630830">CSDN博客</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;div class=&quot;note info&quot;&gt;
+    &lt;h5&gt;1.问题描述&lt;/h5&gt;
+    &lt;p&gt;使用Pycharm IDE使用unittest框架，代码执行完成且没有报错，没有在指定目录下生成测试报告。&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;note warnin</summary>
+      
+    
+    
+    
+    
+    <category term="软件测试" scheme="https://zhangzhongchuan.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
+    
+    <category term="python" scheme="https://zhangzhongchuan.github.io/tags/python/"/>
+    
+    <category term="pycharm" scheme="https://zhangzhongchuan.github.io/tags/pycharm/"/>
+    
+    <category term="自动化测试" scheme="https://zhangzhongchuan.github.io/tags/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/"/>
+    
+    <category term="selenium" scheme="https://zhangzhongchuan.github.io/tags/selenium/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>测试计划模板</title>
+    <link href="https://zhangzhongchuan.github.io/2019/07/11/testplan/"/>
+    <id>https://zhangzhongchuan.github.io/2019/07/11/testplan/</id>
+    <published>2019-07-10T16:47:19.000Z</published>
+    <updated>2019-08-14T11:48:38.208Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="测试计划"><a href="#测试计划" class="headerlink" title="测试计划"></a>测试计划</h1><h1 id="XXX项目测试计划"><a href="#XXX项目测试计划" class="headerlink" title="XXX项目测试计划"></a><center>XXX项目测试计划</center></h1><h2 id="1-引言"><a href="#1-引言" class="headerlink" title="1.引言"></a>1.引言</h2><h3 id="1-1编写目的"><a href="#1-1编写目的" class="headerlink" title="1.1编写目的"></a>1.1编写目的</h3><p>根据需求文档，提炼测试功能点、制定测试策略、评估测试风险，预估编写测试用例、执行功能测试和回归测试的工作量，进行人员和进度安排。</p><h3 id="1-2预期读者"><a href="#1-2预期读者" class="headerlink" title="1.2预期读者"></a>1.2预期读者</h3><p>管鑫所项目经理、开发、产品、测试。</p><h3 id="1-3参考资料"><a href="#1-3参考资料" class="headerlink" title="1.3参考资料"></a>1.3参考资料</h3><p>需求文档</p><h2 id="2-测试范围"><a href="#2-测试范围" class="headerlink" title="2.测试范围"></a>2.测试范围</h2><h2 id="3-测试策略"><a href="#3-测试策略" class="headerlink" title="3.测试策略"></a>3.测试策略</h2><h3 id="3-1-UI测试"><a href="#3-1-UI测试" class="headerlink" title="3.1 UI测试"></a>3.1 UI测试</h3><h3 id="3-1-1文案测试"><a href="#3-1-1文案测试" class="headerlink" title="3.1.1文案测试"></a>3.1.1文案测试</h3><p>（1）字体<br>（2）字号<br>（3）格式<br>（4）规范</p><h3 id="3-2-2图片测试"><a href="#3-2-2图片测试" class="headerlink" title="3.2.2图片测试"></a>3.2.2图片测试</h3><p>（1）清晰<br>（2）尺寸<br>（3）配色<br>（4）风格</p><h3 id="3-2-3布局测试"><a href="#3-2-3布局测试" class="headerlink" title="3.2.3布局测试"></a>3.2.3布局测试</h3><p>（1）尺寸大小<br>（2）位置合理<br>（3）排序规律<br>（4）对齐方式</p><h3 id="3-2-4控件测试"><a href="#3-2-4控件测试" class="headerlink" title="3.2.4控件测试"></a>3.2.4控件测试</h3><p>（1）输入框<br>（2）按钮<br>（3）下拉菜单<br>（4）列表<br> (5)单选框<br>（6）复选框<br>（7）时间框<br>（8）左右选择框<br>（9）树形<br>（10）图标类检查<br>（11）文件类<br>（12）图片类<br>（13）URL检查<br>（14）IP输入框</p><h3 id="3-2-5-快捷键测试"><a href="#3-2-5-快捷键测试" class="headerlink" title="3.2.5 快捷键测试"></a>3.2.5 快捷键测试</h3><h2 id="3-2功能测试策略"><a href="#3-2功能测试策略" class="headerlink" title="3.2功能测试策略"></a>3.2功能测试策略</h2><p>具体见每个版本测试用例。</p><h2 id="3-3系统兼容性测试"><a href="#3-3系统兼容性测试" class="headerlink" title="3.3系统兼容性测试"></a>3.3系统兼容性测试</h2><h2 id="3-4-易用性测试"><a href="#3-4-易用性测试" class="headerlink" title="3.4 易用性测试"></a>3.4 易用性测试</h2><h2 id="3-5-安全性测试"><a href="#3-5-安全性测试" class="headerlink" title="3.5 安全性测试"></a>3.5 安全性测试</h2><h2 id="3-6-网络环境测试"><a href="#3-6-网络环境测试" class="headerlink" title="3.6 网络环境测试"></a>3.6 网络环境测试</h2><p>网络的影响会影响到用户的体验，一般遵守258原则是最好的。</p><h2 id="3-7单元测试"><a href="#3-7单元测试" class="headerlink" title="3.7单元测试"></a>3.7单元测试</h2><p>由开发人员完成。<br>3.3性能测试<br>关键接口功能，简单做性能测试。</p><h2 id="4-测试资源"><a href="#4-测试资源" class="headerlink" title="4.测试资源"></a>4.测试资源</h2><h3 id="4-1测试人员"><a href="#4-1测试人员" class="headerlink" title="4.1测试人员"></a>4.1测试人员</h3><p>刘礼柯、王籽涵</p><h3 id="4-2测试环境"><a href="#4-2测试环境" class="headerlink" title="4.2测试环境"></a>4.2测试环境</h3><p>暂时未搭建。</p><h3 id="4-3-测试工具"><a href="#4-3-测试工具" class="headerlink" title="4.3 测试工具"></a>4.3 测试工具</h3><h3 id="4-3-1-Bug管理工具：bugfree"><a href="#4-3-1-Bug管理工具：bugfree" class="headerlink" title="4.3.1 Bug管理工具：bugfree"></a>4.3.1 Bug管理工具：bugfree</h3><h3 id="4-3-2-postman"><a href="#4-3-2-postman" class="headerlink" title="4.3.2 postman"></a>4.3.2 postman</h3><p>前期测试呼叫系统，使用postman模拟相应的用户场景进行测试。</p><h3 id="4-3-3-IETester"><a href="#4-3-3-IETester" class="headerlink" title="4.3.3 IETester"></a>4.3.3 IETester</h3><p>测试IE浏览器的不同版本。</p><h3 id="4-3-4-Vbox虚拟机"><a href="#4-3-4-Vbox虚拟机" class="headerlink" title="4.3.4 Vbox虚拟机"></a>4.3.4 Vbox虚拟机</h3><h3 id="4-3-5-Jemter"><a href="#4-3-5-Jemter" class="headerlink" title="4.3.5 Jemter"></a>4.3.5 Jemter</h3><p>重要端口、步骤、流程做压力测试。</p><h2 id="5-进度安排"><a href="#5-进度安排" class="headerlink" title="5.进度安排"></a>5.进度安排</h2><h3 id="5-1测试进度及工作量估算"><a href="#5-1测试进度及工作量估算" class="headerlink" title="5.1测试进度及工作量估算"></a>5.1测试进度及工作量估算</h3><p>根据周会原型确定周任务：<br>例如<br>任务    时间    执行人员    预计工作量/天<br>编写测试计划    2019-07-10    张仲川    1天<br>编写测试用例    2019-07        </p><p>根据具体的需求、开发计划估算具体的测试工作量。</p><h3 id="5-2输出文档"><a href="#5-2输出文档" class="headerlink" title="5.2输出文档"></a>5.2输出文档</h3><p>（1）测试计划<br>（2）测试用例（bugfree中查看）<br>（3）测试数据（上传至bugfree）<br>（4）测试报告</p><h2 id="6-发布标准"><a href="#6-发布标准" class="headerlink" title="6.发布标准"></a>6.发布标准</h2><h3 id="6-1测试完成标准"><a href="#6-1测试完成标准" class="headerlink" title="6.1测试完成标准"></a>6.1测试完成标准</h3><p>（1）完成所有测试类型。<br><br>（2）没有影响用户正常使用的Bug。<br><br>（3）bug少于一定的数量（需要商定）<br><br>（4）服务端性能满足设计目标。<br></p><h3 id="6-2产品发布标准"><a href="#6-2产品发布标准" class="headerlink" title="6.2产品发布标准"></a>6.2产品发布标准</h3><p>（1）所有产品需求都已完成。<br><br>（2）遗留bug经过风险评估。<br><br>（3）有完备的流程文档。<br></p><h2 id="7-风险说明"><a href="#7-风险说明" class="headerlink" title="7.风险说明"></a>7.风险说明</h2><h2 id="8-应急措施"><a href="#8-应急措施" class="headerlink" title="8.应急措施"></a>8.应急措施</h2>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;测试计划&quot;&gt;&lt;a href=&quot;#测试计划&quot; class=&quot;headerlink&quot; title=&quot;测试计划&quot;&gt;&lt;/a&gt;测试计划&lt;/h1&gt;&lt;h1 id=&quot;XXX项目测试计划&quot;&gt;&lt;a href=&quot;#XXX项目测试计划&quot; class=&quot;headerlink&quot; title=</summary>
+      
+    
+    
+    
+    
+    <category term="软件测试" scheme="https://zhangzhongchuan.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
+    
+    <category term="测试文档" scheme="https://zhangzhongchuan.github.io/tags/%E6%B5%8B%E8%AF%95%E6%96%87%E6%A1%A3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>bugfree环境搭建</title>
+    <link href="https://zhangzhongchuan.github.io/2019/07/11/bugfree/"/>
+    <id>https://zhangzhongchuan.github.io/2019/07/11/bugfree/</id>
+    <published>2019-07-10T16:07:49.000Z</published>
+    <updated>2019-07-16T09:35:05.249Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="1-下载XAMPP"><a href="#1-下载XAMPP" class="headerlink" title="1.下载XAMPP"></a>1.下载XAMPP</h1><h1 id="2-下载bugfree"><a href="#2-下载bugfree" class="headerlink" title="2.下载bugfree"></a>2.下载bugfree</h1><h1 id="3-安装XAMPP"><a href="#3-安装XAMPP" class="headerlink" title="3.安装XAMPP"></a>3.安装XAMPP</h1><h1 id="4-开启XAMPP中的Apache服务和mysql服务"><a href="#4-开启XAMPP中的Apache服务和mysql服务" class="headerlink" title="4.开启XAMPP中的Apache服务和mysql服务"></a>4.开启XAMPP中的Apache服务和mysql服务</h1><h1 id="5-将BugFree安装包，解压后复制到XAMPP系统的htdocs子目录下"><a href="#5-将BugFree安装包，解压后复制到XAMPP系统的htdocs子目录下" class="headerlink" title="5.将BugFree安装包，解压后复制到XAMPP系统的htdocs子目录下"></a>5.将BugFree安装包，解压后复制到XAMPP系统的htdocs子目录下</h1><h1 id="6-打开浏览器输入http：-localhost-bugfree-（不要关闭该页面）-发现需要在-htdocs下手动创建一个BugFile文件夹"><a href="#6-打开浏览器输入http：-localhost-bugfree-（不要关闭该页面）-发现需要在-htdocs下手动创建一个BugFile文件夹" class="headerlink" title="6.打开浏览器输入http：//localhost/bugfree/（不要关闭该页面） 发现需要在\htdocs下手动创建一个BugFile文件夹"></a>6.打开浏览器输入http：//localhost/bugfree/（不要关闭该页面） 发现需要在\htdocs下手动创建一个BugFile文件夹</h1><h1 id="7-打开刚才的页面，点击-lt-再试一次-gt-按钮，发现-lt-继续-gt-按钮可以点击了，点击-lt-继续-gt-按钮"><a href="#7-打开刚才的页面，点击-lt-再试一次-gt-按钮，发现-lt-继续-gt-按钮可以点击了，点击-lt-继续-gt-按钮" class="headerlink" title="7.打开刚才的页面，点击&lt;再试一次&gt;按钮，发现&lt;继续&gt;按钮可以点击了，点击&lt;继续&gt;按钮"></a>7.打开刚才的页面，点击&lt;再试一次&gt;按钮，发现&lt;继续&gt;按钮可以点击了，点击&lt;继续&gt;按钮</h1><h1 id="8-数据库配置，输入数据库相关信息，后安装成功"><a href="#8-数据库配置，输入数据库相关信息，后安装成功" class="headerlink" title="8.数据库配置，输入数据库相关信息，后安装成功"></a>8.数据库配置，输入数据库相关信息，后安装成功</h1><h1 id="使用手册"><a href="#使用手册" class="headerlink" title="使用手册"></a>使用手册</h1>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;1-下载XAMPP&quot;&gt;&lt;a href=&quot;#1-下载XAMPP&quot; class=&quot;headerlink&quot; title=&quot;1.下载XAMPP&quot;&gt;&lt;/a&gt;1.下载XAMPP&lt;/h1&gt;&lt;h1 id=&quot;2-下载bugfree&quot;&gt;&lt;a href=&quot;#2-下载bugfree&quot; c</summary>
+      
+    
+    
+    
+    
+    <category term="软件测试" scheme="https://zhangzhongchuan.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
+    
+    <category term="环境搭建" scheme="https://zhangzhongchuan.github.io/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>常见网络协议</title>
+    <link href="https://zhangzhongchuan.github.io/2019/07/04/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/"/>
+    <id>https://zhangzhongchuan.github.io/2019/07/04/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/</id>
+    <published>2019-07-04T13:57:56.000Z</published>
+    <updated>2019-08-16T03:29:11.608Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-http协议"><a href="#1-http协议" class="headerlink" title="1.http协议"></a>1.http协议</h2><h3 id="HTTP-简介"><a href="#HTTP-简介" class="headerlink" title="HTTP 简介"></a>HTTP 简介</h3><p>HTTP协议是Hyper Text Transfer Protocol（超文本传输协议）的缩写,是用于从万维网（WWW:World Wide Web ）服务器传输超文本到本地浏览器的传送协议。。</p><p>HTTP是一个基于TCP/IP通信协议来传递数据（HTML 文件, 图片文件, 查询结果等）。</p><h3 id="HTTP-工作原理"><a href="#HTTP-工作原理" class="headerlink" title="HTTP 工作原理"></a>HTTP 工作原理</h3><p>HTTP协议工作于客户端-服务端架构上。浏览器作为HTTP客户端通过URL向HTTP服务端即WEB服务器发送所有请求。</p><p>Web服务器有：Apache服务器，IIS服务器（Internet Information Services）等。</p><p>Web服务器根据接收到的请求后，向客户端发送响应信息。</p><p>HTTP默认端口号为80，但是你也可以改为8080或者其他端口。</p><h3 id="HTTP三点注意事项："><a href="#HTTP三点注意事项：" class="headerlink" title="HTTP三点注意事项："></a>HTTP三点注意事项：</h3><p>HTTP是无连接：无连接的含义是限制每次连接只处理一个请求。服务器处理完客户的请求，并收到客户的应答后，即断开连接。采用这种方式可以节省传输时间。<br>HTTP是媒体独立的：这意味着，只要客户端和服务器知道如何处理的数据内容，任何类型的数据都可以通过HTTP发送。客户端以及服务器指定使用适合的MIME-type内容类型。<br>HTTP是无状态：HTTP协议是无状态协议。无状态是指协议对于事务处理没有记忆能力。缺少状态意味着如果后续处理需要前面的信息，则它必须重传，这样可能导致每次连接传送的数据量增大。另一方面，在服务器不需要先前信息时它的应答就较快。<br>以下图表展示了HTTP协议通信流程：</p><pre><code></code></pre>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;1-http协议&quot;&gt;&lt;a href=&quot;#1-http协议&quot; class=&quot;headerlink&quot; title=&quot;1.http协议&quot;&gt;&lt;/a&gt;1.http协议&lt;/h2&gt;&lt;h3 id=&quot;HTTP-简介&quot;&gt;&lt;a href=&quot;#HTTP-简介&quot; class=&quot;header</summary>
+      
+    
+    
+    
+    
+    <category term="计算机网络" scheme="https://zhangzhongchuan.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
+  
+</feed>

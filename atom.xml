@@ -6,7 +6,7 @@
   <link href="https://zhangzhongchuan.github.io/atom.xml" rel="self"/>
   
   <link href="https://zhangzhongchuan.github.io/"/>
-  <updated>2021-05-24T08:16:56.420Z</updated>
+  <updated>2021-05-25T08:21:44.280Z</updated>
   <id>https://zhangzhongchuan.github.io/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>解决Jenkins插件安装失败-插件下载慢的问题</title>
+    <link href="https://zhangzhongchuan.github.io/2021/05/25/%E8%A7%A3%E5%86%B3Jenkins%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5-%E6%8F%92%E4%BB%B6%E4%B8%8B%E8%BD%BD%E6%85%A2%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    <id>https://zhangzhongchuan.github.io/2021/05/25/%E8%A7%A3%E5%86%B3Jenkins%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5-%E6%8F%92%E4%BB%B6%E4%B8%8B%E8%BD%BD%E6%85%A2%E7%9A%84%E9%97%AE%E9%A2%98/</id>
+    <published>2021-05-25T06:53:52.000Z</published>
+    <updated>2021-05-25T08:21:44.280Z</updated>
+    
+    <content type="html"><![CDATA[<div class="note info">    <h5>1.问题描述</h5>    <p>在安装Jenkins的过程中，插件总是安装失败或者下载很慢。</p></div><div class="note warning">    <h5>2.问题原因</h5>    <p>安装源为国外的网站，所以下载速度慢。</p></div><div class="note">    <h5>3.解决方法</h5>    <p>直接把源换为国内的镜像站，步骤如下：</p></div><img src="/2021/05/25/%E8%A7%A3%E5%86%B3Jenkins%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5-%E6%8F%92%E4%BB%B6%E4%B8%8B%E8%BD%BD%E6%85%A2%E7%9A%84%E9%97%AE%E9%A2%98/Xnip2021-05-25_15-15-12.png" class="" title="p1"><p>点击<Manage Jenkins></p><img src="/2021/05/25/%E8%A7%A3%E5%86%B3Jenkins%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5-%E6%8F%92%E4%BB%B6%E4%B8%8B%E8%BD%BD%E6%85%A2%E7%9A%84%E9%97%AE%E9%A2%98/Xnip2021-05-25_15-20-26.png" class="" title="p2">]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;div class=&quot;note info&quot;&gt;
+    &lt;h5&gt;1.问题描述&lt;/h5&gt;
+    &lt;p&gt;在安装Jenkins的过程中，插件总是安装失败或者下载很慢。&lt;/p&gt;
+&lt;/div&gt;
+
+
+
+&lt;div class=&quot;note warning&quot;&gt;
+    &lt;h5&gt;2.问题原因&lt;/h</summary>
+      
+    
+    
+    
+    
+    <category term="环境搭建" scheme="https://zhangzhongchuan.github.io/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
+    
+    <category term="Jenkins" scheme="https://zhangzhongchuan.github.io/tags/Jenkins/"/>
+    
+  </entry>
   
   <entry>
     <title>如何从mac系统传输文件或文件夹到Ubuntu系统</title>

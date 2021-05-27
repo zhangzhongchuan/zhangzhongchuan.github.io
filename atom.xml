@@ -6,7 +6,7 @@
   <link href="https://zhangzhongchuan.github.io/atom.xml" rel="self"/>
   
   <link href="https://zhangzhongchuan.github.io/"/>
-  <updated>2021-05-26T09:05:49.432Z</updated>
+  <updated>2021-05-27T02:24:10.048Z</updated>
   <id>https://zhangzhongchuan.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://zhangzhongchuan.github.io/2021/05/25/Ubuntu%E4%B8%ADchromdriver%E5%92%8Cgeckodriver%E7%9A%84%E4%B8%8B%E8%BD%BD%E5%92%8C%E9%85%8D%E7%BD%AE/"/>
     <id>https://zhangzhongchuan.github.io/2021/05/25/Ubuntu%E4%B8%ADchromdriver%E5%92%8Cgeckodriver%E7%9A%84%E4%B8%8B%E8%BD%BD%E5%92%8C%E9%85%8D%E7%BD%AE/</id>
     <published>2021-05-25T09:27:56.000Z</published>
-    <updated>2021-05-26T09:05:49.432Z</updated>
+    <updated>2021-05-27T02:24:10.048Z</updated>
     
     <content type="html"><![CDATA[<h2 id="下载地址为："><a href="#下载地址为：" class="headerlink" title="下载地址为："></a>下载地址为：</h2><h3 id="Chromedriver"><a href="#Chromedriver" class="headerlink" title="Chromedriver:"></a>Chromedriver:</h3><h5 id="http-chromedriver-storage-googleapis-com-index-html"><a href="#http-chromedriver-storage-googleapis-com-index-html" class="headerlink" title="http://chromedriver.storage.googleapis.com/index.html"></a><a href="http://chromedriver.storage.googleapis.com/index.html">http://chromedriver.storage.googleapis.com/index.html</a></h5><h3 id="Geckodriver"><a href="#Geckodriver" class="headerlink" title="Geckodriver:"></a>Geckodriver:</h3><h5 id="https-github-com-mozilla-geckodriver-releases"><a href="#https-github-com-mozilla-geckodriver-releases" class="headerlink" title="https://github.com/mozilla/geckodriver/releases/"></a><a href="https://github.com/mozilla/geckodriver/releases/">https://github.com/mozilla/geckodriver/releases/</a></h5><h2 id="查找文件地址后，下载文件"><a href="#查找文件地址后，下载文件" class="headerlink" title="查找文件地址后，下载文件:"></a>查找文件地址后，下载文件:</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -P /home/user/testWget/ http://chromedriver.storage.googleapis.com/90.0.4430.24/chromedriver_linux64.zip</span><br></pre></td></tr></table></figure><h2 id="将Chromedriver解压后，放到-usr-bin目录下"><a href="#将Chromedriver解压后，放到-usr-bin目录下" class="headerlink" title="将Chromedriver解压后，放到/usr/bin目录下:"></a>将Chromedriver解压后，放到/usr/bin目录下:</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unzip /home/git/testScp/chromedriver_linux64.zip</span><br></pre></td></tr></table></figure><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv chromedriver /usr/bin</span><br></pre></td></tr></table></figure><h2 id="Geckodriver同以上Chromedriver步骤。"><a href="#Geckodriver同以上Chromedriver步骤。" class="headerlink" title="Geckodriver同以上Chromedriver步骤。"></a>Geckodriver同以上Chromedriver步骤。</h2>]]></content>
     
@@ -36,7 +36,7 @@
     
     <category term="Ubuntu" scheme="https://zhangzhongchuan.github.io/tags/Ubuntu/"/>
     
-    <category term="Selenium" scheme="https://zhangzhongchuan.github.io/tags/Selenium/"/>
+    <category term="selenium" scheme="https://zhangzhongchuan.github.io/tags/selenium/"/>
     
   </entry>
   
@@ -110,7 +110,7 @@
     <link href="https://zhangzhongchuan.github.io/2021/05/21/%E8%A7%A3%E5%86%B3hexo%E9%83%A8%E7%BD%B2%E5%87%BA%E7%8E%B0Error-ENOTEMPTY%E7%9A%84%E9%97%AE%E9%A2%98/"/>
     <id>https://zhangzhongchuan.github.io/2021/05/21/%E8%A7%A3%E5%86%B3hexo%E9%83%A8%E7%BD%B2%E5%87%BA%E7%8E%B0Error-ENOTEMPTY%E7%9A%84%E9%97%AE%E9%A2%98/</id>
     <published>2021-05-21T08:45:39.000Z</published>
-    <updated>2021-05-24T13:38:25.238Z</updated>
+    <updated>2021-05-27T02:21:54.721Z</updated>
     
     <content type="html"><![CDATA[<div class="note info">    <h5>1.问题描述</h5>    <p>在Terminal执行hexo deploy后，报错如下：</p></div><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">FATAL &#123;</span><br><span class="line">  err: [Error: ENOTEMPTY: directory not empty, rmdir <span class="string">&#x27;/Users/XXX/XXXX/XXXX/.deploy_git/page&#x27;</span>] &#123;</span><br><span class="line">    errno: -66,</span><br><span class="line">    code: <span class="string">&#x27;ENOTEMPTY&#x27;</span>,</span><br><span class="line">    syscall: <span class="string">&#x27;rmdir&#x27;</span>,</span><br><span class="line">    path: <span class="string">&#x27;/Users/XXX/XXXX/XXXX/.deploy_git/page&#x27;</span></span><br><span class="line">  &#125; </span><br><span class="line">&#125;  Something<span class="string">&#x27;s wrong. Maybe you can find the solution here: %s https://hexo.io/docs/troubleshooting.html</span></span><br></pre></td></tr></table></figure><div class="note warning">    <h5>2.问题原因</h5>    <p>翻译可知，/Users/XXX/XXXX/XXXX/.deploy_git/page，这个文件夹需要为空，进入该目录，发现原本就是空的，未知原因。</p></div><div class="note">    <h5>3.解决方法</h5>    <p>直接删除/Users/XXX/XXXX/XXXX/.deploy_git/这个文件夹，然后直接在Terminal执行：</p></div><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></table></figure><p>然后部署成功。</p>]]></content>
     
@@ -128,7 +128,7 @@
     
     
     
-    <category term="Hexo" scheme="https://zhangzhongchuan.github.io/tags/Hexo/"/>
+    <category term="hexo" scheme="https://zhangzhongchuan.github.io/tags/hexo/"/>
     
   </entry>
   
@@ -137,7 +137,7 @@
     <link href="https://zhangzhongchuan.github.io/2021/05/21/requirements%E6%80%BB%E7%BB%93/"/>
     <id>https://zhangzhongchuan.github.io/2021/05/21/requirements%E6%80%BB%E7%BB%93/</id>
     <published>2021-05-21T07:21:39.000Z</published>
-    <updated>2021-05-25T09:18:02.135Z</updated>
+    <updated>2021-05-27T02:23:30.834Z</updated>
     
     <content type="html"><![CDATA[<div class="note info">    <h5>1.问题描述</h5>    <p>在搭建Liunx服务器时，需要在新的Python环境中安装项目需要的包的依赖，一条一条pip install太慢，有没有可以批量安装方法？</p></div><div class="note">    <h5>2.解决方法</h5>    <p>百度后，方法如下：</p></div><p>在旧环境下执行:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip freeze &gt; requirements.txt</span><br></pre></td></tr></table></figure><p>执行后，会在当前项目下生成一个requirements.txt的文件，然后将该文件上传到新的环境项目下，在新环境下执行:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></table></figure><p>有时执行上面命令会报错(改错误是在Jenkins中执行shell时报错)</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ERROR: Could not find a version that satisfies the requirement request==1.0.117 (from -r requirements.txt (line 6)) (from versions: none)</span><br></pre></td></tr></table></figure><p>一般情况下是国外源的原因，将其临时替换为国内源：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple/</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -155,9 +155,9 @@
     
     
     
-    <category term="Python" scheme="https://zhangzhongchuan.github.io/tags/Python/"/>
+    <category term="python" scheme="https://zhangzhongchuan.github.io/tags/python/"/>
     
-    <category term="Pycharm" scheme="https://zhangzhongchuan.github.io/tags/Pycharm/"/>
+    <category term="pycharm" scheme="https://zhangzhongchuan.github.io/tags/pycharm/"/>
     
   </entry>
   
@@ -209,7 +209,7 @@
     <link href="https://zhangzhongchuan.github.io/2019/08/14/hexo%E7%AC%AC%E4%B8%80%E6%AC%A1%E9%83%A8%E7%BD%B2%E7%BD%91%E9%A1%B5%E6%98%BE%E7%A4%BA404/"/>
     <id>https://zhangzhongchuan.github.io/2019/08/14/hexo%E7%AC%AC%E4%B8%80%E6%AC%A1%E9%83%A8%E7%BD%B2%E7%BD%91%E9%A1%B5%E6%98%BE%E7%A4%BA404/</id>
     <published>2019-08-14T10:57:40.000Z</published>
-    <updated>2021-05-25T09:18:27.052Z</updated>
+    <updated>2021-05-27T02:21:59.771Z</updated>
     
     <content type="html"><![CDATA[<div class="note info">    <h5>1.问题描述</h5>    <p>使用hexo搭建GitHub Page博客后，第一次正常，第二次上传后，博客网页显示404页面。</p></div><div class="note warning">    <h5>2.问题原因</h5>    <p>因为绑定了域名，所以在github仓库根目录下有一个CNAME的文件，文件中写有需要绑定的域名。而使用hexo远程部署时会删除这个文件。所以页面会报404错误。</p></div><div class="note">    <h5>3.解决方法</h5>    <p>只要在github仓库根目录下添加一个CNAME文件，且上传时不会被覆盖即可，方法如下：</p></div><p>3.1 在hexo指定文件夹下的source文件夹下添加CNAME文件，CNAME文件中添加域名。</p><img src="/2019/08/14/hexo%E7%AC%AC%E4%B8%80%E6%AC%A1%E9%83%A8%E7%BD%B2%E7%BD%91%E9%A1%B5%E6%98%BE%E7%A4%BA404/Xnip2019-08-15_20-35-35.png" class="" title="p1"><img src="/2019/08/14/hexo%E7%AC%AC%E4%B8%80%E6%AC%A1%E9%83%A8%E7%BD%B2%E7%BD%91%E9%A1%B5%E6%98%BE%E7%A4%BA404/Xnip2019-08-15_20-36-55.png" class="" title="p1"><p>3.2 然后在Terminal执行</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure><p>3.3 查看github仓库根目录有该CNAME且博客可以正常访问</p><img src="/2019/08/14/hexo%E7%AC%AC%E4%B8%80%E6%AC%A1%E9%83%A8%E7%BD%B2%E7%BD%91%E9%A1%B5%E6%98%BE%E7%A4%BA404/Xnip2019-08-15_21-01-09.png" class="" title="p1">]]></content>
     
@@ -229,7 +229,7 @@
     
     
     
-    <category term="Hexo" scheme="https://zhangzhongchuan.github.io/tags/Hexo/"/>
+    <category term="hexo" scheme="https://zhangzhongchuan.github.io/tags/hexo/"/>
     
   </entry>
   
@@ -238,7 +238,7 @@
     <link href="https://zhangzhongchuan.github.io/2019/08/13/pycharm_model/"/>
     <id>https://zhangzhongchuan.github.io/2019/08/13/pycharm_model/</id>
     <published>2019-08-13T11:47:19.000Z</published>
-    <updated>2021-05-24T13:39:33.833Z</updated>
+    <updated>2021-05-27T02:23:44.177Z</updated>
     
     <content type="html"><![CDATA[<div class="note info">    <h5>1.问题描述</h5>    <p>使用Pycharm IDE使用unittest框架，代码执行完成且没有报错，没有在指定目录下生成测试报告。</p></div><div class="note warning">    <h5>2.问题原因</h5>    <p>PyCharm会默认使用自带的框架如(unittest/pytest)来执行单元测试，不会执行main函数中的代码，所以不生成测试报告。</p></div><p>2.1 代码</p><p>test.py</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">import</span> unittest</span><br><span class="line"><span class="keyword">from</span> HTMLTestRunner <span class="keyword">import</span> HTMLTestRunner</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Baidu</span>(<span class="params">unittest.TestCase</span>):</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">setUp</span>(<span class="params">self</span>) -&gt; <span class="keyword">None</span>:</span></span><br><span class="line">        self.driver = webdriver.Chrome()</span><br><span class="line">        self.driver.implicitly_wait(<span class="number">10</span>)</span><br><span class="line">        self.base_url = <span class="string">&#x27;http://www.baidu.com&#x27;</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">test_baidu_search</span>(<span class="params">self</span>):</span></span><br><span class="line">        driver = self.driver</span><br><span class="line">        driver.get(self.base_url)</span><br><span class="line">        driver.find_element_by_id(<span class="string">&quot;kw&quot;</span>).send_keys(<span class="string">&quot;HTMLTestRunner&quot;</span>)</span><br><span class="line">        driver.find_element_by_id(<span class="string">&quot;su&quot;</span>).click()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">tearDown</span>(<span class="params">self</span>) -&gt; <span class="keyword">None</span>:</span></span><br><span class="line">        self.driver.quit()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    print(<span class="string">&#x27;test11111111&#x27;</span>)</span><br><span class="line">    testunit = unittest.TestSuite()</span><br><span class="line">    testunit.addTest(Baidu(<span class="string">&#x27;test_baidu_search&#x27;</span>))</span><br><span class="line"></span><br><span class="line">    print(<span class="string">&#x27;test22222222&#x27;</span>)</span><br><span class="line">    <span class="comment"># 定义报告存放路径</span></span><br><span class="line">    fp = <span class="built_in">open</span>(<span class="string">&#x27;./result.html&#x27;</span>, <span class="string">&#x27;wb&#x27;</span>)</span><br><span class="line">    <span class="comment"># 定义测试报告</span></span><br><span class="line">    runner = HTMLTestRunner(stream=fp, title=<span class="string">&#x27;百度搜索测试报告&#x27;</span>, description=<span class="string">&#x27;用例执行情况：&#x27;</span>)</span><br><span class="line">    <span class="comment"># 运行测试用例</span></span><br><span class="line">    runner.run(testunit)</span><br><span class="line">    <span class="comment"># 关闭报告文件</span></span><br><span class="line">    fp.close()</span><br><span class="line"></span><br></pre></td></tr></table></figure><div class="note">    <h5>3.解决方法</h5>    <p>使用普通模式执行该单元测试，切换普通模式方法如下：</p></div>3.1 点击PyCharm右上角的“Uittests in test_baidu.py”下拉框，选择“Edit Configuration”<p>3.2 点击“+”按钮，在下拉菜单中选择“Python”选项</p><p>3.3 点击“Script Path”后的选择路径按钮，选择该文件的存储路径</p><p>3.4 在Unittest框架下选择该文件，然后点击“-”按钮，删除该文件</p><p>3.5 然后重新执行该源代码即可在指定目录下生成测试报告</p><img src="/2019/08/13/pycharm_model/Xnip2019-08-15_16-12-18.png" class="" title="p3.5.1"><p>测试报告</p><img src="/2019/08/13/pycharm_model/Xnip2019-08-15_16-15-26.png" class="" title="p3.5.2"><div class="note unreleased">    <h5>&nbsp &nbsp4.相关参考</h5>    <p>&nbsp &nbsp</p></div><p>4.1 代码来源于书《selenium2自动化测试实战基于Python语言》—虫师<br>4.2 参考于该<a href="https://blog.csdn.net/alchaochao/article/details/79630830">CSDN博客</a></p>]]></content>
     
@@ -256,11 +256,11 @@
     
     
     
-    <category term="Selenium" scheme="https://zhangzhongchuan.github.io/tags/Selenium/"/>
+    <category term="selenium" scheme="https://zhangzhongchuan.github.io/tags/selenium/"/>
     
-    <category term="Python" scheme="https://zhangzhongchuan.github.io/tags/Python/"/>
+    <category term="python" scheme="https://zhangzhongchuan.github.io/tags/python/"/>
     
-    <category term="Pycharm" scheme="https://zhangzhongchuan.github.io/tags/Pycharm/"/>
+    <category term="pycharm" scheme="https://zhangzhongchuan.github.io/tags/pycharm/"/>
     
   </entry>
   

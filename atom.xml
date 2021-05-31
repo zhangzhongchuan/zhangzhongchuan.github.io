@@ -6,7 +6,7 @@
   <link href="https://zhangzhongchuan.github.io/atom.xml" rel="self"/>
   
   <link href="https://zhangzhongchuan.github.io/"/>
-  <updated>2021-05-27T02:24:10.048Z</updated>
+  <updated>2021-05-31T08:37:51.121Z</updated>
   <id>https://zhangzhongchuan.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>mysql实现excel中复制某一列，粘贴转置为行功能</title>
+    <link href="https://zhangzhongchuan.github.io/2021/05/31/group-concat%E6%80%BB%E7%BB%93/"/>
+    <id>https://zhangzhongchuan.github.io/2021/05/31/group-concat%E6%80%BB%E7%BB%93/</id>
+    <published>2021-05-31T06:39:57.000Z</published>
+    <updated>2021-05-31T08:37:51.121Z</updated>
+    
+    <content type="html"><![CDATA[<div class="note info">    <h5>1.问题描述</h5>    <p>数据处理需要，需要将大批量的列，转置为行。</p></div><p>尝试使用excel，①选择需要转置的列→②在所需位置，右键→选择性粘贴→转置，发现只转置了一部分数据。</p><span id="more"></span><div class="note warning">    <h5>2.问题原因</h5>    <p>转置的长度超过了excel的最大长度。</p></div><p>最大长度是多少没查到😂。</p><div class="note">    <h5>3.解决方法</h5>    <p>百度后，发现可以使用mysql中group_concat函数。</p></div><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT GROUP_CONCAT(id separator &#39;,&#39;) FROM &#96;table&#96; &#x2F;&#x2F; id 为需要转换的列，separator后为以某字符为分割</span><br></pre></td></tr></table></figure><p>发现又只转置了一部分数据。</p><p>查资料发现，默认GROUP_CONCAT函数返回的结果大小被MySQL默认限制为1024（字节）的长度。</p><p>查看方式:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show variables like &quot;group_concat_max_len&quot;;</span><br></pre></td></tr></table></figure><p>解决方法有2种:</p><p>（1）临时解决方案：（该方法缺点是重启服务后设置失效，“group_concat_max_len = -1”则为最大值，group_concat_max_len 的最大值为4294967295 (2^32 - 1)字节，因为处理数据量比较大，直接设置为最大值）</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SET GLOBAL group_concat_max_len &#x3D; -1;</span><br><span class="line"></span><br><span class="line">SET SESSION group_concat_max_len &#x3D; -1;</span><br></pre></td></tr></table></figure><p>（2）永久解决方案：</p><p>在Mysql配置文件中加入如下配置(推荐):</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">group_concat_max_len &#x3D; -1</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">&lt;div class=&quot;note info&quot;&gt;
+    &lt;h5&gt;1.问题描述&lt;/h5&gt;
+    &lt;p&gt;数据处理需要，需要将大批量的列，转置为行。&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;尝试使用excel，①选择需要转置的列→②在所需位置，右键→选择性粘贴→转置，发现只转置了一部分数据。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Mysql" scheme="https://zhangzhongchuan.github.io/tags/Mysql/"/>
+    
+  </entry>
   
   <entry>
     <title>Ubuntu中chromdriver和geckodriver的下载和配置</title>
@@ -110,7 +134,7 @@
     <link href="https://zhangzhongchuan.github.io/2021/05/21/%E8%A7%A3%E5%86%B3hexo%E9%83%A8%E7%BD%B2%E5%87%BA%E7%8E%B0Error-ENOTEMPTY%E7%9A%84%E9%97%AE%E9%A2%98/"/>
     <id>https://zhangzhongchuan.github.io/2021/05/21/%E8%A7%A3%E5%86%B3hexo%E9%83%A8%E7%BD%B2%E5%87%BA%E7%8E%B0Error-ENOTEMPTY%E7%9A%84%E9%97%AE%E9%A2%98/</id>
     <published>2021-05-21T08:45:39.000Z</published>
-    <updated>2021-05-27T02:21:54.721Z</updated>
+    <updated>2021-05-31T07:54:23.174Z</updated>
     
     <content type="html"><![CDATA[<div class="note info">    <h5>1.问题描述</h5>    <p>在Terminal执行hexo deploy后，报错如下：</p></div><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">FATAL &#123;</span><br><span class="line">  err: [Error: ENOTEMPTY: directory not empty, rmdir <span class="string">&#x27;/Users/XXX/XXXX/XXXX/.deploy_git/page&#x27;</span>] &#123;</span><br><span class="line">    errno: -66,</span><br><span class="line">    code: <span class="string">&#x27;ENOTEMPTY&#x27;</span>,</span><br><span class="line">    syscall: <span class="string">&#x27;rmdir&#x27;</span>,</span><br><span class="line">    path: <span class="string">&#x27;/Users/XXX/XXXX/XXXX/.deploy_git/page&#x27;</span></span><br><span class="line">  &#125; </span><br><span class="line">&#125;  Something<span class="string">&#x27;s wrong. Maybe you can find the solution here: %s https://hexo.io/docs/troubleshooting.html</span></span><br></pre></td></tr></table></figure><div class="note warning">    <h5>2.问题原因</h5>    <p>翻译可知，/Users/XXX/XXXX/XXXX/.deploy_git/page，这个文件夹需要为空，进入该目录，发现原本就是空的，未知原因。</p></div><div class="note">    <h5>3.解决方法</h5>    <p>直接删除/Users/XXX/XXXX/XXXX/.deploy_git/这个文件夹，然后直接在Terminal执行：</p></div><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></table></figure><p>然后部署成功。</p>]]></content>
     

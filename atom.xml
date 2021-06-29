@@ -6,7 +6,7 @@
   <link href="https://zhangzhongchuan.github.io/atom.xml" rel="self"/>
   
   <link href="https://zhangzhongchuan.github.io/"/>
-  <updated>2021-05-31T08:58:40.823Z</updated>
+  <updated>2021-06-29T08:34:25.511Z</updated>
   <id>https://zhangzhongchuan.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>python创建虚拟环境</title>
+    <link href="https://zhangzhongchuan.github.io/2021/06/29/python%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/"/>
+    <id>https://zhangzhongchuan.github.io/2021/06/29/python%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/</id>
+    <published>2021-06-29T08:04:52.000Z</published>
+    <updated>2021-06-29T08:34:25.511Z</updated>
+    
+    <content type="html"><![CDATA[<div class="note info">    <h5>1.问题描述</h5>    <p>python如何创建虚拟环境？</p></div><div class="note">    <h5>2.解决方法</h5>    <p>使用venv命令，方法如下：</p></div><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> python3 -m venv /xx/xx/myvenv <span class="comment">#(myvenv环境名称)</span></span></span><br></pre></td></tr></table></figure><p>激活虚拟环境</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">source</span> myvenv/bin/activate</span></span><br></pre></td></tr></table></figure><p>关闭虚拟环境</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> deactivate</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;div class=&quot;note info&quot;&gt;
+    &lt;h5&gt;1.问题描述&lt;/h5&gt;
+    &lt;p&gt;python如何创建虚拟环境？&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;note&quot;&gt;
+    &lt;h5&gt;2.解决方法&lt;/h5&gt;
+    &lt;p&gt;使用venv命令，方法如下：&lt;</summary>
+      
+    
+    
+    
+    
+    <category term="Python" scheme="https://zhangzhongchuan.github.io/tags/Python/"/>
+    
+  </entry>
   
   <entry>
     <title>mysql实现excel中复制某一列，粘贴转置为行功能</title>
@@ -69,7 +98,7 @@
     <link href="https://zhangzhongchuan.github.io/2021/05/25/%E8%A7%A3%E5%86%B3Jenkins%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5-%E6%8F%92%E4%BB%B6%E4%B8%8B%E8%BD%BD%E6%85%A2%E7%9A%84%E9%97%AE%E9%A2%98/"/>
     <id>https://zhangzhongchuan.github.io/2021/05/25/%E8%A7%A3%E5%86%B3Jenkins%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5-%E6%8F%92%E4%BB%B6%E4%B8%8B%E8%BD%BD%E6%85%A2%E7%9A%84%E9%97%AE%E9%A2%98/</id>
     <published>2021-05-25T06:53:52.000Z</published>
-    <updated>2021-05-25T08:57:13.112Z</updated>
+    <updated>2021-06-29T08:12:54.030Z</updated>
     
     <content type="html"><![CDATA[<div class="note info">    <h5>1.问题描述</h5>    <p>在安装Jenkins的过程中，插件总是安装失败或者下载很慢。</p></div><div class="note warning">    <h5>2.问题原因</h5>    <p>安装源为国外的网站，所以下载速度慢。</p></div><div class="note">    <h5>3.解决方法</h5>    <p>直接把源换为国内的镜像站，步骤如下：</p></div><img src="/2021/05/25/%E8%A7%A3%E5%86%B3Jenkins%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5-%E6%8F%92%E4%BB%B6%E4%B8%8B%E8%BD%BD%E6%85%A2%E7%9A%84%E9%97%AE%E9%A2%98/Xnip2021-05-25_15-15-12.png" class="" title="p1"><img src="/2021/05/25/%E8%A7%A3%E5%86%B3Jenkins%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5-%E6%8F%92%E4%BB%B6%E4%B8%8B%E8%BD%BD%E6%85%A2%E7%9A%84%E9%97%AE%E9%A2%98/Xnip2021-05-25_15-20-26.png" class="" title="p2"><p>清华大学镜像站:</p><p><a href="https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json">https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json</a></p>]]></content>
     
@@ -101,9 +130,9 @@
     <link href="https://zhangzhongchuan.github.io/2021/05/24/%E5%A6%82%E4%BD%95%E4%BB%8Emac%E7%B3%BB%E7%BB%9F%E4%BC%A0%E8%BE%93%E6%96%87%E4%BB%B6%E5%88%B0Ubuntu%E7%B3%BB%E7%BB%9F/"/>
     <id>https://zhangzhongchuan.github.io/2021/05/24/%E5%A6%82%E4%BD%95%E4%BB%8Emac%E7%B3%BB%E7%BB%9F%E4%BC%A0%E8%BE%93%E6%96%87%E4%BB%B6%E5%88%B0Ubuntu%E7%B3%BB%E7%BB%9F/</id>
     <published>2021-05-24T06:12:38.000Z</published>
-    <updated>2021-05-25T09:32:25.218Z</updated>
+    <updated>2021-06-29T08:25:01.042Z</updated>
     
-    <content type="html"><![CDATA[<div class="note info">    <h5>1.问题描述</h5>    <p>如何从mac系统传输文件到Ubuntu系统？</p></div><div class="note warning">    <h5>2.问题原因</h5>    <p>无</p></div><div class="note">    <h5>2.解决方法</h5>    <p>使用scp命令，方法如下：</p></div><p>2.1从本地复制到远程(Mac→Ubuntu)</p><p>传输文件(需要输入远程用户密码)：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">XXXMacBook-Pro:~ user$ scp /Users/user/testScp.txt root@192.168.1.177:/home/user</span><br><span class="line">root@192.168.1.XXX<span class="string">&#x27;s password:</span></span><br><span class="line"><span class="string">testScp.txt                                                    100%    0     0.0KB/s   00:00</span></span><br></pre></td></tr></table></figure><p>传输目录：</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">XXXMacBook-Pro:~ user$ scp -r /Users/user/testScp root@192.168.7.177:/home/user</span><br><span class="line">root@192.168.1.XXX<span class="string">&#x27;s password:</span></span><br><span class="line"><span class="string">test1.txt                                                      100%    0     0.0KB/s   00:00</span></span><br><span class="line"><span class="string">testScp.txt                                                    100%    0     0.0KB/s   00:00</span></span><br></pre></td></tr></table></figure><p>2.2从远程复制到本地(Ubuntu→Mac)</p><p>传输文件：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">XXXMacBook-Pro:~ user$ scp root@192.168.1.XXX:/home/user/testScp.txt /Users/user/</span><br><span class="line">root@192.168.1.XXX<span class="string">&#x27;s passwoXXX</span></span><br><span class="line"><span class="string">testScp.txt                                                    100%    8     5.4KB/s   00:00</span></span><br></pre></td></tr></table></figure><p>传输目录：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">XXXMacBook-Pro:~ user$ scp -r root@192.168.1.XXX:/home/user/testScp/ /Users/user/</span><br><span class="line">root@192.168.1.XXX<span class="string">&#x27;s password:</span></span><br><span class="line"><span class="string">test1.txt                                                      100%   12     8.8KB/s   00:00</span></span><br><span class="line"><span class="string">testScp.txt                                                    100%   24    15.1KB/s   00:00</span></span><br></pre></td></tr></table></figure><div class="note unreleased">    <h5>&nbsp &nbsp4.相关参考</h5>    <p>&nbsp &nbsp</p></div><p>4.1参考于该网站<a href="https://www.runoob.com/linux/linux-comm-scp.html">www.runoob.com</a></p>]]></content>
+    <content type="html"><![CDATA[<div class="note info">    <h5>1.问题描述</h5>    <p>如何从mac系统传输文件到Ubuntu系统？</p></div><div class="note warning">    <h5>2.问题原因</h5>    <p>无</p></div><div class="note">    <h5>3.解决方法</h5>    <p>使用scp命令，方法如下：</p></div><p>3.1从本地复制到远程(Mac→Ubuntu)</p><p>传输文件(需要输入远程用户密码)：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">XXXMacBook-Pro:~ user$ scp /Users/user/testScp.txt root@192.168.1.177:/home/user</span><br><span class="line">root@192.168.1.XXX<span class="string">&#x27;s password:</span></span><br><span class="line"><span class="string">testScp.txt                                                    100%    0     0.0KB/s   00:00</span></span><br></pre></td></tr></table></figure><p>传输目录：</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">XXXMacBook-Pro:~ user$ scp -r /Users/user/testScp root@192.168.7.177:/home/user</span><br><span class="line">root@192.168.1.XXX<span class="string">&#x27;s password:</span></span><br><span class="line"><span class="string">test1.txt                                                      100%    0     0.0KB/s   00:00</span></span><br><span class="line"><span class="string">testScp.txt                                                    100%    0     0.0KB/s   00:00</span></span><br></pre></td></tr></table></figure><p>3.2从远程复制到本地(Ubuntu→Mac)</p><p>传输文件：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">XXXMacBook-Pro:~ user$ scp root@192.168.1.XXX:/home/user/testScp.txt /Users/user/</span><br><span class="line">root@192.168.1.XXX<span class="string">&#x27;s passwoXXX</span></span><br><span class="line"><span class="string">testScp.txt                                                    100%    8     5.4KB/s   00:00</span></span><br></pre></td></tr></table></figure><p>传输目录：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">XXXMacBook-Pro:~ user$ scp -r root@192.168.1.XXX:/home/user/testScp/ /Users/user/</span><br><span class="line">root@192.168.1.XXX<span class="string">&#x27;s password:</span></span><br><span class="line"><span class="string">test1.txt                                                      100%   12     8.8KB/s   00:00</span></span><br><span class="line"><span class="string">testScp.txt                                                    100%   24    15.1KB/s   00:00</span></span><br></pre></td></tr></table></figure><div class="note unreleased">    <h5>&nbsp &nbsp4.相关参考</h5>    <p>&nbsp &nbsp</p></div><p>4.1参考于该网站<a href="https://www.runoob.com/linux/linux-comm-scp.html">www.runoob.com</a></p>]]></content>
     
     
       
@@ -205,9 +234,9 @@
     <link href="https://zhangzhongchuan.github.io/2019/08/14/%E5%A6%82%E4%BD%95%E7%94%A8kindle%E9%AB%98%E6%95%88%E5%AD%A6%E4%B9%A0/"/>
     <id>https://zhangzhongchuan.github.io/2019/08/14/%E5%A6%82%E4%BD%95%E7%94%A8kindle%E9%AB%98%E6%95%88%E5%AD%A6%E4%B9%A0/</id>
     <published>2019-08-14T12:03:49.000Z</published>
-    <updated>2021-05-26T07:42:33.397Z</updated>
+    <updated>2021-06-29T08:08:58.055Z</updated>
     
-    <content type="html"><![CDATA[<div class="note info">    <h5>1.书摘</h5>    <p>富家不用买良田，书中自有千钟粟。</p></div>1.读书要有所得，必须要有思考，而思考的最佳验收方式就是输出。不论是书评还是读书笔记，怎样都好，只要是经过你理解的输出，就非常有价值。<p>2.</p><div class="note info">    <h5>2.读书心得</h5>    <p>安居不用架高楼，书中自有黄金屋。</p></div>简单的阅读感受和启发，或者深入的书评，无论长短都可以，有收获最重要。<div class="note info">    <h5>3.知识积累</h5>    <p>出门莫恨无人随，书中车马多如簇。</p></div>使用kindle技巧：<p>技巧1：截屏<br>截屏的方法很简单，只要记住一个对角线原则就好。大家在“左上右下”或“左下右上”的角落位置同时按住，即可完成截图操作注意事项：①必须同时按到对角线两边的圆形区域；②当屏幕闪现一下则代表截屏成功，否则就再试一次。</p><p>结束动作后，你的截屏将会在Kindle根目录中以图片的形式（png）出现，如果你想导出它们，只需要将Kindle连接电脑，从根目录中将图片拖出即可。</p><p>技巧2：字号拉伸字号拉伸是个比较隐蔽的功能，作用说大不大，说小不小，就是减少了大家放大或缩小字体的难度，增强了交互体验。那么应该如何操作呢？其实非常简单，只要我们进入了阅读模式，即点击进入某读物的时候，我们可以将两个手指同时放在屏幕中，通过向内或向外的同时位移来完成放大或缩小的操作。</p><div class="note info">    <h5>4.思维导图</h5>    <p>娶妻无媒毋须恨，书中有女颜如玉。</p></div><div class="note info">    <h5>5.遗留问题</h5>    <p>男儿欲遂平生志，勤向窗前多读书。</p></div>]]></content>
+    <content type="html"><![CDATA[<div class="note info">    <h5>1.书摘</h5>    <p>富家不用买良田，书中自有千钟粟。</p></div>1.读书要有所得，必须要有思考，而思考的最佳验收方式就是输出。不论是书评还是读书笔记，怎样都好，只要是经过你理解的输出，就非常有价值。<div class="note info">    <h5>2.读书心得</h5>    <p>安居不用架高楼，书中自有黄金屋。</p></div>简单的阅读感受和启发，或者深入的书评，无论长短都可以，有收获最重要。<div class="note info">    <h5>3.知识积累</h5>    <p>出门莫恨无人随，书中车马多如簇。</p></div>使用kindle技巧：<p>技巧1：截屏<br>截屏的方法很简单，只要记住一个对角线原则就好。大家在“左上右下”或“左下右上”的角落位置同时按住，即可完成截图操作注意事项：①必须同时按到对角线两边的圆形区域；②当屏幕闪现一下则代表截屏成功，否则就再试一次。</p><p>结束动作后，你的截屏将会在Kindle根目录中以图片的形式（png）出现，如果你想导出它们，只需要将Kindle连接电脑，从根目录中将图片拖出即可。</p><p>技巧2：字号拉伸字号拉伸是个比较隐蔽的功能，作用说大不大，说小不小，就是减少了大家放大或缩小字体的难度，增强了交互体验。那么应该如何操作呢？其实非常简单，只要我们进入了阅读模式，即点击进入某读物的时候，我们可以将两个手指同时放在屏幕中，通过向内或向外的同时位移来完成放大或缩小的操作。</p><div class="note info">    <h5>4.思维导图</h5>    <p>娶妻无媒毋须恨，书中有女颜如玉。</p></div><div class="note info">    <h5>5.遗留问题</h5>    <p>男儿欲遂平生志，勤向窗前多读书。</p></div>]]></content>
     
     
       

@@ -6,7 +6,7 @@
   <link href="https://zhangzhongchuan.github.io/atom.xml" rel="self"/>
   
   <link href="https://zhangzhongchuan.github.io/"/>
-  <updated>2023-02-20T06:55:12.915Z</updated>
+  <updated>2023-02-20T07:57:01.831Z</updated>
   <id>https://zhangzhongchuan.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://zhangzhongchuan.github.io/2023/02/20/HCIA-Datacom/"/>
     <id>https://zhangzhongchuan.github.io/2023/02/20/HCIA-Datacom/</id>
     <published>2023-02-20T06:51:29.000Z</published>
-    <updated>2023-02-20T06:55:12.915Z</updated>
+    <updated>2023-02-20T07:57:01.831Z</updated>
     
     <content type="html"><![CDATA[<h1 id="01-数据通信网络基础"><a href="#01-数据通信网络基础" class="headerlink" title="01 数据通信网络基础"></a>01 数据通信网络基础</h1><p><em>ICT</em>，information and communications technology</p><p>网络通信：是指终端设备之前通过计算机网络进行的通信。</p><p>数据通信网络（Data Communication Network）：由路由器、交换机、防火墙、无线控制器、无线接入点，以及个人电脑、网络打印机、服务器等设备构成的通信网络。</p>]]></content>
     
@@ -180,7 +180,7 @@
     <link href="https://zhangzhongchuan.github.io/2021/05/24/%E5%A6%82%E4%BD%95%E4%BB%8Emac%E7%B3%BB%E7%BB%9F%E4%BC%A0%E8%BE%93%E6%96%87%E4%BB%B6%E5%88%B0Ubuntu%E7%B3%BB%E7%BB%9F/"/>
     <id>https://zhangzhongchuan.github.io/2021/05/24/%E5%A6%82%E4%BD%95%E4%BB%8Emac%E7%B3%BB%E7%BB%9F%E4%BC%A0%E8%BE%93%E6%96%87%E4%BB%B6%E5%88%B0Ubuntu%E7%B3%BB%E7%BB%9F/</id>
     <published>2021-05-24T06:12:38.000Z</published>
-    <updated>2021-06-29T08:25:01.042Z</updated>
+    <updated>2021-07-20T06:02:36.726Z</updated>
     
     <content type="html"><![CDATA[<div class="note info">    <h5>1.问题描述</h5>    <p>如何从mac系统传输文件到Ubuntu系统？</p></div><div class="note warning">    <h5>2.问题原因</h5>    <p>无</p></div><div class="note">    <h5>3.解决方法</h5>    <p>使用scp命令，方法如下：</p></div><p>3.1从本地复制到远程(Mac→Ubuntu)</p><p>传输文件(需要输入远程用户密码)：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">XXXMacBook-Pro:~ user$ scp /Users/user/testScp.txt root@192.168.1.177:/home/user</span><br><span class="line">root@192.168.1.XXX<span class="string">&#x27;s password:</span></span><br><span class="line"><span class="string">testScp.txt                                                    100%    0     0.0KB/s   00:00</span></span><br></pre></td></tr></table></figure><p>传输目录：</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">XXXMacBook-Pro:~ user$ scp -r /Users/user/testScp root@192.168.7.177:/home/user</span><br><span class="line">root@192.168.1.XXX<span class="string">&#x27;s password:</span></span><br><span class="line"><span class="string">test1.txt                                                      100%    0     0.0KB/s   00:00</span></span><br><span class="line"><span class="string">testScp.txt                                                    100%    0     0.0KB/s   00:00</span></span><br></pre></td></tr></table></figure><p>3.2从远程复制到本地(Ubuntu→Mac)</p><p>传输文件：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">XXXMacBook-Pro:~ user$ scp root@192.168.1.XXX:/home/user/testScp.txt /Users/user/</span><br><span class="line">root@192.168.1.XXX<span class="string">&#x27;s passwoXXX</span></span><br><span class="line"><span class="string">testScp.txt                                                    100%    8     5.4KB/s   00:00</span></span><br></pre></td></tr></table></figure><p>传输目录：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">XXXMacBook-Pro:~ user$ scp -r root@192.168.1.XXX:/home/user/testScp/ /Users/user/</span><br><span class="line">root@192.168.1.XXX<span class="string">&#x27;s password:</span></span><br><span class="line"><span class="string">test1.txt                                                      100%   12     8.8KB/s   00:00</span></span><br><span class="line"><span class="string">testScp.txt                                                    100%   24    15.1KB/s   00:00</span></span><br></pre></td></tr></table></figure><div class="note unreleased">    <h5>&nbsp &nbsp4.相关参考</h5>    <p>&nbsp &nbsp</p></div><p>4.1参考于该网站<a href="https://www.runoob.com/linux/linux-comm-scp.html">www.runoob.com</a></p>]]></content>
     

@@ -6,7 +6,7 @@
   <link href="https://zhangzhongchuan.github.io/atom.xml" rel="self"/>
   
   <link href="https://zhangzhongchuan.github.io/"/>
-  <updated>2021-06-29T08:34:25.511Z</updated>
+  <updated>2023-02-20T06:55:12.915Z</updated>
   <id>https://zhangzhongchuan.github.io/</id>
   
   <author>
@@ -17,13 +17,63 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>HCIA-Datacom</title>
+    <link href="https://zhangzhongchuan.github.io/2023/02/20/HCIA-Datacom/"/>
+    <id>https://zhangzhongchuan.github.io/2023/02/20/HCIA-Datacom/</id>
+    <published>2023-02-20T06:51:29.000Z</published>
+    <updated>2023-02-20T06:55:12.915Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="01-数据通信网络基础"><a href="#01-数据通信网络基础" class="headerlink" title="01 数据通信网络基础"></a>01 数据通信网络基础</h1><p><em>ICT</em>，information and communications technology</p><p>网络通信：是指终端设备之前通过计算机网络进行的通信。</p><p>数据通信网络（Data Communication Network）：由路由器、交换机、防火墙、无线控制器、无线接入点，以及个人电脑、网络打印机、服务器等设备构成的通信网络。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;01-数据通信网络基础&quot;&gt;&lt;a href=&quot;#01-数据通信网络基础&quot; class=&quot;headerlink&quot; title=&quot;01 数据通信网络基础&quot;&gt;&lt;/a&gt;01 数据通信网络基础&lt;/h1&gt;&lt;p&gt;&lt;em&gt;ICT&lt;/em&gt;，information and commu</summary>
+      
+    
+    
+    
+    
+    <category term="计算机网络" scheme="https://zhangzhongchuan.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>postman批量调用接口</title>
+    <link href="https://zhangzhongchuan.github.io/2021/10/15/postman%E6%89%B9%E9%87%8F%E8%B0%83%E7%94%A8%E6%8E%A5%E5%8F%A3/"/>
+    <id>https://zhangzhongchuan.github.io/2021/10/15/postman%E6%89%B9%E9%87%8F%E8%B0%83%E7%94%A8%E6%8E%A5%E5%8F%A3/</id>
+    <published>2021-10-15T03:12:29.000Z</published>
+    <updated>2021-10-15T03:12:29.786Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>centos7-docker-nextcloud安装</title>
+    <link href="https://zhangzhongchuan.github.io/2021/07/20/centos7-docker-nextcloud%E5%AE%89%E8%A3%85/"/>
+    <id>https://zhangzhongchuan.github.io/2021/07/20/centos7-docker-nextcloud%E5%AE%89%E8%A3%85/</id>
+    <published>2021-07-20T05:59:52.000Z</published>
+    <updated>2021-07-21T02:10:18.085Z</updated>
+    
+    
+    
+    
+    
+    <category term="Linux" scheme="https://zhangzhongchuan.github.io/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
     <title>python创建虚拟环境</title>
     <link href="https://zhangzhongchuan.github.io/2021/06/29/python%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/"/>
     <id>https://zhangzhongchuan.github.io/2021/06/29/python%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/</id>
     <published>2021-06-29T08:04:52.000Z</published>
-    <updated>2021-06-29T08:34:25.511Z</updated>
+    <updated>2021-06-29T08:40:22.720Z</updated>
     
-    <content type="html"><![CDATA[<div class="note info">    <h5>1.问题描述</h5>    <p>python如何创建虚拟环境？</p></div><div class="note">    <h5>2.解决方法</h5>    <p>使用venv命令，方法如下：</p></div><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> python3 -m venv /xx/xx/myvenv <span class="comment">#(myvenv环境名称)</span></span></span><br></pre></td></tr></table></figure><p>激活虚拟环境</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">source</span> myvenv/bin/activate</span></span><br></pre></td></tr></table></figure><p>关闭虚拟环境</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> deactivate</span></span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<div class="note info">    <h5>1.问题描述</h5>    <p>python如何创建虚拟环境？</p></div><div class="note">    <h5>2.解决方法</h5>    <p>使用venv命令，方法如下(python3.5以后)：</p></div><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> python3 -m venv /xx/xx/myvenv <span class="comment">#(myvenv环境名称)</span></span></span><br></pre></td></tr></table></figure><p>激活虚拟环境</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">source</span> myvenv/bin/activate</span></span><br></pre></td></tr></table></figure><p>关闭虚拟环境</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> deactivate</span></span><br></pre></td></tr></table></figure>]]></content>
     
     
       
@@ -35,7 +85,7 @@
 
 &lt;div class=&quot;note&quot;&gt;
     &lt;h5&gt;2.解决方法&lt;/h5&gt;
-    &lt;p&gt;使用venv命令，方法如下：&lt;</summary>
+    &lt;p&gt;使用venv命令，方法如下(p</summary>
       
     
     

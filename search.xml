@@ -1,28 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>HCIA-Datacom</title>
-    <url>/2023/02/20/HCIA-Datacom/</url>
-    <content><![CDATA[<h1 id="HCIA-Datacom"><a href="#HCIA-Datacom" class="headerlink" title="HCIA-Datacom"></a>HCIA-Datacom</h1><h2 id="01-数据通信网络基础"><a href="#01-数据通信网络基础" class="headerlink" title="01 数据通信网络基础"></a>01 数据通信网络基础</h2><p><em>ICT</em>，information and communications technology</p>
-<p>网络通信：是指终端设备之前通过计算机网络进行的通信。</p>
-<p>数据通信网络（Data Communication Network）：由路由器、交换机、防火墙、无线控制器、无线接入点，以及个人电脑、网络打印机、服务器等设备构成的通信网络。</p>
-<h2 id="02-网络参考模型"><a href="#02-网络参考模型" class="headerlink" title="02 网络参考模型"></a>02 网络参考模型</h2><h2 id="03-华为VRP系统"><a href="#03-华为VRP系统" class="headerlink" title="03 华为VRP系统"></a>03 华为 VRP 系统</h2><p>通用路由平台 VRP（Versatile Routing Platform）</p>
-<p>相关命令总结:</p>
-<h2 id="04网络层协议及IP编址"><a href="#04网络层协议及IP编址" class="headerlink" title="04网络层协议及IP编址"></a>04 网络层协议及 IP 编址</h2>]]></content>
-      <tags>
-        <tag>计算机网络</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Ubuntu 中 chromdriver 和 geckodriver 的下载和配置</title>
     <url>/2021/05/25/Ubuntu%E4%B8%ADchromdriver%E5%92%8Cgeckodriver%E7%9A%84%E4%B8%8B%E8%BD%BD%E5%92%8C%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<h2 id="下载地址为："><a href="#下载地址为：" class="headerlink" title="下载地址为："></a>下载地址为：</h2><h3 id="Chromedriver"><a href="#Chromedriver" class="headerlink" title="Chromedriver:"></a>Chromedriver:</h3><h5 id="http-chromedriver-storage-googleapis-com-index-html"><a href="#http-chromedriver-storage-googleapis-com-index-html" class="headerlink" title="http://chromedriver.storage.googleapis.com/index.html"></a><a href="http://chromedriver.storage.googleapis.com/index.html">http://chromedriver.storage.googleapis.com/index.html</a></h5><h3 id="Geckodriver"><a href="#Geckodriver" class="headerlink" title="Geckodriver:"></a>Geckodriver:</h3><h5 id="https-github-com-mozilla-geckodriver-releases"><a href="#https-github-com-mozilla-geckodriver-releases" class="headerlink" title="https://github.com/mozilla/geckodriver/releases/"></a><a href="https://github.com/mozilla/geckodriver/releases/">https://github.com/mozilla/geckodriver/releases/</a></h5><h2 id="查找文件地址后，下载文件"><a href="#查找文件地址后，下载文件" class="headerlink" title="查找文件地址后，下载文件:"></a>查找文件地址后，下载文件:</h2><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">wget -P /home/user/testWget/ http://chromedriver.storage.googleapis.com/90.0.4430.24/chromedriver_linux64.zip</span><br></pre></td></tr></tbody></table></figure>
+    <content><![CDATA[<h2 id="下载地址为："><a href="#下载地址为：" class="headerlink" title="下载地址为："></a>下载地址为：</h2><h3 id="Chromedriver"><a href="#Chromedriver" class="headerlink" title="Chromedriver:"></a>Chromedriver:</h3><h5 id="http-chromedriver-storage-googleapis-com-index-html"><a href="#http-chromedriver-storage-googleapis-com-index-html" class="headerlink" title="http://chromedriver.storage.googleapis.com/index.html"></a><a href="http://chromedriver.storage.googleapis.com/index.html">http://chromedriver.storage.googleapis.com/index.html</a></h5><h3 id="Geckodriver"><a href="#Geckodriver" class="headerlink" title="Geckodriver:"></a>Geckodriver:</h3><h5 id="https-github-com-mozilla-geckodriver-releases"><a href="#https-github-com-mozilla-geckodriver-releases" class="headerlink" title="https://github.com/mozilla/geckodriver/releases/"></a><a href="https://github.com/mozilla/geckodriver/releases/">https://github.com/mozilla/geckodriver/releases/</a></h5><span id="more"></span>
 
-<h2 id="将Chromedriver解压后，放到-usr-bin目录下"><a href="#将Chromedriver解压后，放到-usr-bin目录下" class="headerlink" title="将Chromedriver解压后，放到/usr/bin目录下:"></a>将 Chromedriver 解压后，放到 /usr/bin 目录下:</h2><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">unzip /home/git/testScp/chromedriver_linux64.zip</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="查找文件地址后，下载文件"><a href="#查找文件地址后，下载文件" class="headerlink" title="查找文件地址后，下载文件:"></a>查找文件地址后，下载文件:</h2><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">wget -P /home/user/testWget/ http://chromedriver.storage.googleapis.com/90.0.4430.24/chromedriver_linux64.zip</span><br></pre></td></tr></tbody></table></figure>
 
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">mv</span> chromedriver /usr/bin</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="将Chromedriver解压后，放到-usr-bin目录下"><a href="#将Chromedriver解压后，放到-usr-bin目录下" class="headerlink" title="将Chromedriver解压后，放到/usr/bin目录下:"></a>将 Chromedriver 解压后，放到 /usr/bin 目录下:</h2><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">unzip /home/git/testScp/chromedriver_linux64.zip</span><br><span class="line"><span class="built_in">mv</span> chromedriver /usr/bin</span><br></pre></td></tr></tbody></table></figure>
 
 <h2 id="Geckodriver同以上Chromedriver步骤。"><a href="#Geckodriver同以上Chromedriver步骤。" class="headerlink" title="Geckodriver同以上Chromedriver步骤。"></a>Geckodriver 同以上 Chromedriver 步骤。</h2>]]></content>
+      <categories>
+        <category>环境搭建</category>
+      </categories>
       <tags>
         <tag>Ubuntu</tag>
         <tag>selenium</tag>
@@ -31,41 +21,26 @@
   <entry>
     <title>bugfree 环境搭建</title>
     <url>/2019/07/11/bugfree/</url>
-    <content><![CDATA[<h1 id="1-下载XAMPP"><a href="#1-下载XAMPP" class="headerlink" title="1.下载XAMPP"></a>1. 下载 XAMPP</h1><h1 id="2-下载bugfree"><a href="#2-下载bugfree" class="headerlink" title="2.下载bugfree"></a>2. 下载 bugfree</h1><h1 id="3-安装XAMPP"><a href="#3-安装XAMPP" class="headerlink" title="3.安装XAMPP"></a>3. 安装 XAMPP</h1><h1 id="4-开启XAMPP中的Apache服务和mysql服务"><a href="#4-开启XAMPP中的Apache服务和mysql服务" class="headerlink" title="4.开启XAMPP中的Apache服务和mysql服务"></a>4. 开启 XAMPP 中的 Apache 服务和 mysql 服务</h1><h1 id="5-将BugFree安装包，解压后复制到XAMPP系统的htdocs子目录下"><a href="#5-将BugFree安装包，解压后复制到XAMPP系统的htdocs子目录下" class="headerlink" title="5.将BugFree安装包，解压后复制到XAMPP系统的htdocs子目录下"></a>5. 将 BugFree 安装包，解压后复制到 XAMPP 系统的 htdocs 子目录下</h1><h1 id="6-打开浏览器输入http：-localhost-bugfree-（不要关闭该页面）-发现需要在-htdocs下手动创建一个BugFile文件夹"><a href="#6-打开浏览器输入http：-localhost-bugfree-（不要关闭该页面）-发现需要在-htdocs下手动创建一个BugFile文件夹" class="headerlink" title="6.打开浏览器输入http：//localhost/bugfree/（不要关闭该页面） 发现需要在\htdocs下手动创建一个BugFile文件夹"></a>6. 打开浏览器输入 http：//localhost/bugfree/（不要关闭该页面） 发现需要在 \htdocs 下手动创建一个 BugFile 文件夹</h1><h1 id="7-打开刚才的页面，点击按钮，发现按钮可以点击了，点击按钮"><a href="#7-打开刚才的页面，点击按钮，发现按钮可以点击了，点击按钮" class="headerlink" title="7.打开刚才的页面，点击<再试一次>按钮，发现<继续>按钮可以点击了，点击<继续>按钮"></a>7. 打开刚才的页面，点击 &lt;再试一次&gt; 按钮，发现 &lt; 继续 &gt; 按钮可以点击了，点击 &lt; 继续 &gt; 按钮</h1><h1 id="8-数据库配置，输入数据库相关信息，后安装成功"><a href="#8-数据库配置，输入数据库相关信息，后安装成功" class="headerlink" title="8.数据库配置，输入数据库相关信息，后安装成功"></a>8. 数据库配置，输入数据库相关信息，后安装成功</h1><h1 id="使用手册"><a href="#使用手册" class="headerlink" title="使用手册"></a>使用手册</h1>]]></content>
+    <content><![CDATA[<h2 id="1-下载XAMPP"><a href="#1-下载XAMPP" class="headerlink" title="1.下载XAMPP"></a>1. 下载 XAMPP</h2><span id="more"></span>
+
+<h2 id="2-下载bugfree"><a href="#2-下载bugfree" class="headerlink" title="2.下载bugfree"></a>2. 下载 bugfree</h2><h2 id="3-安装XAMPP"><a href="#3-安装XAMPP" class="headerlink" title="3.安装XAMPP"></a>3. 安装 XAMPP</h2><h2 id="4-开启XAMPP中的Apache服务和mysql服务"><a href="#4-开启XAMPP中的Apache服务和mysql服务" class="headerlink" title="4.开启XAMPP中的Apache服务和mysql服务"></a>4. 开启 XAMPP 中的 Apache 服务和 mysql 服务</h2><h2 id="5-将BugFree安装包，解压后复制到XAMPP系统的htdocs子目录下"><a href="#5-将BugFree安装包，解压后复制到XAMPP系统的htdocs子目录下" class="headerlink" title="5.将BugFree安装包，解压后复制到XAMPP系统的htdocs子目录下"></a>5. 将 BugFree 安装包，解压后复制到 XAMPP 系统的 htdocs 子目录下</h2><h2 id="6-打开浏览器输入http：-localhost-bugfree-（不要关闭该页面）-发现需要在-htdocs下手动创建一个BugFile文件夹"><a href="#6-打开浏览器输入http：-localhost-bugfree-（不要关闭该页面）-发现需要在-htdocs下手动创建一个BugFile文件夹" class="headerlink" title="6.打开浏览器输入http：//localhost/bugfree/（不要关闭该页面） 发现需要在\htdocs下手动创建一个BugFile文件夹"></a>6. 打开浏览器输入 http：//localhost/bugfree/（不要关闭该页面） 发现需要在 \htdocs 下手动创建一个 BugFile 文件夹</h2><h2 id="7-打开刚才的页面，点击按钮，发现按钮可以点击了，点击按钮"><a href="#7-打开刚才的页面，点击按钮，发现按钮可以点击了，点击按钮" class="headerlink" title="7.打开刚才的页面，点击<再试一次>按钮，发现<继续>按钮可以点击了，点击<继续>按钮"></a>7. 打开刚才的页面，点击 &lt;再试一次&gt; 按钮，发现 &lt; 继续 &gt; 按钮可以点击了，点击 &lt; 继续 &gt; 按钮</h2><h2 id="8-数据库配置，输入数据库相关信息，后安装成功"><a href="#8-数据库配置，输入数据库相关信息，后安装成功" class="headerlink" title="8.数据库配置，输入数据库相关信息，后安装成功"></a>8. 数据库配置，输入数据库相关信息，后安装成功</h2><h2 id="使用手册"><a href="#使用手册" class="headerlink" title="使用手册"></a>使用手册</h2>]]></content>
+      <categories>
+        <category>环境搭建</category>
+      </categories>
       <tags>
-        <tag>环境搭建</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>centos7-docker-nextcloud 安装</title>
-    <url>/2021/07/20/centos7-docker-nextcloud%E5%AE%89%E8%A3%85/</url>
-    <content><![CDATA[]]></content>
-      <tags>
-        <tag>Linux</tag>
+        <tag>bugfree</tag>
       </tags>
   </entry>
   <entry>
     <title>mysql 实现 excel 中复制某一列，粘贴转置为行功能</title>
     <url>/2021/05/31/group-concat%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<div class="note info">
-    <h5>1. 问题描述</h5>
-    <p>数据处理需要，需要将大批量的列，转置为行。</p>
-</div>
-
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>数据处理需要，需要将大批量的列，转置为行。</p>
 <p>尝试使用 excel，①选择需要转置的列→②在所需位置，右键→选择性粘贴→转置，发现只转置了一部分数据。</p>
 <span id="more"></span>
 
-<div class="note warning">
-    <h5>2. 问题原因</h5>
-    <p>转置的长度超过了 excel 的最大长度。</p>
-</div>
-
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>转置的长度超过了 excel 的最大长度。</p>
 <p>最大长度是多少没查到😂。</p>
-<div class="note">
-    <h5>3. 解决方法</h5>
-    <p>百度后，发现可以使用 mysql 中 group_concat 函数。</p>
-</div>
-
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>百度后，发现可以使用 mysql 中 group_concat 函数。</p>
 <figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">SELECT GROUP_CONCAT(id separator ',') FROM `table` // id 为需要转换的列，separator后为以某字符为分割</span><br></pre></td></tr></tbody></table></figure>
 
 <p>发现又只转置了一部分数据。</p>
@@ -74,20 +49,17 @@
 <figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">show variables like "group_concat_max_len";</span><br></pre></td></tr></tbody></table></figure>
 
 <p>解决方法有 2 种:</p>
-<p>（1）临时解决方案：（该方法缺点是重启服务后设置失效，“group_concat_max_len = -1” 则为最大值，group_concat_max_len 的最大值为 4294967295 (2^32 - 1) 字节，因为处理数据量比较大，直接设置为最大值）</p>
+<h3 id="（1）临时解决方案："><a href="#（1）临时解决方案：" class="headerlink" title="（1）临时解决方案："></a>（1）临时解决方案：</h3><p>（该方法缺点是重启服务后设置失效，“group_concat_max_len = -1” 则为最大值，group_concat_max_len 的最大值为 4294967295 (2^32 - 1) 字节，因为处理数据量比较大，直接设置为最大值）</p>
 <figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">SET GLOBAL group_concat_max_len = -1;</span><br><span class="line"></span><br><span class="line">SET SESSION group_concat_max_len = -1;</span><br></pre></td></tr></tbody></table></figure>
 
-<p>（2）永久解决方案：</p>
-<p>在 Mysql 配置文件中加入如下配置 (推荐):</p>
+<h3 id="（2）永久解决方案："><a href="#（2）永久解决方案：" class="headerlink" title="（2）永久解决方案："></a>（2）永久解决方案：</h3><p>在 Mysql 配置文件中加入如下配置 (推荐):</p>
 <figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">group_concat_max_len = -1</span><br></pre></td></tr></tbody></table></figure>
 
-<div class="note unreleased">
-    <h5>&nbsp; &nbsp;4. 相关参考</h5>
-    <p>&nbsp; &nbsp;</p>
-</div>
-
-<p>参考于该<a href="https://www.cnblogs.com/zjfblog/p/13658936.html">博客园博客</a></p>
+<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p>参考于该<a href="https://www.cnblogs.com/zjfblog/p/13658936.html">博客园博客</a></p>
 ]]></content>
+      <categories>
+        <category>环境搭建</category>
+      </categories>
       <tags>
         <tag>Mysql</tag>
       </tags>
@@ -95,89 +67,37 @@
   <entry>
     <title>使用 hexo 搭建 GitHub Page 博客后，网页显示 404 的问题解决</title>
     <url>/2019/08/14/hexo%E7%AC%AC%E4%B8%80%E6%AC%A1%E9%83%A8%E7%BD%B2%E7%BD%91%E9%A1%B5%E6%98%BE%E7%A4%BA404/</url>
-    <content><![CDATA[<div class="note info">
-    <h5>1. 问题描述</h5>
-    <p>使用 hexo 搭建 GitHub Page 博客后，第一次正常，第二次上传后，博客网页显示 404 页面。</p>
-</div>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>使用 hexo 搭建 GitHub Page 博客后，第一次正常，第二次上传后，博客网页显示 404 页面。</p>
+<span id="more"></span>
 
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>因为绑定了域名，所以在 github 仓库根目录下有一个 CNAME 的文件，文件中写有需要绑定的域名。而使用 hexo 远程部署时会删除这个文件。所以页面会报 404 错误。</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>只要在 github 仓库根目录下添加一个 CNAME 文件，且上传时不会被覆盖即可，方法如下：</p>
+<h3 id="3-1-在-hexo-指定文件夹下的-source-文件夹下添加-CNAME-文件，CNAME-文件中添加域名。"><a href="#3-1-在-hexo-指定文件夹下的-source-文件夹下添加-CNAME-文件，CNAME-文件中添加域名。" class="headerlink" title="3.1 在 hexo 指定文件夹下的 source 文件夹下添加 CNAME 文件，CNAME 文件中添加域名。"></a>3.1 在 hexo 指定文件夹下的 source 文件夹下添加 CNAME 文件，CNAME 文件中添加域名。</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2019-08-15_20-35-35.png"></p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2019-08-15_20-36-55.png"></p>
+<h3 id="3-2-然后在-Terminal-执行"><a href="#3-2-然后在-Terminal-执行" class="headerlink" title="3.2 然后在 Terminal 执行"></a>3.2 然后在 Terminal 执行</h3><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></tbody></table></figure>
 
-<div class="note warning">
-    <h5>2. 问题原因</h5>
-    <p>因为绑定了域名，所以在 github 仓库根目录下有一个 CNAME 的文件，文件中写有需要绑定的域名。而使用 hexo 远程部署时会删除这个文件。所以页面会报 404 错误。</p>
-</div>
-
-<div class="note">
-    <h5>3. 解决方法</h5>
-    <p>只要在 github 仓库根目录下添加一个 CNAME 文件，且上传时不会被覆盖即可，方法如下：</p>
-</div>
-
-<p>3.1 在 hexo 指定文件夹下的 source 文件夹下添加 CNAME 文件，CNAME 文件中添加域名。</p>
-
-
-
-
-<p>3.2 然后在 Terminal 执行</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></tbody></table></figure>
-<p>3.3 查看 github 仓库根目录有该 CNAME 且博客可以正常访问</p>
-
-
-
-
+<h3 id="3-3-查看-github-仓库根目录有该-CNAME-且博客可以正常访问"><a href="#3-3-查看-github-仓库根目录有该-CNAME-且博客可以正常访问" class="headerlink" title="3.3 查看 github 仓库根目录有该 CNAME 且博客可以正常访问"></a>3.3 查看 github 仓库根目录有该 CNAME 且博客可以正常访问</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2019-08-15_21-01-09.png"></p>
 ]]></content>
+      <categories>
+        <category>环境搭建</category>
+      </categories>
       <tags>
         <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
-    <title>postman 批量调用接口</title>
-    <url>/2021/10/15/postman%E6%89%B9%E9%87%8F%E8%B0%83%E7%94%A8%E6%8E%A5%E5%8F%A3/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2024/04/12/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<span id="more"></span>
-
-<h2 id="Quick-Start快速开始"><a href="#Quick-Start快速开始" class="headerlink" title="Quick Start快速开始"></a>Quick Start 快速开始</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><p>运行服务 run server</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></tbody></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></tbody></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></tbody></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>pycharm 使用 HTMLTestRunner 不能生成测试报告解决方法</title>
     <url>/2019/08/13/pycharm_model/</url>
-    <content><![CDATA[<div class="note info">
-    <h5>1. 问题描述</h5>
-    <p>使用 pycharm IDE 使用 unittest 框架，代码执行完成且没有报错，没有在指定目录下生成测试报告。</p>
-</div>
+    <content><![CDATA[<p>1. 问题描述<br>使用 pycharm IDE 使用 unittest 框架，代码执行完成且没有报错，没有在指定目录下生成测试报告。</p>
+<span id="more"></span>
 
-
-<div class="note warning">
-    <h5>2. 问题原因</h5>
-    <p>pyCharm 会默认使用自带的框架如 (unittest/pytest) 来执行单元测试，不会执行 main 函数中的代码，所以不生成测试报告。</p>
-</div>
-2.1 代码
-
+<p>2. 问题原因<br>pyCharm 会默认使用自带的框架如 (unittest/pytest) 来执行单元测试，不会执行 main 函数中的代码，所以不生成测试报告。</p>
+<p>2.1 代码</p>
 <p>test.py</p>
 <figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver	</span><br><span class="line"><span class="keyword">import</span> unittest</span><br><span class="line"><span class="keyword">from</span> HTMLTestRunner <span class="keyword">import</span> HTMLTestRunner</span><br><span class="line">	</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Baidu</span>(unittest.TestCase):</span><br><span class="line">	</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">setUp</span>(<span class="params">self</span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">        self.driver = webdriver.Chrome()</span><br><span class="line">        self.driver.implicitly_wait(<span class="number">10</span>)</span><br><span class="line">        self.base_url = <span class="string">'http://www.baidu.com'</span></span><br><span class="line">	</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">test_baidu_search</span>(<span class="params">self</span>):</span><br><span class="line">        driver = self.driver</span><br><span class="line">        driver.get(self.base_url)</span><br><span class="line">        driver.find_element_by_id(<span class="string">"kw"</span>).send_keys(<span class="string">"HTMLTestRunner"</span>)</span><br><span class="line">        driver.find_element_by_id(<span class="string">"su"</span>).click()</span><br><span class="line">	</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">tearDown</span>(<span class="params">self</span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">        self.driver.quit()</span><br><span class="line">	</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'test11111111'</span>)</span><br><span class="line">    testunit = unittest.TestSuite()</span><br><span class="line">    testunit.addTest(Baidu(<span class="string">'test_baidu_search'</span>))</span><br><span class="line">	</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'test22222222'</span>)</span><br><span class="line">    <span class="comment"># 定义报告存放路径</span></span><br><span class="line">    fp = <span class="built_in">open</span>(<span class="string">'./result.html'</span>, <span class="string">'wb'</span>)</span><br><span class="line">    <span class="comment"># 定义测试报告</span></span><br><span class="line">    runner = HTMLTestRunner(stream=fp, title=<span class="string">'百度搜索测试报告'</span>, description=<span class="string">'用例执行情况：'</span>)</span><br><span class="line">    <span class="comment"># 运行测试用例</span></span><br><span class="line">    runner.run(testunit)</span><br><span class="line">    <span class="comment"># 关闭报告文件</span></span><br><span class="line">    fp.close()</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
 
-<div class="note">
-    <h5>3. 解决方法</h5>
-    <p>使用普通模式执行该单元测试，切换普通模式方法如下：</p>
-</div>
-3.1 点击pycharm右上角的“Uittests in test_baidu.py”下拉框，选择“Edit Configuration”
-
+<p>3. 解决方法<br>使用普通模式执行该单元测试，切换普通模式方法如下：</p>
+<p>3.1 点击 pycharm 右上角的 “Uittests in test_baidu.py” 下拉框，选择 “Edit Configuration”</p>
 
 
 <p>3.2 点击 “+” 按钮，在下拉菜单中选择 “Python” 选项</p>
@@ -192,19 +112,17 @@
 
 
 <p>3.5 然后重新执行该源代码即可在指定目录下生成测试报告</p>
-
-
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2019-08-15_16-12-18-20240429121121384.png"></p>
 <p>测试报告</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2019-08-15_16-15-26-20240429121041426.png"></p>
 
 
-
-<div class="note unreleased">
-    <h5>&nbsp; &nbsp;4. 相关参考</h5>
-    <p>&nbsp; &nbsp;</p>
-</div>
-
+<p>4. 相关参考</p>
 <p>4.1 代码来源于书《selenium2 自动化测试实战基于 Python 语言》— 虫师<br>4.2 参考于该 <a href="https://blog.csdn.net/alchaochao/article/details/79630830">CSDN 博客</a></p>
 ]]></content>
+      <categories>
+        <category>环境搭建</category>
+      </categories>
       <tags>
         <tag>selenium</tag>
         <tag>python</tag>
@@ -214,13 +132,10 @@
   <entry>
     <title>python 创建虚拟环境</title>
     <url>/2021/06/29/python%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/</url>
-    <content><![CDATA[<p>1. 问题描述</p>
-<p>python 如何创建虚拟环境？</p>
-<div class="note">
-    <h5>2. 解决方法</h5>
-    <p>使用 venv 命令，方法如下 (python3.5 以后)：</p>
-</div>
+    <content><![CDATA[<p>1. 问题描述<br>python 如何创建虚拟环境？</p>
+<span id="more"></span>
 
+<p>2. 解决方法<br>使用 venv 命令，方法如下 (python3.5 以后)：</p>
 <figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">python3 -m venv /xx/xx/myvenv <span class="comment">#(myvenv环境名称)</span></span></span><br></pre></td></tr></tbody></table></figure>
 
 <p>激活虚拟环境</p>
@@ -228,7 +143,11 @@
 
 <p>关闭虚拟环境</p>
 <figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">deactivate</span></span><br></pre></td></tr></tbody></table></figure>
+
 ]]></content>
+      <categories>
+        <category>环境搭建</category>
+      </categories>
       <tags>
         <tag>Python</tag>
       </tags>
@@ -236,16 +155,10 @@
   <entry>
     <title>requirements 总结</title>
     <url>/2021/05/21/requirements%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<div class="note info">
-    <h5>1. 问题描述</h5>
-    <p>在搭建 Liunx 服务器时，需要在新的 Python 环境中安装项目需要的包的依赖，一条一条 pip install 太慢，有没有可以批量安装方法？</p>
-</div>
+    <content><![CDATA[<p>1. 问题描述<br>在搭建 Liunx 服务器时，需要在新的 Python 环境中安装项目需要的包的依赖，一条一条 pip install 太慢，有没有可以批量安装方法？</p>
+<span id="more"></span>
 
-<div class="note">
-    <h5>2. 解决方法</h5>
-    <p>百度后，方法如下：</p>
-</div>
-
+<p>2. 解决方法<br>百度后，方法如下：</p>
 <p>在旧环境下执行:</p>
 <figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pip freeze &gt; requirements.txt</span><br></pre></td></tr></tbody></table></figure>
 
@@ -259,86 +172,52 @@
 <figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple/</span><br></pre></td></tr></tbody></table></figure>
 
 ]]></content>
+      <categories>
+        <category>软件工具</category>
+      </categories>
       <tags>
         <tag>python</tag>
         <tag>pycharm</tag>
       </tags>
   </entry>
   <entry>
-    <title>测试文章</title>
-    <url>/2024/04/23/test/</url>
-    <content><![CDATA[<h2 id="1-右上角github链接图标"><a href="#1-右上角github链接图标" class="headerlink" title="1.右上角github链接图标"></a><strong>1. 右上角 github 链接图标</strong></h2><figure class="highlight yaml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># `Follow me on GitHub` banner in the top-right corner.</span></span><br><span class="line"><span class="attr">github_banner:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">permalink:</span> <span class="string">https://github.com/zhangzhongchuan</span></span><br></pre></td></tr></tbody></table></figure>
-
-<span id="more"></span>
-
-
-<h2 id="2-去页面下面的除强力驱动"><a href="#2-去页面下面的除强力驱动" class="headerlink" title="2.去页面下面的除强力驱动"></a><strong>2. 去页面下面的除强力驱动</strong></h2><figure class="highlight yaml"><table><tbody><tr><td class="code"><pre><span class="line"> &nbsp;<span class="comment"># Powered by Hexo &amp; NexT</span></span><br><span class="line"><span class="attr">powered:</span> <span class="literal">false</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="3-更改网址图标"><a href="#3-更改网址图标" class="headerlink" title="3.更改网址图标"></a><strong>3. 更改网址图标</strong></h2>]]></content>
-      <tags>
-        <tag>测试</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>test11</title>
-    <url>/2024/04/24/test11/</url>
-    <content><![CDATA[<h2 id="1-images"><a href="#1-images" class="headerlink" title="1.images"></a>1.images</h2><span id="more"></span>
-
-
-<h2 id=""><a href="#" class="headerlink" title=""></a></h2><p>2.age</p>
-<h2 id="3-cccc"><a href="#3-cccc" class="headerlink" title="3.cccc"></a>3.cccc</h2>]]></content>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>测试计划模板</title>
     <url>/2019/07/11/testplan/</url>
-    <content><![CDATA[<h1 id="测试计划"><a href="#测试计划" class="headerlink" title="测试计划"></a>测试计划</h1><h1 id="XXX项目测试计划"><a href="#XXX项目测试计划" class="headerlink" title="XXX项目测试计划"></a><center>XXX 项目测试计划</center></h1><h2 id="1-引言"><a href="#1-引言" class="headerlink" title="1.引言"></a>1. 引言</h2><h3 id="1-1编写目的"><a href="#1-1编写目的" class="headerlink" title="1.1编写目的"></a>1.1 编写目的</h3><p>根据需求文档，提炼测试功能点、制定测试策略、评估测试风险，预估编写测试用例、执行功能测试和回归测试的工作量，进行人员和进度安排。</p>
-<h3 id="1-2预期读者"><a href="#1-2预期读者" class="headerlink" title="1.2预期读者"></a>1.2 预期读者</h3><p>管鑫所项目经理、开发、产品、测试。</p>
-<h3 id="1-3参考资料"><a href="#1-3参考资料" class="headerlink" title="1.3参考资料"></a>1.3 参考资料</h3><p>需求文档</p>
-<h2 id="2-测试范围"><a href="#2-测试范围" class="headerlink" title="2.测试范围"></a>2. 测试范围</h2><h2 id="3-测试策略"><a href="#3-测试策略" class="headerlink" title="3.测试策略"></a>3. 测试策略</h2><h3 id="3-1-UI测试"><a href="#3-1-UI测试" class="headerlink" title="3.1 UI测试"></a>3.1 UI 测试</h3><h3 id="3-1-1文案测试"><a href="#3-1-1文案测试" class="headerlink" title="3.1.1文案测试"></a>3.1.1 文案测试</h3><p>（1）字体<br>（2）字号<br>（3）格式<br>（4）规范</p>
-<h3 id="3-2-2图片测试"><a href="#3-2-2图片测试" class="headerlink" title="3.2.2图片测试"></a>3.2.2 图片测试</h3><p>（1）清晰<br>（2）尺寸<br>（3）配色<br>（4）风格</p>
-<h3 id="3-2-3布局测试"><a href="#3-2-3布局测试" class="headerlink" title="3.2.3布局测试"></a>3.2.3 布局测试</h3><p>（1）尺寸大小<br>（2）位置合理<br>（3）排序规律<br>（4）对齐方式</p>
-<h3 id="3-2-4控件测试"><a href="#3-2-4控件测试" class="headerlink" title="3.2.4控件测试"></a>3.2.4 控件测试</h3><p>（1）输入框<br>（2）按钮<br>（3）下拉菜单<br>（4）列表<br> (5) 单选框<br>（6）复选框<br>（7）时间框<br>（8）左右选择框<br>（9）树形<br>（10）图标类检查<br>（11）文件类<br>（12）图片类<br>（13）URL 检查<br>（14）IP 输入框</p>
-<h3 id="3-2-5-快捷键测试"><a href="#3-2-5-快捷键测试" class="headerlink" title="3.2.5 快捷键测试"></a>3.2.5 快捷键测试</h3><h2 id="3-2功能测试策略"><a href="#3-2功能测试策略" class="headerlink" title="3.2功能测试策略"></a>3.2 功能测试策略</h2><p>具体见每个版本测试用例。</p>
-<h2 id="3-3系统兼容性测试"><a href="#3-3系统兼容性测试" class="headerlink" title="3.3系统兼容性测试"></a>3.3 系统兼容性测试</h2><h2 id="3-4-易用性测试"><a href="#3-4-易用性测试" class="headerlink" title="3.4 易用性测试"></a>3.4 易用性测试</h2><h2 id="3-5-安全性测试"><a href="#3-5-安全性测试" class="headerlink" title="3.5 安全性测试"></a>3.5 安全性测试</h2><h2 id="3-6-网络环境测试"><a href="#3-6-网络环境测试" class="headerlink" title="3.6 网络环境测试"></a>3.6 网络环境测试</h2><p>网络的影响会影响到用户的体验，一般遵守 258 原则是最好的。</p>
-<h2 id="3-7单元测试"><a href="#3-7单元测试" class="headerlink" title="3.7单元测试"></a>3.7 单元测试</h2><p>由开发人员完成。<br>3.3 性能测试<br>关键接口功能，简单做性能测试。</p>
-<h2 id="4-测试资源"><a href="#4-测试资源" class="headerlink" title="4.测试资源"></a>4. 测试资源</h2><h3 id="4-1测试人员"><a href="#4-1测试人员" class="headerlink" title="4.1测试人员"></a>4.1 测试人员</h3><p>刘礼柯、王籽涵</p>
-<h3 id="4-2测试环境"><a href="#4-2测试环境" class="headerlink" title="4.2测试环境"></a>4.2 测试环境</h3><p>暂时未搭建。</p>
-<h3 id="4-3-测试工具"><a href="#4-3-测试工具" class="headerlink" title="4.3 测试工具"></a>4.3 测试工具</h3><h3 id="4-3-1-Bug管理工具：bugfree"><a href="#4-3-1-Bug管理工具：bugfree" class="headerlink" title="4.3.1 Bug管理工具：bugfree"></a>4.3.1 Bug 管理工具：bugfree</h3><h3 id="4-3-2-postman"><a href="#4-3-2-postman" class="headerlink" title="4.3.2 postman"></a>4.3.2 postman</h3><p>前期测试呼叫系统，使用 postman 模拟相应的用户场景进行测试。</p>
+    <content><![CDATA[<h1 id="测试计划"><a href="#测试计划" class="headerlink" title="测试计划"></a>测试计划</h1><h1 id="XXX-项目测试计划"><a href="#XXX-项目测试计划" class="headerlink" title="XXX 项目测试计划"></a><center>XXX 项目测试计划</center></h1><h2 id="1-引言"><a href="#1-引言" class="headerlink" title="1.引言"></a>1. 引言</h2><h3 id="1-1-编写目的"><a href="#1-1-编写目的" class="headerlink" title="1.1 编写目的"></a>1.1 编写目的</h3><p>根据需求文档，提炼测试功能点、制定测试策略、评估测试风险，预估编写测试用例、执行功能测试和回归测试的工作量，进行人员和进度安排。</p>
+<span id="more"></span>
+
+<h3 id="1-2-预期读者"><a href="#1-2-预期读者" class="headerlink" title="1.2 预期读者"></a>1.2 预期读者</h3><p>管鑫所项目经理、开发、产品、测试。</p>
+<h3 id="1-3-参考资料"><a href="#1-3-参考资料" class="headerlink" title="1.3 参考资料"></a>1.3 参考资料</h3><p>需求文档</p>
+<h2 id="2-测试范围"><a href="#2-测试范围" class="headerlink" title="2.测试范围"></a>2. 测试范围</h2><h2 id="3-测试策略"><a href="#3-测试策略" class="headerlink" title="3.测试策略"></a>3. 测试策略</h2><h3 id="3-1-UI-测试"><a href="#3-1-UI-测试" class="headerlink" title="3.1 UI 测试"></a>3.1 UI 测试</h3><h3 id="3-1-1-文案测试"><a href="#3-1-1-文案测试" class="headerlink" title="3.1.1 文案测试"></a>3.1.1 文案测试</h3><p>（1）字体<br>（2）字号<br>（3）格式<br>（4）规范</p>
+<h3 id="3-2-2-图片测试"><a href="#3-2-2-图片测试" class="headerlink" title="3.2.2 图片测试"></a>3.2.2 图片测试</h3><p>（1）清晰<br>（2）尺寸<br>（3）配色<br>（4）风格</p>
+<h3 id="3-2-3-布局测试"><a href="#3-2-3-布局测试" class="headerlink" title="3.2.3 布局测试"></a>3.2.3 布局测试</h3><p>（1）尺寸大小<br>（2）位置合理<br>（3）排序规律<br>（4）对齐方式</p>
+<h3 id="3-2-4-控件测试"><a href="#3-2-4-控件测试" class="headerlink" title="3.2.4 控件测试"></a>3.2.4 控件测试</h3><p>（1）输入框<br>（2）按钮<br>（3）下拉菜单<br>（4）列表<br>(5) 单选框<br>（6）复选框<br>（7）时间框<br>（8）左右选择框<br>（9）树形<br>（10）图标类检查<br>（11）文件类<br>（12）图片类<br>（13）URL 检查<br>（14）IP 输入框</p>
+<h3 id="3-2-5-快捷键测试"><a href="#3-2-5-快捷键测试" class="headerlink" title="3.2.5 快捷键测试"></a>3.2.5 快捷键测试</h3><h2 id="3-2-功能测试策略"><a href="#3-2-功能测试策略" class="headerlink" title="3.2 功能测试策略"></a>3.2 功能测试策略</h2><p>具体见每个版本测试用例。</p>
+<h2 id="3-3-系统兼容性测试"><a href="#3-3-系统兼容性测试" class="headerlink" title="3.3 系统兼容性测试"></a>3.3 系统兼容性测试</h2><h2 id="3-4-易用性测试"><a href="#3-4-易用性测试" class="headerlink" title="3.4 易用性测试"></a>3.4 易用性测试</h2><h2 id="3-5-安全性测试"><a href="#3-5-安全性测试" class="headerlink" title="3.5 安全性测试"></a>3.5 安全性测试</h2><h2 id="3-6-网络环境测试"><a href="#3-6-网络环境测试" class="headerlink" title="3.6 网络环境测试"></a>3.6 网络环境测试</h2><p>网络的影响会影响到用户的体验，一般遵守 258 原则是最好的。</p>
+<h2 id="3-7-单元测试"><a href="#3-7-单元测试" class="headerlink" title="3.7 单元测试"></a>3.7 单元测试</h2><p>由开发人员完成。<br>3.3 性能测试<br>关键接口功能，简单做性能测试。</p>
+<h2 id="4-测试资源"><a href="#4-测试资源" class="headerlink" title="4.测试资源"></a>4. 测试资源</h2><h3 id="4-1-测试人员"><a href="#4-1-测试人员" class="headerlink" title="4.1 测试人员"></a>4.1 测试人员</h3><p>刘礼柯、王籽涵</p>
+<h3 id="4-2-测试环境"><a href="#4-2-测试环境" class="headerlink" title="4.2 测试环境"></a>4.2 测试环境</h3><p>暂时未搭建。</p>
+<h3 id="4-3-测试工具"><a href="#4-3-测试工具" class="headerlink" title="4.3 测试工具"></a>4.3 测试工具</h3><h3 id="4-3-1-Bug-管理工具：bugfree"><a href="#4-3-1-Bug-管理工具：bugfree" class="headerlink" title="4.3.1 Bug 管理工具：bugfree"></a>4.3.1 Bug 管理工具：bugfree</h3><h3 id="4-3-2-postman"><a href="#4-3-2-postman" class="headerlink" title="4.3.2 postman"></a>4.3.2 postman</h3><p>前期测试呼叫系统，使用 postman 模拟相应的用户场景进行测试。</p>
 <h3 id="4-3-3-IETester"><a href="#4-3-3-IETester" class="headerlink" title="4.3.3 IETester"></a>4.3.3 IETester</h3><p>测试 IE 浏览器的不同版本。</p>
-<h3 id="4-3-4-Vbox虚拟机"><a href="#4-3-4-Vbox虚拟机" class="headerlink" title="4.3.4 Vbox虚拟机"></a>4.3.4 Vbox 虚拟机</h3><h3 id="4-3-5-Jemter"><a href="#4-3-5-Jemter" class="headerlink" title="4.3.5 Jemter"></a>4.3.5 Jemter</h3><p>重要端口、步骤、流程做压力测试。</p>
-<h2 id="5-进度安排"><a href="#5-进度安排" class="headerlink" title="5.进度安排"></a>5. 进度安排</h2><h3 id="5-1测试进度及工作量估算"><a href="#5-1测试进度及工作量估算" class="headerlink" title="5.1测试进度及工作量估算"></a>5.1 测试进度及工作量估算</h3><p>根据周会原型确定周任务：<br>例如<br>任务	时间	执行人员	预计工作量 / 天<br>编写测试计划	2019-07-10	张三	1 天<br>编写测试用例	2019-07		</p>
+<h3 id="4-3-4-Vbox-虚拟机"><a href="#4-3-4-Vbox-虚拟机" class="headerlink" title="4.3.4 Vbox 虚拟机"></a>4.3.4 Vbox 虚拟机</h3><h3 id="4-3-5-Jemter"><a href="#4-3-5-Jemter" class="headerlink" title="4.3.5 Jemter"></a>4.3.5 Jemter</h3><p>重要端口、步骤、流程做压力测试。</p>
+<h2 id="5-进度安排"><a href="#5-进度安排" class="headerlink" title="5.进度安排"></a>5. 进度安排</h2><h3 id="5-1-测试进度及工作量估算"><a href="#5-1-测试进度及工作量估算" class="headerlink" title="5.1 测试进度及工作量估算"></a>5.1 测试进度及工作量估算</h3><p>根据周会原型确定周任务：<br>例如<br>任务 时间 执行人员 预计工作量 / 天<br>编写测试计划 2019-07-10 张三 1 天<br>编写测试用例 2019-07</p>
 <p>根据具体的需求、开发计划估算具体的测试工作量。</p>
-<h3 id="5-2输出文档"><a href="#5-2输出文档" class="headerlink" title="5.2输出文档"></a>5.2 输出文档</h3><p>（1）测试计划<br>（2）测试用例（bugfree 中查看）<br>（3）测试数据（上传至 bugfree）<br>（4）测试报告</p>
-<h2 id="6-发布标准"><a href="#6-发布标准" class="headerlink" title="6.发布标准"></a>6. 发布标准</h2><h3 id="6-1测试完成标准"><a href="#6-1测试完成标准" class="headerlink" title="6.1测试完成标准"></a>6.1 测试完成标准</h3><p>（1）完成所有测试类型。<br><br>（2）没有影响用户正常使用的 Bug。<br><br>（3）bug 少于一定的数量（需要商定）<br><br>（4）服务端性能满足设计目标。<br></p>
-<h3 id="6-2产品发布标准"><a href="#6-2产品发布标准" class="headerlink" title="6.2产品发布标准"></a>6.2 产品发布标准</h3><p>（1）所有产品需求都已完成。<br><br>（2）遗留 bug 经过风险评估。<br><br>（3）有完备的流程文档。<br></p>
+<h3 id="5-2-输出文档"><a href="#5-2-输出文档" class="headerlink" title="5.2 输出文档"></a>5.2 输出文档</h3><p>（1）测试计划<br>（2）测试用例（bugfree 中查看）<br>（3）测试数据（上传至 bugfree）<br>（4）测试报告</p>
+<h2 id="6-发布标准"><a href="#6-发布标准" class="headerlink" title="6.发布标准"></a>6. 发布标准</h2><h3 id="6-1-测试完成标准"><a href="#6-1-测试完成标准" class="headerlink" title="6.1 测试完成标准"></a>6.1 测试完成标准</h3><p>（1）完成所有测试类型。<br><br>（2）没有影响用户正常使用的 Bug。<br><br>（3）bug 少于一定的数量（需要商定）<br><br>（4）服务端性能满足设计目标。<br></p>
+<h3 id="6-2-产品发布标准"><a href="#6-2-产品发布标准" class="headerlink" title="6.2 产品发布标准"></a>6.2 产品发布标准</h3><p>（1）所有产品需求都已完成。<br><br>（2）遗留 bug 经过风险评估。<br><br>（3）有完备的流程文档。<br></p>
 <h2 id="7-风险说明"><a href="#7-风险说明" class="headerlink" title="7.风险说明"></a>7. 风险说明</h2><h2 id="8-应急措施"><a href="#8-应急措施" class="headerlink" title="8.应急措施"></a>8. 应急措施</h2>]]></content>
-      <tags>
-        <tag>功能测试</tag>
-        <tag>测试文档</tag>
-      </tags>
+      <categories>
+        <category>测试文档</category>
+      </categories>
   </entry>
   <entry>
     <title>如何从 mac 系统传输文件或文件夹到 Ubuntu 系统</title>
     <url>/2021/05/24/%E5%A6%82%E4%BD%95%E4%BB%8Emac%E7%B3%BB%E7%BB%9F%E4%BC%A0%E8%BE%93%E6%96%87%E4%BB%B6%E5%88%B0Ubuntu%E7%B3%BB%E7%BB%9F/</url>
-    <content><![CDATA[<div class="note info">
-    <h5>1. 问题描述</h5>
-    <p>如何从 mac 系统传输文件到 Ubuntu 系统？</p>
-</div>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>如何从 mac 系统传输文件到 Ubuntu 系统？</p>
+<span id="more"></span>
 
-<div class="note warning">
-    <h5>2. 问题原因</h5>
-    <p>无</p>
-</div>
-<div class="note">
-    <h5>3. 解决方法</h5>
-    <p>使用 scp 命令，方法如下：</p>
-</div>
-
-<p>3.1 从本地复制到远程 (Mac→Ubuntu)</p>
-<p>传输文件 (需要输入远程用户密码)：</p>
+<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><p>使用 scp 命令，方法如下：</p>
+<h3 id="2-1从本地复制到远程-Mac→Ubuntu"><a href="#2-1从本地复制到远程-Mac→Ubuntu" class="headerlink" title="2.1从本地复制到远程(Mac→Ubuntu)"></a>2.1 从本地复制到远程 (Mac→Ubuntu)</h3><p>传输文件 (需要输入远程用户密码)：</p>
 <figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">XXXMacBook-Pro:~ user$ scp /Users/user/testScp.txt root@192.168.1.177:/home/user</span><br><span class="line">root@192.168.1.XXX<span class="string">'s password:</span></span><br><span class="line"><span class="string">testScp.txt                                                    100%    0     0.0KB/s   00:00</span></span><br></pre></td></tr></tbody></table></figure>
 
 <p>传输目录：</p>
@@ -346,152 +225,84 @@
 
 
 
-<p>3.2 从远程复制到本地 (Ubuntu→Mac)</p>
-<p>传输文件：</p>
+<h3 id="2-2从远程复制到本地-Ubuntu→Mac"><a href="#2-2从远程复制到本地-Ubuntu→Mac" class="headerlink" title="2.2从远程复制到本地(Ubuntu→Mac)"></a>2.2 从远程复制到本地 (Ubuntu→Mac)</h3><p>传输文件：</p>
 <figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">XXXMacBook-Pro:~ user$ scp root@192.168.1.XXX:/home/user/testScp.txt /Users/user/</span><br><span class="line">root@192.168.1.XXX<span class="string">'s passwoXXX</span></span><br><span class="line"><span class="string">testScp.txt                                                    100%    8     5.4KB/s   00:00</span></span><br></pre></td></tr></tbody></table></figure>
 
 <p>传输目录：</p>
 <figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">XXXMacBook-Pro:~ user$ scp -r root@192.168.1.XXX:/home/user/testScp/ /Users/user/</span><br><span class="line">root@192.168.1.XXX<span class="string">'s password:</span></span><br><span class="line"><span class="string">test1.txt                                                      100%   12     8.8KB/s   00:00</span></span><br><span class="line"><span class="string">testScp.txt                                                    100%   24    15.1KB/s   00:00</span></span><br></pre></td></tr></tbody></table></figure>
 
-
-
-<div class="note unreleased">
-    <h5>&nbsp; &nbsp;4. 相关参考</h5>
-    <p>&nbsp; &nbsp;</p>
-</div>
-
-<p>4.1 参考于该网站 <a href="https://www.runoob.com/linux/linux-comm-scp.html">www.runoob.com</a></p>
+<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2><p>参考于该网站 <a href="https://www.runoob.com/linux/linux-comm-scp.html">www.runoob.com</a></p>
 ]]></content>
+      <categories>
+        <category>环境搭建</category>
+      </categories>
       <tags>
-        <tag>Ubuntu</tag>
         <tag>Linux</tag>
-        <tag>Mac</tag>
       </tags>
   </entry>
   <entry>
     <title>如何用 kindle 高效学习</title>
     <url>/2019/08/14/%E5%A6%82%E4%BD%95%E7%94%A8kindle%E9%AB%98%E6%95%88%E5%AD%A6%E4%B9%A0/</url>
-    <content><![CDATA[<div class="note info">
-    <h5>1. 书摘</h5>
-    <p>富家不用买良田，书中自有千钟粟。</p>
-</div>
-1.读书要有所得，必须要有思考，而思考的最佳验收方式就是输出。不论是书评还是读书笔记，怎样都好，只要是经过你理解的输出，就非常有价值。
+    <content><![CDATA[<p>1. 书摘<br>富家不用买良田，书中自有千钟粟。</p>
+<p>1. 读书要有所得，必须要有思考，而思考的最佳验收方式就是输出。不论是书评还是读书笔记，怎样都好，只要是经过你理解的输出，就非常有价值。</p>
+<span id="more"></span>
 
-<div class="note info">
-    <h5>2. 读书心得</h5>
-    <p>安居不用架高楼，书中自有黄金屋。</p>
-</div>
-简单的阅读感受和启发，或者深入的书评，无论长短都可以，有收获最重要。
-
-<div class="note info">
-    <h5>3. 知识积累</h5>
-    <p>出门莫恨无人随，书中车马多如簇。</p>
-</div>
-使用kindle技巧：
-
+<p>2. 读书心得<br>安居不用架高楼，书中自有黄金屋。</p>
+<p>简单的阅读感受和启发，或者深入的书评，无论长短都可以，有收获最重要。</p>
+<p>3. 知识积累<br>出门莫恨无人随，书中车马多如簇。</p>
+<p>使用 kindle 技巧：</p>
 <p>技巧 1：截屏<br>截屏的方法很简单，只要记住一个对角线原则就好。大家在 “左上右下” 或 “左下右上” 的角落位置同时按住，即可完成截图操作注意事项：①必须同时按到对角线两边的圆形区域；②当屏幕闪现一下则代表截屏成功，否则就再试一次。</p>
 <p>结束动作后，你的截屏将会在 Kindle 根目录中以图片的形式（png）出现，如果你想导出它们，只需要将 Kindle 连接电脑，从根目录中将图片拖出即可。</p>
 <p>技巧 2：字号拉伸字号拉伸是个比较隐蔽的功能，作用说大不大，说小不小，就是减少了大家放大或缩小字体的难度，增强了交互体验。那么应该如何操作呢？其实非常简单，只要我们进入了阅读模式，即点击进入某读物的时候，我们可以将两个手指同时放在屏幕中，通过向内或向外的同时位移来完成放大或缩小的操作。</p>
-<div class="note info">
-    <h5>4. 思维导图</h5>
-    <p>娶妻无媒毋须恨，书中有女颜如玉。</p>
-</div>
-
-<div class="note info">
-    <h5>5. 遗留问题</h5>
-    <p>男儿欲遂平生志，勤向窗前多读书。</p>
-</div>
-
-
+<p>4. 思维导图<br>娶妻无媒毋须恨，书中有女颜如玉。</p>
+<p>5. 遗留问题<br>男儿欲遂平生志，勤向窗前多读书。</p>
 ]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
       <tags>
-        <tag>读书</tag>
         <tag>Kindle</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>童年的秘密</title>
-    <url>/2019/08/14/%E7%AB%A5%E5%B9%B4%E7%9A%84%E7%A7%98%E5%AF%86/</url>
-    <content><![CDATA[]]></content>
-      <tags>
-        <tag>读书</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>常见网络协议</title>
-    <url>/2019/07/04/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/</url>
-    <content><![CDATA[<h2 id="1-http协议"><a href="#1-http协议" class="headerlink" title="1.http协议"></a>1.http 协议</h2><h3 id="HTTP-简介"><a href="#HTTP-简介" class="headerlink" title="HTTP 简介"></a>HTTP 简介</h3><p>HTTP 协议是 Hyper Text Transfer Protocol（超文本传输协议）的缩写，是用于从万维网（WWW:World Wide Web ）服务器传输超文本到本地浏览器的传送协议。。</p>
-<p>HTTP 是一个基于 TCP/IP 通信协议来传递数据（HTML 文件，图片文件，查询结果等）。</p>
-<h3 id="HTTP-工作原理"><a href="#HTTP-工作原理" class="headerlink" title="HTTP 工作原理"></a>HTTP 工作原理</h3><p>HTTP 协议工作于客户端 - 服务端架构上。浏览器作为 HTTP 客户端通过 URL 向 HTTP 服务端即 WEB 服务器发送所有请求。</p>
-<p>Web 服务器有：Apache 服务器，IIS 服务器（Internet Information Services）等。</p>
-<p>Web 服务器根据接收到的请求后，向客户端发送响应信息。</p>
-<p>HTTP 默认端口号为 80，但是你也可以改为 8080 或者其他端口。</p>
-<h3 id="HTTP三点注意事项："><a href="#HTTP三点注意事项：" class="headerlink" title="HTTP三点注意事项："></a>HTTP 三点注意事项：</h3><p>HTTP 是无连接：无连接的含义是限制每次连接只处理一个请求。服务器处理完客户的请求，并收到客户的应答后，即断开连接。采用这种方式可以节省传输时间。<br>HTTP 是媒体独立的：这意味着，只要客户端和服务器知道如何处理的数据内容，任何类型的数据都可以通过 HTTP 发送。客户端以及服务器指定使用适合的 MIME-type 内容类型。<br>HTTP 是无状态：HTTP 协议是无状态协议。无状态是指协议对于事务处理没有记忆能力。缺少状态意味着如果后续处理需要前面的信息，则它必须重传，这样可能导致每次连接传送的数据量增大。另一方面，在服务器不需要先前信息时它的应答就较快。<br>以下图表展示了 HTTP 协议通信流程：</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-
-]]></content>
-      <tags>
-        <tag>计算机网络</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>解决 hexo 部署出现 Error-ENOTEMPTY 的问题</title>
-    <url>/2021/05/21/%E8%A7%A3%E5%86%B3hexo%E9%83%A8%E7%BD%B2%E5%87%BA%E7%8E%B0Error-ENOTEMPTY%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<div class="note info">
-    <h5>1. 问题描述</h5>
-    <p>在 Terminal 执行 hexo deploy 后，报错如下：</p>
-</div>
-
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">FATAL {</span><br><span class="line">  err: [Error: ENOTEMPTY: directory not empty, <span class="built_in">rmdir</span> <span class="string">'/Users/XXX/XXXX/XXXX/.deploy_git/page'</span>] {</span><br><span class="line">    errno: -66,</span><br><span class="line">    code: <span class="string">'ENOTEMPTY'</span>,</span><br><span class="line">    syscall: <span class="string">'rmdir'</span>,</span><br><span class="line">    path: <span class="string">'/Users/XXX/XXXX/XXXX/.deploy_git/page'</span></span><br><span class="line">  }</span><br><span class="line">}  Something<span class="string">'s wrong. Maybe you can find the solution here: %s https://hexo.io/docs/troubleshooting.html</span></span><br></pre></td></tr></tbody></table></figure>
-
-<div class="note warning">
-    <h5>2. 问题原因</h5>
-    <p>翻译可知，/Users/XXX/XXXX/XXXX/.deploy_git/page，这个文件夹需要为空，进入该目录，发现原本就是空的，未知原因。</p>
-</div>
-
-<div class="note">
-    <h5>3. 解决方法</h5>
-    <p>直接删除 / Users/XXX/XXXX/XXXX/.deploy_git/ 这个文件夹，然后直接在 Terminal 执行：</p>
-</div>
-
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></tbody></table></figure>
-
-<p>然后部署成功。</p>
-]]></content>
-      <tags>
-        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
     <title>解决 Jenkins 插件安装失败 - 插件下载慢的问题</title>
     <url>/2021/05/25/%E8%A7%A3%E5%86%B3Jenkins%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5-%E6%8F%92%E4%BB%B6%E4%B8%8B%E8%BD%BD%E6%85%A2%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<div class="note info">
-    <h5>1. 问题描述</h5>
-    <p>在安装 Jenkins 的过程中，插件总是安装失败或者下载很慢。</p>
-</div>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在安装 Jenkins 的过程中，插件总是安装失败或者下载很慢。</p>
+<span id="more"></span>
 
-
-
-<div class="note warning">
-    <h5>2. 问题原因</h5>
-    <p>安装源为国外的网站，所以下载速度慢。</p>
-</div>
-
-<div class="note">
-    <h5>3. 解决方法</h5>
-    <p>直接把源换为国内的镜像站，步骤如下：</p>
-</div>
-
-
-
-
-
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>安装源为国外的网站，所以下载速度慢。</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>直接把源换为国内的镜像站，步骤如下：</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2021-05-25_15-15-12.png" alt="p1"></p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2021-05-25_15-20-26.png" alt="p2"></p>
 <p>清华大学镜像站:</p>
 <p><a href="https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json">https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json</a></p>
 ]]></content>
+      <categories>
+        <category>环境搭建</category>
+      </categories>
       <tags>
-        <tag>环境搭建</tag>
         <tag>Jenkins</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解决 hexo 部署出现 Error-ENOTEMPTY 的问题</title>
+    <url>/2021/05/21/%E8%A7%A3%E5%86%B3hexo%E9%83%A8%E7%BD%B2%E5%87%BA%E7%8E%B0Error-ENOTEMPTY%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在 Terminal 执行 hexo deploy 后，报错如下：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">FATAL {</span><br><span class="line">  err: [Error: ENOTEMPTY: directory not empty, <span class="built_in">rmdir</span> <span class="string">'/Users/XXX/XXXX/XXXX/.deploy_git/page'</span>] {</span><br><span class="line">    errno: -66,</span><br><span class="line">    code: <span class="string">'ENOTEMPTY'</span>,</span><br><span class="line">    syscall: <span class="string">'rmdir'</span>,</span><br><span class="line">    path: <span class="string">'/Users/XXX/XXXX/XXXX/.deploy_git/page'</span></span><br><span class="line">  } </span><br><span class="line">}  Something<span class="string">'s wrong. Maybe you can find the solution here: %s https://hexo.io/docs/troubleshooting.html</span></span><br></pre></td></tr></tbody></table></figure>
+
+<span id="more"></span>
+
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>翻译可知，/Users/XXX/XXXX/XXXX/.deploy_git/page，这个文件夹需要为空，进入该目录，发现原本就是空的，未知原因。</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>直接删除 / Users/XXX/XXXX/XXXX/.deploy_git/ 这个文件夹，然后直接在 Terminal 执行：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></tbody></table></figure>
+
+<p>然后部署成功。</p>
+]]></content>
+      <categories>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
       </tags>
   </entry>
 </search>

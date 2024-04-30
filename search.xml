@@ -1,37 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Ubuntu 中 chromdriver 和 geckodriver 的下载和配置</title>
-    <url>/2021/05/25/Ubuntu%E4%B8%ADchromdriver%E5%92%8Cgeckodriver%E7%9A%84%E4%B8%8B%E8%BD%BD%E5%92%8C%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<h2 id="下载地址为："><a href="#下载地址为：" class="headerlink" title="下载地址为："></a>下载地址为：</h2><h3 id="Chromedriver"><a href="#Chromedriver" class="headerlink" title="Chromedriver:"></a>Chromedriver:</h3><h5 id="http-chromedriver-storage-googleapis-com-index-html"><a href="#http-chromedriver-storage-googleapis-com-index-html" class="headerlink" title="http://chromedriver.storage.googleapis.com/index.html"></a><a href="http://chromedriver.storage.googleapis.com/index.html">http://chromedriver.storage.googleapis.com/index.html</a></h5><h3 id="Geckodriver"><a href="#Geckodriver" class="headerlink" title="Geckodriver:"></a>Geckodriver:</h3><h5 id="https-github-com-mozilla-geckodriver-releases"><a href="#https-github-com-mozilla-geckodriver-releases" class="headerlink" title="https://github.com/mozilla/geckodriver/releases/"></a><a href="https://github.com/mozilla/geckodriver/releases/">https://github.com/mozilla/geckodriver/releases/</a></h5><span id="more"></span>
-
-<h2 id="查找文件地址后，下载文件"><a href="#查找文件地址后，下载文件" class="headerlink" title="查找文件地址后，下载文件:"></a>查找文件地址后，下载文件:</h2><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">wget -P /home/user/testWget/ http://chromedriver.storage.googleapis.com/90.0.4430.24/chromedriver_linux64.zip</span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="将Chromedriver解压后，放到-usr-bin目录下"><a href="#将Chromedriver解压后，放到-usr-bin目录下" class="headerlink" title="将Chromedriver解压后，放到/usr/bin目录下:"></a>将 Chromedriver 解压后，放到 /usr/bin 目录下:</h2><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">unzip /home/git/testScp/chromedriver_linux64.zip</span><br><span class="line"><span class="built_in">mv</span> chromedriver /usr/bin</span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="Geckodriver同以上Chromedriver步骤。"><a href="#Geckodriver同以上Chromedriver步骤。" class="headerlink" title="Geckodriver同以上Chromedriver步骤。"></a>Geckodriver 同以上 Chromedriver 步骤。</h2>]]></content>
-      <categories>
-        <category>环境搭建</category>
-      </categories>
-      <tags>
-        <tag>Ubuntu</tag>
-        <tag>selenium</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>bugfree 环境搭建</title>
-    <url>/2019/07/11/bugfree/</url>
-    <content><![CDATA[<h2 id="1-下载XAMPP"><a href="#1-下载XAMPP" class="headerlink" title="1.下载XAMPP"></a>1. 下载 XAMPP</h2><span id="more"></span>
-
-<h2 id="2-下载bugfree"><a href="#2-下载bugfree" class="headerlink" title="2.下载bugfree"></a>2. 下载 bugfree</h2><h2 id="3-安装XAMPP"><a href="#3-安装XAMPP" class="headerlink" title="3.安装XAMPP"></a>3. 安装 XAMPP</h2><h2 id="4-开启XAMPP中的Apache服务和mysql服务"><a href="#4-开启XAMPP中的Apache服务和mysql服务" class="headerlink" title="4.开启XAMPP中的Apache服务和mysql服务"></a>4. 开启 XAMPP 中的 Apache 服务和 mysql 服务</h2><h2 id="5-将BugFree安装包，解压后复制到XAMPP系统的htdocs子目录下"><a href="#5-将BugFree安装包，解压后复制到XAMPP系统的htdocs子目录下" class="headerlink" title="5.将BugFree安装包，解压后复制到XAMPP系统的htdocs子目录下"></a>5. 将 BugFree 安装包，解压后复制到 XAMPP 系统的 htdocs 子目录下</h2><h2 id="6-打开浏览器输入http：-localhost-bugfree-（不要关闭该页面）-发现需要在-htdocs下手动创建一个BugFile文件夹"><a href="#6-打开浏览器输入http：-localhost-bugfree-（不要关闭该页面）-发现需要在-htdocs下手动创建一个BugFile文件夹" class="headerlink" title="6.打开浏览器输入http：//localhost/bugfree/（不要关闭该页面） 发现需要在\htdocs下手动创建一个BugFile文件夹"></a>6. 打开浏览器输入 http：//localhost/bugfree/（不要关闭该页面） 发现需要在 \htdocs 下手动创建一个 BugFile 文件夹</h2><h2 id="7-打开刚才的页面，点击按钮，发现按钮可以点击了，点击按钮"><a href="#7-打开刚才的页面，点击按钮，发现按钮可以点击了，点击按钮" class="headerlink" title="7.打开刚才的页面，点击<再试一次>按钮，发现<继续>按钮可以点击了，点击<继续>按钮"></a>7. 打开刚才的页面，点击 &lt;再试一次&gt; 按钮，发现 &lt; 继续 &gt; 按钮可以点击了，点击 &lt; 继续 &gt; 按钮</h2><h2 id="8-数据库配置，输入数据库相关信息，后安装成功"><a href="#8-数据库配置，输入数据库相关信息，后安装成功" class="headerlink" title="8.数据库配置，输入数据库相关信息，后安装成功"></a>8. 数据库配置，输入数据库相关信息，后安装成功</h2><h2 id="使用手册"><a href="#使用手册" class="headerlink" title="使用手册"></a>使用手册</h2>]]></content>
-      <categories>
-        <category>环境搭建</category>
-      </categories>
-      <tags>
-        <tag>bugfree</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>mysql 实现 excel 中复制某一列，粘贴转置为行功能</title>
     <url>/2021/05/31/group-concat%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>数据处理需要，需要将大批量的列，转置为行。</p>
@@ -58,10 +27,10 @@
 <h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p>参考于该<a href="https://www.cnblogs.com/zjfblog/p/13658936.html">博客园博客</a></p>
 ]]></content>
       <categories>
-        <category>环境搭建</category>
+        <category>环境部署</category>
       </categories>
       <tags>
-        <tag>Mysql</tag>
+        <tag>mysql</tag>
       </tags>
   </entry>
   <entry>
@@ -79,24 +48,41 @@
 <h3 id="3-3-查看-github-仓库根目录有该-CNAME-且博客可以正常访问"><a href="#3-3-查看-github-仓库根目录有该-CNAME-且博客可以正常访问" class="headerlink" title="3.3 查看 github 仓库根目录有该 CNAME 且博客可以正常访问"></a>3.3 查看 github 仓库根目录有该 CNAME 且博客可以正常访问</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2019-08-15_21-01-09.png"></p>
 ]]></content>
       <categories>
-        <category>环境搭建</category>
+        <category>环境部署</category>
       </categories>
       <tags>
         <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
+    <title>Ubuntu 中 chromdriver 和 geckodriver 的下载和配置</title>
+    <url>/2021/05/25/Ubuntu%E4%B8%ADchromdriver%E5%92%8Cgeckodriver%E7%9A%84%E4%B8%8B%E8%BD%BD%E5%92%8C%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<h2 id="1-下载地址为："><a href="#1-下载地址为：" class="headerlink" title="1.下载地址为："></a>1. 下载地址为：</h2><h3 id="（1）Chromedriver"><a href="#（1）Chromedriver" class="headerlink" title="（1）Chromedriver:"></a>（1）Chromedriver:</h3><h5 id="http-chromedriver-storage-googleapis-com-index-html"><a href="#http-chromedriver-storage-googleapis-com-index-html" class="headerlink" title="http://chromedriver.storage.googleapis.com/index.html"></a><a href="http://chromedriver.storage.googleapis.com/index.html">http://chromedriver.storage.googleapis.com/index.html</a></h5><h3 id="（2）Geckodriver"><a href="#（2）Geckodriver" class="headerlink" title="（2）Geckodriver:"></a>（2）Geckodriver:</h3><h5 id="https-github-com-mozilla-geckodriver-releases"><a href="#https-github-com-mozilla-geckodriver-releases" class="headerlink" title="https://github.com/mozilla/geckodriver/releases/"></a><a href="https://github.com/mozilla/geckodriver/releases/">https://github.com/mozilla/geckodriver/releases/</a></h5><span id="more"></span>
+
+<h2 id="2-查找文件地址后，下载文件"><a href="#2-查找文件地址后，下载文件" class="headerlink" title="2.查找文件地址后，下载文件:"></a>2. 查找文件地址后，下载文件:</h2><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">wget -P /home/user/testWget/ http://chromedriver.storage.googleapis.com/90.0.4430.24/chromedriver_linux64.zip</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="3-将Chromedriver解压后，放到-usr-bin目录下"><a href="#3-将Chromedriver解压后，放到-usr-bin目录下" class="headerlink" title="3.将Chromedriver解压后，放到/usr/bin目录下:"></a>3. 将 Chromedriver 解压后，放到 /usr/bin 目录下:</h2><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">unzip /home/git/testScp/chromedriver_linux64.zip</span><br><span class="line"><span class="built_in">mv</span> chromedriver /usr/bin</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="4-Geckodriver同以上Chromedriver步骤。"><a href="#4-Geckodriver同以上Chromedriver步骤。" class="headerlink" title="4.Geckodriver同以上Chromedriver步骤。"></a>4.Geckodriver 同以上 Chromedriver 步骤。</h2>]]></content>
+      <categories>
+        <category>环境部署</category>
+      </categories>
+      <tags>
+        <tag>ubuntu</tag>
+        <tag>selenium</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>pycharm 使用 HTMLTestRunner 不能生成测试报告解决方法</title>
-    <url>/2019/08/13/pycharm_model/</url>
-    <content><![CDATA[<p>1. 问题描述<br>使用 pycharm IDE 使用 unittest 框架，代码执行完成且没有报错，没有在指定目录下生成测试报告。</p>
+    <url>/2019/08/13/pycharm%E4%BD%BF%E7%94%A8HTMLTestRunner%E4%B8%8D%E8%83%BD%E7%94%9F%E6%88%90%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>使用 pycharm IDE 使用 unittest 框架，代码执行完成且没有报错，没有在指定目录下生成测试报告。</p>
 <span id="more"></span>
 
-<p>2. 问题原因<br>pyCharm 会默认使用自带的框架如 (unittest/pytest) 来执行单元测试，不会执行 main 函数中的代码，所以不生成测试报告。</p>
-<p>2.1 代码</p>
-<p>test.py</p>
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>pyCharm 会默认使用自带的框架如 (unittest/pytest) 来执行单元测试，不会执行 main 函数中的代码，所以不生成测试报告。</p>
+<h3 id="2-1-代码"><a href="#2-1-代码" class="headerlink" title="2.1 代码"></a>2.1 代码</h3><p>test.py</p>
 <figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver	</span><br><span class="line"><span class="keyword">import</span> unittest</span><br><span class="line"><span class="keyword">from</span> HTMLTestRunner <span class="keyword">import</span> HTMLTestRunner</span><br><span class="line">	</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Baidu</span>(unittest.TestCase):</span><br><span class="line">	</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">setUp</span>(<span class="params">self</span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">        self.driver = webdriver.Chrome()</span><br><span class="line">        self.driver.implicitly_wait(<span class="number">10</span>)</span><br><span class="line">        self.base_url = <span class="string">'http://www.baidu.com'</span></span><br><span class="line">	</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">test_baidu_search</span>(<span class="params">self</span>):</span><br><span class="line">        driver = self.driver</span><br><span class="line">        driver.get(self.base_url)</span><br><span class="line">        driver.find_element_by_id(<span class="string">"kw"</span>).send_keys(<span class="string">"HTMLTestRunner"</span>)</span><br><span class="line">        driver.find_element_by_id(<span class="string">"su"</span>).click()</span><br><span class="line">	</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">tearDown</span>(<span class="params">self</span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">        self.driver.quit()</span><br><span class="line">	</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'test11111111'</span>)</span><br><span class="line">    testunit = unittest.TestSuite()</span><br><span class="line">    testunit.addTest(Baidu(<span class="string">'test_baidu_search'</span>))</span><br><span class="line">	</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'test22222222'</span>)</span><br><span class="line">    <span class="comment"># 定义报告存放路径</span></span><br><span class="line">    fp = <span class="built_in">open</span>(<span class="string">'./result.html'</span>, <span class="string">'wb'</span>)</span><br><span class="line">    <span class="comment"># 定义测试报告</span></span><br><span class="line">    runner = HTMLTestRunner(stream=fp, title=<span class="string">'百度搜索测试报告'</span>, description=<span class="string">'用例执行情况：'</span>)</span><br><span class="line">    <span class="comment"># 运行测试用例</span></span><br><span class="line">    runner.run(testunit)</span><br><span class="line">    <span class="comment"># 关闭报告文件</span></span><br><span class="line">    fp.close()</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
 
-<p>3. 解决方法<br>使用普通模式执行该单元测试，切换普通模式方法如下：</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>使用普通模式执行该单元测试，切换普通模式方法如下：</p>
 <p>3.1 点击 pycharm 右上角的 “Uittests in test_baidu.py” 下拉框，选择 “Edit Configuration”</p>
 
 
@@ -121,7 +107,7 @@
 <p>4.1 代码来源于书《selenium2 自动化测试实战基于 Python 语言》— 虫师<br>4.2 参考于该 <a href="https://blog.csdn.net/alchaochao/article/details/79630830">CSDN 博客</a></p>
 ]]></content>
       <categories>
-        <category>环境搭建</category>
+        <category>自动化测试</category>
       </categories>
       <tags>
         <tag>selenium</tag>
@@ -132,10 +118,10 @@
   <entry>
     <title>python 创建虚拟环境</title>
     <url>/2021/06/29/python%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/</url>
-    <content><![CDATA[<p>1. 问题描述<br>python 如何创建虚拟环境？</p>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>python 如何创建虚拟环境？</p>
 <span id="more"></span>
 
-<p>2. 解决方法<br>使用 venv 命令，方法如下 (python3.5 以后)：</p>
+<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><p>使用 venv 命令，方法如下 (python3.5 以后)：</p>
 <figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">python3 -m venv /xx/xx/myvenv <span class="comment">#(myvenv环境名称)</span></span></span><br></pre></td></tr></tbody></table></figure>
 
 <p>激活虚拟环境</p>
@@ -146,19 +132,19 @@
 
 ]]></content>
       <categories>
-        <category>环境搭建</category>
+        <category>环境部署</category>
       </categories>
       <tags>
-        <tag>Python</tag>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
     <title>requirements 总结</title>
     <url>/2021/05/21/requirements%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<p>1. 问题描述<br>在搭建 Liunx 服务器时，需要在新的 Python 环境中安装项目需要的包的依赖，一条一条 pip install 太慢，有没有可以批量安装方法？</p>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在搭建 Liunx 服务器时，需要在新的 Python 环境中安装项目需要的包的依赖，一条一条 pip install 太慢，有没有可以批量安装方法？</p>
 <span id="more"></span>
 
-<p>2. 解决方法<br>百度后，方法如下：</p>
+<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><p>百度后，方法如下：</p>
 <p>在旧环境下执行:</p>
 <figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pip freeze &gt; requirements.txt</span><br></pre></td></tr></tbody></table></figure>
 
@@ -173,7 +159,7 @@
 
 ]]></content>
       <categories>
-        <category>软件工具</category>
+        <category>环境部署</category>
       </categories>
       <tags>
         <tag>python</tag>
@@ -182,33 +168,94 @@
   </entry>
   <entry>
     <title>测试计划模板</title>
-    <url>/2019/07/11/testplan/</url>
+    <url>/2019/07/11/%E6%B5%8B%E8%AF%95%E8%AE%A1%E5%88%92%E6%A8%A1%E6%9D%BF/</url>
     <content><![CDATA[<h1 id="测试计划"><a href="#测试计划" class="headerlink" title="测试计划"></a>测试计划</h1><h1 id="XXX-项目测试计划"><a href="#XXX-项目测试计划" class="headerlink" title="XXX 项目测试计划"></a><center>XXX 项目测试计划</center></h1><h2 id="1-引言"><a href="#1-引言" class="headerlink" title="1.引言"></a>1. 引言</h2><h3 id="1-1-编写目的"><a href="#1-1-编写目的" class="headerlink" title="1.1 编写目的"></a>1.1 编写目的</h3><p>根据需求文档，提炼测试功能点、制定测试策略、评估测试风险，预估编写测试用例、执行功能测试和回归测试的工作量，进行人员和进度安排。</p>
 <span id="more"></span>
 
 <h3 id="1-2-预期读者"><a href="#1-2-预期读者" class="headerlink" title="1.2 预期读者"></a>1.2 预期读者</h3><p>管鑫所项目经理、开发、产品、测试。</p>
 <h3 id="1-3-参考资料"><a href="#1-3-参考资料" class="headerlink" title="1.3 参考资料"></a>1.3 参考资料</h3><p>需求文档</p>
-<h2 id="2-测试范围"><a href="#2-测试范围" class="headerlink" title="2.测试范围"></a>2. 测试范围</h2><h2 id="3-测试策略"><a href="#3-测试策略" class="headerlink" title="3.测试策略"></a>3. 测试策略</h2><h3 id="3-1-UI-测试"><a href="#3-1-UI-测试" class="headerlink" title="3.1 UI 测试"></a>3.1 UI 测试</h3><h3 id="3-1-1-文案测试"><a href="#3-1-1-文案测试" class="headerlink" title="3.1.1 文案测试"></a>3.1.1 文案测试</h3><p>（1）字体<br>（2）字号<br>（3）格式<br>（4）规范</p>
-<h3 id="3-2-2-图片测试"><a href="#3-2-2-图片测试" class="headerlink" title="3.2.2 图片测试"></a>3.2.2 图片测试</h3><p>（1）清晰<br>（2）尺寸<br>（3）配色<br>（4）风格</p>
-<h3 id="3-2-3-布局测试"><a href="#3-2-3-布局测试" class="headerlink" title="3.2.3 布局测试"></a>3.2.3 布局测试</h3><p>（1）尺寸大小<br>（2）位置合理<br>（3）排序规律<br>（4）对齐方式</p>
-<h3 id="3-2-4-控件测试"><a href="#3-2-4-控件测试" class="headerlink" title="3.2.4 控件测试"></a>3.2.4 控件测试</h3><p>（1）输入框<br>（2）按钮<br>（3）下拉菜单<br>（4）列表<br>(5) 单选框<br>（6）复选框<br>（7）时间框<br>（8）左右选择框<br>（9）树形<br>（10）图标类检查<br>（11）文件类<br>（12）图片类<br>（13）URL 检查<br>（14）IP 输入框</p>
-<h3 id="3-2-5-快捷键测试"><a href="#3-2-5-快捷键测试" class="headerlink" title="3.2.5 快捷键测试"></a>3.2.5 快捷键测试</h3><h2 id="3-2-功能测试策略"><a href="#3-2-功能测试策略" class="headerlink" title="3.2 功能测试策略"></a>3.2 功能测试策略</h2><p>具体见每个版本测试用例。</p>
-<h2 id="3-3-系统兼容性测试"><a href="#3-3-系统兼容性测试" class="headerlink" title="3.3 系统兼容性测试"></a>3.3 系统兼容性测试</h2><h2 id="3-4-易用性测试"><a href="#3-4-易用性测试" class="headerlink" title="3.4 易用性测试"></a>3.4 易用性测试</h2><h2 id="3-5-安全性测试"><a href="#3-5-安全性测试" class="headerlink" title="3.5 安全性测试"></a>3.5 安全性测试</h2><h2 id="3-6-网络环境测试"><a href="#3-6-网络环境测试" class="headerlink" title="3.6 网络环境测试"></a>3.6 网络环境测试</h2><p>网络的影响会影响到用户的体验，一般遵守 258 原则是最好的。</p>
-<h2 id="3-7-单元测试"><a href="#3-7-单元测试" class="headerlink" title="3.7 单元测试"></a>3.7 单元测试</h2><p>由开发人员完成。<br>3.3 性能测试<br>关键接口功能，简单做性能测试。</p>
-<h2 id="4-测试资源"><a href="#4-测试资源" class="headerlink" title="4.测试资源"></a>4. 测试资源</h2><h3 id="4-1-测试人员"><a href="#4-1-测试人员" class="headerlink" title="4.1 测试人员"></a>4.1 测试人员</h3><p>刘礼柯、王籽涵</p>
-<h3 id="4-2-测试环境"><a href="#4-2-测试环境" class="headerlink" title="4.2 测试环境"></a>4.2 测试环境</h3><p>暂时未搭建。</p>
-<h3 id="4-3-测试工具"><a href="#4-3-测试工具" class="headerlink" title="4.3 测试工具"></a>4.3 测试工具</h3><h3 id="4-3-1-Bug-管理工具：bugfree"><a href="#4-3-1-Bug-管理工具：bugfree" class="headerlink" title="4.3.1 Bug 管理工具：bugfree"></a>4.3.1 Bug 管理工具：bugfree</h3><h3 id="4-3-2-postman"><a href="#4-3-2-postman" class="headerlink" title="4.3.2 postman"></a>4.3.2 postman</h3><p>前期测试呼叫系统，使用 postman 模拟相应的用户场景进行测试。</p>
-<h3 id="4-3-3-IETester"><a href="#4-3-3-IETester" class="headerlink" title="4.3.3 IETester"></a>4.3.3 IETester</h3><p>测试 IE 浏览器的不同版本。</p>
-<h3 id="4-3-4-Vbox-虚拟机"><a href="#4-3-4-Vbox-虚拟机" class="headerlink" title="4.3.4 Vbox 虚拟机"></a>4.3.4 Vbox 虚拟机</h3><h3 id="4-3-5-Jemter"><a href="#4-3-5-Jemter" class="headerlink" title="4.3.5 Jemter"></a>4.3.5 Jemter</h3><p>重要端口、步骤、流程做压力测试。</p>
+<h2 id="2-测试范围"><a href="#2-测试范围" class="headerlink" title="2.测试范围"></a>2. 测试范围</h2><h2 id="3-测试策略"><a href="#3-测试策略" class="headerlink" title="3.测试策略"></a>3. 测试策略</h2><h3 id="3-1-UI-测试"><a href="#3-1-UI-测试" class="headerlink" title="3.1 UI 测试"></a>3.1 UI 测试</h3><h4 id="3-1-1-文案测试"><a href="#3-1-1-文案测试" class="headerlink" title="3.1.1 文案测试"></a>3.1.1 文案测试</h4><p>（1）字体<br>（2）字号<br>（3）格式<br>（4）规范</p>
+<h4 id="3-1-2-图片测试"><a href="#3-1-2-图片测试" class="headerlink" title="3.1.2 图片测试"></a>3.1.2 图片测试</h4><p>（1）清晰<br>（2）尺寸<br>（3）配色<br>（4）风格</p>
+<h4 id="3-1-3-布局测试"><a href="#3-1-3-布局测试" class="headerlink" title="3.1.3 布局测试"></a>3.1.3 布局测试</h4><p>（1）尺寸大小<br>（2）位置合理<br>（3）排序规律<br>（4）对齐方式</p>
+<h4 id="3-1-4-控件测试"><a href="#3-1-4-控件测试" class="headerlink" title="3.1.4 控件测试"></a>3.1.4 控件测试</h4><p>（1）输入框<br>（2）按钮<br>（3）下拉菜单<br>（4）列表<br>   (5) 单选框<br>（6）复选框<br>（7）时间框<br>（8）左右选择框<br>（9）树形<br>（10）图标类检查<br>（11）文件类<br>（12）图片类<br>（13）URL 检查<br>（14）IP 输入框</p>
+<h4 id="3-1-5-快捷键测试"><a href="#3-1-5-快捷键测试" class="headerlink" title="3.1.5 快捷键测试"></a>3.1.5 快捷键测试</h4><h3 id="3-2-功能测试策略"><a href="#3-2-功能测试策略" class="headerlink" title="3.2 功能测试策略"></a>3.2 功能测试策略</h3><p>具体见每个版本测试用例。</p>
+<h3 id="3-3-系统兼容性测试"><a href="#3-3-系统兼容性测试" class="headerlink" title="3.3 系统兼容性测试"></a>3.3 系统兼容性测试</h3><h3 id="3-4-易用性测试"><a href="#3-4-易用性测试" class="headerlink" title="3.4 易用性测试"></a>3.4 易用性测试</h3><h3 id="3-5-安全性测试"><a href="#3-5-安全性测试" class="headerlink" title="3.5 安全性测试"></a>3.5 安全性测试</h3><h3 id="3-6-网络环境测试"><a href="#3-6-网络环境测试" class="headerlink" title="3.6 网络环境测试"></a>3.6 网络环境测试</h3><p>网络的影响会影响到用户的体验，一般遵守 258 原则是最好的。</p>
+<h3 id="3-7-单元测试"><a href="#3-7-单元测试" class="headerlink" title="3.7 单元测试"></a>3.7 单元测试</h3><p>由开发人员完成。<br>3.3 性能测试<br>关键接口功能，简单做性能测试。</p>
+<h2 id="4-测试资源"><a href="#4-测试资源" class="headerlink" title="4.测试资源"></a>4. 测试资源</h2><h3 id="4-1-测试人员"><a href="#4-1-测试人员" class="headerlink" title="4.1 测试人员"></a>4.1 测试人员</h3><h3 id="4-2-测试环境"><a href="#4-2-测试环境" class="headerlink" title="4.2 测试环境"></a>4.2 测试环境</h3><h3 id="4-3-测试工具"><a href="#4-3-测试工具" class="headerlink" title="4.3 测试工具"></a>4.3 测试工具</h3><h4 id="4-3-1-Bug-管理工具：bugfree"><a href="#4-3-1-Bug-管理工具：bugfree" class="headerlink" title="4.3.1 Bug 管理工具：bugfree"></a>4.3.1 Bug 管理工具：bugfree</h4><h4 id="4-3-2-postman"><a href="#4-3-2-postman" class="headerlink" title="4.3.2 postman"></a>4.3.2 postman</h4><p>前期测试呼叫系统，使用 postman 模拟相应的用户场景进行测试。</p>
+<h4 id="4-3-3-IETester"><a href="#4-3-3-IETester" class="headerlink" title="4.3.3 IETester"></a>4.3.3 IETester</h4><p>测试 IE 浏览器的不同版本。</p>
+<h4 id="4-3-4-Vbox-虚拟机"><a href="#4-3-4-Vbox-虚拟机" class="headerlink" title="4.3.4 Vbox 虚拟机"></a>4.3.4 Vbox 虚拟机</h4><h4 id="4-3-5-Jemter"><a href="#4-3-5-Jemter" class="headerlink" title="4.3.5 Jemter"></a>4.3.5 Jemter</h4><p>重要端口、步骤、流程做压力测试。</p>
 <h2 id="5-进度安排"><a href="#5-进度安排" class="headerlink" title="5.进度安排"></a>5. 进度安排</h2><h3 id="5-1-测试进度及工作量估算"><a href="#5-1-测试进度及工作量估算" class="headerlink" title="5.1 测试进度及工作量估算"></a>5.1 测试进度及工作量估算</h3><p>根据周会原型确定周任务：<br>例如<br>任务 时间 执行人员 预计工作量 / 天<br>编写测试计划 2019-07-10 张三 1 天<br>编写测试用例 2019-07</p>
 <p>根据具体的需求、开发计划估算具体的测试工作量。</p>
 <h3 id="5-2-输出文档"><a href="#5-2-输出文档" class="headerlink" title="5.2 输出文档"></a>5.2 输出文档</h3><p>（1）测试计划<br>（2）测试用例（bugfree 中查看）<br>（3）测试数据（上传至 bugfree）<br>（4）测试报告</p>
-<h2 id="6-发布标准"><a href="#6-发布标准" class="headerlink" title="6.发布标准"></a>6. 发布标准</h2><h3 id="6-1-测试完成标准"><a href="#6-1-测试完成标准" class="headerlink" title="6.1 测试完成标准"></a>6.1 测试完成标准</h3><p>（1）完成所有测试类型。<br><br>（2）没有影响用户正常使用的 Bug。<br><br>（3）bug 少于一定的数量（需要商定）<br><br>（4）服务端性能满足设计目标。<br></p>
-<h3 id="6-2-产品发布标准"><a href="#6-2-产品发布标准" class="headerlink" title="6.2 产品发布标准"></a>6.2 产品发布标准</h3><p>（1）所有产品需求都已完成。<br><br>（2）遗留 bug 经过风险评估。<br><br>（3）有完备的流程文档。<br></p>
-<h2 id="7-风险说明"><a href="#7-风险说明" class="headerlink" title="7.风险说明"></a>7. 风险说明</h2><h2 id="8-应急措施"><a href="#8-应急措施" class="headerlink" title="8.应急措施"></a>8. 应急措施</h2>]]></content>
+<h2 id="6-发布标准"><a href="#6-发布标准" class="headerlink" title="6.发布标准"></a>6. 发布标准</h2><h3 id="6-1-测试完成标准"><a href="#6-1-测试完成标准" class="headerlink" title="6.1 测试完成标准"></a>6.1 测试完成标准</h3><h4 id="（1）完成所有测试类型。"><a href="#（1）完成所有测试类型。" class="headerlink" title="（1）完成所有测试类型。"></a>（1）完成所有测试类型。<br></h4><h4 id="（2）没有影响用户正常使用的-Bug。"><a href="#（2）没有影响用户正常使用的-Bug。" class="headerlink" title="（2）没有影响用户正常使用的 Bug。"></a>（2）没有影响用户正常使用的 Bug。<br></h4><h4 id="（3）bug-少于一定的数量（需要商定）"><a href="#（3）bug-少于一定的数量（需要商定）" class="headerlink" title="（3）bug 少于一定的数量（需要商定）"></a>（3）bug 少于一定的数量（需要商定）<br></h4><h4 id="（4）服务端性能满足设计目标。"><a href="#（4）服务端性能满足设计目标。" class="headerlink" title="（4）服务端性能满足设计目标。"></a>（4）服务端性能满足设计目标。<br></h4><h3 id="6-2-产品发布标准"><a href="#6-2-产品发布标准" class="headerlink" title="6.2 产品发布标准"></a>6.2 产品发布标准</h3><h4 id="（1）所有产品需求都已完成。"><a href="#（1）所有产品需求都已完成。" class="headerlink" title="（1）所有产品需求都已完成。"></a>（1）所有产品需求都已完成。<br></h4><h4 id="（2）遗留-bug-经过风险评估。"><a href="#（2）遗留-bug-经过风险评估。" class="headerlink" title="（2）遗留 bug 经过风险评估。"></a>（2）遗留 bug 经过风险评估。<br></h4><h4 id="（3）有完备的流程文档。"><a href="#（3）有完备的流程文档。" class="headerlink" title="（3）有完备的流程文档。"></a>（3）有完备的流程文档。<br></h4><h2 id="7-风险说明"><a href="#7-风险说明" class="headerlink" title="7.风险说明"></a>7. 风险说明</h2><h2 id="8-应急措施"><a href="#8-应急措施" class="headerlink" title="8.应急措施"></a>8. 应急措施</h2>]]></content>
       <categories>
         <category>测试文档</category>
       </categories>
+      <tags>
+        <tag>documents</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解决 Jenkins 插件安装失败 - 插件下载慢的问题</title>
+    <url>/2021/05/25/%E8%A7%A3%E5%86%B3Jenkins%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5-%E6%8F%92%E4%BB%B6%E4%B8%8B%E8%BD%BD%E6%85%A2%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在安装 Jenkins 的过程中，插件总是安装失败或者下载很慢。</p>
+<span id="more"></span>
+
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>安装源为国外的网站，所以下载速度慢。</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>直接把源换为国内的镜像站，步骤如下：</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2021-05-25_15-15-12.png" alt="p1"></p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2021-05-25_15-20-26.png" alt="p2"></p>
+<p>清华大学镜像站:</p>
+<p><a href="https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json">https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json</a></p>
+]]></content>
+      <categories>
+        <category>软件使用</category>
+      </categories>
+      <tags>
+        <tag>jenkins</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解决 hexo 部署出现 Error-ENOTEMPTY 的问题</title>
+    <url>/2021/05/21/%E8%A7%A3%E5%86%B3hexo%E9%83%A8%E7%BD%B2%E5%87%BA%E7%8E%B0Error-ENOTEMPTY%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在 Terminal 执行 hexo deploy 后，报错如下：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">FATAL {</span><br><span class="line">  err: [Error: ENOTEMPTY: directory not empty, <span class="built_in">rmdir</span> <span class="string">'/Users/XXX/XXXX/XXXX/.deploy_git/page'</span>] {</span><br><span class="line">    errno: -66,</span><br><span class="line">    code: <span class="string">'ENOTEMPTY'</span>,</span><br><span class="line">    syscall: <span class="string">'rmdir'</span>,</span><br><span class="line">    path: <span class="string">'/Users/XXX/XXXX/XXXX/.deploy_git/page'</span></span><br><span class="line">  } </span><br><span class="line">}  Something<span class="string">'s wrong. Maybe you can find the solution here: %s https://hexo.io/docs/troubleshooting.html</span></span><br></pre></td></tr></tbody></table></figure>
+
+<span id="more"></span>
+
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>翻译可知，/Users/XXX/XXXX/XXXX/.deploy_git/page，这个文件夹需要为空，进入该目录，发现原本就是空的，未知原因。</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>直接删除 / Users/XXX/XXXX/XXXX/.deploy_git/ 这个文件夹，然后直接在 Terminal 执行：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></tbody></table></figure>
+
+<p>然后部署成功。</p>
+]]></content>
+      <categories>
+        <category>环境部署</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>读书笔记模版</title>
+    <url>/2019/08/14/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E6%A8%A1%E7%89%88/</url>
+    <content><![CDATA[<h2 id="1-书摘"><a href="#1-书摘" class="headerlink" title="1.书摘"></a>1. 书摘</h2><p>读书要有所得，必须要有思考，而思考的最佳验收方式就是输出。不论是书评还是读书笔记，怎样都好，只要是经过你理解的输出，就非常有价值。</p>
+<span id="more"></span>
+
+<h2 id="2-读书心得"><a href="#2-读书心得" class="headerlink" title="2.读书心得"></a>2. 读书心得</h2><p>简单的阅读感受和启发，或者深入的书评，无论长短都可以，有收获最重要。</p>
+<h2 id="3-知识积累"><a href="#3-知识积累" class="headerlink" title="3.知识积累"></a>3. 知识积累</h2><p>使用 kindle 技巧：</p>
+<p>技巧 1：截屏<br>截屏的方法很简单，只要记住一个对角线原则就好。大家在 “左上右下” 或 “左下右上” 的角落位置同时按住，即可完成截图操作注意事项：①必须同时按到对角线两边的圆形区域；②当屏幕闪现一下则代表截屏成功，否则就再试一次。</p>
+<p>结束动作后，你的截屏将会在 Kindle 根目录中以图片的形式（png）出现，如果你想导出它们，只需要将 Kindle 连接电脑，从根目录中将图片拖出即可。</p>
+<p>技巧 2：字号拉伸字号拉伸是个比较隐蔽的功能，作用说大不大，说小不小，就是减少了大家放大或缩小字体的难度，增强了交互体验。那么应该如何操作呢？其实非常简单，只要我们进入了阅读模式，即点击进入某读物的时候，我们可以将两个手指同时放在屏幕中，通过向内或向外的同时位移来完成放大或缩小的操作。</p>
+<h2 id="4-思维导图"><a href="#4-思维导图" class="headerlink" title="4.思维导图"></a>4. 思维导图</h2><p>这里可以添加一个总结的思维导图。</p>
+<h2 id="5-遗留问题"><a href="#5-遗留问题" class="headerlink" title="5.遗留问题"></a>5. 遗留问题</h2><p>不懂的地方。</p>
+]]></content>
+      <categories>
+        <category>读书笔记</category>
+      </categories>
+      <tags>
+        <tag>templates</tag>
+      </tags>
   </entry>
   <entry>
     <title>如何从 mac 系统传输文件或文件夹到 Ubuntu 系统</title>
@@ -234,75 +281,10 @@
 <h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2><p>参考于该网站 <a href="https://www.runoob.com/linux/linux-comm-scp.html">www.runoob.com</a></p>
 ]]></content>
       <categories>
-        <category>环境搭建</category>
+        <category>环境部署</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何用 kindle 高效学习</title>
-    <url>/2019/08/14/%E5%A6%82%E4%BD%95%E7%94%A8kindle%E9%AB%98%E6%95%88%E5%AD%A6%E4%B9%A0/</url>
-    <content><![CDATA[<p>1. 书摘<br>富家不用买良田，书中自有千钟粟。</p>
-<p>1. 读书要有所得，必须要有思考，而思考的最佳验收方式就是输出。不论是书评还是读书笔记，怎样都好，只要是经过你理解的输出，就非常有价值。</p>
-<span id="more"></span>
-
-<p>2. 读书心得<br>安居不用架高楼，书中自有黄金屋。</p>
-<p>简单的阅读感受和启发，或者深入的书评，无论长短都可以，有收获最重要。</p>
-<p>3. 知识积累<br>出门莫恨无人随，书中车马多如簇。</p>
-<p>使用 kindle 技巧：</p>
-<p>技巧 1：截屏<br>截屏的方法很简单，只要记住一个对角线原则就好。大家在 “左上右下” 或 “左下右上” 的角落位置同时按住，即可完成截图操作注意事项：①必须同时按到对角线两边的圆形区域；②当屏幕闪现一下则代表截屏成功，否则就再试一次。</p>
-<p>结束动作后，你的截屏将会在 Kindle 根目录中以图片的形式（png）出现，如果你想导出它们，只需要将 Kindle 连接电脑，从根目录中将图片拖出即可。</p>
-<p>技巧 2：字号拉伸字号拉伸是个比较隐蔽的功能，作用说大不大，说小不小，就是减少了大家放大或缩小字体的难度，增强了交互体验。那么应该如何操作呢？其实非常简单，只要我们进入了阅读模式，即点击进入某读物的时候，我们可以将两个手指同时放在屏幕中，通过向内或向外的同时位移来完成放大或缩小的操作。</p>
-<p>4. 思维导图<br>娶妻无媒毋须恨，书中有女颜如玉。</p>
-<p>5. 遗留问题<br>男儿欲遂平生志，勤向窗前多读书。</p>
-]]></content>
-      <categories>
-        <category>读书</category>
-      </categories>
-      <tags>
-        <tag>Kindle</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>解决 Jenkins 插件安装失败 - 插件下载慢的问题</title>
-    <url>/2021/05/25/%E8%A7%A3%E5%86%B3Jenkins%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5-%E6%8F%92%E4%BB%B6%E4%B8%8B%E8%BD%BD%E6%85%A2%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在安装 Jenkins 的过程中，插件总是安装失败或者下载很慢。</p>
-<span id="more"></span>
-
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>安装源为国外的网站，所以下载速度慢。</p>
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>直接把源换为国内的镜像站，步骤如下：</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2021-05-25_15-15-12.png" alt="p1"></p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2021-05-25_15-20-26.png" alt="p2"></p>
-<p>清华大学镜像站:</p>
-<p><a href="https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json">https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json</a></p>
-]]></content>
-      <categories>
-        <category>环境搭建</category>
-      </categories>
-      <tags>
-        <tag>Jenkins</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>解决 hexo 部署出现 Error-ENOTEMPTY 的问题</title>
-    <url>/2021/05/21/%E8%A7%A3%E5%86%B3hexo%E9%83%A8%E7%BD%B2%E5%87%BA%E7%8E%B0Error-ENOTEMPTY%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在 Terminal 执行 hexo deploy 后，报错如下：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">FATAL {</span><br><span class="line">  err: [Error: ENOTEMPTY: directory not empty, <span class="built_in">rmdir</span> <span class="string">'/Users/XXX/XXXX/XXXX/.deploy_git/page'</span>] {</span><br><span class="line">    errno: -66,</span><br><span class="line">    code: <span class="string">'ENOTEMPTY'</span>,</span><br><span class="line">    syscall: <span class="string">'rmdir'</span>,</span><br><span class="line">    path: <span class="string">'/Users/XXX/XXXX/XXXX/.deploy_git/page'</span></span><br><span class="line">  } </span><br><span class="line">}  Something<span class="string">'s wrong. Maybe you can find the solution here: %s https://hexo.io/docs/troubleshooting.html</span></span><br></pre></td></tr></tbody></table></figure>
-
-<span id="more"></span>
-
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>翻译可知，/Users/XXX/XXXX/XXXX/.deploy_git/page，这个文件夹需要为空，进入该目录，发现原本就是空的，未知原因。</p>
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>直接删除 / Users/XXX/XXXX/XXXX/.deploy_git/ 这个文件夹，然后直接在 Terminal 执行：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></tbody></table></figure>
-
-<p>然后部署成功。</p>
-]]></content>
-      <categories>
-        <category>Blog</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
+        <tag>linux</tag>
       </tags>
   </entry>
 </search>

@@ -80,6 +80,8 @@
 <li>找到 JMeter 安装目录下的 <code>log4j2.xml</code> 配置文件。在 JMeter 3.x 及以上版本中，这个文件通常位于 <code>apache-jmeter-X.XX/bin</code> 目录下。</li>
 <li>打开 <code>log4j2.xml</code> 文件，找到 <code>RollingFile</code> 或 <code>File</code> 类型的 Appender 配置部分。</li>
 </ol>
+<span id="more"></span>
+
 <figure class="highlight xml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</span></span><br><span class="line"><span class="comment">&lt;!--......--&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">Configuration</span> <span class="attr">status</span>=<span class="string">"WARN"</span> <span class="attr">packages</span>=<span class="string">"org.apache.jmeter.gui.logging"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Appenders</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 修改这里，修改日志文件位置 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">File</span> <span class="attr">name</span>=<span class="string">"jmeter-log"</span> <span class="attr">fileName</span>=<span class="string">"/path/to/your/log/jmeter.log"</span> <span class="attr">append</span>=<span class="string">"false"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>%d %p %c{1.}: %m%n<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">File</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">GuiLogEvent</span> <span class="attr">name</span>=<span class="string">"gui-log-event"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>%d %p %c{1.}: %m%n<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">GuiLogEvent</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;/<span class="name">Appenders</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">Loggers</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Root</span> <span class="attr">level</span>=<span class="string">"info"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">AppenderRef</span> <span class="attr">ref</span>=<span class="string">"jmeter-log"</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">AppenderRef</span> <span class="attr">ref</span>=<span class="string">"gui-log-event"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Root</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Logger</span> <span class="attr">name</span>=<span class="string">"org.apache.jmeter.junit"</span> <span class="attr">level</span>=<span class="string">"debug"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;/<span class="name">Loggers</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">Configuration</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
 
 ]]></content>
@@ -284,27 +286,6 @@
       </tags>
   </entry>
   <entry>
-    <title>读书笔记模版</title>
-    <url>/2019/08/14/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E6%A8%A1%E7%89%88/</url>
-    <content><![CDATA[<h2 id="1-书摘"><a href="#1-书摘" class="headerlink" title="1.书摘"></a>1. 书摘</h2><p>读书要有所得，必须要有思考，而思考的最佳验收方式就是输出。不论是书评还是读书笔记，怎样都好，只要是经过你理解的输出，就非常有价值。</p>
-<span id="more"></span>
-
-<h2 id="2-读书心得"><a href="#2-读书心得" class="headerlink" title="2.读书心得"></a>2. 读书心得</h2><p>简单的阅读感受和启发，或者深入的书评，无论长短都可以，有收获最重要。</p>
-<h2 id="3-知识积累"><a href="#3-知识积累" class="headerlink" title="3.知识积累"></a>3. 知识积累</h2><p>使用 kindle 技巧：</p>
-<p>技巧 1：截屏<br>截屏的方法很简单，只要记住一个对角线原则就好。大家在 “左上右下” 或 “左下右上” 的角落位置同时按住，即可完成截图操作注意事项：①必须同时按到对角线两边的圆形区域；②当屏幕闪现一下则代表截屏成功，否则就再试一次。</p>
-<p>结束动作后，你的截屏将会在 Kindle 根目录中以图片的形式（png）出现，如果你想导出它们，只需要将 Kindle 连接电脑，从根目录中将图片拖出即可。</p>
-<p>技巧 2：字号拉伸字号拉伸是个比较隐蔽的功能，作用说大不大，说小不小，就是减少了大家放大或缩小字体的难度，增强了交互体验。那么应该如何操作呢？其实非常简单，只要我们进入了阅读模式，即点击进入某读物的时候，我们可以将两个手指同时放在屏幕中，通过向内或向外的同时位移来完成放大或缩小的操作。</p>
-<h2 id="4-思维导图"><a href="#4-思维导图" class="headerlink" title="4.思维导图"></a>4. 思维导图</h2><p>这里可以添加一个总结的思维导图。</p>
-<h2 id="5-遗留问题"><a href="#5-遗留问题" class="headerlink" title="5.遗留问题"></a>5. 遗留问题</h2><p>不懂的地方。</p>
-]]></content>
-      <categories>
-        <category>读书笔记</category>
-      </categories>
-      <tags>
-        <tag>templates</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>解决 hexo 部署出现 Error-ENOTEMPTY 的问题</title>
     <url>/2021/05/21/%E8%A7%A3%E5%86%B3hexo%E9%83%A8%E7%BD%B2%E5%87%BA%E7%8E%B0Error-ENOTEMPTY%E7%9A%84%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在 Terminal 执行 hexo deploy 后，报错如下：</p>
@@ -323,6 +304,27 @@
       </categories>
       <tags>
         <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>读书笔记模版</title>
+    <url>/2019/08/14/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E6%A8%A1%E7%89%88/</url>
+    <content><![CDATA[<h2 id="1-书摘"><a href="#1-书摘" class="headerlink" title="1.书摘"></a>1. 书摘</h2><p>读书要有所得，必须要有思考，而思考的最佳验收方式就是输出。不论是书评还是读书笔记，怎样都好，只要是经过你理解的输出，就非常有价值。</p>
+<span id="more"></span>
+
+<h2 id="2-读书心得"><a href="#2-读书心得" class="headerlink" title="2.读书心得"></a>2. 读书心得</h2><p>简单的阅读感受和启发，或者深入的书评，无论长短都可以，有收获最重要。</p>
+<h2 id="3-知识积累"><a href="#3-知识积累" class="headerlink" title="3.知识积累"></a>3. 知识积累</h2><p>使用 kindle 技巧：</p>
+<p>技巧 1：截屏<br>截屏的方法很简单，只要记住一个对角线原则就好。大家在 “左上右下” 或 “左下右上” 的角落位置同时按住，即可完成截图操作注意事项：①必须同时按到对角线两边的圆形区域；②当屏幕闪现一下则代表截屏成功，否则就再试一次。</p>
+<p>结束动作后，你的截屏将会在 Kindle 根目录中以图片的形式（png）出现，如果你想导出它们，只需要将 Kindle 连接电脑，从根目录中将图片拖出即可。</p>
+<p>技巧 2：字号拉伸字号拉伸是个比较隐蔽的功能，作用说大不大，说小不小，就是减少了大家放大或缩小字体的难度，增强了交互体验。那么应该如何操作呢？其实非常简单，只要我们进入了阅读模式，即点击进入某读物的时候，我们可以将两个手指同时放在屏幕中，通过向内或向外的同时位移来完成放大或缩小的操作。</p>
+<h2 id="4-思维导图"><a href="#4-思维导图" class="headerlink" title="4.思维导图"></a>4. 思维导图</h2><p>这里可以添加一个总结的思维导图。</p>
+<h2 id="5-遗留问题"><a href="#5-遗留问题" class="headerlink" title="5.遗留问题"></a>5. 遗留问题</h2><p>不懂的地方。</p>
+]]></content>
+      <categories>
+        <category>读书笔记</category>
+      </categories>
+      <tags>
+        <tag>templates</tag>
       </tags>
   </entry>
 </search>

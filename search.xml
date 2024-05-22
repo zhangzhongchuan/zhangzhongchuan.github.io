@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Ubuntu 中 chromdriver 和 geckodriver 的下载和配置</title>
+    <url>/2021/05/25/Ubuntu%E4%B8%ADchromdriver%E5%92%8Cgeckodriver%E7%9A%84%E4%B8%8B%E8%BD%BD%E5%92%8C%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<h2 id="1-下载地址为："><a href="#1-下载地址为：" class="headerlink" title="1.下载地址为："></a>1. 下载地址为：</h2><h3 id="（1）Chromedriver"><a href="#（1）Chromedriver" class="headerlink" title="（1）Chromedriver:"></a>（1）Chromedriver:</h3><h3 id="http-chromedriver-storage-googleapis-com-index-html"><a href="#http-chromedriver-storage-googleapis-com-index-html" class="headerlink" title="http://chromedriver.storage.googleapis.com/index.html"></a><a href="http://chromedriver.storage.googleapis.com/index.html">http://chromedriver.storage.googleapis.com/index.html</a></h3><h3 id="（2）Geckodriver"><a href="#（2）Geckodriver" class="headerlink" title="（2）Geckodriver:"></a>（2）Geckodriver:</h3><h3 id="https-github-com-mozilla-geckodriver-releases"><a href="#https-github-com-mozilla-geckodriver-releases" class="headerlink" title="https://github.com/mozilla/geckodriver/releases/"></a><a href="https://github.com/mozilla/geckodriver/releases/">https://github.com/mozilla/geckodriver/releases/</a></h3><span id="more"></span>
+
+<h2 id="2-查找文件地址后，下载文件"><a href="#2-查找文件地址后，下载文件" class="headerlink" title="2.查找文件地址后，下载文件:"></a>2. 查找文件地址后，下载文件:</h2><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">wget -P /home/user/testWget/ http://chromedriver.storage.googleapis.com/90.0.4430.24/chromedriver_linux64.zip</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="3-将Chromedriver解压后，放到-usr-bin目录下"><a href="#3-将Chromedriver解压后，放到-usr-bin目录下" class="headerlink" title="3.将Chromedriver解压后，放到/usr/bin目录下:"></a>3. 将 Chromedriver 解压后，放到 /usr/bin 目录下:</h2><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">unzip /home/git/testScp/chromedriver_linux64.zip</span><br><span class="line"><span class="built_in">mv</span> chromedriver /usr/bin</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="4-Geckodriver同以上Chromedriver步骤。"><a href="#4-Geckodriver同以上Chromedriver步骤。" class="headerlink" title="4.Geckodriver同以上Chromedriver步骤。"></a>4.Geckodriver 同以上 Chromedriver 步骤。</h2>]]></content>
+      <categories>
+        <category>环境部署</category>
+      </categories>
+      <tags>
+        <tag>ubuntu</tag>
+        <tag>selenium</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>使用 hexo 搭建 GitHub Page 博客后，网页显示 404 的问题解决</title>
     <url>/2019/08/14/hexo%E7%AC%AC%E4%B8%80%E6%AC%A1%E9%83%A8%E7%BD%B2%E7%BD%91%E9%A1%B5%E6%98%BE%E7%A4%BA404/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>使用 hexo 搭建 GitHub Page 博客后，第一次正常，第二次上传后，博客网页显示 404 页面。</p>
@@ -19,24 +37,6 @@
       </categories>
       <tags>
         <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Ubuntu 中 chromdriver 和 geckodriver 的下载和配置</title>
-    <url>/2021/05/25/Ubuntu%E4%B8%ADchromdriver%E5%92%8Cgeckodriver%E7%9A%84%E4%B8%8B%E8%BD%BD%E5%92%8C%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<h2 id="1-下载地址为："><a href="#1-下载地址为：" class="headerlink" title="1.下载地址为："></a>1. 下载地址为：</h2><h3 id="（1）Chromedriver"><a href="#（1）Chromedriver" class="headerlink" title="（1）Chromedriver:"></a>（1）Chromedriver:</h3><h3 id="http-chromedriver-storage-googleapis-com-index-html"><a href="#http-chromedriver-storage-googleapis-com-index-html" class="headerlink" title="http://chromedriver.storage.googleapis.com/index.html"></a><a href="http://chromedriver.storage.googleapis.com/index.html">http://chromedriver.storage.googleapis.com/index.html</a></h3><h3 id="（2）Geckodriver"><a href="#（2）Geckodriver" class="headerlink" title="（2）Geckodriver:"></a>（2）Geckodriver:</h3><h3 id="https-github-com-mozilla-geckodriver-releases"><a href="#https-github-com-mozilla-geckodriver-releases" class="headerlink" title="https://github.com/mozilla/geckodriver/releases/"></a><a href="https://github.com/mozilla/geckodriver/releases/">https://github.com/mozilla/geckodriver/releases/</a></h3><span id="more"></span>
-
-<h2 id="2-查找文件地址后，下载文件"><a href="#2-查找文件地址后，下载文件" class="headerlink" title="2.查找文件地址后，下载文件:"></a>2. 查找文件地址后，下载文件:</h2><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">wget -P /home/user/testWget/ http://chromedriver.storage.googleapis.com/90.0.4430.24/chromedriver_linux64.zip</span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="3-将Chromedriver解压后，放到-usr-bin目录下"><a href="#3-将Chromedriver解压后，放到-usr-bin目录下" class="headerlink" title="3.将Chromedriver解压后，放到/usr/bin目录下:"></a>3. 将 Chromedriver 解压后，放到 /usr/bin 目录下:</h2><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">unzip /home/git/testScp/chromedriver_linux64.zip</span><br><span class="line"><span class="built_in">mv</span> chromedriver /usr/bin</span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="4-Geckodriver同以上Chromedriver步骤。"><a href="#4-Geckodriver同以上Chromedriver步骤。" class="headerlink" title="4.Geckodriver同以上Chromedriver步骤。"></a>4.Geckodriver 同以上 Chromedriver 步骤。</h2>]]></content>
-      <categories>
-        <category>环境部署</category>
-      </categories>
-      <tags>
-        <tag>ubuntu</tag>
-        <tag>selenium</tag>
       </tags>
   </entry>
   <entry>
@@ -218,6 +218,38 @@
       </tags>
   </entry>
   <entry>
+    <title>如何从 mac 系统传输文件或文件夹到 Ubuntu 系统</title>
+    <url>/2021/05/24/%E5%A6%82%E4%BD%95%E4%BB%8Emac%E7%B3%BB%E7%BB%9F%E4%BC%A0%E8%BE%93%E6%96%87%E4%BB%B6%E5%88%B0Ubuntu%E7%B3%BB%E7%BB%9F/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>如何从 macOS 系统传输文件到 Ubuntu 系统？</p>
+<span id="more"></span>
+
+<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><p>使用 scp 命令，方法如下：</p>
+<h3 id="2-1从本地复制到远程-macOS→Ubuntu"><a href="#2-1从本地复制到远程-macOS→Ubuntu" class="headerlink" title="2.1从本地复制到远程(macOS→Ubuntu)"></a>2.1 从本地复制到远程 (macOS→Ubuntu)</h3><p>传输文件 (需要输入远程用户密码)：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">XXXMacBook-Pro:~ user$ scp /Users/user/testScp.txt root@192.168.1.177:/home/user</span><br><span class="line">root@192.168.1.XXX<span class="string">'s password:</span></span><br><span class="line"><span class="string">testScp.txt                                                    100%    0     0.0KB/s   00:00</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>传输目录：</p>
+<figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">XXXMacBook-Pro:~ user$ scp -r /Users/user/testScp root@192.168.7.177:/home/user</span><br><span class="line">root@192.168.1.XXX<span class="string">'s password:</span></span><br><span class="line"><span class="string">test1.txt                                                      100%    0     0.0KB/s   00:00</span></span><br><span class="line"><span class="string">testScp.txt                                                    100%    0     0.0KB/s   00:00</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h3 id="2-2从远程复制到本地-Ubuntu→macOS"><a href="#2-2从远程复制到本地-Ubuntu→macOS" class="headerlink" title="2.2从远程复制到本地(Ubuntu→macOS)"></a>2.2 从远程复制到本地 (Ubuntu→macOS)</h3><p>传输文件：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">XXXMacBook-Pro:~ user$ scp root@192.168.1.XXX:/home/user/testScp.txt /Users/user/</span><br><span class="line">root@192.168.1.XXX<span class="string">'s passwoXXX</span></span><br><span class="line"><span class="string">testScp.txt                                                    100%    8     5.4KB/s   00:00</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>传输目录：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">XXXMacBook-Pro:~ user$ scp -r root@192.168.1.XXX:/home/user/testScp/ /Users/user/</span><br><span class="line">root@192.168.1.XXX<span class="string">'s password:</span></span><br><span class="line"><span class="string">test1.txt                                                      100%   12     8.8KB/s   00:00</span></span><br><span class="line"><span class="string">testScp.txt                                                    100%   24    15.1KB/s   00:00</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2><p>参考于该网站 <a href="https://www.runoob.com/linux/linux-comm-scp.html">www.runoob.com</a></p>
+]]></content>
+      <categories>
+        <category>环境部署</category>
+      </categories>
+      <tags>
+        <tag>ubuntu</tag>
+        <tag>macos</tag>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>博客重新装修删除冗余内容</title>
     <url>/2024/05/06/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%96%B0%E8%A3%85%E4%BF%AE%E5%88%A0%E9%99%A4%E5%86%97%E4%BD%99%E5%86%85%E5%AE%B9/</url>
     <content><![CDATA[<p>最近有空闲时间，就重新装修了长时间没管过的博客，将以前的内容做了精简以及删除，后续会陆续将之前做的笔记整理后，写成 blog，大体做了如下改变。</p>
@@ -256,38 +288,6 @@
       </categories>
       <tags>
         <tag>macos</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何从 mac 系统传输文件或文件夹到 Ubuntu 系统</title>
-    <url>/2021/05/24/%E5%A6%82%E4%BD%95%E4%BB%8Emac%E7%B3%BB%E7%BB%9F%E4%BC%A0%E8%BE%93%E6%96%87%E4%BB%B6%E5%88%B0Ubuntu%E7%B3%BB%E7%BB%9F/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>如何从 macOS 系统传输文件到 Ubuntu 系统？</p>
-<span id="more"></span>
-
-<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><p>使用 scp 命令，方法如下：</p>
-<h3 id="2-1从本地复制到远程-macOS→Ubuntu"><a href="#2-1从本地复制到远程-macOS→Ubuntu" class="headerlink" title="2.1从本地复制到远程(macOS→Ubuntu)"></a>2.1 从本地复制到远程 (macOS→Ubuntu)</h3><p>传输文件 (需要输入远程用户密码)：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">XXXMacBook-Pro:~ user$ scp /Users/user/testScp.txt root@192.168.1.177:/home/user</span><br><span class="line">root@192.168.1.XXX<span class="string">'s password:</span></span><br><span class="line"><span class="string">testScp.txt                                                    100%    0     0.0KB/s   00:00</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>传输目录：</p>
-<figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">XXXMacBook-Pro:~ user$ scp -r /Users/user/testScp root@192.168.7.177:/home/user</span><br><span class="line">root@192.168.1.XXX<span class="string">'s password:</span></span><br><span class="line"><span class="string">test1.txt                                                      100%    0     0.0KB/s   00:00</span></span><br><span class="line"><span class="string">testScp.txt                                                    100%    0     0.0KB/s   00:00</span></span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<h3 id="2-2从远程复制到本地-Ubuntu→macOS"><a href="#2-2从远程复制到本地-Ubuntu→macOS" class="headerlink" title="2.2从远程复制到本地(Ubuntu→macOS)"></a>2.2 从远程复制到本地 (Ubuntu→macOS)</h3><p>传输文件：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">XXXMacBook-Pro:~ user$ scp root@192.168.1.XXX:/home/user/testScp.txt /Users/user/</span><br><span class="line">root@192.168.1.XXX<span class="string">'s passwoXXX</span></span><br><span class="line"><span class="string">testScp.txt                                                    100%    8     5.4KB/s   00:00</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>传输目录：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">XXXMacBook-Pro:~ user$ scp -r root@192.168.1.XXX:/home/user/testScp/ /Users/user/</span><br><span class="line">root@192.168.1.XXX<span class="string">'s password:</span></span><br><span class="line"><span class="string">test1.txt                                                      100%   12     8.8KB/s   00:00</span></span><br><span class="line"><span class="string">testScp.txt                                                    100%   24    15.1KB/s   00:00</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2><p>参考于该网站 <a href="https://www.runoob.com/linux/linux-comm-scp.html">www.runoob.com</a></p>
-]]></content>
-      <categories>
-        <category>环境部署</category>
-      </categories>
-      <tags>
-        <tag>ubuntu</tag>
-        <tag>macos</tag>
-        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -394,6 +394,26 @@
       </tags>
   </entry>
   <entry>
+    <title>macOS 中无法删除启动台的空白文件夹</title>
+    <url>/2024/05/09/%E8%A7%A3%E5%86%B3macOS%E4%B8%AD%E6%97%A0%E6%B3%95%E5%88%A0%E9%99%A4%E5%90%AF%E5%8A%A8%E5%8F%B0%E7%9A%84%E7%A9%BA%E7%99%BD%E6%96%87%E4%BB%B6%E5%A4%B9/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>今天下载了 Ryujinx，然后启动台自动把国际象棋 Ryujinx 放到了一个文件夹里面，然后手动拖出来之后，空文件夹没有消失，拖动其他图标进去后图标直接消失不见了，然后出现了一个虚线型的文件夹图标，图标可以显示，然后打开文件夹图标消失了，也无法拖出 App 图标。</p>
+<span id="more"></span>
+
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>macos12/13 系统 bug。</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>（1）在终端中输入以下，然后回车</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">open getconf DARWIN_USER_DIR</span><br></pre></td></tr></tbody></table></figure>
+
+<p>（2）然后删除 com.apple.dock.launchpad 文件夹</p>
+<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p><a href="https://discussionschinese.apple.com/thread/253648900?answerId=256835759322&amp;sortBy=best#256835759322">https://discussionschinese.apple.com/thread/253648900?answerId=256835759322&amp;sortBy=best#256835759322</a></p>
+]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>macos</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>解决使用 excel 打开 csv 文件时出现乱码的问题</title>
     <url>/2020/06/11/%E8%A7%A3%E5%86%B3%E4%BD%BF%E7%94%A8excel%E6%89%93%E5%BC%80csv%E6%96%87%E4%BB%B6%E6%97%B6%E5%87%BA%E7%8E%B0%E4%B9%B1%E7%A0%81%E7%9A%84%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>使用 excel 打开 csv 文件时出现乱码</p>
@@ -413,26 +433,6 @@
       </categories>
       <tags>
         <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>macOS 中无法删除启动台的空白文件夹</title>
-    <url>/2024/05/09/%E8%A7%A3%E5%86%B3macOS%E4%B8%AD%E6%97%A0%E6%B3%95%E5%88%A0%E9%99%A4%E5%90%AF%E5%8A%A8%E5%8F%B0%E7%9A%84%E7%A9%BA%E7%99%BD%E6%96%87%E4%BB%B6%E5%A4%B9/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>今天下载了 Ryujinx，然后启动台自动把国际象棋 Ryujinx 放到了一个文件夹里面，然后手动拖出来之后，空文件夹没有消失，拖动其他图标进去后图标直接消失不见了，然后出现了一个虚线型的文件夹图标，图标可以显示，然后打开文件夹图标消失了，也无法拖出 App 图标。</p>
-<span id="more"></span>
-
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>macos12/13 系统 bug。</p>
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>（1）在终端中输入以下，然后回车</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">open getconf DARWIN_USER_DIR</span><br></pre></td></tr></tbody></table></figure>
-
-<p>（2）然后删除 com.apple.dock.launchpad 文件夹</p>
-<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p><a href="https://discussionschinese.apple.com/thread/253648900?answerId=256835759322&amp;sortBy=best#256835759322">https://discussionschinese.apple.com/thread/253648900?answerId=256835759322&amp;sortBy=best#256835759322</a></p>
-]]></content>
-      <categories>
-        <category>操作系统</category>
-      </categories>
-      <tags>
-        <tag>macos</tag>
       </tags>
   </entry>
   <entry>

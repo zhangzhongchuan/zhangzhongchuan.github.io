@@ -1,0 +1,6 @@
+window.addEventListener("load",(function(){let t=document.body,e=["❤去活出你自己。❤","❤《日不落》❤","❤《一格格》❤","❤《森林巴士》❤","❤《爱就一个字》❤","❤《星辰大海》❤","❤《千千万万》❤","❤《我在等》❤","❤《如一》❤","❤《收敛》❤","❤《间距》❤","❤《早点早点》❤","❤《阿拉斯加海湾》❤","❤《Peace&Love》❤","❤《灰色》❤","❤《带你回家》❤","❤《等我回家》❤","❤《0919》❤","❤《我很好》❤","❤《会不会》❤","❤《经济舱》❤","❤《我走后》❤","❤《不删》❤","❤《Girls》❤","❤《Let Her Go》❤","❤《关于你的梦》❤","❤《慢慢》❤","❤《下雨天》❤","❤《翅膀》❤","❤《靠近一点》❤","❤《翅膀》❤","❤《This Is Love》❤","❤《重来》❤","❤《晴天》❤","❤《空白格》❤","❤《爱你3000》❤","❤《下落不明》❤","❤《我要》❤","❤《晚星》❤","❤《你，好不好？》❤","❤《50 Feet》❤","❤《COCO》❤","❤《NUMB》❤","❤《重演》❤","❤《所念皆星河》❤"];function n(t,e,n){this.x=t,this.y=e,this.rand=n}//自定义内容的数组
+t.addEventListener("click",(function(t){let o=new n(t.pageX,t.pageY,Math.ceil(Math.random()*e.length)),a=document.createElement("span");a.style.color=o.getRandom(),o.create(a),setTimeout((function(){o.out(a)}),1900)})),n.prototype.create=function(t){let n=document.body;t.innerHTML=e[this.rand-1],t.className="text",t.style.top=this.y-20+"px",t.style.left=this.x-50+"px",t.style.animation="remove 2s",n.appendChild(t);let o=0;setInterval((()=>{t.style.top=this.y-20-o+"px",o++}),10)},n.prototype.out=function(t){t.remove()},
+//设置随机颜色
+n.prototype.getRandom=function(){let t="0,1,2,3,4,5,6,7,8,9,a,b,c,d,e,f".split(","),e="#";//16进制颜色
+for(var n=0;n<6;n++)e+=t[parseInt(Math.random()*t.length)];return e;//返回随机生成的颜色
+}}));

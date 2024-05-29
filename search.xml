@@ -19,27 +19,6 @@
       </tags>
   </entry>
   <entry>
-    <title>使用 hexo 搭建 GitHub Page 博客后，网页显示 404 的问题解决</title>
-    <url>/2019/08/14/hexo%E7%AC%AC%E4%B8%80%E6%AC%A1%E9%83%A8%E7%BD%B2%E7%BD%91%E9%A1%B5%E6%98%BE%E7%A4%BA404/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>使用 hexo 搭建 GitHub Page 博客后，第一次正常，第二次上传后，博客网页显示 404 页面。</p>
-<span id="more"></span>
-
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>因为绑定了域名，所以在 github 仓库根目录下有一个 CNAME 的文件，文件中写有需要绑定的域名。而使用 hexo 远程部署时会删除这个文件。所以页面会报 404 错误。</p>
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>只要在 github 仓库根目录下添加一个 CNAME 文件，且上传时不会被覆盖即可，方法如下：</p>
-<h3 id="3-1-在-hexo-指定文件夹下的-source-文件夹下添加-CNAME-文件，CNAME-文件中添加域名。"><a href="#3-1-在-hexo-指定文件夹下的-source-文件夹下添加-CNAME-文件，CNAME-文件中添加域名。" class="headerlink" title="3.1 在 hexo 指定文件夹下的 source 文件夹下添加 CNAME 文件，CNAME 文件中添加域名。"></a>3.1 在 hexo 指定文件夹下的 source 文件夹下添加 CNAME 文件，CNAME 文件中添加域名。</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2019-08-15_20-35-35.png"></p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2019-08-15_20-36-55.png"></p>
-<h3 id="3-2-然后在-Terminal-执行"><a href="#3-2-然后在-Terminal-执行" class="headerlink" title="3.2 然后在 Terminal 执行"></a>3.2 然后在 Terminal 执行</h3><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="3-3-查看-github-仓库根目录有该-CNAME-且博客可以正常访问"><a href="#3-3-查看-github-仓库根目录有该-CNAME-且博客可以正常访问" class="headerlink" title="3.3 查看 github 仓库根目录有该 CNAME 且博客可以正常访问"></a>3.3 查看 github 仓库根目录有该 CNAME 且博客可以正常访问</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2019-08-15_21-01-09.png"></p>
-]]></content>
-      <categories>
-        <category>环境部署</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>mysql 实现 excel 中复制某一列，粘贴转置为行功能</title>
     <url>/2021/05/31/group-concat%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>数据处理需要，需要将大批量的列，转置为行。</p>
@@ -70,6 +49,27 @@
       </categories>
       <tags>
         <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用 hexo 搭建 GitHub Page 博客后，网页显示 404 的问题解决</title>
+    <url>/2019/08/14/hexo%E7%AC%AC%E4%B8%80%E6%AC%A1%E9%83%A8%E7%BD%B2%E7%BD%91%E9%A1%B5%E6%98%BE%E7%A4%BA404/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>使用 hexo 搭建 GitHub Page 博客后，第一次正常，第二次上传后，博客网页显示 404 页面。</p>
+<span id="more"></span>
+
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>因为绑定了域名，所以在 github 仓库根目录下有一个 CNAME 的文件，文件中写有需要绑定的域名。而使用 hexo 远程部署时会删除这个文件。所以页面会报 404 错误。</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>只要在 github 仓库根目录下添加一个 CNAME 文件，且上传时不会被覆盖即可，方法如下：</p>
+<h3 id="3-1-在-hexo-指定文件夹下的-source-文件夹下添加-CNAME-文件，CNAME-文件中添加域名。"><a href="#3-1-在-hexo-指定文件夹下的-source-文件夹下添加-CNAME-文件，CNAME-文件中添加域名。" class="headerlink" title="3.1 在 hexo 指定文件夹下的 source 文件夹下添加 CNAME 文件，CNAME 文件中添加域名。"></a>3.1 在 hexo 指定文件夹下的 source 文件夹下添加 CNAME 文件，CNAME 文件中添加域名。</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2019-08-15_20-35-35.png"></p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2019-08-15_20-36-55.png"></p>
+<h3 id="3-2-然后在-Terminal-执行"><a href="#3-2-然后在-Terminal-执行" class="headerlink" title="3.2 然后在 Terminal 执行"></a>3.2 然后在 Terminal 执行</h3><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="3-3-查看-github-仓库根目录有该-CNAME-且博客可以正常访问"><a href="#3-3-查看-github-仓库根目录有该-CNAME-且博客可以正常访问" class="headerlink" title="3.3 查看 github 仓库根目录有该 CNAME 且博客可以正常访问"></a>3.3 查看 github 仓库根目录有该 CNAME 且博客可以正常访问</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2019-08-15_21-01-09.png"></p>
+]]></content>
+      <categories>
+        <category>环境部署</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -200,29 +200,6 @@
       </tags>
   </entry>
   <entry>
-    <title>python 创建虚拟环境</title>
-    <url>/2021/06/29/python%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>python 如何创建虚拟环境？</p>
-<span id="more"></span>
-
-<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><p>使用 venv 命令，方法如下 (python3.5 以后)：</p>
-<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">python3 -m venv /xx/xx/myvenv <span class="comment">#(myvenv环境名称)</span></span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>激活虚拟环境</p>
-<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">source</span> myvenv/bin/activate</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>关闭虚拟环境</p>
-<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">deactivate</span></span><br></pre></td></tr></tbody></table></figure>
-
-]]></content>
-      <categories>
-        <category>环境部署</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>requirements 总结</title>
     <url>/2021/05/21/requirements%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在搭建 Liunx 服务器时，需要在新的 Python 环境中安装项目需要的包的依赖，一条一条 pip install 太慢，有没有可以批量安装方法？</p>
@@ -251,87 +228,35 @@
       </tags>
   </entry>
   <entry>
+    <title>python 创建虚拟环境</title>
+    <url>/2021/06/29/python%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>python 如何创建虚拟环境？</p>
+<span id="more"></span>
+
+<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><p>使用 venv 命令，方法如下 (python3.5 以后)：</p>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">python3 -m venv /xx/xx/myvenv <span class="comment">#(myvenv环境名称)</span></span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>激活虚拟环境</p>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">source</span> myvenv/bin/activate</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>关闭虚拟环境</p>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">deactivate</span></span><br></pre></td></tr></tbody></table></figure>
+
+]]></content>
+      <categories>
+        <category>环境部署</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>博客重新装修删除冗余内容</title>
     <url>/2024/05/06/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%96%B0%E8%A3%85%E4%BF%AE%E5%88%A0%E9%99%A4%E5%86%97%E4%BD%99%E5%86%85%E5%AE%B9/</url>
     <content><![CDATA[<p>最近有空闲时间，就重新装修了长时间没管过的博客，将以前的内容做了精简以及删除，后续会陆续将之前做的笔记整理后，写成 blog，大体做了如下改变。</p>
 <span id="more"></span>
 
 <h2 id="1-更改主题为-nexT。"><a href="#1-更改主题为-nexT。" class="headerlink" title="1.更改主题为 nexT。"></a>1. 更改主题为 nexT。</h2><h2 id="2-删除之前冗余内容。"><a href="#2-删除之前冗余内容。" class="headerlink" title="2.删除之前冗余内容。"></a>2. 删除之前冗余内容。</h2><h2 id=""><a href="#" class="headerlink" title=""></a></h2>]]></content>
-      <categories>
-        <category>环境部署</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何将 excel 相同行快速标注相同颜色</title>
-    <url>/2024/05/22/%E5%A6%82%E4%BD%95%E5%B0%86excel%E7%9B%B8%E5%90%8C%E8%A1%8C%E5%BF%AB%E9%80%9F%E6%A0%87%E6%B3%A8%E7%9B%B8%E5%90%8C%E9%A2%9C%E8%89%B2/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>如下图所示，相同的公司标注相同的颜色，相邻的公司使用不同的颜色标注。</p>
-<span id="more"></span>
-
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523105209093.png" alt="image-20240523105209093"></p>
-<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><p>这里提供一种不是最优解的解决方法，前提是会使用函数 <code>vlookup</code> 和 <code>isodd</code></p>
-<p>（0）将表格按照公司名字排序。</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523115128818.png" alt="image-20240523115128818"></p>
-<p>（1）将公司名这一列复制到一个新的 <code>sheet</code> 中，然后去重。</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523115554033.png" alt="image-20240523115554033"></p>
-<p>（2）在公司名右侧插入公司名编号。</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523115823986.png" alt="image-20240523115823986"></p>
-<p>（3）在原表中公司名后插入一列，使用 <code>vlookup</code> 公式去匹配公司名编号。</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523120017323.png" alt="image-20240523120017323"></p>
-<p>（4）在原表中公司名编号中插入一列，使用 <code>isodd</code> 公式计算是奇偶数。</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523120250045.png" alt="image-20240523120250045"></p>
-<p>（5）筛选奇偶数，分别标注颜色。</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523120436033.png" alt="image-20240523120436033"></p>
-<p>（6）删除辅助列即可</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523120606111.png" alt="image-20240523120606111"></p>
-]]></content>
-      <categories>
-        <category>软件使用</category>
-      </categories>
-      <tags>
-        <tag>excel</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>将 hexo 部署到 centos 服务器上</title>
-    <url>/2024/05/27/%E5%B0%86hexo%E9%83%A8%E7%BD%B2%E5%88%B0centos%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A/</url>
-    <content><![CDATA[<h2 id="1-目标"><a href="#1-目标" class="headerlink" title="1.目标"></a>1. 目标</h2><p>将 hexo 部署到 centos 服务器上</p>
-<span id="more"></span>
-
-<h2 id="2-步骤"><a href="#2-步骤" class="headerlink" title="2.步骤"></a>2. 步骤</h2><h3 id="（1）centos-安装-git"><a href="#（1）centos-安装-git" class="headerlink" title="（1）centos 安装 git"></a>（1）centos 安装 git</h3><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel perl-devel</span><br><span class="line">yum install -y git</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="（2）创建用户并配置仓库"><a href="#（2）创建用户并配置仓库" class="headerlink" title="（2）创建用户并配置仓库"></a>（2）创建用户并配置仓库</h3><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">useradd git   <span class="comment"># 创建git用户</span></span><br><span class="line">passwd git    <span class="comment"># 设置密码</span></span><br><span class="line">su git        <span class="comment"># 切换用户， 这步很重要，避免文件权限的各种问题</span></span><br><span class="line"><span class="built_in">cd</span> /home/git/</span><br><span class="line"><span class="built_in">mkdir</span> -p project/hexo-blog            <span class="comment"># 项目存在的真实目录,存放hexo静态文件</span></span><br><span class="line"><span class="built_in">mkdir</span> repos &amp;&amp; <span class="built_in">cd</span> repos               <span class="comment"># 放置git仓库的文件夹</span></span><br><span class="line">git init --bare hexo-blog-repo.git    <span class="comment"># 创建一个裸露的仓库</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="（3）创建钩子函数"><a href="#（3）创建钩子函数" class="headerlink" title="（3）创建钩子函数"></a>（3）创建钩子函数</h3><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> hexo-blog-repo.git/hooks   <span class="comment"># 进入hooks文件夹</span></span><br><span class="line">vim post-receive              <span class="comment"># 创建hook钩子函数文件(git提交时自动部署)，输入以下内容：</span></span><br></pre></td></tr></tbody></table></figure>
-
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">git --work-tree=/home/git/project/hexo-blog --git-dir=/home/git/repos/hexo-blog-repo.git checkout -f</span><br></pre></td></tr></tbody></table></figure>
-
-<p>验证一下（也可以本地推送完在验证）</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sh post-receive</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="（4）生成-ssh文件夹并设置SSH密钥对"><a href="#（4）生成-ssh文件夹并设置SSH密钥对" class="headerlink" title="（4）生成.ssh文件夹并设置SSH密钥对"></a>（4）生成<code>.ssh</code> 文件夹并设置 SSH 密钥对</h3><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/.ssh         </span><br><span class="line"><span class="built_in">mkdir</span> ~/.ssh      <span class="comment"># 若该文件夹不存在，则创建一个</span></span><br><span class="line"><span class="built_in">chmod</span> 700 ~/.ssh  <span class="comment"># 设置权限：为了安全起见，.ssh目录及其内容应该有严格的权限设置。通常，你应该只为所有者提供读写权限。</span></span><br><span class="line">ssh-keygen -t rsa -b 4096 -C <span class="string">"centos@mail.com"</span> <span class="comment"># 创建SSH密钥</span></span><br><span class="line"><span class="built_in">chmod</span> 600 ~/.ssh/id_rsa <span class="comment"># 生成密钥后，你应该为私钥文件id_rsa设置更严格的权限，以确保只有你可以读取它。</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="（5）创建-authorized-keys-以及配置权限"><a href="#（5）创建-authorized-keys-以及配置权限" class="headerlink" title="（5）创建 authorized_keys 以及配置权限"></a>（5）创建 authorized_keys 以及配置权限</h3><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /home/git/.ssh</span><br><span class="line"><span class="built_in">touch</span> authorized_keys      <span class="comment"># 存放客户端 ssh 公钥(id_rsa.pub)</span></span><br><span class="line"><span class="built_in">chmod</span> 600 authorized_keys  <span class="comment"># 配置权限</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="（6）建立-SSH信任关系"><a href="#（6）建立-SSH信任关系" class="headerlink" title="（6）建立 SSH信任关系"></a>（6）建立 SSH 信任关系</h3><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line">ssh-copy-id -i .ssh/id_rsa.pub git@server_ip  <span class="comment"># </span></span><br><span class="line">ssh git@server_ip                             <span class="comment"># 测试能否登录</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="（7）安装Nginx"><a href="#（7）安装Nginx" class="headerlink" title="（7）安装Nginx"></a>（7）安装 Nginx</h3><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo yum update</span><br><span class="line">sudo yum install nginx</span><br><span class="line">sudo systemctl start nginx      <span class="comment"># 安装完成后，启动Nginx服务。</span></span><br><span class="line">sudo systemctl <span class="built_in">enable</span> nginx			<span class="comment"># 使Nginx服务在系统启动时自动启动。</span></span><br><span class="line">sudo systemctl status nginx			<span class="comment">#	检查Nginx服务的状态，确认它是否正在运行。</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>浏览器输入 ip 地址验证：</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240528180518391.png" alt="image-20240528180518391"></p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo vim /etc/nginx/conf.d/static-site.conf</span><br></pre></td></tr></tbody></table></figure>
-
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">server {</span><br><span class="line">    listen 80;  <span class="comment"># 监听80端口</span></span><br><span class="line">    server_name example.com;  <span class="comment"># 你的域名</span></span><br><span class="line"></span><br><span class="line">    root /home/git/project/hexo-blog;  <span class="comment"># 静态文件根目录</span></span><br><span class="line">    index index.html;  <span class="comment"># 默认首页</span></span><br><span class="line"></span><br><span class="line">    location / {</span><br><span class="line">        try_files <span class="variable">$uri</span> <span class="variable">$uri</span>/ =404;  <span class="comment"># 处理URL请求</span></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<p>重新加载 Nginx 的配置:</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo systemctl reload nginx</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="（8）配置-Hexo"><a href="#（8）配置-Hexo" class="headerlink" title="（8）配置 Hexo"></a>（8）配置 Hexo</h3><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: git@server_ip:/home/git/repos/hexo-blog-repo.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2><p><a href="https://blog.csdn.net/jiunian_2761/article/details/122908142">https://blog.csdn.net/jiunian_2761/article/details/122908142</a></p>
-]]></content>
       <categories>
         <category>环境部署</category>
       </categories>
@@ -399,6 +324,102 @@
       </tags>
   </entry>
   <entry>
+    <title>如何将 excel 相同行快速标注相同颜色</title>
+    <url>/2024/05/22/%E5%A6%82%E4%BD%95%E5%B0%86excel%E7%9B%B8%E5%90%8C%E8%A1%8C%E5%BF%AB%E9%80%9F%E6%A0%87%E6%B3%A8%E7%9B%B8%E5%90%8C%E9%A2%9C%E8%89%B2/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>如下图所示，相同的公司标注相同的颜色，相邻的公司使用不同的颜色标注。</p>
+<span id="more"></span>
+
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523105209093.png" alt="image-20240523105209093"></p>
+<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><p>这里提供一种不是最优解的解决方法，前提是会使用函数 <code>vlookup</code> 和 <code>isodd</code></p>
+<p>（0）将表格按照公司名字排序。</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523115128818.png" alt="image-20240523115128818"></p>
+<p>（1）将公司名这一列复制到一个新的 <code>sheet</code> 中，然后去重。</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523115554033.png" alt="image-20240523115554033"></p>
+<p>（2）在公司名右侧插入公司名编号。</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523115823986.png" alt="image-20240523115823986"></p>
+<p>（3）在原表中公司名后插入一列，使用 <code>vlookup</code> 公式去匹配公司名编号。</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523120017323.png" alt="image-20240523120017323"></p>
+<p>（4）在原表中公司名编号中插入一列，使用 <code>isodd</code> 公式计算是奇偶数。</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523120250045.png" alt="image-20240523120250045"></p>
+<p>（5）筛选奇偶数，分别标注颜色。</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523120436033.png" alt="image-20240523120436033"></p>
+<p>（6）删除辅助列即可</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523120606111.png" alt="image-20240523120606111"></p>
+]]></content>
+      <categories>
+        <category>软件使用</category>
+      </categories>
+      <tags>
+        <tag>excel</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>将 hexo 部署到 centos 服务器上</title>
+    <url>/2024/05/27/%E5%B0%86hexo%E9%83%A8%E7%BD%B2%E5%88%B0centos%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A/</url>
+    <content><![CDATA[<h2 id="1-目标"><a href="#1-目标" class="headerlink" title="1.目标"></a>1. 目标</h2><p>将 hexo 部署到 centos 服务器上。</p>
+<span id="more"></span>
+
+<h2 id="2-步骤"><a href="#2-步骤" class="headerlink" title="2.步骤"></a>2. 步骤</h2><h3 id="（1）centos-安装-git"><a href="#（1）centos-安装-git" class="headerlink" title="（1）centos 安装 git"></a>（1）centos 安装 <code>git</code></h3><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel perl-devel</span><br><span class="line">yum install -y git</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="（2）创建用户并配置仓库"><a href="#（2）创建用户并配置仓库" class="headerlink" title="（2）创建用户并配置仓库"></a>（2）创建用户并配置仓库</h3><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">useradd git   <span class="comment"># 创建git用户</span></span><br><span class="line">passwd git    <span class="comment"># 设置密码</span></span><br><span class="line">su git        <span class="comment"># 切换用户， 这步很重要，避免文件权限的各种问题</span></span><br><span class="line"><span class="built_in">cd</span> /home/git/</span><br><span class="line"><span class="built_in">mkdir</span> -p project/hexo-blog            <span class="comment"># 项目存在的真实目录,存放hexo静态文件</span></span><br><span class="line"><span class="built_in">mkdir</span> repos &amp;&amp; <span class="built_in">cd</span> repos               <span class="comment"># 放置git仓库的文件夹</span></span><br><span class="line">git init --bare hexo-blog-repo.git    <span class="comment"># 创建一个裸露的仓库</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="（3）创建钩子函数"><a href="#（3）创建钩子函数" class="headerlink" title="（3）创建钩子函数"></a>（3）创建钩子函数</h3><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> hexo-blog-repo.git/hooks   <span class="comment"># 进入hooks文件夹</span></span><br><span class="line">vim post-receive              <span class="comment"># 创建hook钩子函数文件(git提交时自动部署)，输入以下内容：</span></span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">git --work-tree=/home/git/project/hexo-blog --git-dir=/home/git/repos/hexo-blog-repo.git checkout -f</span><br></pre></td></tr></tbody></table></figure>
+
+<p>验证一下（也可以本地推送完在验证）</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sh post-receive</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="（4）生成-ssh文件夹并设置SSH密钥对"><a href="#（4）生成-ssh文件夹并设置SSH密钥对" class="headerlink" title="（4）生成.ssh文件夹并设置SSH密钥对"></a>（4）生成<code>.ssh</code> 文件夹并设置 SSH 密钥对</h3><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/.ssh         </span><br><span class="line"><span class="built_in">mkdir</span> ~/.ssh      <span class="comment"># 若该文件夹不存在，则创建一个</span></span><br><span class="line"><span class="built_in">chmod</span> 700 ~/.ssh  <span class="comment"># 设置权限：为了安全起见，.ssh目录及其内容应该有严格的权限设置。通常，你应该只为所有者提供读写权限。</span></span><br><span class="line">ssh-keygen -t rsa -b 4096 -C <span class="string">"centos@mail.com"</span> <span class="comment"># 创建SSH密钥</span></span><br><span class="line"><span class="built_in">chmod</span> 600 ~/.ssh/id_rsa <span class="comment"># 生成密钥后，你应该为私钥文件id_rsa设置更严格的权限，以确保只有你可以读取它。</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="（5）创建-authorized-keys-以及配置权限"><a href="#（5）创建-authorized-keys-以及配置权限" class="headerlink" title="（5）创建 authorized_keys 以及配置权限"></a>（5）创建 <code>authorized_keys</code> 以及配置权限</h3><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /home/git/.ssh</span><br><span class="line"><span class="built_in">touch</span> authorized_keys      <span class="comment"># 存放客户端 ssh 公钥(id_rsa.pub)</span></span><br><span class="line"><span class="built_in">chmod</span> 600 authorized_keys  <span class="comment"># 配置权限</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="（6）建立-SSH信任关系"><a href="#（6）建立-SSH信任关系" class="headerlink" title="（6）建立 SSH信任关系"></a>（6）建立 <code>SSH</code> 信任关系</h3><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line">ssh-copy-id -i .ssh/id_rsa.pub git@server_ip  <span class="comment"># </span></span><br><span class="line">ssh git@server_ip                             <span class="comment"># 测试能否登录</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="（7）安装Nginx"><a href="#（7）安装Nginx" class="headerlink" title="（7）安装Nginx"></a>（7）安装 <code>Nginx</code></h3><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo yum update</span><br><span class="line">sudo yum install nginx</span><br><span class="line">sudo systemctl start nginx      <span class="comment"># 安装完成后，启动Nginx服务。</span></span><br><span class="line">sudo systemctl <span class="built_in">enable</span> nginx			<span class="comment"># 使Nginx服务在系统启动时自动启动。</span></span><br><span class="line">sudo systemctl status nginx			<span class="comment">#	检查Nginx服务的状态，确认它是否正在运行。</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>浏览器输入 ip 地址验证：</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240528180518391.png" alt="image-20240528180518391"></p>
+<h3 id="（8）配置nginx"><a href="#（8）配置nginx" class="headerlink" title="（8）配置nginx"></a>（8）配置 <code>nginx</code></h3><p>如果你的配置文件位于 <code>/etc/nginx/conf.d/</code> 目录下，你可以编辑该目录下的默认配置文件或创建一个新的配置文件：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo vim /etc/nginx/conf.d/static-site.conf</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">server {</span><br><span class="line">    listen 80;  <span class="comment"># 监听80端口</span></span><br><span class="line">    server_name example.com;  <span class="comment"># 你的域名</span></span><br><span class="line"></span><br><span class="line">    root /home/git/project/hexo-blog;  <span class="comment"># 静态文件根目录</span></span><br><span class="line">    index index.html;  <span class="comment"># 默认首页</span></span><br><span class="line"></span><br><span class="line">    location / {</span><br><span class="line">        try_files <span class="variable">$uri</span> <span class="variable">$uri</span>/ =404;  <span class="comment"># 处理URL请求</span></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>重新加载 Nginx 的配置:</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo systemctl reload nginx</span><br></pre></td></tr></tbody></table></figure>
+
+<p>或者重启 Nginx 服务：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo systemctl restart nginx</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="（9）配置-Hexo"><a href="#（9）配置-Hexo" class="headerlink" title="（9）配置 Hexo"></a>（9）配置 <code>Hexo</code></h3><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: git@server_ip:/home/git/repos/hexo-blog-repo.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="（10）限制-git-用户的权限"><a href="#（10）限制-git-用户的权限" class="headerlink" title="（10）限制 git 用户的权限"></a>（10）限制 git 用户的权限</h3><p>为了安全起见，最好是将 git 用户的权限设置为只能执行 <code>git clone</code> , <code>git push</code> 命令等等：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> /etc/shells   <span class="comment"># 查看 git-shell 是否在登录方式里面</span></span><br><span class="line"><span class="built_in">which</span> git-shell   <span class="comment"># 查看是否安装</span></span><br><span class="line">vim /etc/shells</span><br></pre></td></tr></tbody></table></figure>
+
+<p>添加第 2 步显示出来的路径，通常为 <code>/usr/bin/git-shell</code></p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">/bin/sh</span><br><span class="line">/bin/bash</span><br><span class="line">/usr/bin/sh</span><br><span class="line">/usr/bin/bash</span><br><span class="line">/bin/tcsh</span><br><span class="line">/bin/csh</span><br><span class="line">/usr/bin/git-shell</span><br></pre></td></tr></tbody></table></figure>
+
+<p>同时修改 /etc/passwd 文件内容，更改权限：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">vim /etc/passwd</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># 将原来的:</span></span><br><span class="line">git:x:1001:1001::/home/git:/bin/bash           <span class="comment"># 原来的</span></span><br><span class="line"><span class="comment"># 修改为:</span></span><br><span class="line">git:x:1001:1001::/home/git:/usr/bin/git-shell  <span class="comment"># 修改之后</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>测试一下：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">ssh git@service:ip</span><br></pre></td></tr></tbody></table></figure>
+
+<p>如果登录不上，就说明正常。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">Last login: Mon May 27 17:11:51 2024 from 1xx.2xx.3xx.4xx</span><br><span class="line">fatal: Interactive git shell is not enabled.</span><br><span class="line">hint: ~/git-shell-commands should exist and have <span class="built_in">read</span> and execute access.</span><br><span class="line">Connection to 1xx.2xx.3xx.4xx closed.</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2><p><a href="https://blog.csdn.net/jiunian_2761/article/details/122908142">https://blog.csdn.net/jiunian_2761/article/details/122908142</a></p>
+]]></content>
+      <categories>
+        <category>环境部署</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>测试计划模板</title>
     <url>/2019/07/11/%E6%B5%8B%E8%AF%95%E8%AE%A1%E5%88%92%E6%A8%A1%E6%9D%BF/</url>
     <content><![CDATA[<h1 id="测试计划"><a href="#测试计划" class="headerlink" title="测试计划"></a>测试计划</h1><h1 id="XXX-项目测试计划"><a href="#XXX-项目测试计划" class="headerlink" title="XXX 项目测试计划"></a><center>XXX 项目测试计划</center></h1><h2 id="1-引言"><a href="#1-引言" class="headerlink" title="1.引言"></a>1. 引言</h2><h3 id="1-1-编写目的"><a href="#1-1-编写目的" class="headerlink" title="1.1 编写目的"></a>1.1 编写目的</h3><p>根据需求文档，提炼测试功能点、制定测试策略、评估测试风险，预估编写测试用例、执行功能测试和回归测试的工作量，进行人员和进度安排。</p>
@@ -428,26 +449,6 @@
       </tags>
   </entry>
   <entry>
-    <title>解决 Mac 突然黑屏然后出现登录界面的问题</title>
-    <url>/2024/05/06/%E8%A7%A3%E5%86%B3Mac%E7%AA%81%E7%84%B6%E9%BB%91%E5%B1%8F%E7%84%B6%E5%90%8E%E5%87%BA%E7%8E%B0%E7%99%BB%E5%BD%95%E7%95%8C%E9%9D%A2%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>macOS 13 Ventura 后，经常出现下面的问题：</p>
-<span id="more"></span>
-
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240506165320062.png" alt="image-20240506165320062"></p>
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>未知</p>
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>关闭了 2 个选项，不要全屏应用</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240506170557285.png" alt="image-20240506170557285"></p>
-<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p><a href="https://github.com/tobemaster56/draft/issues/108">https://github.com/tobemaster56/draft/issues/108</a></p>
-<p><a href="https://developer.apple.com/forums/thread/719033?answerId=735928022#735928022">https://developer.apple.com/forums/thread/719033?answerId=735928022#735928022</a></p>
-]]></content>
-      <categories>
-        <category>操作系统</category>
-      </categories>
-      <tags>
-        <tag>macos</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>解决 Jenkins 插件安装失败 - 插件下载慢的问题</title>
     <url>/2021/05/25/%E8%A7%A3%E5%86%B3Jenkins%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5-%E6%8F%92%E4%BB%B6%E4%B8%8B%E8%BD%BD%E6%85%A2%E7%9A%84%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在安装 Jenkins 的过程中，插件总是安装失败或者下载很慢。</p>
@@ -465,6 +466,26 @@
       </categories>
       <tags>
         <tag>jenkins</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解决 Mac 突然黑屏然后出现登录界面的问题</title>
+    <url>/2024/05/06/%E8%A7%A3%E5%86%B3Mac%E7%AA%81%E7%84%B6%E9%BB%91%E5%B1%8F%E7%84%B6%E5%90%8E%E5%87%BA%E7%8E%B0%E7%99%BB%E5%BD%95%E7%95%8C%E9%9D%A2%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>macOS 13 Ventura 后，经常出现下面的问题：</p>
+<span id="more"></span>
+
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240506165320062.png" alt="image-20240506165320062"></p>
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>未知</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>关闭了 2 个选项，不要全屏应用</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240506170557285.png" alt="image-20240506170557285"></p>
+<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p><a href="https://github.com/tobemaster56/draft/issues/108">https://github.com/tobemaster56/draft/issues/108</a></p>
+<p><a href="https://developer.apple.com/forums/thread/719033?answerId=735928022#735928022">https://developer.apple.com/forums/thread/719033?answerId=735928022#735928022</a></p>
+]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>macos</tag>
       </tags>
   </entry>
   <entry>
@@ -524,6 +545,26 @@
       </tags>
   </entry>
   <entry>
+    <title>macOS 中无法删除启动台的空白文件夹</title>
+    <url>/2024/05/09/%E8%A7%A3%E5%86%B3macOS%E4%B8%AD%E6%97%A0%E6%B3%95%E5%88%A0%E9%99%A4%E5%90%AF%E5%8A%A8%E5%8F%B0%E7%9A%84%E7%A9%BA%E7%99%BD%E6%96%87%E4%BB%B6%E5%A4%B9/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>今天下载了 Ryujinx，然后启动台自动把国际象棋 Ryujinx 放到了一个文件夹里面，然后手动拖出来之后，空文件夹没有消失，拖动其他图标进去后图标直接消失不见了，然后出现了一个虚线型的文件夹图标，图标可以显示，然后打开文件夹图标消失了，也无法拖出 App 图标。</p>
+<span id="more"></span>
+
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>macos12/13 系统 bug。</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>（1）在终端中输入以下，然后回车</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">open getconf DARWIN_USER_DIR</span><br></pre></td></tr></tbody></table></figure>
+
+<p>（2）然后删除 com.apple.dock.launchpad 文件夹</p>
+<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p><a href="https://discussionschinese.apple.com/thread/253648900?answerId=256835759322&amp;sortBy=best#256835759322">https://discussionschinese.apple.com/thread/253648900?answerId=256835759322&amp;sortBy=best#256835759322</a></p>
+]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>macos</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>解决新版本 MacOS 下 Sublime Text4 package control 无法加载问题</title>
     <url>/2024/05/24/%E8%A7%A3%E5%86%B3%E6%96%B0%E7%89%88%E6%9C%ACMacOS%E4%B8%8BSublimeText4packagecontrol%E6%97%A0%E6%B3%95%E5%8A%A0%E8%BD%BD%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>cmd + shift + p 输入 install package 有对应菜单选项，没反应。</p>
@@ -554,23 +595,25 @@
       </tags>
   </entry>
   <entry>
-    <title>macOS 中无法删除启动台的空白文件夹</title>
-    <url>/2024/05/09/%E8%A7%A3%E5%86%B3macOS%E4%B8%AD%E6%97%A0%E6%B3%95%E5%88%A0%E9%99%A4%E5%90%AF%E5%8A%A8%E5%8F%B0%E7%9A%84%E7%A9%BA%E7%99%BD%E6%96%87%E4%BB%B6%E5%A4%B9/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>今天下载了 Ryujinx，然后启动台自动把国际象棋 Ryujinx 放到了一个文件夹里面，然后手动拖出来之后，空文件夹没有消失，拖动其他图标进去后图标直接消失不见了，然后出现了一个虚线型的文件夹图标，图标可以显示，然后打开文件夹图标消失了，也无法拖出 App 图标。</p>
+    <title>解决使用 excel 打开 csv 文件时出现乱码的问题</title>
+    <url>/2020/06/11/%E8%A7%A3%E5%86%B3%E4%BD%BF%E7%94%A8excel%E6%89%93%E5%BC%80csv%E6%96%87%E4%BB%B6%E6%97%B6%E5%87%BA%E7%8E%B0%E4%B9%B1%E7%A0%81%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>使用 excel 打开 csv 文件时出现乱码</p>
 <span id="more"></span>
 
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>macos12/13 系统 bug。</p>
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>（1）在终端中输入以下，然后回车</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">open getconf DARWIN_USER_DIR</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>excel 默认识别的是带 BOM 格式的 csv 文档，而打开纯 UTF-8 的文件时，没有 BOM 的头，也就是第一行，所以打开是乱码。(开头多了一串字符”\ufeff”)</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>将”utf-8” 格式转换为”utf-8 with BOM”，python 中这个带 BOM 格式的叫做 UTF-8-SIG，都是 UTF-8 带签名的意思。</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> codecs</span><br><span class="line"><span class="keyword">import</span> chardet</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># from subFunc_tools import *</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">list_folders_files</span>(<span class="params">path</span>):</span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    返回 "文件夹" 和 "文件" 名字</span></span><br><span class="line"><span class="string">    :param path: "文件夹"和"文件"所在的路径</span></span><br><span class="line"><span class="string">    :return:  (list_folders, list_files)</span></span><br><span class="line"><span class="string">            :list_folders: 文件夹</span></span><br><span class="line"><span class="string">            :list_files: 文件</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    list_folders = []</span><br><span class="line">    list_files = []</span><br><span class="line">    <span class="keyword">for</span> file <span class="keyword">in</span> os.listdir(path):</span><br><span class="line">        file_path = os.path.join(path, file)</span><br><span class="line">        <span class="keyword">if</span> os.path.isdir(file_path):</span><br><span class="line">            list_folders.append(file)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            list_files.append(file)</span><br><span class="line">    <span class="keyword">return</span> (list_folders, list_files)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">convert</span>(<span class="params">file, in_enc=<span class="string">"GBK"</span>, out_enc=<span class="string">"UTF-8"</span></span>):</span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    该程序用于将目录下的文件从指定格式转换到指定格式，默认的是GBK转到utf-8</span></span><br><span class="line"><span class="string">    :param file:    文件路径</span></span><br><span class="line"><span class="string">    :param in_enc:  输入文件格式</span></span><br><span class="line"><span class="string">    :param out_enc: 输出文件格式</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    in_enc = in_enc.upper()</span><br><span class="line">    out_enc = out_enc.upper()</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"convert [ "</span> + file.split(<span class="string">'\\'</span>)[-<span class="number">1</span>] + <span class="string">" ].....From "</span> + in_enc + <span class="string">" --&gt; "</span> + out_enc)</span><br><span class="line">        f = codecs.<span class="built_in">open</span>(file, <span class="string">'r'</span>, in_enc)</span><br><span class="line">        new_content = f.read()</span><br><span class="line">        codecs.<span class="built_in">open</span>(file, <span class="string">'w'</span>, out_enc).write(new_content)</span><br><span class="line">    <span class="comment"># print (f.read())</span></span><br><span class="line">    <span class="keyword">except</span> IOError <span class="keyword">as</span> err:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"I/O error: {0}"</span>.<span class="built_in">format</span>(err))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将路径下面的所有文件，从原来的格式变为UTF-8的格式</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    path = <span class="string">r'G:\desktop\Convert-UTF8'</span></span><br><span class="line"></span><br><span class="line">    (list_folders, list_files) = list_folders_files(path)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Path: "</span> + path)</span><br><span class="line">    <span class="keyword">for</span> fileName <span class="keyword">in</span> list_files:</span><br><span class="line">        filePath = path + <span class="string">'\\'</span> + fileName</span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(filePath, <span class="string">"rb"</span>) <span class="keyword">as</span> f:</span><br><span class="line">            data = f.read()</span><br><span class="line">            codeType = chardet.detect(data)[<span class="string">'encoding'</span>]</span><br><span class="line">            convert(filePath, codeType, <span class="string">'UTF-8-SIG'</span>)</span><br></pre></td></tr></tbody></table></figure>
 
-<p>（2）然后删除 com.apple.dock.launchpad 文件夹</p>
-<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p><a href="https://discussionschinese.apple.com/thread/253648900?answerId=256835759322&amp;sortBy=best#256835759322">https://discussionschinese.apple.com/thread/253648900?answerId=256835759322&amp;sortBy=best#256835759322</a></p>
+
+
+<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p>代码参考于以下博客，自己做了相关调整：</p>
+<p><a href="https://www.cnblogs.com/monster-yher/p/13418600.html">https://www.cnblogs.com/monster-yher/p/13418600.html</a></p>
 ]]></content>
       <categories>
-        <category>操作系统</category>
+        <category>测试脚本</category>
       </categories>
       <tags>
-        <tag>macos</tag>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -592,28 +635,6 @@
       </categories>
       <tags>
         <tag>hackintosh</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>解决使用 excel 打开 csv 文件时出现乱码的问题</title>
-    <url>/2020/06/11/%E8%A7%A3%E5%86%B3%E4%BD%BF%E7%94%A8excel%E6%89%93%E5%BC%80csv%E6%96%87%E4%BB%B6%E6%97%B6%E5%87%BA%E7%8E%B0%E4%B9%B1%E7%A0%81%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>使用 excel 打开 csv 文件时出现乱码</p>
-<span id="more"></span>
-
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>excel 默认识别的是带 BOM 格式的 csv 文档，而打开纯 UTF-8 的文件时，没有 BOM 的头，也就是第一行，所以打开是乱码。(开头多了一串字符”\ufeff”)</p>
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>将”utf-8” 格式转换为”utf-8 with BOM”，python 中这个带 BOM 格式的叫做 UTF-8-SIG，都是 UTF-8 带签名的意思。</p>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> codecs</span><br><span class="line"><span class="keyword">import</span> chardet</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># from subFunc_tools import *</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">list_folders_files</span>(<span class="params">path</span>):</span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    返回 "文件夹" 和 "文件" 名字</span></span><br><span class="line"><span class="string">    :param path: "文件夹"和"文件"所在的路径</span></span><br><span class="line"><span class="string">    :return:  (list_folders, list_files)</span></span><br><span class="line"><span class="string">            :list_folders: 文件夹</span></span><br><span class="line"><span class="string">            :list_files: 文件</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    list_folders = []</span><br><span class="line">    list_files = []</span><br><span class="line">    <span class="keyword">for</span> file <span class="keyword">in</span> os.listdir(path):</span><br><span class="line">        file_path = os.path.join(path, file)</span><br><span class="line">        <span class="keyword">if</span> os.path.isdir(file_path):</span><br><span class="line">            list_folders.append(file)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            list_files.append(file)</span><br><span class="line">    <span class="keyword">return</span> (list_folders, list_files)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">convert</span>(<span class="params">file, in_enc=<span class="string">"GBK"</span>, out_enc=<span class="string">"UTF-8"</span></span>):</span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    该程序用于将目录下的文件从指定格式转换到指定格式，默认的是GBK转到utf-8</span></span><br><span class="line"><span class="string">    :param file:    文件路径</span></span><br><span class="line"><span class="string">    :param in_enc:  输入文件格式</span></span><br><span class="line"><span class="string">    :param out_enc: 输出文件格式</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    in_enc = in_enc.upper()</span><br><span class="line">    out_enc = out_enc.upper()</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"convert [ "</span> + file.split(<span class="string">'\\'</span>)[-<span class="number">1</span>] + <span class="string">" ].....From "</span> + in_enc + <span class="string">" --&gt; "</span> + out_enc)</span><br><span class="line">        f = codecs.<span class="built_in">open</span>(file, <span class="string">'r'</span>, in_enc)</span><br><span class="line">        new_content = f.read()</span><br><span class="line">        codecs.<span class="built_in">open</span>(file, <span class="string">'w'</span>, out_enc).write(new_content)</span><br><span class="line">    <span class="comment"># print (f.read())</span></span><br><span class="line">    <span class="keyword">except</span> IOError <span class="keyword">as</span> err:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"I/O error: {0}"</span>.<span class="built_in">format</span>(err))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将路径下面的所有文件，从原来的格式变为UTF-8的格式</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    path = <span class="string">r'G:\desktop\Convert-UTF8'</span></span><br><span class="line"></span><br><span class="line">    (list_folders, list_files) = list_folders_files(path)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Path: "</span> + path)</span><br><span class="line">    <span class="keyword">for</span> fileName <span class="keyword">in</span> list_files:</span><br><span class="line">        filePath = path + <span class="string">'\\'</span> + fileName</span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(filePath, <span class="string">"rb"</span>) <span class="keyword">as</span> f:</span><br><span class="line">            data = f.read()</span><br><span class="line">            codeType = chardet.detect(data)[<span class="string">'encoding'</span>]</span><br><span class="line">            convert(filePath, codeType, <span class="string">'UTF-8-SIG'</span>)</span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p>代码参考于以下博客，自己做了相关调整：</p>
-<p><a href="https://www.cnblogs.com/monster-yher/p/13418600.html">https://www.cnblogs.com/monster-yher/p/13418600.html</a></p>
-]]></content>
-      <categories>
-        <category>测试脚本</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
       </tags>
   </entry>
   <entry>

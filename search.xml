@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Ubuntu 中 chromdriver 和 geckodriver 的下载和配置</title>
+    <url>/2021/05/25/Ubuntu%E4%B8%ADchromdriver%E5%92%8Cgeckodriver%E7%9A%84%E4%B8%8B%E8%BD%BD%E5%92%8C%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<h2 id="1-下载地址为："><a href="#1-下载地址为：" class="headerlink" title="1.下载地址为："></a>1. 下载地址为：</h2><h3 id="（1）Chromedriver"><a href="#（1）Chromedriver" class="headerlink" title="（1）Chromedriver:"></a>（1）Chromedriver:</h3><h3 id="http-chromedriver-storage-googleapis-com-index-html"><a href="#http-chromedriver-storage-googleapis-com-index-html" class="headerlink" title="http://chromedriver.storage.googleapis.com/index.html"></a><a href="http://chromedriver.storage.googleapis.com/index.html">http://chromedriver.storage.googleapis.com/index.html</a></h3><h3 id="（2）Geckodriver"><a href="#（2）Geckodriver" class="headerlink" title="（2）Geckodriver:"></a>（2）Geckodriver:</h3><h3 id="https-github-com-mozilla-geckodriver-releases"><a href="#https-github-com-mozilla-geckodriver-releases" class="headerlink" title="https://github.com/mozilla/geckodriver/releases/"></a><a href="https://github.com/mozilla/geckodriver/releases/">https://github.com/mozilla/geckodriver/releases/</a></h3><span id="more"></span>
+
+<h2 id="2-查找文件地址后，下载文件"><a href="#2-查找文件地址后，下载文件" class="headerlink" title="2.查找文件地址后，下载文件:"></a>2. 查找文件地址后，下载文件:</h2><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">wget -P /home/user/testWget/ http://chromedriver.storage.googleapis.com/90.0.4430.24/chromedriver_linux64.zip</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="3-将Chromedriver解压后，放到-usr-bin目录下"><a href="#3-将Chromedriver解压后，放到-usr-bin目录下" class="headerlink" title="3.将Chromedriver解压后，放到/usr/bin目录下:"></a>3. 将 Chromedriver 解压后，放到 /usr/bin 目录下:</h2><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">unzip /home/git/testScp/chromedriver_linux64.zip</span><br><span class="line"><span class="built_in">mv</span> chromedriver /usr/bin</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="4-Geckodriver同以上Chromedriver步骤。"><a href="#4-Geckodriver同以上Chromedriver步骤。" class="headerlink" title="4.Geckodriver同以上Chromedriver步骤。"></a>4.Geckodriver 同以上 Chromedriver 步骤。</h2>]]></content>
+      <categories>
+        <category>环境部署</category>
+      </categories>
+      <tags>
+        <tag>ubuntu</tag>
+        <tag>selenium</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>使用 hexo 搭建 GitHub Page 博客后，网页显示 404 的问题解决</title>
     <url>/2019/08/14/hexo%E7%AC%AC%E4%B8%80%E6%AC%A1%E9%83%A8%E7%BD%B2%E7%BD%91%E9%A1%B5%E6%98%BE%E7%A4%BA404/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>使用 hexo 搭建 GitHub Page 博客后，第一次正常，第二次上传后，博客网页显示 404 页面。</p>
@@ -22,21 +40,36 @@
       </tags>
   </entry>
   <entry>
-    <title>Ubuntu 中 chromdriver 和 geckodriver 的下载和配置</title>
-    <url>/2021/05/25/Ubuntu%E4%B8%ADchromdriver%E5%92%8Cgeckodriver%E7%9A%84%E4%B8%8B%E8%BD%BD%E5%92%8C%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<h2 id="1-下载地址为："><a href="#1-下载地址为：" class="headerlink" title="1.下载地址为："></a>1. 下载地址为：</h2><h3 id="（1）Chromedriver"><a href="#（1）Chromedriver" class="headerlink" title="（1）Chromedriver:"></a>（1）Chromedriver:</h3><h3 id="http-chromedriver-storage-googleapis-com-index-html"><a href="#http-chromedriver-storage-googleapis-com-index-html" class="headerlink" title="http://chromedriver.storage.googleapis.com/index.html"></a><a href="http://chromedriver.storage.googleapis.com/index.html">http://chromedriver.storage.googleapis.com/index.html</a></h3><h3 id="（2）Geckodriver"><a href="#（2）Geckodriver" class="headerlink" title="（2）Geckodriver:"></a>（2）Geckodriver:</h3><h3 id="https-github-com-mozilla-geckodriver-releases"><a href="#https-github-com-mozilla-geckodriver-releases" class="headerlink" title="https://github.com/mozilla/geckodriver/releases/"></a><a href="https://github.com/mozilla/geckodriver/releases/">https://github.com/mozilla/geckodriver/releases/</a></h3><span id="more"></span>
+    <title>mysql 实现 excel 中复制某一列，粘贴转置为行功能</title>
+    <url>/2021/05/31/group-concat%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>数据处理需要，需要将大批量的列，转置为行。</p>
+<p>尝试使用 excel，①选择需要转置的列→②在所需位置，右键→选择性粘贴→转置，发现只转置了一部分数据。</p>
+<span id="more"></span>
 
-<h2 id="2-查找文件地址后，下载文件"><a href="#2-查找文件地址后，下载文件" class="headerlink" title="2.查找文件地址后，下载文件:"></a>2. 查找文件地址后，下载文件:</h2><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">wget -P /home/user/testWget/ http://chromedriver.storage.googleapis.com/90.0.4430.24/chromedriver_linux64.zip</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>转置的长度超过了 excel 的最大长度。</p>
+<p>最大长度是多少没查到😂。</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>百度后，发现可以使用 mysql 中 group_concat 函数。</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">SELECT GROUP_CONCAT(id separator ',') FROM `table` // id 为需要转换的列，separator后为以某字符为分割</span><br></pre></td></tr></tbody></table></figure>
 
-<h2 id="3-将Chromedriver解压后，放到-usr-bin目录下"><a href="#3-将Chromedriver解压后，放到-usr-bin目录下" class="headerlink" title="3.将Chromedriver解压后，放到/usr/bin目录下:"></a>3. 将 Chromedriver 解压后，放到 /usr/bin 目录下:</h2><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">unzip /home/git/testScp/chromedriver_linux64.zip</span><br><span class="line"><span class="built_in">mv</span> chromedriver /usr/bin</span><br></pre></td></tr></tbody></table></figure>
+<p>发现又只转置了一部分数据。</p>
+<p>查资料发现，默认 GROUP_CONCAT 函数返回的结果大小被 MySQL 默认限制为 1024（字节）的长度。</p>
+<p>查看方式:</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">show variables like "group_concat_max_len";</span><br></pre></td></tr></tbody></table></figure>
 
-<h2 id="4-Geckodriver同以上Chromedriver步骤。"><a href="#4-Geckodriver同以上Chromedriver步骤。" class="headerlink" title="4.Geckodriver同以上Chromedriver步骤。"></a>4.Geckodriver 同以上 Chromedriver 步骤。</h2>]]></content>
+<p>解决方法有 2 种:</p>
+<h3 id="（1）临时解决方案："><a href="#（1）临时解决方案：" class="headerlink" title="（1）临时解决方案："></a>（1）临时解决方案：</h3><p>（该方法缺点是重启服务后设置失效，“group_concat_max_len = -1” 则为最大值，group_concat_max_len 的最大值为 4294967295 (2^32 - 1) 字节，因为处理数据量比较大，直接设置为最大值）</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">SET GLOBAL group_concat_max_len = -1;</span><br><span class="line"></span><br><span class="line">SET SESSION group_concat_max_len = -1;</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="（2）永久解决方案："><a href="#（2）永久解决方案：" class="headerlink" title="（2）永久解决方案："></a>（2）永久解决方案：</h3><p>在 Mysql 配置文件中加入如下配置 (推荐):</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">group_concat_max_len = -1</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p>参考于该<a href="https://www.cnblogs.com/zjfblog/p/13658936.html">博客园博客</a></p>
+]]></content>
       <categories>
         <category>环境部署</category>
       </categories>
       <tags>
-        <tag>ubuntu</tag>
-        <tag>selenium</tag>
+        <tag>mysql</tag>
       </tags>
   </entry>
   <entry>
@@ -190,6 +223,48 @@
       </tags>
   </entry>
   <entry>
+    <title>博客重新装修删除冗余内容</title>
+    <url>/2024/05/06/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%96%B0%E8%A3%85%E4%BF%AE%E5%88%A0%E9%99%A4%E5%86%97%E4%BD%99%E5%86%85%E5%AE%B9/</url>
+    <content><![CDATA[<p>最近有空闲时间，就重新装修了长时间没管过的博客，将以前的内容做了精简以及删除，后续会陆续将之前做的笔记整理后，写成 blog，大体做了如下改变。</p>
+<span id="more"></span>
+
+<h2 id="1-更改主题为-nexT。"><a href="#1-更改主题为-nexT。" class="headerlink" title="1.更改主题为 nexT。"></a>1. 更改主题为 nexT。</h2><h2 id="2-删除之前冗余内容。"><a href="#2-删除之前冗余内容。" class="headerlink" title="2.删除之前冗余内容。"></a>2. 删除之前冗余内容。</h2><h2 id=""><a href="#" class="headerlink" title=""></a></h2>]]></content>
+      <categories>
+        <category>环境部署</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>requirements 总结</title>
+    <url>/2021/05/21/requirements%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在搭建 Liunx 服务器时，需要在新的 Python 环境中安装项目需要的包的依赖，一条一条 pip install 太慢，有没有可以批量安装方法？</p>
+<span id="more"></span>
+
+<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><p>百度后，方法如下：</p>
+<p>在旧环境下执行:</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pip freeze &gt; requirements.txt</span><br></pre></td></tr></tbody></table></figure>
+
+<p>执行后，会在当前项目下生成一个 requirements.txt 的文件，然后将该文件上传到新的环境项目下，在新环境下执行:</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></tbody></table></figure>
+
+<p>有时执行上面命令会报错 (改错误是在 Jenkins 中执行 shell 时报错)</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">ERROR: Could not find a version that satisfies the requirement request==1.0.117 (from -r requirements.txt (line 6)) (from versions: none)</span><br></pre></td></tr></tbody></table></figure>
+
+<p>一般情况下是国外源的原因，将其临时替换为国内源：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple/</span><br></pre></td></tr></tbody></table></figure>
+
+]]></content>
+      <categories>
+        <category>环境部署</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>pycharm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>如何从 mac 系统传输文件或文件夹到 Ubuntu 系统</title>
     <url>/2021/05/24/%E5%A6%82%E4%BD%95%E4%BB%8Emac%E7%B3%BB%E7%BB%9F%E4%BC%A0%E8%BE%93%E6%96%87%E4%BB%B6%E5%88%B0Ubuntu%E7%B3%BB%E7%BB%9F/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>如何从 macOS 系统传输文件到 Ubuntu 系统？</p>
@@ -219,34 +294,6 @@
         <tag>ubuntu</tag>
         <tag>macos</tag>
         <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>requirements 总结</title>
-    <url>/2021/05/21/requirements%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在搭建 Liunx 服务器时，需要在新的 Python 环境中安装项目需要的包的依赖，一条一条 pip install 太慢，有没有可以批量安装方法？</p>
-<span id="more"></span>
-
-<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><p>百度后，方法如下：</p>
-<p>在旧环境下执行:</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pip freeze &gt; requirements.txt</span><br></pre></td></tr></tbody></table></figure>
-
-<p>执行后，会在当前项目下生成一个 requirements.txt 的文件，然后将该文件上传到新的环境项目下，在新环境下执行:</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></tbody></table></figure>
-
-<p>有时执行上面命令会报错 (改错误是在 Jenkins 中执行 shell 时报错)</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">ERROR: Could not find a version that satisfies the requirement request==1.0.117 (from -r requirements.txt (line 6)) (from versions: none)</span><br></pre></td></tr></tbody></table></figure>
-
-<p>一般情况下是国外源的原因，将其临时替换为国内源：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple/</span><br></pre></td></tr></tbody></table></figure>
-
-]]></content>
-      <categories>
-        <category>环境部署</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>pycharm</tag>
       </tags>
   </entry>
   <entry>
@@ -304,20 +351,6 @@
       </categories>
       <tags>
         <tag>excel</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>博客重新装修删除冗余内容</title>
-    <url>/2024/05/06/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%96%B0%E8%A3%85%E4%BF%AE%E5%88%A0%E9%99%A4%E5%86%97%E4%BD%99%E5%86%85%E5%AE%B9/</url>
-    <content><![CDATA[<p>最近有空闲时间，就重新装修了长时间没管过的博客，将以前的内容做了精简以及删除，后续会陆续将之前做的笔记整理后，写成 blog，大体做了如下改变。</p>
-<span id="more"></span>
-
-<h2 id="1-更改主题为-nexT。"><a href="#1-更改主题为-nexT。" class="headerlink" title="1.更改主题为 nexT。"></a>1. 更改主题为 nexT。</h2><h2 id="2-删除之前冗余内容。"><a href="#2-删除之前冗余内容。" class="headerlink" title="2.删除之前冗余内容。"></a>2. 删除之前冗余内容。</h2><h2 id=""><a href="#" class="headerlink" title=""></a></h2>]]></content>
-      <categories>
-        <category>环境部署</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -512,23 +545,25 @@
       </tags>
   </entry>
   <entry>
-    <title>macOS 中无法删除启动台的空白文件夹</title>
-    <url>/2024/05/09/%E8%A7%A3%E5%86%B3macOS%E4%B8%AD%E6%97%A0%E6%B3%95%E5%88%A0%E9%99%A4%E5%90%AF%E5%8A%A8%E5%8F%B0%E7%9A%84%E7%A9%BA%E7%99%BD%E6%96%87%E4%BB%B6%E5%A4%B9/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>今天下载了 Ryujinx，然后启动台自动把国际象棋 Ryujinx 放到了一个文件夹里面，然后手动拖出来之后，空文件夹没有消失，拖动其他图标进去后图标直接消失不见了，然后出现了一个虚线型的文件夹图标，图标可以显示，然后打开文件夹图标消失了，也无法拖出 App 图标。</p>
+    <title>解决使用 excel 打开 csv 文件时出现乱码的问题</title>
+    <url>/2020/06/11/%E8%A7%A3%E5%86%B3%E4%BD%BF%E7%94%A8excel%E6%89%93%E5%BC%80csv%E6%96%87%E4%BB%B6%E6%97%B6%E5%87%BA%E7%8E%B0%E4%B9%B1%E7%A0%81%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>使用 excel 打开 csv 文件时出现乱码</p>
 <span id="more"></span>
 
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>macos12/13 系统 bug。</p>
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>（1）在终端中输入以下，然后回车</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">open getconf DARWIN_USER_DIR</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>excel 默认识别的是带 BOM 格式的 csv 文档，而打开纯 UTF-8 的文件时，没有 BOM 的头，也就是第一行，所以打开是乱码。(开头多了一串字符”\ufeff”)</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>将”utf-8” 格式转换为”utf-8 with BOM”，python 中这个带 BOM 格式的叫做 UTF-8-SIG，都是 UTF-8 带签名的意思。</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> codecs</span><br><span class="line"><span class="keyword">import</span> chardet</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># from subFunc_tools import *</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">list_folders_files</span>(<span class="params">path</span>):</span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    返回 "文件夹" 和 "文件" 名字</span></span><br><span class="line"><span class="string">    :param path: "文件夹"和"文件"所在的路径</span></span><br><span class="line"><span class="string">    :return:  (list_folders, list_files)</span></span><br><span class="line"><span class="string">            :list_folders: 文件夹</span></span><br><span class="line"><span class="string">            :list_files: 文件</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    list_folders = []</span><br><span class="line">    list_files = []</span><br><span class="line">    <span class="keyword">for</span> file <span class="keyword">in</span> os.listdir(path):</span><br><span class="line">        file_path = os.path.join(path, file)</span><br><span class="line">        <span class="keyword">if</span> os.path.isdir(file_path):</span><br><span class="line">            list_folders.append(file)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            list_files.append(file)</span><br><span class="line">    <span class="keyword">return</span> (list_folders, list_files)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">convert</span>(<span class="params">file, in_enc=<span class="string">"GBK"</span>, out_enc=<span class="string">"UTF-8"</span></span>):</span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    该程序用于将目录下的文件从指定格式转换到指定格式，默认的是GBK转到utf-8</span></span><br><span class="line"><span class="string">    :param file:    文件路径</span></span><br><span class="line"><span class="string">    :param in_enc:  输入文件格式</span></span><br><span class="line"><span class="string">    :param out_enc: 输出文件格式</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    in_enc = in_enc.upper()</span><br><span class="line">    out_enc = out_enc.upper()</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"convert [ "</span> + file.split(<span class="string">'\\'</span>)[-<span class="number">1</span>] + <span class="string">" ].....From "</span> + in_enc + <span class="string">" --&gt; "</span> + out_enc)</span><br><span class="line">        f = codecs.<span class="built_in">open</span>(file, <span class="string">'r'</span>, in_enc)</span><br><span class="line">        new_content = f.read()</span><br><span class="line">        codecs.<span class="built_in">open</span>(file, <span class="string">'w'</span>, out_enc).write(new_content)</span><br><span class="line">    <span class="comment"># print (f.read())</span></span><br><span class="line">    <span class="keyword">except</span> IOError <span class="keyword">as</span> err:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"I/O error: {0}"</span>.<span class="built_in">format</span>(err))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将路径下面的所有文件，从原来的格式变为UTF-8的格式</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    path = <span class="string">r'G:\desktop\Convert-UTF8'</span></span><br><span class="line"></span><br><span class="line">    (list_folders, list_files) = list_folders_files(path)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Path: "</span> + path)</span><br><span class="line">    <span class="keyword">for</span> fileName <span class="keyword">in</span> list_files:</span><br><span class="line">        filePath = path + <span class="string">'\\'</span> + fileName</span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(filePath, <span class="string">"rb"</span>) <span class="keyword">as</span> f:</span><br><span class="line">            data = f.read()</span><br><span class="line">            codeType = chardet.detect(data)[<span class="string">'encoding'</span>]</span><br><span class="line">            convert(filePath, codeType, <span class="string">'UTF-8-SIG'</span>)</span><br></pre></td></tr></tbody></table></figure>
 
-<p>（2）然后删除 com.apple.dock.launchpad 文件夹</p>
-<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p><a href="https://discussionschinese.apple.com/thread/253648900?answerId=256835759322&amp;sortBy=best#256835759322">https://discussionschinese.apple.com/thread/253648900?answerId=256835759322&amp;sortBy=best#256835759322</a></p>
+
+
+<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p>代码参考于以下博客，自己做了相关调整：</p>
+<p><a href="https://www.cnblogs.com/monster-yher/p/13418600.html">https://www.cnblogs.com/monster-yher/p/13418600.html</a></p>
 ]]></content>
       <categories>
-        <category>操作系统</category>
+        <category>测试脚本</category>
       </categories>
       <tags>
-        <tag>macos</tag>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -562,25 +597,23 @@
       </tags>
   </entry>
   <entry>
-    <title>解决使用 excel 打开 csv 文件时出现乱码的问题</title>
-    <url>/2020/06/11/%E8%A7%A3%E5%86%B3%E4%BD%BF%E7%94%A8excel%E6%89%93%E5%BC%80csv%E6%96%87%E4%BB%B6%E6%97%B6%E5%87%BA%E7%8E%B0%E4%B9%B1%E7%A0%81%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>使用 excel 打开 csv 文件时出现乱码</p>
+    <title>macOS 中无法删除启动台的空白文件夹</title>
+    <url>/2024/05/09/%E8%A7%A3%E5%86%B3macOS%E4%B8%AD%E6%97%A0%E6%B3%95%E5%88%A0%E9%99%A4%E5%90%AF%E5%8A%A8%E5%8F%B0%E7%9A%84%E7%A9%BA%E7%99%BD%E6%96%87%E4%BB%B6%E5%A4%B9/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>今天下载了 Ryujinx，然后启动台自动把国际象棋 Ryujinx 放到了一个文件夹里面，然后手动拖出来之后，空文件夹没有消失，拖动其他图标进去后图标直接消失不见了，然后出现了一个虚线型的文件夹图标，图标可以显示，然后打开文件夹图标消失了，也无法拖出 App 图标。</p>
 <span id="more"></span>
 
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>excel 默认识别的是带 BOM 格式的 csv 文档，而打开纯 UTF-8 的文件时，没有 BOM 的头，也就是第一行，所以打开是乱码。(开头多了一串字符”\ufeff”)</p>
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>将”utf-8” 格式转换为”utf-8 with BOM”，python 中这个带 BOM 格式的叫做 UTF-8-SIG，都是 UTF-8 带签名的意思。</p>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> codecs</span><br><span class="line"><span class="keyword">import</span> chardet</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># from subFunc_tools import *</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">list_folders_files</span>(<span class="params">path</span>):</span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    返回 "文件夹" 和 "文件" 名字</span></span><br><span class="line"><span class="string">    :param path: "文件夹"和"文件"所在的路径</span></span><br><span class="line"><span class="string">    :return:  (list_folders, list_files)</span></span><br><span class="line"><span class="string">            :list_folders: 文件夹</span></span><br><span class="line"><span class="string">            :list_files: 文件</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    list_folders = []</span><br><span class="line">    list_files = []</span><br><span class="line">    <span class="keyword">for</span> file <span class="keyword">in</span> os.listdir(path):</span><br><span class="line">        file_path = os.path.join(path, file)</span><br><span class="line">        <span class="keyword">if</span> os.path.isdir(file_path):</span><br><span class="line">            list_folders.append(file)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            list_files.append(file)</span><br><span class="line">    <span class="keyword">return</span> (list_folders, list_files)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">convert</span>(<span class="params">file, in_enc=<span class="string">"GBK"</span>, out_enc=<span class="string">"UTF-8"</span></span>):</span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    该程序用于将目录下的文件从指定格式转换到指定格式，默认的是GBK转到utf-8</span></span><br><span class="line"><span class="string">    :param file:    文件路径</span></span><br><span class="line"><span class="string">    :param in_enc:  输入文件格式</span></span><br><span class="line"><span class="string">    :param out_enc: 输出文件格式</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    in_enc = in_enc.upper()</span><br><span class="line">    out_enc = out_enc.upper()</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"convert [ "</span> + file.split(<span class="string">'\\'</span>)[-<span class="number">1</span>] + <span class="string">" ].....From "</span> + in_enc + <span class="string">" --&gt; "</span> + out_enc)</span><br><span class="line">        f = codecs.<span class="built_in">open</span>(file, <span class="string">'r'</span>, in_enc)</span><br><span class="line">        new_content = f.read()</span><br><span class="line">        codecs.<span class="built_in">open</span>(file, <span class="string">'w'</span>, out_enc).write(new_content)</span><br><span class="line">    <span class="comment"># print (f.read())</span></span><br><span class="line">    <span class="keyword">except</span> IOError <span class="keyword">as</span> err:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"I/O error: {0}"</span>.<span class="built_in">format</span>(err))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将路径下面的所有文件，从原来的格式变为UTF-8的格式</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    path = <span class="string">r'G:\desktop\Convert-UTF8'</span></span><br><span class="line"></span><br><span class="line">    (list_folders, list_files) = list_folders_files(path)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Path: "</span> + path)</span><br><span class="line">    <span class="keyword">for</span> fileName <span class="keyword">in</span> list_files:</span><br><span class="line">        filePath = path + <span class="string">'\\'</span> + fileName</span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(filePath, <span class="string">"rb"</span>) <span class="keyword">as</span> f:</span><br><span class="line">            data = f.read()</span><br><span class="line">            codeType = chardet.detect(data)[<span class="string">'encoding'</span>]</span><br><span class="line">            convert(filePath, codeType, <span class="string">'UTF-8-SIG'</span>)</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>macos12/13 系统 bug。</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>（1）在终端中输入以下，然后回车</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">open getconf DARWIN_USER_DIR</span><br></pre></td></tr></tbody></table></figure>
 
-
-
-<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p>代码参考于以下博客，自己做了相关调整：</p>
-<p><a href="https://www.cnblogs.com/monster-yher/p/13418600.html">https://www.cnblogs.com/monster-yher/p/13418600.html</a></p>
+<p>（2）然后删除 com.apple.dock.launchpad 文件夹</p>
+<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p><a href="https://discussionschinese.apple.com/thread/253648900?answerId=256835759322&amp;sortBy=best#256835759322">https://discussionschinese.apple.com/thread/253648900?answerId=256835759322&amp;sortBy=best#256835759322</a></p>
 ]]></content>
       <categories>
-        <category>测试脚本</category>
+        <category>操作系统</category>
       </categories>
       <tags>
-        <tag>python</tag>
+        <tag>macos</tag>
       </tags>
   </entry>
   <entry>
@@ -623,39 +656,6 @@
       </categories>
       <tags>
         <tag>templates</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>mysql 实现 excel 中复制某一列，粘贴转置为行功能</title>
-    <url>/2021/05/31/group-concat%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>数据处理需要，需要将大批量的列，转置为行。</p>
-<p>尝试使用 excel，①选择需要转置的列→②在所需位置，右键→选择性粘贴→转置，发现只转置了一部分数据。</p>
-<span id="more"></span>
-
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>转置的长度超过了 excel 的最大长度。</p>
-<p>最大长度是多少没查到😂。</p>
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>百度后，发现可以使用 mysql 中 group_concat 函数。</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">SELECT GROUP_CONCAT(id separator ',') FROM `table` // id 为需要转换的列，separator后为以某字符为分割</span><br></pre></td></tr></tbody></table></figure>
-
-<p>发现又只转置了一部分数据。</p>
-<p>查资料发现，默认 GROUP_CONCAT 函数返回的结果大小被 MySQL 默认限制为 1024（字节）的长度。</p>
-<p>查看方式:</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">show variables like "group_concat_max_len";</span><br></pre></td></tr></tbody></table></figure>
-
-<p>解决方法有 2 种:</p>
-<h3 id="（1）临时解决方案："><a href="#（1）临时解决方案：" class="headerlink" title="（1）临时解决方案："></a>（1）临时解决方案：</h3><p>（该方法缺点是重启服务后设置失效，“group_concat_max_len = -1” 则为最大值，group_concat_max_len 的最大值为 4294967295 (2^32 - 1) 字节，因为处理数据量比较大，直接设置为最大值）</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">SET GLOBAL group_concat_max_len = -1;</span><br><span class="line"></span><br><span class="line">SET SESSION group_concat_max_len = -1;</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="（2）永久解决方案："><a href="#（2）永久解决方案：" class="headerlink" title="（2）永久解决方案："></a>（2）永久解决方案：</h3><p>在 Mysql 配置文件中加入如下配置 (推荐):</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">group_concat_max_len = -1</span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p>参考于该<a href="https://www.cnblogs.com/zjfblog/p/13658936.html">博客园博客</a></p>
-]]></content>
-      <categories>
-        <category>环境部署</category>
-      </categories>
-      <tags>
-        <tag>mysql</tag>
       </tags>
   </entry>
 </search>

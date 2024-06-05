@@ -1,6 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Nginx 服务器 SSL 证书安装部署</title>
+    <url>/2024/06/05/Nginx%E6%9C%8D%E5%8A%A1%E5%99%A8SSL%E8%AF%81%E4%B9%A6%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>如何将 SSL 证书上传到 centos 服务器，并使用 nginx 配置后，使其生效？</p>
+<span id="more"></span>
+
+<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><p>（1）下载已申请好的免费 SSL 证书，解压。</p>
+<p>（2）上传证书文件到 Linux 云服务器。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">scp /Users/user1/Downloads/tangxdou.com_nginx/tangxdou.com.key root@123.207.205.145:/etc/nginx/ssl</span><br><span class="line"></span><br><span class="line">scp /Users/user1/Downloads/tangxdou.com_nginx/tangxdou.com_bundle.crt root@123.207.205.145:/etc/nginx/ssl</span><br></pre></td></tr></tbody></table></figure>
+
+<p>（3）修改配置文件</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo vim /etc/nginx/conf.d/default.conf</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">server {</span><br><span class="line">    listen 80;</span><br><span class="line">    server_name tangxdou.com www.tangxdou.com;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 重定向到HTTPS</span></span><br><span class="line">    <span class="built_in">return</span> 301 https://$server_name<span class="variable">$request_uri</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">server {</span><br><span class="line">    listen 443 ssl;</span><br><span class="line">    server_name tangxdou.com www.tangxdou.com;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># SSL证书配置</span></span><br><span class="line">    ssl_certificate /etc/nginx/ssl/tangxdou.com_bundle.crt;</span><br><span class="line">    ssl_certificate_key /etc/nginx/ssl/tangxdou.com.key;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 其他SSL设置</span></span><br><span class="line">    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">    ssl_ciphers <span class="string">'ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384'</span>;</span><br><span class="line">    ssl_prefer_server_ciphers on;</span><br><span class="line">    ssl_session_cache shared:SSL:10m;</span><br><span class="line">    ssl_session_timeout 5m;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 配置日志文件</span></span><br><span class="line">    access_log /var/log/nginx/example.access.log;</span><br><span class="line">    error_log /var/log/nginx/example.error.log;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 网站根目录</span></span><br><span class="line">    root /home/git/project/hexo-blog;</span><br><span class="line">    index index.html index.htm;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>（4）重载 Nginx 配置。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">nginx -s reload</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2><p><a href="https://kimi.moonshot.cn/">https://kimi.moonshot.cn/</a></p>
+]]></content>
+      <categories>
+        <category>环境部署</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>nginx</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Ubuntu 中 chromdriver 和 geckodriver 的下载和配置</title>
     <url>/2021/05/25/Ubuntu%E4%B8%ADchromdriver%E5%92%8Cgeckodriver%E7%9A%84%E4%B8%8B%E8%BD%BD%E5%92%8C%E9%85%8D%E7%BD%AE/</url>
     <content><![CDATA[<h2 id="1-下载地址为："><a href="#1-下载地址为：" class="headerlink" title="1.下载地址为："></a>1. 下载地址为：</h2><h3 id="（1）Chromedriver"><a href="#（1）Chromedriver" class="headerlink" title="（1）Chromedriver:"></a>（1）Chromedriver:</h3><h3 id="http-chromedriver-storage-googleapis-com-index-html"><a href="#http-chromedriver-storage-googleapis-com-index-html" class="headerlink" title="http://chromedriver.storage.googleapis.com/index.html"></a><a href="http://chromedriver.storage.googleapis.com/index.html">http://chromedriver.storage.googleapis.com/index.html</a></h3><h3 id="（2）Geckodriver"><a href="#（2）Geckodriver" class="headerlink" title="（2）Geckodriver:"></a>（2）Geckodriver:</h3><h3 id="https-github-com-mozilla-geckodriver-releases"><a href="#https-github-com-mozilla-geckodriver-releases" class="headerlink" title="https://github.com/mozilla/geckodriver/releases/"></a><a href="https://github.com/mozilla/geckodriver/releases/">https://github.com/mozilla/geckodriver/releases/</a></h3><span id="more"></span>
@@ -49,26 +77,6 @@
       </categories>
       <tags>
         <tag>mysql</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>jmeter 通过 log4j2.xml 修改 log 文件位置</title>
-    <url>/2024/04/15/jmeter%E9%80%9A%E8%BF%87log4j2-xml%E4%BF%AE%E6%94%B9log%E6%96%87%E4%BB%B6%E4%BD%8D%E7%BD%AE/</url>
-    <content><![CDATA[<p>在 Apache JMeter 中，如果你使用的是 Log4j2 作为日志系统，并且想通过 <code>log4j2.xml</code> 配置文件修改日志文件的位置，你可以按照以下步骤操作：（文中使用 jmeter 版本为:apache-jmeter-5.6.3）</p>
-<ol>
-<li>找到 JMeter 安装目录下的 <code>log4j2.xml</code> 配置文件。在 JMeter 3.x 及以上版本中，这个文件通常位于 <code>apache-jmeter-X.XX/bin</code> 目录下。</li>
-<li>打开 <code>log4j2.xml</code> 文件，找到 <code>RollingFile</code> 或 <code>File</code> 类型的 Appender 配置部分。</li>
-</ol>
-<span id="more"></span>
-
-<figure class="highlight xml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</span></span><br><span class="line"><span class="comment">&lt;!--......--&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">Configuration</span> <span class="attr">status</span>=<span class="string">"WARN"</span> <span class="attr">packages</span>=<span class="string">"org.apache.jmeter.gui.logging"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Appenders</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 修改这里，修改日志文件位置 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">File</span> <span class="attr">name</span>=<span class="string">"jmeter-log"</span> <span class="attr">fileName</span>=<span class="string">"/path/to/your/log/jmeter.log"</span> <span class="attr">append</span>=<span class="string">"false"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>%d %p %c{1.}: %m%n<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">File</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">GuiLogEvent</span> <span class="attr">name</span>=<span class="string">"gui-log-event"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>%d %p %c{1.}: %m%n<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">GuiLogEvent</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;/<span class="name">Appenders</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">Loggers</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Root</span> <span class="attr">level</span>=<span class="string">"info"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">AppenderRef</span> <span class="attr">ref</span>=<span class="string">"jmeter-log"</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">AppenderRef</span> <span class="attr">ref</span>=<span class="string">"gui-log-event"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Root</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Logger</span> <span class="attr">name</span>=<span class="string">"org.apache.jmeter.junit"</span> <span class="attr">level</span>=<span class="string">"debug"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;/<span class="name">Loggers</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">Configuration</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-
-]]></content>
-      <categories>
-        <category>性能测试</category>
-      </categories>
-      <tags>
-        <tag>jmeter</tag>
       </tags>
   </entry>
   <entry>
@@ -123,6 +131,26 @@
       </categories>
       <tags>
         <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>jmeter 通过 log4j2.xml 修改 log 文件位置</title>
+    <url>/2024/04/15/jmeter%E9%80%9A%E8%BF%87log4j2-xml%E4%BF%AE%E6%94%B9log%E6%96%87%E4%BB%B6%E4%BD%8D%E7%BD%AE/</url>
+    <content><![CDATA[<p>在 Apache JMeter 中，如果你使用的是 Log4j2 作为日志系统，并且想通过 <code>log4j2.xml</code> 配置文件修改日志文件的位置，你可以按照以下步骤操作：（文中使用 jmeter 版本为:apache-jmeter-5.6.3）</p>
+<ol>
+<li>找到 JMeter 安装目录下的 <code>log4j2.xml</code> 配置文件。在 JMeter 3.x 及以上版本中，这个文件通常位于 <code>apache-jmeter-X.XX/bin</code> 目录下。</li>
+<li>打开 <code>log4j2.xml</code> 文件，找到 <code>RollingFile</code> 或 <code>File</code> 类型的 Appender 配置部分。</li>
+</ol>
+<span id="more"></span>
+
+<figure class="highlight xml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</span></span><br><span class="line"><span class="comment">&lt;!--......--&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">Configuration</span> <span class="attr">status</span>=<span class="string">"WARN"</span> <span class="attr">packages</span>=<span class="string">"org.apache.jmeter.gui.logging"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Appenders</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 修改这里，修改日志文件位置 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">File</span> <span class="attr">name</span>=<span class="string">"jmeter-log"</span> <span class="attr">fileName</span>=<span class="string">"/path/to/your/log/jmeter.log"</span> <span class="attr">append</span>=<span class="string">"false"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>%d %p %c{1.}: %m%n<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">File</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">GuiLogEvent</span> <span class="attr">name</span>=<span class="string">"gui-log-event"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>%d %p %c{1.}: %m%n<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">GuiLogEvent</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;/<span class="name">Appenders</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">Loggers</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Root</span> <span class="attr">level</span>=<span class="string">"info"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">AppenderRef</span> <span class="attr">ref</span>=<span class="string">"jmeter-log"</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">AppenderRef</span> <span class="attr">ref</span>=<span class="string">"gui-log-event"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Root</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Logger</span> <span class="attr">name</span>=<span class="string">"org.apache.jmeter.junit"</span> <span class="attr">level</span>=<span class="string">"debug"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;/<span class="name">Loggers</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">Configuration</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+]]></content>
+      <categories>
+        <category>性能测试</category>
+      </categories>
+      <tags>
+        <tag>jmeter</tag>
       </tags>
   </entry>
   <entry>
@@ -200,6 +228,29 @@
       </tags>
   </entry>
   <entry>
+    <title>python 创建虚拟环境</title>
+    <url>/2021/06/29/python%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>python 如何创建虚拟环境？</p>
+<span id="more"></span>
+
+<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><p>使用 venv 命令，方法如下 (python3.5 以后)：</p>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">python3 -m venv /xx/xx/myvenv <span class="comment">#(myvenv环境名称)</span></span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>激活虚拟环境</p>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">source</span> myvenv/bin/activate</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>关闭虚拟环境</p>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">deactivate</span></span><br></pre></td></tr></tbody></table></figure>
+
+]]></content>
+      <categories>
+        <category>环境部署</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>requirements 总结</title>
     <url>/2021/05/21/requirements%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在搭建 Liunx 服务器时，需要在新的 Python 环境中安装项目需要的包的依赖，一条一条 pip install 太慢，有没有可以批量安装方法？</p>
@@ -225,6 +276,38 @@
       <tags>
         <tag>python</tag>
         <tag>pycharm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何从 mac 系统传输文件或文件夹到 Ubuntu 系统</title>
+    <url>/2021/05/24/%E5%A6%82%E4%BD%95%E4%BB%8Emac%E7%B3%BB%E7%BB%9F%E4%BC%A0%E8%BE%93%E6%96%87%E4%BB%B6%E5%88%B0Ubuntu%E7%B3%BB%E7%BB%9F/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>如何从 macOS 系统传输文件到 Ubuntu 系统？</p>
+<span id="more"></span>
+
+<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><p>使用 scp 命令，方法如下：</p>
+<h3 id="2-1从本地复制到远程-macOS→Ubuntu"><a href="#2-1从本地复制到远程-macOS→Ubuntu" class="headerlink" title="2.1从本地复制到远程(macOS→Ubuntu)"></a>2.1 从本地复制到远程 (macOS→Ubuntu)</h3><p>传输文件 (需要输入远程用户密码)：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">XXXMacBook-Pro:~ user$ scp /Users/user/testScp.txt root@192.168.1.177:/home/user</span><br><span class="line">root@192.168.1.XXX<span class="string">'s password:</span></span><br><span class="line"><span class="string">testScp.txt                                                    100%    0     0.0KB/s   00:00</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>传输目录：</p>
+<figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">XXXMacBook-Pro:~ user$ scp -r /Users/user/testScp root@192.168.7.177:/home/user</span><br><span class="line">root@192.168.1.XXX<span class="string">'s password:</span></span><br><span class="line"><span class="string">test1.txt                                                      100%    0     0.0KB/s   00:00</span></span><br><span class="line"><span class="string">testScp.txt                                                    100%    0     0.0KB/s   00:00</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h3 id="2-2从远程复制到本地-Ubuntu→macOS"><a href="#2-2从远程复制到本地-Ubuntu→macOS" class="headerlink" title="2.2从远程复制到本地(Ubuntu→macOS)"></a>2.2 从远程复制到本地 (Ubuntu→macOS)</h3><p>传输文件：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">XXXMacBook-Pro:~ user$ scp root@192.168.1.XXX:/home/user/testScp.txt /Users/user/</span><br><span class="line">root@192.168.1.XXX<span class="string">'s passwoXXX</span></span><br><span class="line"><span class="string">testScp.txt                                                    100%    8     5.4KB/s   00:00</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>传输目录：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">XXXMacBook-Pro:~ user$ scp -r root@192.168.1.XXX:/home/user/testScp/ /Users/user/</span><br><span class="line">root@192.168.1.XXX<span class="string">'s password:</span></span><br><span class="line"><span class="string">test1.txt                                                      100%   12     8.8KB/s   00:00</span></span><br><span class="line"><span class="string">testScp.txt                                                    100%   24    15.1KB/s   00:00</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2><p>参考于该网站 <a href="https://www.runoob.com/linux/linux-comm-scp.html">www.runoob.com</a></p>
+]]></content>
+      <categories>
+        <category>环境部署</category>
+      </categories>
+      <tags>
+        <tag>ubuntu</tag>
+        <tag>macos</tag>
+        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -266,61 +349,6 @@
       </categories>
       <tags>
         <tag>macos</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何从 mac 系统传输文件或文件夹到 Ubuntu 系统</title>
-    <url>/2021/05/24/%E5%A6%82%E4%BD%95%E4%BB%8Emac%E7%B3%BB%E7%BB%9F%E4%BC%A0%E8%BE%93%E6%96%87%E4%BB%B6%E5%88%B0Ubuntu%E7%B3%BB%E7%BB%9F/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>如何从 macOS 系统传输文件到 Ubuntu 系统？</p>
-<span id="more"></span>
-
-<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><p>使用 scp 命令，方法如下：</p>
-<h3 id="2-1从本地复制到远程-macOS→Ubuntu"><a href="#2-1从本地复制到远程-macOS→Ubuntu" class="headerlink" title="2.1从本地复制到远程(macOS→Ubuntu)"></a>2.1 从本地复制到远程 (macOS→Ubuntu)</h3><p>传输文件 (需要输入远程用户密码)：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">XXXMacBook-Pro:~ user$ scp /Users/user/testScp.txt root@192.168.1.177:/home/user</span><br><span class="line">root@192.168.1.XXX<span class="string">'s password:</span></span><br><span class="line"><span class="string">testScp.txt                                                    100%    0     0.0KB/s   00:00</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>传输目录：</p>
-<figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">XXXMacBook-Pro:~ user$ scp -r /Users/user/testScp root@192.168.7.177:/home/user</span><br><span class="line">root@192.168.1.XXX<span class="string">'s password:</span></span><br><span class="line"><span class="string">test1.txt                                                      100%    0     0.0KB/s   00:00</span></span><br><span class="line"><span class="string">testScp.txt                                                    100%    0     0.0KB/s   00:00</span></span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<h3 id="2-2从远程复制到本地-Ubuntu→macOS"><a href="#2-2从远程复制到本地-Ubuntu→macOS" class="headerlink" title="2.2从远程复制到本地(Ubuntu→macOS)"></a>2.2 从远程复制到本地 (Ubuntu→macOS)</h3><p>传输文件：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">XXXMacBook-Pro:~ user$ scp root@192.168.1.XXX:/home/user/testScp.txt /Users/user/</span><br><span class="line">root@192.168.1.XXX<span class="string">'s passwoXXX</span></span><br><span class="line"><span class="string">testScp.txt                                                    100%    8     5.4KB/s   00:00</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>传输目录：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">XXXMacBook-Pro:~ user$ scp -r root@192.168.1.XXX:/home/user/testScp/ /Users/user/</span><br><span class="line">root@192.168.1.XXX<span class="string">'s password:</span></span><br><span class="line"><span class="string">test1.txt                                                      100%   12     8.8KB/s   00:00</span></span><br><span class="line"><span class="string">testScp.txt                                                    100%   24    15.1KB/s   00:00</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2><p>参考于该网站 <a href="https://www.runoob.com/linux/linux-comm-scp.html">www.runoob.com</a></p>
-]]></content>
-      <categories>
-        <category>环境部署</category>
-      </categories>
-      <tags>
-        <tag>ubuntu</tag>
-        <tag>macos</tag>
-        <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>python 创建虚拟环境</title>
-    <url>/2021/06/29/python%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>python 如何创建虚拟环境？</p>
-<span id="more"></span>
-
-<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><p>使用 venv 命令，方法如下 (python3.5 以后)：</p>
-<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">python3 -m venv /xx/xx/myvenv <span class="comment">#(myvenv环境名称)</span></span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>激活虚拟环境</p>
-<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">source</span> myvenv/bin/activate</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>关闭虚拟环境</p>
-<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">deactivate</span></span><br></pre></td></tr></tbody></table></figure>
-
-]]></content>
-      <categories>
-        <category>环境部署</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -381,9 +409,9 @@
 <p>浏览器输入 ip 地址验证：</p>
 <p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240528180518391.png" alt="image-20240528180518391"></p>
 <h3 id="（8）配置nginx"><a href="#（8）配置nginx" class="headerlink" title="（8）配置nginx"></a>（8）配置 <code>nginx</code></h3><p>如果你的配置文件位于 <code>/etc/nginx/conf.d/</code> 目录下，你可以编辑该目录下的默认配置文件或创建一个新的配置文件：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo vim /etc/nginx/conf.d/static-site.conf</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo vim /etc/nginx/conf.d/default.conf</span><br></pre></td></tr></tbody></table></figure>
 
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">server {</span><br><span class="line">    listen 80;  <span class="comment"># 监听80端口</span></span><br><span class="line">    server_name example.com;  <span class="comment"># 你的域名</span></span><br><span class="line"></span><br><span class="line">    root /home/git/project/hexo-blog;  <span class="comment"># 静态文件根目录</span></span><br><span class="line">    index index.html;  <span class="comment"># 默认首页</span></span><br><span class="line"></span><br><span class="line">    location / {</span><br><span class="line">        try_files <span class="variable">$uri</span> <span class="variable">$uri</span>/ =404;  <span class="comment"># 处理URL请求</span></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">server {</span><br><span class="line">    listen 80;</span><br><span class="line">    server_name tangxdou.com www.tangxdou.com;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 网站根目录</span></span><br><span class="line">    root /home/git/project/hexo-blog;</span><br><span class="line">    index index.html index.htm;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
 <p>重新加载 Nginx 的配置:</p>
 <figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo systemctl reload nginx</span><br></pre></td></tr></tbody></table></figure>
@@ -420,26 +448,6 @@
       </tags>
   </entry>
   <entry>
-    <title>解决 Jenkins 插件安装失败 - 插件下载慢的问题</title>
-    <url>/2021/05/25/%E8%A7%A3%E5%86%B3Jenkins%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5-%E6%8F%92%E4%BB%B6%E4%B8%8B%E8%BD%BD%E6%85%A2%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在安装 Jenkins 的过程中，插件总是安装失败或者下载很慢。</p>
-<span id="more"></span>
-
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>安装源为国外的网站，所以下载速度慢。</p>
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>直接把源换为国内的镜像站，步骤如下：</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2021-05-25_15-15-12.png" alt="p1"></p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2021-05-25_15-20-26.png" alt="p2"></p>
-<p>清华大学镜像站:</p>
-<p><a href="https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json">https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json</a></p>
-]]></content>
-      <categories>
-        <category>软件使用</category>
-      </categories>
-      <tags>
-        <tag>jenkins</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>测试计划模板</title>
     <url>/2019/07/11/%E6%B5%8B%E8%AF%95%E8%AE%A1%E5%88%92%E6%A8%A1%E6%9D%BF/</url>
     <content><![CDATA[<h1 id="测试计划"><a href="#测试计划" class="headerlink" title="测试计划"></a>测试计划</h1><h1 id="XXX-项目测试计划"><a href="#XXX-项目测试计划" class="headerlink" title="XXX 项目测试计划"></a><center>XXX 项目测试计划</center></h1><h2 id="1-引言"><a href="#1-引言" class="headerlink" title="1.引言"></a>1. 引言</h2><h3 id="1-1-编写目的"><a href="#1-1-编写目的" class="headerlink" title="1.1 编写目的"></a>1.1 编写目的</h3><p>根据需求文档，提炼测试功能点、制定测试策略、评估测试风险，预估编写测试用例、执行功能测试和回归测试的工作量，进行人员和进度安排。</p>
@@ -469,23 +477,23 @@
       </tags>
   </entry>
   <entry>
-    <title>解决 Mac 突然黑屏然后出现登录界面的问题</title>
-    <url>/2024/05/06/%E8%A7%A3%E5%86%B3Mac%E7%AA%81%E7%84%B6%E9%BB%91%E5%B1%8F%E7%84%B6%E5%90%8E%E5%87%BA%E7%8E%B0%E7%99%BB%E5%BD%95%E7%95%8C%E9%9D%A2%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>macOS 13 Ventura 后，经常出现下面的问题：</p>
+    <title>解决 Jenkins 插件安装失败 - 插件下载慢的问题</title>
+    <url>/2021/05/25/%E8%A7%A3%E5%86%B3Jenkins%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5-%E6%8F%92%E4%BB%B6%E4%B8%8B%E8%BD%BD%E6%85%A2%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在安装 Jenkins 的过程中，插件总是安装失败或者下载很慢。</p>
 <span id="more"></span>
 
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240506165320062.png" alt="image-20240506165320062"></p>
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>未知</p>
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>关闭了 2 个选项，不要全屏应用</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240506170557285.png" alt="image-20240506170557285"></p>
-<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p><a href="https://github.com/tobemaster56/draft/issues/108">https://github.com/tobemaster56/draft/issues/108</a></p>
-<p><a href="https://developer.apple.com/forums/thread/719033?answerId=735928022#735928022">https://developer.apple.com/forums/thread/719033?answerId=735928022#735928022</a></p>
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>安装源为国外的网站，所以下载速度慢。</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>直接把源换为国内的镜像站，步骤如下：</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2021-05-25_15-15-12.png" alt="p1"></p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2021-05-25_15-20-26.png" alt="p2"></p>
+<p>清华大学镜像站:</p>
+<p><a href="https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json">https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json</a></p>
 ]]></content>
       <categories>
-        <category>操作系统</category>
+        <category>软件使用</category>
       </categories>
       <tags>
-        <tag>macos</tag>
+        <tag>jenkins</tag>
       </tags>
   </entry>
   <entry>
@@ -524,24 +532,23 @@
       </tags>
   </entry>
   <entry>
-    <title>解决 hexo 部署出现 Error-ENOTEMPTY 的问题</title>
-    <url>/2021/05/21/%E8%A7%A3%E5%86%B3hexo%E9%83%A8%E7%BD%B2%E5%87%BA%E7%8E%B0Error-ENOTEMPTY%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在 Terminal 执行 hexo deploy 后，报错如下：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">FATAL {</span><br><span class="line">  err: [Error: ENOTEMPTY: directory not empty, <span class="built_in">rmdir</span> <span class="string">'/Users/XXX/XXXX/XXXX/.deploy_git/page'</span>] {</span><br><span class="line">    errno: -66,</span><br><span class="line">    code: <span class="string">'ENOTEMPTY'</span>,</span><br><span class="line">    syscall: <span class="string">'rmdir'</span>,</span><br><span class="line">    path: <span class="string">'/Users/XXX/XXXX/XXXX/.deploy_git/page'</span></span><br><span class="line">  } </span><br><span class="line">}  Something<span class="string">'s wrong. Maybe you can find the solution here: %s https://hexo.io/docs/troubleshooting.html</span></span><br></pre></td></tr></tbody></table></figure>
-
+    <title>解决 Mac 突然黑屏然后出现登录界面的问题</title>
+    <url>/2024/05/06/%E8%A7%A3%E5%86%B3Mac%E7%AA%81%E7%84%B6%E9%BB%91%E5%B1%8F%E7%84%B6%E5%90%8E%E5%87%BA%E7%8E%B0%E7%99%BB%E5%BD%95%E7%95%8C%E9%9D%A2%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>macOS 13 Ventura 后，经常出现下面的问题：</p>
 <span id="more"></span>
 
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>翻译可知，/Users/XXX/XXXX/XXXX/.deploy_git/page，这个文件夹需要为空，进入该目录，发现原本就是空的，未知原因。</p>
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>直接删除 / Users/XXX/XXXX/XXXX/.deploy_git/ 这个文件夹，然后直接在 Terminal 执行：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></tbody></table></figure>
-
-<p>然后部署成功。</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240506165320062.png" alt="image-20240506165320062"></p>
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>未知</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>关闭了 2 个选项，不要全屏应用</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240506170557285.png" alt="image-20240506170557285"></p>
+<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p><a href="https://github.com/tobemaster56/draft/issues/108">https://github.com/tobemaster56/draft/issues/108</a></p>
+<p><a href="https://developer.apple.com/forums/thread/719033?answerId=735928022#735928022">https://developer.apple.com/forums/thread/719033?answerId=735928022#735928022</a></p>
 ]]></content>
       <categories>
-        <category>环境部署</category>
+        <category>操作系统</category>
       </categories>
       <tags>
-        <tag>hexo</tag>
+        <tag>macos</tag>
       </tags>
   </entry>
   <entry>
@@ -562,6 +569,27 @@
       </categories>
       <tags>
         <tag>macos</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解决 hexo 部署出现 Error-ENOTEMPTY 的问题</title>
+    <url>/2021/05/21/%E8%A7%A3%E5%86%B3hexo%E9%83%A8%E7%BD%B2%E5%87%BA%E7%8E%B0Error-ENOTEMPTY%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在 Terminal 执行 hexo deploy 后，报错如下：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">FATAL {</span><br><span class="line">  err: [Error: ENOTEMPTY: directory not empty, <span class="built_in">rmdir</span> <span class="string">'/Users/XXX/XXXX/XXXX/.deploy_git/page'</span>] {</span><br><span class="line">    errno: -66,</span><br><span class="line">    code: <span class="string">'ENOTEMPTY'</span>,</span><br><span class="line">    syscall: <span class="string">'rmdir'</span>,</span><br><span class="line">    path: <span class="string">'/Users/XXX/XXXX/XXXX/.deploy_git/page'</span></span><br><span class="line">  } </span><br><span class="line">}  Something<span class="string">'s wrong. Maybe you can find the solution here: %s https://hexo.io/docs/troubleshooting.html</span></span><br></pre></td></tr></tbody></table></figure>
+
+<span id="more"></span>
+
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>翻译可知，/Users/XXX/XXXX/XXXX/.deploy_git/page，这个文件夹需要为空，进入该目录，发现原本就是空的，未知原因。</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>直接删除 / Users/XXX/XXXX/XXXX/.deploy_git/ 这个文件夹，然后直接在 Terminal 执行：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></tbody></table></figure>
+
+<p>然后部署成功。</p>
+]]></content>
+      <categories>
+        <category>环境部署</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>

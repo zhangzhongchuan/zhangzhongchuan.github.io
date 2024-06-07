@@ -1,78 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Ubuntu 中 chromdriver 和 geckodriver 的下载和配置</title>
-    <url>/2021/05/25/Ubuntu%E4%B8%ADchromdriver%E5%92%8Cgeckodriver%E7%9A%84%E4%B8%8B%E8%BD%BD%E5%92%8C%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<h2 id="1-下载地址为："><a href="#1-下载地址为：" class="headerlink" title="1.下载地址为："></a>1. 下载地址为：</h2><h3 id="（1）Chromedriver"><a href="#（1）Chromedriver" class="headerlink" title="（1）Chromedriver:"></a>（1）Chromedriver:</h3><h3 id="http-chromedriver-storage-googleapis-com-index-html"><a href="#http-chromedriver-storage-googleapis-com-index-html" class="headerlink" title="http://chromedriver.storage.googleapis.com/index.html"></a><a href="http://chromedriver.storage.googleapis.com/index.html">http://chromedriver.storage.googleapis.com/index.html</a></h3><h3 id="（2）Geckodriver"><a href="#（2）Geckodriver" class="headerlink" title="（2）Geckodriver:"></a>（2）Geckodriver:</h3><h3 id="https-github-com-mozilla-geckodriver-releases"><a href="#https-github-com-mozilla-geckodriver-releases" class="headerlink" title="https://github.com/mozilla/geckodriver/releases/"></a><a href="https://github.com/mozilla/geckodriver/releases/">https://github.com/mozilla/geckodriver/releases/</a></h3><span id="more"></span>
-
-<h2 id="2-查找文件地址后，下载文件"><a href="#2-查找文件地址后，下载文件" class="headerlink" title="2.查找文件地址后，下载文件:"></a>2. 查找文件地址后，下载文件:</h2><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">wget -P /home/user/testWget/ http://chromedriver.storage.googleapis.com/90.0.4430.24/chromedriver_linux64.zip</span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="3-将Chromedriver解压后，放到-usr-bin目录下"><a href="#3-将Chromedriver解压后，放到-usr-bin目录下" class="headerlink" title="3.将Chromedriver解压后，放到/usr/bin目录下:"></a>3. 将 Chromedriver 解压后，放到 /usr/bin 目录下:</h2><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">unzip /home/git/testScp/chromedriver_linux64.zip</span><br><span class="line"><span class="built_in">mv</span> chromedriver /usr/bin</span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="4-Geckodriver同以上Chromedriver步骤。"><a href="#4-Geckodriver同以上Chromedriver步骤。" class="headerlink" title="4.Geckodriver同以上Chromedriver步骤。"></a>4.Geckodriver 同以上 Chromedriver 步骤。</h2>]]></content>
-      <categories>
-        <category>环境部署</category>
-      </categories>
-      <tags>
-        <tag>ubuntu</tag>
-        <tag>selenium</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>mysql 实现 excel 中复制某一列，粘贴转置为行功能</title>
-    <url>/2021/05/31/group-concat%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>数据处理需要，需要将大批量的列，转置为行。</p>
-<p>尝试使用 excel，①选择需要转置的列→②在所需位置，右键→选择性粘贴→转置，发现只转置了一部分数据。</p>
-<span id="more"></span>
-
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>转置的长度超过了 excel 的最大长度。</p>
-<p>最大长度是多少没查到😂。</p>
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>百度后，发现可以使用 mysql 中 group_concat 函数。</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">SELECT GROUP_CONCAT(id separator ',') FROM `table` // id 为需要转换的列，separator后为以某字符为分割</span><br></pre></td></tr></tbody></table></figure>
-
-<p>发现又只转置了一部分数据。</p>
-<p>查资料发现，默认 GROUP_CONCAT 函数返回的结果大小被 MySQL 默认限制为 1024（字节）的长度。</p>
-<p>查看方式:</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">show variables like "group_concat_max_len";</span><br></pre></td></tr></tbody></table></figure>
-
-<p>解决方法有 2 种:</p>
-<h3 id="（1）临时解决方案："><a href="#（1）临时解决方案：" class="headerlink" title="（1）临时解决方案："></a>（1）临时解决方案：</h3><p>（该方法缺点是重启服务后设置失效，“group_concat_max_len = -1” 则为最大值，group_concat_max_len 的最大值为 4294967295 (2^32 - 1) 字节，因为处理数据量比较大，直接设置为最大值）</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">SET GLOBAL group_concat_max_len = -1;</span><br><span class="line"></span><br><span class="line">SET SESSION group_concat_max_len = -1;</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="（2）永久解决方案："><a href="#（2）永久解决方案：" class="headerlink" title="（2）永久解决方案："></a>（2）永久解决方案：</h3><p>在 Mysql 配置文件中加入如下配置 (推荐):</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">group_concat_max_len = -1</span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p>参考于该<a href="https://www.cnblogs.com/zjfblog/p/13658936.html">博客园博客</a></p>
-]]></content>
-      <categories>
-        <category>环境部署</category>
-      </categories>
-      <tags>
-        <tag>mysql</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>使用 hexo 搭建 GitHub Page 博客后，网页显示 404 的问题解决</title>
-    <url>/2019/08/14/hexo%E7%AC%AC%E4%B8%80%E6%AC%A1%E9%83%A8%E7%BD%B2%E7%BD%91%E9%A1%B5%E6%98%BE%E7%A4%BA404/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>使用 hexo 搭建 GitHub Page 博客后，第一次正常，第二次上传后，博客网页显示 404 页面。</p>
-<span id="more"></span>
-
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>因为绑定了域名，所以在 github 仓库根目录下有一个 CNAME 的文件，文件中写有需要绑定的域名。而使用 hexo 远程部署时会删除这个文件。所以页面会报 404 错误。</p>
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>只要在 github 仓库根目录下添加一个 CNAME 文件，且上传时不会被覆盖即可，方法如下：</p>
-<h3 id="3-1-在-hexo-指定文件夹下的-source-文件夹下添加-CNAME-文件，CNAME-文件中添加域名。"><a href="#3-1-在-hexo-指定文件夹下的-source-文件夹下添加-CNAME-文件，CNAME-文件中添加域名。" class="headerlink" title="3.1 在 hexo 指定文件夹下的 source 文件夹下添加 CNAME 文件，CNAME 文件中添加域名。"></a>3.1 在 hexo 指定文件夹下的 source 文件夹下添加 CNAME 文件，CNAME 文件中添加域名。</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2019-08-15_20-35-35.png"></p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2019-08-15_20-36-55.png"></p>
-<h3 id="3-2-然后在-Terminal-执行"><a href="#3-2-然后在-Terminal-执行" class="headerlink" title="3.2 然后在 Terminal 执行"></a>3.2 然后在 Terminal 执行</h3><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="3-3-查看-github-仓库根目录有该-CNAME-且博客可以正常访问"><a href="#3-3-查看-github-仓库根目录有该-CNAME-且博客可以正常访问" class="headerlink" title="3.3 查看 github 仓库根目录有该 CNAME 且博客可以正常访问"></a>3.3 查看 github 仓库根目录有该 CNAME 且博客可以正常访问</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2019-08-15_21-01-09.png"></p>
-]]></content>
-      <categories>
-        <category>环境部署</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Nginx 服务器 SSL 证书安装部署（Linux）</title>
     <url>/2024/06/05/Nginx%E6%9C%8D%E5%8A%A1%E5%99%A8SSL%E8%AF%81%E4%B9%A6%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%EF%BC%88Linux%EF%BC%89/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>如何将 SSL 证书上传到 centos 服务器，并使用 nginx 配置后，使其生效？</p>
@@ -122,6 +50,57 @@
   </entry>
   <entry>
     <title>mysql 实现 excel 中复制某一列，粘贴转置为行功能</title>
+    <url>/2021/05/31/group-concat%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>数据处理需要，需要将大批量的列，转置为行。</p>
+<p>尝试使用 excel，①选择需要转置的列→②在所需位置，右键→选择性粘贴→转置，发现只转置了一部分数据。</p>
+<span id="more"></span>
+
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>转置的长度超过了 excel 的最大长度。</p>
+<p>最大长度是多少没查到😂。</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>百度后，发现可以使用 mysql 中 group_concat 函数。</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">SELECT GROUP_CONCAT(id separator ',') FROM `table` // id 为需要转换的列，separator后为以某字符为分割</span><br></pre></td></tr></tbody></table></figure>
+
+<p>发现又只转置了一部分数据。</p>
+<p>查资料发现，默认 GROUP_CONCAT 函数返回的结果大小被 MySQL 默认限制为 1024（字节）的长度。</p>
+<p>查看方式:</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">show variables like "group_concat_max_len";</span><br></pre></td></tr></tbody></table></figure>
+
+<p>解决方法有 2 种:</p>
+<h3 id="（1）临时解决方案："><a href="#（1）临时解决方案：" class="headerlink" title="（1）临时解决方案："></a>（1）临时解决方案：</h3><p>（该方法缺点是重启服务后设置失效，“group_concat_max_len = -1” 则为最大值，group_concat_max_len 的最大值为 4294967295 (2^32 - 1) 字节，因为处理数据量比较大，直接设置为最大值）</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">SET GLOBAL group_concat_max_len = -1;</span><br><span class="line"></span><br><span class="line">SET SESSION group_concat_max_len = -1;</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="（2）永久解决方案："><a href="#（2）永久解决方案：" class="headerlink" title="（2）永久解决方案："></a>（2）永久解决方案：</h3><p>在 Mysql 配置文件中加入如下配置 (推荐):</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">group_concat_max_len = -1</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p>参考于该<a href="https://www.cnblogs.com/zjfblog/p/13658936.html">博客园博客</a></p>
+]]></content>
+      <categories>
+        <category>环境部署</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ubuntu 中 chromdriver 和 geckodriver 的下载和配置</title>
+    <url>/2021/05/25/Ubuntu%E4%B8%ADchromdriver%E5%92%8Cgeckodriver%E7%9A%84%E4%B8%8B%E8%BD%BD%E5%92%8C%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<h2 id="1-下载地址为："><a href="#1-下载地址为：" class="headerlink" title="1.下载地址为："></a>1. 下载地址为：</h2><h3 id="（1）Chromedriver"><a href="#（1）Chromedriver" class="headerlink" title="（1）Chromedriver:"></a>（1）Chromedriver:</h3><h3 id="http-chromedriver-storage-googleapis-com-index-html"><a href="#http-chromedriver-storage-googleapis-com-index-html" class="headerlink" title="http://chromedriver.storage.googleapis.com/index.html"></a><a href="http://chromedriver.storage.googleapis.com/index.html">http://chromedriver.storage.googleapis.com/index.html</a></h3><h3 id="（2）Geckodriver"><a href="#（2）Geckodriver" class="headerlink" title="（2）Geckodriver:"></a>（2）Geckodriver:</h3><h3 id="https-github-com-mozilla-geckodriver-releases"><a href="#https-github-com-mozilla-geckodriver-releases" class="headerlink" title="https://github.com/mozilla/geckodriver/releases/"></a><a href="https://github.com/mozilla/geckodriver/releases/">https://github.com/mozilla/geckodriver/releases/</a></h3><span id="more"></span>
+
+<h2 id="2-查找文件地址后，下载文件"><a href="#2-查找文件地址后，下载文件" class="headerlink" title="2.查找文件地址后，下载文件:"></a>2. 查找文件地址后，下载文件:</h2><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">wget -P /home/user/testWget/ http://chromedriver.storage.googleapis.com/90.0.4430.24/chromedriver_linux64.zip</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="3-将Chromedriver解压后，放到-usr-bin目录下"><a href="#3-将Chromedriver解压后，放到-usr-bin目录下" class="headerlink" title="3.将Chromedriver解压后，放到/usr/bin目录下:"></a>3. 将 Chromedriver 解压后，放到 /usr/bin 目录下:</h2><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">unzip /home/git/testScp/chromedriver_linux64.zip</span><br><span class="line"><span class="built_in">mv</span> chromedriver /usr/bin</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="4-Geckodriver同以上Chromedriver步骤。"><a href="#4-Geckodriver同以上Chromedriver步骤。" class="headerlink" title="4.Geckodriver同以上Chromedriver步骤。"></a>4.Geckodriver 同以上 Chromedriver 步骤。</h2>]]></content>
+      <categories>
+        <category>环境部署</category>
+      </categories>
+      <tags>
+        <tag>ubuntu</tag>
+        <tag>selenium</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>mysql 实现 excel 中复制某一列，粘贴转置为行功能</title>
     <url>/2021/05/31/mysql%E5%AE%9E%E7%8E%B0excel%E4%B8%AD%E5%A4%8D%E5%88%B6%E6%9F%90%E4%B8%80%E5%88%97%E7%B2%98%E8%B4%B4%E8%BD%AC%E7%BD%AE%E4%B8%BA%E8%A1%8C%E5%8A%9F%E8%83%BD/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>数据处理需要，需要将大批量的列，转置为行。</p>
 <p>尝试使用 excel，①选择需要转置的列→②在所需位置，右键→选择性粘贴→转置，发现只转置了一部分数据。</p>
@@ -154,34 +133,24 @@
       </tags>
   </entry>
   <entry>
-    <title>mysql 按照分组筛选出时间倒序前三条记录</title>
-    <url>/2024/05/22/mysql%E6%8C%89%E7%85%A7%E5%88%86%E7%BB%84%E7%AD%9B%E9%80%89%E5%87%BA%E6%97%B6%E9%97%B4%E5%80%92%E5%BA%8F%E5%89%8D%E4%B8%89%E6%9D%A1%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在 MySQL 低版本 (5.7 以下) 中，如何按照分组筛选出时间倒序前三条记录？</p>
+    <title>使用 hexo 搭建 GitHub Page 博客后，网页显示 404 的问题解决</title>
+    <url>/2019/08/14/hexo%E7%AC%AC%E4%B8%80%E6%AC%A1%E9%83%A8%E7%BD%B2%E7%BD%91%E9%A1%B5%E6%98%BE%E7%A4%BA404/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>使用 hexo 搭建 GitHub Page 博客后，第一次正常，第二次上传后，博客网页显示 404 页面。</p>
 <span id="more"></span>
 
-<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">SELECT t.*</span><br><span class="line">FROM (</span><br><span class="line">  SELECT *, </span><br><span class="line">    @rn := IF(@prev_group = group_column, @rn + 1, 1) AS rn,</span><br><span class="line">    @prev_group := group_column</span><br><span class="line">  FROM your_table, (SELECT @rn := 0, @prev_group := NULL) r</span><br><span class="line">  ORDER BY group_column, time_column DESC</span><br><span class="line">) t</span><br><span class="line">WHERE rn &lt;= 3</span><br><span class="line">ORDER BY group_column, time_column DESC;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>因为绑定了域名，所以在 github 仓库根目录下有一个 CNAME 的文件，文件中写有需要绑定的域名。而使用 hexo 远程部署时会删除这个文件。所以页面会报 404 错误。</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>只要在 github 仓库根目录下添加一个 CNAME 文件，且上传时不会被覆盖即可，方法如下：</p>
+<h3 id="3-1-在-hexo-指定文件夹下的-source-文件夹下添加-CNAME-文件，CNAME-文件中添加域名。"><a href="#3-1-在-hexo-指定文件夹下的-source-文件夹下添加-CNAME-文件，CNAME-文件中添加域名。" class="headerlink" title="3.1 在 hexo 指定文件夹下的 source 文件夹下添加 CNAME 文件，CNAME 文件中添加域名。"></a>3.1 在 hexo 指定文件夹下的 source 文件夹下添加 CNAME 文件，CNAME 文件中添加域名。</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2019-08-15_20-35-35.png"></p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2019-08-15_20-36-55.png"></p>
+<h3 id="3-2-然后在-Terminal-执行"><a href="#3-2-然后在-Terminal-执行" class="headerlink" title="3.2 然后在 Terminal 执行"></a>3.2 然后在 Terminal 执行</h3><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></tbody></table></figure>
 
-<p>(1) 在子查询中，使用变量 <code>@rn</code> 和 <code>@prev_group</code> 来记录当前行的记录编号和前一行的分组。</p>
-<p>(2)<code>@rn := IF(@prev_group = group_column, @rn + 1, 1) AS rn</code> 这一行代码的作用是：如果当前行的分组与上一行相同，则记录编号 <code>rn</code> 递增 1, 否则从 1 开始计数。</p>
-<p>(3)<code>@prev_group := group_column</code> 这一行代码是更新上一行的分组。</p>
-<p>(4) 在外层查询中，使用 <code>WHERE rn &lt;= 3</code> 来筛选出每个分组中时间倒序的前 3 条记录。</p>
-<p>(5) 最后按分组 <code>group_column</code> 和时间 <code>time_column</code> 倒序排列输出结果。</p>
-<p>你可以将 <code>your_table</code> 替换成你自己的表名，<code>group_column</code> 替换成你表中的分组列名，<code>time_column</code> 替换成你表中的时间列名。</p>
-<p>这种方法在 MySQL 5.7 以下版本中都可以使用，不需要使用 <code>ROW_NUMBER()</code> 函数，性能也较好。</p>
-<p>在 MySQL8.0 及以上可以使用如下方法：</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">SELECT t.*</span><br><span class="line">FROM (</span><br><span class="line">  SELECT *, </span><br><span class="line">    ROW_NUMBER() OVER (PARTITION BY group_column ORDER BY time_column DESC) AS rn</span><br><span class="line">  FROM your_table</span><br><span class="line">) t</span><br><span class="line">WHERE rn &lt;= 3</span><br><span class="line">ORDER BY group_column, time_column DESC;</span><br></pre></td></tr></tbody></table></figure>
-
-<p>（1）首先使用子查询，在每个分组 <code>group_column</code> 内根据时间列 <code>time_column</code> 使用 <code>ROW_NUMBER()</code> 函数给每条记录编号，按时间顺序倒序排列。</p>
-<p>（2）然后在外层查询中，使用 <code>WHERE rn &lt;= 3</code> 筛选出每个分组中时间倒序的前 3 条记录。</p>
-<p>（3）最后按分组 <code>group_column</code> 和时间 <code>time_column</code> 倒序排列输出结果。</p>
-<p>这样就可以实现按分组筛选出时间倒序前 3 条记录的功能。你可以将 <code>your_table</code> 替换成你自己的表名，<code>group_column</code> 替换成你表中的分组列名，<code>time_column</code> 替换成你表中的时间列名。</p>
-<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2><p><a href="https://kimi.moonshot.cn/">https://kimi.moonshot.cn/</a></p>
+<h3 id="3-3-查看-github-仓库根目录有该-CNAME-且博客可以正常访问"><a href="#3-3-查看-github-仓库根目录有该-CNAME-且博客可以正常访问" class="headerlink" title="3.3 查看 github 仓库根目录有该 CNAME 且博客可以正常访问"></a>3.3 查看 github 仓库根目录有该 CNAME 且博客可以正常访问</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2019-08-15_21-01-09.png"></p>
 ]]></content>
       <categories>
-        <category>数据库</category>
+        <category>环境部署</category>
       </categories>
       <tags>
-        <tag>mysql</tag>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -251,48 +220,6 @@
       </tags>
   </entry>
   <entry>
-    <title>requirements 总结</title>
-    <url>/2021/05/21/requirements%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在搭建 Liunx 服务器时，需要在新的 Python 环境中安装项目需要的包的依赖，一条一条 pip install 太慢，有没有可以批量安装方法？</p>
-<span id="more"></span>
-
-<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><p>百度后，方法如下：</p>
-<p>在旧环境下执行:</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pip freeze &gt; requirements.txt</span><br></pre></td></tr></tbody></table></figure>
-
-<p>执行后，会在当前项目下生成一个 requirements.txt 的文件，然后将该文件上传到新的环境项目下，在新环境下执行:</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></tbody></table></figure>
-
-<p>有时执行上面命令会报错 (改错误是在 Jenkins 中执行 shell 时报错)</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">ERROR: Could not find a version that satisfies the requirement request==1.0.117 (from -r requirements.txt (line 6)) (from versions: none)</span><br></pre></td></tr></tbody></table></figure>
-
-<p>一般情况下是国外源的原因，将其临时替换为国内源：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple/</span><br></pre></td></tr></tbody></table></figure>
-
-]]></content>
-      <categories>
-        <category>环境部署</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>pycharm</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>博客重新装修删除冗余内容</title>
-    <url>/2024/05/06/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%96%B0%E8%A3%85%E4%BF%AE%E5%88%A0%E9%99%A4%E5%86%97%E4%BD%99%E5%86%85%E5%AE%B9/</url>
-    <content><![CDATA[<p>最近有空闲时间，就重新装修了长时间没管过的博客，将以前的内容做了精简以及删除，后续会陆续将之前做的笔记整理后，写成 blog，大体做了如下改变。</p>
-<span id="more"></span>
-
-<h2 id="1-更改主题为-nexT。"><a href="#1-更改主题为-nexT。" class="headerlink" title="1.更改主题为 nexT。"></a>1. 更改主题为 nexT。</h2><h2 id="2-删除之前冗余内容。"><a href="#2-删除之前冗余内容。" class="headerlink" title="2.删除之前冗余内容。"></a>2. 删除之前冗余内容。</h2><h2 id=""><a href="#" class="headerlink" title=""></a></h2>]]></content>
-      <categories>
-        <category>环境部署</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>如何从 mac 系统传输文件或文件夹到 Ubuntu 系统</title>
     <url>/2021/05/24/%E5%A6%82%E4%BD%95%E4%BB%8Emac%E7%B3%BB%E7%BB%9F%E4%BC%A0%E8%BE%93%E6%96%87%E4%BB%B6%E5%88%B0Ubuntu%E7%B3%BB%E7%BB%9F/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>如何从 macOS 系统传输文件到 Ubuntu 系统？</p>
@@ -325,6 +252,34 @@
       </tags>
   </entry>
   <entry>
+    <title>requirements 总结</title>
+    <url>/2021/05/21/requirements%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在搭建 Liunx 服务器时，需要在新的 Python 环境中安装项目需要的包的依赖，一条一条 pip install 太慢，有没有可以批量安装方法？</p>
+<span id="more"></span>
+
+<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><p>百度后，方法如下：</p>
+<p>在旧环境下执行:</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pip freeze &gt; requirements.txt</span><br></pre></td></tr></tbody></table></figure>
+
+<p>执行后，会在当前项目下生成一个 requirements.txt 的文件，然后将该文件上传到新的环境项目下，在新环境下执行:</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></tbody></table></figure>
+
+<p>有时执行上面命令会报错 (改错误是在 Jenkins 中执行 shell 时报错)</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">ERROR: Could not find a version that satisfies the requirement request==1.0.117 (from -r requirements.txt (line 6)) (from versions: none)</span><br></pre></td></tr></tbody></table></figure>
+
+<p>一般情况下是国外源的原因，将其临时替换为国内源：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple/</span><br></pre></td></tr></tbody></table></figure>
+
+]]></content>
+      <categories>
+        <category>环境部署</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>pycharm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>如何去除 macOS12-13 更新小红点</title>
     <url>/2024/05/06/%E5%A6%82%E4%BD%95%E5%8E%BB%E9%99%A4macOS12-13%E6%9B%B4%E6%96%B0%E5%B0%8F%E7%BA%A2%E7%82%B9/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>2 个小红点位置如下：</p>
@@ -349,36 +304,6 @@
       </categories>
       <tags>
         <tag>macos</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何将 excel 相同行快速标注相同颜色</title>
-    <url>/2024/05/22/%E5%A6%82%E4%BD%95%E5%B0%86excel%E7%9B%B8%E5%90%8C%E8%A1%8C%E5%BF%AB%E9%80%9F%E6%A0%87%E6%B3%A8%E7%9B%B8%E5%90%8C%E9%A2%9C%E8%89%B2/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>如下图所示，相同的公司标注相同的颜色，相邻的公司使用不同的颜色标注。</p>
-<span id="more"></span>
-
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523105209093.png" alt="image-20240523105209093"></p>
-<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><p>这里提供一种不是最优解的解决方法，前提是会使用函数 <code>vlookup</code> 和 <code>isodd</code></p>
-<p>（0）将表格按照公司名字排序。</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523115128818.png" alt="image-20240523115128818"></p>
-<p>（1）将公司名这一列复制到一个新的 <code>sheet</code> 中，然后去重。</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523115554033.png" alt="image-20240523115554033"></p>
-<p>（2）在公司名右侧插入公司名编号。</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523115823986.png" alt="image-20240523115823986"></p>
-<p>（3）在原表中公司名后插入一列，使用 <code>vlookup</code> 公式去匹配公司名编号。</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523120017323.png" alt="image-20240523120017323"></p>
-<p>（4）在原表中公司名编号中插入一列，使用 <code>isodd</code> 公式计算是奇偶数。</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523120250045.png" alt="image-20240523120250045"></p>
-<p>（5）筛选奇偶数，分别标注颜色。</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523120436033.png" alt="image-20240523120436033"></p>
-<p>（6）删除辅助列即可</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523120606111.png" alt="image-20240523120606111"></p>
-]]></content>
-      <categories>
-        <category>软件使用</category>
-      </categories>
-      <tags>
-        <tag>excel</tag>
       </tags>
   </entry>
   <entry>
@@ -448,43 +373,34 @@
       </tags>
   </entry>
   <entry>
-    <title>解决 Jenkins 插件安装失败 - 插件下载慢的问题</title>
-    <url>/2021/05/25/%E8%A7%A3%E5%86%B3Jenkins%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5-%E6%8F%92%E4%BB%B6%E4%B8%8B%E8%BD%BD%E6%85%A2%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在安装 Jenkins 的过程中，插件总是安装失败或者下载很慢。</p>
+    <title>mysql 按照分组筛选出时间倒序前三条记录</title>
+    <url>/2024/05/22/mysql%E6%8C%89%E7%85%A7%E5%88%86%E7%BB%84%E7%AD%9B%E9%80%89%E5%87%BA%E6%97%B6%E9%97%B4%E5%80%92%E5%BA%8F%E5%89%8D%E4%B8%89%E6%9D%A1%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在 MySQL 低版本 (5.7 以下) 中，如何按照分组筛选出时间倒序前三条记录？</p>
 <span id="more"></span>
 
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>安装源为国外的网站，所以下载速度慢。</p>
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>直接把源换为国内的镜像站，步骤如下：</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2021-05-25_15-15-12.png" alt="p1"></p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2021-05-25_15-20-26.png" alt="p2"></p>
-<p>清华大学镜像站:</p>
-<p><a href="https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json">https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json</a></p>
-]]></content>
-      <categories>
-        <category>软件使用</category>
-      </categories>
-      <tags>
-        <tag>jenkins</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>解决 Mac 突然黑屏然后出现登录界面的问题</title>
-    <url>/2024/05/06/%E8%A7%A3%E5%86%B3Mac%E7%AA%81%E7%84%B6%E9%BB%91%E5%B1%8F%E7%84%B6%E5%90%8E%E5%87%BA%E7%8E%B0%E7%99%BB%E5%BD%95%E7%95%8C%E9%9D%A2%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>macOS 13 Ventura 后，经常出现下面的问题：</p>
-<span id="more"></span>
+<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">SELECT t.*</span><br><span class="line">FROM (</span><br><span class="line">  SELECT *, </span><br><span class="line">    @rn := IF(@prev_group = group_column, @rn + 1, 1) AS rn,</span><br><span class="line">    @prev_group := group_column</span><br><span class="line">  FROM your_table, (SELECT @rn := 0, @prev_group := NULL) r</span><br><span class="line">  ORDER BY group_column, time_column DESC</span><br><span class="line">) t</span><br><span class="line">WHERE rn &lt;= 3</span><br><span class="line">ORDER BY group_column, time_column DESC;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
 
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240506165320062.png" alt="image-20240506165320062"></p>
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>未知</p>
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>关闭了 2 个选项，不要全屏应用</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240506170557285.png" alt="image-20240506170557285"></p>
-<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p><a href="https://github.com/tobemaster56/draft/issues/108">https://github.com/tobemaster56/draft/issues/108</a></p>
-<p><a href="https://developer.apple.com/forums/thread/719033?answerId=735928022#735928022">https://developer.apple.com/forums/thread/719033?answerId=735928022#735928022</a></p>
+<p>(1) 在子查询中，使用变量 <code>@rn</code> 和 <code>@prev_group</code> 来记录当前行的记录编号和前一行的分组。</p>
+<p>(2)<code>@rn := IF(@prev_group = group_column, @rn + 1, 1) AS rn</code> 这一行代码的作用是：如果当前行的分组与上一行相同，则记录编号 <code>rn</code> 递增 1, 否则从 1 开始计数。</p>
+<p>(3)<code>@prev_group := group_column</code> 这一行代码是更新上一行的分组。</p>
+<p>(4) 在外层查询中，使用 <code>WHERE rn &lt;= 3</code> 来筛选出每个分组中时间倒序的前 3 条记录。</p>
+<p>(5) 最后按分组 <code>group_column</code> 和时间 <code>time_column</code> 倒序排列输出结果。</p>
+<p>你可以将 <code>your_table</code> 替换成你自己的表名，<code>group_column</code> 替换成你表中的分组列名，<code>time_column</code> 替换成你表中的时间列名。</p>
+<p>这种方法在 MySQL 5.7 以下版本中都可以使用，不需要使用 <code>ROW_NUMBER()</code> 函数，性能也较好。</p>
+<p>在 MySQL8.0 及以上可以使用如下方法：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">SELECT t.*</span><br><span class="line">FROM (</span><br><span class="line">  SELECT *, </span><br><span class="line">    ROW_NUMBER() OVER (PARTITION BY group_column ORDER BY time_column DESC) AS rn</span><br><span class="line">  FROM your_table</span><br><span class="line">) t</span><br><span class="line">WHERE rn &lt;= 3</span><br><span class="line">ORDER BY group_column, time_column DESC;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>（1）首先使用子查询，在每个分组 <code>group_column</code> 内根据时间列 <code>time_column</code> 使用 <code>ROW_NUMBER()</code> 函数给每条记录编号，按时间顺序倒序排列。</p>
+<p>（2）然后在外层查询中，使用 <code>WHERE rn &lt;= 3</code> 筛选出每个分组中时间倒序的前 3 条记录。</p>
+<p>（3）最后按分组 <code>group_column</code> 和时间 <code>time_column</code> 倒序排列输出结果。</p>
+<p>这样就可以实现按分组筛选出时间倒序前 3 条记录的功能。你可以将 <code>your_table</code> 替换成你自己的表名，<code>group_column</code> 替换成你表中的分组列名，<code>time_column</code> 替换成你表中的时间列名。</p>
+<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2><p><a href="https://kimi.moonshot.cn/">https://kimi.moonshot.cn/</a></p>
 ]]></content>
       <categories>
-        <category>操作系统</category>
+        <category>数据库</category>
       </categories>
       <tags>
-        <tag>macos</tag>
+        <tag>mysql</tag>
       </tags>
   </entry>
   <entry>
@@ -514,6 +430,91 @@
       </categories>
       <tags>
         <tag>documents</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>博客重新装修删除冗余内容</title>
+    <url>/2024/05/06/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%96%B0%E8%A3%85%E4%BF%AE%E5%88%A0%E9%99%A4%E5%86%97%E4%BD%99%E5%86%85%E5%AE%B9/</url>
+    <content><![CDATA[<p>最近有空闲时间，就重新装修了长时间没管过的博客，将以前的内容做了精简以及删除，后续会陆续将之前做的笔记整理后，写成 blog，大体做了如下改变。</p>
+<span id="more"></span>
+
+<h2 id="1-更改主题为-nexT。"><a href="#1-更改主题为-nexT。" class="headerlink" title="1.更改主题为 nexT。"></a>1. 更改主题为 nexT。</h2><h2 id="2-删除之前冗余内容。"><a href="#2-删除之前冗余内容。" class="headerlink" title="2.删除之前冗余内容。"></a>2. 删除之前冗余内容。</h2><h2 id=""><a href="#" class="headerlink" title=""></a></h2>]]></content>
+      <categories>
+        <category>环境部署</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何将 excel 相同行快速标注相同颜色</title>
+    <url>/2024/05/22/%E5%A6%82%E4%BD%95%E5%B0%86excel%E7%9B%B8%E5%90%8C%E8%A1%8C%E5%BF%AB%E9%80%9F%E6%A0%87%E6%B3%A8%E7%9B%B8%E5%90%8C%E9%A2%9C%E8%89%B2/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>如下图所示，相同的公司标注相同的颜色，相邻的公司使用不同的颜色标注。</p>
+<span id="more"></span>
+
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523105209093.png" alt="image-20240523105209093"></p>
+<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><p>这里提供一种不是最优解的解决方法，前提是会使用函数 <code>vlookup</code> 和 <code>isodd</code></p>
+<p>（0）将表格按照公司名字排序。</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523115128818.png" alt="image-20240523115128818"></p>
+<p>（1）将公司名这一列复制到一个新的 <code>sheet</code> 中，然后去重。</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523115554033.png" alt="image-20240523115554033"></p>
+<p>（2）在公司名右侧插入公司名编号。</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523115823986.png" alt="image-20240523115823986"></p>
+<p>（3）在原表中公司名后插入一列，使用 <code>vlookup</code> 公式去匹配公司名编号。</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523120017323.png" alt="image-20240523120017323"></p>
+<p>（4）在原表中公司名编号中插入一列，使用 <code>isodd</code> 公式计算是奇偶数。</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523120250045.png" alt="image-20240523120250045"></p>
+<p>（5）筛选奇偶数，分别标注颜色。</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523120436033.png" alt="image-20240523120436033"></p>
+<p>（6）删除辅助列即可</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523120606111.png" alt="image-20240523120606111"></p>
+]]></content>
+      <categories>
+        <category>软件使用</category>
+      </categories>
+      <tags>
+        <tag>excel</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解决 Mac 突然黑屏然后出现登录界面的问题</title>
+    <url>/2024/05/06/%E8%A7%A3%E5%86%B3Mac%E7%AA%81%E7%84%B6%E9%BB%91%E5%B1%8F%E7%84%B6%E5%90%8E%E5%87%BA%E7%8E%B0%E7%99%BB%E5%BD%95%E7%95%8C%E9%9D%A2%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>macOS 13 Ventura 后，经常出现下面的问题：</p>
+<span id="more"></span>
+
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240506165320062.png" alt="image-20240506165320062"></p>
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>未知</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>关闭了 2 个选项，不要全屏应用</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240506170557285.png" alt="image-20240506170557285"></p>
+<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p><a href="https://github.com/tobemaster56/draft/issues/108">https://github.com/tobemaster56/draft/issues/108</a></p>
+<p><a href="https://developer.apple.com/forums/thread/719033?answerId=735928022#735928022">https://developer.apple.com/forums/thread/719033?answerId=735928022#735928022</a></p>
+]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>macos</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解决 hexo 部署出现 Error-ENOTEMPTY 的问题</title>
+    <url>/2021/05/21/%E8%A7%A3%E5%86%B3hexo%E9%83%A8%E7%BD%B2%E5%87%BA%E7%8E%B0Error-ENOTEMPTY%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在 Terminal 执行 hexo deploy 后，报错如下：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">FATAL {</span><br><span class="line">  err: [Error: ENOTEMPTY: directory not empty, <span class="built_in">rmdir</span> <span class="string">'/Users/XXX/XXXX/XXXX/.deploy_git/page'</span>] {</span><br><span class="line">    errno: -66,</span><br><span class="line">    code: <span class="string">'ENOTEMPTY'</span>,</span><br><span class="line">    syscall: <span class="string">'rmdir'</span>,</span><br><span class="line">    path: <span class="string">'/Users/XXX/XXXX/XXXX/.deploy_git/page'</span></span><br><span class="line">  } </span><br><span class="line">}  Something<span class="string">'s wrong. Maybe you can find the solution here: %s https://hexo.io/docs/troubleshooting.html</span></span><br></pre></td></tr></tbody></table></figure>
+
+<span id="more"></span>
+
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>翻译可知，/Users/XXX/XXXX/XXXX/.deploy_git/page，这个文件夹需要为空，进入该目录，发现原本就是空的，未知原因。</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>直接删除 / Users/XXX/XXXX/XXXX/.deploy_git/ 这个文件夹，然后直接在 Terminal 执行：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></tbody></table></figure>
+
+<p>然后部署成功。</p>
+]]></content>
+      <categories>
+        <category>环境部署</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -552,69 +553,6 @@
       </tags>
   </entry>
   <entry>
-    <title>解决 hexo 部署出现 Error-ENOTEMPTY 的问题</title>
-    <url>/2021/05/21/%E8%A7%A3%E5%86%B3hexo%E9%83%A8%E7%BD%B2%E5%87%BA%E7%8E%B0Error-ENOTEMPTY%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在 Terminal 执行 hexo deploy 后，报错如下：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">FATAL {</span><br><span class="line">  err: [Error: ENOTEMPTY: directory not empty, <span class="built_in">rmdir</span> <span class="string">'/Users/XXX/XXXX/XXXX/.deploy_git/page'</span>] {</span><br><span class="line">    errno: -66,</span><br><span class="line">    code: <span class="string">'ENOTEMPTY'</span>,</span><br><span class="line">    syscall: <span class="string">'rmdir'</span>,</span><br><span class="line">    path: <span class="string">'/Users/XXX/XXXX/XXXX/.deploy_git/page'</span></span><br><span class="line">  } </span><br><span class="line">}  Something<span class="string">'s wrong. Maybe you can find the solution here: %s https://hexo.io/docs/troubleshooting.html</span></span><br></pre></td></tr></tbody></table></figure>
-
-<span id="more"></span>
-
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>翻译可知，/Users/XXX/XXXX/XXXX/.deploy_git/page，这个文件夹需要为空，进入该目录，发现原本就是空的，未知原因。</p>
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>直接删除 / Users/XXX/XXXX/XXXX/.deploy_git/ 这个文件夹，然后直接在 Terminal 执行：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></tbody></table></figure>
-
-<p>然后部署成功。</p>
-]]></content>
-      <categories>
-        <category>环境部署</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>macOS 中无法删除启动台的空白文件夹</title>
-    <url>/2024/05/09/%E8%A7%A3%E5%86%B3macOS%E4%B8%AD%E6%97%A0%E6%B3%95%E5%88%A0%E9%99%A4%E5%90%AF%E5%8A%A8%E5%8F%B0%E7%9A%84%E7%A9%BA%E7%99%BD%E6%96%87%E4%BB%B6%E5%A4%B9/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>今天下载了 Ryujinx，然后启动台自动把国际象棋 Ryujinx 放到了一个文件夹里面，然后手动拖出来之后，空文件夹没有消失，拖动其他图标进去后图标直接消失不见了，然后出现了一个虚线型的文件夹图标，图标可以显示，然后打开文件夹图标消失了，也无法拖出 App 图标。</p>
-<span id="more"></span>
-
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>macos12/13 系统 bug。</p>
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>（1）在终端中输入以下，然后回车</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">open getconf DARWIN_USER_DIR</span><br></pre></td></tr></tbody></table></figure>
-
-<p>（2）然后删除 com.apple.dock.launchpad 文件夹</p>
-<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p><a href="https://discussionschinese.apple.com/thread/253648900?answerId=256835759322&amp;sortBy=best#256835759322">https://discussionschinese.apple.com/thread/253648900?answerId=256835759322&amp;sortBy=best#256835759322</a></p>
-]]></content>
-      <categories>
-        <category>操作系统</category>
-      </categories>
-      <tags>
-        <tag>macos</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>解决使用 excel 打开 csv 文件时出现乱码的问题</title>
-    <url>/2020/06/11/%E8%A7%A3%E5%86%B3%E4%BD%BF%E7%94%A8excel%E6%89%93%E5%BC%80csv%E6%96%87%E4%BB%B6%E6%97%B6%E5%87%BA%E7%8E%B0%E4%B9%B1%E7%A0%81%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>使用 excel 打开 csv 文件时出现乱码</p>
-<span id="more"></span>
-
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>excel 默认识别的是带 BOM 格式的 csv 文档，而打开纯 UTF-8 的文件时，没有 BOM 的头，也就是第一行，所以打开是乱码。(开头多了一串字符”\ufeff”)</p>
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>将”utf-8” 格式转换为”utf-8 with BOM”，python 中这个带 BOM 格式的叫做 UTF-8-SIG，都是 UTF-8 带签名的意思。</p>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> codecs</span><br><span class="line"><span class="keyword">import</span> chardet</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># from subFunc_tools import *</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">list_folders_files</span>(<span class="params">path</span>):</span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    返回 "文件夹" 和 "文件" 名字</span></span><br><span class="line"><span class="string">    :param path: "文件夹"和"文件"所在的路径</span></span><br><span class="line"><span class="string">    :return:  (list_folders, list_files)</span></span><br><span class="line"><span class="string">            :list_folders: 文件夹</span></span><br><span class="line"><span class="string">            :list_files: 文件</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    list_folders = []</span><br><span class="line">    list_files = []</span><br><span class="line">    <span class="keyword">for</span> file <span class="keyword">in</span> os.listdir(path):</span><br><span class="line">        file_path = os.path.join(path, file)</span><br><span class="line">        <span class="keyword">if</span> os.path.isdir(file_path):</span><br><span class="line">            list_folders.append(file)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            list_files.append(file)</span><br><span class="line">    <span class="keyword">return</span> (list_folders, list_files)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">convert</span>(<span class="params">file, in_enc=<span class="string">"GBK"</span>, out_enc=<span class="string">"UTF-8"</span></span>):</span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    该程序用于将目录下的文件从指定格式转换到指定格式，默认的是GBK转到utf-8</span></span><br><span class="line"><span class="string">    :param file:    文件路径</span></span><br><span class="line"><span class="string">    :param in_enc:  输入文件格式</span></span><br><span class="line"><span class="string">    :param out_enc: 输出文件格式</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    in_enc = in_enc.upper()</span><br><span class="line">    out_enc = out_enc.upper()</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"convert [ "</span> + file.split(<span class="string">'\\'</span>)[-<span class="number">1</span>] + <span class="string">" ].....From "</span> + in_enc + <span class="string">" --&gt; "</span> + out_enc)</span><br><span class="line">        f = codecs.<span class="built_in">open</span>(file, <span class="string">'r'</span>, in_enc)</span><br><span class="line">        new_content = f.read()</span><br><span class="line">        codecs.<span class="built_in">open</span>(file, <span class="string">'w'</span>, out_enc).write(new_content)</span><br><span class="line">    <span class="comment"># print (f.read())</span></span><br><span class="line">    <span class="keyword">except</span> IOError <span class="keyword">as</span> err:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"I/O error: {0}"</span>.<span class="built_in">format</span>(err))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将路径下面的所有文件，从原来的格式变为UTF-8的格式</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    path = <span class="string">r'G:\desktop\Convert-UTF8'</span></span><br><span class="line"></span><br><span class="line">    (list_folders, list_files) = list_folders_files(path)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Path: "</span> + path)</span><br><span class="line">    <span class="keyword">for</span> fileName <span class="keyword">in</span> list_files:</span><br><span class="line">        filePath = path + <span class="string">'\\'</span> + fileName</span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(filePath, <span class="string">"rb"</span>) <span class="keyword">as</span> f:</span><br><span class="line">            data = f.read()</span><br><span class="line">            codeType = chardet.detect(data)[<span class="string">'encoding'</span>]</span><br><span class="line">            convert(filePath, codeType, <span class="string">'UTF-8-SIG'</span>)</span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p>代码参考于以下博客，自己做了相关调整：</p>
-<p><a href="https://www.cnblogs.com/monster-yher/p/13418600.html">https://www.cnblogs.com/monster-yher/p/13418600.html</a></p>
-]]></content>
-      <categories>
-        <category>测试脚本</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>解决新版本 MacOS 下 Sublime Text4 package control 无法加载问题</title>
     <url>/2024/05/24/%E8%A7%A3%E5%86%B3%E6%96%B0%E7%89%88%E6%9C%ACMacOS%E4%B8%8BSublimeText4packagecontrol%E6%97%A0%E6%B3%95%E5%8A%A0%E8%BD%BD%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>cmd + shift + p 输入 install package 有对应菜单选项，没反应。</p>
@@ -645,6 +583,48 @@
       </tags>
   </entry>
   <entry>
+    <title>解决 Jenkins 插件安装失败 - 插件下载慢的问题</title>
+    <url>/2021/05/25/%E8%A7%A3%E5%86%B3Jenkins%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5-%E6%8F%92%E4%BB%B6%E4%B8%8B%E8%BD%BD%E6%85%A2%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在安装 Jenkins 的过程中，插件总是安装失败或者下载很慢。</p>
+<span id="more"></span>
+
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>安装源为国外的网站，所以下载速度慢。</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>直接把源换为国内的镜像站，步骤如下：</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2021-05-25_15-15-12.png" alt="p1"></p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2021-05-25_15-20-26.png" alt="p2"></p>
+<p>清华大学镜像站:</p>
+<p><a href="https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json">https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json</a></p>
+]]></content>
+      <categories>
+        <category>软件使用</category>
+      </categories>
+      <tags>
+        <tag>jenkins</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解决使用 excel 打开 csv 文件时出现乱码的问题</title>
+    <url>/2020/06/11/%E8%A7%A3%E5%86%B3%E4%BD%BF%E7%94%A8excel%E6%89%93%E5%BC%80csv%E6%96%87%E4%BB%B6%E6%97%B6%E5%87%BA%E7%8E%B0%E4%B9%B1%E7%A0%81%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>使用 excel 打开 csv 文件时出现乱码</p>
+<span id="more"></span>
+
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>excel 默认识别的是带 BOM 格式的 csv 文档，而打开纯 UTF-8 的文件时，没有 BOM 的头，也就是第一行，所以打开是乱码。(开头多了一串字符”\ufeff”)</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>将”utf-8” 格式转换为”utf-8 with BOM”，python 中这个带 BOM 格式的叫做 UTF-8-SIG，都是 UTF-8 带签名的意思。</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> codecs</span><br><span class="line"><span class="keyword">import</span> chardet</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># from subFunc_tools import *</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">list_folders_files</span>(<span class="params">path</span>):</span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    返回 "文件夹" 和 "文件" 名字</span></span><br><span class="line"><span class="string">    :param path: "文件夹"和"文件"所在的路径</span></span><br><span class="line"><span class="string">    :return:  (list_folders, list_files)</span></span><br><span class="line"><span class="string">            :list_folders: 文件夹</span></span><br><span class="line"><span class="string">            :list_files: 文件</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    list_folders = []</span><br><span class="line">    list_files = []</span><br><span class="line">    <span class="keyword">for</span> file <span class="keyword">in</span> os.listdir(path):</span><br><span class="line">        file_path = os.path.join(path, file)</span><br><span class="line">        <span class="keyword">if</span> os.path.isdir(file_path):</span><br><span class="line">            list_folders.append(file)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            list_files.append(file)</span><br><span class="line">    <span class="keyword">return</span> (list_folders, list_files)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">convert</span>(<span class="params">file, in_enc=<span class="string">"GBK"</span>, out_enc=<span class="string">"UTF-8"</span></span>):</span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    该程序用于将目录下的文件从指定格式转换到指定格式，默认的是GBK转到utf-8</span></span><br><span class="line"><span class="string">    :param file:    文件路径</span></span><br><span class="line"><span class="string">    :param in_enc:  输入文件格式</span></span><br><span class="line"><span class="string">    :param out_enc: 输出文件格式</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    in_enc = in_enc.upper()</span><br><span class="line">    out_enc = out_enc.upper()</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"convert [ "</span> + file.split(<span class="string">'\\'</span>)[-<span class="number">1</span>] + <span class="string">" ].....From "</span> + in_enc + <span class="string">" --&gt; "</span> + out_enc)</span><br><span class="line">        f = codecs.<span class="built_in">open</span>(file, <span class="string">'r'</span>, in_enc)</span><br><span class="line">        new_content = f.read()</span><br><span class="line">        codecs.<span class="built_in">open</span>(file, <span class="string">'w'</span>, out_enc).write(new_content)</span><br><span class="line">    <span class="comment"># print (f.read())</span></span><br><span class="line">    <span class="keyword">except</span> IOError <span class="keyword">as</span> err:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"I/O error: {0}"</span>.<span class="built_in">format</span>(err))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将路径下面的所有文件，从原来的格式变为UTF-8的格式</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    path = <span class="string">r'G:\desktop\Convert-UTF8'</span></span><br><span class="line"></span><br><span class="line">    (list_folders, list_files) = list_folders_files(path)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Path: "</span> + path)</span><br><span class="line">    <span class="keyword">for</span> fileName <span class="keyword">in</span> list_files:</span><br><span class="line">        filePath = path + <span class="string">'\\'</span> + fileName</span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(filePath, <span class="string">"rb"</span>) <span class="keyword">as</span> f:</span><br><span class="line">            data = f.read()</span><br><span class="line">            codeType = chardet.detect(data)[<span class="string">'encoding'</span>]</span><br><span class="line">            convert(filePath, codeType, <span class="string">'UTF-8-SIG'</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p>代码参考于以下博客，自己做了相关调整：</p>
+<p><a href="https://www.cnblogs.com/monster-yher/p/13418600.html">https://www.cnblogs.com/monster-yher/p/13418600.html</a></p>
+]]></content>
+      <categories>
+        <category>测试脚本</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>解决黑苹果系统无故重启的问题</title>
     <url>/2024/05/21/%E8%A7%A3%E5%86%B3%E9%BB%91%E8%8B%B9%E6%9E%9C%E7%B3%BB%E7%BB%9F%E6%97%A0%E6%95%85%E9%87%8D%E5%90%AF%E7%9A%84%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>抄国光大佬作业搞了一台 chromebox3 CN65，刷上黑苹果，总是无规律重启。尝试重新刷了 最新的 bios，好了 2 天，后面又开始无规律重启，配置如下：</p>
@@ -663,6 +643,26 @@
       </categories>
       <tags>
         <tag>hackintosh</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>macOS 中无法删除启动台的空白文件夹</title>
+    <url>/2024/05/09/%E8%A7%A3%E5%86%B3macOS%E4%B8%AD%E6%97%A0%E6%B3%95%E5%88%A0%E9%99%A4%E5%90%AF%E5%8A%A8%E5%8F%B0%E7%9A%84%E7%A9%BA%E7%99%BD%E6%96%87%E4%BB%B6%E5%A4%B9/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>今天下载了 Ryujinx，然后启动台自动把国际象棋 Ryujinx 放到了一个文件夹里面，然后手动拖出来之后，空文件夹没有消失，拖动其他图标进去后图标直接消失不见了，然后出现了一个虚线型的文件夹图标，图标可以显示，然后打开文件夹图标消失了，也无法拖出 App 图标。</p>
+<span id="more"></span>
+
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>macos12/13 系统 bug。</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>（1）在终端中输入以下，然后回车</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">open getconf DARWIN_USER_DIR</span><br></pre></td></tr></tbody></table></figure>
+
+<p>（2）然后删除 com.apple.dock.launchpad 文件夹</p>
+<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p><a href="https://discussionschinese.apple.com/thread/253648900?answerId=256835759322&amp;sortBy=best#256835759322">https://discussionschinese.apple.com/thread/253648900?answerId=256835759322&amp;sortBy=best#256835759322</a></p>
+]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>macos</tag>
       </tags>
   </entry>
   <entry>

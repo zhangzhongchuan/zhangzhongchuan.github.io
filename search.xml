@@ -1,6 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>MySQL 中的 DATE_ADD 函数基本使用</title>
+    <url>/2024/06/13/MySQL%E4%B8%AD%E7%9A%84DATE-ADD%E5%87%BD%E6%95%B0%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>每次用到 mysql 关于时间的计算，都跑不了 DATE_ADD 函数，每次都得查，特此记录下，下次用时直接看。</p>
+<span id="more"></span>
+
+<p>MySQL 中的 <code>DATE_ADD()</code> 函数用于将一个时间间隔加到一个日期或时间值上。这个函数非常有用，特别是当你需要计算未来的日期或时间点时。</p>
+<h2 id="2-基本语法："><a href="#2-基本语法：" class="headerlink" title="2.基本语法："></a>2. 基本语法：</h2><figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">DATE_ADD(date, INTERVAL value unit)</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li><code>date</code> 是你想要添加时间间隔的原始日期或时间值。</li>
+<li><code>INTERVAL</code> 关键字指定了要添加的时间间隔。</li>
+<li><code>value</code> 是时间间隔的数量。</li>
+<li><code>unit</code> 是时间间隔的单位，可以是以下几种之一：<ul>
+<li><code>MICROSECOND</code>（微秒）</li>
+<li><code>SECOND</code>（秒）</li>
+<li><code>MINUTE</code>（分钟）</li>
+<li><code>HOUR</code>（小时）</li>
+<li><code>DAY</code>（天）</li>
+<li><code>WEEK</code>（周）</li>
+<li><code>MONTH</code>（月）</li>
+<li><code>QUARTER</code>（季度）</li>
+<li><code>YEAR</code>（年）</li>
+<li><code>SECOND_MICROSECOND</code>（秒和微秒）</li>
+<li><code>MINUTE_MICROSECOND</code>（分钟和微秒）</li>
+<li><code>MINUTE_SECOND</code>（分钟和秒）</li>
+<li><code>HOUR_MICROSECOND</code>（小时和微秒）</li>
+<li><code>HOUR_SECOND</code>（小时和秒）</li>
+<li><code>DAY_MICROSECOND</code>（天和微秒）</li>
+<li><code>DAY_SECOND</code>（天和秒）</li>
+<li><code>YEAR_MONTH</code>（年和月）</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-常用例子"><a href="#3-常用例子" class="headerlink" title="3.常用例子"></a>3. 常用例子</h3><p>（1）<strong>添加天数</strong>：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">SELECT DATE_ADD('2024-06-12', INTERVAL 10 DAY);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>（2）<strong>添加小时</strong>：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">SELECT DATE_ADD('2024-06-12 14:30:00', INTERVAL 2 HOUR);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>（3）<strong>添加分钟和秒</strong>：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">SELECT DATE_ADD('2024-06-12 14:30:00', INTERVAL 30 MINUTE);</span><br><span class="line">SELECT DATE_ADD('2024-06-12 14:30:00', INTERVAL 5 SECOND);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>（4）<strong>添加年和月</strong>：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">SELECT DATE_ADD('2024-06-12', INTERVAL 1 YEAR);</span><br><span class="line">SELECT DATE_ADD('2024-06-12', INTERVAL 3 MONTH);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>（5）<strong>添加复杂时间间隔</strong>（例如，1 天 3 小时 30 分钟）：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">SELECT DATE_ADD('2024-06-12', INTERVAL 1 DAY 3 HOUR 30 MINUTE);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>请注意，当使用 <code>DATE_ADD()</code> 函数时，结果的日期和时间格式将取决于你的 MySQL 服务器的设置，包括时区和日期时间格式。</p>
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MySQL 中的 DATE_FORMAT 函数基本使用</title>
+    <url>/2024/06/13/MySQL%E4%B8%AD%E7%9A%84DATE-FORMAT%E5%87%BD%E6%95%B0%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>每次用到 mysql 关于时间的计算，也跑不了 DATE_FORMAT 函数，每次都得查，特此记录下，下次用时直接看。</p>
+<span id="more"></span>
+
+<p>MySQL 中的 <code>DATE_FORMAT()</code> 函数用于将日期或时间戳格式化为字符串。这个函数允许你自定义日期和时间的显示格式，使其更易于阅读或符合特定的格式要求。</p>
+<h2 id="2-基本语法"><a href="#2-基本语法" class="headerlink" title="2.基本语法"></a>2. 基本语法</h2><figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">复制</span><br><span class="line">DATE_FORMAT(date, format)</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li><code>date</code> 是你想要格式化的日期或时间值。</li>
+<li><code>format</code> 是一个字符串，指定了日期和时间的格式。在这个字符串中，你可以使用特定的格式说明符来表示不同的日期和时间部分。</li>
+</ul>
+<p>以下是一些常用的格式说明符：</p>
+<ul>
+<li><code>%Y</code> - 四位数的年份（例如：2024）</li>
+<li><code>%y</code> - 两位数的年份（00-99）</li>
+<li><code>%M</code> - 完整的月份名称（January, February, …）</li>
+<li><code>%m</code> - 月份的数字（00-12）</li>
+<li><code>%D</code> - 带有英文前缀的月份中的天数（1st, 2nd, 3rd, …）</li>
+<li><code>%d</code> - 月份中的天数（00-31）</li>
+<li><code>%H</code> - 小时（00-23）</li>
+<li><code>%h</code> - 小时（01-12）</li>
+<li><code>%i</code> - 分钟（00-59）</li>
+<li><code>%s</code> - 秒（00-59）</li>
+<li><code>%p</code> - AM 或 PM</li>
+<li><code>%W</code> - 星期几的名称（Sunday, Monday, …）</li>
+<li><code>%w</code> - 星期几的数字（0 = Sunday, 1 = Monday, …）</li>
+</ul>
+<h2 id="3-常用例子"><a href="#3-常用例子" class="headerlink" title="3.常用例子"></a>3. 常用例子</h2><p>（1）<strong>格式化为年 - 月 - 日</strong>：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">SELECT DATE_FORMAT('2024-06-12 14:30:00', '%Y-%m-%d');</span><br></pre></td></tr></tbody></table></figure>
+
+<p>（2）<strong>格式化为月 - 日 - 年，小时：分钟</strong>：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">SELECT DATE_FORMAT('2024-06-12 14:30:00', '%M %d, %Y, %h:%i %p');</span><br></pre></td></tr></tbody></table></figure>
+
+<p>（3）<strong>格式化为星期几</strong>：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">SELECT DATE_FORMAT('2024-06-12', '%W');</span><br></pre></td></tr></tbody></table></figure>
+
+<p>（3）<strong>格式化为自定义格式</strong>（例如：今天是 2024 年的第几天）：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">SELECT DATE_FORMAT('2024-06-12', '今天是%Y年的第%j天');</span><br></pre></td></tr></tbody></table></figure>
+
+<p><code>DATE_FORMAT()</code> 函数非常灵活，可以根据需要调整日期和时间的显示方式。记得在实际使用中，根据你的具体需求选择合适的格式说明符。</p>
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Nginx 服务器 SSL 证书安装部署（Linux）</title>
     <url>/2024/06/05/Nginx%E6%9C%8D%E5%8A%A1%E5%99%A8SSL%E8%AF%81%E4%B9%A6%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%EF%BC%88Linux%EF%BC%89/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>如何将 SSL 证书上传到 centos 服务器，并使用 nginx 配置后，使其生效？</p>
@@ -80,6 +188,26 @@
       </tags>
   </entry>
   <entry>
+    <title>jmeter 通过 log4j2.xml 修改 log 文件位置</title>
+    <url>/2024/04/15/jmeter%E9%80%9A%E8%BF%87log4j2-xml%E4%BF%AE%E6%94%B9log%E6%96%87%E4%BB%B6%E4%BD%8D%E7%BD%AE/</url>
+    <content><![CDATA[<p>在 Apache JMeter 中，如果你使用的是 Log4j2 作为日志系统，并且想通过 <code>log4j2.xml</code> 配置文件修改日志文件的位置，你可以按照以下步骤操作：（文中使用 jmeter 版本为:apache-jmeter-5.6.3）</p>
+<ol>
+<li>找到 JMeter 安装目录下的 <code>log4j2.xml</code> 配置文件。在 JMeter 3.x 及以上版本中，这个文件通常位于 <code>apache-jmeter-X.XX/bin</code> 目录下。</li>
+<li>打开 <code>log4j2.xml</code> 文件，找到 <code>RollingFile</code> 或 <code>File</code> 类型的 Appender 配置部分。</li>
+</ol>
+<span id="more"></span>
+
+<figure class="highlight xml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</span></span><br><span class="line"><span class="comment">&lt;!--......--&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">Configuration</span> <span class="attr">status</span>=<span class="string">"WARN"</span> <span class="attr">packages</span>=<span class="string">"org.apache.jmeter.gui.logging"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Appenders</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 修改这里，修改日志文件位置 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">File</span> <span class="attr">name</span>=<span class="string">"jmeter-log"</span> <span class="attr">fileName</span>=<span class="string">"/path/to/your/log/jmeter.log"</span> <span class="attr">append</span>=<span class="string">"false"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>%d %p %c{1.}: %m%n<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">File</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">GuiLogEvent</span> <span class="attr">name</span>=<span class="string">"gui-log-event"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>%d %p %c{1.}: %m%n<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">GuiLogEvent</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;/<span class="name">Appenders</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">Loggers</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Root</span> <span class="attr">level</span>=<span class="string">"info"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">AppenderRef</span> <span class="attr">ref</span>=<span class="string">"jmeter-log"</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">AppenderRef</span> <span class="attr">ref</span>=<span class="string">"gui-log-event"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Root</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Logger</span> <span class="attr">name</span>=<span class="string">"org.apache.jmeter.junit"</span> <span class="attr">level</span>=<span class="string">"debug"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;/<span class="name">Loggers</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">Configuration</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+]]></content>
+      <categories>
+        <category>性能测试</category>
+      </categories>
+      <tags>
+        <tag>jmeter</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>使用 hexo 搭建 GitHub Page 博客后，网页显示 404 的问题解决</title>
     <url>/2019/08/14/hexo%E7%AC%AC%E4%B8%80%E6%AC%A1%E9%83%A8%E7%BD%B2%E7%BD%91%E9%A1%B5%E6%98%BE%E7%A4%BA404/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>使用 hexo 搭建 GitHub Page 博客后，第一次正常，第二次上传后，博客网页显示 404 页面。</p>
@@ -98,26 +226,6 @@
       </categories>
       <tags>
         <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>jmeter 通过 log4j2.xml 修改 log 文件位置</title>
-    <url>/2024/04/15/jmeter%E9%80%9A%E8%BF%87log4j2-xml%E4%BF%AE%E6%94%B9log%E6%96%87%E4%BB%B6%E4%BD%8D%E7%BD%AE/</url>
-    <content><![CDATA[<p>在 Apache JMeter 中，如果你使用的是 Log4j2 作为日志系统，并且想通过 <code>log4j2.xml</code> 配置文件修改日志文件的位置，你可以按照以下步骤操作：（文中使用 jmeter 版本为:apache-jmeter-5.6.3）</p>
-<ol>
-<li>找到 JMeter 安装目录下的 <code>log4j2.xml</code> 配置文件。在 JMeter 3.x 及以上版本中，这个文件通常位于 <code>apache-jmeter-X.XX/bin</code> 目录下。</li>
-<li>打开 <code>log4j2.xml</code> 文件，找到 <code>RollingFile</code> 或 <code>File</code> 类型的 Appender 配置部分。</li>
-</ol>
-<span id="more"></span>
-
-<figure class="highlight xml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</span></span><br><span class="line"><span class="comment">&lt;!--......--&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">Configuration</span> <span class="attr">status</span>=<span class="string">"WARN"</span> <span class="attr">packages</span>=<span class="string">"org.apache.jmeter.gui.logging"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Appenders</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 修改这里，修改日志文件位置 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">File</span> <span class="attr">name</span>=<span class="string">"jmeter-log"</span> <span class="attr">fileName</span>=<span class="string">"/path/to/your/log/jmeter.log"</span> <span class="attr">append</span>=<span class="string">"false"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>%d %p %c{1.}: %m%n<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">File</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">GuiLogEvent</span> <span class="attr">name</span>=<span class="string">"gui-log-event"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>%d %p %c{1.}: %m%n<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">GuiLogEvent</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;/<span class="name">Appenders</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">Loggers</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Root</span> <span class="attr">level</span>=<span class="string">"info"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">AppenderRef</span> <span class="attr">ref</span>=<span class="string">"jmeter-log"</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">AppenderRef</span> <span class="attr">ref</span>=<span class="string">"gui-log-event"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Root</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Logger</span> <span class="attr">name</span>=<span class="string">"org.apache.jmeter.junit"</span> <span class="attr">level</span>=<span class="string">"debug"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;/<span class="name">Loggers</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">Configuration</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-
-]]></content>
-      <categories>
-        <category>性能测试</category>
-      </categories>
-      <tags>
-        <tag>jmeter</tag>
       </tags>
   </entry>
   <entry>

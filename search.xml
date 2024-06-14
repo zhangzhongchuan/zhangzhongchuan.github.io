@@ -34,7 +34,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="3-常用例子"><a href="#3-常用例子" class="headerlink" title="3.常用例子"></a>3. 常用例子</h3><p>（1）<strong>添加天数</strong>：</p>
+<h2 id="3-常用例子"><a href="#3-常用例子" class="headerlink" title="3.常用例子"></a>3. 常用例子</h2><p>（1）<strong>添加天数</strong>：</p>
 <figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">SELECT DATE_ADD('2024-06-12', INTERVAL 10 DAY);</span><br></pre></td></tr></tbody></table></figure>
 
 <p>（2）<strong>添加小时</strong>：</p>
@@ -188,26 +188,6 @@
       </tags>
   </entry>
   <entry>
-    <title>jmeter 通过 log4j2.xml 修改 log 文件位置</title>
-    <url>/2024/04/15/jmeter%E9%80%9A%E8%BF%87log4j2-xml%E4%BF%AE%E6%94%B9log%E6%96%87%E4%BB%B6%E4%BD%8D%E7%BD%AE/</url>
-    <content><![CDATA[<p>在 Apache JMeter 中，如果你使用的是 Log4j2 作为日志系统，并且想通过 <code>log4j2.xml</code> 配置文件修改日志文件的位置，你可以按照以下步骤操作：（文中使用 jmeter 版本为:apache-jmeter-5.6.3）</p>
-<ol>
-<li>找到 JMeter 安装目录下的 <code>log4j2.xml</code> 配置文件。在 JMeter 3.x 及以上版本中，这个文件通常位于 <code>apache-jmeter-X.XX/bin</code> 目录下。</li>
-<li>打开 <code>log4j2.xml</code> 文件，找到 <code>RollingFile</code> 或 <code>File</code> 类型的 Appender 配置部分。</li>
-</ol>
-<span id="more"></span>
-
-<figure class="highlight xml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</span></span><br><span class="line"><span class="comment">&lt;!--......--&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">Configuration</span> <span class="attr">status</span>=<span class="string">"WARN"</span> <span class="attr">packages</span>=<span class="string">"org.apache.jmeter.gui.logging"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Appenders</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 修改这里，修改日志文件位置 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">File</span> <span class="attr">name</span>=<span class="string">"jmeter-log"</span> <span class="attr">fileName</span>=<span class="string">"/path/to/your/log/jmeter.log"</span> <span class="attr">append</span>=<span class="string">"false"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>%d %p %c{1.}: %m%n<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">File</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">GuiLogEvent</span> <span class="attr">name</span>=<span class="string">"gui-log-event"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>%d %p %c{1.}: %m%n<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">GuiLogEvent</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;/<span class="name">Appenders</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">Loggers</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Root</span> <span class="attr">level</span>=<span class="string">"info"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">AppenderRef</span> <span class="attr">ref</span>=<span class="string">"jmeter-log"</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">AppenderRef</span> <span class="attr">ref</span>=<span class="string">"gui-log-event"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Root</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Logger</span> <span class="attr">name</span>=<span class="string">"org.apache.jmeter.junit"</span> <span class="attr">level</span>=<span class="string">"debug"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;/<span class="name">Loggers</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">Configuration</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-
-]]></content>
-      <categories>
-        <category>性能测试</category>
-      </categories>
-      <tags>
-        <tag>jmeter</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>使用 hexo 搭建 GitHub Page 博客后，网页显示 404 的问题解决</title>
     <url>/2019/08/14/hexo%E7%AC%AC%E4%B8%80%E6%AC%A1%E9%83%A8%E7%BD%B2%E7%BD%91%E9%A1%B5%E6%98%BE%E7%A4%BA404/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>使用 hexo 搭建 GitHub Page 博客后，第一次正常，第二次上传后，博客网页显示 404 页面。</p>
@@ -226,6 +206,26 @@
       </categories>
       <tags>
         <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>jmeter 通过 log4j2.xml 修改 log 文件位置</title>
+    <url>/2024/04/15/jmeter%E9%80%9A%E8%BF%87log4j2-xml%E4%BF%AE%E6%94%B9log%E6%96%87%E4%BB%B6%E4%BD%8D%E7%BD%AE/</url>
+    <content><![CDATA[<p>在 Apache JMeter 中，如果你使用的是 Log4j2 作为日志系统，并且想通过 <code>log4j2.xml</code> 配置文件修改日志文件的位置，你可以按照以下步骤操作：（文中使用 jmeter 版本为:apache-jmeter-5.6.3）</p>
+<ol>
+<li>找到 JMeter 安装目录下的 <code>log4j2.xml</code> 配置文件。在 JMeter 3.x 及以上版本中，这个文件通常位于 <code>apache-jmeter-X.XX/bin</code> 目录下。</li>
+<li>打开 <code>log4j2.xml</code> 文件，找到 <code>RollingFile</code> 或 <code>File</code> 类型的 Appender 配置部分。</li>
+</ol>
+<span id="more"></span>
+
+<figure class="highlight xml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</span></span><br><span class="line"><span class="comment">&lt;!--......--&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">Configuration</span> <span class="attr">status</span>=<span class="string">"WARN"</span> <span class="attr">packages</span>=<span class="string">"org.apache.jmeter.gui.logging"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Appenders</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 修改这里，修改日志文件位置 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">File</span> <span class="attr">name</span>=<span class="string">"jmeter-log"</span> <span class="attr">fileName</span>=<span class="string">"/path/to/your/log/jmeter.log"</span> <span class="attr">append</span>=<span class="string">"false"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>%d %p %c{1.}: %m%n<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">File</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">GuiLogEvent</span> <span class="attr">name</span>=<span class="string">"gui-log-event"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>%d %p %c{1.}: %m%n<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">GuiLogEvent</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;/<span class="name">Appenders</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">Loggers</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Root</span> <span class="attr">level</span>=<span class="string">"info"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">AppenderRef</span> <span class="attr">ref</span>=<span class="string">"jmeter-log"</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">AppenderRef</span> <span class="attr">ref</span>=<span class="string">"gui-log-event"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Root</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Logger</span> <span class="attr">name</span>=<span class="string">"org.apache.jmeter.junit"</span> <span class="attr">level</span>=<span class="string">"debug"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;/<span class="name">Loggers</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">Configuration</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+]]></content>
+      <categories>
+        <category>性能测试</category>
+      </categories>
+      <tags>
+        <tag>jmeter</tag>
       </tags>
   </entry>
   <entry>
@@ -359,34 +359,6 @@
       </tags>
   </entry>
   <entry>
-    <title>requirements 总结</title>
-    <url>/2021/05/21/requirements%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在搭建 Liunx 服务器时，需要在新的 Python 环境中安装项目需要的包的依赖，一条一条 pip install 太慢，有没有可以批量安装方法？</p>
-<span id="more"></span>
-
-<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><p>百度后，方法如下：</p>
-<p>在旧环境下执行:</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pip freeze &gt; requirements.txt</span><br></pre></td></tr></tbody></table></figure>
-
-<p>执行后，会在当前项目下生成一个 requirements.txt 的文件，然后将该文件上传到新的环境项目下，在新环境下执行:</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></tbody></table></figure>
-
-<p>有时执行上面命令会报错 (改错误是在 Jenkins 中执行 shell 时报错)</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">ERROR: Could not find a version that satisfies the requirement request==1.0.117 (from -r requirements.txt (line 6)) (from versions: none)</span><br></pre></td></tr></tbody></table></figure>
-
-<p>一般情况下是国外源的原因，将其临时替换为国内源：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple/</span><br></pre></td></tr></tbody></table></figure>
-
-]]></content>
-      <categories>
-        <category>环境部署</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>pycharm</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>博客重新装修删除冗余内容</title>
     <url>/2024/05/06/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%96%B0%E8%A3%85%E4%BF%AE%E5%88%A0%E9%99%A4%E5%86%97%E4%BD%99%E5%86%85%E5%AE%B9/</url>
     <content><![CDATA[<p>最近有空闲时间，就重新装修了长时间没管过的博客，将以前的内容做了精简以及删除，后续会陆续将之前做的笔记整理后，写成 blog，大体做了如下改变。</p>
@@ -430,6 +402,34 @@
         <tag>ubuntu</tag>
         <tag>macos</tag>
         <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>requirements 总结</title>
+    <url>/2021/05/21/requirements%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在搭建 Liunx 服务器时，需要在新的 Python 环境中安装项目需要的包的依赖，一条一条 pip install 太慢，有没有可以批量安装方法？</p>
+<span id="more"></span>
+
+<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><p>百度后，方法如下：</p>
+<p>在旧环境下执行:</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pip freeze &gt; requirements.txt</span><br></pre></td></tr></tbody></table></figure>
+
+<p>执行后，会在当前项目下生成一个 requirements.txt 的文件，然后将该文件上传到新的环境项目下，在新环境下执行:</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></tbody></table></figure>
+
+<p>有时执行上面命令会报错 (改错误是在 Jenkins 中执行 shell 时报错)</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">ERROR: Could not find a version that satisfies the requirement request==1.0.117 (from -r requirements.txt (line 6)) (from versions: none)</span><br></pre></td></tr></tbody></table></figure>
+
+<p>一般情况下是国外源的原因，将其临时替换为国内源：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple/</span><br></pre></td></tr></tbody></table></figure>
+
+]]></content>
+      <categories>
+        <category>环境部署</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>pycharm</tag>
       </tags>
   </entry>
   <entry>
@@ -605,26 +605,6 @@
       </tags>
   </entry>
   <entry>
-    <title>解决 Mac 突然黑屏然后出现登录界面的问题</title>
-    <url>/2024/05/06/%E8%A7%A3%E5%86%B3Mac%E7%AA%81%E7%84%B6%E9%BB%91%E5%B1%8F%E7%84%B6%E5%90%8E%E5%87%BA%E7%8E%B0%E7%99%BB%E5%BD%95%E7%95%8C%E9%9D%A2%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>macOS 13 Ventura 后，经常出现下面的问题：</p>
-<span id="more"></span>
-
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240506165320062.png" alt="image-20240506165320062"></p>
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>未知</p>
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>关闭了 2 个选项，不要全屏应用</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240506170557285.png" alt="image-20240506170557285"></p>
-<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p><a href="https://github.com/tobemaster56/draft/issues/108">https://github.com/tobemaster56/draft/issues/108</a></p>
-<p><a href="https://developer.apple.com/forums/thread/719033?answerId=735928022#735928022">https://developer.apple.com/forums/thread/719033?answerId=735928022#735928022</a></p>
-]]></content>
-      <categories>
-        <category>操作系统</category>
-      </categories>
-      <tags>
-        <tag>macos</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>解决 hexoblog 标签点击没有响应的问题</title>
     <url>/2024/05/23/%E8%A7%A3%E5%86%B3hexoblog%E6%A0%87%E7%AD%BE%E7%82%B9%E5%87%BB%E6%B2%A1%E6%9C%89%E5%93%8D%E5%BA%94%E7%9A%84%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>点击博客标签页面里面的标签，没有反应。</p>
@@ -657,6 +637,26 @@
       </categories>
       <tags>
         <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解决 Mac 突然黑屏然后出现登录界面的问题</title>
+    <url>/2024/05/06/%E8%A7%A3%E5%86%B3Mac%E7%AA%81%E7%84%B6%E9%BB%91%E5%B1%8F%E7%84%B6%E5%90%8E%E5%87%BA%E7%8E%B0%E7%99%BB%E5%BD%95%E7%95%8C%E9%9D%A2%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>macOS 13 Ventura 后，经常出现下面的问题：</p>
+<span id="more"></span>
+
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240506165320062.png" alt="image-20240506165320062"></p>
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>未知</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>关闭了 2 个选项，不要全屏应用</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240506170557285.png" alt="image-20240506170557285"></p>
+<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p><a href="https://github.com/tobemaster56/draft/issues/108">https://github.com/tobemaster56/draft/issues/108</a></p>
+<p><a href="https://developer.apple.com/forums/thread/719033?answerId=735928022#735928022">https://developer.apple.com/forums/thread/719033?answerId=735928022#735928022</a></p>
+]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>macos</tag>
       </tags>
   </entry>
   <entry>
@@ -723,6 +723,27 @@
       </tags>
   </entry>
   <entry>
+    <title>解决黑苹果系统无故重启的问题</title>
+    <url>/2024/05/21/%E8%A7%A3%E5%86%B3%E9%BB%91%E8%8B%B9%E6%9E%9C%E7%B3%BB%E7%BB%9F%E6%97%A0%E6%95%85%E9%87%8D%E5%90%AF%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>抄国光大佬作业搞了一台 chromebox3 CN65，刷上黑苹果，总是无规律重启。尝试重新刷了 最新的 bios，好了 2 天，后面又开始无规律重启，配置如下：</p>
+<span id="more"></span>
+
+<p>CPU：Intel® Core™ i7-8550U Processor</p>
+<p>Graphic：Intel® HD Graphics 620</p>
+<p>内存：DDR4 JUHOR 玖合 2666MHZ 16G x 2 (这台机器官网是 4-16G，试了下 32G 能用，就用了)</p>
+<p>固态硬盘：台电（TECLAST）1TBPCle3.0*4</p>
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>内存条频率为 2666MHZ</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>更换内存条为 2400MHZ（黑苹果对硬件的要求比较高）</p>
+<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p><a href="https://www.sqlsec.com/2023/07/macbox.html">https://www.sqlsec.com/2023/07/macbox.html</a></p>
+]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>hackintosh</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>解决新版本 MacOS 下 Sublime Text4 package control 无法加载问题</title>
     <url>/2024/05/24/%E8%A7%A3%E5%86%B3%E6%96%B0%E7%89%88%E6%9C%ACMacOS%E4%B8%8BSublimeText4packagecontrol%E6%97%A0%E6%B3%95%E5%8A%A0%E8%BD%BD%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>cmd + shift + p 输入 install package 有对应菜单选项，没反应。</p>
@@ -750,27 +771,6 @@
       </categories>
       <tags>
         <tag>sublime</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>解决黑苹果系统无故重启的问题</title>
-    <url>/2024/05/21/%E8%A7%A3%E5%86%B3%E9%BB%91%E8%8B%B9%E6%9E%9C%E7%B3%BB%E7%BB%9F%E6%97%A0%E6%95%85%E9%87%8D%E5%90%AF%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>抄国光大佬作业搞了一台 chromebox3 CN65，刷上黑苹果，总是无规律重启。尝试重新刷了 最新的 bios，好了 2 天，后面又开始无规律重启，配置如下：</p>
-<span id="more"></span>
-
-<p>CPU：Intel® Core™ i7-8550U Processor</p>
-<p>Graphic：Intel® HD Graphics 620</p>
-<p>内存：DDR4 JUHOR 玖合 2666MHZ 16G x 2 (这台机器官网是 4-16G，试了下 32G 能用，就用了)</p>
-<p>固态硬盘：台电（TECLAST）1TBPCle3.0*4</p>
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>内存条频率为 2666MHZ</p>
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>更换内存条为 2400MHZ（黑苹果对硬件的要求比较高）</p>
-<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p><a href="https://www.sqlsec.com/2023/07/macbox.html">https://www.sqlsec.com/2023/07/macbox.html</a></p>
-]]></content>
-      <categories>
-        <category>操作系统</category>
-      </categories>
-      <tags>
-        <tag>hackintosh</tag>
       </tags>
   </entry>
   <entry>

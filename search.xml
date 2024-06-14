@@ -459,6 +459,36 @@
       </tags>
   </entry>
   <entry>
+    <title>如何将 excel 相同行快速标注相同颜色</title>
+    <url>/2024/05/22/%E5%A6%82%E4%BD%95%E5%B0%86excel%E7%9B%B8%E5%90%8C%E8%A1%8C%E5%BF%AB%E9%80%9F%E6%A0%87%E6%B3%A8%E7%9B%B8%E5%90%8C%E9%A2%9C%E8%89%B2/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>如下图所示，相同的公司标注相同的颜色，相邻的公司使用不同的颜色标注。</p>
+<span id="more"></span>
+
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523105209093.png" alt="image-20240523105209093"></p>
+<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><p>这里提供一种不是最优解的解决方法，前提是会使用函数 <code>vlookup</code> 和 <code>isodd</code></p>
+<p>（0）将表格按照公司名字排序。</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523115128818.png" alt="image-20240523115128818"></p>
+<p>（1）将公司名这一列复制到一个新的 <code>sheet</code> 中，然后去重。</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523115554033.png" alt="image-20240523115554033"></p>
+<p>（2）在公司名右侧插入公司名编号。</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523115823986.png" alt="image-20240523115823986"></p>
+<p>（3）在原表中公司名后插入一列，使用 <code>vlookup</code> 公式去匹配公司名编号。</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523120017323.png" alt="image-20240523120017323"></p>
+<p>（4）在原表中公司名编号中插入一列，使用 <code>isodd</code> 公式计算是奇偶数。</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523120250045.png" alt="image-20240523120250045"></p>
+<p>（5）筛选奇偶数，分别标注颜色。</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523120436033.png" alt="image-20240523120436033"></p>
+<p>（6）删除辅助列即可</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523120606111.png" alt="image-20240523120606111"></p>
+]]></content>
+      <categories>
+        <category>软件使用</category>
+      </categories>
+      <tags>
+        <tag>excel</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>将 hexo 部署到 centos 服务器上</title>
     <url>/2024/05/27/%E5%B0%86hexo%E9%83%A8%E7%BD%B2%E5%88%B0centos%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A/</url>
     <content><![CDATA[<h2 id="1-目标"><a href="#1-目标" class="headerlink" title="1.目标"></a>1. 目标</h2><p>将 hexo 部署到 centos 服务器上。</p>
@@ -525,36 +555,6 @@
       </tags>
   </entry>
   <entry>
-    <title>如何将 excel 相同行快速标注相同颜色</title>
-    <url>/2024/05/22/%E5%A6%82%E4%BD%95%E5%B0%86excel%E7%9B%B8%E5%90%8C%E8%A1%8C%E5%BF%AB%E9%80%9F%E6%A0%87%E6%B3%A8%E7%9B%B8%E5%90%8C%E9%A2%9C%E8%89%B2/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>如下图所示，相同的公司标注相同的颜色，相邻的公司使用不同的颜色标注。</p>
-<span id="more"></span>
-
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523105209093.png" alt="image-20240523105209093"></p>
-<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><p>这里提供一种不是最优解的解决方法，前提是会使用函数 <code>vlookup</code> 和 <code>isodd</code></p>
-<p>（0）将表格按照公司名字排序。</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523115128818.png" alt="image-20240523115128818"></p>
-<p>（1）将公司名这一列复制到一个新的 <code>sheet</code> 中，然后去重。</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523115554033.png" alt="image-20240523115554033"></p>
-<p>（2）在公司名右侧插入公司名编号。</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523115823986.png" alt="image-20240523115823986"></p>
-<p>（3）在原表中公司名后插入一列，使用 <code>vlookup</code> 公式去匹配公司名编号。</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523120017323.png" alt="image-20240523120017323"></p>
-<p>（4）在原表中公司名编号中插入一列，使用 <code>isodd</code> 公式计算是奇偶数。</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523120250045.png" alt="image-20240523120250045"></p>
-<p>（5）筛选奇偶数，分别标注颜色。</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523120436033.png" alt="image-20240523120436033"></p>
-<p>（6）删除辅助列即可</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523120606111.png" alt="image-20240523120606111"></p>
-]]></content>
-      <categories>
-        <category>软件使用</category>
-      </categories>
-      <tags>
-        <tag>excel</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>测试计划模板</title>
     <url>/2019/07/11/%E6%B5%8B%E8%AF%95%E8%AE%A1%E5%88%92%E6%A8%A1%E6%9D%BF/</url>
     <content><![CDATA[<h1 id="测试计划"><a href="#测试计划" class="headerlink" title="测试计划"></a>测试计划</h1><h1 id="XXX-项目测试计划"><a href="#XXX-项目测试计划" class="headerlink" title="XXX 项目测试计划"></a><center>XXX 项目测试计划</center></h1><h2 id="1-引言"><a href="#1-引言" class="headerlink" title="1.引言"></a>1. 引言</h2><h3 id="1-1-编写目的"><a href="#1-1-编写目的" class="headerlink" title="1.1 编写目的"></a>1.1 编写目的</h3><p>根据需求文档，提炼测试功能点、制定测试策略、评估测试风险，预估编写测试用例、执行功能测试和回归测试的工作量，进行人员和进度安排。</p>
@@ -604,41 +604,6 @@
       </tags>
   </entry>
   <entry>
-    <title>解决 hexoblog 标签点击没有响应的问题</title>
-    <url>/2024/05/23/%E8%A7%A3%E5%86%B3hexoblog%E6%A0%87%E7%AD%BE%E7%82%B9%E5%87%BB%E6%B2%A1%E6%9C%89%E5%93%8D%E5%BA%94%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>点击博客标签页面里面的标签，没有反应。</p>
-<span id="more"></span>
-
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523160533021.png" alt="image-20240523160533021"></p>
-<p>在本地测试，又没有问题。</p>
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>发现只有之前标签页面由之前的大写，改为小写的这些标签进不去。如原来标签叫 Hackintosh，为了标签的统一美观（其实就是强迫症），后面给改成 hackintosh。上 github 看了下，所有的内容都在 Hackintosh 中存储，而链接统一为小写。</p>
-<figure class="highlight http"><table><tbody><tr><td class="code"><pre><span class="line">https://www.zhangzhongchuan.top/tags/hackintosh/</span><br></pre></td></tr></tbody></table></figure>
-
-<p>将 hackintosh 改为大写，访问成功。</p>
-<figure class="highlight http"><table><tbody><tr><td class="code"><pre><span class="line">https://www.zhangzhongchuan.top/tags/Hackintosh/</span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>（1）进入博客项目的 <em>.deploy_git</em> 文件夹，修改 <em>.git</em> 下的 <em>config</em> 文件，将忽略大小配置写改为 false</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">ignorecase=<span class="literal">false</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>（2）删除博客项目中 <em>.deploy_git</em> 文件夹下所有文件，并 push 到 GitHub 上：（如果不清空其实也可以，就是 github 上有 2 个文件夹如 <code>Hackintosh</code> 和 <code>hackintosh</code>）</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> .deploy_git</span><br><span class="line">git <span class="built_in">rm</span> -rf *</span><br><span class="line">git commit -m <span class="string">'clean all file'</span></span><br><span class="line">git push</span><br></pre></td></tr></tbody></table></figure>
-
-<p>(3) 使用 hexo 再次生成文件并部署：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ..</span><br><span class="line"></span><br><span class="line">hexo clean &amp;&amp; hexo g -d</span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p>参考于该博客</p>
-<p><a href="https://metric-h.github.io/2021/03/30/hexo-da-xiao-xie-wen-ti/">https://metric-h.github.io/2021/03/30/hexo-da-xiao-xie-wen-ti/</a></p>
-]]></content>
-      <categories>
-        <category>环境部署</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>解决 Mac 突然黑屏然后出现登录界面的问题</title>
     <url>/2024/05/06/%E8%A7%A3%E5%86%B3Mac%E7%AA%81%E7%84%B6%E9%BB%91%E5%B1%8F%E7%84%B6%E5%90%8E%E5%87%BA%E7%8E%B0%E7%99%BB%E5%BD%95%E7%95%8C%E9%9D%A2%E7%9A%84%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>macOS 13 Ventura 后，经常出现下面的问题：</p>
@@ -671,6 +636,41 @@
 <figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></tbody></table></figure>
 
 <p>然后部署成功。</p>
+]]></content>
+      <categories>
+        <category>环境部署</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解决 hexoblog 标签点击没有响应的问题</title>
+    <url>/2024/05/23/%E8%A7%A3%E5%86%B3hexoblog%E6%A0%87%E7%AD%BE%E7%82%B9%E5%87%BB%E6%B2%A1%E6%9C%89%E5%93%8D%E5%BA%94%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>点击博客标签页面里面的标签，没有反应。</p>
+<span id="more"></span>
+
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523160533021.png" alt="image-20240523160533021"></p>
+<p>在本地测试，又没有问题。</p>
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>发现只有之前标签页面由之前的大写，改为小写的这些标签进不去。如原来标签叫 Hackintosh，为了标签的统一美观（其实就是强迫症），后面给改成 hackintosh。上 github 看了下，所有的内容都在 Hackintosh 中存储，而链接统一为小写。</p>
+<figure class="highlight http"><table><tbody><tr><td class="code"><pre><span class="line">https://www.zhangzhongchuan.top/tags/hackintosh/</span><br></pre></td></tr></tbody></table></figure>
+
+<p>将 hackintosh 改为大写，访问成功。</p>
+<figure class="highlight http"><table><tbody><tr><td class="code"><pre><span class="line">https://www.zhangzhongchuan.top/tags/Hackintosh/</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>（1）进入博客项目的 <em>.deploy_git</em> 文件夹，修改 <em>.git</em> 下的 <em>config</em> 文件，将忽略大小配置写改为 false</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">ignorecase=<span class="literal">false</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>（2）删除博客项目中 <em>.deploy_git</em> 文件夹下所有文件，并 push 到 GitHub 上：（如果不清空其实也可以，就是 github 上有 2 个文件夹如 <code>Hackintosh</code> 和 <code>hackintosh</code>）</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> .deploy_git</span><br><span class="line">git <span class="built_in">rm</span> -rf *</span><br><span class="line">git commit -m <span class="string">'clean all file'</span></span><br><span class="line">git push</span><br></pre></td></tr></tbody></table></figure>
+
+<p>(3) 使用 hexo 再次生成文件并部署：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ..</span><br><span class="line"></span><br><span class="line">hexo clean &amp;&amp; hexo g -d</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p>参考于该博客</p>
+<p><a href="https://metric-h.github.io/2021/03/30/hexo-da-xiao-xie-wen-ti/">https://metric-h.github.io/2021/03/30/hexo-da-xiao-xie-wen-ti/</a></p>
 ]]></content>
       <categories>
         <category>环境部署</category>
@@ -778,7 +778,7 @@
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>记录一个 mysql 存储过程模板，方便以后使用。</p>
 <span id="more"></span>
 
-<h2 id="2-相关sql"><a href="#2-相关sql" class="headerlink" title="2.相关sql"></a>2. 相关 sql</h2><figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> # user1为数据库用户名</span><br><span class="line">    definer <span class="operator">=</span> user1@`<span class="operator">%</span>` <span class="keyword">procedure</span> procedure_name(</span><br><span class="line">      <span class="comment">-- 定义输入输入参数</span></span><br><span class="line">      <span class="keyword">IN</span> parameter1 <span class="type">varchar</span>(<span class="number">50</span>),                                                   </span><br><span class="line">      <span class="keyword">IN</span> parameter2 <span class="type">decimal</span>(<span class="number">15</span>, <span class="number">2</span>),</span><br><span class="line">      <span class="keyword">IN</span> parameter3 <span class="type">decimal</span>(<span class="number">10</span>, <span class="number">4</span>),</span><br><span class="line">      <span class="keyword">IN</span> parameter4 tinyint(<span class="number">3</span>),</span><br><span class="line">      <span class="keyword">IN</span> parameter5 <span class="type">varchar</span>(<span class="number">32</span>))</span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">    <span class="comment">-- 变量定义</span></span><br><span class="line">    <span class="keyword">declare</span> s_parameter1 <span class="type">varchar</span>(<span class="number">32</span>); </span><br><span class="line">    <span class="keyword">declare</span> s_parameter2 datetime; </span><br><span class="line">    <span class="keyword">declare</span> s_parameter3 datetime; </span><br><span class="line">    <span class="keyword">declare</span> s_parameter4 <span class="type">decimal</span>(<span class="number">15</span>,<span class="number">2</span>); </span><br><span class="line">    <span class="keyword">declare</span> s_parameter5 <span class="type">bigint</span>; </span><br><span class="line">    <span class="keyword">declare</span> s_parameter6 <span class="type">bigint</span>; </span><br><span class="line"></span><br><span class="line">    <span class="comment">-- 变量赋值</span></span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        param1,</span><br><span class="line">        param2,</span><br><span class="line">        date_add((date_format(param3,<span class="string">'%Y-%m-%d %H:%i:%s'</span>)),<span class="type">interval</span> <span class="number">10</span> <span class="keyword">MINUTE</span> ), # 时间<span class="operator">+</span><span class="number">10</span>分钟</span><br><span class="line">        date_add((date_format(param4,<span class="string">'%Y-%m-%d %H:%i:%s'</span>)),<span class="type">interval</span> <span class="number">10</span> <span class="keyword">MINUTE</span> )  # 时间<span class="operator">+</span><span class="number">10</span>分钟</span><br><span class="line">    <span class="keyword">into</span></span><br><span class="line">        s_parameter1,</span><br><span class="line">        s_parameter2,</span><br><span class="line">        s_parameter3,</span><br><span class="line">        s_parameter4</span><br><span class="line">    <span class="keyword">from</span> table1</span><br><span class="line">    <span class="keyword">where</span> param1 <span class="operator">=</span> parameter1;</span><br><span class="line"></span><br><span class="line">    <span class="comment">-- 更新</span></span><br><span class="line">    <span class="keyword">UPDATE</span> table2</span><br><span class="line">    <span class="keyword">SET</span> `param1` <span class="operator">=</span> <span class="string">'test'</span>,</span><br><span class="line">        `param2` <span class="operator">=</span> s_parameter1,</span><br><span class="line">        `param3` <span class="operator">=</span> s_parameter2,</span><br><span class="line">        `param4` <span class="operator">=</span> s_parameter3,</span><br><span class="line">        `param5` <span class="operator">=</span> date_format(now(), <span class="string">'%Y-%m-%d %H:%i:%s'</span>), # 设置时间为当前时间</span><br><span class="line">        `param6` <span class="operator">=</span> s_parameter4,</span><br><span class="line">        `param7` <span class="operator">=</span> s_parameter5,</span><br><span class="line">        `param8` <span class="operator">=</span> s_parameter6,</span><br><span class="line">        `param9` <span class="operator">=</span> s_parameter6,</span><br><span class="line">        `param10`<span class="operator">=</span> date_format(now(), <span class="string">'%Y-%m-%d %H:%i:%s'</span>) # 设置时间为当前时间</span><br><span class="line">    <span class="keyword">WHERE</span> param1 <span class="operator">=</span> parameter1;</span><br><span class="line">		</span><br><span class="line">		<span class="comment">-- 条件判断</span></span><br><span class="line">    if parameter2 <span class="operator">*</span> <span class="number">0.015</span> <span class="operator">&lt;</span> <span class="number">500</span> <span class="keyword">then</span></span><br><span class="line">        <span class="keyword">set</span> s_parameter3 <span class="operator">=</span> <span class="number">500</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">set</span> s_parameter3 <span class="operator">=</span> parameter2 <span class="operator">*</span> <span class="number">0.015</span>;</span><br><span class="line">    <span class="keyword">end</span> if;</span><br><span class="line">		</span><br><span class="line">		<span class="comment">-- 最大编号自动➕1</span></span><br><span class="line">		<span class="keyword">select</span> <span class="built_in">max</span>(id)<span class="operator">+</span><span class="number">1</span> <span class="keyword">into</span> s_parameter5 <span class="keyword">from</span> table3;</span><br><span class="line">    <span class="keyword">select</span> <span class="built_in">max</span>(id)<span class="operator">+</span><span class="number">1</span> <span class="keyword">into</span> s_parameter6 <span class="keyword">from</span> table4;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">-- 插入</span></span><br><span class="line">    <span class="keyword">insert</span> <span class="keyword">into</span> </span><br><span class="line">    table5(p1, p2, p3, p4)  </span><br><span class="line">    <span class="keyword">values</span></span><br><span class="line">    (s_parameter1, s_parameter2, s_parameter3, s_parameter4);</span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span>;</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="2-相关sql"><a href="#2-相关sql" class="headerlink" title="2.相关sql"></a>2. 相关 sql</h2><figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> definer <span class="operator">=</span> user1@`<span class="operator">%</span>` <span class="keyword">procedure</span> procedure_name( # user1为数据库用户名</span><br><span class="line">      <span class="comment">-- 定义输入输入参数</span></span><br><span class="line">      <span class="keyword">IN</span> parameter1 <span class="type">varchar</span>(<span class="number">50</span>),                                                   </span><br><span class="line">      <span class="keyword">IN</span> parameter2 <span class="type">decimal</span>(<span class="number">15</span>, <span class="number">2</span>),</span><br><span class="line">      <span class="keyword">IN</span> parameter3 <span class="type">decimal</span>(<span class="number">10</span>, <span class="number">4</span>),</span><br><span class="line">      <span class="keyword">IN</span> parameter4 tinyint(<span class="number">3</span>),</span><br><span class="line">      <span class="keyword">IN</span> parameter5 <span class="type">varchar</span>(<span class="number">32</span>))</span><br><span class="line">      </span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">    <span class="comment">-- 变量定义</span></span><br><span class="line">    <span class="keyword">declare</span> s_parameter1 <span class="type">varchar</span>(<span class="number">32</span>); </span><br><span class="line">    <span class="keyword">declare</span> s_parameter2 datetime; </span><br><span class="line">    <span class="keyword">declare</span> s_parameter3 datetime; </span><br><span class="line">    <span class="keyword">declare</span> s_parameter4 <span class="type">decimal</span>(<span class="number">15</span>,<span class="number">2</span>); </span><br><span class="line">    <span class="keyword">declare</span> s_parameter5 <span class="type">bigint</span>; </span><br><span class="line">    <span class="keyword">declare</span> s_parameter6 <span class="type">bigint</span>; </span><br><span class="line"></span><br><span class="line">    <span class="comment">-- 变量赋值</span></span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        param1,</span><br><span class="line">        param2,</span><br><span class="line">        date_add((date_format(param3,<span class="string">'%Y-%m-%d %H:%i:%s'</span>)),<span class="type">interval</span> <span class="number">10</span> <span class="keyword">MINUTE</span> ), # 时间<span class="operator">+</span><span class="number">10</span>分钟</span><br><span class="line">        date_add((date_format(param4,<span class="string">'%Y-%m-%d %H:%i:%s'</span>)),<span class="type">interval</span> <span class="number">10</span> <span class="keyword">MINUTE</span> )  # 时间<span class="operator">+</span><span class="number">10</span>分钟</span><br><span class="line">    <span class="keyword">into</span></span><br><span class="line">        s_parameter1,</span><br><span class="line">        s_parameter2,</span><br><span class="line">        s_parameter3,</span><br><span class="line">        s_parameter4</span><br><span class="line">    <span class="keyword">from</span> table1</span><br><span class="line">    <span class="keyword">where</span> param1 <span class="operator">=</span> parameter1;</span><br><span class="line"></span><br><span class="line">    <span class="comment">-- 更新</span></span><br><span class="line">    <span class="keyword">UPDATE</span> table2</span><br><span class="line">    <span class="keyword">SET</span> `param1` <span class="operator">=</span> <span class="string">'test'</span>,</span><br><span class="line">        `param2` <span class="operator">=</span> s_parameter1,</span><br><span class="line">        `param3` <span class="operator">=</span> s_parameter2,</span><br><span class="line">        `param4` <span class="operator">=</span> s_parameter3,</span><br><span class="line">        `param5` <span class="operator">=</span> date_format(now(), <span class="string">'%Y-%m-%d %H:%i:%s'</span>), # 设置时间为当前时间</span><br><span class="line">        `param6` <span class="operator">=</span> s_parameter4,</span><br><span class="line">        `param7` <span class="operator">=</span> s_parameter5,</span><br><span class="line">        `param8` <span class="operator">=</span> s_parameter6,</span><br><span class="line">        `param9` <span class="operator">=</span> s_parameter6,</span><br><span class="line">        `param10`<span class="operator">=</span> date_format(now(), <span class="string">'%Y-%m-%d %H:%i:%s'</span>) # 设置时间为当前时间</span><br><span class="line">    <span class="keyword">WHERE</span> param1 <span class="operator">=</span> parameter1;</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		<span class="comment">-- 条件判断</span></span><br><span class="line">    if parameter2 <span class="operator">*</span> <span class="number">0.015</span> <span class="operator">&lt;</span> <span class="number">500</span> <span class="keyword">then</span></span><br><span class="line">        <span class="keyword">set</span> s_parameter3 <span class="operator">=</span> <span class="number">500</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">set</span> s_parameter3 <span class="operator">=</span> parameter2 <span class="operator">*</span> <span class="number">0.015</span>;</span><br><span class="line">    <span class="keyword">end</span> if;</span><br><span class="line">		</span><br><span class="line">		<span class="comment">-- 最大编号自动➕1</span></span><br><span class="line">		<span class="keyword">select</span> <span class="built_in">max</span>(id)<span class="operator">+</span><span class="number">1</span> <span class="keyword">into</span> s_parameter5 <span class="keyword">from</span> table3;</span><br><span class="line">    <span class="keyword">select</span> <span class="built_in">max</span>(id)<span class="operator">+</span><span class="number">1</span> <span class="keyword">into</span> s_parameter6 <span class="keyword">from</span> table4;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">-- 插入</span></span><br><span class="line">    <span class="keyword">insert</span> <span class="keyword">into</span> </span><br><span class="line">    table5(p1, p2, p3, p4)  </span><br><span class="line">    <span class="keyword">values</span></span><br><span class="line">    (s_parameter1, s_parameter2, s_parameter3, s_parameter4);</span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span>;</span><br></pre></td></tr></tbody></table></figure>
 
 ]]></content>
       <categories>

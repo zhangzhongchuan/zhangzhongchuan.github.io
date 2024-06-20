@@ -228,6 +228,37 @@
       </tags>
   </entry>
   <entry>
+    <title>mysql 按照分组筛选出时间倒序前三条记录</title>
+    <url>/2024/05/22/mysql%E6%8C%89%E7%85%A7%E5%88%86%E7%BB%84%E7%AD%9B%E9%80%89%E5%87%BA%E6%97%B6%E9%97%B4%E5%80%92%E5%BA%8F%E5%89%8D%E4%B8%89%E6%9D%A1%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在 MySQL 低版本 (5.7 以下) 中，如何按照分组筛选出时间倒序前三条记录？</p>
+<span id="more"></span>
+
+<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">SELECT t.*</span><br><span class="line">FROM (</span><br><span class="line">  SELECT *, </span><br><span class="line">    @rn := IF(@prev_group = group_column, @rn + 1, 1) AS rn,</span><br><span class="line">    @prev_group := group_column</span><br><span class="line">  FROM your_table, (SELECT @rn := 0, @prev_group := NULL) r</span><br><span class="line">  ORDER BY group_column, time_column DESC</span><br><span class="line">) t</span><br><span class="line">WHERE rn &lt;= 3</span><br><span class="line">ORDER BY group_column, time_column DESC;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p>(1) 在子查询中，使用变量 <code>@rn</code> 和 <code>@prev_group</code> 来记录当前行的记录编号和前一行的分组。</p>
+<p>(2)<code>@rn := IF(@prev_group = group_column, @rn + 1, 1) AS rn</code> 这一行代码的作用是：如果当前行的分组与上一行相同，则记录编号 <code>rn</code> 递增 1, 否则从 1 开始计数。</p>
+<p>(3)<code>@prev_group := group_column</code> 这一行代码是更新上一行的分组。</p>
+<p>(4) 在外层查询中，使用 <code>WHERE rn &lt;= 3</code> 来筛选出每个分组中时间倒序的前 3 条记录。</p>
+<p>(5) 最后按分组 <code>group_column</code> 和时间 <code>time_column</code> 倒序排列输出结果。</p>
+<p>你可以将 <code>your_table</code> 替换成你自己的表名，<code>group_column</code> 替换成你表中的分组列名，<code>time_column</code> 替换成你表中的时间列名。</p>
+<p>这种方法在 MySQL 5.7 以下版本中都可以使用，不需要使用 <code>ROW_NUMBER()</code> 函数，性能也较好。</p>
+<p>在 MySQL8.0 及以上可以使用如下方法：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">SELECT t.*</span><br><span class="line">FROM (</span><br><span class="line">  SELECT *, </span><br><span class="line">    ROW_NUMBER() OVER (PARTITION BY group_column ORDER BY time_column DESC) AS rn</span><br><span class="line">  FROM your_table</span><br><span class="line">) t</span><br><span class="line">WHERE rn &lt;= 3</span><br><span class="line">ORDER BY group_column, time_column DESC;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>（1）首先使用子查询，在每个分组 <code>group_column</code> 内根据时间列 <code>time_column</code> 使用 <code>ROW_NUMBER()</code> 函数给每条记录编号，按时间顺序倒序排列。</p>
+<p>（2）然后在外层查询中，使用 <code>WHERE rn &lt;= 3</code> 筛选出每个分组中时间倒序的前 3 条记录。</p>
+<p>（3）最后按分组 <code>group_column</code> 和时间 <code>time_column</code> 倒序排列输出结果。</p>
+<p>这样就可以实现按分组筛选出时间倒序前 3 条记录的功能。你可以将 <code>your_table</code> 替换成你自己的表名，<code>group_column</code> 替换成你表中的分组列名，<code>time_column</code> 替换成你表中的时间列名。</p>
+<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2><p><a href="https://kimi.moonshot.cn/">https://kimi.moonshot.cn/</a></p>
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>mysql 实现 excel 中复制某一列，粘贴转置为行功能</title>
     <url>/2021/05/31/mysql%E5%AE%9E%E7%8E%B0excel%E4%B8%AD%E5%A4%8D%E5%88%B6%E6%9F%90%E4%B8%80%E5%88%97%E7%B2%98%E8%B4%B4%E8%BD%AC%E7%BD%AE%E4%B8%BA%E8%A1%8C%E5%8A%9F%E8%83%BD/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>数据处理需要，需要将大批量的列，转置为行。</p>
@@ -261,34 +292,124 @@
       </tags>
   </entry>
   <entry>
-    <title>mysql 按照分组筛选出时间倒序前三条记录</title>
-    <url>/2024/05/22/mysql%E6%8C%89%E7%85%A7%E5%88%86%E7%BB%84%E7%AD%9B%E9%80%89%E5%87%BA%E6%97%B6%E9%97%B4%E5%80%92%E5%BA%8F%E5%89%8D%E4%B8%89%E6%9D%A1%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在 MySQL 低版本 (5.7 以下) 中，如何按照分组筛选出时间倒序前三条记录？</p>
+    <title>python 创建虚拟环境</title>
+    <url>/2021/06/29/python%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>python 如何创建虚拟环境？</p>
 <span id="more"></span>
 
-<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">SELECT t.*</span><br><span class="line">FROM (</span><br><span class="line">  SELECT *, </span><br><span class="line">    @rn := IF(@prev_group = group_column, @rn + 1, 1) AS rn,</span><br><span class="line">    @prev_group := group_column</span><br><span class="line">  FROM your_table, (SELECT @rn := 0, @prev_group := NULL) r</span><br><span class="line">  ORDER BY group_column, time_column DESC</span><br><span class="line">) t</span><br><span class="line">WHERE rn &lt;= 3</span><br><span class="line">ORDER BY group_column, time_column DESC;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><p>使用 venv 命令，方法如下 (python3.5 以后)：</p>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">python3 -m venv /xx/xx/myvenv <span class="comment">#(myvenv环境名称)</span></span></span><br></pre></td></tr></tbody></table></figure>
 
-<p>(1) 在子查询中，使用变量 <code>@rn</code> 和 <code>@prev_group</code> 来记录当前行的记录编号和前一行的分组。</p>
-<p>(2)<code>@rn := IF(@prev_group = group_column, @rn + 1, 1) AS rn</code> 这一行代码的作用是：如果当前行的分组与上一行相同，则记录编号 <code>rn</code> 递增 1, 否则从 1 开始计数。</p>
-<p>(3)<code>@prev_group := group_column</code> 这一行代码是更新上一行的分组。</p>
-<p>(4) 在外层查询中，使用 <code>WHERE rn &lt;= 3</code> 来筛选出每个分组中时间倒序的前 3 条记录。</p>
-<p>(5) 最后按分组 <code>group_column</code> 和时间 <code>time_column</code> 倒序排列输出结果。</p>
-<p>你可以将 <code>your_table</code> 替换成你自己的表名，<code>group_column</code> 替换成你表中的分组列名，<code>time_column</code> 替换成你表中的时间列名。</p>
-<p>这种方法在 MySQL 5.7 以下版本中都可以使用，不需要使用 <code>ROW_NUMBER()</code> 函数，性能也较好。</p>
-<p>在 MySQL8.0 及以上可以使用如下方法：</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">SELECT t.*</span><br><span class="line">FROM (</span><br><span class="line">  SELECT *, </span><br><span class="line">    ROW_NUMBER() OVER (PARTITION BY group_column ORDER BY time_column DESC) AS rn</span><br><span class="line">  FROM your_table</span><br><span class="line">) t</span><br><span class="line">WHERE rn &lt;= 3</span><br><span class="line">ORDER BY group_column, time_column DESC;</span><br></pre></td></tr></tbody></table></figure>
+<p>激活虚拟环境</p>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">source</span> myvenv/bin/activate</span></span><br></pre></td></tr></tbody></table></figure>
 
-<p>（1）首先使用子查询，在每个分组 <code>group_column</code> 内根据时间列 <code>time_column</code> 使用 <code>ROW_NUMBER()</code> 函数给每条记录编号，按时间顺序倒序排列。</p>
-<p>（2）然后在外层查询中，使用 <code>WHERE rn &lt;= 3</code> 筛选出每个分组中时间倒序的前 3 条记录。</p>
-<p>（3）最后按分组 <code>group_column</code> 和时间 <code>time_column</code> 倒序排列输出结果。</p>
-<p>这样就可以实现按分组筛选出时间倒序前 3 条记录的功能。你可以将 <code>your_table</code> 替换成你自己的表名，<code>group_column</code> 替换成你表中的分组列名，<code>time_column</code> 替换成你表中的时间列名。</p>
-<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2><p><a href="https://kimi.moonshot.cn/">https://kimi.moonshot.cn/</a></p>
+<p>关闭虚拟环境</p>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">deactivate</span></span><br></pre></td></tr></tbody></table></figure>
+
 ]]></content>
       <categories>
-        <category>数据库</category>
+        <category>环境部署</category>
       </categories>
       <tags>
-        <tag>mysql</tag>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python 读写 csv 总结</title>
+    <url>/2024/06/20/python%E8%AF%BB%E5%86%99csv%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>每次都查系列，总结一下，以方便下次查。</p>
+<p>在 Python 中，你可以使用内置的 <code>csv</code> 模块来读写 CSV（Comma-Separated Values）文件。</p>
+<p>以下是一些基本的示例，展示如何使用 <code>csv</code> 模块来实现这一功能。</p>
+<span id="more"></span>
+
+<h3 id="1-读取CSV文件"><a href="#1-读取CSV文件" class="headerlink" title="(1)读取CSV文件"></a>(1) 读取 <code>CSV</code> 文件</h3><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> csv</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打开文件进行读取</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">'input.csv'</span>, newline=<span class="string">''</span>) <span class="keyword">as</span> file:</span><br><span class="line">    reader = csv.reader(file)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 遍历文件中的每一行</span></span><br><span class="line">    <span class="keyword">for</span> row <span class="keyword">in</span> reader:</span><br><span class="line">        <span class="built_in">print</span>(row)  <span class="comment"># 打印每一行的数据 row: [list]</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="2-写入CSV文件"><a href="#2-写入CSV文件" class="headerlink" title="(2)写入CSV文件"></a>(2) 写入 <code>CSV</code> 文件</h3><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> csv</span><br><span class="line"></span><br><span class="line"><span class="comment"># 要写入的数据</span></span><br><span class="line">rows = [</span><br><span class="line">    [<span class="string">'Name'</span>, <span class="string">'Age'</span>, <span class="string">'City'</span>],</span><br><span class="line">    [<span class="string">'Alice'</span>, <span class="number">24</span>, <span class="string">'New York'</span>],</span><br><span class="line">    [<span class="string">'Bob'</span>, <span class="number">27</span>, <span class="string">'Los Angeles'</span>]</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打开文件进行写入</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">'output.csv'</span>, <span class="string">'w'</span>, newline=<span class="string">''</span>) <span class="keyword">as</span> file:</span><br><span class="line">    writer = csv.writer(file)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 写入数据</span></span><br><span class="line">    <span class="keyword">for</span> row <span class="keyword">in</span> rows:</span><br><span class="line">        writer.writerow(row)</span><br></pre></td></tr></tbody></table></figure>
+
+<p>使用 <code>DictReader</code> 和 <code>DictWriter</code></p>
+<p>如果你的 CSV 文件有表头，并且你想要以字典的形式读取或写入数据，可以使用 <code>csv.DictReader</code> 和 <code>csv.DictWriter</code>。</p>
+<h3 id="3-读取CSV文件（使用DictReader）"><a href="#3-读取CSV文件（使用DictReader）" class="headerlink" title="(3)读取CSV文件（使用DictReader）"></a>(3) 读取 <code>CSV</code> 文件（使用 <code>DictReader</code>）</h3><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> csv</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打开文件进行读取</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">'dict_input.csv'</span>, newline=<span class="string">''</span>) <span class="keyword">as</span> file:</span><br><span class="line">    reader = csv.DictReader(file)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 遍历文件中的每一行</span></span><br><span class="line">    <span class="keyword">for</span> row <span class="keyword">in</span> reader:</span><br><span class="line">        <span class="built_in">print</span>(row)  <span class="comment"># 打印每一行的数据</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="4-写入CSV文件（使用DictWriter）"><a href="#4-写入CSV文件（使用DictWriter）" class="headerlink" title="(4)写入CSV文件（使用DictWriter）"></a><a name="maodian">(4) 写入 <code>CSV</code> 文件（使用 <code>DictWriter</code>）</a></h3><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> csv</span><br><span class="line"></span><br><span class="line"><span class="comment"># 要写入的数据</span></span><br><span class="line">data = [</span><br><span class="line">    {<span class="string">'Name'</span>: <span class="string">'Alice'</span>, <span class="string">'Age'</span>: <span class="number">24</span>, <span class="string">'City'</span>: <span class="string">'New York'</span>},</span><br><span class="line">    {<span class="string">'Name'</span>: <span class="string">'Bob'</span>, <span class="string">'Age'</span>: <span class="number">27</span>, <span class="string">'City'</span>: <span class="string">'Los Angeles'</span>}</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打开文件进行写入</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">'dict_output.csv'</span>, <span class="string">'w'</span>, newline=<span class="string">''</span>) <span class="keyword">as</span> file:</span><br><span class="line">    writer = csv.DictWriter(file, fieldnames=[<span class="string">'Name'</span>, <span class="string">'Age'</span>, <span class="string">'City'</span>])</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 写入表头</span></span><br><span class="line">    writer.writeheader()</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 写入数据</span></span><br><span class="line">    <span class="keyword">for</span> row <span class="keyword">in</span> data:</span><br><span class="line">        writer.writerow(row)</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="5-关于参数newline"><a href="#5-关于参数newline" class="headerlink" title="(5)关于参数newline=''"></a>(5) 关于参数 <code>newline=''</code></h3><p>在 Python 中使用 <code>open()</code> 函数打开文件时，参数 <code>newline=''</code> 是用于指定文件在读取或写入时如何处理行终止符。这个参数在处理 CSV 文件时尤为重要，因为 CSV 文件的行分隔通常依赖于操作系统。</p>
+<h4 id="行终止符"><a href="#行终止符" class="headerlink" title="行终止符"></a>行终止符</h4><ul>
+<li><strong>Unix/Linux 系统</strong>：使用 <code>\n</code> 作为行终止符。</li>
+<li><strong>Windows 系统</strong>：使用 <code>\r\n</code> 作为行终止符。</li>
+<li><strong>Mac 系统（旧版，OS X 之前）</strong>：使用 <code>\r</code> 作为行终止符。</li>
+</ul>
+<h4 id="newline参数的作用"><a href="#newline参数的作用" class="headerlink" title="newline参数的作用"></a><code>newline</code> 参数的作用</h4><p>当使用 <code>open()</code> 函数打开文件进行读取或写入时，<code>newline</code> 参数决定了 Python 如何处理这些行终止符：</p>
+<ul>
+<li>**<code>newline=''</code>**：告诉 Python 忽略行终止符，将它们视为普通的字符。这通常是处理文本文件（如 CSV）时的首选设置，因为它可以防止在读取或写入过程中出现意外的行合并或分隔。</li>
+<li>**<code>newline=None</code>**：默认值。告诉 Python 根据操作系统自动处理行终止符。这意味着在 Windows 上，Python 会将 <code>\r\n</code> 视为行终止符；在 Unix/Linux 和 Mac 上，<code>\n</code> 是行终止符。</li>
+<li>**<code>newline='\n'</code>, <code>'\r'</code>, <code>'\r\n'</code>**：显式指定行终止符。这在某些特定情况下可能很有用，但通常不推荐，因为它会使代码依赖于特定的操作系统。</li>
+</ul>
+<h4 id="为什么在打开CSV文件时使用newline"><a href="#为什么在打开CSV文件时使用newline" class="headerlink" title="为什么在打开CSV文件时使用newline=''"></a>为什么在打开 CSV 文件时使用 <code>newline=''</code></h4><p>当你使用 <code>csv.reader</code> 或 <code>csv.writer</code> 处理 CSV 文件时，通常希望确保文件的行结构在读取和写入过程中保持不变。如果文件是在不同的操作系统上创建的，行终止符可能会不同，这可能会导致解析错误或数据不一致。</p>
+<p>使用 <code>newline=''</code> 可以确保：</p>
+<ul>
+<li>无论文件是在哪个操作系统上创建的，Python 都会以一致的方式处理行终止符。</li>
+<li>防止在读取 CSV 文件时，由于行终止符的处理不当而导致的数据行合并或拆分。</li>
+<li>在写入 CSV 文件时，可以控制生成的行终止符，确保文件格式的一致性。</li>
+</ul>
+<p>这是一个好习惯，特别是在处理跨平台的文本文件时，可以避免很多与操作系统相关的兼容性问题。</p>
+<h3 id="6-来个读写一起的栗子"><a href="#6-来个读写一起的栗子" class="headerlink" title="(6)来个读写一起的栗子"></a>(6) 来个读写一起的栗子</h3><ul>
+<li><code>input.csv</code> 文件内容（其实就是 <a href="#maodian">(4) 写入 <code>CSV</code> 文件</a>的执行结果）：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Age</th>
+<th>City</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Alice</td>
+<td>24</td>
+<td>New York</td>
+</tr>
+<tr>
+<td>Bob</td>
+<td>27</td>
+<td>Los Angeles</td>
+</tr>
+</tbody></table>
+<ul>
+<li> 测试脚本栗子：根据 input.csv 内容，输出 output.csv</li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> csv</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">read_write_csv_file</span>(<span class="params">input_file_path, output_file_path</span>):</span><br><span class="line">    <span class="comment"># 打开文件进行读取</span></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(input_file_path, newline=<span class="string">''</span>) <span class="keyword">as</span> file:</span><br><span class="line">        reader = csv.DictReader(file)</span><br><span class="line">				</span><br><span class="line">        <span class="comment"># 输出字典</span></span><br><span class="line">        output_data = {}</span><br><span class="line"></span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(output_file_path, <span class="string">'w'</span>, newline=<span class="string">''</span>) <span class="keyword">as</span> file:</span><br><span class="line">            writer = csv.DictWriter(file, fieldnames=[<span class="string">'城市'</span>, <span class="string">'名字'</span>, <span class="string">'年龄'</span>, <span class="string">'分数'</span>])  </span><br><span class="line">            <span class="comment"># 遍历文件中的每一行</span></span><br><span class="line"></span><br><span class="line">            <span class="comment"># 写入表头['城市', '名字', '年龄', '分数']</span></span><br><span class="line">            writer.writeheader()</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> row <span class="keyword">in</span> reader:</span><br><span class="line">                <span class="comment"># 添加一个默认为 0 的列--得分</span></span><br><span class="line">                output_data[<span class="string">'城市'</span>] = row[<span class="string">'City'</span>]</span><br><span class="line">                output_data[<span class="string">'名字'</span>] = row[<span class="string">'Name'</span>]</span><br><span class="line">                output_data[<span class="string">'年龄'</span>] = row[<span class="string">'Age'</span>]</span><br><span class="line">                output_data[<span class="string">'分数'</span>] = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">                <span class="comment"># 写入行</span></span><br><span class="line">                writer.writerow(output_data)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    read_write_csv_file(<span class="string">'csv_files/input.csv'</span>, <span class="string">'csv_files/output.csv'</span>)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li><code>output.csv</code> 文件内容</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>城市</th>
+<th>名字</th>
+<th>年龄</th>
+<th>分数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td> Alice</td>
+<td>24</td>
+<td>New York</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Bob</td>
+<td>27</td>
+<td>Los Angeles</td>
+<td>0</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>测试脚本</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -332,29 +453,6 @@
         <tag>selenium</tag>
         <tag>python</tag>
         <tag>pycharm</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>python 创建虚拟环境</title>
-    <url>/2021/06/29/python%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>python 如何创建虚拟环境？</p>
-<span id="more"></span>
-
-<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><p>使用 venv 命令，方法如下 (python3.5 以后)：</p>
-<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">python3 -m venv /xx/xx/myvenv <span class="comment">#(myvenv环境名称)</span></span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>激活虚拟环境</p>
-<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">source</span> myvenv/bin/activate</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>关闭虚拟环境</p>
-<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">deactivate</span></span><br></pre></td></tr></tbody></table></figure>
-
-]]></content>
-      <categories>
-        <category>环境部署</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -518,6 +616,26 @@
       </tags>
   </entry>
   <entry>
+    <title>解决 Jenkins 插件安装失败 - 插件下载慢的问题</title>
+    <url>/2021/05/25/%E8%A7%A3%E5%86%B3Jenkins%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5-%E6%8F%92%E4%BB%B6%E4%B8%8B%E8%BD%BD%E6%85%A2%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在安装 Jenkins 的过程中，插件总是安装失败或者下载很慢。</p>
+<span id="more"></span>
+
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>安装源为国外的网站，所以下载速度慢。</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>直接把源换为国内的镜像站，步骤如下：</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2021-05-25_15-15-12.png" alt="p1"></p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2021-05-25_15-20-26.png" alt="p2"></p>
+<p>清华大学镜像站:</p>
+<p><a href="https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json">https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json</a></p>
+]]></content>
+      <categories>
+        <category>软件使用</category>
+      </categories>
+      <tags>
+        <tag>jenkins</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>将 hexo 部署到 centos 服务器上</title>
     <url>/2024/05/27/%E5%B0%86hexo%E9%83%A8%E7%BD%B2%E5%88%B0centos%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A/</url>
     <content><![CDATA[<h2 id="1-目标"><a href="#1-目标" class="headerlink" title="1.目标"></a>1. 目标</h2><p>将 hexo 部署到 centos 服务器上。</p>
@@ -584,23 +702,23 @@
       </tags>
   </entry>
   <entry>
-    <title>解决 Jenkins 插件安装失败 - 插件下载慢的问题</title>
-    <url>/2021/05/25/%E8%A7%A3%E5%86%B3Jenkins%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5-%E6%8F%92%E4%BB%B6%E4%B8%8B%E8%BD%BD%E6%85%A2%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在安装 Jenkins 的过程中，插件总是安装失败或者下载很慢。</p>
+    <title>macOS 中无法删除启动台的空白文件夹</title>
+    <url>/2024/05/09/%E8%A7%A3%E5%86%B3macOS%E4%B8%AD%E6%97%A0%E6%B3%95%E5%88%A0%E9%99%A4%E5%90%AF%E5%8A%A8%E5%8F%B0%E7%9A%84%E7%A9%BA%E7%99%BD%E6%96%87%E4%BB%B6%E5%A4%B9/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>今天下载了 Ryujinx，然后启动台自动把国际象棋 Ryujinx 放到了一个文件夹里面，然后手动拖出来之后，空文件夹没有消失，拖动其他图标进去后图标直接消失不见了，然后出现了一个虚线型的文件夹图标，图标可以显示，然后打开文件夹图标消失了，也无法拖出 App 图标。</p>
 <span id="more"></span>
 
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>安装源为国外的网站，所以下载速度慢。</p>
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>直接把源换为国内的镜像站，步骤如下：</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2021-05-25_15-15-12.png" alt="p1"></p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2021-05-25_15-20-26.png" alt="p2"></p>
-<p>清华大学镜像站:</p>
-<p><a href="https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json">https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json</a></p>
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>macos12/13 系统 bug。</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>（1）在终端中输入以下，然后回车</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">open getconf DARWIN_USER_DIR</span><br></pre></td></tr></tbody></table></figure>
+
+<p>（2）然后删除 com.apple.dock.launchpad 文件夹</p>
+<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p><a href="https://discussionschinese.apple.com/thread/253648900?answerId=256835759322&amp;sortBy=best#256835759322">https://discussionschinese.apple.com/thread/253648900?answerId=256835759322&amp;sortBy=best#256835759322</a></p>
 ]]></content>
       <categories>
-        <category>软件使用</category>
+        <category>操作系统</category>
       </categories>
       <tags>
-        <tag>jenkins</tag>
+        <tag>macos</tag>
       </tags>
   </entry>
   <entry>
@@ -639,27 +757,6 @@
       </tags>
   </entry>
   <entry>
-    <title>解决 hexo 部署出现 Error-ENOTEMPTY 的问题</title>
-    <url>/2021/05/21/%E8%A7%A3%E5%86%B3hexo%E9%83%A8%E7%BD%B2%E5%87%BA%E7%8E%B0Error-ENOTEMPTY%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在 Terminal 执行 hexo deploy 后，报错如下：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">FATAL {</span><br><span class="line">  err: [Error: ENOTEMPTY: directory not empty, <span class="built_in">rmdir</span> <span class="string">'/Users/XXX/XXXX/XXXX/.deploy_git/page'</span>] {</span><br><span class="line">    errno: -66,</span><br><span class="line">    code: <span class="string">'ENOTEMPTY'</span>,</span><br><span class="line">    syscall: <span class="string">'rmdir'</span>,</span><br><span class="line">    path: <span class="string">'/Users/XXX/XXXX/XXXX/.deploy_git/page'</span></span><br><span class="line">  } </span><br><span class="line">}  Something<span class="string">'s wrong. Maybe you can find the solution here: %s https://hexo.io/docs/troubleshooting.html</span></span><br></pre></td></tr></tbody></table></figure>
-
-<span id="more"></span>
-
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>翻译可知，/Users/XXX/XXXX/XXXX/.deploy_git/page，这个文件夹需要为空，进入该目录，发现原本就是空的，未知原因。</p>
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>直接删除 / Users/XXX/XXXX/XXXX/.deploy_git/ 这个文件夹，然后直接在 Terminal 执行：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></tbody></table></figure>
-
-<p>然后部署成功。</p>
-]]></content>
-      <categories>
-        <category>环境部署</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>解决 Mac 突然黑屏然后出现登录界面的问题</title>
     <url>/2024/05/06/%E8%A7%A3%E5%86%B3Mac%E7%AA%81%E7%84%B6%E9%BB%91%E5%B1%8F%E7%84%B6%E5%90%8E%E5%87%BA%E7%8E%B0%E7%99%BB%E5%BD%95%E7%95%8C%E9%9D%A2%E7%9A%84%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>macOS 13 Ventura 后，经常出现下面的问题：</p>
@@ -680,23 +777,24 @@
       </tags>
   </entry>
   <entry>
-    <title>macOS 中无法删除启动台的空白文件夹</title>
-    <url>/2024/05/09/%E8%A7%A3%E5%86%B3macOS%E4%B8%AD%E6%97%A0%E6%B3%95%E5%88%A0%E9%99%A4%E5%90%AF%E5%8A%A8%E5%8F%B0%E7%9A%84%E7%A9%BA%E7%99%BD%E6%96%87%E4%BB%B6%E5%A4%B9/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>今天下载了 Ryujinx，然后启动台自动把国际象棋 Ryujinx 放到了一个文件夹里面，然后手动拖出来之后，空文件夹没有消失，拖动其他图标进去后图标直接消失不见了，然后出现了一个虚线型的文件夹图标，图标可以显示，然后打开文件夹图标消失了，也无法拖出 App 图标。</p>
+    <title>解决 hexo 部署出现 Error-ENOTEMPTY 的问题</title>
+    <url>/2021/05/21/%E8%A7%A3%E5%86%B3hexo%E9%83%A8%E7%BD%B2%E5%87%BA%E7%8E%B0Error-ENOTEMPTY%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在 Terminal 执行 hexo deploy 后，报错如下：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">FATAL {</span><br><span class="line">  err: [Error: ENOTEMPTY: directory not empty, <span class="built_in">rmdir</span> <span class="string">'/Users/XXX/XXXX/XXXX/.deploy_git/page'</span>] {</span><br><span class="line">    errno: -66,</span><br><span class="line">    code: <span class="string">'ENOTEMPTY'</span>,</span><br><span class="line">    syscall: <span class="string">'rmdir'</span>,</span><br><span class="line">    path: <span class="string">'/Users/XXX/XXXX/XXXX/.deploy_git/page'</span></span><br><span class="line">  } </span><br><span class="line">}  Something<span class="string">'s wrong. Maybe you can find the solution here: %s https://hexo.io/docs/troubleshooting.html</span></span><br></pre></td></tr></tbody></table></figure>
+
 <span id="more"></span>
 
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>macos12/13 系统 bug。</p>
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>（1）在终端中输入以下，然后回车</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">open getconf DARWIN_USER_DIR</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>翻译可知，/Users/XXX/XXXX/XXXX/.deploy_git/page，这个文件夹需要为空，进入该目录，发现原本就是空的，未知原因。</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>直接删除 / Users/XXX/XXXX/XXXX/.deploy_git/ 这个文件夹，然后直接在 Terminal 执行：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></tbody></table></figure>
 
-<p>（2）然后删除 com.apple.dock.launchpad 文件夹</p>
-<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p><a href="https://discussionschinese.apple.com/thread/253648900?answerId=256835759322&amp;sortBy=best#256835759322">https://discussionschinese.apple.com/thread/253648900?answerId=256835759322&amp;sortBy=best#256835759322</a></p>
+<p>然后部署成功。</p>
 ]]></content>
       <categories>
-        <category>操作系统</category>
+        <category>环境部署</category>
       </categories>
       <tags>
-        <tag>macos</tag>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -778,7 +876,7 @@
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>记录一个 mysql 存储过程模板，方便以后使用。</p>
 <span id="more"></span>
 
-<h2 id="2-相关sql"><a href="#2-相关sql" class="headerlink" title="2.相关sql"></a>2. 相关 sql</h2><figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> definer <span class="operator">=</span> user1@`<span class="operator">%</span>` <span class="keyword">procedure</span> procedure_name( # user1为数据库用户名</span><br><span class="line">      <span class="comment">-- 定义输入输入参数</span></span><br><span class="line">      <span class="keyword">IN</span> parameter1 <span class="type">varchar</span>(<span class="number">50</span>),                                                   </span><br><span class="line">      <span class="keyword">IN</span> parameter2 <span class="type">decimal</span>(<span class="number">15</span>, <span class="number">2</span>),</span><br><span class="line">      <span class="keyword">IN</span> parameter3 <span class="type">decimal</span>(<span class="number">10</span>, <span class="number">4</span>),</span><br><span class="line">      <span class="keyword">IN</span> parameter4 tinyint(<span class="number">3</span>),</span><br><span class="line">      <span class="keyword">IN</span> parameter5 <span class="type">varchar</span>(<span class="number">32</span>))</span><br><span class="line">      </span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">    <span class="comment">-- 变量定义</span></span><br><span class="line">    <span class="keyword">declare</span> s_parameter1 <span class="type">varchar</span>(<span class="number">32</span>); </span><br><span class="line">    <span class="keyword">declare</span> s_parameter2 datetime; </span><br><span class="line">    <span class="keyword">declare</span> s_parameter3 datetime; </span><br><span class="line">    <span class="keyword">declare</span> s_parameter4 <span class="type">decimal</span>(<span class="number">15</span>,<span class="number">2</span>); </span><br><span class="line">    <span class="keyword">declare</span> s_parameter5 <span class="type">bigint</span>; </span><br><span class="line">    <span class="keyword">declare</span> s_parameter6 <span class="type">bigint</span>; </span><br><span class="line"></span><br><span class="line">    <span class="comment">-- 变量赋值</span></span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        param1,</span><br><span class="line">        param2,</span><br><span class="line">        date_add((date_format(param3,<span class="string">'%Y-%m-%d %H:%i:%s'</span>)),<span class="type">interval</span> <span class="number">10</span> <span class="keyword">MINUTE</span> ), # 时间<span class="operator">+</span><span class="number">10</span>分钟</span><br><span class="line">        date_add((date_format(param4,<span class="string">'%Y-%m-%d %H:%i:%s'</span>)),<span class="type">interval</span> <span class="number">10</span> <span class="keyword">MINUTE</span> )  # 时间<span class="operator">+</span><span class="number">10</span>分钟</span><br><span class="line">    <span class="keyword">into</span></span><br><span class="line">        s_parameter1,</span><br><span class="line">        s_parameter2,</span><br><span class="line">        s_parameter3,</span><br><span class="line">        s_parameter4</span><br><span class="line">    <span class="keyword">from</span> table1</span><br><span class="line">    <span class="keyword">where</span> param1 <span class="operator">=</span> parameter1;</span><br><span class="line"></span><br><span class="line">    <span class="comment">-- 更新</span></span><br><span class="line">    <span class="keyword">UPDATE</span> table2</span><br><span class="line">    <span class="keyword">SET</span> `param1` <span class="operator">=</span> <span class="string">'test'</span>,</span><br><span class="line">        `param2` <span class="operator">=</span> s_parameter1,</span><br><span class="line">        `param3` <span class="operator">=</span> s_parameter2,</span><br><span class="line">        `param4` <span class="operator">=</span> s_parameter3,</span><br><span class="line">        `param5` <span class="operator">=</span> date_format(now(), <span class="string">'%Y-%m-%d %H:%i:%s'</span>), # 设置时间为当前时间</span><br><span class="line">        `param6` <span class="operator">=</span> s_parameter4,</span><br><span class="line">        `param7` <span class="operator">=</span> s_parameter5,</span><br><span class="line">        `param8` <span class="operator">=</span> s_parameter6,</span><br><span class="line">        `param9` <span class="operator">=</span> s_parameter6,</span><br><span class="line">        `param10`<span class="operator">=</span> date_format(now(), <span class="string">'%Y-%m-%d %H:%i:%s'</span>) # 设置时间为当前时间</span><br><span class="line">    <span class="keyword">WHERE</span> param1 <span class="operator">=</span> parameter1;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">-- 条件判断</span></span><br><span class="line">    if parameter2 <span class="operator">*</span> <span class="number">0.015</span> <span class="operator">&lt;</span> <span class="number">500</span> <span class="keyword">then</span></span><br><span class="line">        <span class="keyword">set</span> s_parameter3 <span class="operator">=</span> <span class="number">500</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">set</span> s_parameter3 <span class="operator">=</span> parameter2 <span class="operator">*</span> <span class="number">0.015</span>;</span><br><span class="line">    <span class="keyword">end</span> if;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">-- 最大编号自动+1</span></span><br><span class="line">		<span class="keyword">select</span> <span class="built_in">max</span>(id)<span class="operator">+</span><span class="number">1</span> <span class="keyword">into</span> s_parameter5 <span class="keyword">from</span> table3;</span><br><span class="line">    <span class="keyword">select</span> <span class="built_in">max</span>(id)<span class="operator">+</span><span class="number">1</span> <span class="keyword">into</span> s_parameter6 <span class="keyword">from</span> table4;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">-- 插入</span></span><br><span class="line">    <span class="keyword">insert</span> <span class="keyword">into</span> </span><br><span class="line">    table5(p1, p2, p3, p4)  </span><br><span class="line">    <span class="keyword">values</span></span><br><span class="line">    (s_parameter1, s_parameter2, s_parameter3, s_parameter4);</span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span>;</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="2-相关sql"><a href="#2-相关sql" class="headerlink" title="2.相关sql"></a>2. 相关 sql</h2><figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> definer <span class="operator">=</span> user1@`<span class="operator">%</span>` <span class="keyword">procedure</span> procedure_name( <span class="comment">-- user1为数据库用户名</span></span><br><span class="line">      <span class="comment">-- 定义输入输入参数</span></span><br><span class="line">      <span class="keyword">IN</span> parameter1 <span class="type">varchar</span>(<span class="number">50</span>),                                                   </span><br><span class="line">      <span class="keyword">IN</span> parameter2 <span class="type">decimal</span>(<span class="number">15</span>, <span class="number">2</span>),</span><br><span class="line">      <span class="keyword">IN</span> parameter3 <span class="type">decimal</span>(<span class="number">10</span>, <span class="number">4</span>),</span><br><span class="line">      <span class="keyword">IN</span> parameter4 tinyint(<span class="number">3</span>),</span><br><span class="line">      <span class="keyword">IN</span> parameter5 <span class="type">varchar</span>(<span class="number">32</span>))</span><br><span class="line">      </span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">    <span class="comment">-- 变量定义</span></span><br><span class="line">    <span class="keyword">declare</span> s_parameter1 <span class="type">varchar</span>(<span class="number">32</span>); </span><br><span class="line">    <span class="keyword">declare</span> s_parameter2 datetime; </span><br><span class="line">    <span class="keyword">declare</span> s_parameter3 datetime; </span><br><span class="line">    <span class="keyword">declare</span> s_parameter4 <span class="type">decimal</span>(<span class="number">15</span>,<span class="number">2</span>); </span><br><span class="line">    <span class="keyword">declare</span> s_parameter5 <span class="type">bigint</span>; </span><br><span class="line">    <span class="keyword">declare</span> s_parameter6 <span class="type">bigint</span>; </span><br><span class="line"></span><br><span class="line">    <span class="comment">-- 变量赋值</span></span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        param1,</span><br><span class="line">        param2,</span><br><span class="line">        date_add((date_format(param3,<span class="string">'%Y-%m-%d %H:%i:%s'</span>)),<span class="type">interval</span> <span class="number">10</span> <span class="keyword">MINUTE</span> ), # 时间<span class="operator">+</span><span class="number">10</span>分钟</span><br><span class="line">        date_add((date_format(param4,<span class="string">'%Y-%m-%d %H:%i:%s'</span>)),<span class="type">interval</span> <span class="number">10</span> <span class="keyword">MINUTE</span> )  # 时间<span class="operator">+</span><span class="number">10</span>分钟</span><br><span class="line">    <span class="keyword">into</span></span><br><span class="line">        s_parameter1,</span><br><span class="line">        s_parameter2,</span><br><span class="line">        s_parameter3,</span><br><span class="line">        s_parameter4</span><br><span class="line">    <span class="keyword">from</span> table1</span><br><span class="line">    <span class="keyword">where</span> param1 <span class="operator">=</span> parameter1;</span><br><span class="line"></span><br><span class="line">    <span class="comment">-- 更新</span></span><br><span class="line">    <span class="keyword">UPDATE</span> table2</span><br><span class="line">    <span class="keyword">SET</span> `param1` <span class="operator">=</span> <span class="string">'test'</span>,</span><br><span class="line">        `param2` <span class="operator">=</span> s_parameter1,</span><br><span class="line">        `param3` <span class="operator">=</span> s_parameter2,</span><br><span class="line">        `param4` <span class="operator">=</span> s_parameter3,</span><br><span class="line">        `param5` <span class="operator">=</span> date_format(now(), <span class="string">'%Y-%m-%d %H:%i:%s'</span>), # 设置时间为当前时间</span><br><span class="line">        `param6` <span class="operator">=</span> s_parameter4,</span><br><span class="line">        `param7` <span class="operator">=</span> s_parameter5,</span><br><span class="line">        `param8` <span class="operator">=</span> s_parameter6,</span><br><span class="line">        `param9` <span class="operator">=</span> s_parameter6,</span><br><span class="line">        `param10`<span class="operator">=</span> date_format(now(), <span class="string">'%Y-%m-%d %H:%i:%s'</span>) # 设置时间为当前时间</span><br><span class="line">    <span class="keyword">WHERE</span> param1 <span class="operator">=</span> parameter1;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">-- 条件判断</span></span><br><span class="line">    if parameter2 <span class="operator">*</span> <span class="number">0.015</span> <span class="operator">&lt;</span> <span class="number">500</span> <span class="keyword">then</span></span><br><span class="line">        <span class="keyword">set</span> s_parameter3 <span class="operator">=</span> <span class="number">500</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">set</span> s_parameter3 <span class="operator">=</span> parameter2 <span class="operator">*</span> <span class="number">0.015</span>;</span><br><span class="line">    <span class="keyword">end</span> if;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">-- 最大编号自动+1</span></span><br><span class="line">		<span class="keyword">select</span> <span class="built_in">max</span>(id)<span class="operator">+</span><span class="number">1</span> <span class="keyword">into</span> s_parameter5 <span class="keyword">from</span> table3;</span><br><span class="line">    <span class="keyword">select</span> <span class="built_in">max</span>(id)<span class="operator">+</span><span class="number">1</span> <span class="keyword">into</span> s_parameter6 <span class="keyword">from</span> table4;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">-- 插入</span></span><br><span class="line">    <span class="keyword">insert</span> <span class="keyword">into</span> </span><br><span class="line">    table5(p1, p2, p3, p4)  </span><br><span class="line">    <span class="keyword">values</span></span><br><span class="line">    (s_parameter1, s_parameter2, s_parameter3, s_parameter4);</span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span>;</span><br></pre></td></tr></tbody></table></figure>
 
 ]]></content>
       <categories>

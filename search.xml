@@ -266,7 +266,7 @@
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在 MySQL 低版本 (5.7 以下) 中，如何按照分组筛选出时间倒序前三条记录？</p>
 <span id="more"></span>
 
-<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">SELECT t.*</span><br><span class="line">FROM (</span><br><span class="line">  SELECT *, </span><br><span class="line">    @rn := IF(@prev_group = group_column, @rn + 1, 1) AS rn,</span><br><span class="line">    @prev_group := group_column</span><br><span class="line">  FROM your_table, (SELECT @rn := 0, @prev_group := NULL) r</span><br><span class="line">  ORDER BY group_column, time_column DESC</span><br><span class="line">) t</span><br><span class="line">WHERE rn &lt;= 3</span><br><span class="line">ORDER BY group_column, time_column DESC;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> t.<span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> (</span><br><span class="line">  <span class="keyword">SELECT</span> <span class="operator">*</span>, </span><br><span class="line">    <span class="variable">@rn</span> :<span class="operator">=</span> IF(<span class="variable">@prev_group</span> <span class="operator">=</span> group_column, <span class="variable">@rn</span> <span class="operator">+</span> <span class="number">1</span>, <span class="number">1</span>) <span class="keyword">AS</span> rn,</span><br><span class="line">    <span class="variable">@prev_group</span> :<span class="operator">=</span> group_column</span><br><span class="line">  <span class="keyword">FROM</span> your_table, (<span class="keyword">SELECT</span> <span class="variable">@rn</span> :<span class="operator">=</span> <span class="number">0</span>, <span class="variable">@prev_group</span> :<span class="operator">=</span> <span class="keyword">NULL</span>) r</span><br><span class="line">  <span class="keyword">ORDER</span> <span class="keyword">BY</span> group_column, time_column <span class="keyword">DESC</span></span><br><span class="line">) t</span><br><span class="line"><span class="keyword">WHERE</span> rn <span class="operator">&lt;=</span> <span class="number">3</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> group_column, time_column <span class="keyword">DESC</span>;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
 
 <p>(1) 在子查询中，使用变量 <code>@rn</code> 和 <code>@prev_group</code> 来记录当前行的记录编号和前一行的分组。</p>
 <p>(2)<code>@rn := IF(@prev_group = group_column, @rn + 1, 1) AS rn</code> 这一行代码的作用是：如果当前行的分组与上一行相同，则记录编号 <code>rn</code> 递增 1, 否则从 1 开始计数。</p>
@@ -276,7 +276,7 @@
 <p>你可以将 <code>your_table</code> 替换成你自己的表名，<code>group_column</code> 替换成你表中的分组列名，<code>time_column</code> 替换成你表中的时间列名。</p>
 <p>这种方法在 MySQL 5.7 以下版本中都可以使用，不需要使用 <code>ROW_NUMBER()</code> 函数，性能也较好。</p>
 <p>在 MySQL8.0 及以上可以使用如下方法：</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">SELECT t.*</span><br><span class="line">FROM (</span><br><span class="line">  SELECT *, </span><br><span class="line">    ROW_NUMBER() OVER (PARTITION BY group_column ORDER BY time_column DESC) AS rn</span><br><span class="line">  FROM your_table</span><br><span class="line">) t</span><br><span class="line">WHERE rn &lt;= 3</span><br><span class="line">ORDER BY group_column, time_column DESC;</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> t.<span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> (</span><br><span class="line">  <span class="keyword">SELECT</span> <span class="operator">*</span>, </span><br><span class="line">    <span class="built_in">ROW_NUMBER</span>() <span class="keyword">OVER</span> (<span class="keyword">PARTITION</span> <span class="keyword">BY</span> group_column <span class="keyword">ORDER</span> <span class="keyword">BY</span> time_column <span class="keyword">DESC</span>) <span class="keyword">AS</span> rn</span><br><span class="line">  <span class="keyword">FROM</span> your_table</span><br><span class="line">) t</span><br><span class="line"><span class="keyword">WHERE</span> rn <span class="operator">&lt;=</span> <span class="number">3</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> group_column, time_column <span class="keyword">DESC</span>;</span><br></pre></td></tr></tbody></table></figure>
 
 <p>（1）首先使用子查询，在每个分组 <code>group_column</code> 内根据时间列 <code>time_column</code> 使用 <code>ROW_NUMBER()</code> 函数给每条记录编号，按时间顺序倒序排列。</p>
 <p>（2）然后在外层查询中，使用 <code>WHERE rn &lt;= 3</code> 筛选出每个分组中时间倒序的前 3 条记录。</p>
@@ -356,6 +356,24 @@
       <tags>
         <tag>python</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>python 加密总结</title>
+    <url>/2024/06/24/python%E5%8A%A0%E5%AF%86%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>每次都查系列，总结一下，以方便下次查。</p>
+<p>Md5 加密 </p>
+<p>Sha 加密</p>
+<p>Sha1</p>
+<p>Sha256</p>
+<p>Rsa 加密</p>
+<span id="more"></span>
+
+<h2 id="2-加密总结"><a href="#2-加密总结" class="headerlink" title="2.加密总结"></a>2. 加密总结</h2><p>（1）MD5 加密</p>
+<p>在 Python 中，可以使用内置的 <code>hashlib</code> 库来执行 MD5 加密。MD5 是一种广泛使用的哈希函数，它可以产生一个 128 位（16 字节）的哈希值，通常用一个 32 位的十六进制字符串表示。以下是🌰：</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line">复制</span><br><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">md5_encrypt</span>(<span class="params">text</span>):</span><br><span class="line">    <span class="comment"># 将文本转换为字节</span></span><br><span class="line">    text_bytes = text.encode(<span class="string">'utf-8'</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 创建hash对象</span></span><br><span class="line">    md5 = hashlib.md5()</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 对字节进行MD5加密</span></span><br><span class="line">    md5.update(text_bytes)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 获取加密后的二进制数据</span></span><br><span class="line">    digest = md5.digest()</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 将二进制数据转换为十六进制字符串</span></span><br><span class="line">    hex_dig = md5.hexdigest()</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> hex_dig</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用函数加密字符串</span></span><br><span class="line">text_to_encrypt = <span class="string">"Hello, World!"</span></span><br><span class="line">encrypted_text = md5_encrypt(text_to_encrypt)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f"The MD5 encrypted text is: <span class="subst">{encrypted_text}</span>"</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<p>MD5 已经不再被认为是安全的哈希函数，因为它容易受到多种攻击，如碰撞攻击。</p>
+<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2>]]></content>
   </entry>
   <entry>
     <title>python 读写 csv 总结</title>
@@ -489,7 +507,7 @@
     <content><![CDATA[<p>最近有空闲时间，就重新装修了长时间没管过的博客，将以前的内容做了精简以及删除，后续会陆续将之前做的笔记整理后，写成 blog，大体做了如下改变。</p>
 <span id="more"></span>
 
-<h2 id="1-更改主题为-nexT。"><a href="#1-更改主题为-nexT。" class="headerlink" title="1.更改主题为 nexT。"></a>1. 更改主题为 nexT。</h2><h2 id="2-删除之前冗余内容。"><a href="#2-删除之前冗余内容。" class="headerlink" title="2.删除之前冗余内容。"></a>2. 删除之前冗余内容。</h2><h2 id=""><a href="#" class="headerlink" title=""></a></h2>]]></content>
+<h2 id="1-更改主题为-nexT。"><a href="#1-更改主题为-nexT。" class="headerlink" title="1.更改主题为 nexT。"></a>1. 更改主题为 nexT。</h2><h2 id="2-删除之前冗余内容。"><a href="#2-删除之前冗余内容。" class="headerlink" title="2.删除之前冗余内容。"></a>2. 删除之前冗余内容。</h2><h2 id="3-将一些以前学习的内容做个总结。"><a href="#3-将一些以前学习的内容做个总结。" class="headerlink" title="3.将一些以前学习的内容做个总结。"></a>3. 将一些以前学习的内容做个总结。</h2>]]></content>
       <categories>
         <category>环境部署</category>
       </categories>
@@ -719,6 +737,24 @@
       </categories>
       <tags>
         <tag>macos</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解决 SQLServer 执行超时已过期完成操作之前已超时或服务器未响应</title>
+    <url>/2024/06/26/%E8%A7%A3%E5%86%B3SQLServer%E6%89%A7%E8%A1%8C%E8%B6%85%E6%97%B6%E5%B7%B2%E8%BF%87%E6%9C%9F%E5%AE%8C%E6%88%90%E6%93%8D%E4%BD%9C%E4%B9%8B%E5%89%8D%E5%B7%B2%E8%B6%85%E6%97%B6%E6%88%96%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9C%AA%E5%93%8D%E5%BA%94/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>还原 SQL Server 数据库时，报错，信息：执行超时已过期。完成操作之前已超时或服务器未响应。</p>
+<span id="more"></span>
+
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>数据库太大连接超时。</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><h4 id="（1）执行以下"><a href="#（1）执行以下" class="headerlink" title="（1）执行以下"></a>（1）执行以下</h4>  <figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">exec</span> sp_updatestats;</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="（2）收缩数据库，收缩日志。"><a href="#（2）收缩数据库，收缩日志。" class="headerlink" title="（2）收缩数据库，收缩日志。"></a>（2）收缩数据库，收缩日志。</h4><h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p><a href="https://blog.csdn.net/u012835032/article/details/110437581">https://blog.csdn.net/u012835032/article/details/110437581</a></p>
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>sqlserver</tag>
       </tags>
   </entry>
   <entry>

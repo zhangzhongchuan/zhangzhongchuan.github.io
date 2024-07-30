@@ -13,6 +13,8 @@
 <li>Appium 自动化侧睡不需要重新编译 App</li>
 <li> 支持多语言编写测试脚本，Java、Python、JavaScript 等</li>
 </ul>
+<span id="more"></span>
+
 <h2 id="1-Appium环境搭建"><a href="#1-Appium环境搭建" class="headerlink" title="1.Appium环境搭建"></a>1.Appium 环境搭建</h2><p>(1) 安装 JDK</p>
 <p>由于 jdk 已安装，这里不做赘述。</p>
 <p>(2) 安装 Android SDK</p>
@@ -392,27 +394,6 @@
       </tags>
   </entry>
   <entry>
-    <title>使用 hexo 搭建 GitHub Page 博客后，网页显示 404 的问题解决</title>
-    <url>/2019/08/14/hexo%E7%AC%AC%E4%B8%80%E6%AC%A1%E9%83%A8%E7%BD%B2%E7%BD%91%E9%A1%B5%E6%98%BE%E7%A4%BA404/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>使用 hexo 搭建 GitHub Page 博客后，第一次正常，第二次上传后，博客网页显示 404 页面。</p>
-<span id="more"></span>
-
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>因为绑定了域名，所以在 github 仓库根目录下有一个 CNAME 的文件，文件中写有需要绑定的域名。而使用 hexo 远程部署时会删除这个文件。所以页面会报 404 错误。</p>
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>只要在 github 仓库根目录下添加一个 CNAME 文件，且上传时不会被覆盖即可，方法如下：</p>
-<h3 id="3-1-在-hexo-指定文件夹下的-source-文件夹下添加-CNAME-文件，CNAME-文件中添加域名。"><a href="#3-1-在-hexo-指定文件夹下的-source-文件夹下添加-CNAME-文件，CNAME-文件中添加域名。" class="headerlink" title="3.1 在 hexo 指定文件夹下的 source 文件夹下添加 CNAME 文件，CNAME 文件中添加域名。"></a>3.1 在 hexo 指定文件夹下的 source 文件夹下添加 CNAME 文件，CNAME 文件中添加域名。</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2019-08-15_20-35-35.png"></p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2019-08-15_20-36-55.png"></p>
-<h3 id="3-2-然后在-Terminal-执行"><a href="#3-2-然后在-Terminal-执行" class="headerlink" title="3.2 然后在 Terminal 执行"></a>3.2 然后在 Terminal 执行</h3><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="3-3-查看-github-仓库根目录有该-CNAME-且博客可以正常访问"><a href="#3-3-查看-github-仓库根目录有该-CNAME-且博客可以正常访问" class="headerlink" title="3.3 查看 github 仓库根目录有该 CNAME 且博客可以正常访问"></a>3.3 查看 github 仓库根目录有该 CNAME 且博客可以正常访问</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2019-08-15_21-01-09.png"></p>
-]]></content>
-      <categories>
-        <category>环境部署</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>jmeter 通过 log4j2.xml 修改 log 文件位置</title>
     <url>/2024/04/15/jmeter%E9%80%9A%E8%BF%87log4j2-xml%E4%BF%AE%E6%94%B9log%E6%96%87%E4%BB%B6%E4%BD%8D%E7%BD%AE/</url>
     <content><![CDATA[<p>在 Apache JMeter 中，如果你使用的是 Log4j2 作为日志系统，并且想通过 <code>log4j2.xml</code> 配置文件修改日志文件的位置，你可以按照以下步骤操作：（文中使用 jmeter 版本为:apache-jmeter-5.6.3）</p>
@@ -433,36 +414,24 @@
       </tags>
   </entry>
   <entry>
-    <title>mysql 实现 excel 中复制某一列，粘贴转置为行功能</title>
-    <url>/2021/05/31/mysql%E5%AE%9E%E7%8E%B0excel%E4%B8%AD%E5%A4%8D%E5%88%B6%E6%9F%90%E4%B8%80%E5%88%97%E7%B2%98%E8%B4%B4%E8%BD%AC%E7%BD%AE%E4%B8%BA%E8%A1%8C%E5%8A%9F%E8%83%BD/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>数据处理需要，需要将大批量的列，转置为行。</p>
-<p>尝试使用 excel，①选择需要转置的列→②在所需位置，右键→选择性粘贴→转置，发现只转置了一部分数据。</p>
+    <title>使用 hexo 搭建 GitHub Page 博客后，网页显示 404 的问题解决</title>
+    <url>/2019/08/14/hexo%E7%AC%AC%E4%B8%80%E6%AC%A1%E9%83%A8%E7%BD%B2%E7%BD%91%E9%A1%B5%E6%98%BE%E7%A4%BA404/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>使用 hexo 搭建 GitHub Page 博客后，第一次正常，第二次上传后，博客网页显示 404 页面。</p>
 <span id="more"></span>
 
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>转置的长度超过了 excel 的最大长度。</p>
-<p>最大长度是多少没查到😂。</p>
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>百度后，发现可以使用 mysql 中 group_concat 函数。</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">SELECT GROUP_CONCAT(id separator ',') FROM `table` // id 为需要转换的列，separator后为以某字符为分割</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>因为绑定了域名，所以在 github 仓库根目录下有一个 CNAME 的文件，文件中写有需要绑定的域名。而使用 hexo 远程部署时会删除这个文件。所以页面会报 404 错误。</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>只要在 github 仓库根目录下添加一个 CNAME 文件，且上传时不会被覆盖即可，方法如下：</p>
+<h3 id="3-1-在-hexo-指定文件夹下的-source-文件夹下添加-CNAME-文件，CNAME-文件中添加域名。"><a href="#3-1-在-hexo-指定文件夹下的-source-文件夹下添加-CNAME-文件，CNAME-文件中添加域名。" class="headerlink" title="3.1 在 hexo 指定文件夹下的 source 文件夹下添加 CNAME 文件，CNAME 文件中添加域名。"></a>3.1 在 hexo 指定文件夹下的 source 文件夹下添加 CNAME 文件，CNAME 文件中添加域名。</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2019-08-15_20-35-35.png"></p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2019-08-15_20-36-55.png"></p>
+<h3 id="3-2-然后在-Terminal-执行"><a href="#3-2-然后在-Terminal-执行" class="headerlink" title="3.2 然后在 Terminal 执行"></a>3.2 然后在 Terminal 执行</h3><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></tbody></table></figure>
 
-<p>发现又只转置了一部分数据。</p>
-<p>查资料发现，默认 GROUP_CONCAT 函数返回的结果大小被 MySQL 默认限制为 1024（字节）的长度。</p>
-<p>查看方式:</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">show variables like "group_concat_max_len";</span><br></pre></td></tr></tbody></table></figure>
-
-<p>解决方法有 2 种:</p>
-<h3 id="（1）临时解决方案："><a href="#（1）临时解决方案：" class="headerlink" title="（1）临时解决方案："></a>（1）临时解决方案：</h3><p>（该方法缺点是重启服务后设置失效，“group_concat_max_len = -1” 则为最大值，group_concat_max_len 的最大值为 4294967295 (2^32 - 1) 字节，因为处理数据量比较大，直接设置为最大值）</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">SET GLOBAL group_concat_max_len = -1;</span><br><span class="line"></span><br><span class="line">SET SESSION group_concat_max_len = -1;</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="（2）永久解决方案："><a href="#（2）永久解决方案：" class="headerlink" title="（2）永久解决方案："></a>（2）永久解决方案：</h3><p>在 Mysql 配置文件中加入如下配置 (推荐):</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">group_concat_max_len = -1</span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p>参考于该<a href="https://www.cnblogs.com/zjfblog/p/13658936.html">博客园博客</a></p>
+<h3 id="3-3-查看-github-仓库根目录有该-CNAME-且博客可以正常访问"><a href="#3-3-查看-github-仓库根目录有该-CNAME-且博客可以正常访问" class="headerlink" title="3.3 查看 github 仓库根目录有该 CNAME 且博客可以正常访问"></a>3.3 查看 github 仓库根目录有该 CNAME 且博客可以正常访问</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2019-08-15_21-01-09.png"></p>
 ]]></content>
       <categories>
-        <category>数据库</category>
+        <category>环境部署</category>
       </categories>
       <tags>
-        <tag>mysql</tag>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -537,6 +506,39 @@
         <tag>selenium</tag>
         <tag>python</tag>
         <tag>pycharm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>mysql 实现 excel 中复制某一列，粘贴转置为行功能</title>
+    <url>/2021/05/31/mysql%E5%AE%9E%E7%8E%B0excel%E4%B8%AD%E5%A4%8D%E5%88%B6%E6%9F%90%E4%B8%80%E5%88%97%E7%B2%98%E8%B4%B4%E8%BD%AC%E7%BD%AE%E4%B8%BA%E8%A1%8C%E5%8A%9F%E8%83%BD/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>数据处理需要，需要将大批量的列，转置为行。</p>
+<p>尝试使用 excel，①选择需要转置的列→②在所需位置，右键→选择性粘贴→转置，发现只转置了一部分数据。</p>
+<span id="more"></span>
+
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>转置的长度超过了 excel 的最大长度。</p>
+<p>最大长度是多少没查到😂。</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>百度后，发现可以使用 mysql 中 group_concat 函数。</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">SELECT GROUP_CONCAT(id separator ',') FROM `table` // id 为需要转换的列，separator后为以某字符为分割</span><br></pre></td></tr></tbody></table></figure>
+
+<p>发现又只转置了一部分数据。</p>
+<p>查资料发现，默认 GROUP_CONCAT 函数返回的结果大小被 MySQL 默认限制为 1024（字节）的长度。</p>
+<p>查看方式:</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">show variables like "group_concat_max_len";</span><br></pre></td></tr></tbody></table></figure>
+
+<p>解决方法有 2 种:</p>
+<h3 id="（1）临时解决方案："><a href="#（1）临时解决方案：" class="headerlink" title="（1）临时解决方案："></a>（1）临时解决方案：</h3><p>（该方法缺点是重启服务后设置失效，“group_concat_max_len = -1” 则为最大值，group_concat_max_len 的最大值为 4294967295 (2^32 - 1) 字节，因为处理数据量比较大，直接设置为最大值）</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">SET GLOBAL group_concat_max_len = -1;</span><br><span class="line"></span><br><span class="line">SET SESSION group_concat_max_len = -1;</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="（2）永久解决方案："><a href="#（2）永久解决方案：" class="headerlink" title="（2）永久解决方案："></a>（2）永久解决方案：</h3><p>在 Mysql 配置文件中加入如下配置 (推荐):</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">group_concat_max_len = -1</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p>参考于该<a href="https://www.cnblogs.com/zjfblog/p/13658936.html">博客园博客</a></p>
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
       </tags>
   </entry>
   <entry>
@@ -679,20 +681,6 @@
       </tags>
   </entry>
   <entry>
-    <title>博客重新装修删除冗余内容</title>
-    <url>/2024/05/06/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%96%B0%E8%A3%85%E4%BF%AE%E5%88%A0%E9%99%A4%E5%86%97%E4%BD%99%E5%86%85%E5%AE%B9/</url>
-    <content><![CDATA[<p>最近有空闲时间，就重新装修了长时间没管过的博客，将以前的内容做了精简以及删除，后续会陆续将之前做的笔记整理后，写成 blog，大体做了如下改变。</p>
-<span id="more"></span>
-
-<h2 id="1-更改主题为-nexT。"><a href="#1-更改主题为-nexT。" class="headerlink" title="1.更改主题为 nexT。"></a>1. 更改主题为 nexT。</h2><h2 id="2-删除之前冗余内容。"><a href="#2-删除之前冗余内容。" class="headerlink" title="2.删除之前冗余内容。"></a>2. 删除之前冗余内容。</h2><h2 id="3-将一些以前学习的内容做个总结。"><a href="#3-将一些以前学习的内容做个总结。" class="headerlink" title="3.将一些以前学习的内容做个总结。"></a>3. 将一些以前学习的内容做个总结。</h2>]]></content>
-      <categories>
-        <category>环境部署</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>requirements 总结</title>
     <url>/2021/05/21/requirements%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在搭建 Liunx 服务器时，需要在新的 Python 环境中安装项目需要的包的依赖，一条一条 pip install 太慢，有没有可以批量安装方法？</p>
@@ -718,6 +706,20 @@
       <tags>
         <tag>python</tag>
         <tag>pycharm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>博客重新装修删除冗余内容</title>
+    <url>/2024/05/06/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%96%B0%E8%A3%85%E4%BF%AE%E5%88%A0%E9%99%A4%E5%86%97%E4%BD%99%E5%86%85%E5%AE%B9/</url>
+    <content><![CDATA[<p>最近有空闲时间，就重新装修了长时间没管过的博客，将以前的内容做了精简以及删除，后续会陆续将之前做的笔记整理后，写成 blog，大体做了如下改变。</p>
+<span id="more"></span>
+
+<h2 id="1-更改主题为-nexT。"><a href="#1-更改主题为-nexT。" class="headerlink" title="1.更改主题为 nexT。"></a>1. 更改主题为 nexT。</h2><h2 id="2-删除之前冗余内容。"><a href="#2-删除之前冗余内容。" class="headerlink" title="2.删除之前冗余内容。"></a>2. 删除之前冗余内容。</h2><h2 id="3-将一些以前学习的内容做个总结。"><a href="#3-将一些以前学习的内容做个总结。" class="headerlink" title="3.将一些以前学习的内容做个总结。"></a>3. 将一些以前学习的内容做个总结。</h2>]]></content>
+      <categories>
+        <category>环境部署</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -753,33 +755,6 @@
       </tags>
   </entry>
   <entry>
-    <title>如何去除 macOS12-13 更新小红点</title>
-    <url>/2024/05/06/%E5%A6%82%E4%BD%95%E5%8E%BB%E9%99%A4macOS12-13%E6%9B%B4%E6%96%B0%E5%B0%8F%E7%BA%A2%E7%82%B9/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>2 个小红点位置如下：</p>
-<ul>
-<li>设置→通用→软件更新→红点 1</li>
-<li>Dock→红点 1</li>
-</ul>
-<span id="more"></span>
-
-<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><h3 id="（1）关闭自动更新"><a href="#（1）关闭自动更新" class="headerlink" title="（1）关闭自动更新"></a>（1）关闭自动更新</h3><h3 id="（2）host添加相关内容"><a href="#（2）host添加相关内容" class="headerlink" title="（2）host添加相关内容"></a>（2）host 添加相关内容</h3><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">127.0.0.1 swdist.apple.com</span><br><span class="line">127.0.0.1 swscan.apple.com</span><br><span class="line">127.0.0.1 swcdn.apple.com </span><br><span class="line">127.0.0.1 gdmf.apple.com</span><br><span class="line">127.0.0.1 mesu.apple.com</span><br><span class="line">127.0.0.1 xp.apple.com</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="（3）终端执行"><a href="#（3）终端执行" class="headerlink" title="（3）终端执行"></a>（3）终端执行</h3><p>先执行</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">defaults write com.apple.systempreferences AttentionPrefBundleIDs 0</span><br><span class="line">Killall Dock</span><br></pre></td></tr></tbody></table></figure>
-
-<p>如果无法去除，则执行</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">defaults delete com.apple.systempreferences AttentionPrefBundleIDs</span><br><span class="line">defaults delete com.apple.systempreferences DidShowPrefBundleIDs</span><br><span class="line">killall Dock</span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2><p><a href="https://sysin.org/blog/disable-macos-ventura-update/">https://sysin.org/blog/disable-macos-ventura-update/</a></p>
-]]></content>
-      <categories>
-        <category>操作系统</category>
-      </categories>
-      <tags>
-        <tag>macos</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>如何将 excel 相同行快速标注相同颜色</title>
     <url>/2024/05/22/%E5%A6%82%E4%BD%95%E5%B0%86excel%E7%9B%B8%E5%90%8C%E8%A1%8C%E5%BF%AB%E9%80%9F%E6%A0%87%E6%B3%A8%E7%9B%B8%E5%90%8C%E9%A2%9C%E8%89%B2/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>如下图所示，相同的公司标注相同的颜色，相邻的公司使用不同的颜色标注。</p>
@@ -807,6 +782,33 @@
       </categories>
       <tags>
         <tag>excel</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何去除 macOS12-13 更新小红点</title>
+    <url>/2024/05/06/%E5%A6%82%E4%BD%95%E5%8E%BB%E9%99%A4macOS12-13%E6%9B%B4%E6%96%B0%E5%B0%8F%E7%BA%A2%E7%82%B9/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>2 个小红点位置如下：</p>
+<ul>
+<li>设置→通用→软件更新→红点 1</li>
+<li>Dock→红点 1</li>
+</ul>
+<span id="more"></span>
+
+<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><h3 id="（1）关闭自动更新"><a href="#（1）关闭自动更新" class="headerlink" title="（1）关闭自动更新"></a>（1）关闭自动更新</h3><h3 id="（2）host添加相关内容"><a href="#（2）host添加相关内容" class="headerlink" title="（2）host添加相关内容"></a>（2）host 添加相关内容</h3><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">127.0.0.1 swdist.apple.com</span><br><span class="line">127.0.0.1 swscan.apple.com</span><br><span class="line">127.0.0.1 swcdn.apple.com </span><br><span class="line">127.0.0.1 gdmf.apple.com</span><br><span class="line">127.0.0.1 mesu.apple.com</span><br><span class="line">127.0.0.1 xp.apple.com</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="（3）终端执行"><a href="#（3）终端执行" class="headerlink" title="（3）终端执行"></a>（3）终端执行</h3><p>先执行</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">defaults write com.apple.systempreferences AttentionPrefBundleIDs 0</span><br><span class="line">Killall Dock</span><br></pre></td></tr></tbody></table></figure>
+
+<p>如果无法去除，则执行</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">defaults delete com.apple.systempreferences AttentionPrefBundleIDs</span><br><span class="line">defaults delete com.apple.systempreferences DidShowPrefBundleIDs</span><br><span class="line">killall Dock</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2><p><a href="https://sysin.org/blog/disable-macos-ventura-update/">https://sysin.org/blog/disable-macos-ventura-update/</a></p>
+]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>macos</tag>
       </tags>
   </entry>
   <entry>
@@ -952,24 +954,6 @@
       </tags>
   </entry>
   <entry>
-    <title>解决 SQLServer 执行超时已过期完成操作之前已超时或服务器未响应</title>
-    <url>/2024/06/26/%E8%A7%A3%E5%86%B3SQLServer%E6%89%A7%E8%A1%8C%E8%B6%85%E6%97%B6%E5%B7%B2%E8%BF%87%E6%9C%9F%E5%AE%8C%E6%88%90%E6%93%8D%E4%BD%9C%E4%B9%8B%E5%89%8D%E5%B7%B2%E8%B6%85%E6%97%B6%E6%88%96%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9C%AA%E5%93%8D%E5%BA%94/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>还原 SQL Server 数据库时，报错，信息：执行超时已过期。完成操作之前已超时或服务器未响应。</p>
-<span id="more"></span>
-
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>数据库太大连接超时。</p>
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><h4 id="（1）执行以下"><a href="#（1）执行以下" class="headerlink" title="（1）执行以下"></a>（1）执行以下</h4>  <figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">exec</span> sp_updatestats;</span><br></pre></td></tr></tbody></table></figure>
-
-<h4 id="（2）收缩数据库，收缩日志。"><a href="#（2）收缩数据库，收缩日志。" class="headerlink" title="（2）收缩数据库，收缩日志。"></a>（2）收缩数据库，收缩日志。</h4><h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p><a href="https://blog.csdn.net/u012835032/article/details/110437581">https://blog.csdn.net/u012835032/article/details/110437581</a></p>
-]]></content>
-      <categories>
-        <category>数据库</category>
-      </categories>
-      <tags>
-        <tag>sqlserver</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>解决 gitea 报错初始 URL 和访问 URL 不同的问题</title>
     <url>/2024/07/22/%E8%A7%A3%E5%86%B3gitea%E6%8A%A5%E9%94%99%E5%88%9D%E5%A7%8BURL%E5%92%8C%E8%AE%BF%E9%97%AEURL%E4%B8%8D%E5%90%8C%E7%9A%84%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>Your ROOT_URL in app.ini is <a href="https://XXX.XXX.XXX:XXXX/">https://XXX.XXX.XXX:XXXX/</a> but you are visiting <a href="http://XXX.XXX.XXX.XXX:XXXX/">http://XXX.XXX.XXX.XXX:XXXX/</a> You should set ROOT_URL correctly, otherwise the web may not work correctly.</p>
@@ -997,6 +981,24 @@
       <tags>
         <tag>synology</tag>
         <tag>gitea</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解决 SQLServer 执行超时已过期完成操作之前已超时或服务器未响应</title>
+    <url>/2024/06/26/%E8%A7%A3%E5%86%B3SQLServer%E6%89%A7%E8%A1%8C%E8%B6%85%E6%97%B6%E5%B7%B2%E8%BF%87%E6%9C%9F%E5%AE%8C%E6%88%90%E6%93%8D%E4%BD%9C%E4%B9%8B%E5%89%8D%E5%B7%B2%E8%B6%85%E6%97%B6%E6%88%96%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9C%AA%E5%93%8D%E5%BA%94/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>还原 SQL Server 数据库时，报错，信息：执行超时已过期。完成操作之前已超时或服务器未响应。</p>
+<span id="more"></span>
+
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>数据库太大连接超时。</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><h4 id="（1）执行以下"><a href="#（1）执行以下" class="headerlink" title="（1）执行以下"></a>（1）执行以下</h4>  <figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">exec</span> sp_updatestats;</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="（2）收缩数据库，收缩日志。"><a href="#（2）收缩数据库，收缩日志。" class="headerlink" title="（2）收缩数据库，收缩日志。"></a>（2）收缩数据库，收缩日志。</h4><h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p><a href="https://blog.csdn.net/u012835032/article/details/110437581">https://blog.csdn.net/u012835032/article/details/110437581</a></p>
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>sqlserver</tag>
       </tags>
   </entry>
   <entry>

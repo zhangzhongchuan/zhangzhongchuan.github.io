@@ -602,6 +602,24 @@
       </tags>
   </entry>
   <entry>
+    <title>python 加密总结</title>
+    <url>/2024/06/24/python%E5%8A%A0%E5%AF%86%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>每次都查系列，总结一下，以方便下次查。</p>
+<p>Md5 加密 </p>
+<p>Sha 加密</p>
+<p>Sha1</p>
+<p>Sha256</p>
+<p>Rsa 加密</p>
+<span id="more"></span>
+
+<h2 id="2-加密总结"><a href="#2-加密总结" class="headerlink" title="2.加密总结"></a>2. 加密总结</h2><p>（1）MD5 加密</p>
+<p>在 Python 中，可以使用内置的 <code>hashlib</code> 库来执行 MD5 加密。MD5 是一种广泛使用的哈希函数，它可以产生一个 128 位（16 字节）的哈希值，通常用一个 32 位的十六进制字符串表示。以下是🌰：</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line">复制</span><br><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">md5_encrypt</span>(<span class="params">text</span>):</span><br><span class="line">    <span class="comment"># 将文本转换为字节</span></span><br><span class="line">    text_bytes = text.encode(<span class="string">'utf-8'</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 创建hash对象</span></span><br><span class="line">    md5 = hashlib.md5()</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 对字节进行MD5加密</span></span><br><span class="line">    md5.update(text_bytes)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 获取加密后的二进制数据</span></span><br><span class="line">    digest = md5.digest()</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 将二进制数据转换为十六进制字符串</span></span><br><span class="line">    hex_dig = md5.hexdigest()</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> hex_dig</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用函数加密字符串</span></span><br><span class="line">text_to_encrypt = <span class="string">"Hello, World!"</span></span><br><span class="line">encrypted_text = md5_encrypt(text_to_encrypt)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f"The MD5 encrypted text is: <span class="subst">{encrypted_text}</span>"</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<p>MD5 已经不再被认为是安全的哈希函数，因为它容易受到多种攻击，如碰撞攻击。</p>
+<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2>]]></content>
+  </entry>
+  <entry>
     <title>python 创建虚拟环境</title>
     <url>/2021/06/29/python%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>python 如何创建虚拟环境？</p>
@@ -623,24 +641,6 @@
       <tags>
         <tag>python</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>python 加密总结</title>
-    <url>/2024/06/24/python%E5%8A%A0%E5%AF%86%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>每次都查系列，总结一下，以方便下次查。</p>
-<p>Md5 加密 </p>
-<p>Sha 加密</p>
-<p>Sha1</p>
-<p>Sha256</p>
-<p>Rsa 加密</p>
-<span id="more"></span>
-
-<h2 id="2-加密总结"><a href="#2-加密总结" class="headerlink" title="2.加密总结"></a>2. 加密总结</h2><p>（1）MD5 加密</p>
-<p>在 Python 中，可以使用内置的 <code>hashlib</code> 库来执行 MD5 加密。MD5 是一种广泛使用的哈希函数，它可以产生一个 128 位（16 字节）的哈希值，通常用一个 32 位的十六进制字符串表示。以下是🌰：</p>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line">复制</span><br><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">md5_encrypt</span>(<span class="params">text</span>):</span><br><span class="line">    <span class="comment"># 将文本转换为字节</span></span><br><span class="line">    text_bytes = text.encode(<span class="string">'utf-8'</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 创建hash对象</span></span><br><span class="line">    md5 = hashlib.md5()</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 对字节进行MD5加密</span></span><br><span class="line">    md5.update(text_bytes)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 获取加密后的二进制数据</span></span><br><span class="line">    digest = md5.digest()</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 将二进制数据转换为十六进制字符串</span></span><br><span class="line">    hex_dig = md5.hexdigest()</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> hex_dig</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用函数加密字符串</span></span><br><span class="line">text_to_encrypt = <span class="string">"Hello, World!"</span></span><br><span class="line">encrypted_text = md5_encrypt(text_to_encrypt)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f"The MD5 encrypted text is: <span class="subst">{encrypted_text}</span>"</span>)</span><br></pre></td></tr></tbody></table></figure>
-
-<p>MD5 已经不再被认为是安全的哈希函数，因为它容易受到多种攻击，如碰撞攻击。</p>
-<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2>]]></content>
   </entry>
   <entry>
     <title>python 读写 csv 总结</title>
@@ -945,6 +945,35 @@
 <h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2>]]></content>
   </entry>
   <entry>
+    <title>测试计划模板</title>
+    <url>/2019/07/11/%E6%B5%8B%E8%AF%95%E8%AE%A1%E5%88%92%E6%A8%A1%E6%9D%BF/</url>
+    <content><![CDATA[<h1 id="测试计划"><a href="#测试计划" class="headerlink" title="测试计划"></a>测试计划</h1><h1 id="XXX-项目测试计划"><a href="#XXX-项目测试计划" class="headerlink" title="XXX 项目测试计划"></a><center>XXX 项目测试计划</center></h1><h2 id="1-引言"><a href="#1-引言" class="headerlink" title="1.引言"></a>1. 引言</h2><h3 id="1-1-编写目的"><a href="#1-1-编写目的" class="headerlink" title="1.1 编写目的"></a>1.1 编写目的</h3><p>根据需求文档，提炼测试功能点、制定测试策略、评估测试风险，预估编写测试用例、执行功能测试和回归测试的工作量，进行人员和进度安排。</p>
+<span id="more"></span>
+
+<h3 id="1-2-预期读者"><a href="#1-2-预期读者" class="headerlink" title="1.2 预期读者"></a>1.2 预期读者</h3><p>管鑫所项目经理、开发、产品、测试。</p>
+<h3 id="1-3-参考资料"><a href="#1-3-参考资料" class="headerlink" title="1.3 参考资料"></a>1.3 参考资料</h3><p>需求文档</p>
+<h2 id="2-测试范围"><a href="#2-测试范围" class="headerlink" title="2.测试范围"></a>2. 测试范围</h2><h2 id="3-测试策略"><a href="#3-测试策略" class="headerlink" title="3.测试策略"></a>3. 测试策略</h2><h3 id="3-1-UI-测试"><a href="#3-1-UI-测试" class="headerlink" title="3.1 UI 测试"></a>3.1 UI 测试</h3><h4 id="3-1-1-文案测试"><a href="#3-1-1-文案测试" class="headerlink" title="3.1.1 文案测试"></a>3.1.1 文案测试</h4><p>（1）字体<br>（2）字号<br>（3）格式<br>（4）规范</p>
+<h4 id="3-1-2-图片测试"><a href="#3-1-2-图片测试" class="headerlink" title="3.1.2 图片测试"></a>3.1.2 图片测试</h4><p>（1）清晰<br>（2）尺寸<br>（3）配色<br>（4）风格</p>
+<h4 id="3-1-3-布局测试"><a href="#3-1-3-布局测试" class="headerlink" title="3.1.3 布局测试"></a>3.1.3 布局测试</h4><p>（1）尺寸大小<br>（2）位置合理<br>（3）排序规律<br>（4）对齐方式</p>
+<h4 id="3-1-4-控件测试"><a href="#3-1-4-控件测试" class="headerlink" title="3.1.4 控件测试"></a>3.1.4 控件测试</h4><p>（1）输入框<br>（2）按钮<br>（3）下拉菜单<br>（4）列表<br>   (5) 单选框<br>（6）复选框<br>（7）时间框<br>（8）左右选择框<br>（9）树形<br>（10）图标类检查<br>（11）文件类<br>（12）图片类<br>（13）URL 检查<br>（14）IP 输入框</p>
+<h4 id="3-1-5-快捷键测试"><a href="#3-1-5-快捷键测试" class="headerlink" title="3.1.5 快捷键测试"></a>3.1.5 快捷键测试</h4><h3 id="3-2-功能测试策略"><a href="#3-2-功能测试策略" class="headerlink" title="3.2 功能测试策略"></a>3.2 功能测试策略</h3><p>具体见每个版本测试用例。</p>
+<h3 id="3-3-系统兼容性测试"><a href="#3-3-系统兼容性测试" class="headerlink" title="3.3 系统兼容性测试"></a>3.3 系统兼容性测试</h3><h3 id="3-4-易用性测试"><a href="#3-4-易用性测试" class="headerlink" title="3.4 易用性测试"></a>3.4 易用性测试</h3><h3 id="3-5-安全性测试"><a href="#3-5-安全性测试" class="headerlink" title="3.5 安全性测试"></a>3.5 安全性测试</h3><h3 id="3-6-网络环境测试"><a href="#3-6-网络环境测试" class="headerlink" title="3.6 网络环境测试"></a>3.6 网络环境测试</h3><p>网络的影响会影响到用户的体验，一般遵守 258 原则是最好的。</p>
+<h3 id="3-7-单元测试"><a href="#3-7-单元测试" class="headerlink" title="3.7 单元测试"></a>3.7 单元测试</h3><p>由开发人员完成。<br>3.3 性能测试<br>关键接口功能，简单做性能测试。</p>
+<h2 id="4-测试资源"><a href="#4-测试资源" class="headerlink" title="4.测试资源"></a>4. 测试资源</h2><h3 id="4-1-测试人员"><a href="#4-1-测试人员" class="headerlink" title="4.1 测试人员"></a>4.1 测试人员</h3><h3 id="4-2-测试环境"><a href="#4-2-测试环境" class="headerlink" title="4.2 测试环境"></a>4.2 测试环境</h3><h3 id="4-3-测试工具"><a href="#4-3-测试工具" class="headerlink" title="4.3 测试工具"></a>4.3 测试工具</h3><h4 id="4-3-1-Bug-管理工具：bugfree"><a href="#4-3-1-Bug-管理工具：bugfree" class="headerlink" title="4.3.1 Bug 管理工具：bugfree"></a>4.3.1 Bug 管理工具：bugfree</h4><h4 id="4-3-2-postman"><a href="#4-3-2-postman" class="headerlink" title="4.3.2 postman"></a>4.3.2 postman</h4><p>前期测试呼叫系统，使用 postman 模拟相应的用户场景进行测试。</p>
+<h4 id="4-3-3-IETester"><a href="#4-3-3-IETester" class="headerlink" title="4.3.3 IETester"></a>4.3.3 IETester</h4><p>测试 IE 浏览器的不同版本。</p>
+<h4 id="4-3-4-Vbox-虚拟机"><a href="#4-3-4-Vbox-虚拟机" class="headerlink" title="4.3.4 Vbox 虚拟机"></a>4.3.4 Vbox 虚拟机</h4><h4 id="4-3-5-Jemter"><a href="#4-3-5-Jemter" class="headerlink" title="4.3.5 Jemter"></a>4.3.5 Jemter</h4><p>重要端口、步骤、流程做压力测试。</p>
+<h2 id="5-进度安排"><a href="#5-进度安排" class="headerlink" title="5.进度安排"></a>5. 进度安排</h2><h3 id="5-1-测试进度及工作量估算"><a href="#5-1-测试进度及工作量估算" class="headerlink" title="5.1 测试进度及工作量估算"></a>5.1 测试进度及工作量估算</h3><p>根据周会原型确定周任务：<br>例如<br>任务 时间 执行人员 预计工作量 / 天<br>编写测试计划 2019-07-10 张三 1 天<br>编写测试用例 2019-07</p>
+<p>根据具体的需求、开发计划估算具体的测试工作量。</p>
+<h3 id="5-2-输出文档"><a href="#5-2-输出文档" class="headerlink" title="5.2 输出文档"></a>5.2 输出文档</h3><p>（1）测试计划<br>（2）测试用例（bugfree 中查看）<br>（3）测试数据（上传至 bugfree）<br>（4）测试报告</p>
+<h2 id="6-发布标准"><a href="#6-发布标准" class="headerlink" title="6.发布标准"></a>6. 发布标准</h2><h3 id="6-1-测试完成标准"><a href="#6-1-测试完成标准" class="headerlink" title="6.1 测试完成标准"></a>6.1 测试完成标准</h3><h4 id="（1）完成所有测试类型。"><a href="#（1）完成所有测试类型。" class="headerlink" title="（1）完成所有测试类型。"></a>（1）完成所有测试类型。<br></h4><h4 id="（2）没有影响用户正常使用的-Bug。"><a href="#（2）没有影响用户正常使用的-Bug。" class="headerlink" title="（2）没有影响用户正常使用的 Bug。"></a>（2）没有影响用户正常使用的 Bug。<br></h4><h4 id="（3）bug-少于一定的数量（需要商定）"><a href="#（3）bug-少于一定的数量（需要商定）" class="headerlink" title="（3）bug 少于一定的数量（需要商定）"></a>（3）bug 少于一定的数量（需要商定）<br></h4><h4 id="（4）服务端性能满足设计目标。"><a href="#（4）服务端性能满足设计目标。" class="headerlink" title="（4）服务端性能满足设计目标。"></a>（4）服务端性能满足设计目标。<br></h4><h3 id="6-2-产品发布标准"><a href="#6-2-产品发布标准" class="headerlink" title="6.2 产品发布标准"></a>6.2 产品发布标准</h3><h4 id="（1）所有产品需求都已完成。"><a href="#（1）所有产品需求都已完成。" class="headerlink" title="（1）所有产品需求都已完成。"></a>（1）所有产品需求都已完成。<br></h4><h4 id="（2）遗留-bug-经过风险评估。"><a href="#（2）遗留-bug-经过风险评估。" class="headerlink" title="（2）遗留 bug 经过风险评估。"></a>（2）遗留 bug 经过风险评估。<br></h4><h4 id="（3）有完备的流程文档。"><a href="#（3）有完备的流程文档。" class="headerlink" title="（3）有完备的流程文档。"></a>（3）有完备的流程文档。<br></h4><h2 id="7-风险说明"><a href="#7-风险说明" class="headerlink" title="7.风险说明"></a>7. 风险说明</h2><h2 id="8-应急措施"><a href="#8-应急措施" class="headerlink" title="8.应急措施"></a>8. 应急措施</h2>]]></content>
+      <categories>
+        <category>测试文档</category>
+      </categories>
+      <tags>
+        <tag>documents</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>解决 Jenkins 插件安装失败 - 插件下载慢的问题</title>
     <url>/2021/05/25/%E8%A7%A3%E5%86%B3Jenkins%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5-%E6%8F%92%E4%BB%B6%E4%B8%8B%E8%BD%BD%E6%85%A2%E7%9A%84%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在安装 Jenkins 的过程中，插件总是安装失败或者下载很慢。</p>
@@ -985,35 +1014,6 @@
       </tags>
   </entry>
   <entry>
-    <title>测试计划模板</title>
-    <url>/2019/07/11/%E6%B5%8B%E8%AF%95%E8%AE%A1%E5%88%92%E6%A8%A1%E6%9D%BF/</url>
-    <content><![CDATA[<h1 id="测试计划"><a href="#测试计划" class="headerlink" title="测试计划"></a>测试计划</h1><h1 id="XXX-项目测试计划"><a href="#XXX-项目测试计划" class="headerlink" title="XXX 项目测试计划"></a><center>XXX 项目测试计划</center></h1><h2 id="1-引言"><a href="#1-引言" class="headerlink" title="1.引言"></a>1. 引言</h2><h3 id="1-1-编写目的"><a href="#1-1-编写目的" class="headerlink" title="1.1 编写目的"></a>1.1 编写目的</h3><p>根据需求文档，提炼测试功能点、制定测试策略、评估测试风险，预估编写测试用例、执行功能测试和回归测试的工作量，进行人员和进度安排。</p>
-<span id="more"></span>
-
-<h3 id="1-2-预期读者"><a href="#1-2-预期读者" class="headerlink" title="1.2 预期读者"></a>1.2 预期读者</h3><p>管鑫所项目经理、开发、产品、测试。</p>
-<h3 id="1-3-参考资料"><a href="#1-3-参考资料" class="headerlink" title="1.3 参考资料"></a>1.3 参考资料</h3><p>需求文档</p>
-<h2 id="2-测试范围"><a href="#2-测试范围" class="headerlink" title="2.测试范围"></a>2. 测试范围</h2><h2 id="3-测试策略"><a href="#3-测试策略" class="headerlink" title="3.测试策略"></a>3. 测试策略</h2><h3 id="3-1-UI-测试"><a href="#3-1-UI-测试" class="headerlink" title="3.1 UI 测试"></a>3.1 UI 测试</h3><h4 id="3-1-1-文案测试"><a href="#3-1-1-文案测试" class="headerlink" title="3.1.1 文案测试"></a>3.1.1 文案测试</h4><p>（1）字体<br>（2）字号<br>（3）格式<br>（4）规范</p>
-<h4 id="3-1-2-图片测试"><a href="#3-1-2-图片测试" class="headerlink" title="3.1.2 图片测试"></a>3.1.2 图片测试</h4><p>（1）清晰<br>（2）尺寸<br>（3）配色<br>（4）风格</p>
-<h4 id="3-1-3-布局测试"><a href="#3-1-3-布局测试" class="headerlink" title="3.1.3 布局测试"></a>3.1.3 布局测试</h4><p>（1）尺寸大小<br>（2）位置合理<br>（3）排序规律<br>（4）对齐方式</p>
-<h4 id="3-1-4-控件测试"><a href="#3-1-4-控件测试" class="headerlink" title="3.1.4 控件测试"></a>3.1.4 控件测试</h4><p>（1）输入框<br>（2）按钮<br>（3）下拉菜单<br>（4）列表<br>   (5) 单选框<br>（6）复选框<br>（7）时间框<br>（8）左右选择框<br>（9）树形<br>（10）图标类检查<br>（11）文件类<br>（12）图片类<br>（13）URL 检查<br>（14）IP 输入框</p>
-<h4 id="3-1-5-快捷键测试"><a href="#3-1-5-快捷键测试" class="headerlink" title="3.1.5 快捷键测试"></a>3.1.5 快捷键测试</h4><h3 id="3-2-功能测试策略"><a href="#3-2-功能测试策略" class="headerlink" title="3.2 功能测试策略"></a>3.2 功能测试策略</h3><p>具体见每个版本测试用例。</p>
-<h3 id="3-3-系统兼容性测试"><a href="#3-3-系统兼容性测试" class="headerlink" title="3.3 系统兼容性测试"></a>3.3 系统兼容性测试</h3><h3 id="3-4-易用性测试"><a href="#3-4-易用性测试" class="headerlink" title="3.4 易用性测试"></a>3.4 易用性测试</h3><h3 id="3-5-安全性测试"><a href="#3-5-安全性测试" class="headerlink" title="3.5 安全性测试"></a>3.5 安全性测试</h3><h3 id="3-6-网络环境测试"><a href="#3-6-网络环境测试" class="headerlink" title="3.6 网络环境测试"></a>3.6 网络环境测试</h3><p>网络的影响会影响到用户的体验，一般遵守 258 原则是最好的。</p>
-<h3 id="3-7-单元测试"><a href="#3-7-单元测试" class="headerlink" title="3.7 单元测试"></a>3.7 单元测试</h3><p>由开发人员完成。<br>3.3 性能测试<br>关键接口功能，简单做性能测试。</p>
-<h2 id="4-测试资源"><a href="#4-测试资源" class="headerlink" title="4.测试资源"></a>4. 测试资源</h2><h3 id="4-1-测试人员"><a href="#4-1-测试人员" class="headerlink" title="4.1 测试人员"></a>4.1 测试人员</h3><h3 id="4-2-测试环境"><a href="#4-2-测试环境" class="headerlink" title="4.2 测试环境"></a>4.2 测试环境</h3><h3 id="4-3-测试工具"><a href="#4-3-测试工具" class="headerlink" title="4.3 测试工具"></a>4.3 测试工具</h3><h4 id="4-3-1-Bug-管理工具：bugfree"><a href="#4-3-1-Bug-管理工具：bugfree" class="headerlink" title="4.3.1 Bug 管理工具：bugfree"></a>4.3.1 Bug 管理工具：bugfree</h4><h4 id="4-3-2-postman"><a href="#4-3-2-postman" class="headerlink" title="4.3.2 postman"></a>4.3.2 postman</h4><p>前期测试呼叫系统，使用 postman 模拟相应的用户场景进行测试。</p>
-<h4 id="4-3-3-IETester"><a href="#4-3-3-IETester" class="headerlink" title="4.3.3 IETester"></a>4.3.3 IETester</h4><p>测试 IE 浏览器的不同版本。</p>
-<h4 id="4-3-4-Vbox-虚拟机"><a href="#4-3-4-Vbox-虚拟机" class="headerlink" title="4.3.4 Vbox 虚拟机"></a>4.3.4 Vbox 虚拟机</h4><h4 id="4-3-5-Jemter"><a href="#4-3-5-Jemter" class="headerlink" title="4.3.5 Jemter"></a>4.3.5 Jemter</h4><p>重要端口、步骤、流程做压力测试。</p>
-<h2 id="5-进度安排"><a href="#5-进度安排" class="headerlink" title="5.进度安排"></a>5. 进度安排</h2><h3 id="5-1-测试进度及工作量估算"><a href="#5-1-测试进度及工作量估算" class="headerlink" title="5.1 测试进度及工作量估算"></a>5.1 测试进度及工作量估算</h3><p>根据周会原型确定周任务：<br>例如<br>任务 时间 执行人员 预计工作量 / 天<br>编写测试计划 2019-07-10 张三 1 天<br>编写测试用例 2019-07</p>
-<p>根据具体的需求、开发计划估算具体的测试工作量。</p>
-<h3 id="5-2-输出文档"><a href="#5-2-输出文档" class="headerlink" title="5.2 输出文档"></a>5.2 输出文档</h3><p>（1）测试计划<br>（2）测试用例（bugfree 中查看）<br>（3）测试数据（上传至 bugfree）<br>（4）测试报告</p>
-<h2 id="6-发布标准"><a href="#6-发布标准" class="headerlink" title="6.发布标准"></a>6. 发布标准</h2><h3 id="6-1-测试完成标准"><a href="#6-1-测试完成标准" class="headerlink" title="6.1 测试完成标准"></a>6.1 测试完成标准</h3><h4 id="（1）完成所有测试类型。"><a href="#（1）完成所有测试类型。" class="headerlink" title="（1）完成所有测试类型。"></a>（1）完成所有测试类型。<br></h4><h4 id="（2）没有影响用户正常使用的-Bug。"><a href="#（2）没有影响用户正常使用的-Bug。" class="headerlink" title="（2）没有影响用户正常使用的 Bug。"></a>（2）没有影响用户正常使用的 Bug。<br></h4><h4 id="（3）bug-少于一定的数量（需要商定）"><a href="#（3）bug-少于一定的数量（需要商定）" class="headerlink" title="（3）bug 少于一定的数量（需要商定）"></a>（3）bug 少于一定的数量（需要商定）<br></h4><h4 id="（4）服务端性能满足设计目标。"><a href="#（4）服务端性能满足设计目标。" class="headerlink" title="（4）服务端性能满足设计目标。"></a>（4）服务端性能满足设计目标。<br></h4><h3 id="6-2-产品发布标准"><a href="#6-2-产品发布标准" class="headerlink" title="6.2 产品发布标准"></a>6.2 产品发布标准</h3><h4 id="（1）所有产品需求都已完成。"><a href="#（1）所有产品需求都已完成。" class="headerlink" title="（1）所有产品需求都已完成。"></a>（1）所有产品需求都已完成。<br></h4><h4 id="（2）遗留-bug-经过风险评估。"><a href="#（2）遗留-bug-经过风险评估。" class="headerlink" title="（2）遗留 bug 经过风险评估。"></a>（2）遗留 bug 经过风险评估。<br></h4><h4 id="（3）有完备的流程文档。"><a href="#（3）有完备的流程文档。" class="headerlink" title="（3）有完备的流程文档。"></a>（3）有完备的流程文档。<br></h4><h2 id="7-风险说明"><a href="#7-风险说明" class="headerlink" title="7.风险说明"></a>7. 风险说明</h2><h2 id="8-应急措施"><a href="#8-应急措施" class="headerlink" title="8.应急措施"></a>8. 应急措施</h2>]]></content>
-      <categories>
-        <category>测试文档</category>
-      </categories>
-      <tags>
-        <tag>documents</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>解决 SQLServer 执行超时已过期完成操作之前已超时或服务器未响应</title>
     <url>/2024/06/26/%E8%A7%A3%E5%86%B3SQLServer%E6%89%A7%E8%A1%8C%E8%B6%85%E6%97%B6%E5%B7%B2%E8%BF%87%E6%9C%9F%E5%AE%8C%E6%88%90%E6%93%8D%E4%BD%9C%E4%B9%8B%E5%89%8D%E5%B7%B2%E8%B6%85%E6%97%B6%E6%88%96%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9C%AA%E5%93%8D%E5%BA%94/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>还原 SQL Server 数据库时，报错，信息：执行超时已过期。完成操作之前已超时或服务器未响应。</p>
@@ -1029,6 +1029,36 @@
       </categories>
       <tags>
         <tag>sqlserver</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解决 gitea 报错初始 URL 和访问 URL 不同的问题</title>
+    <url>/2024/07/22/%E8%A7%A3%E5%86%B3gitea%E6%8A%A5%E9%94%99%E5%88%9D%E5%A7%8BURL%E5%92%8C%E8%AE%BF%E9%97%AEURL%E4%B8%8D%E5%90%8C%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>Your ROOT_URL in app.ini is <a href="https://XXX.XXX.XXX:XXXX/">https://XXX.XXX.XXX:XXXX/</a> but you are visiting <a href="http://XXX.XXX.XXX.XXX:XXXX/">http://XXX.XXX.XXX.XXX:XXXX/</a> You should set ROOT_URL correctly, otherwise the web may not work correctly.</p>
+<span id="more"></span>
+
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>翻译可知，初始化的域名和访问的域名不一致，可能会导致问题。</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>因为 gitea 是群晖的套件，所以要找到配置文件，然后修改。步骤如下：</p>
+<p>(1) 登录群晖 (DMS 版本：DSM 6.2.3-25426 Update 3)→终端机和 SNMP→启动 Telnet 功能和启动 SSH 功能→应用。</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240722163031974.png" alt="image-20240722163031974"></p>
+<p>(2) ssh user@ip_address，输入密码。<br>(3) 进入目录 /var/packages/gitea/var</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /var/packages/gitea/var</span><br></pre></td></tr></tbody></table></figure>
+
+<p>(4) 打开 conf.ini 文件，需要用户 root 权限。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo vi conf.ini</span><br></pre></td></tr></tbody></table></figure>
+
+<p>修改 [server] 下的 ROOT_URL 为现在的访问地址</p>
+<figure class="highlight ini"><table><tbody><tr><td class="code"><pre><span class="line"><span class="section">[server]</span></span><br><span class="line"><span class="attr">LFS_CONTENT_PATH</span> = /xxx/xxx/xxx</span><br><span class="line"><span class="attr">SSH_DOMAIN</span>       = <span class="number">192.168</span>.xx.xx</span><br><span class="line"><span class="attr">DOMAIN</span>           = <span class="number">192.168</span>.xx.xx</span><br><span class="line"><span class="attr">ROOT_URL</span>         = https://xxx.xxx.xxx:xxx/</span><br><span class="line"><span class="attr">LOCAL_ROOT_URL</span>   = http://localhost:xxx/</span><br><span class="line"><span class="attr">HTTP_PORT</span>        = xxx</span><br><span class="line"><span class="attr">DISABLE_SSH</span>      = <span class="literal">false</span></span><br><span class="line"><span class="attr">SSH_PORT</span>         = <span class="number">22</span></span><br><span class="line"><span class="attr">LFS_START_SERVER</span> = <span class="literal">true</span></span><br><span class="line"><span class="attr">LFS_JWT_SECRET</span>   = xxxxxxxxxxxxxxxxxxxxxxxxxx</span><br><span class="line"><span class="attr">OFFLINE_MODE</span>     = <span class="literal">false</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>(5) 重启（停用→启用）</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240722163415690.png" alt="image-20240722163415690"></p>
+]]></content>
+      <categories>
+        <category>环境部署</category>
+      </categories>
+      <tags>
+        <tag>synology</tag>
+        <tag>gitea</tag>
       </tags>
   </entry>
   <entry>
@@ -1064,36 +1094,6 @@
       </categories>
       <tags>
         <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>解决 gitea 报错初始 URL 和访问 URL 不同的问题</title>
-    <url>/2024/07/22/%E8%A7%A3%E5%86%B3gitea%E6%8A%A5%E9%94%99%E5%88%9D%E5%A7%8BURL%E5%92%8C%E8%AE%BF%E9%97%AEURL%E4%B8%8D%E5%90%8C%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>Your ROOT_URL in app.ini is <a href="https://XXX.XXX.XXX:XXXX/">https://XXX.XXX.XXX:XXXX/</a> but you are visiting <a href="http://XXX.XXX.XXX.XXX:XXXX/">http://XXX.XXX.XXX.XXX:XXXX/</a> You should set ROOT_URL correctly, otherwise the web may not work correctly.</p>
-<span id="more"></span>
-
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>翻译可知，初始化的域名和访问的域名不一致，可能会导致问题。</p>
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>因为 gitea 是群晖的套件，所以要找到配置文件，然后修改。步骤如下：</p>
-<p>(1) 登录群晖 (DMS 版本：DSM 6.2.3-25426 Update 3)→终端机和 SNMP→启动 Telnet 功能和启动 SSH 功能→应用。</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240722163031974.png" alt="image-20240722163031974"></p>
-<p>(2) ssh user@ip_address，输入密码。<br>(3) 进入目录 /var/packages/gitea/var</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /var/packages/gitea/var</span><br></pre></td></tr></tbody></table></figure>
-
-<p>(4) 打开 conf.ini 文件，需要用户 root 权限。</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo vi conf.ini</span><br></pre></td></tr></tbody></table></figure>
-
-<p>修改 [server] 下的 ROOT_URL 为现在的访问地址</p>
-<figure class="highlight ini"><table><tbody><tr><td class="code"><pre><span class="line"><span class="section">[server]</span></span><br><span class="line"><span class="attr">LFS_CONTENT_PATH</span> = /xxx/xxx/xxx</span><br><span class="line"><span class="attr">SSH_DOMAIN</span>       = <span class="number">192.168</span>.xx.xx</span><br><span class="line"><span class="attr">DOMAIN</span>           = <span class="number">192.168</span>.xx.xx</span><br><span class="line"><span class="attr">ROOT_URL</span>         = https://xxx.xxx.xxx:xxx/</span><br><span class="line"><span class="attr">LOCAL_ROOT_URL</span>   = http://localhost:xxx/</span><br><span class="line"><span class="attr">HTTP_PORT</span>        = xxx</span><br><span class="line"><span class="attr">DISABLE_SSH</span>      = <span class="literal">false</span></span><br><span class="line"><span class="attr">SSH_PORT</span>         = <span class="number">22</span></span><br><span class="line"><span class="attr">LFS_START_SERVER</span> = <span class="literal">true</span></span><br><span class="line"><span class="attr">LFS_JWT_SECRET</span>   = xxxxxxxxxxxxxxxxxxxxxxxxxx</span><br><span class="line"><span class="attr">OFFLINE_MODE</span>     = <span class="literal">false</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>(5) 重启（停用→启用）</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240722163415690.png" alt="image-20240722163415690"></p>
-]]></content>
-      <categories>
-        <category>环境部署</category>
-      </categories>
-      <tags>
-        <tag>synology</tag>
-        <tag>gitea</tag>
       </tags>
   </entry>
   <entry>
@@ -1160,27 +1160,6 @@
       </tags>
   </entry>
   <entry>
-    <title>解决黑苹果系统无故重启的问题</title>
-    <url>/2024/05/21/%E8%A7%A3%E5%86%B3%E9%BB%91%E8%8B%B9%E6%9E%9C%E7%B3%BB%E7%BB%9F%E6%97%A0%E6%95%85%E9%87%8D%E5%90%AF%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>抄国光大佬作业搞了一台 chromebox3 CN65，刷上黑苹果，总是无规律重启。尝试重新刷了 最新的 bios，好了 2 天，后面又开始无规律重启，配置如下：</p>
-<span id="more"></span>
-
-<p>CPU：Intel® Core™ i7-8550U Processor</p>
-<p>Graphic：Intel® HD Graphics 620</p>
-<p>内存：DDR4 JUHOR 玖合 2666MHZ 16G x 2 (这台机器官网是 4-16G，试了下 32G 能用，就用了)</p>
-<p>固态硬盘：台电（TECLAST）1TBPCle3.0*4</p>
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>内存条频率为 2666MHZ</p>
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>更换内存条为 2400MHZ（黑苹果对硬件的要求比较高）</p>
-<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p><a href="https://www.sqlsec.com/2023/07/macbox.html">https://www.sqlsec.com/2023/07/macbox.html</a></p>
-]]></content>
-      <categories>
-        <category>操作系统</category>
-      </categories>
-      <tags>
-        <tag>hackintosh</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>解决新版本 MacOS 下 Sublime Text4 package control 无法加载问题</title>
     <url>/2024/05/24/%E8%A7%A3%E5%86%B3%E6%96%B0%E7%89%88%E6%9C%ACMacOS%E4%B8%8BSublimeText4packagecontrol%E6%97%A0%E6%B3%95%E5%8A%A0%E8%BD%BD%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>cmd + shift + p 输入 install package 有对应菜单选项，没反应。</p>
@@ -1208,6 +1187,27 @@
       </categories>
       <tags>
         <tag>sublime</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解决黑苹果系统无故重启的问题</title>
+    <url>/2024/05/21/%E8%A7%A3%E5%86%B3%E9%BB%91%E8%8B%B9%E6%9E%9C%E7%B3%BB%E7%BB%9F%E6%97%A0%E6%95%85%E9%87%8D%E5%90%AF%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>抄国光大佬作业搞了一台 chromebox3 CN65，刷上黑苹果，总是无规律重启。尝试重新刷了 最新的 bios，好了 2 天，后面又开始无规律重启，配置如下：</p>
+<span id="more"></span>
+
+<p>CPU：Intel® Core™ i7-8550U Processor</p>
+<p>Graphic：Intel® HD Graphics 620</p>
+<p>内存：DDR4 JUHOR 玖合 2666MHZ 16G x 2 (这台机器官网是 4-16G，试了下 32G 能用，就用了)</p>
+<p>固态硬盘：台电（TECLAST）1TBPCle3.0*4</p>
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>内存条频率为 2666MHZ</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>更换内存条为 2400MHZ（黑苹果对硬件的要求比较高）</p>
+<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p><a href="https://www.sqlsec.com/2023/07/macbox.html">https://www.sqlsec.com/2023/07/macbox.html</a></p>
+]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>hackintosh</tag>
       </tags>
   </entry>
   <entry>

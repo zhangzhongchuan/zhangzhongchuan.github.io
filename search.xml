@@ -1,66 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Appium2 总结（二）inspector 工具使用及定位操作元素</title>
-    <url>/2024/07/30/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89inspector%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AE%9A%E4%BD%8D%E6%93%8D%E4%BD%9C%E5%85%83%E7%B4%A0/</url>
-    <content><![CDATA[<p>Appium Inspector 是 Appium 的一个工具，<strong>用于帮助开发人员和测试人员分析和调试移动应用程序</strong>。 它提供了图形界面和交互式的功能，使您能够轻松地检查应用程序的 UI 元素、获取元素属性、执行操作和生成自动化测试脚本。</p>
-<span id="more"></span>
-
-<h2 id="1-Appium-Inspector-下载"><a href="#1-Appium-Inspector-下载" class="headerlink" title="1.Appium Inspector 下载"></a>1.Appium Inspector 下载</h2><p>下载地址：</p>
-<figure class="highlight http"><table><tbody><tr><td class="code"><pre><span class="line">https://github.com/appium/appium-inspector/releases</span><br></pre></td></tr></tbody></table></figure>
-
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240730200543128.png" alt="image-20240730200543128"></p>
-<p>选择相应版本下载后安装。</p>
-<h2 id="2-Appium-Inspector使用"><a href="#2-Appium-Inspector使用" class="headerlink" title="2.Appium Inspector使用"></a>2.Appium Inspector 使用</h2><p>（1）首先连接模拟器。</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">➜  ~ adb connect 192.168.XX.XX:5555</span><br><span class="line">connected to 192.168.XX.XX:5555</span><br></pre></td></tr></tbody></table></figure>
-
-<p>（2）启动 appium 服务</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">➜  ~ appium</span><br><span class="line">[Appium] Welcome to Appium v2.11.2</span><br><span class="line">......</span><br></pre></td></tr></tbody></table></figure>
-
-<p>（3）打开 Appium Inspector</p>
-<p>在 Capability Builder 中，填写</p>
-<p>platformName=’Android’</p>
-<p>automationName=’uiautomator2’</p>
-<p>然后点击 <code>Start Session</code> 按钮。</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240731112127407.png" alt="image-20240731112127407"></p>
-<p>界面看到模拟器的截图，说明连接成功。</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240731112511529.png" alt="image-20240731112511529"></p>
-<p>（4）安装 2 个 app 用于测试</p>
-<p><a href="https://github.com/appium/appium/raw/master/packages/appium/sample-code/apps/ApiDemos-debug.apk">appium 官方 Demo apk 下载地址</a></p>
-<p>使用 adb 命令安装：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">➜  ~ adb install /Users/user1/Downloads/ApiDemos-debug.apk</span><br><span class="line">Performing Streamed Install</span><br><span class="line">Success</span><br></pre></td></tr></tbody></table></figure>
-
-<p><a href="https://github.com/imengyu/AutoCalc/raw/master/app-debug.apk">计算器 AutoCalc</a></p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">➜  ~ adb install /Users/user1/Downloads/ApiDemos-debug.apk.apk</span><br><span class="line">Performing Streamed Install</span><br><span class="line">Success</span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<p>安装成功后，模拟器出现如下 app</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240731145423828.png" alt="image-20240731145423828"></p>
-<p>（5）打开 API Demos ，获取包名界面名（活动名）</p>
-<p>1️⃣通过 adb 命令获取</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">➜  ~ adb shell dumpsys window |grep mFocusedApp</span><br><span class="line">    mFocusedApp=Token{b14e783 ActivityRecord{3e73e32 u0 io.appium.android.apis/.ApiDemos t9}}</span><br><span class="line">    mFocusedApp=AppWindowToken{8c2ad00 token=Token{b14e783 ActivityRecord{3e73e32 u0 io.appium.android.apis/.ApiDemos t9}}}</span><br></pre></td></tr></tbody></table></figure>
-
-<p>2️⃣通过 Appium Inspector 获取</p>
-<p>获取包名 <code>Commands</code>→<code>App Management</code>→<code>getCurrentPackage</code></p>
-<p>获取界面名 <code>Commands</code>→<code>App Management</code>→<code>getCurrentPackage</code></p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/2024-07-31%2015.38.57.gif" alt="2024-07-31 15.38.57"></p>
-<h2 id="2-定位操作元素"><a href="#2-定位操作元素" class="headerlink" title="2.定位操作元素"></a>2. 定位操作元素</h2><p>（1）通过 Appium Inspector 获取元素的 id</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/2024-07-31%2018.12.29.gif" alt="2024-07-31 18.12.29"></p>
-<p>（2）通过 id 获取获取元素，操作元素</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># 通过 ID 找元素</span></span><br><span class="line"><span class="comment"># 分别获取计算器上按键 1+2= 四个按钮的按键，并且点击</span></span><br><span class="line">driver.find_element(AppiumBy.ID, <span class="string">'com.dreamfish.com.autocalc:id/btn_pad_number_1'</span>).click()</span><br><span class="line">time.sleep(1)</span><br><span class="line">driver.find_element(AppiumBy.ID, <span class="string">'com.dreamfish.com.autocalc:id/btn_pad_plus'</span>).click()</span><br><span class="line">time.sleep(1)</span><br><span class="line">driver.find_element(AppiumBy.ID, <span class="string">'com.dreamfish.com.autocalc:id/btn_pad_number_2'</span>).click()</span><br><span class="line">time.sleep(1)</span><br><span class="line">driver.find_element(AppiumBy.ID, <span class="string">'com.dreamfish.com.autocalc:id/btn_pad_equal'</span>).click()</span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2>]]></content>
-      <categories>
-        <category>自动化测试</category>
-      </categories>
-      <tags>
-        <tag>appium</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Appium2 总结（一）环境搭建以及简单脚本测试</title>
     <url>/2024/07/29/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%80%EF%BC%89%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%BB%A5%E5%8F%8A%E7%AE%80%E5%8D%95%E8%84%9A%E6%9C%AC%E6%B5%8B%E8%AF%95/</url>
     <content><![CDATA[<p>Appium 是一个开源项目和相关软件的生态系统。 软件，旨在促进许多应用程序平台的 UI 自动化，包括移动平台（iOS、 Android、Tizen）、浏览器（Chrome、Firefox、Safari）、桌面（macOS、Windows）、电视（Roku、tvOS、 Android TV、三星）等，它还旨在支持用不同语言（JS、Java、Python 等）编写的自动化代码。</p>
@@ -267,32 +207,63 @@
       </tags>
   </entry>
   <entry>
-    <title>Nginx 服务器 SSL 证书安装部署（Linux）</title>
-    <url>/2024/06/05/Nginx%E6%9C%8D%E5%8A%A1%E5%99%A8SSL%E8%AF%81%E4%B9%A6%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%EF%BC%88Linux%EF%BC%89/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>如何将 SSL 证书上传到 centos 服务器，并使用 nginx 配置后，使其生效？</p>
+    <title>Appium2 总结（二）inspector 工具使用及定位操作元素</title>
+    <url>/2024/07/30/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89inspector%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AE%9A%E4%BD%8D%E6%93%8D%E4%BD%9C%E5%85%83%E7%B4%A0/</url>
+    <content><![CDATA[<p>Appium Inspector 是 Appium 的一个工具，<strong>用于帮助开发人员和测试人员分析和调试移动应用程序</strong>。 它提供了图形界面和交互式的功能，使您能够轻松地检查应用程序的 UI 元素、获取元素属性、执行操作和生成自动化测试脚本。</p>
 <span id="more"></span>
 
-<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><p>（1）下载已申请好的<a href="https://cloud.tencent.com/document/product/400/6814">腾讯云免费 SSL 证书</a>，解压。</p>
-<p>（2）上传证书文件到 Linux 云服务器。</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">scp /Users/user1/Downloads/tangxdou.com_nginx/tangxdou.com.key root@123.207.205.145:/etc/nginx/ssl</span><br><span class="line"></span><br><span class="line">scp /Users/user1/Downloads/tangxdou.com_nginx/tangxdou.com_bundle.crt root@123.207.205.145:/etc/nginx/ssl</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="1-Appium-Inspector-下载"><a href="#1-Appium-Inspector-下载" class="headerlink" title="1.Appium Inspector 下载"></a>1.Appium Inspector 下载</h2><p>下载地址：</p>
+<figure class="highlight http"><table><tbody><tr><td class="code"><pre><span class="line">https://github.com/appium/appium-inspector/releases</span><br></pre></td></tr></tbody></table></figure>
 
-<p>（3）修改配置文件。</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo vim /etc/nginx/conf.d/default.conf</span><br></pre></td></tr></tbody></table></figure>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240730200543128.png" alt="image-20240730200543128"></p>
+<p>选择相应版本下载后安装。</p>
+<h2 id="2-Appium-Inspector使用"><a href="#2-Appium-Inspector使用" class="headerlink" title="2.Appium Inspector使用"></a>2.Appium Inspector 使用</h2><p>（1）首先连接模拟器。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">➜  ~ adb connect 192.168.XX.XX:5555</span><br><span class="line">connected to 192.168.XX.XX:5555</span><br></pre></td></tr></tbody></table></figure>
 
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">server {</span><br><span class="line">    listen 80;</span><br><span class="line">    server_name tangxdou.com www.tangxdou.com;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 重定向到HTTPS</span></span><br><span class="line">    <span class="built_in">return</span> 301 https://$server_name<span class="variable">$request_uri</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">server {</span><br><span class="line">    listen 443 ssl;</span><br><span class="line">    server_name tangxdou.com www.tangxdou.com;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># SSL证书配置</span></span><br><span class="line">    ssl_certificate /etc/nginx/ssl/tangxdou.com_bundle.crt;</span><br><span class="line">    ssl_certificate_key /etc/nginx/ssl/tangxdou.com.key;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 其他SSL设置</span></span><br><span class="line">    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">    ssl_ciphers <span class="string">'ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384'</span>;</span><br><span class="line">    ssl_prefer_server_ciphers on;</span><br><span class="line">    ssl_session_cache shared:SSL:10m;</span><br><span class="line">    ssl_session_timeout 5m;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 配置日志文件</span></span><br><span class="line">    access_log /var/log/nginx/example.access.log;</span><br><span class="line">    error_log /var/log/nginx/example.error.log;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 网站根目录</span></span><br><span class="line">    root /home/git/project/hexo-blog;</span><br><span class="line">    index index.html index.htm;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>（2）启动 appium 服务</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">➜  ~ appium</span><br><span class="line">[Appium] Welcome to Appium v2.11.2</span><br><span class="line">......</span><br></pre></td></tr></tbody></table></figure>
 
-<p>（4）重载 Nginx 配置。</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">nginx -s reload</span><br></pre></td></tr></tbody></table></figure>
+<p>（3）打开 Appium Inspector</p>
+<p>在 Capability Builder 中，填写</p>
+<p>platformName=’Android’</p>
+<p>automationName=’uiautomator2’</p>
+<p>然后点击 <code>Start Session</code> 按钮。</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240731112127407.png" alt="image-20240731112127407"></p>
+<p>界面看到模拟器的截图，说明连接成功。</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240731112511529.png" alt="image-20240731112511529"></p>
+<p>（4）安装 2 个 app 用于测试</p>
+<p><a href="https://github.com/appium/appium/raw/master/packages/appium/sample-code/apps/ApiDemos-debug.apk">appium 官方 Demo apk 下载地址</a></p>
+<p>使用 adb 命令安装：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">➜  ~ adb install /Users/user1/Downloads/ApiDemos-debug.apk</span><br><span class="line">Performing Streamed Install</span><br><span class="line">Success</span><br></pre></td></tr></tbody></table></figure>
 
-<p>（5）若证书到期，重复执行（2）（4）即可。</p>
-<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2><p><a href="https://cloud.tencent.com/document/product/400/35244">https://cloud.tencent.com/document/product/400/35244</a></p>
-]]></content>
+<p><a href="https://github.com/imengyu/AutoCalc/raw/master/app-debug.apk">计算器 AutoCalc</a></p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">➜  ~ adb install /Users/user1/Downloads/ApiDemos-debug.apk.apk</span><br><span class="line">Performing Streamed Install</span><br><span class="line">Success</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<p>安装成功后，模拟器出现如下 app</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240731145423828.png" alt="image-20240731145423828"></p>
+<p>（5）打开 API Demos ，获取包名界面名（活动名）</p>
+<p>1️⃣通过 adb 命令获取</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">➜  ~ adb shell dumpsys window |grep mFocusedApp</span><br><span class="line">    mFocusedApp=Token{b14e783 ActivityRecord{3e73e32 u0 io.appium.android.apis/.ApiDemos t9}}</span><br><span class="line">    mFocusedApp=AppWindowToken{8c2ad00 token=Token{b14e783 ActivityRecord{3e73e32 u0 io.appium.android.apis/.ApiDemos t9}}}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>2️⃣通过 Appium Inspector 获取</p>
+<p>获取包名 <code>Commands</code>→<code>App Management</code>→<code>getCurrentPackage</code></p>
+<p>获取界面名 <code>Commands</code>→<code>App Management</code>→<code>getCurrentPackage</code></p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/2024-07-31%2015.38.57.gif" alt="2024-07-31 15.38.57"></p>
+<h2 id="2-定位操作元素"><a href="#2-定位操作元素" class="headerlink" title="2.定位操作元素"></a>2. 定位操作元素</h2><p>（1）通过 Appium Inspector 获取元素的 id</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/2024-07-31%2018.12.29.gif" alt="2024-07-31 18.12.29"></p>
+<p>（2）通过 id 获取获取元素，操作元素</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># 通过 ID 找元素</span></span><br><span class="line"><span class="comment"># 分别获取计算器上按键 1+2= 四个按钮的按键，并且点击</span></span><br><span class="line">driver.find_element(AppiumBy.ID, <span class="string">'com.dreamfish.com.autocalc:id/btn_pad_number_1'</span>).click()</span><br><span class="line">time.sleep(1)</span><br><span class="line">driver.find_element(AppiumBy.ID, <span class="string">'com.dreamfish.com.autocalc:id/btn_pad_plus'</span>).click()</span><br><span class="line">time.sleep(1)</span><br><span class="line">driver.find_element(AppiumBy.ID, <span class="string">'com.dreamfish.com.autocalc:id/btn_pad_number_2'</span>).click()</span><br><span class="line">time.sleep(1)</span><br><span class="line">driver.find_element(AppiumBy.ID, <span class="string">'com.dreamfish.com.autocalc:id/btn_pad_equal'</span>).click()</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2>]]></content>
       <categories>
-        <category>环境部署</category>
+        <category>自动化测试</category>
       </categories>
       <tags>
-        <tag>hexo</tag>
-        <tag>nginx</tag>
+        <tag>appium</tag>
       </tags>
   </entry>
   <entry>
@@ -403,6 +374,35 @@
       </tags>
   </entry>
   <entry>
+    <title>Nginx 服务器 SSL 证书安装部署（Linux）</title>
+    <url>/2024/06/05/Nginx%E6%9C%8D%E5%8A%A1%E5%99%A8SSL%E8%AF%81%E4%B9%A6%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%EF%BC%88Linux%EF%BC%89/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>如何将 SSL 证书上传到 centos 服务器，并使用 nginx 配置后，使其生效？</p>
+<span id="more"></span>
+
+<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><p>（1）下载已申请好的<a href="https://cloud.tencent.com/document/product/400/6814">腾讯云免费 SSL 证书</a>，解压。</p>
+<p>（2）上传证书文件到 Linux 云服务器。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">scp /Users/user1/Downloads/tangxdou.com_nginx/tangxdou.com.key root@123.207.205.145:/etc/nginx/ssl</span><br><span class="line"></span><br><span class="line">scp /Users/user1/Downloads/tangxdou.com_nginx/tangxdou.com_bundle.crt root@123.207.205.145:/etc/nginx/ssl</span><br></pre></td></tr></tbody></table></figure>
+
+<p>（3）修改配置文件。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo vim /etc/nginx/conf.d/default.conf</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">server {</span><br><span class="line">    listen 80;</span><br><span class="line">    server_name tangxdou.com www.tangxdou.com;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 重定向到HTTPS</span></span><br><span class="line">    <span class="built_in">return</span> 301 https://$server_name<span class="variable">$request_uri</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">server {</span><br><span class="line">    listen 443 ssl;</span><br><span class="line">    server_name tangxdou.com www.tangxdou.com;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># SSL证书配置</span></span><br><span class="line">    ssl_certificate /etc/nginx/ssl/tangxdou.com_bundle.crt;</span><br><span class="line">    ssl_certificate_key /etc/nginx/ssl/tangxdou.com.key;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 其他SSL设置</span></span><br><span class="line">    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">    ssl_ciphers <span class="string">'ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384'</span>;</span><br><span class="line">    ssl_prefer_server_ciphers on;</span><br><span class="line">    ssl_session_cache shared:SSL:10m;</span><br><span class="line">    ssl_session_timeout 5m;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 配置日志文件</span></span><br><span class="line">    access_log /var/log/nginx/example.access.log;</span><br><span class="line">    error_log /var/log/nginx/example.error.log;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 网站根目录</span></span><br><span class="line">    root /home/git/project/hexo-blog;</span><br><span class="line">    index index.html index.htm;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>（4）重载 Nginx 配置。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">nginx -s reload</span><br></pre></td></tr></tbody></table></figure>
+
+<p>（5）若证书到期，重复执行（2）（4）即可。</p>
+<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2><p><a href="https://cloud.tencent.com/document/product/400/35244">https://cloud.tencent.com/document/product/400/35244</a></p>
+]]></content>
+      <categories>
+        <category>环境部署</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>nginx</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Ubuntu 中 chromdriver 和 geckodriver 的下载和配置</title>
     <url>/2021/05/25/Ubuntu%E4%B8%ADchromdriver%E5%92%8Cgeckodriver%E7%9A%84%E4%B8%8B%E8%BD%BD%E5%92%8C%E9%85%8D%E7%BD%AE/</url>
     <content><![CDATA[<h2 id="1-下载地址为："><a href="#1-下载地址为：" class="headerlink" title="1.下载地址为："></a>1. 下载地址为：</h2><h3 id="（1）Chromedriver"><a href="#（1）Chromedriver" class="headerlink" title="（1）Chromedriver:"></a>（1）Chromedriver:</h3><h3 id="http-chromedriver-storage-googleapis-com-index-html"><a href="#http-chromedriver-storage-googleapis-com-index-html" class="headerlink" title="http://chromedriver.storage.googleapis.com/index.html"></a><a href="http://chromedriver.storage.googleapis.com/index.html">http://chromedriver.storage.googleapis.com/index.html</a></h3><h3 id="（2）Geckodriver"><a href="#（2）Geckodriver" class="headerlink" title="（2）Geckodriver:"></a>（2）Geckodriver:</h3><h3 id="https-github-com-mozilla-geckodriver-releases"><a href="#https-github-com-mozilla-geckodriver-releases" class="headerlink" title="https://github.com/mozilla/geckodriver/releases/"></a><a href="https://github.com/mozilla/geckodriver/releases/">https://github.com/mozilla/geckodriver/releases/</a></h3><span id="more"></span>
@@ -475,37 +475,6 @@
       </tags>
   </entry>
   <entry>
-    <title>mysql 按照分组筛选出时间倒序前三条记录</title>
-    <url>/2024/05/22/mysql%E6%8C%89%E7%85%A7%E5%88%86%E7%BB%84%E7%AD%9B%E9%80%89%E5%87%BA%E6%97%B6%E9%97%B4%E5%80%92%E5%BA%8F%E5%89%8D%E4%B8%89%E6%9D%A1%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在 MySQL 低版本 (5.7 以下) 中，如何按照分组筛选出时间倒序前三条记录？</p>
-<span id="more"></span>
-
-<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> t.<span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> (</span><br><span class="line">  <span class="keyword">SELECT</span> <span class="operator">*</span>, </span><br><span class="line">    <span class="variable">@rn</span> :<span class="operator">=</span> IF(<span class="variable">@prev_group</span> <span class="operator">=</span> group_column, <span class="variable">@rn</span> <span class="operator">+</span> <span class="number">1</span>, <span class="number">1</span>) <span class="keyword">AS</span> rn,</span><br><span class="line">    <span class="variable">@prev_group</span> :<span class="operator">=</span> group_column</span><br><span class="line">  <span class="keyword">FROM</span> your_table, (<span class="keyword">SELECT</span> <span class="variable">@rn</span> :<span class="operator">=</span> <span class="number">0</span>, <span class="variable">@prev_group</span> :<span class="operator">=</span> <span class="keyword">NULL</span>) r</span><br><span class="line">  <span class="keyword">ORDER</span> <span class="keyword">BY</span> group_column, time_column <span class="keyword">DESC</span></span><br><span class="line">) t</span><br><span class="line"><span class="keyword">WHERE</span> rn <span class="operator">&lt;=</span> <span class="number">3</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> group_column, time_column <span class="keyword">DESC</span>;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-
-<p>(1) 在子查询中，使用变量 <code>@rn</code> 和 <code>@prev_group</code> 来记录当前行的记录编号和前一行的分组。</p>
-<p>(2)<code>@rn := IF(@prev_group = group_column, @rn + 1, 1) AS rn</code> 这一行代码的作用是：如果当前行的分组与上一行相同，则记录编号 <code>rn</code> 递增 1, 否则从 1 开始计数。</p>
-<p>(3)<code>@prev_group := group_column</code> 这一行代码是更新上一行的分组。</p>
-<p>(4) 在外层查询中，使用 <code>WHERE rn &lt;= 3</code> 来筛选出每个分组中时间倒序的前 3 条记录。</p>
-<p>(5) 最后按分组 <code>group_column</code> 和时间 <code>time_column</code> 倒序排列输出结果。</p>
-<p>你可以将 <code>your_table</code> 替换成你自己的表名，<code>group_column</code> 替换成你表中的分组列名，<code>time_column</code> 替换成你表中的时间列名。</p>
-<p>这种方法在 MySQL 5.7 以下版本中都可以使用，不需要使用 <code>ROW_NUMBER()</code> 函数，性能也较好。</p>
-<p>在 MySQL8.0 及以上可以使用如下方法：</p>
-<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> t.<span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> (</span><br><span class="line">  <span class="keyword">SELECT</span> <span class="operator">*</span>, </span><br><span class="line">    <span class="built_in">ROW_NUMBER</span>() <span class="keyword">OVER</span> (<span class="keyword">PARTITION</span> <span class="keyword">BY</span> group_column <span class="keyword">ORDER</span> <span class="keyword">BY</span> time_column <span class="keyword">DESC</span>) <span class="keyword">AS</span> rn</span><br><span class="line">  <span class="keyword">FROM</span> your_table</span><br><span class="line">) t</span><br><span class="line"><span class="keyword">WHERE</span> rn <span class="operator">&lt;=</span> <span class="number">3</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> group_column, time_column <span class="keyword">DESC</span>;</span><br></pre></td></tr></tbody></table></figure>
-
-<p>（1）首先使用子查询，在每个分组 <code>group_column</code> 内根据时间列 <code>time_column</code> 使用 <code>ROW_NUMBER()</code> 函数给每条记录编号，按时间顺序倒序排列。</p>
-<p>（2）然后在外层查询中，使用 <code>WHERE rn &lt;= 3</code> 筛选出每个分组中时间倒序的前 3 条记录。</p>
-<p>（3）最后按分组 <code>group_column</code> 和时间 <code>time_column</code> 倒序排列输出结果。</p>
-<p>这样就可以实现按分组筛选出时间倒序前 3 条记录的功能。你可以将 <code>your_table</code> 替换成你自己的表名，<code>group_column</code> 替换成你表中的分组列名，<code>time_column</code> 替换成你表中的时间列名。</p>
-<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2><p><a href="https://kimi.moonshot.cn/">https://kimi.moonshot.cn/</a></p>
-]]></content>
-      <categories>
-        <category>数据库</category>
-      </categories>
-      <tags>
-        <tag>mysql</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>jmeter 通过 log4j2.xml 修改 log 文件位置</title>
     <url>/2024/04/15/jmeter%E9%80%9A%E8%BF%87log4j2-xml%E4%BF%AE%E6%94%B9log%E6%96%87%E4%BB%B6%E4%BD%8D%E7%BD%AE/</url>
     <content><![CDATA[<p>在 Apache JMeter 中，如果你使用的是 Log4j2 作为日志系统，并且想通过 <code>log4j2.xml</code> 配置文件修改日志文件的位置，你可以按照以下步骤操作：（文中使用 jmeter 版本为:apache-jmeter-5.6.3）</p>
@@ -550,6 +519,37 @@
 <figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">group_concat_max_len = -1</span><br></pre></td></tr></tbody></table></figure>
 
 <h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p>参考于该<a href="https://www.cnblogs.com/zjfblog/p/13658936.html">博客园博客</a></p>
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>mysql 按照分组筛选出时间倒序前三条记录</title>
+    <url>/2024/05/22/mysql%E6%8C%89%E7%85%A7%E5%88%86%E7%BB%84%E7%AD%9B%E9%80%89%E5%87%BA%E6%97%B6%E9%97%B4%E5%80%92%E5%BA%8F%E5%89%8D%E4%B8%89%E6%9D%A1%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在 MySQL 低版本 (5.7 以下) 中，如何按照分组筛选出时间倒序前三条记录？</p>
+<span id="more"></span>
+
+<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> t.<span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> (</span><br><span class="line">  <span class="keyword">SELECT</span> <span class="operator">*</span>, </span><br><span class="line">    <span class="variable">@rn</span> :<span class="operator">=</span> IF(<span class="variable">@prev_group</span> <span class="operator">=</span> group_column, <span class="variable">@rn</span> <span class="operator">+</span> <span class="number">1</span>, <span class="number">1</span>) <span class="keyword">AS</span> rn,</span><br><span class="line">    <span class="variable">@prev_group</span> :<span class="operator">=</span> group_column</span><br><span class="line">  <span class="keyword">FROM</span> your_table, (<span class="keyword">SELECT</span> <span class="variable">@rn</span> :<span class="operator">=</span> <span class="number">0</span>, <span class="variable">@prev_group</span> :<span class="operator">=</span> <span class="keyword">NULL</span>) r</span><br><span class="line">  <span class="keyword">ORDER</span> <span class="keyword">BY</span> group_column, time_column <span class="keyword">DESC</span></span><br><span class="line">) t</span><br><span class="line"><span class="keyword">WHERE</span> rn <span class="operator">&lt;=</span> <span class="number">3</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> group_column, time_column <span class="keyword">DESC</span>;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p>(1) 在子查询中，使用变量 <code>@rn</code> 和 <code>@prev_group</code> 来记录当前行的记录编号和前一行的分组。</p>
+<p>(2)<code>@rn := IF(@prev_group = group_column, @rn + 1, 1) AS rn</code> 这一行代码的作用是：如果当前行的分组与上一行相同，则记录编号 <code>rn</code> 递增 1, 否则从 1 开始计数。</p>
+<p>(3)<code>@prev_group := group_column</code> 这一行代码是更新上一行的分组。</p>
+<p>(4) 在外层查询中，使用 <code>WHERE rn &lt;= 3</code> 来筛选出每个分组中时间倒序的前 3 条记录。</p>
+<p>(5) 最后按分组 <code>group_column</code> 和时间 <code>time_column</code> 倒序排列输出结果。</p>
+<p>你可以将 <code>your_table</code> 替换成你自己的表名，<code>group_column</code> 替换成你表中的分组列名，<code>time_column</code> 替换成你表中的时间列名。</p>
+<p>这种方法在 MySQL 5.7 以下版本中都可以使用，不需要使用 <code>ROW_NUMBER()</code> 函数，性能也较好。</p>
+<p>在 MySQL8.0 及以上可以使用如下方法：</p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> t.<span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> (</span><br><span class="line">  <span class="keyword">SELECT</span> <span class="operator">*</span>, </span><br><span class="line">    <span class="built_in">ROW_NUMBER</span>() <span class="keyword">OVER</span> (<span class="keyword">PARTITION</span> <span class="keyword">BY</span> group_column <span class="keyword">ORDER</span> <span class="keyword">BY</span> time_column <span class="keyword">DESC</span>) <span class="keyword">AS</span> rn</span><br><span class="line">  <span class="keyword">FROM</span> your_table</span><br><span class="line">) t</span><br><span class="line"><span class="keyword">WHERE</span> rn <span class="operator">&lt;=</span> <span class="number">3</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> group_column, time_column <span class="keyword">DESC</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>（1）首先使用子查询，在每个分组 <code>group_column</code> 内根据时间列 <code>time_column</code> 使用 <code>ROW_NUMBER()</code> 函数给每条记录编号，按时间顺序倒序排列。</p>
+<p>（2）然后在外层查询中，使用 <code>WHERE rn &lt;= 3</code> 筛选出每个分组中时间倒序的前 3 条记录。</p>
+<p>（3）最后按分组 <code>group_column</code> 和时间 <code>time_column</code> 倒序排列输出结果。</p>
+<p>这样就可以实现按分组筛选出时间倒序前 3 条记录的功能。你可以将 <code>your_table</code> 替换成你自己的表名，<code>group_column</code> 替换成你表中的分组列名，<code>time_column</code> 替换成你表中的时间列名。</p>
+<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2><p><a href="https://kimi.moonshot.cn/">https://kimi.moonshot.cn/</a></p>
 ]]></content>
       <categories>
         <category>数据库</category>
@@ -769,6 +769,20 @@
       </tags>
   </entry>
   <entry>
+    <title>博客重新装修删除冗余内容</title>
+    <url>/2024/05/06/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%96%B0%E8%A3%85%E4%BF%AE%E5%88%A0%E9%99%A4%E5%86%97%E4%BD%99%E5%86%85%E5%AE%B9/</url>
+    <content><![CDATA[<p>最近有空闲时间，就重新装修了长时间没管过的博客，将以前的内容做了精简以及删除，后续会陆续将之前做的笔记整理后，写成 blog，大体做了如下改变。</p>
+<span id="more"></span>
+
+<h2 id="1-更改主题为-nexT。"><a href="#1-更改主题为-nexT。" class="headerlink" title="1.更改主题为 nexT。"></a>1. 更改主题为 nexT。</h2><h2 id="2-删除之前冗余内容。"><a href="#2-删除之前冗余内容。" class="headerlink" title="2.删除之前冗余内容。"></a>2. 删除之前冗余内容。</h2><h2 id="3-将一些以前学习的内容做个总结。"><a href="#3-将一些以前学习的内容做个总结。" class="headerlink" title="3.将一些以前学习的内容做个总结。"></a>3. 将一些以前学习的内容做个总结。</h2>]]></content>
+      <categories>
+        <category>环境部署</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>如何从 mac 系统传输文件或文件夹到 Ubuntu 系统</title>
     <url>/2021/05/24/%E5%A6%82%E4%BD%95%E4%BB%8Emac%E7%B3%BB%E7%BB%9F%E4%BC%A0%E8%BE%93%E6%96%87%E4%BB%B6%E5%88%B0Ubuntu%E7%B3%BB%E7%BB%9F/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>如何从 macOS 系统传输文件到 Ubuntu 系统？</p>
@@ -828,17 +842,33 @@
       </tags>
   </entry>
   <entry>
-    <title>博客重新装修删除冗余内容</title>
-    <url>/2024/05/06/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%96%B0%E8%A3%85%E4%BF%AE%E5%88%A0%E9%99%A4%E5%86%97%E4%BD%99%E5%86%85%E5%AE%B9/</url>
-    <content><![CDATA[<p>最近有空闲时间，就重新装修了长时间没管过的博客，将以前的内容做了精简以及删除，后续会陆续将之前做的笔记整理后，写成 blog，大体做了如下改变。</p>
+    <title>如何将 excel 相同行快速标注相同颜色</title>
+    <url>/2024/05/22/%E5%A6%82%E4%BD%95%E5%B0%86excel%E7%9B%B8%E5%90%8C%E8%A1%8C%E5%BF%AB%E9%80%9F%E6%A0%87%E6%B3%A8%E7%9B%B8%E5%90%8C%E9%A2%9C%E8%89%B2/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>如下图所示，相同的公司标注相同的颜色，相邻的公司使用不同的颜色标注。</p>
 <span id="more"></span>
 
-<h2 id="1-更改主题为-nexT。"><a href="#1-更改主题为-nexT。" class="headerlink" title="1.更改主题为 nexT。"></a>1. 更改主题为 nexT。</h2><h2 id="2-删除之前冗余内容。"><a href="#2-删除之前冗余内容。" class="headerlink" title="2.删除之前冗余内容。"></a>2. 删除之前冗余内容。</h2><h2 id="3-将一些以前学习的内容做个总结。"><a href="#3-将一些以前学习的内容做个总结。" class="headerlink" title="3.将一些以前学习的内容做个总结。"></a>3. 将一些以前学习的内容做个总结。</h2>]]></content>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523105209093.png" alt="image-20240523105209093"></p>
+<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><p>这里提供一种不是最优解的解决方法，前提是会使用函数 <code>vlookup</code> 和 <code>isodd</code></p>
+<p>（0）将表格按照公司名字排序。</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523115128818.png" alt="image-20240523115128818"></p>
+<p>（1）将公司名这一列复制到一个新的 <code>sheet</code> 中，然后去重。</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523115554033.png" alt="image-20240523115554033"></p>
+<p>（2）在公司名右侧插入公司名编号。</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523115823986.png" alt="image-20240523115823986"></p>
+<p>（3）在原表中公司名后插入一列，使用 <code>vlookup</code> 公式去匹配公司名编号。</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523120017323.png" alt="image-20240523120017323"></p>
+<p>（4）在原表中公司名编号中插入一列，使用 <code>isodd</code> 公式计算是奇偶数。</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523120250045.png" alt="image-20240523120250045"></p>
+<p>（5）筛选奇偶数，分别标注颜色。</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523120436033.png" alt="image-20240523120436033"></p>
+<p>（6）删除辅助列即可</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523120606111.png" alt="image-20240523120606111"></p>
+]]></content>
       <categories>
-        <category>环境部署</category>
+        <category>软件使用</category>
       </categories>
       <tags>
-        <tag>hexo</tag>
+        <tag>excel</tag>
       </tags>
   </entry>
   <entry>
@@ -908,70 +938,11 @@
       </tags>
   </entry>
   <entry>
-    <title>如何将 excel 相同行快速标注相同颜色</title>
-    <url>/2024/05/22/%E5%A6%82%E4%BD%95%E5%B0%86excel%E7%9B%B8%E5%90%8C%E8%A1%8C%E5%BF%AB%E9%80%9F%E6%A0%87%E6%B3%A8%E7%9B%B8%E5%90%8C%E9%A2%9C%E8%89%B2/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>如下图所示，相同的公司标注相同的颜色，相邻的公司使用不同的颜色标注。</p>
-<span id="more"></span>
-
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523105209093.png" alt="image-20240523105209093"></p>
-<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><p>这里提供一种不是最优解的解决方法，前提是会使用函数 <code>vlookup</code> 和 <code>isodd</code></p>
-<p>（0）将表格按照公司名字排序。</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523115128818.png" alt="image-20240523115128818"></p>
-<p>（1）将公司名这一列复制到一个新的 <code>sheet</code> 中，然后去重。</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523115554033.png" alt="image-20240523115554033"></p>
-<p>（2）在公司名右侧插入公司名编号。</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523115823986.png" alt="image-20240523115823986"></p>
-<p>（3）在原表中公司名后插入一列，使用 <code>vlookup</code> 公式去匹配公司名编号。</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523120017323.png" alt="image-20240523120017323"></p>
-<p>（4）在原表中公司名编号中插入一列，使用 <code>isodd</code> 公式计算是奇偶数。</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523120250045.png" alt="image-20240523120250045"></p>
-<p>（5）筛选奇偶数，分别标注颜色。</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523120436033.png" alt="image-20240523120436033"></p>
-<p>（6）删除辅助列即可</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523120606111.png" alt="image-20240523120606111"></p>
-]]></content>
-      <categories>
-        <category>软件使用</category>
-      </categories>
-      <tags>
-        <tag>excel</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>正则表达式相关总结</title>
     <url>/2024/07/08/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9B%B8%E5%85%B3%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><span id="more"></span>
 
 <h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2>]]></content>
-  </entry>
-  <entry>
-    <title>测试计划模板</title>
-    <url>/2019/07/11/%E6%B5%8B%E8%AF%95%E8%AE%A1%E5%88%92%E6%A8%A1%E6%9D%BF/</url>
-    <content><![CDATA[<h1 id="测试计划"><a href="#测试计划" class="headerlink" title="测试计划"></a>测试计划</h1><h1 id="XXX-项目测试计划"><a href="#XXX-项目测试计划" class="headerlink" title="XXX 项目测试计划"></a><center>XXX 项目测试计划</center></h1><h2 id="1-引言"><a href="#1-引言" class="headerlink" title="1.引言"></a>1. 引言</h2><h3 id="1-1-编写目的"><a href="#1-1-编写目的" class="headerlink" title="1.1 编写目的"></a>1.1 编写目的</h3><p>根据需求文档，提炼测试功能点、制定测试策略、评估测试风险，预估编写测试用例、执行功能测试和回归测试的工作量，进行人员和进度安排。</p>
-<span id="more"></span>
-
-<h3 id="1-2-预期读者"><a href="#1-2-预期读者" class="headerlink" title="1.2 预期读者"></a>1.2 预期读者</h3><p>管鑫所项目经理、开发、产品、测试。</p>
-<h3 id="1-3-参考资料"><a href="#1-3-参考资料" class="headerlink" title="1.3 参考资料"></a>1.3 参考资料</h3><p>需求文档</p>
-<h2 id="2-测试范围"><a href="#2-测试范围" class="headerlink" title="2.测试范围"></a>2. 测试范围</h2><h2 id="3-测试策略"><a href="#3-测试策略" class="headerlink" title="3.测试策略"></a>3. 测试策略</h2><h3 id="3-1-UI-测试"><a href="#3-1-UI-测试" class="headerlink" title="3.1 UI 测试"></a>3.1 UI 测试</h3><h4 id="3-1-1-文案测试"><a href="#3-1-1-文案测试" class="headerlink" title="3.1.1 文案测试"></a>3.1.1 文案测试</h4><p>（1）字体<br>（2）字号<br>（3）格式<br>（4）规范</p>
-<h4 id="3-1-2-图片测试"><a href="#3-1-2-图片测试" class="headerlink" title="3.1.2 图片测试"></a>3.1.2 图片测试</h4><p>（1）清晰<br>（2）尺寸<br>（3）配色<br>（4）风格</p>
-<h4 id="3-1-3-布局测试"><a href="#3-1-3-布局测试" class="headerlink" title="3.1.3 布局测试"></a>3.1.3 布局测试</h4><p>（1）尺寸大小<br>（2）位置合理<br>（3）排序规律<br>（4）对齐方式</p>
-<h4 id="3-1-4-控件测试"><a href="#3-1-4-控件测试" class="headerlink" title="3.1.4 控件测试"></a>3.1.4 控件测试</h4><p>（1）输入框<br>（2）按钮<br>（3）下拉菜单<br>（4）列表<br>   (5) 单选框<br>（6）复选框<br>（7）时间框<br>（8）左右选择框<br>（9）树形<br>（10）图标类检查<br>（11）文件类<br>（12）图片类<br>（13）URL 检查<br>（14）IP 输入框</p>
-<h4 id="3-1-5-快捷键测试"><a href="#3-1-5-快捷键测试" class="headerlink" title="3.1.5 快捷键测试"></a>3.1.5 快捷键测试</h4><h3 id="3-2-功能测试策略"><a href="#3-2-功能测试策略" class="headerlink" title="3.2 功能测试策略"></a>3.2 功能测试策略</h3><p>具体见每个版本测试用例。</p>
-<h3 id="3-3-系统兼容性测试"><a href="#3-3-系统兼容性测试" class="headerlink" title="3.3 系统兼容性测试"></a>3.3 系统兼容性测试</h3><h3 id="3-4-易用性测试"><a href="#3-4-易用性测试" class="headerlink" title="3.4 易用性测试"></a>3.4 易用性测试</h3><h3 id="3-5-安全性测试"><a href="#3-5-安全性测试" class="headerlink" title="3.5 安全性测试"></a>3.5 安全性测试</h3><h3 id="3-6-网络环境测试"><a href="#3-6-网络环境测试" class="headerlink" title="3.6 网络环境测试"></a>3.6 网络环境测试</h3><p>网络的影响会影响到用户的体验，一般遵守 258 原则是最好的。</p>
-<h3 id="3-7-单元测试"><a href="#3-7-单元测试" class="headerlink" title="3.7 单元测试"></a>3.7 单元测试</h3><p>由开发人员完成。<br>3.3 性能测试<br>关键接口功能，简单做性能测试。</p>
-<h2 id="4-测试资源"><a href="#4-测试资源" class="headerlink" title="4.测试资源"></a>4. 测试资源</h2><h3 id="4-1-测试人员"><a href="#4-1-测试人员" class="headerlink" title="4.1 测试人员"></a>4.1 测试人员</h3><h3 id="4-2-测试环境"><a href="#4-2-测试环境" class="headerlink" title="4.2 测试环境"></a>4.2 测试环境</h3><h3 id="4-3-测试工具"><a href="#4-3-测试工具" class="headerlink" title="4.3 测试工具"></a>4.3 测试工具</h3><h4 id="4-3-1-Bug-管理工具：bugfree"><a href="#4-3-1-Bug-管理工具：bugfree" class="headerlink" title="4.3.1 Bug 管理工具：bugfree"></a>4.3.1 Bug 管理工具：bugfree</h4><h4 id="4-3-2-postman"><a href="#4-3-2-postman" class="headerlink" title="4.3.2 postman"></a>4.3.2 postman</h4><p>前期测试呼叫系统，使用 postman 模拟相应的用户场景进行测试。</p>
-<h4 id="4-3-3-IETester"><a href="#4-3-3-IETester" class="headerlink" title="4.3.3 IETester"></a>4.3.3 IETester</h4><p>测试 IE 浏览器的不同版本。</p>
-<h4 id="4-3-4-Vbox-虚拟机"><a href="#4-3-4-Vbox-虚拟机" class="headerlink" title="4.3.4 Vbox 虚拟机"></a>4.3.4 Vbox 虚拟机</h4><h4 id="4-3-5-Jemter"><a href="#4-3-5-Jemter" class="headerlink" title="4.3.5 Jemter"></a>4.3.5 Jemter</h4><p>重要端口、步骤、流程做压力测试。</p>
-<h2 id="5-进度安排"><a href="#5-进度安排" class="headerlink" title="5.进度安排"></a>5. 进度安排</h2><h3 id="5-1-测试进度及工作量估算"><a href="#5-1-测试进度及工作量估算" class="headerlink" title="5.1 测试进度及工作量估算"></a>5.1 测试进度及工作量估算</h3><p>根据周会原型确定周任务：<br>例如<br>任务 时间 执行人员 预计工作量 / 天<br>编写测试计划 2019-07-10 张三 1 天<br>编写测试用例 2019-07</p>
-<p>根据具体的需求、开发计划估算具体的测试工作量。</p>
-<h3 id="5-2-输出文档"><a href="#5-2-输出文档" class="headerlink" title="5.2 输出文档"></a>5.2 输出文档</h3><p>（1）测试计划<br>（2）测试用例（bugfree 中查看）<br>（3）测试数据（上传至 bugfree）<br>（4）测试报告</p>
-<h2 id="6-发布标准"><a href="#6-发布标准" class="headerlink" title="6.发布标准"></a>6. 发布标准</h2><h3 id="6-1-测试完成标准"><a href="#6-1-测试完成标准" class="headerlink" title="6.1 测试完成标准"></a>6.1 测试完成标准</h3><h4 id="（1）完成所有测试类型。"><a href="#（1）完成所有测试类型。" class="headerlink" title="（1）完成所有测试类型。"></a>（1）完成所有测试类型。<br></h4><h4 id="（2）没有影响用户正常使用的-Bug。"><a href="#（2）没有影响用户正常使用的-Bug。" class="headerlink" title="（2）没有影响用户正常使用的 Bug。"></a>（2）没有影响用户正常使用的 Bug。<br></h4><h4 id="（3）bug-少于一定的数量（需要商定）"><a href="#（3）bug-少于一定的数量（需要商定）" class="headerlink" title="（3）bug 少于一定的数量（需要商定）"></a>（3）bug 少于一定的数量（需要商定）<br></h4><h4 id="（4）服务端性能满足设计目标。"><a href="#（4）服务端性能满足设计目标。" class="headerlink" title="（4）服务端性能满足设计目标。"></a>（4）服务端性能满足设计目标。<br></h4><h3 id="6-2-产品发布标准"><a href="#6-2-产品发布标准" class="headerlink" title="6.2 产品发布标准"></a>6.2 产品发布标准</h3><h4 id="（1）所有产品需求都已完成。"><a href="#（1）所有产品需求都已完成。" class="headerlink" title="（1）所有产品需求都已完成。"></a>（1）所有产品需求都已完成。<br></h4><h4 id="（2）遗留-bug-经过风险评估。"><a href="#（2）遗留-bug-经过风险评估。" class="headerlink" title="（2）遗留 bug 经过风险评估。"></a>（2）遗留 bug 经过风险评估。<br></h4><h4 id="（3）有完备的流程文档。"><a href="#（3）有完备的流程文档。" class="headerlink" title="（3）有完备的流程文档。"></a>（3）有完备的流程文档。<br></h4><h2 id="7-风险说明"><a href="#7-风险说明" class="headerlink" title="7.风险说明"></a>7. 风险说明</h2><h2 id="8-应急措施"><a href="#8-应急措施" class="headerlink" title="8.应急措施"></a>8. 应急措施</h2>]]></content>
-      <categories>
-        <category>测试文档</category>
-      </categories>
-      <tags>
-        <tag>documents</tag>
-      </tags>
   </entry>
   <entry>
     <title>解决 Jenkins 插件安装失败 - 插件下载慢的问题</title>
@@ -1014,6 +985,35 @@
       </tags>
   </entry>
   <entry>
+    <title>测试计划模板</title>
+    <url>/2019/07/11/%E6%B5%8B%E8%AF%95%E8%AE%A1%E5%88%92%E6%A8%A1%E6%9D%BF/</url>
+    <content><![CDATA[<h1 id="测试计划"><a href="#测试计划" class="headerlink" title="测试计划"></a>测试计划</h1><h1 id="XXX-项目测试计划"><a href="#XXX-项目测试计划" class="headerlink" title="XXX 项目测试计划"></a><center>XXX 项目测试计划</center></h1><h2 id="1-引言"><a href="#1-引言" class="headerlink" title="1.引言"></a>1. 引言</h2><h3 id="1-1-编写目的"><a href="#1-1-编写目的" class="headerlink" title="1.1 编写目的"></a>1.1 编写目的</h3><p>根据需求文档，提炼测试功能点、制定测试策略、评估测试风险，预估编写测试用例、执行功能测试和回归测试的工作量，进行人员和进度安排。</p>
+<span id="more"></span>
+
+<h3 id="1-2-预期读者"><a href="#1-2-预期读者" class="headerlink" title="1.2 预期读者"></a>1.2 预期读者</h3><p>管鑫所项目经理、开发、产品、测试。</p>
+<h3 id="1-3-参考资料"><a href="#1-3-参考资料" class="headerlink" title="1.3 参考资料"></a>1.3 参考资料</h3><p>需求文档</p>
+<h2 id="2-测试范围"><a href="#2-测试范围" class="headerlink" title="2.测试范围"></a>2. 测试范围</h2><h2 id="3-测试策略"><a href="#3-测试策略" class="headerlink" title="3.测试策略"></a>3. 测试策略</h2><h3 id="3-1-UI-测试"><a href="#3-1-UI-测试" class="headerlink" title="3.1 UI 测试"></a>3.1 UI 测试</h3><h4 id="3-1-1-文案测试"><a href="#3-1-1-文案测试" class="headerlink" title="3.1.1 文案测试"></a>3.1.1 文案测试</h4><p>（1）字体<br>（2）字号<br>（3）格式<br>（4）规范</p>
+<h4 id="3-1-2-图片测试"><a href="#3-1-2-图片测试" class="headerlink" title="3.1.2 图片测试"></a>3.1.2 图片测试</h4><p>（1）清晰<br>（2）尺寸<br>（3）配色<br>（4）风格</p>
+<h4 id="3-1-3-布局测试"><a href="#3-1-3-布局测试" class="headerlink" title="3.1.3 布局测试"></a>3.1.3 布局测试</h4><p>（1）尺寸大小<br>（2）位置合理<br>（3）排序规律<br>（4）对齐方式</p>
+<h4 id="3-1-4-控件测试"><a href="#3-1-4-控件测试" class="headerlink" title="3.1.4 控件测试"></a>3.1.4 控件测试</h4><p>（1）输入框<br>（2）按钮<br>（3）下拉菜单<br>（4）列表<br>   (5) 单选框<br>（6）复选框<br>（7）时间框<br>（8）左右选择框<br>（9）树形<br>（10）图标类检查<br>（11）文件类<br>（12）图片类<br>（13）URL 检查<br>（14）IP 输入框</p>
+<h4 id="3-1-5-快捷键测试"><a href="#3-1-5-快捷键测试" class="headerlink" title="3.1.5 快捷键测试"></a>3.1.5 快捷键测试</h4><h3 id="3-2-功能测试策略"><a href="#3-2-功能测试策略" class="headerlink" title="3.2 功能测试策略"></a>3.2 功能测试策略</h3><p>具体见每个版本测试用例。</p>
+<h3 id="3-3-系统兼容性测试"><a href="#3-3-系统兼容性测试" class="headerlink" title="3.3 系统兼容性测试"></a>3.3 系统兼容性测试</h3><h3 id="3-4-易用性测试"><a href="#3-4-易用性测试" class="headerlink" title="3.4 易用性测试"></a>3.4 易用性测试</h3><h3 id="3-5-安全性测试"><a href="#3-5-安全性测试" class="headerlink" title="3.5 安全性测试"></a>3.5 安全性测试</h3><h3 id="3-6-网络环境测试"><a href="#3-6-网络环境测试" class="headerlink" title="3.6 网络环境测试"></a>3.6 网络环境测试</h3><p>网络的影响会影响到用户的体验，一般遵守 258 原则是最好的。</p>
+<h3 id="3-7-单元测试"><a href="#3-7-单元测试" class="headerlink" title="3.7 单元测试"></a>3.7 单元测试</h3><p>由开发人员完成。<br>3.3 性能测试<br>关键接口功能，简单做性能测试。</p>
+<h2 id="4-测试资源"><a href="#4-测试资源" class="headerlink" title="4.测试资源"></a>4. 测试资源</h2><h3 id="4-1-测试人员"><a href="#4-1-测试人员" class="headerlink" title="4.1 测试人员"></a>4.1 测试人员</h3><h3 id="4-2-测试环境"><a href="#4-2-测试环境" class="headerlink" title="4.2 测试环境"></a>4.2 测试环境</h3><h3 id="4-3-测试工具"><a href="#4-3-测试工具" class="headerlink" title="4.3 测试工具"></a>4.3 测试工具</h3><h4 id="4-3-1-Bug-管理工具：bugfree"><a href="#4-3-1-Bug-管理工具：bugfree" class="headerlink" title="4.3.1 Bug 管理工具：bugfree"></a>4.3.1 Bug 管理工具：bugfree</h4><h4 id="4-3-2-postman"><a href="#4-3-2-postman" class="headerlink" title="4.3.2 postman"></a>4.3.2 postman</h4><p>前期测试呼叫系统，使用 postman 模拟相应的用户场景进行测试。</p>
+<h4 id="4-3-3-IETester"><a href="#4-3-3-IETester" class="headerlink" title="4.3.3 IETester"></a>4.3.3 IETester</h4><p>测试 IE 浏览器的不同版本。</p>
+<h4 id="4-3-4-Vbox-虚拟机"><a href="#4-3-4-Vbox-虚拟机" class="headerlink" title="4.3.4 Vbox 虚拟机"></a>4.3.4 Vbox 虚拟机</h4><h4 id="4-3-5-Jemter"><a href="#4-3-5-Jemter" class="headerlink" title="4.3.5 Jemter"></a>4.3.5 Jemter</h4><p>重要端口、步骤、流程做压力测试。</p>
+<h2 id="5-进度安排"><a href="#5-进度安排" class="headerlink" title="5.进度安排"></a>5. 进度安排</h2><h3 id="5-1-测试进度及工作量估算"><a href="#5-1-测试进度及工作量估算" class="headerlink" title="5.1 测试进度及工作量估算"></a>5.1 测试进度及工作量估算</h3><p>根据周会原型确定周任务：<br>例如<br>任务 时间 执行人员 预计工作量 / 天<br>编写测试计划 2019-07-10 张三 1 天<br>编写测试用例 2019-07</p>
+<p>根据具体的需求、开发计划估算具体的测试工作量。</p>
+<h3 id="5-2-输出文档"><a href="#5-2-输出文档" class="headerlink" title="5.2 输出文档"></a>5.2 输出文档</h3><p>（1）测试计划<br>（2）测试用例（bugfree 中查看）<br>（3）测试数据（上传至 bugfree）<br>（4）测试报告</p>
+<h2 id="6-发布标准"><a href="#6-发布标准" class="headerlink" title="6.发布标准"></a>6. 发布标准</h2><h3 id="6-1-测试完成标准"><a href="#6-1-测试完成标准" class="headerlink" title="6.1 测试完成标准"></a>6.1 测试完成标准</h3><h4 id="（1）完成所有测试类型。"><a href="#（1）完成所有测试类型。" class="headerlink" title="（1）完成所有测试类型。"></a>（1）完成所有测试类型。<br></h4><h4 id="（2）没有影响用户正常使用的-Bug。"><a href="#（2）没有影响用户正常使用的-Bug。" class="headerlink" title="（2）没有影响用户正常使用的 Bug。"></a>（2）没有影响用户正常使用的 Bug。<br></h4><h4 id="（3）bug-少于一定的数量（需要商定）"><a href="#（3）bug-少于一定的数量（需要商定）" class="headerlink" title="（3）bug 少于一定的数量（需要商定）"></a>（3）bug 少于一定的数量（需要商定）<br></h4><h4 id="（4）服务端性能满足设计目标。"><a href="#（4）服务端性能满足设计目标。" class="headerlink" title="（4）服务端性能满足设计目标。"></a>（4）服务端性能满足设计目标。<br></h4><h3 id="6-2-产品发布标准"><a href="#6-2-产品发布标准" class="headerlink" title="6.2 产品发布标准"></a>6.2 产品发布标准</h3><h4 id="（1）所有产品需求都已完成。"><a href="#（1）所有产品需求都已完成。" class="headerlink" title="（1）所有产品需求都已完成。"></a>（1）所有产品需求都已完成。<br></h4><h4 id="（2）遗留-bug-经过风险评估。"><a href="#（2）遗留-bug-经过风险评估。" class="headerlink" title="（2）遗留 bug 经过风险评估。"></a>（2）遗留 bug 经过风险评估。<br></h4><h4 id="（3）有完备的流程文档。"><a href="#（3）有完备的流程文档。" class="headerlink" title="（3）有完备的流程文档。"></a>（3）有完备的流程文档。<br></h4><h2 id="7-风险说明"><a href="#7-风险说明" class="headerlink" title="7.风险说明"></a>7. 风险说明</h2><h2 id="8-应急措施"><a href="#8-应急措施" class="headerlink" title="8.应急措施"></a>8. 应急措施</h2>]]></content>
+      <categories>
+        <category>测试文档</category>
+      </categories>
+      <tags>
+        <tag>documents</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>解决 SQLServer 执行超时已过期完成操作之前已超时或服务器未响应</title>
     <url>/2024/06/26/%E8%A7%A3%E5%86%B3SQLServer%E6%89%A7%E8%A1%8C%E8%B6%85%E6%97%B6%E5%B7%B2%E8%BF%87%E6%9C%9F%E5%AE%8C%E6%88%90%E6%93%8D%E4%BD%9C%E4%B9%8B%E5%89%8D%E5%B7%B2%E8%B6%85%E6%97%B6%E6%88%96%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9C%AA%E5%93%8D%E5%BA%94/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>还原 SQL Server 数据库时，报错，信息：执行超时已过期。完成操作之前已超时或服务器未响应。</p>
@@ -1029,36 +1029,6 @@
       </categories>
       <tags>
         <tag>sqlserver</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>解决 gitea 报错初始 URL 和访问 URL 不同的问题</title>
-    <url>/2024/07/22/%E8%A7%A3%E5%86%B3gitea%E6%8A%A5%E9%94%99%E5%88%9D%E5%A7%8BURL%E5%92%8C%E8%AE%BF%E9%97%AEURL%E4%B8%8D%E5%90%8C%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>Your ROOT_URL in app.ini is <a href="https://XXX.XXX.XXX:XXXX/">https://XXX.XXX.XXX:XXXX/</a> but you are visiting <a href="http://XXX.XXX.XXX.XXX:XXXX/">http://XXX.XXX.XXX.XXX:XXXX/</a> You should set ROOT_URL correctly, otherwise the web may not work correctly.</p>
-<span id="more"></span>
-
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>翻译可知，初始化的域名和访问的域名不一致，可能会导致问题。</p>
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>因为 gitea 是群晖的套件，所以要找到配置文件，然后修改。步骤如下：</p>
-<p>(1) 登录群晖 (DMS 版本：DSM 6.2.3-25426 Update 3)→终端机和 SNMP→启动 Telnet 功能和启动 SSH 功能→应用。</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240722163031974.png" alt="image-20240722163031974"></p>
-<p>(2) ssh user@ip_address，输入密码。<br>(3) 进入目录 /var/packages/gitea/var</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /var/packages/gitea/var</span><br></pre></td></tr></tbody></table></figure>
-
-<p>(4) 打开 conf.ini 文件，需要用户 root 权限。</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo vi conf.ini</span><br></pre></td></tr></tbody></table></figure>
-
-<p>修改 [server] 下的 ROOT_URL 为现在的访问地址</p>
-<figure class="highlight ini"><table><tbody><tr><td class="code"><pre><span class="line"><span class="section">[server]</span></span><br><span class="line"><span class="attr">LFS_CONTENT_PATH</span> = /xxx/xxx/xxx</span><br><span class="line"><span class="attr">SSH_DOMAIN</span>       = <span class="number">192.168</span>.xx.xx</span><br><span class="line"><span class="attr">DOMAIN</span>           = <span class="number">192.168</span>.xx.xx</span><br><span class="line"><span class="attr">ROOT_URL</span>         = https://xxx.xxx.xxx:xxx/</span><br><span class="line"><span class="attr">LOCAL_ROOT_URL</span>   = http://localhost:xxx/</span><br><span class="line"><span class="attr">HTTP_PORT</span>        = xxx</span><br><span class="line"><span class="attr">DISABLE_SSH</span>      = <span class="literal">false</span></span><br><span class="line"><span class="attr">SSH_PORT</span>         = <span class="number">22</span></span><br><span class="line"><span class="attr">LFS_START_SERVER</span> = <span class="literal">true</span></span><br><span class="line"><span class="attr">LFS_JWT_SECRET</span>   = xxxxxxxxxxxxxxxxxxxxxxxxxx</span><br><span class="line"><span class="attr">OFFLINE_MODE</span>     = <span class="literal">false</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>(5) 重启（停用→启用）</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240722163415690.png" alt="image-20240722163415690"></p>
-]]></content>
-      <categories>
-        <category>环境部署</category>
-      </categories>
-      <tags>
-        <tag>synology</tag>
-        <tag>gitea</tag>
       </tags>
   </entry>
   <entry>
@@ -1094,6 +1064,36 @@
       </categories>
       <tags>
         <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解决 gitea 报错初始 URL 和访问 URL 不同的问题</title>
+    <url>/2024/07/22/%E8%A7%A3%E5%86%B3gitea%E6%8A%A5%E9%94%99%E5%88%9D%E5%A7%8BURL%E5%92%8C%E8%AE%BF%E9%97%AEURL%E4%B8%8D%E5%90%8C%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>Your ROOT_URL in app.ini is <a href="https://XXX.XXX.XXX:XXXX/">https://XXX.XXX.XXX:XXXX/</a> but you are visiting <a href="http://XXX.XXX.XXX.XXX:XXXX/">http://XXX.XXX.XXX.XXX:XXXX/</a> You should set ROOT_URL correctly, otherwise the web may not work correctly.</p>
+<span id="more"></span>
+
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>翻译可知，初始化的域名和访问的域名不一致，可能会导致问题。</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>因为 gitea 是群晖的套件，所以要找到配置文件，然后修改。步骤如下：</p>
+<p>(1) 登录群晖 (DMS 版本：DSM 6.2.3-25426 Update 3)→终端机和 SNMP→启动 Telnet 功能和启动 SSH 功能→应用。</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240722163031974.png" alt="image-20240722163031974"></p>
+<p>(2) ssh user@ip_address，输入密码。<br>(3) 进入目录 /var/packages/gitea/var</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /var/packages/gitea/var</span><br></pre></td></tr></tbody></table></figure>
+
+<p>(4) 打开 conf.ini 文件，需要用户 root 权限。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo vi conf.ini</span><br></pre></td></tr></tbody></table></figure>
+
+<p>修改 [server] 下的 ROOT_URL 为现在的访问地址</p>
+<figure class="highlight ini"><table><tbody><tr><td class="code"><pre><span class="line"><span class="section">[server]</span></span><br><span class="line"><span class="attr">LFS_CONTENT_PATH</span> = /xxx/xxx/xxx</span><br><span class="line"><span class="attr">SSH_DOMAIN</span>       = <span class="number">192.168</span>.xx.xx</span><br><span class="line"><span class="attr">DOMAIN</span>           = <span class="number">192.168</span>.xx.xx</span><br><span class="line"><span class="attr">ROOT_URL</span>         = https://xxx.xxx.xxx:xxx/</span><br><span class="line"><span class="attr">LOCAL_ROOT_URL</span>   = http://localhost:xxx/</span><br><span class="line"><span class="attr">HTTP_PORT</span>        = xxx</span><br><span class="line"><span class="attr">DISABLE_SSH</span>      = <span class="literal">false</span></span><br><span class="line"><span class="attr">SSH_PORT</span>         = <span class="number">22</span></span><br><span class="line"><span class="attr">LFS_START_SERVER</span> = <span class="literal">true</span></span><br><span class="line"><span class="attr">LFS_JWT_SECRET</span>   = xxxxxxxxxxxxxxxxxxxxxxxxxx</span><br><span class="line"><span class="attr">OFFLINE_MODE</span>     = <span class="literal">false</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>(5) 重启（停用→启用）</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240722163415690.png" alt="image-20240722163415690"></p>
+]]></content>
+      <categories>
+        <category>环境部署</category>
+      </categories>
+      <tags>
+        <tag>synology</tag>
+        <tag>gitea</tag>
       </tags>
   </entry>
   <entry>
@@ -1160,6 +1160,27 @@
       </tags>
   </entry>
   <entry>
+    <title>解决黑苹果系统无故重启的问题</title>
+    <url>/2024/05/21/%E8%A7%A3%E5%86%B3%E9%BB%91%E8%8B%B9%E6%9E%9C%E7%B3%BB%E7%BB%9F%E6%97%A0%E6%95%85%E9%87%8D%E5%90%AF%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>抄国光大佬作业搞了一台 chromebox3 CN65，刷上黑苹果，总是无规律重启。尝试重新刷了 最新的 bios，好了 2 天，后面又开始无规律重启，配置如下：</p>
+<span id="more"></span>
+
+<p>CPU：Intel® Core™ i7-8550U Processor</p>
+<p>Graphic：Intel® HD Graphics 620</p>
+<p>内存：DDR4 JUHOR 玖合 2666MHZ 16G x 2 (这台机器官网是 4-16G，试了下 32G 能用，就用了)</p>
+<p>固态硬盘：台电（TECLAST）1TBPCle3.0*4</p>
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>内存条频率为 2666MHZ</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>更换内存条为 2400MHZ（黑苹果对硬件的要求比较高）</p>
+<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p><a href="https://www.sqlsec.com/2023/07/macbox.html">https://www.sqlsec.com/2023/07/macbox.html</a></p>
+]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>hackintosh</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>解决新版本 MacOS 下 Sublime Text4 package control 无法加载问题</title>
     <url>/2024/05/24/%E8%A7%A3%E5%86%B3%E6%96%B0%E7%89%88%E6%9C%ACMacOS%E4%B8%8BSublimeText4packagecontrol%E6%97%A0%E6%B3%95%E5%8A%A0%E8%BD%BD%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>cmd + shift + p 输入 install package 有对应菜单选项，没反应。</p>
@@ -1187,27 +1208,6 @@
       </categories>
       <tags>
         <tag>sublime</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>解决黑苹果系统无故重启的问题</title>
-    <url>/2024/05/21/%E8%A7%A3%E5%86%B3%E9%BB%91%E8%8B%B9%E6%9E%9C%E7%B3%BB%E7%BB%9F%E6%97%A0%E6%95%85%E9%87%8D%E5%90%AF%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>抄国光大佬作业搞了一台 chromebox3 CN65，刷上黑苹果，总是无规律重启。尝试重新刷了 最新的 bios，好了 2 天，后面又开始无规律重启，配置如下：</p>
-<span id="more"></span>
-
-<p>CPU：Intel® Core™ i7-8550U Processor</p>
-<p>Graphic：Intel® HD Graphics 620</p>
-<p>内存：DDR4 JUHOR 玖合 2666MHZ 16G x 2 (这台机器官网是 4-16G，试了下 32G 能用，就用了)</p>
-<p>固态硬盘：台电（TECLAST）1TBPCle3.0*4</p>
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>内存条频率为 2666MHZ</p>
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>更换内存条为 2400MHZ（黑苹果对硬件的要求比较高）</p>
-<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p><a href="https://www.sqlsec.com/2023/07/macbox.html">https://www.sqlsec.com/2023/07/macbox.html</a></p>
-]]></content>
-      <categories>
-        <category>操作系统</category>
-      </categories>
-      <tags>
-        <tag>hackintosh</tag>
       </tags>
   </entry>
   <entry>

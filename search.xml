@@ -267,6 +267,55 @@
       </tags>
   </entry>
   <entry>
+    <title>MySQL 中的 DATE_FORMAT 函数基本使用</title>
+    <url>/2024/06/13/MySQL%E4%B8%AD%E7%9A%84DATE-FORMAT%E5%87%BD%E6%95%B0%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>MySQL 中的 <code>DATE_FORMAT()</code> 函数用于将日期或时间戳格式化为字符串。这个函数允许你自定义日期和时间的显示格式，使其更易于阅读或符合特定的格式要求。</p>
+<span id="more"></span>
+
+<h2 id="2-基本语法"><a href="#2-基本语法" class="headerlink" title="2.基本语法"></a>2. 基本语法</h2><figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line">DATE_FORMAT(<span class="type">date</span>, format)</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li><code>date</code> 是你想要格式化的日期或时间值。</li>
+<li><code>format</code> 是一个字符串，指定了日期和时间的格式。在这个字符串中，你可以使用特定的格式说明符来表示不同的日期和时间部分。</li>
+</ul>
+<p>以下是一些常用的格式说明符：</p>
+<ul>
+<li><code>%Y</code> - 四位数的年份（例如：2024）</li>
+<li><code>%y</code> - 两位数的年份（00-99）</li>
+<li><code>%M</code> - 完整的月份名称（January, February, …）</li>
+<li><code>%m</code> - 月份的数字（00-12）</li>
+<li><code>%D</code> - 带有英文前缀的月份中的天数（1st, 2nd, 3rd, …）</li>
+<li><code>%d</code> - 月份中的天数（00-31）</li>
+<li><code>%H</code> - 小时（00-23）</li>
+<li><code>%h</code> - 小时（01-12）</li>
+<li><code>%i</code> - 分钟（00-59）</li>
+<li><code>%s</code> - 秒（00-59）</li>
+<li><code>%p</code> - AM 或 PM</li>
+<li><code>%W</code> - 星期几的名称（Sunday, Monday, …）</li>
+<li><code>%w</code> - 星期几的数字（0 = Sunday, 1 = Monday, …）</li>
+</ul>
+<h2 id="3-常用例子"><a href="#3-常用例子" class="headerlink" title="3.常用例子"></a>3. 常用例子</h2><p>（1）<strong>格式化为年 - 月 - 日</strong>：</p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> DATE_FORMAT(<span class="string">'2024-06-12 14:30:00'</span>, <span class="string">'%Y-%m-%d'</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>（2）<strong>格式化为月 - 日 - 年，小时：分钟</strong>：</p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> DATE_FORMAT(<span class="string">'2024-06-12 14:30:00'</span>, <span class="string">'%M %d, %Y, %h:%i %p'</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>（3）<strong>格式化为星期几</strong>：</p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> DATE_FORMAT(<span class="string">'2024-06-12'</span>, <span class="string">'%W'</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>（3）<strong>格式化为自定义格式</strong>（例如：今天是 2024 年的第几天）：</p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> DATE_FORMAT(<span class="string">'2024-06-12'</span>, <span class="string">'今天是%Y年的第%j天'</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+<p><code>DATE_FORMAT()</code> 函数非常灵活，可以根据需要调整日期和时间的显示方式。记得在实际使用中，根据你的具体需求选择合适的格式说明符。</p>
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MySQL 中的 DATE_ADD 函数基本使用</title>
     <url>/2024/06/13/MySQL%E4%B8%AD%E7%9A%84DATE-ADD%E5%87%BD%E6%95%B0%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>每次用到 MySQL 关于时间的计算，都跑不了 <code>DATE_ADD</code> 函数，每次都得查，特此记录下，下次用时直接看。</p>
@@ -316,55 +365,6 @@
 <figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> DATE_ADD(<span class="string">'2024-06-12'</span>, <span class="type">INTERVAL</span> <span class="number">1</span> <span class="keyword">DAY</span> <span class="number">3</span> <span class="keyword">HOUR</span> <span class="number">30</span> <span class="keyword">MINUTE</span>);</span><br></pre></td></tr></tbody></table></figure>
 
 <p>请注意，当使用 <code>DATE_ADD()</code> 函数时，结果的日期和时间格式将取决于你的 MySQL 服务器的设置，包括时区和日期时间格式。</p>
-]]></content>
-      <categories>
-        <category>数据库</category>
-      </categories>
-      <tags>
-        <tag>mysql</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MySQL 中的 DATE_FORMAT 函数基本使用</title>
-    <url>/2024/06/13/MySQL%E4%B8%AD%E7%9A%84DATE-FORMAT%E5%87%BD%E6%95%B0%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>MySQL 中的 <code>DATE_FORMAT()</code> 函数用于将日期或时间戳格式化为字符串。这个函数允许你自定义日期和时间的显示格式，使其更易于阅读或符合特定的格式要求。</p>
-<span id="more"></span>
-
-<h2 id="2-基本语法"><a href="#2-基本语法" class="headerlink" title="2.基本语法"></a>2. 基本语法</h2><figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line">DATE_FORMAT(<span class="type">date</span>, format)</span><br></pre></td></tr></tbody></table></figure>
-
-<ul>
-<li><code>date</code> 是你想要格式化的日期或时间值。</li>
-<li><code>format</code> 是一个字符串，指定了日期和时间的格式。在这个字符串中，你可以使用特定的格式说明符来表示不同的日期和时间部分。</li>
-</ul>
-<p>以下是一些常用的格式说明符：</p>
-<ul>
-<li><code>%Y</code> - 四位数的年份（例如：2024）</li>
-<li><code>%y</code> - 两位数的年份（00-99）</li>
-<li><code>%M</code> - 完整的月份名称（January, February, …）</li>
-<li><code>%m</code> - 月份的数字（00-12）</li>
-<li><code>%D</code> - 带有英文前缀的月份中的天数（1st, 2nd, 3rd, …）</li>
-<li><code>%d</code> - 月份中的天数（00-31）</li>
-<li><code>%H</code> - 小时（00-23）</li>
-<li><code>%h</code> - 小时（01-12）</li>
-<li><code>%i</code> - 分钟（00-59）</li>
-<li><code>%s</code> - 秒（00-59）</li>
-<li><code>%p</code> - AM 或 PM</li>
-<li><code>%W</code> - 星期几的名称（Sunday, Monday, …）</li>
-<li><code>%w</code> - 星期几的数字（0 = Sunday, 1 = Monday, …）</li>
-</ul>
-<h2 id="3-常用例子"><a href="#3-常用例子" class="headerlink" title="3.常用例子"></a>3. 常用例子</h2><p>（1）<strong>格式化为年 - 月 - 日</strong>：</p>
-<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> DATE_FORMAT(<span class="string">'2024-06-12 14:30:00'</span>, <span class="string">'%Y-%m-%d'</span>);</span><br></pre></td></tr></tbody></table></figure>
-
-<p>（2）<strong>格式化为月 - 日 - 年，小时：分钟</strong>：</p>
-<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> DATE_FORMAT(<span class="string">'2024-06-12 14:30:00'</span>, <span class="string">'%M %d, %Y, %h:%i %p'</span>);</span><br></pre></td></tr></tbody></table></figure>
-
-<p>（3）<strong>格式化为星期几</strong>：</p>
-<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> DATE_FORMAT(<span class="string">'2024-06-12'</span>, <span class="string">'%W'</span>);</span><br></pre></td></tr></tbody></table></figure>
-
-<p>（3）<strong>格式化为自定义格式</strong>（例如：今天是 2024 年的第几天）：</p>
-<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> DATE_FORMAT(<span class="string">'2024-06-12'</span>, <span class="string">'今天是%Y年的第%j天'</span>);</span><br></pre></td></tr></tbody></table></figure>
-
-<p><code>DATE_FORMAT()</code> 函数非常灵活，可以根据需要调整日期和时间的显示方式。记得在实际使用中，根据你的具体需求选择合适的格式说明符。</p>
 ]]></content>
       <categories>
         <category>数据库</category>
@@ -528,34 +528,26 @@
       </tags>
   </entry>
   <entry>
-    <title>mysql 按照分组筛选出时间倒序前三条记录</title>
-    <url>/2024/05/22/mysql%E6%8C%89%E7%85%A7%E5%88%86%E7%BB%84%E7%AD%9B%E9%80%89%E5%87%BA%E6%97%B6%E9%97%B4%E5%80%92%E5%BA%8F%E5%89%8D%E4%B8%89%E6%9D%A1%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在 MySQL 低版本 (5.7 以下) 中，如何按照分组筛选出时间倒序前三条记录？</p>
+    <title>python 创建虚拟环境</title>
+    <url>/2021/06/29/python%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>python 如何创建虚拟环境？</p>
 <span id="more"></span>
 
-<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> t.<span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> (</span><br><span class="line">  <span class="keyword">SELECT</span> <span class="operator">*</span>, </span><br><span class="line">    <span class="variable">@rn</span> :<span class="operator">=</span> IF(<span class="variable">@prev_group</span> <span class="operator">=</span> group_column, <span class="variable">@rn</span> <span class="operator">+</span> <span class="number">1</span>, <span class="number">1</span>) <span class="keyword">AS</span> rn,</span><br><span class="line">    <span class="variable">@prev_group</span> :<span class="operator">=</span> group_column</span><br><span class="line">  <span class="keyword">FROM</span> your_table, (<span class="keyword">SELECT</span> <span class="variable">@rn</span> :<span class="operator">=</span> <span class="number">0</span>, <span class="variable">@prev_group</span> :<span class="operator">=</span> <span class="keyword">NULL</span>) r</span><br><span class="line">  <span class="keyword">ORDER</span> <span class="keyword">BY</span> group_column, time_column <span class="keyword">DESC</span></span><br><span class="line">) t</span><br><span class="line"><span class="keyword">WHERE</span> rn <span class="operator">&lt;=</span> <span class="number">3</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> group_column, time_column <span class="keyword">DESC</span>;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><p>使用 venv 命令，方法如下 (python3.5 以后)：</p>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">python3 -m venv /xx/xx/myvenv <span class="comment">#(myvenv环境名称)</span></span></span><br></pre></td></tr></tbody></table></figure>
 
-<p>(1) 在子查询中，使用变量 <code>@rn</code> 和 <code>@prev_group</code> 来记录当前行的记录编号和前一行的分组。</p>
-<p>(2)<code>@rn := IF(@prev_group = group_column, @rn + 1, 1) AS rn</code> 这一行代码的作用是：如果当前行的分组与上一行相同，则记录编号 <code>rn</code> 递增 1, 否则从 1 开始计数。</p>
-<p>(3)<code>@prev_group := group_column</code> 这一行代码是更新上一行的分组。</p>
-<p>(4) 在外层查询中，使用 <code>WHERE rn &lt;= 3</code> 来筛选出每个分组中时间倒序的前 3 条记录。</p>
-<p>(5) 最后按分组 <code>group_column</code> 和时间 <code>time_column</code> 倒序排列输出结果。</p>
-<p>你可以将 <code>your_table</code> 替换成你自己的表名，<code>group_column</code> 替换成你表中的分组列名，<code>time_column</code> 替换成你表中的时间列名。</p>
-<p>这种方法在 MySQL 5.7 以下版本中都可以使用，不需要使用 <code>ROW_NUMBER()</code> 函数，性能也较好。</p>
-<p>在 MySQL8.0 及以上可以使用如下方法：</p>
-<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> t.<span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> (</span><br><span class="line">  <span class="keyword">SELECT</span> <span class="operator">*</span>, </span><br><span class="line">    <span class="built_in">ROW_NUMBER</span>() <span class="keyword">OVER</span> (<span class="keyword">PARTITION</span> <span class="keyword">BY</span> group_column <span class="keyword">ORDER</span> <span class="keyword">BY</span> time_column <span class="keyword">DESC</span>) <span class="keyword">AS</span> rn</span><br><span class="line">  <span class="keyword">FROM</span> your_table</span><br><span class="line">) t</span><br><span class="line"><span class="keyword">WHERE</span> rn <span class="operator">&lt;=</span> <span class="number">3</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> group_column, time_column <span class="keyword">DESC</span>;</span><br></pre></td></tr></tbody></table></figure>
+<p>激活虚拟环境</p>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">source</span> myvenv/bin/activate</span></span><br></pre></td></tr></tbody></table></figure>
 
-<p>（1）首先使用子查询，在每个分组 <code>group_column</code> 内根据时间列 <code>time_column</code> 使用 <code>ROW_NUMBER()</code> 函数给每条记录编号，按时间顺序倒序排列。</p>
-<p>（2）然后在外层查询中，使用 <code>WHERE rn &lt;= 3</code> 筛选出每个分组中时间倒序的前 3 条记录。</p>
-<p>（3）最后按分组 <code>group_column</code> 和时间 <code>time_column</code> 倒序排列输出结果。</p>
-<p>这样就可以实现按分组筛选出时间倒序前 3 条记录的功能。你可以将 <code>your_table</code> 替换成你自己的表名，<code>group_column</code> 替换成你表中的分组列名，<code>time_column</code> 替换成你表中的时间列名。</p>
-<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2><p><a href="https://kimi.moonshot.cn/">https://kimi.moonshot.cn/</a></p>
+<p>关闭虚拟环境</p>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">deactivate</span></span><br></pre></td></tr></tbody></table></figure>
+
 ]]></content>
       <categories>
-        <category>数据库</category>
+        <category>环境部署</category>
       </categories>
       <tags>
-        <tag>mysql</tag>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -602,6 +594,37 @@
       </tags>
   </entry>
   <entry>
+    <title>mysql 按照分组筛选出时间倒序前三条记录</title>
+    <url>/2024/05/22/mysql%E6%8C%89%E7%85%A7%E5%88%86%E7%BB%84%E7%AD%9B%E9%80%89%E5%87%BA%E6%97%B6%E9%97%B4%E5%80%92%E5%BA%8F%E5%89%8D%E4%B8%89%E6%9D%A1%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在 MySQL 低版本 (5.7 以下) 中，如何按照分组筛选出时间倒序前三条记录？</p>
+<span id="more"></span>
+
+<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> t.<span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> (</span><br><span class="line">  <span class="keyword">SELECT</span> <span class="operator">*</span>, </span><br><span class="line">    <span class="variable">@rn</span> :<span class="operator">=</span> IF(<span class="variable">@prev_group</span> <span class="operator">=</span> group_column, <span class="variable">@rn</span> <span class="operator">+</span> <span class="number">1</span>, <span class="number">1</span>) <span class="keyword">AS</span> rn,</span><br><span class="line">    <span class="variable">@prev_group</span> :<span class="operator">=</span> group_column</span><br><span class="line">  <span class="keyword">FROM</span> your_table, (<span class="keyword">SELECT</span> <span class="variable">@rn</span> :<span class="operator">=</span> <span class="number">0</span>, <span class="variable">@prev_group</span> :<span class="operator">=</span> <span class="keyword">NULL</span>) r</span><br><span class="line">  <span class="keyword">ORDER</span> <span class="keyword">BY</span> group_column, time_column <span class="keyword">DESC</span></span><br><span class="line">) t</span><br><span class="line"><span class="keyword">WHERE</span> rn <span class="operator">&lt;=</span> <span class="number">3</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> group_column, time_column <span class="keyword">DESC</span>;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p>(1) 在子查询中，使用变量 <code>@rn</code> 和 <code>@prev_group</code> 来记录当前行的记录编号和前一行的分组。</p>
+<p>(2)<code>@rn := IF(@prev_group = group_column, @rn + 1, 1) AS rn</code> 这一行代码的作用是：如果当前行的分组与上一行相同，则记录编号 <code>rn</code> 递增 1, 否则从 1 开始计数。</p>
+<p>(3)<code>@prev_group := group_column</code> 这一行代码是更新上一行的分组。</p>
+<p>(4) 在外层查询中，使用 <code>WHERE rn &lt;= 3</code> 来筛选出每个分组中时间倒序的前 3 条记录。</p>
+<p>(5) 最后按分组 <code>group_column</code> 和时间 <code>time_column</code> 倒序排列输出结果。</p>
+<p>你可以将 <code>your_table</code> 替换成你自己的表名，<code>group_column</code> 替换成你表中的分组列名，<code>time_column</code> 替换成你表中的时间列名。</p>
+<p>这种方法在 MySQL 5.7 以下版本中都可以使用，不需要使用 <code>ROW_NUMBER()</code> 函数，性能也较好。</p>
+<p>在 MySQL8.0 及以上可以使用如下方法：</p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> t.<span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> (</span><br><span class="line">  <span class="keyword">SELECT</span> <span class="operator">*</span>, </span><br><span class="line">    <span class="built_in">ROW_NUMBER</span>() <span class="keyword">OVER</span> (<span class="keyword">PARTITION</span> <span class="keyword">BY</span> group_column <span class="keyword">ORDER</span> <span class="keyword">BY</span> time_column <span class="keyword">DESC</span>) <span class="keyword">AS</span> rn</span><br><span class="line">  <span class="keyword">FROM</span> your_table</span><br><span class="line">) t</span><br><span class="line"><span class="keyword">WHERE</span> rn <span class="operator">&lt;=</span> <span class="number">3</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> group_column, time_column <span class="keyword">DESC</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>（1）首先使用子查询，在每个分组 <code>group_column</code> 内根据时间列 <code>time_column</code> 使用 <code>ROW_NUMBER()</code> 函数给每条记录编号，按时间顺序倒序排列。</p>
+<p>（2）然后在外层查询中，使用 <code>WHERE rn &lt;= 3</code> 筛选出每个分组中时间倒序的前 3 条记录。</p>
+<p>（3）最后按分组 <code>group_column</code> 和时间 <code>time_column</code> 倒序排列输出结果。</p>
+<p>这样就可以实现按分组筛选出时间倒序前 3 条记录的功能。你可以将 <code>your_table</code> 替换成你自己的表名，<code>group_column</code> 替换成你表中的分组列名，<code>time_column</code> 替换成你表中的时间列名。</p>
+<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2><p><a href="https://kimi.moonshot.cn/">https://kimi.moonshot.cn/</a></p>
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>python 加密总结</title>
     <url>/2024/06/24/python%E5%8A%A0%E5%AF%86%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>每次都查系列，总结一下，以方便下次查。</p>
@@ -618,29 +641,6 @@
 
 <p>MD5 已经不再被认为是安全的哈希函数，因为它容易受到多种攻击，如碰撞攻击。</p>
 <h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2>]]></content>
-  </entry>
-  <entry>
-    <title>python 创建虚拟环境</title>
-    <url>/2021/06/29/python%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>python 如何创建虚拟环境？</p>
-<span id="more"></span>
-
-<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><p>使用 venv 命令，方法如下 (python3.5 以后)：</p>
-<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">python3 -m venv /xx/xx/myvenv <span class="comment">#(myvenv环境名称)</span></span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>激活虚拟环境</p>
-<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">source</span> myvenv/bin/activate</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>关闭虚拟环境</p>
-<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">deactivate</span></span><br></pre></td></tr></tbody></table></figure>
-
-]]></content>
-      <categories>
-        <category>环境部署</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
   </entry>
   <entry>
     <title>python 读写 csv 总结</title>
@@ -815,33 +815,6 @@
       </tags>
   </entry>
   <entry>
-    <title>如何去除 macOS12-13 更新小红点</title>
-    <url>/2024/05/06/%E5%A6%82%E4%BD%95%E5%8E%BB%E9%99%A4macOS12-13%E6%9B%B4%E6%96%B0%E5%B0%8F%E7%BA%A2%E7%82%B9/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>2 个小红点位置如下：</p>
-<ul>
-<li>设置→通用→软件更新→红点 1</li>
-<li>Dock→红点 1</li>
-</ul>
-<span id="more"></span>
-
-<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><h3 id="（1）关闭自动更新"><a href="#（1）关闭自动更新" class="headerlink" title="（1）关闭自动更新"></a>（1）关闭自动更新</h3><h3 id="（2）host添加相关内容"><a href="#（2）host添加相关内容" class="headerlink" title="（2）host添加相关内容"></a>（2）host 添加相关内容</h3><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">127.0.0.1 swdist.apple.com</span><br><span class="line">127.0.0.1 swscan.apple.com</span><br><span class="line">127.0.0.1 swcdn.apple.com </span><br><span class="line">127.0.0.1 gdmf.apple.com</span><br><span class="line">127.0.0.1 mesu.apple.com</span><br><span class="line">127.0.0.1 xp.apple.com</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="（3）终端执行"><a href="#（3）终端执行" class="headerlink" title="（3）终端执行"></a>（3）终端执行</h3><p>先执行</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">defaults write com.apple.systempreferences AttentionPrefBundleIDs 0</span><br><span class="line">Killall Dock</span><br></pre></td></tr></tbody></table></figure>
-
-<p>如果无法去除，则执行</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">defaults delete com.apple.systempreferences AttentionPrefBundleIDs</span><br><span class="line">defaults delete com.apple.systempreferences DidShowPrefBundleIDs</span><br><span class="line">killall Dock</span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2><p><a href="https://sysin.org/blog/disable-macos-ventura-update/">https://sysin.org/blog/disable-macos-ventura-update/</a></p>
-]]></content>
-      <categories>
-        <category>操作系统</category>
-      </categories>
-      <tags>
-        <tag>macos</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>如何将 excel 相同行快速标注相同颜色</title>
     <url>/2024/05/22/%E5%A6%82%E4%BD%95%E5%B0%86excel%E7%9B%B8%E5%90%8C%E8%A1%8C%E5%BF%AB%E9%80%9F%E6%A0%87%E6%B3%A8%E7%9B%B8%E5%90%8C%E9%A2%9C%E8%89%B2/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>如下图所示，相同的公司标注相同的颜色，相邻的公司使用不同的颜色标注。</p>
@@ -974,6 +947,33 @@
       </tags>
   </entry>
   <entry>
+    <title>如何去除 macOS12-13 更新小红点</title>
+    <url>/2024/05/06/%E5%A6%82%E4%BD%95%E5%8E%BB%E9%99%A4macOS12-13%E6%9B%B4%E6%96%B0%E5%B0%8F%E7%BA%A2%E7%82%B9/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>2 个小红点位置如下：</p>
+<ul>
+<li>设置→通用→软件更新→红点 1</li>
+<li>Dock→红点 1</li>
+</ul>
+<span id="more"></span>
+
+<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><h3 id="（1）关闭自动更新"><a href="#（1）关闭自动更新" class="headerlink" title="（1）关闭自动更新"></a>（1）关闭自动更新</h3><h3 id="（2）host添加相关内容"><a href="#（2）host添加相关内容" class="headerlink" title="（2）host添加相关内容"></a>（2）host 添加相关内容</h3><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">127.0.0.1 swdist.apple.com</span><br><span class="line">127.0.0.1 swscan.apple.com</span><br><span class="line">127.0.0.1 swcdn.apple.com </span><br><span class="line">127.0.0.1 gdmf.apple.com</span><br><span class="line">127.0.0.1 mesu.apple.com</span><br><span class="line">127.0.0.1 xp.apple.com</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="（3）终端执行"><a href="#（3）终端执行" class="headerlink" title="（3）终端执行"></a>（3）终端执行</h3><p>先执行</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">defaults write com.apple.systempreferences AttentionPrefBundleIDs 0</span><br><span class="line">Killall Dock</span><br></pre></td></tr></tbody></table></figure>
+
+<p>如果无法去除，则执行</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">defaults delete com.apple.systempreferences AttentionPrefBundleIDs</span><br><span class="line">defaults delete com.apple.systempreferences DidShowPrefBundleIDs</span><br><span class="line">killall Dock</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2><p><a href="https://sysin.org/blog/disable-macos-ventura-update/">https://sysin.org/blog/disable-macos-ventura-update/</a></p>
+]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>macos</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>解决 Jenkins 插件安装失败 - 插件下载慢的问题</title>
     <url>/2021/05/25/%E8%A7%A3%E5%86%B3Jenkins%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5-%E6%8F%92%E4%BB%B6%E4%B8%8B%E8%BD%BD%E6%85%A2%E7%9A%84%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在安装 Jenkins 的过程中，插件总是安装失败或者下载很慢。</p>
@@ -1029,6 +1029,35 @@
       </categories>
       <tags>
         <tag>sqlserver</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解决 appium 报错 java.lang.SecurityException - Permission Denial- starting Intent 的问题</title>
+    <url>/2024/07/27/%E8%A7%A3%E5%86%B3appium%E6%8A%A5%E9%94%99java-lang-SecurityException%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在使用 appium 时，出现以下问题：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">java.lang.SecurityException: Permission Denial: starting Intent { act=android.intent.action.MAIN <span class="built_in">cat</span>=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=com.dreamfish.com.autocalc/.MainActivity } from null (pid=9251, uid=2000) not exported from uid 10053</span><br><span class="line">	at com.android.server.am.ActivityStackSupervisor.checkStartAnyActivityPermission(ActivityStackSupervisor.java:1779)</span><br><span class="line">	at com.android.server.am.ActivityStarter.startActivity(ActivityStarter.java:725)</span><br><span class="line">	at com.android.server.am.ActivityStarter.startActivity(ActivityStarter.java:551)</span><br><span class="line">	at com.android.server.am.ActivityStarter.startActivityMayWait(ActivityStarter.java:1156)</span><br><span class="line">	at com.android.server.am.ActivityStarter.execute(ActivityStarter.java:490)</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<span id="more"></span>
+
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>出现这样的错误一定是因为当前的 appActivity 设置的不是 app 首次进入的 appActivity.</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>（1）首先获取该 <code>App</code> 的包名</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">➜  ~ adb shell dumpsys window | grep mFocusedApp</span><br><span class="line">    mFocusedApp=Token{2e61d6 ActivityRecord{a39b1f1 u0 com.dreamfish.com.autocalc/.MainActivity t32}}</span><br><span class="line">    mFocusedApp=AppWindowToken{7130c57 token=Token{2e61d6 ActivityRecord{a39b1f1 u0 com.dreamfish.com.autocalc/.MainActivity t32}}}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>（2）通过 monkey 命令找到 <code>cmp=</code> 后面的 <code>activity</code>，本列中的 <code>activity</code> 为<code>.LauncherActivity</code></p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">➜  ~ adb shell monkey -p com.dreamfish.com.autocalc -v 1 | grep cmp=</span><br><span class="line">args: [-p, com.dreamfish.com.autocalc, -v, 1]</span><br><span class="line"> arg: <span class="string">"-p"</span></span><br><span class="line"> arg: <span class="string">"com.dreamfish.com.autocalc"</span></span><br><span class="line"> arg: <span class="string">"-v"</span></span><br><span class="line"> arg: <span class="string">"1"</span></span><br><span class="line">data=<span class="string">"com.dreamfish.com.autocalc"</span></span><br><span class="line">    // Allowing start of Intent { act=android.intent.action.MAIN <span class="built_in">cat</span>=[android.intent.category.LAUNCHER] cmp=com.dreamfish.com.autocalc/.LauncherActivity } <span class="keyword">in</span> package com.dreamfish.com.autocalc</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p>代码参考于以下博客，自己做了相关调整：</p>
+<p><a href="https://blog.csdn.net/For_if_while/article/details/122946460">https://blog.csdn.net/For_if_while/article/details/122946460</a></p>
+]]></content>
+      <categories>
+        <category>自动化测试</category>
+      </categories>
+      <tags>
+        <tag>appium</tag>
       </tags>
   </entry>
   <entry>

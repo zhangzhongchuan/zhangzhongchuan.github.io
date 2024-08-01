@@ -223,7 +223,7 @@
 <p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Screenshot_20240801-184130.png" alt="Screenshot_20240801-184130"></p>
 <p>（2）不改变尺寸大小和文件格式的情况下裁剪所要定位的图片</p>
 <p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/p1.png" alt="p1"></p>
-<h2 id="4-python🌰"><a href="#4-python🌰" class="headerlink" title="4.python🌰"></a>4.python🌰</h2><figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">from appium import webdriver</span><br><span class="line">from appium.options.android import UiAutomator2Options</span><br><span class="line">from appium.webdriver.common.appiumby import AppiumBy</span><br><span class="line">import base64</span><br><span class="line"></span><br><span class="line">capabilities = dict(</span><br><span class="line">    platformName='Android',</span><br><span class="line">    automationName='uiautomator2',</span><br><span class="line">    deviceName='xx', # 这块在 android 平台上不作要求，填写 xx 都可以，在 ios 上必填</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">appium_server_url = 'http://localhost:4723' # appium 服务地址</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 驱动</span><br><span class="line">driver = webdriver.Remote(appium_server_url, options=UiAutomator2Options().load_capabilities(capabilities))</span><br><span class="line"></span><br><span class="line"># 打开图片文件</span><br><span class="line">with open('images/p1.png', 'rb') as image_file:</span><br><span class="line">    # 读取图片数据</span><br><span class="line">    image_data = image_file.read()</span><br><span class="line"># 将图片数据使用 base64 编码</span><br><span class="line">encoded_image = base64.b64encode(image_data)</span><br><span class="line"># 将编码后的图片数据转换为字符串</span><br><span class="line">encoded_image_str = encoded_image.decode('utf-8')</span><br><span class="line"></span><br><span class="line"># 这个原理是将所定位的图片转换为字符串，将目标页面也转换为字符串，然后在目标页面中对比相似度，相似度高的部分就定位成功</span><br><span class="line">driver.find_element(AppiumBy.IMAGE, encoded_image_str).click()</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="4-python🌰"><a href="#4-python🌰" class="headerlink" title="4.python🌰"></a>4.python🌰</h2><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> appium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> appium.options.android <span class="keyword">import</span> UiAutomator2Options</span><br><span class="line"><span class="keyword">from</span> appium.webdriver.common.appiumby <span class="keyword">import</span> AppiumBy</span><br><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"></span><br><span class="line">capabilities = <span class="built_in">dict</span>(</span><br><span class="line">    platformName=<span class="string">'Android'</span>,</span><br><span class="line">    automationName=<span class="string">'uiautomator2'</span>,</span><br><span class="line">    deviceName=<span class="string">'xx'</span>, <span class="comment"># 这块在 android 平台上不作要求，填写 xx 都可以，在 ios 上必填</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">appium_server_url = <span class="string">'http://localhost:4723'</span> <span class="comment"># appium 服务地址</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 驱动</span></span><br><span class="line">driver = webdriver.Remote(appium_server_url, options=UiAutomator2Options().load_capabilities(capabilities))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打开图片文件</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">'images/p1.png'</span>, <span class="string">'rb'</span>) <span class="keyword">as</span> image_file:</span><br><span class="line">    <span class="comment"># 读取图片数据</span></span><br><span class="line">    image_data = image_file.read()</span><br><span class="line"><span class="comment"># 将图片数据使用 base64 编码</span></span><br><span class="line">encoded_image = base64.b64encode(image_data)</span><br><span class="line"><span class="comment"># 将编码后的图片数据转换为字符串</span></span><br><span class="line">encoded_image_str = encoded_image.decode(<span class="string">'utf-8'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 这个原理是将所定位的图片转换为字符串，将目标页面也转换为字符串，然后在目标页面中对比相似度，相似度高的部分就定位成功</span></span><br><span class="line">driver.find_element(AppiumBy.IMAGE, encoded_image_str).click()</span><br></pre></td></tr></tbody></table></figure>
 
 <h3 id="5-相关参考"><a href="#5-相关参考" class="headerlink" title="5.相关参考"></a>5. 相关参考</h3><p><a href="https://www.bilibili.com/video/BV1qt421M7kZ/?spm_id_from=333.999.0.0&amp;vd_source=fd555860cd7cf9b09d9279e5deaabb9d">https://www.bilibili.com/video/BV1qt421M7kZ/?spm_id_from=333.999.0.0&amp;vd_source=fd555860cd7cf9b09d9279e5deaabb9d</a></p>
 ]]></content>
@@ -336,55 +336,6 @@
       </tags>
   </entry>
   <entry>
-    <title>MySQL 中的 DATE_FORMAT 函数基本使用</title>
-    <url>/2024/06/13/MySQL%E4%B8%AD%E7%9A%84DATE-FORMAT%E5%87%BD%E6%95%B0%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>MySQL 中的 <code>DATE_FORMAT()</code> 函数用于将日期或时间戳格式化为字符串。这个函数允许你自定义日期和时间的显示格式，使其更易于阅读或符合特定的格式要求。</p>
-<span id="more"></span>
-
-<h2 id="2-基本语法"><a href="#2-基本语法" class="headerlink" title="2.基本语法"></a>2. 基本语法</h2><figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line">DATE_FORMAT(<span class="type">date</span>, format)</span><br></pre></td></tr></tbody></table></figure>
-
-<ul>
-<li><code>date</code> 是你想要格式化的日期或时间值。</li>
-<li><code>format</code> 是一个字符串，指定了日期和时间的格式。在这个字符串中，你可以使用特定的格式说明符来表示不同的日期和时间部分。</li>
-</ul>
-<p>以下是一些常用的格式说明符：</p>
-<ul>
-<li><code>%Y</code> - 四位数的年份（例如：2024）</li>
-<li><code>%y</code> - 两位数的年份（00-99）</li>
-<li><code>%M</code> - 完整的月份名称（January, February, …）</li>
-<li><code>%m</code> - 月份的数字（00-12）</li>
-<li><code>%D</code> - 带有英文前缀的月份中的天数（1st, 2nd, 3rd, …）</li>
-<li><code>%d</code> - 月份中的天数（00-31）</li>
-<li><code>%H</code> - 小时（00-23）</li>
-<li><code>%h</code> - 小时（01-12）</li>
-<li><code>%i</code> - 分钟（00-59）</li>
-<li><code>%s</code> - 秒（00-59）</li>
-<li><code>%p</code> - AM 或 PM</li>
-<li><code>%W</code> - 星期几的名称（Sunday, Monday, …）</li>
-<li><code>%w</code> - 星期几的数字（0 = Sunday, 1 = Monday, …）</li>
-</ul>
-<h2 id="3-常用例子"><a href="#3-常用例子" class="headerlink" title="3.常用例子"></a>3. 常用例子</h2><p>（1）<strong>格式化为年 - 月 - 日</strong>：</p>
-<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> DATE_FORMAT(<span class="string">'2024-06-12 14:30:00'</span>, <span class="string">'%Y-%m-%d'</span>);</span><br></pre></td></tr></tbody></table></figure>
-
-<p>（2）<strong>格式化为月 - 日 - 年，小时：分钟</strong>：</p>
-<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> DATE_FORMAT(<span class="string">'2024-06-12 14:30:00'</span>, <span class="string">'%M %d, %Y, %h:%i %p'</span>);</span><br></pre></td></tr></tbody></table></figure>
-
-<p>（3）<strong>格式化为星期几</strong>：</p>
-<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> DATE_FORMAT(<span class="string">'2024-06-12'</span>, <span class="string">'%W'</span>);</span><br></pre></td></tr></tbody></table></figure>
-
-<p>（3）<strong>格式化为自定义格式</strong>（例如：今天是 2024 年的第几天）：</p>
-<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> DATE_FORMAT(<span class="string">'2024-06-12'</span>, <span class="string">'今天是%Y年的第%j天'</span>);</span><br></pre></td></tr></tbody></table></figure>
-
-<p><code>DATE_FORMAT()</code> 函数非常灵活，可以根据需要调整日期和时间的显示方式。记得在实际使用中，根据你的具体需求选择合适的格式说明符。</p>
-]]></content>
-      <categories>
-        <category>数据库</category>
-      </categories>
-      <tags>
-        <tag>mysql</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>MySQL 中的 DATE_ADD 函数基本使用</title>
     <url>/2024/06/13/MySQL%E4%B8%AD%E7%9A%84DATE-ADD%E5%87%BD%E6%95%B0%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>每次用到 MySQL 关于时间的计算，都跑不了 <code>DATE_ADD</code> 函数，每次都得查，特此记录下，下次用时直接看。</p>
@@ -434,6 +385,55 @@
 <figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> DATE_ADD(<span class="string">'2024-06-12'</span>, <span class="type">INTERVAL</span> <span class="number">1</span> <span class="keyword">DAY</span> <span class="number">3</span> <span class="keyword">HOUR</span> <span class="number">30</span> <span class="keyword">MINUTE</span>);</span><br></pre></td></tr></tbody></table></figure>
 
 <p>请注意，当使用 <code>DATE_ADD()</code> 函数时，结果的日期和时间格式将取决于你的 MySQL 服务器的设置，包括时区和日期时间格式。</p>
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MySQL 中的 DATE_FORMAT 函数基本使用</title>
+    <url>/2024/06/13/MySQL%E4%B8%AD%E7%9A%84DATE-FORMAT%E5%87%BD%E6%95%B0%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>MySQL 中的 <code>DATE_FORMAT()</code> 函数用于将日期或时间戳格式化为字符串。这个函数允许你自定义日期和时间的显示格式，使其更易于阅读或符合特定的格式要求。</p>
+<span id="more"></span>
+
+<h2 id="2-基本语法"><a href="#2-基本语法" class="headerlink" title="2.基本语法"></a>2. 基本语法</h2><figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line">DATE_FORMAT(<span class="type">date</span>, format)</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li><code>date</code> 是你想要格式化的日期或时间值。</li>
+<li><code>format</code> 是一个字符串，指定了日期和时间的格式。在这个字符串中，你可以使用特定的格式说明符来表示不同的日期和时间部分。</li>
+</ul>
+<p>以下是一些常用的格式说明符：</p>
+<ul>
+<li><code>%Y</code> - 四位数的年份（例如：2024）</li>
+<li><code>%y</code> - 两位数的年份（00-99）</li>
+<li><code>%M</code> - 完整的月份名称（January, February, …）</li>
+<li><code>%m</code> - 月份的数字（00-12）</li>
+<li><code>%D</code> - 带有英文前缀的月份中的天数（1st, 2nd, 3rd, …）</li>
+<li><code>%d</code> - 月份中的天数（00-31）</li>
+<li><code>%H</code> - 小时（00-23）</li>
+<li><code>%h</code> - 小时（01-12）</li>
+<li><code>%i</code> - 分钟（00-59）</li>
+<li><code>%s</code> - 秒（00-59）</li>
+<li><code>%p</code> - AM 或 PM</li>
+<li><code>%W</code> - 星期几的名称（Sunday, Monday, …）</li>
+<li><code>%w</code> - 星期几的数字（0 = Sunday, 1 = Monday, …）</li>
+</ul>
+<h2 id="3-常用例子"><a href="#3-常用例子" class="headerlink" title="3.常用例子"></a>3. 常用例子</h2><p>（1）<strong>格式化为年 - 月 - 日</strong>：</p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> DATE_FORMAT(<span class="string">'2024-06-12 14:30:00'</span>, <span class="string">'%Y-%m-%d'</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>（2）<strong>格式化为月 - 日 - 年，小时：分钟</strong>：</p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> DATE_FORMAT(<span class="string">'2024-06-12 14:30:00'</span>, <span class="string">'%M %d, %Y, %h:%i %p'</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>（3）<strong>格式化为星期几</strong>：</p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> DATE_FORMAT(<span class="string">'2024-06-12'</span>, <span class="string">'%W'</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>（3）<strong>格式化为自定义格式</strong>（例如：今天是 2024 年的第几天）：</p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> DATE_FORMAT(<span class="string">'2024-06-12'</span>, <span class="string">'今天是%Y年的第%j天'</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+<p><code>DATE_FORMAT()</code> 函数非常灵活，可以根据需要调整日期和时间的显示方式。记得在实际使用中，根据你的具体需求选择合适的格式说明符。</p>
 ]]></content>
       <categories>
         <category>数据库</category>
@@ -625,29 +625,6 @@
       </categories>
       <tags>
         <tag>mysql</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>python 创建虚拟环境</title>
-    <url>/2021/06/29/python%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>python 如何创建虚拟环境？</p>
-<span id="more"></span>
-
-<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><p>使用 venv 命令，方法如下 (python3.5 以后)：</p>
-<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">python3 -m venv /xx/xx/myvenv <span class="comment">#(myvenv环境名称)</span></span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>激活虚拟环境</p>
-<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">source</span> myvenv/bin/activate</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>关闭虚拟环境</p>
-<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">deactivate</span></span><br></pre></td></tr></tbody></table></figure>
-
-]]></content>
-      <categories>
-        <category>环境部署</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -849,6 +826,29 @@
       </categories>
       <tags>
         <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python 创建虚拟环境</title>
+    <url>/2021/06/29/python%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>python 如何创建虚拟环境？</p>
+<span id="more"></span>
+
+<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><p>使用 venv 命令，方法如下 (python3.5 以后)：</p>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">python3 -m venv /xx/xx/myvenv <span class="comment">#(myvenv环境名称)</span></span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>激活虚拟环境</p>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">source</span> myvenv/bin/activate</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>关闭虚拟环境</p>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">deactivate</span></span><br></pre></td></tr></tbody></table></figure>
+
+]]></content>
+      <categories>
+        <category>环境部署</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -1130,6 +1130,36 @@
       </tags>
   </entry>
   <entry>
+    <title>解决 gitea 报错初始 URL 和访问 URL 不同的问题</title>
+    <url>/2024/07/22/%E8%A7%A3%E5%86%B3gitea%E6%8A%A5%E9%94%99%E5%88%9D%E5%A7%8BURL%E5%92%8C%E8%AE%BF%E9%97%AEURL%E4%B8%8D%E5%90%8C%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>Your ROOT_URL in app.ini is <code>https://192.168.1.11:1234/</code> but you are visiting <code>https://192.168.1.12:1234/</code> You should set ROOT_URL correctly, otherwise the web may not work correctly.</p>
+<span id="more"></span>
+
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>翻译可知，初始化的域名和访问的域名不一致，可能会导致问题。</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>因为 gitea 是群晖的套件，所以要找到配置文件，然后修改。步骤如下：</p>
+<p>(1) 登录群晖 (DMS 版本：DSM 6.2.3-25426 Update 3)→终端机和 SNMP→启动 Telnet 功能和启动 SSH 功能→应用。</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240722163031974.png" alt="image-20240722163031974"></p>
+<p>(2) ssh user@ip_address，输入密码。<br>(3) 进入目录 /var/packages/gitea/var</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /var/packages/gitea/var</span><br></pre></td></tr></tbody></table></figure>
+
+<p>(4) 打开 conf.ini 文件，需要用户 root 权限。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo vi conf.ini</span><br></pre></td></tr></tbody></table></figure>
+
+<p>修改 [server] 下的 ROOT_URL 为现在的访问地址</p>
+<figure class="highlight ini"><table><tbody><tr><td class="code"><pre><span class="line"><span class="section">[server]</span></span><br><span class="line"><span class="attr">LFS_CONTENT_PATH</span> = /xxx/xxx/xxx</span><br><span class="line"><span class="attr">SSH_DOMAIN</span>       = <span class="number">192.168</span>.xx.xx</span><br><span class="line"><span class="attr">DOMAIN</span>           = <span class="number">192.168</span>.xx.xx</span><br><span class="line"><span class="attr">ROOT_URL</span>         = https://xxx.xxx.xxx:xxx/</span><br><span class="line"><span class="attr">LOCAL_ROOT_URL</span>   = http://localhost:xxx/</span><br><span class="line"><span class="attr">HTTP_PORT</span>        = xxx</span><br><span class="line"><span class="attr">DISABLE_SSH</span>      = <span class="literal">false</span></span><br><span class="line"><span class="attr">SSH_PORT</span>         = <span class="number">22</span></span><br><span class="line"><span class="attr">LFS_START_SERVER</span> = <span class="literal">true</span></span><br><span class="line"><span class="attr">LFS_JWT_SECRET</span>   = xxxxxxxxxxxxxxxxxxxxxxxxxx</span><br><span class="line"><span class="attr">OFFLINE_MODE</span>     = <span class="literal">false</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>(5) 重启（停用→启用）</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240722163415690.png" alt="image-20240722163415690"></p>
+]]></content>
+      <categories>
+        <category>环境部署</category>
+      </categories>
+      <tags>
+        <tag>synology</tag>
+        <tag>gitea</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>解决 hexoblog 标签点击没有响应的问题</title>
     <url>/2024/05/23/%E8%A7%A3%E5%86%B3hexoblog%E6%A0%87%E7%AD%BE%E7%82%B9%E5%87%BB%E6%B2%A1%E6%9C%89%E5%93%8D%E5%BA%94%E7%9A%84%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>点击博客标签页面里面的标签，没有反应。</p>
@@ -1186,33 +1216,23 @@
       </tags>
   </entry>
   <entry>
-    <title>解决 gitea 报错初始 URL 和访问 URL 不同的问题</title>
-    <url>/2024/07/22/%E8%A7%A3%E5%86%B3gitea%E6%8A%A5%E9%94%99%E5%88%9D%E5%A7%8BURL%E5%92%8C%E8%AE%BF%E9%97%AEURL%E4%B8%8D%E5%90%8C%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>Your ROOT_URL in app.ini is <code>https://192.168.1.11:1234/</code> but you are visiting <code>https://192.168.1.12:1234/</code> You should set ROOT_URL correctly, otherwise the web may not work correctly.</p>
+    <title>macOS 中无法删除启动台的空白文件夹</title>
+    <url>/2024/05/09/%E8%A7%A3%E5%86%B3macOS%E4%B8%AD%E6%97%A0%E6%B3%95%E5%88%A0%E9%99%A4%E5%90%AF%E5%8A%A8%E5%8F%B0%E7%9A%84%E7%A9%BA%E7%99%BD%E6%96%87%E4%BB%B6%E5%A4%B9/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>今天下载了 Ryujinx，然后启动台自动把国际象棋 Ryujinx 放到了一个文件夹里面，然后手动拖出来之后，空文件夹没有消失，拖动其他图标进去后图标直接消失不见了，然后出现了一个虚线型的文件夹图标，图标可以显示，然后打开文件夹图标消失了，也无法拖出 App 图标。</p>
 <span id="more"></span>
 
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>翻译可知，初始化的域名和访问的域名不一致，可能会导致问题。</p>
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>因为 gitea 是群晖的套件，所以要找到配置文件，然后修改。步骤如下：</p>
-<p>(1) 登录群晖 (DMS 版本：DSM 6.2.3-25426 Update 3)→终端机和 SNMP→启动 Telnet 功能和启动 SSH 功能→应用。</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240722163031974.png" alt="image-20240722163031974"></p>
-<p>(2) ssh user@ip_address，输入密码。<br>(3) 进入目录 /var/packages/gitea/var</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /var/packages/gitea/var</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>macos12/13 系统 bug。</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>（1）在终端中输入以下，然后回车</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">open getconf DARWIN_USER_DIR</span><br></pre></td></tr></tbody></table></figure>
 
-<p>(4) 打开 conf.ini 文件，需要用户 root 权限。</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo vi conf.ini</span><br></pre></td></tr></tbody></table></figure>
-
-<p>修改 [server] 下的 ROOT_URL 为现在的访问地址</p>
-<figure class="highlight ini"><table><tbody><tr><td class="code"><pre><span class="line"><span class="section">[server]</span></span><br><span class="line"><span class="attr">LFS_CONTENT_PATH</span> = /xxx/xxx/xxx</span><br><span class="line"><span class="attr">SSH_DOMAIN</span>       = <span class="number">192.168</span>.xx.xx</span><br><span class="line"><span class="attr">DOMAIN</span>           = <span class="number">192.168</span>.xx.xx</span><br><span class="line"><span class="attr">ROOT_URL</span>         = https://xxx.xxx.xxx:xxx/</span><br><span class="line"><span class="attr">LOCAL_ROOT_URL</span>   = http://localhost:xxx/</span><br><span class="line"><span class="attr">HTTP_PORT</span>        = xxx</span><br><span class="line"><span class="attr">DISABLE_SSH</span>      = <span class="literal">false</span></span><br><span class="line"><span class="attr">SSH_PORT</span>         = <span class="number">22</span></span><br><span class="line"><span class="attr">LFS_START_SERVER</span> = <span class="literal">true</span></span><br><span class="line"><span class="attr">LFS_JWT_SECRET</span>   = xxxxxxxxxxxxxxxxxxxxxxxxxx</span><br><span class="line"><span class="attr">OFFLINE_MODE</span>     = <span class="literal">false</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>(5) 重启（停用→启用）</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240722163415690.png" alt="image-20240722163415690"></p>
+<p>（2）然后删除 com.apple.dock.launchpad 文件夹</p>
+<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p><a href="https://discussionschinese.apple.com/thread/253648900?answerId=256835759322&amp;sortBy=best#256835759322">https://discussionschinese.apple.com/thread/253648900?answerId=256835759322&amp;sortBy=best#256835759322</a></p>
 ]]></content>
       <categories>
-        <category>环境部署</category>
+        <category>操作系统</category>
       </categories>
       <tags>
-        <tag>synology</tag>
-        <tag>gitea</tag>
+        <tag>macos</tag>
       </tags>
   </entry>
   <entry>
@@ -1235,26 +1255,6 @@
       </categories>
       <tags>
         <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>macOS 中无法删除启动台的空白文件夹</title>
-    <url>/2024/05/09/%E8%A7%A3%E5%86%B3macOS%E4%B8%AD%E6%97%A0%E6%B3%95%E5%88%A0%E9%99%A4%E5%90%AF%E5%8A%A8%E5%8F%B0%E7%9A%84%E7%A9%BA%E7%99%BD%E6%96%87%E4%BB%B6%E5%A4%B9/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>今天下载了 Ryujinx，然后启动台自动把国际象棋 Ryujinx 放到了一个文件夹里面，然后手动拖出来之后，空文件夹没有消失，拖动其他图标进去后图标直接消失不见了，然后出现了一个虚线型的文件夹图标，图标可以显示，然后打开文件夹图标消失了，也无法拖出 App 图标。</p>
-<span id="more"></span>
-
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>macos12/13 系统 bug。</p>
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>（1）在终端中输入以下，然后回车</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">open getconf DARWIN_USER_DIR</span><br></pre></td></tr></tbody></table></figure>
-
-<p>（2）然后删除 com.apple.dock.launchpad 文件夹</p>
-<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p><a href="https://discussionschinese.apple.com/thread/253648900?answerId=256835759322&amp;sortBy=best#256835759322">https://discussionschinese.apple.com/thread/253648900?answerId=256835759322&amp;sortBy=best#256835759322</a></p>
-]]></content>
-      <categories>
-        <category>操作系统</category>
-      </categories>
-      <tags>
-        <tag>macos</tag>
       </tags>
   </entry>
   <entry>
@@ -1309,6 +1309,22 @@
       </tags>
   </entry>
   <entry>
+    <title>记录一个 mysql 存储过程模板</title>
+    <url>/2024/06/14/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%AAmysql%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B%E6%A8%A1%E6%9D%BF/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>记录一个 mysql 存储过程模板，方便以后使用。</p>
+<span id="more"></span>
+
+<h2 id="2-相关sql"><a href="#2-相关sql" class="headerlink" title="2.相关sql"></a>2. 相关 sql</h2><figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> definer <span class="operator">=</span> user1@`<span class="operator">%</span>` <span class="keyword">procedure</span> procedure_name( <span class="comment">-- user1为数据库用户名</span></span><br><span class="line">      <span class="comment">-- 定义输入输入参数</span></span><br><span class="line">      <span class="keyword">IN</span> parameter1 <span class="type">varchar</span>(<span class="number">50</span>),                                                   </span><br><span class="line">      <span class="keyword">IN</span> parameter2 <span class="type">decimal</span>(<span class="number">15</span>, <span class="number">2</span>),</span><br><span class="line">      <span class="keyword">IN</span> parameter3 <span class="type">decimal</span>(<span class="number">10</span>, <span class="number">4</span>),</span><br><span class="line">      <span class="keyword">IN</span> parameter4 tinyint(<span class="number">3</span>),</span><br><span class="line">      <span class="keyword">IN</span> parameter5 <span class="type">varchar</span>(<span class="number">32</span>))</span><br><span class="line">      </span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">    <span class="comment">-- 变量定义</span></span><br><span class="line">    <span class="keyword">declare</span> s_parameter1 <span class="type">varchar</span>(<span class="number">32</span>); </span><br><span class="line">    <span class="keyword">declare</span> s_parameter2 datetime; </span><br><span class="line">    <span class="keyword">declare</span> s_parameter3 datetime; </span><br><span class="line">    <span class="keyword">declare</span> s_parameter4 <span class="type">decimal</span>(<span class="number">15</span>,<span class="number">2</span>); </span><br><span class="line">    <span class="keyword">declare</span> s_parameter5 <span class="type">bigint</span>; </span><br><span class="line">    <span class="keyword">declare</span> s_parameter6 <span class="type">bigint</span>; </span><br><span class="line"></span><br><span class="line">    <span class="comment">-- 变量赋值</span></span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        param1,</span><br><span class="line">        param2,</span><br><span class="line">        date_add((date_format(param3,<span class="string">'%Y-%m-%d %H:%i:%s'</span>)),<span class="type">interval</span> <span class="number">10</span> <span class="keyword">MINUTE</span> ), # 时间<span class="operator">+</span><span class="number">10</span>分钟</span><br><span class="line">        date_add((date_format(param4,<span class="string">'%Y-%m-%d %H:%i:%s'</span>)),<span class="type">interval</span> <span class="number">10</span> <span class="keyword">MINUTE</span> )  # 时间<span class="operator">+</span><span class="number">10</span>分钟</span><br><span class="line">    <span class="keyword">into</span></span><br><span class="line">        s_parameter1,</span><br><span class="line">        s_parameter2,</span><br><span class="line">        s_parameter3,</span><br><span class="line">        s_parameter4</span><br><span class="line">    <span class="keyword">from</span> table1</span><br><span class="line">    <span class="keyword">where</span> param1 <span class="operator">=</span> parameter1;</span><br><span class="line"></span><br><span class="line">    <span class="comment">-- 更新</span></span><br><span class="line">    <span class="keyword">UPDATE</span> table2</span><br><span class="line">    <span class="keyword">SET</span> `param1` <span class="operator">=</span> <span class="string">'test'</span>,</span><br><span class="line">        `param2` <span class="operator">=</span> s_parameter1,</span><br><span class="line">        `param3` <span class="operator">=</span> s_parameter2,</span><br><span class="line">        `param4` <span class="operator">=</span> s_parameter3,</span><br><span class="line">        `param5` <span class="operator">=</span> date_format(now(), <span class="string">'%Y-%m-%d %H:%i:%s'</span>), # 设置时间为当前时间</span><br><span class="line">        `param6` <span class="operator">=</span> s_parameter4,</span><br><span class="line">        `param7` <span class="operator">=</span> s_parameter5,</span><br><span class="line">        `param8` <span class="operator">=</span> s_parameter6,</span><br><span class="line">        `param9` <span class="operator">=</span> s_parameter6,</span><br><span class="line">        `param10`<span class="operator">=</span> date_format(now(), <span class="string">'%Y-%m-%d %H:%i:%s'</span>) # 设置时间为当前时间</span><br><span class="line">    <span class="keyword">WHERE</span> param1 <span class="operator">=</span> parameter1;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">-- 条件判断</span></span><br><span class="line">    if parameter2 <span class="operator">*</span> <span class="number">0.015</span> <span class="operator">&lt;</span> <span class="number">500</span> <span class="keyword">then</span></span><br><span class="line">        <span class="keyword">set</span> s_parameter3 <span class="operator">=</span> <span class="number">500</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">set</span> s_parameter3 <span class="operator">=</span> parameter2 <span class="operator">*</span> <span class="number">0.015</span>;</span><br><span class="line">    <span class="keyword">end</span> if;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">-- 最大编号自动+1</span></span><br><span class="line">		<span class="keyword">select</span> <span class="built_in">max</span>(id)<span class="operator">+</span><span class="number">1</span> <span class="keyword">into</span> s_parameter5 <span class="keyword">from</span> table3;</span><br><span class="line">    <span class="keyword">select</span> <span class="built_in">max</span>(id)<span class="operator">+</span><span class="number">1</span> <span class="keyword">into</span> s_parameter6 <span class="keyword">from</span> table4;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">-- 插入</span></span><br><span class="line">    <span class="keyword">insert</span> <span class="keyword">into</span> </span><br><span class="line">    table5(p1, p2, p3, p4)  </span><br><span class="line">    <span class="keyword">values</span></span><br><span class="line">    (s_parameter1, s_parameter2, s_parameter3, s_parameter4);</span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>读书笔记模版</title>
     <url>/2019/08/14/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E6%A8%A1%E7%89%88/</url>
     <content><![CDATA[<h2 id="1-书摘"><a href="#1-书摘" class="headerlink" title="1.书摘"></a>1. 书摘</h2><p>读书要有所得，必须要有思考，而思考的最佳验收方式就是输出。不论是书评还是读书笔记，怎样都好，只要是经过你理解的输出，就非常有价值。</p>
@@ -1327,22 +1343,6 @@
       </categories>
       <tags>
         <tag>templates</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>记录一个 mysql 存储过程模板</title>
-    <url>/2024/06/14/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%AAmysql%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B%E6%A8%A1%E6%9D%BF/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>记录一个 mysql 存储过程模板，方便以后使用。</p>
-<span id="more"></span>
-
-<h2 id="2-相关sql"><a href="#2-相关sql" class="headerlink" title="2.相关sql"></a>2. 相关 sql</h2><figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> definer <span class="operator">=</span> user1@`<span class="operator">%</span>` <span class="keyword">procedure</span> procedure_name( <span class="comment">-- user1为数据库用户名</span></span><br><span class="line">      <span class="comment">-- 定义输入输入参数</span></span><br><span class="line">      <span class="keyword">IN</span> parameter1 <span class="type">varchar</span>(<span class="number">50</span>),                                                   </span><br><span class="line">      <span class="keyword">IN</span> parameter2 <span class="type">decimal</span>(<span class="number">15</span>, <span class="number">2</span>),</span><br><span class="line">      <span class="keyword">IN</span> parameter3 <span class="type">decimal</span>(<span class="number">10</span>, <span class="number">4</span>),</span><br><span class="line">      <span class="keyword">IN</span> parameter4 tinyint(<span class="number">3</span>),</span><br><span class="line">      <span class="keyword">IN</span> parameter5 <span class="type">varchar</span>(<span class="number">32</span>))</span><br><span class="line">      </span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">    <span class="comment">-- 变量定义</span></span><br><span class="line">    <span class="keyword">declare</span> s_parameter1 <span class="type">varchar</span>(<span class="number">32</span>); </span><br><span class="line">    <span class="keyword">declare</span> s_parameter2 datetime; </span><br><span class="line">    <span class="keyword">declare</span> s_parameter3 datetime; </span><br><span class="line">    <span class="keyword">declare</span> s_parameter4 <span class="type">decimal</span>(<span class="number">15</span>,<span class="number">2</span>); </span><br><span class="line">    <span class="keyword">declare</span> s_parameter5 <span class="type">bigint</span>; </span><br><span class="line">    <span class="keyword">declare</span> s_parameter6 <span class="type">bigint</span>; </span><br><span class="line"></span><br><span class="line">    <span class="comment">-- 变量赋值</span></span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        param1,</span><br><span class="line">        param2,</span><br><span class="line">        date_add((date_format(param3,<span class="string">'%Y-%m-%d %H:%i:%s'</span>)),<span class="type">interval</span> <span class="number">10</span> <span class="keyword">MINUTE</span> ), # 时间<span class="operator">+</span><span class="number">10</span>分钟</span><br><span class="line">        date_add((date_format(param4,<span class="string">'%Y-%m-%d %H:%i:%s'</span>)),<span class="type">interval</span> <span class="number">10</span> <span class="keyword">MINUTE</span> )  # 时间<span class="operator">+</span><span class="number">10</span>分钟</span><br><span class="line">    <span class="keyword">into</span></span><br><span class="line">        s_parameter1,</span><br><span class="line">        s_parameter2,</span><br><span class="line">        s_parameter3,</span><br><span class="line">        s_parameter4</span><br><span class="line">    <span class="keyword">from</span> table1</span><br><span class="line">    <span class="keyword">where</span> param1 <span class="operator">=</span> parameter1;</span><br><span class="line"></span><br><span class="line">    <span class="comment">-- 更新</span></span><br><span class="line">    <span class="keyword">UPDATE</span> table2</span><br><span class="line">    <span class="keyword">SET</span> `param1` <span class="operator">=</span> <span class="string">'test'</span>,</span><br><span class="line">        `param2` <span class="operator">=</span> s_parameter1,</span><br><span class="line">        `param3` <span class="operator">=</span> s_parameter2,</span><br><span class="line">        `param4` <span class="operator">=</span> s_parameter3,</span><br><span class="line">        `param5` <span class="operator">=</span> date_format(now(), <span class="string">'%Y-%m-%d %H:%i:%s'</span>), # 设置时间为当前时间</span><br><span class="line">        `param6` <span class="operator">=</span> s_parameter4,</span><br><span class="line">        `param7` <span class="operator">=</span> s_parameter5,</span><br><span class="line">        `param8` <span class="operator">=</span> s_parameter6,</span><br><span class="line">        `param9` <span class="operator">=</span> s_parameter6,</span><br><span class="line">        `param10`<span class="operator">=</span> date_format(now(), <span class="string">'%Y-%m-%d %H:%i:%s'</span>) # 设置时间为当前时间</span><br><span class="line">    <span class="keyword">WHERE</span> param1 <span class="operator">=</span> parameter1;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">-- 条件判断</span></span><br><span class="line">    if parameter2 <span class="operator">*</span> <span class="number">0.015</span> <span class="operator">&lt;</span> <span class="number">500</span> <span class="keyword">then</span></span><br><span class="line">        <span class="keyword">set</span> s_parameter3 <span class="operator">=</span> <span class="number">500</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">set</span> s_parameter3 <span class="operator">=</span> parameter2 <span class="operator">*</span> <span class="number">0.015</span>;</span><br><span class="line">    <span class="keyword">end</span> if;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">-- 最大编号自动+1</span></span><br><span class="line">		<span class="keyword">select</span> <span class="built_in">max</span>(id)<span class="operator">+</span><span class="number">1</span> <span class="keyword">into</span> s_parameter5 <span class="keyword">from</span> table3;</span><br><span class="line">    <span class="keyword">select</span> <span class="built_in">max</span>(id)<span class="operator">+</span><span class="number">1</span> <span class="keyword">into</span> s_parameter6 <span class="keyword">from</span> table4;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">-- 插入</span></span><br><span class="line">    <span class="keyword">insert</span> <span class="keyword">into</span> </span><br><span class="line">    table5(p1, p2, p3, p4)  </span><br><span class="line">    <span class="keyword">values</span></span><br><span class="line">    (s_parameter1, s_parameter2, s_parameter3, s_parameter4);</span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span>;</span><br></pre></td></tr></tbody></table></figure>
-
-]]></content>
-      <categories>
-        <category>数据库</category>
-      </categories>
-      <tags>
-        <tag>mysql</tag>
       </tags>
   </entry>
 </search>

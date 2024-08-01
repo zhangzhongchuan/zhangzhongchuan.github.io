@@ -1,64 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>MySQL 中的 DATE_ADD 函数基本使用</title>
-    <url>/2024/06/13/MySQL%E4%B8%AD%E7%9A%84DATE-ADD%E5%87%BD%E6%95%B0%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>每次用到 MySQL 关于时间的计算，都跑不了 <code>DATE_ADD</code> 函数，每次都得查，特此记录下，下次用时直接看。</p>
-<span id="more"></span>
-
-<p>MySQL 中的 <code>DATE_ADD()</code> 函数用于将一个时间间隔加到一个日期或时间值上。这个函数非常有用，特别是当你需要计算未来的日期或时间点时。</p>
-<h2 id="2-基本语法"><a href="#2-基本语法" class="headerlink" title="2.基本语法"></a>2. 基本语法</h2><figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line">DATE_ADD(<span class="type">date</span>, <span class="type">INTERVAL</span> <span class="keyword">value</span> unit)</span><br></pre></td></tr></tbody></table></figure>
-
-<ul>
-<li><code>date</code> 是你想要添加时间间隔的原始日期或时间值。</li>
-<li><code>INTERVAL</code> 关键字指定了要添加的时间间隔。</li>
-<li><code>value</code> 是时间间隔的数量。</li>
-<li><code>unit</code> 是时间间隔的单位，可以是以下几种之一：<ul>
-<li><code>MICROSECOND</code>（微秒）</li>
-<li><code>SECOND</code>（秒）</li>
-<li><code>MINUTE</code>（分钟）</li>
-<li><code>HOUR</code>（小时）</li>
-<li><code>DAY</code>（天）</li>
-<li><code>WEEK</code>（周）</li>
-<li><code>MONTH</code>（月）</li>
-<li><code>QUARTER</code>（季度）</li>
-<li><code>YEAR</code>（年）</li>
-<li><code>SECOND_MICROSECOND</code>（秒和微秒）</li>
-<li><code>MINUTE_MICROSECOND</code>（分钟和微秒）</li>
-<li><code>MINUTE_SECOND</code>（分钟和秒）</li>
-<li><code>HOUR_MICROSECOND</code>（小时和微秒）</li>
-<li><code>HOUR_SECOND</code>（小时和秒）</li>
-<li><code>DAY_MICROSECOND</code>（天和微秒）</li>
-<li><code>DAY_SECOND</code>（天和秒）</li>
-<li><code>YEAR_MONTH</code>（年和月）</li>
-</ul>
-</li>
-</ul>
-<h2 id="3-常用例子"><a href="#3-常用例子" class="headerlink" title="3.常用例子"></a>3. 常用例子</h2><p>（1）<strong>添加天数</strong>：</p>
-<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> DATE_ADD(<span class="string">'2024-06-12'</span>, <span class="type">INTERVAL</span> <span class="number">10</span> <span class="keyword">DAY</span>);</span><br></pre></td></tr></tbody></table></figure>
-
-<p>（2）<strong>添加小时</strong>：</p>
-<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> DATE_ADD(<span class="string">'2024-06-12 14:30:00'</span>, <span class="type">INTERVAL</span> <span class="number">2</span> <span class="keyword">HOUR</span>);</span><br></pre></td></tr></tbody></table></figure>
-
-<p>（3）<strong>添加分钟和秒</strong>：</p>
-<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> DATE_ADD(<span class="string">'2024-06-12 14:30:00'</span>, <span class="type">INTERVAL</span> <span class="number">30</span> <span class="keyword">MINUTE</span>);</span><br><span class="line"><span class="keyword">SELECT</span> DATE_ADD(<span class="string">'2024-06-12 14:30:00'</span>, <span class="type">INTERVAL</span> <span class="number">5</span> <span class="keyword">SECOND</span>);</span><br></pre></td></tr></tbody></table></figure>
-
-<p>（4）<strong>添加年和月</strong>：</p>
-<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> DATE_ADD(<span class="string">'2024-06-12'</span>, <span class="type">INTERVAL</span> <span class="number">1</span> <span class="keyword">YEAR</span>);</span><br><span class="line"><span class="keyword">SELECT</span> DATE_ADD(<span class="string">'2024-06-12'</span>, <span class="type">INTERVAL</span> <span class="number">3</span> <span class="keyword">MONTH</span>);</span><br></pre></td></tr></tbody></table></figure>
-
-<p>（5）<strong>添加复杂时间间隔</strong>（例如，1 天 3 小时 30 分钟）：</p>
-<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> DATE_ADD(<span class="string">'2024-06-12'</span>, <span class="type">INTERVAL</span> <span class="number">1</span> <span class="keyword">DAY</span> <span class="number">3</span> <span class="keyword">HOUR</span> <span class="number">30</span> <span class="keyword">MINUTE</span>);</span><br></pre></td></tr></tbody></table></figure>
-
-<p>请注意，当使用 <code>DATE_ADD()</code> 函数时，结果的日期和时间格式将取决于你的 MySQL 服务器的设置，包括时区和日期时间格式。</p>
-]]></content>
-      <categories>
-        <category>数据库</category>
-      </categories>
-      <tags>
-        <tag>mysql</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Appium2 总结（一）环境搭建以及简单脚本测试</title>
     <url>/2024/07/29/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%80%EF%BC%89%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%BB%A5%E5%8F%8A%E7%AE%80%E5%8D%95%E8%84%9A%E6%9C%AC%E6%B5%8B%E8%AF%95/</url>
     <content><![CDATA[<p>Appium 是一个开源项目和相关软件的生态系统。 软件，旨在促进许多应用程序平台的 UI 自动化，包括移动平台（iOS、 Android、Tizen）、浏览器（Chrome、Firefox、Safari）、桌面（macOS、Windows）、电视（Roku、tvOS、 Android TV、三星）等，它还旨在支持用不同语言（JS、Java、Python 等）编写的自动化代码。</p>
@@ -73,7 +15,9 @@
 <li>Appium 自动化侧睡不需要重新编译 App</li>
 <li> 支持多语言编写测试脚本，Java、Python、JavaScript 等</li>
 </ul>
-<h2 id="1-Appium环境搭建"><a href="#1-Appium环境搭建" class="headerlink" title="1.Appium环境搭建"></a>1.Appium 环境搭建</h2><p>(1) 安装 JDK</p>
+<h2 id="1-Appium环境搭建"><a href="#1-Appium环境搭建" class="headerlink" title="1.Appium环境搭建"></a>1.Appium 环境搭建</h2><p>(0) Node 安装</p>
+<p>已安装，这里不做赘述。</p>
+<p>(1) 安装 JDK</p>
 <p>由于 jdk 已安装，这里不做赘述。</p>
 <p>(2) 安装 Android SDK</p>
 <p>Android 开发专用的 IDE 是 <code>Android Studio</code>，在下载安装 <code>Android Studio</code> 的过程中，会<code>自行下载sdk</code>，sdk 中会<code>包含adb环境</code>，所以这里我们先下载一个 <code>Android Studio</code>，然后找到 <code>sdk</code> 位置 ，配置环境变量。</p>
@@ -265,6 +209,32 @@
       </tags>
   </entry>
   <entry>
+    <title>Appium2 总结（三）图像识别定位</title>
+    <url>/2024/08/01/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%89%EF%BC%89%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB%E5%AE%9A%E4%BD%8D/</url>
+    <content><![CDATA[<h2 id="1-Appium-图像识别插件images安装"><a href="#1-Appium-图像识别插件images安装" class="headerlink" title="1.Appium 图像识别插件images安装"></a>1.Appium 图像识别插件 images 安装</h2><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">➜  ~ appium plugin install images</span><br><span class="line">✔ Checking <span class="keyword">if</span> <span class="string">'@appium/images-plugin'</span> is compatible</span><br><span class="line">✔ Installing <span class="string">'images'</span> using NPM install spec <span class="string">'@appium/images-plugin'</span></span><br><span class="line">ℹ Plugin images@3.0.17 successfully installed</span><br></pre></td></tr></tbody></table></figure>
+
+<span id="more"></span>
+
+<h2 id="2-Appium带着-images-插件启动"><a href="#2-Appium带着-images-插件启动" class="headerlink" title="2.Appium带着 images 插件启动"></a>2.Appium 带着 images 插件启动</h2><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">➜  ~ appium --use-plugins=images</span><br><span class="line">[Appium] Attempting to load plugin images...</span><br><span class="line">[Appium] .........</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h2 id="3-裁剪图片"><a href="#3-裁剪图片" class="headerlink" title="3.裁剪图片"></a>3. 裁剪图片</h2><p>（1）使用模拟器或者手机截图</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Screenshot_20240801-184130.png" alt="Screenshot_20240801-184130"></p>
+<p>（2）不改变尺寸大小和文件格式的情况下裁剪所要定位的图片</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/p1.png" alt="p1"></p>
+<h2 id="4-python🌰"><a href="#4-python🌰" class="headerlink" title="4.python🌰"></a>4.python🌰</h2><figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">from appium import webdriver</span><br><span class="line">from appium.options.android import UiAutomator2Options</span><br><span class="line">from appium.webdriver.common.appiumby import AppiumBy</span><br><span class="line">import base64</span><br><span class="line"></span><br><span class="line">capabilities = dict(</span><br><span class="line">    platformName='Android',</span><br><span class="line">    automationName='uiautomator2',</span><br><span class="line">    deviceName='xx', # 这块在 android 平台上不作要求，填写 xx 都可以，在 ios 上必填</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">appium_server_url = 'http://localhost:4723' # appium 服务地址</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 驱动</span><br><span class="line">driver = webdriver.Remote(appium_server_url, options=UiAutomator2Options().load_capabilities(capabilities))</span><br><span class="line"></span><br><span class="line"># 打开图片文件</span><br><span class="line">with open('images/p1.png', 'rb') as image_file:</span><br><span class="line">    # 读取图片数据</span><br><span class="line">    image_data = image_file.read()</span><br><span class="line"># 将图片数据使用 base64 编码</span><br><span class="line">encoded_image = base64.b64encode(image_data)</span><br><span class="line"># 将编码后的图片数据转换为字符串</span><br><span class="line">encoded_image_str = encoded_image.decode('utf-8')</span><br><span class="line"></span><br><span class="line"># 这个原理是将所定位的图片转换为字符串，将目标页面也转换为字符串，然后在目标页面中对比相似度，相似度高的部分就定位成功</span><br><span class="line">driver.find_element(AppiumBy.IMAGE, encoded_image_str).click()</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="5-相关参考"><a href="#5-相关参考" class="headerlink" title="5.相关参考"></a>5. 相关参考</h3><p><a href="https://www.bilibili.com/video/BV1qt421M7kZ/?spm_id_from=333.999.0.0&amp;vd_source=fd555860cd7cf9b09d9279e5deaabb9d">https://www.bilibili.com/video/BV1qt421M7kZ/?spm_id_from=333.999.0.0&amp;vd_source=fd555860cd7cf9b09d9279e5deaabb9d</a></p>
+]]></content>
+      <categories>
+        <category>自动化测试</category>
+      </categories>
+      <tags>
+        <tag>appium</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Appium2 总结（二）Inspector 工具使用及定位操作元素</title>
     <url>/2024/07/30/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89Inspector%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AE%9A%E4%BD%8D%E6%93%8D%E4%BD%9C%E5%85%83%E7%B4%A0_CandydeMac-mini.local_Aug-01-093527-2024_CaseConflict/</url>
     <content><![CDATA[<p>Appium Inspector 是 Appium 的一个工具，<strong>用于帮助开发人员和测试人员分析和调试移动应用程序</strong>。 它提供了图形界面和交互式的功能，使您能够轻松地检查应用程序的 UI 元素、获取元素属性、执行操作和生成自动化测试脚本。</p>
@@ -415,6 +385,64 @@
       </tags>
   </entry>
   <entry>
+    <title>MySQL 中的 DATE_ADD 函数基本使用</title>
+    <url>/2024/06/13/MySQL%E4%B8%AD%E7%9A%84DATE-ADD%E5%87%BD%E6%95%B0%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>每次用到 MySQL 关于时间的计算，都跑不了 <code>DATE_ADD</code> 函数，每次都得查，特此记录下，下次用时直接看。</p>
+<span id="more"></span>
+
+<p>MySQL 中的 <code>DATE_ADD()</code> 函数用于将一个时间间隔加到一个日期或时间值上。这个函数非常有用，特别是当你需要计算未来的日期或时间点时。</p>
+<h2 id="2-基本语法"><a href="#2-基本语法" class="headerlink" title="2.基本语法"></a>2. 基本语法</h2><figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line">DATE_ADD(<span class="type">date</span>, <span class="type">INTERVAL</span> <span class="keyword">value</span> unit)</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li><code>date</code> 是你想要添加时间间隔的原始日期或时间值。</li>
+<li><code>INTERVAL</code> 关键字指定了要添加的时间间隔。</li>
+<li><code>value</code> 是时间间隔的数量。</li>
+<li><code>unit</code> 是时间间隔的单位，可以是以下几种之一：<ul>
+<li><code>MICROSECOND</code>（微秒）</li>
+<li><code>SECOND</code>（秒）</li>
+<li><code>MINUTE</code>（分钟）</li>
+<li><code>HOUR</code>（小时）</li>
+<li><code>DAY</code>（天）</li>
+<li><code>WEEK</code>（周）</li>
+<li><code>MONTH</code>（月）</li>
+<li><code>QUARTER</code>（季度）</li>
+<li><code>YEAR</code>（年）</li>
+<li><code>SECOND_MICROSECOND</code>（秒和微秒）</li>
+<li><code>MINUTE_MICROSECOND</code>（分钟和微秒）</li>
+<li><code>MINUTE_SECOND</code>（分钟和秒）</li>
+<li><code>HOUR_MICROSECOND</code>（小时和微秒）</li>
+<li><code>HOUR_SECOND</code>（小时和秒）</li>
+<li><code>DAY_MICROSECOND</code>（天和微秒）</li>
+<li><code>DAY_SECOND</code>（天和秒）</li>
+<li><code>YEAR_MONTH</code>（年和月）</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-常用例子"><a href="#3-常用例子" class="headerlink" title="3.常用例子"></a>3. 常用例子</h2><p>（1）<strong>添加天数</strong>：</p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> DATE_ADD(<span class="string">'2024-06-12'</span>, <span class="type">INTERVAL</span> <span class="number">10</span> <span class="keyword">DAY</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>（2）<strong>添加小时</strong>：</p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> DATE_ADD(<span class="string">'2024-06-12 14:30:00'</span>, <span class="type">INTERVAL</span> <span class="number">2</span> <span class="keyword">HOUR</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>（3）<strong>添加分钟和秒</strong>：</p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> DATE_ADD(<span class="string">'2024-06-12 14:30:00'</span>, <span class="type">INTERVAL</span> <span class="number">30</span> <span class="keyword">MINUTE</span>);</span><br><span class="line"><span class="keyword">SELECT</span> DATE_ADD(<span class="string">'2024-06-12 14:30:00'</span>, <span class="type">INTERVAL</span> <span class="number">5</span> <span class="keyword">SECOND</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>（4）<strong>添加年和月</strong>：</p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> DATE_ADD(<span class="string">'2024-06-12'</span>, <span class="type">INTERVAL</span> <span class="number">1</span> <span class="keyword">YEAR</span>);</span><br><span class="line"><span class="keyword">SELECT</span> DATE_ADD(<span class="string">'2024-06-12'</span>, <span class="type">INTERVAL</span> <span class="number">3</span> <span class="keyword">MONTH</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>（5）<strong>添加复杂时间间隔</strong>（例如，1 天 3 小时 30 分钟）：</p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> DATE_ADD(<span class="string">'2024-06-12'</span>, <span class="type">INTERVAL</span> <span class="number">1</span> <span class="keyword">DAY</span> <span class="number">3</span> <span class="keyword">HOUR</span> <span class="number">30</span> <span class="keyword">MINUTE</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>请注意，当使用 <code>DATE_ADD()</code> 函数时，结果的日期和时间格式将取决于你的 MySQL 服务器的设置，包括时区和日期时间格式。</p>
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Nginx 服务器 SSL 证书安装部署（Linux）</title>
     <url>/2024/06/05/Nginx%E6%9C%8D%E5%8A%A1%E5%99%A8SSL%E8%AF%81%E4%B9%A6%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%EF%BC%88Linux%EF%BC%89/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>如何将 SSL 证书上传到 centos 服务器，并使用 nginx 配置后，使其生效？</p>
@@ -462,47 +490,6 @@
       </tags>
   </entry>
   <entry>
-    <title>jmeter 通过 log4j2.xml 修改 log 文件位置</title>
-    <url>/2024/04/15/jmeter%E9%80%9A%E8%BF%87log4j2-xml%E4%BF%AE%E6%94%B9log%E6%96%87%E4%BB%B6%E4%BD%8D%E7%BD%AE/</url>
-    <content><![CDATA[<p>在 Apache JMeter 中，如果你使用的是 Log4j2 作为日志系统，并且想通过 <code>log4j2.xml</code> 配置文件修改日志文件的位置，你可以按照以下步骤操作：（文中使用 jmeter 版本为:apache-jmeter-5.6.3）</p>
-<ol>
-<li>找到 JMeter 安装目录下的 <code>log4j2.xml</code> 配置文件。在 JMeter 3.x 及以上版本中，这个文件通常位于 <code>apache-jmeter-X.XX/bin</code> 目录下。</li>
-<li>打开 <code>log4j2.xml</code> 文件，找到 <code>RollingFile</code> 或 <code>File</code> 类型的 Appender 配置部分。</li>
-</ol>
-<span id="more"></span>
-
-<figure class="highlight xml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</span></span><br><span class="line"><span class="comment">&lt;!--......--&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">Configuration</span> <span class="attr">status</span>=<span class="string">"WARN"</span> <span class="attr">packages</span>=<span class="string">"org.apache.jmeter.gui.logging"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Appenders</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 修改这里，修改日志文件位置 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">File</span> <span class="attr">name</span>=<span class="string">"jmeter-log"</span> <span class="attr">fileName</span>=<span class="string">"/path/to/your/log/jmeter.log"</span> <span class="attr">append</span>=<span class="string">"false"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>%d %p %c{1.}: %m%n<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">File</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">GuiLogEvent</span> <span class="attr">name</span>=<span class="string">"gui-log-event"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>%d %p %c{1.}: %m%n<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">GuiLogEvent</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;/<span class="name">Appenders</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">Loggers</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Root</span> <span class="attr">level</span>=<span class="string">"info"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">AppenderRef</span> <span class="attr">ref</span>=<span class="string">"jmeter-log"</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">AppenderRef</span> <span class="attr">ref</span>=<span class="string">"gui-log-event"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Root</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Logger</span> <span class="attr">name</span>=<span class="string">"org.apache.jmeter.junit"</span> <span class="attr">level</span>=<span class="string">"debug"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;/<span class="name">Loggers</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">Configuration</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-
-]]></content>
-      <categories>
-        <category>性能测试</category>
-      </categories>
-      <tags>
-        <tag>jmeter</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>使用 hexo 搭建 GitHub Page 博客后，网页显示 404 的问题解决</title>
-    <url>/2019/08/14/hexo%E7%AC%AC%E4%B8%80%E6%AC%A1%E9%83%A8%E7%BD%B2%E7%BD%91%E9%A1%B5%E6%98%BE%E7%A4%BA404/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>使用 hexo 搭建 GitHub Page 博客后，第一次正常，第二次上传后，博客网页显示 404 页面。</p>
-<span id="more"></span>
-
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>因为绑定了域名，所以在 github 仓库根目录下有一个 CNAME 的文件，文件中写有需要绑定的域名。而使用 hexo 远程部署时会删除这个文件。所以页面会报 404 错误。</p>
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>只要在 github 仓库根目录下添加一个 CNAME 文件，且上传时不会被覆盖即可，方法如下：</p>
-<h3 id="3-1-在-hexo-指定文件夹下的-source-文件夹下添加-CNAME-文件，CNAME-文件中添加域名。"><a href="#3-1-在-hexo-指定文件夹下的-source-文件夹下添加-CNAME-文件，CNAME-文件中添加域名。" class="headerlink" title="3.1 在 hexo 指定文件夹下的 source 文件夹下添加 CNAME 文件，CNAME 文件中添加域名。"></a>3.1 在 hexo 指定文件夹下的 source 文件夹下添加 CNAME 文件，CNAME 文件中添加域名。</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2019-08-15_20-35-35.png"></p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2019-08-15_20-36-55.png"></p>
-<h3 id="3-2-然后在-Terminal-执行"><a href="#3-2-然后在-Terminal-执行" class="headerlink" title="3.2 然后在 Terminal 执行"></a>3.2 然后在 Terminal 执行</h3><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="3-3-查看-github-仓库根目录有该-CNAME-且博客可以正常访问"><a href="#3-3-查看-github-仓库根目录有该-CNAME-且博客可以正常访问" class="headerlink" title="3.3 查看 github 仓库根目录有该 CNAME 且博客可以正常访问"></a>3.3 查看 github 仓库根目录有该 CNAME 且博客可以正常访问</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2019-08-15_21-01-09.png"></p>
-]]></content>
-      <categories>
-        <category>环境部署</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>mysql 实现 excel 中复制某一列，粘贴转置为行功能</title>
     <url>/2021/05/31/group-concat%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>数据处理需要，需要将大批量的列，转置为行。</p>
@@ -533,6 +520,47 @@
       </categories>
       <tags>
         <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用 hexo 搭建 GitHub Page 博客后，网页显示 404 的问题解决</title>
+    <url>/2019/08/14/hexo%E7%AC%AC%E4%B8%80%E6%AC%A1%E9%83%A8%E7%BD%B2%E7%BD%91%E9%A1%B5%E6%98%BE%E7%A4%BA404/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>使用 hexo 搭建 GitHub Page 博客后，第一次正常，第二次上传后，博客网页显示 404 页面。</p>
+<span id="more"></span>
+
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>因为绑定了域名，所以在 github 仓库根目录下有一个 CNAME 的文件，文件中写有需要绑定的域名。而使用 hexo 远程部署时会删除这个文件。所以页面会报 404 错误。</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>只要在 github 仓库根目录下添加一个 CNAME 文件，且上传时不会被覆盖即可，方法如下：</p>
+<h3 id="3-1-在-hexo-指定文件夹下的-source-文件夹下添加-CNAME-文件，CNAME-文件中添加域名。"><a href="#3-1-在-hexo-指定文件夹下的-source-文件夹下添加-CNAME-文件，CNAME-文件中添加域名。" class="headerlink" title="3.1 在 hexo 指定文件夹下的 source 文件夹下添加 CNAME 文件，CNAME 文件中添加域名。"></a>3.1 在 hexo 指定文件夹下的 source 文件夹下添加 CNAME 文件，CNAME 文件中添加域名。</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2019-08-15_20-35-35.png"></p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2019-08-15_20-36-55.png"></p>
+<h3 id="3-2-然后在-Terminal-执行"><a href="#3-2-然后在-Terminal-执行" class="headerlink" title="3.2 然后在 Terminal 执行"></a>3.2 然后在 Terminal 执行</h3><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="3-3-查看-github-仓库根目录有该-CNAME-且博客可以正常访问"><a href="#3-3-查看-github-仓库根目录有该-CNAME-且博客可以正常访问" class="headerlink" title="3.3 查看 github 仓库根目录有该 CNAME 且博客可以正常访问"></a>3.3 查看 github 仓库根目录有该 CNAME 且博客可以正常访问</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2019-08-15_21-01-09.png"></p>
+]]></content>
+      <categories>
+        <category>环境部署</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>jmeter 通过 log4j2.xml 修改 log 文件位置</title>
+    <url>/2024/04/15/jmeter%E9%80%9A%E8%BF%87log4j2-xml%E4%BF%AE%E6%94%B9log%E6%96%87%E4%BB%B6%E4%BD%8D%E7%BD%AE/</url>
+    <content><![CDATA[<p>在 Apache JMeter 中，如果你使用的是 Log4j2 作为日志系统，并且想通过 <code>log4j2.xml</code> 配置文件修改日志文件的位置，你可以按照以下步骤操作：（文中使用 jmeter 版本为:apache-jmeter-5.6.3）</p>
+<ol>
+<li>找到 JMeter 安装目录下的 <code>log4j2.xml</code> 配置文件。在 JMeter 3.x 及以上版本中，这个文件通常位于 <code>apache-jmeter-X.XX/bin</code> 目录下。</li>
+<li>打开 <code>log4j2.xml</code> 文件，找到 <code>RollingFile</code> 或 <code>File</code> 类型的 Appender 配置部分。</li>
+</ol>
+<span id="more"></span>
+
+<figure class="highlight xml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</span></span><br><span class="line"><span class="comment">&lt;!--......--&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">Configuration</span> <span class="attr">status</span>=<span class="string">"WARN"</span> <span class="attr">packages</span>=<span class="string">"org.apache.jmeter.gui.logging"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Appenders</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 修改这里，修改日志文件位置 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">File</span> <span class="attr">name</span>=<span class="string">"jmeter-log"</span> <span class="attr">fileName</span>=<span class="string">"/path/to/your/log/jmeter.log"</span> <span class="attr">append</span>=<span class="string">"false"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>%d %p %c{1.}: %m%n<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">File</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">GuiLogEvent</span> <span class="attr">name</span>=<span class="string">"gui-log-event"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>%d %p %c{1.}: %m%n<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">GuiLogEvent</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;/<span class="name">Appenders</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">Loggers</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Root</span> <span class="attr">level</span>=<span class="string">"info"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">AppenderRef</span> <span class="attr">ref</span>=<span class="string">"jmeter-log"</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">AppenderRef</span> <span class="attr">ref</span>=<span class="string">"gui-log-event"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Root</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Logger</span> <span class="attr">name</span>=<span class="string">"org.apache.jmeter.junit"</span> <span class="attr">level</span>=<span class="string">"debug"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;/<span class="name">Loggers</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">Configuration</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+]]></content>
+      <categories>
+        <category>性能测试</category>
+      </categories>
+      <tags>
+        <tag>jmeter</tag>
       </tags>
   </entry>
   <entry>
@@ -810,30 +838,17 @@
       </tags>
   </entry>
   <entry>
-    <title>如何去除 macOS12-13 更新小红点</title>
-    <url>/2024/05/06/%E5%A6%82%E4%BD%95%E5%8E%BB%E9%99%A4macOS12-13%E6%9B%B4%E6%96%B0%E5%B0%8F%E7%BA%A2%E7%82%B9/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>2 个小红点位置如下：</p>
-<ul>
-<li>设置→通用→软件更新→红点 1</li>
-<li>Dock→红点 1</li>
-</ul>
+    <title>博客重新装修删除冗余内容</title>
+    <url>/2024/05/06/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%96%B0%E8%A3%85%E4%BF%AE%E5%88%A0%E9%99%A4%E5%86%97%E4%BD%99%E5%86%85%E5%AE%B9/</url>
+    <content><![CDATA[<p>最近有空闲时间，就重新装修了长时间没管过的博客，将以前的内容做了精简以及删除，后续会陆续将之前做的笔记整理后，写成 blog，大体做了如下改变。</p>
 <span id="more"></span>
 
-<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><h3 id="（1）关闭自动更新"><a href="#（1）关闭自动更新" class="headerlink" title="（1）关闭自动更新"></a>（1）关闭自动更新</h3><h3 id="（2）host添加相关内容"><a href="#（2）host添加相关内容" class="headerlink" title="（2）host添加相关内容"></a>（2）host 添加相关内容</h3><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">127.0.0.1 swdist.apple.com</span><br><span class="line">127.0.0.1 swscan.apple.com</span><br><span class="line">127.0.0.1 swcdn.apple.com </span><br><span class="line">127.0.0.1 gdmf.apple.com</span><br><span class="line">127.0.0.1 mesu.apple.com</span><br><span class="line">127.0.0.1 xp.apple.com</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="（3）终端执行"><a href="#（3）终端执行" class="headerlink" title="（3）终端执行"></a>（3）终端执行</h3><p>先执行</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">defaults write com.apple.systempreferences AttentionPrefBundleIDs 0</span><br><span class="line">Killall Dock</span><br></pre></td></tr></tbody></table></figure>
-
-<p>如果无法去除，则执行</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">defaults delete com.apple.systempreferences AttentionPrefBundleIDs</span><br><span class="line">defaults delete com.apple.systempreferences DidShowPrefBundleIDs</span><br><span class="line">killall Dock</span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2><p><a href="https://sysin.org/blog/disable-macos-ventura-update/">https://sysin.org/blog/disable-macos-ventura-update/</a></p>
-]]></content>
+<h2 id="1-更改主题为-nexT。"><a href="#1-更改主题为-nexT。" class="headerlink" title="1.更改主题为 nexT。"></a>1. 更改主题为 nexT。</h2><h2 id="2-删除之前冗余内容。"><a href="#2-删除之前冗余内容。" class="headerlink" title="2.删除之前冗余内容。"></a>2. 删除之前冗余内容。</h2><h2 id="3-将一些以前学习的内容做个总结。"><a href="#3-将一些以前学习的内容做个总结。" class="headerlink" title="3.将一些以前学习的内容做个总结。"></a>3. 将一些以前学习的内容做个总结。</h2>]]></content>
       <categories>
-        <category>操作系统</category>
+        <category>环境部署</category>
       </categories>
       <tags>
-        <tag>macos</tag>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -866,6 +881,33 @@
         <tag>ubuntu</tag>
         <tag>macos</tag>
         <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何去除 macOS12-13 更新小红点</title>
+    <url>/2024/05/06/%E5%A6%82%E4%BD%95%E5%8E%BB%E9%99%A4macOS12-13%E6%9B%B4%E6%96%B0%E5%B0%8F%E7%BA%A2%E7%82%B9/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>2 个小红点位置如下：</p>
+<ul>
+<li>设置→通用→软件更新→红点 1</li>
+<li>Dock→红点 1</li>
+</ul>
+<span id="more"></span>
+
+<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><h3 id="（1）关闭自动更新"><a href="#（1）关闭自动更新" class="headerlink" title="（1）关闭自动更新"></a>（1）关闭自动更新</h3><h3 id="（2）host添加相关内容"><a href="#（2）host添加相关内容" class="headerlink" title="（2）host添加相关内容"></a>（2）host 添加相关内容</h3><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">127.0.0.1 swdist.apple.com</span><br><span class="line">127.0.0.1 swscan.apple.com</span><br><span class="line">127.0.0.1 swcdn.apple.com </span><br><span class="line">127.0.0.1 gdmf.apple.com</span><br><span class="line">127.0.0.1 mesu.apple.com</span><br><span class="line">127.0.0.1 xp.apple.com</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="（3）终端执行"><a href="#（3）终端执行" class="headerlink" title="（3）终端执行"></a>（3）终端执行</h3><p>先执行</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">defaults write com.apple.systempreferences AttentionPrefBundleIDs 0</span><br><span class="line">Killall Dock</span><br></pre></td></tr></tbody></table></figure>
+
+<p>如果无法去除，则执行</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">defaults delete com.apple.systempreferences AttentionPrefBundleIDs</span><br><span class="line">defaults delete com.apple.systempreferences DidShowPrefBundleIDs</span><br><span class="line">killall Dock</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2><p><a href="https://sysin.org/blog/disable-macos-ventura-update/">https://sysin.org/blog/disable-macos-ventura-update/</a></p>
+]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>macos</tag>
       </tags>
   </entry>
   <entry>
@@ -970,20 +1012,6 @@
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><span id="more"></span>
 
 <h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2>]]></content>
-  </entry>
-  <entry>
-    <title>博客重新装修删除冗余内容</title>
-    <url>/2024/05/06/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%96%B0%E8%A3%85%E4%BF%AE%E5%88%A0%E9%99%A4%E5%86%97%E4%BD%99%E5%86%85%E5%AE%B9/</url>
-    <content><![CDATA[<p>最近有空闲时间，就重新装修了长时间没管过的博客，将以前的内容做了精简以及删除，后续会陆续将之前做的笔记整理后，写成 blog，大体做了如下改变。</p>
-<span id="more"></span>
-
-<h2 id="1-更改主题为-nexT。"><a href="#1-更改主题为-nexT。" class="headerlink" title="1.更改主题为 nexT。"></a>1. 更改主题为 nexT。</h2><h2 id="2-删除之前冗余内容。"><a href="#2-删除之前冗余内容。" class="headerlink" title="2.删除之前冗余内容。"></a>2. 删除之前冗余内容。</h2><h2 id="3-将一些以前学习的内容做个总结。"><a href="#3-将一些以前学习的内容做个总结。" class="headerlink" title="3.将一些以前学习的内容做个总结。"></a>3. 将一些以前学习的内容做个总结。</h2>]]></content>
-      <categories>
-        <category>环境部署</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
   </entry>
   <entry>
     <title>测试计划模板</title>
@@ -1102,36 +1130,6 @@
       </tags>
   </entry>
   <entry>
-    <title>解决 gitea 报错初始 URL 和访问 URL 不同的问题</title>
-    <url>/2024/07/22/%E8%A7%A3%E5%86%B3gitea%E6%8A%A5%E9%94%99%E5%88%9D%E5%A7%8BURL%E5%92%8C%E8%AE%BF%E9%97%AEURL%E4%B8%8D%E5%90%8C%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>Your ROOT_URL in app.ini is <code>https://192.168.1.11:1234/</code> but you are visiting <code>https://192.168.1.12:1234/</code> You should set ROOT_URL correctly, otherwise the web may not work correctly.</p>
-<span id="more"></span>
-
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>翻译可知，初始化的域名和访问的域名不一致，可能会导致问题。</p>
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>因为 gitea 是群晖的套件，所以要找到配置文件，然后修改。步骤如下：</p>
-<p>(1) 登录群晖 (DMS 版本：DSM 6.2.3-25426 Update 3)→终端机和 SNMP→启动 Telnet 功能和启动 SSH 功能→应用。</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240722163031974.png" alt="image-20240722163031974"></p>
-<p>(2) ssh user@ip_address，输入密码。<br>(3) 进入目录 /var/packages/gitea/var</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /var/packages/gitea/var</span><br></pre></td></tr></tbody></table></figure>
-
-<p>(4) 打开 conf.ini 文件，需要用户 root 权限。</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo vi conf.ini</span><br></pre></td></tr></tbody></table></figure>
-
-<p>修改 [server] 下的 ROOT_URL 为现在的访问地址</p>
-<figure class="highlight ini"><table><tbody><tr><td class="code"><pre><span class="line"><span class="section">[server]</span></span><br><span class="line"><span class="attr">LFS_CONTENT_PATH</span> = /xxx/xxx/xxx</span><br><span class="line"><span class="attr">SSH_DOMAIN</span>       = <span class="number">192.168</span>.xx.xx</span><br><span class="line"><span class="attr">DOMAIN</span>           = <span class="number">192.168</span>.xx.xx</span><br><span class="line"><span class="attr">ROOT_URL</span>         = https://xxx.xxx.xxx:xxx/</span><br><span class="line"><span class="attr">LOCAL_ROOT_URL</span>   = http://localhost:xxx/</span><br><span class="line"><span class="attr">HTTP_PORT</span>        = xxx</span><br><span class="line"><span class="attr">DISABLE_SSH</span>      = <span class="literal">false</span></span><br><span class="line"><span class="attr">SSH_PORT</span>         = <span class="number">22</span></span><br><span class="line"><span class="attr">LFS_START_SERVER</span> = <span class="literal">true</span></span><br><span class="line"><span class="attr">LFS_JWT_SECRET</span>   = xxxxxxxxxxxxxxxxxxxxxxxxxx</span><br><span class="line"><span class="attr">OFFLINE_MODE</span>     = <span class="literal">false</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>(5) 重启（停用→启用）</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240722163415690.png" alt="image-20240722163415690"></p>
-]]></content>
-      <categories>
-        <category>环境部署</category>
-      </categories>
-      <tags>
-        <tag>synology</tag>
-        <tag>gitea</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>解决 hexoblog 标签点击没有响应的问题</title>
     <url>/2024/05/23/%E8%A7%A3%E5%86%B3hexoblog%E6%A0%87%E7%AD%BE%E7%82%B9%E5%87%BB%E6%B2%A1%E6%9C%89%E5%93%8D%E5%BA%94%E7%9A%84%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>点击博客标签页面里面的标签，没有反应。</p>
@@ -1185,6 +1183,58 @@
       </categories>
       <tags>
         <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解决 gitea 报错初始 URL 和访问 URL 不同的问题</title>
+    <url>/2024/07/22/%E8%A7%A3%E5%86%B3gitea%E6%8A%A5%E9%94%99%E5%88%9D%E5%A7%8BURL%E5%92%8C%E8%AE%BF%E9%97%AEURL%E4%B8%8D%E5%90%8C%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>Your ROOT_URL in app.ini is <code>https://192.168.1.11:1234/</code> but you are visiting <code>https://192.168.1.12:1234/</code> You should set ROOT_URL correctly, otherwise the web may not work correctly.</p>
+<span id="more"></span>
+
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>翻译可知，初始化的域名和访问的域名不一致，可能会导致问题。</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>因为 gitea 是群晖的套件，所以要找到配置文件，然后修改。步骤如下：</p>
+<p>(1) 登录群晖 (DMS 版本：DSM 6.2.3-25426 Update 3)→终端机和 SNMP→启动 Telnet 功能和启动 SSH 功能→应用。</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240722163031974.png" alt="image-20240722163031974"></p>
+<p>(2) ssh user@ip_address，输入密码。<br>(3) 进入目录 /var/packages/gitea/var</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /var/packages/gitea/var</span><br></pre></td></tr></tbody></table></figure>
+
+<p>(4) 打开 conf.ini 文件，需要用户 root 权限。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo vi conf.ini</span><br></pre></td></tr></tbody></table></figure>
+
+<p>修改 [server] 下的 ROOT_URL 为现在的访问地址</p>
+<figure class="highlight ini"><table><tbody><tr><td class="code"><pre><span class="line"><span class="section">[server]</span></span><br><span class="line"><span class="attr">LFS_CONTENT_PATH</span> = /xxx/xxx/xxx</span><br><span class="line"><span class="attr">SSH_DOMAIN</span>       = <span class="number">192.168</span>.xx.xx</span><br><span class="line"><span class="attr">DOMAIN</span>           = <span class="number">192.168</span>.xx.xx</span><br><span class="line"><span class="attr">ROOT_URL</span>         = https://xxx.xxx.xxx:xxx/</span><br><span class="line"><span class="attr">LOCAL_ROOT_URL</span>   = http://localhost:xxx/</span><br><span class="line"><span class="attr">HTTP_PORT</span>        = xxx</span><br><span class="line"><span class="attr">DISABLE_SSH</span>      = <span class="literal">false</span></span><br><span class="line"><span class="attr">SSH_PORT</span>         = <span class="number">22</span></span><br><span class="line"><span class="attr">LFS_START_SERVER</span> = <span class="literal">true</span></span><br><span class="line"><span class="attr">LFS_JWT_SECRET</span>   = xxxxxxxxxxxxxxxxxxxxxxxxxx</span><br><span class="line"><span class="attr">OFFLINE_MODE</span>     = <span class="literal">false</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>(5) 重启（停用→启用）</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240722163415690.png" alt="image-20240722163415690"></p>
+]]></content>
+      <categories>
+        <category>环境部署</category>
+      </categories>
+      <tags>
+        <tag>synology</tag>
+        <tag>gitea</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解决使用 excel 打开 csv 文件时出现乱码的问题</title>
+    <url>/2020/06/11/%E8%A7%A3%E5%86%B3%E4%BD%BF%E7%94%A8excel%E6%89%93%E5%BC%80csv%E6%96%87%E4%BB%B6%E6%97%B6%E5%87%BA%E7%8E%B0%E4%B9%B1%E7%A0%81%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>使用 excel 打开 csv 文件时出现乱码</p>
+<span id="more"></span>
+
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>excel 默认识别的是带 BOM 格式的 csv 文档，而打开纯 UTF-8 的文件时，没有 BOM 的头，也就是第一行，所以打开是乱码。(开头多了一串字符”\ufeff”)</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>将”utf-8” 格式转换为”utf-8 with BOM”，python 中这个带 BOM 格式的叫做 UTF-8-SIG，都是 UTF-8 带签名的意思。</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> codecs</span><br><span class="line"><span class="keyword">import</span> chardet</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># from subFunc_tools import *</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">list_folders_files</span>(<span class="params">path</span>):</span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    返回 "文件夹" 和 "文件" 名字</span></span><br><span class="line"><span class="string">    :param path: "文件夹"和"文件"所在的路径</span></span><br><span class="line"><span class="string">    :return:  (list_folders, list_files)</span></span><br><span class="line"><span class="string">            :list_folders: 文件夹</span></span><br><span class="line"><span class="string">            :list_files: 文件</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    list_folders = []</span><br><span class="line">    list_files = []</span><br><span class="line">    <span class="keyword">for</span> file <span class="keyword">in</span> os.listdir(path):</span><br><span class="line">        file_path = os.path.join(path, file)</span><br><span class="line">        <span class="keyword">if</span> os.path.isdir(file_path):</span><br><span class="line">            list_folders.append(file)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            list_files.append(file)</span><br><span class="line">    <span class="keyword">return</span> (list_folders, list_files)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">convert</span>(<span class="params">file, in_enc=<span class="string">"GBK"</span>, out_enc=<span class="string">"UTF-8"</span></span>):</span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    该程序用于将目录下的文件从指定格式转换到指定格式，默认的是GBK转到utf-8</span></span><br><span class="line"><span class="string">    :param file:    文件路径</span></span><br><span class="line"><span class="string">    :param in_enc:  输入文件格式</span></span><br><span class="line"><span class="string">    :param out_enc: 输出文件格式</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    in_enc = in_enc.upper()</span><br><span class="line">    out_enc = out_enc.upper()</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"convert [ "</span> + file.split(<span class="string">'\\'</span>)[-<span class="number">1</span>] + <span class="string">" ].....From "</span> + in_enc + <span class="string">" --&gt; "</span> + out_enc)</span><br><span class="line">        f = codecs.<span class="built_in">open</span>(file, <span class="string">'r'</span>, in_enc)</span><br><span class="line">        new_content = f.read()</span><br><span class="line">        codecs.<span class="built_in">open</span>(file, <span class="string">'w'</span>, out_enc).write(new_content)</span><br><span class="line">    <span class="comment"># print (f.read())</span></span><br><span class="line">    <span class="keyword">except</span> IOError <span class="keyword">as</span> err:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"I/O error: {0}"</span>.<span class="built_in">format</span>(err))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将路径下面的所有文件，从原来的格式变为UTF-8的格式</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    path = <span class="string">r'G:\desktop\Convert-UTF8'</span></span><br><span class="line"></span><br><span class="line">    (list_folders, list_files) = list_folders_files(path)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Path: "</span> + path)</span><br><span class="line">    <span class="keyword">for</span> fileName <span class="keyword">in</span> list_files:</span><br><span class="line">        filePath = path + <span class="string">'\\'</span> + fileName</span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(filePath, <span class="string">"rb"</span>) <span class="keyword">as</span> f:</span><br><span class="line">            data = f.read()</span><br><span class="line">            codeType = chardet.detect(data)[<span class="string">'encoding'</span>]</span><br><span class="line">            convert(filePath, codeType, <span class="string">'UTF-8-SIG'</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p>代码参考于以下博客，自己做了相关调整：</p>
+<p><a href="https://www.cnblogs.com/monster-yher/p/13418600.html">https://www.cnblogs.com/monster-yher/p/13418600.html</a></p>
+]]></content>
+      <categories>
+        <category>测试脚本</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -1277,28 +1327,6 @@
       </categories>
       <tags>
         <tag>templates</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>解决使用 excel 打开 csv 文件时出现乱码的问题</title>
-    <url>/2020/06/11/%E8%A7%A3%E5%86%B3%E4%BD%BF%E7%94%A8excel%E6%89%93%E5%BC%80csv%E6%96%87%E4%BB%B6%E6%97%B6%E5%87%BA%E7%8E%B0%E4%B9%B1%E7%A0%81%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>使用 excel 打开 csv 文件时出现乱码</p>
-<span id="more"></span>
-
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>excel 默认识别的是带 BOM 格式的 csv 文档，而打开纯 UTF-8 的文件时，没有 BOM 的头，也就是第一行，所以打开是乱码。(开头多了一串字符”\ufeff”)</p>
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>将”utf-8” 格式转换为”utf-8 with BOM”，python 中这个带 BOM 格式的叫做 UTF-8-SIG，都是 UTF-8 带签名的意思。</p>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> codecs</span><br><span class="line"><span class="keyword">import</span> chardet</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># from subFunc_tools import *</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">list_folders_files</span>(<span class="params">path</span>):</span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    返回 "文件夹" 和 "文件" 名字</span></span><br><span class="line"><span class="string">    :param path: "文件夹"和"文件"所在的路径</span></span><br><span class="line"><span class="string">    :return:  (list_folders, list_files)</span></span><br><span class="line"><span class="string">            :list_folders: 文件夹</span></span><br><span class="line"><span class="string">            :list_files: 文件</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    list_folders = []</span><br><span class="line">    list_files = []</span><br><span class="line">    <span class="keyword">for</span> file <span class="keyword">in</span> os.listdir(path):</span><br><span class="line">        file_path = os.path.join(path, file)</span><br><span class="line">        <span class="keyword">if</span> os.path.isdir(file_path):</span><br><span class="line">            list_folders.append(file)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            list_files.append(file)</span><br><span class="line">    <span class="keyword">return</span> (list_folders, list_files)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">convert</span>(<span class="params">file, in_enc=<span class="string">"GBK"</span>, out_enc=<span class="string">"UTF-8"</span></span>):</span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    该程序用于将目录下的文件从指定格式转换到指定格式，默认的是GBK转到utf-8</span></span><br><span class="line"><span class="string">    :param file:    文件路径</span></span><br><span class="line"><span class="string">    :param in_enc:  输入文件格式</span></span><br><span class="line"><span class="string">    :param out_enc: 输出文件格式</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    in_enc = in_enc.upper()</span><br><span class="line">    out_enc = out_enc.upper()</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"convert [ "</span> + file.split(<span class="string">'\\'</span>)[-<span class="number">1</span>] + <span class="string">" ].....From "</span> + in_enc + <span class="string">" --&gt; "</span> + out_enc)</span><br><span class="line">        f = codecs.<span class="built_in">open</span>(file, <span class="string">'r'</span>, in_enc)</span><br><span class="line">        new_content = f.read()</span><br><span class="line">        codecs.<span class="built_in">open</span>(file, <span class="string">'w'</span>, out_enc).write(new_content)</span><br><span class="line">    <span class="comment"># print (f.read())</span></span><br><span class="line">    <span class="keyword">except</span> IOError <span class="keyword">as</span> err:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"I/O error: {0}"</span>.<span class="built_in">format</span>(err))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将路径下面的所有文件，从原来的格式变为UTF-8的格式</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    path = <span class="string">r'G:\desktop\Convert-UTF8'</span></span><br><span class="line"></span><br><span class="line">    (list_folders, list_files) = list_folders_files(path)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Path: "</span> + path)</span><br><span class="line">    <span class="keyword">for</span> fileName <span class="keyword">in</span> list_files:</span><br><span class="line">        filePath = path + <span class="string">'\\'</span> + fileName</span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(filePath, <span class="string">"rb"</span>) <span class="keyword">as</span> f:</span><br><span class="line">            data = f.read()</span><br><span class="line">            codeType = chardet.detect(data)[<span class="string">'encoding'</span>]</span><br><span class="line">            convert(filePath, codeType, <span class="string">'UTF-8-SIG'</span>)</span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p>代码参考于以下博客，自己做了相关调整：</p>
-<p><a href="https://www.cnblogs.com/monster-yher/p/13418600.html">https://www.cnblogs.com/monster-yher/p/13418600.html</a></p>
-]]></content>
-      <categories>
-        <category>测试脚本</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
       </tags>
   </entry>
   <entry>

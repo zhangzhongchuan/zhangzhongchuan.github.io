@@ -1,6 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>MySQL 中的 DATE_ADD 函数基本使用</title>
+    <url>/2024/06/13/MySQL%E4%B8%AD%E7%9A%84DATE-ADD%E5%87%BD%E6%95%B0%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>每次用到 MySQL 关于时间的计算，都跑不了 <code>DATE_ADD</code> 函数，每次都得查，特此记录下，下次用时直接看。</p>
+<span id="more"></span>
+
+<p>MySQL 中的 <code>DATE_ADD()</code> 函数用于将一个时间间隔加到一个日期或时间值上。这个函数非常有用，特别是当你需要计算未来的日期或时间点时。</p>
+<h2 id="2-基本语法"><a href="#2-基本语法" class="headerlink" title="2.基本语法"></a>2. 基本语法</h2><figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line">DATE_ADD(<span class="type">date</span>, <span class="type">INTERVAL</span> <span class="keyword">value</span> unit)</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li><code>date</code> 是你想要添加时间间隔的原始日期或时间值。</li>
+<li><code>INTERVAL</code> 关键字指定了要添加的时间间隔。</li>
+<li><code>value</code> 是时间间隔的数量。</li>
+<li><code>unit</code> 是时间间隔的单位，可以是以下几种之一：<ul>
+<li><code>MICROSECOND</code>（微秒）</li>
+<li><code>SECOND</code>（秒）</li>
+<li><code>MINUTE</code>（分钟）</li>
+<li><code>HOUR</code>（小时）</li>
+<li><code>DAY</code>（天）</li>
+<li><code>WEEK</code>（周）</li>
+<li><code>MONTH</code>（月）</li>
+<li><code>QUARTER</code>（季度）</li>
+<li><code>YEAR</code>（年）</li>
+<li><code>SECOND_MICROSECOND</code>（秒和微秒）</li>
+<li><code>MINUTE_MICROSECOND</code>（分钟和微秒）</li>
+<li><code>MINUTE_SECOND</code>（分钟和秒）</li>
+<li><code>HOUR_MICROSECOND</code>（小时和微秒）</li>
+<li><code>HOUR_SECOND</code>（小时和秒）</li>
+<li><code>DAY_MICROSECOND</code>（天和微秒）</li>
+<li><code>DAY_SECOND</code>（天和秒）</li>
+<li><code>YEAR_MONTH</code>（年和月）</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-常用例子"><a href="#3-常用例子" class="headerlink" title="3.常用例子"></a>3. 常用例子</h2><p>（1）<strong>添加天数</strong>：</p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> DATE_ADD(<span class="string">'2024-06-12'</span>, <span class="type">INTERVAL</span> <span class="number">10</span> <span class="keyword">DAY</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>（2）<strong>添加小时</strong>：</p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> DATE_ADD(<span class="string">'2024-06-12 14:30:00'</span>, <span class="type">INTERVAL</span> <span class="number">2</span> <span class="keyword">HOUR</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>（3）<strong>添加分钟和秒</strong>：</p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> DATE_ADD(<span class="string">'2024-06-12 14:30:00'</span>, <span class="type">INTERVAL</span> <span class="number">30</span> <span class="keyword">MINUTE</span>);</span><br><span class="line"><span class="keyword">SELECT</span> DATE_ADD(<span class="string">'2024-06-12 14:30:00'</span>, <span class="type">INTERVAL</span> <span class="number">5</span> <span class="keyword">SECOND</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>（4）<strong>添加年和月</strong>：</p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> DATE_ADD(<span class="string">'2024-06-12'</span>, <span class="type">INTERVAL</span> <span class="number">1</span> <span class="keyword">YEAR</span>);</span><br><span class="line"><span class="keyword">SELECT</span> DATE_ADD(<span class="string">'2024-06-12'</span>, <span class="type">INTERVAL</span> <span class="number">3</span> <span class="keyword">MONTH</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>（5）<strong>添加复杂时间间隔</strong>（例如，1 天 3 小时 30 分钟）：</p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> DATE_ADD(<span class="string">'2024-06-12'</span>, <span class="type">INTERVAL</span> <span class="number">1</span> <span class="keyword">DAY</span> <span class="number">3</span> <span class="keyword">HOUR</span> <span class="number">30</span> <span class="keyword">MINUTE</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>请注意，当使用 <code>DATE_ADD()</code> 函数时，结果的日期和时间格式将取决于你的 MySQL 服务器的设置，包括时区和日期时间格式。</p>
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Appium2 总结（一）环境搭建以及简单脚本测试</title>
     <url>/2024/07/29/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%80%EF%BC%89%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%BB%A5%E5%8F%8A%E7%AE%80%E5%8D%95%E8%84%9A%E6%9C%AC%E6%B5%8B%E8%AF%95/</url>
     <content><![CDATA[<p>Appium 是一个开源项目和相关软件的生态系统。 软件，旨在促进许多应用程序平台的 UI 自动化，包括移动平台（iOS、 Android、Tizen）、浏览器（Chrome、Firefox、Safari）、桌面（macOS、Windows）、电视（Roku、tvOS、 Android TV、三星）等，它还旨在支持用不同语言（JS、Java、Python 等）编写的自动化代码。</p>
@@ -207,32 +265,26 @@
       </tags>
   </entry>
   <entry>
-    <title>Appium2 总结（二）inspector 工具使用及定位操作元素</title>
-    <url>/2024/07/30/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89inspector%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AE%9A%E4%BD%8D%E6%93%8D%E4%BD%9C%E5%85%83%E7%B4%A0/</url>
+    <title>Appium2 总结（二）Inspector 工具使用及定位操作元素</title>
+    <url>/2024/07/30/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89Inspector%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AE%9A%E4%BD%8D%E6%93%8D%E4%BD%9C%E5%85%83%E7%B4%A0_CandydeMac-mini.local_Aug-01-093527-2024_CaseConflict/</url>
     <content><![CDATA[<p>Appium Inspector 是 Appium 的一个工具，<strong>用于帮助开发人员和测试人员分析和调试移动应用程序</strong>。 它提供了图形界面和交互式的功能，使您能够轻松地检查应用程序的 UI 元素、获取元素属性、执行操作和生成自动化测试脚本。</p>
 <span id="more"></span>
 
-<h2 id="1-Appium-Inspector-下载"><a href="#1-Appium-Inspector-下载" class="headerlink" title="1.Appium Inspector 下载"></a>1.Appium Inspector 下载</h2><p>下载地址：</p>
-<figure class="highlight http"><table><tbody><tr><td class="code"><pre><span class="line">https://github.com/appium/appium-inspector/releases</span><br></pre></td></tr></tbody></table></figure>
-
+<h2 id="1-Appium-Inspector-下载"><a href="#1-Appium-Inspector-下载" class="headerlink" title="1.Appium Inspector 下载"></a>1.Appium Inspector 下载</h2><p><a href="https://github.com/appium/appium-inspector/releases">下载地址</a></p>
 <p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240730200543128.png" alt="image-20240730200543128"></p>
 <p>选择相应版本下载后安装。</p>
-<h2 id="2-Appium-Inspector使用"><a href="#2-Appium-Inspector使用" class="headerlink" title="2.Appium Inspector使用"></a>2.Appium Inspector 使用</h2><p>（1）首先连接模拟器。</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">➜  ~ adb connect 192.168.XX.XX:5555</span><br><span class="line">connected to 192.168.XX.XX:5555</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="2-Appium-Inspector使用"><a href="#2-Appium-Inspector使用" class="headerlink" title="2.Appium Inspector使用"></a>2.Appium Inspector 使用</h2><h4 id="（1）首先连接模拟器。"><a href="#（1）首先连接模拟器。" class="headerlink" title="（1）首先连接模拟器。"></a>（1）首先连接模拟器。</h4><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">➜  ~ adb connect 192.168.XX.XX:5555</span><br><span class="line">connected to 192.168.XX.XX:5555</span><br></pre></td></tr></tbody></table></figure>
 
-<p>（2）启动 appium 服务</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">➜  ~ appium</span><br><span class="line">[Appium] Welcome to Appium v2.11.2</span><br><span class="line">......</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="（2）启动-appium-服务"><a href="#（2）启动-appium-服务" class="headerlink" title="（2）启动 appium 服务"></a>（2）启动 appium 服务</h4><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">➜  ~ appium</span><br><span class="line">[Appium] Welcome to Appium v2.11.2</span><br><span class="line">......</span><br></pre></td></tr></tbody></table></figure>
 
-<p>（3）打开 Appium Inspector</p>
-<p>在 Capability Builder 中，填写</p>
+<h4 id="（3）打开Appium-Inspector"><a href="#（3）打开Appium-Inspector" class="headerlink" title="（3）打开Appium Inspector"></a>（3）打开 Appium Inspector</h4><p>在 Capability Builder 中，填写</p>
 <p>platformName=’Android’</p>
 <p>automationName=’uiautomator2’</p>
 <p>然后点击 <code>Start Session</code> 按钮。</p>
 <p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240731112127407.png" alt="image-20240731112127407"></p>
 <p>界面看到模拟器的截图，说明连接成功。</p>
 <p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240731112511529.png" alt="image-20240731112511529"></p>
-<p>（4）安装 2 个 app 用于测试</p>
-<p><a href="https://github.com/appium/appium/raw/master/packages/appium/sample-code/apps/ApiDemos-debug.apk">appium 官方 Demo apk 下载地址</a></p>
+<h4 id="（4）安装2-个-app用于测试"><a href="#（4）安装2-个-app用于测试" class="headerlink" title="（4）安装2 个 app用于测试"></a>（4）安装 2 个 app 用于测试</h4><p><a href="https://github.com/appium/appium/raw/master/packages/appium/sample-code/apps/ApiDemos-debug.apk">appium 官方 Demo apk 下载地址</a></p>
 <p>使用 adb 命令安装：</p>
 <figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">➜  ~ adb install /Users/user1/Downloads/ApiDemos-debug.apk</span><br><span class="line">Performing Streamed Install</span><br><span class="line">Success</span><br></pre></td></tr></tbody></table></figure>
 
@@ -243,22 +295,69 @@
 
 <p>安装成功后，模拟器出现如下 app</p>
 <p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240731145423828.png" alt="image-20240731145423828"></p>
-<p>（5）打开 API Demos ，获取包名界面名（活动名）</p>
-<p>1️⃣通过 adb 命令获取</p>
+<h4 id="（5）打开-API-Demos-，获取包名界面名（活动名）"><a href="#（5）打开-API-Demos-，获取包名界面名（活动名）" class="headerlink" title="（5）打开 API Demos ，获取包名界面名（活动名）"></a>（5）打开 API Demos ，获取包名界面名（活动名）</h4><p>​	1️⃣通过 adb 命令获取</p>
 <figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">➜  ~ adb shell dumpsys window |grep mFocusedApp</span><br><span class="line">    mFocusedApp=Token{b14e783 ActivityRecord{3e73e32 u0 io.appium.android.apis/.ApiDemos t9}}</span><br><span class="line">    mFocusedApp=AppWindowToken{8c2ad00 token=Token{b14e783 ActivityRecord{3e73e32 u0 io.appium.android.apis/.ApiDemos t9}}}</span><br></pre></td></tr></tbody></table></figure>
 
-<p>2️⃣通过 Appium Inspector 获取</p>
+<p>​	2️⃣通过 Appium Inspector 获取</p>
 <p>获取包名 <code>Commands</code>→<code>App Management</code>→<code>getCurrentPackage</code></p>
 <p>获取界面名 <code>Commands</code>→<code>App Management</code>→<code>getCurrentPackage</code></p>
 <p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/2024-07-31%2015.38.57.gif" alt="2024-07-31 15.38.57"></p>
-<h2 id="2-定位操作元素"><a href="#2-定位操作元素" class="headerlink" title="2.定位操作元素"></a>2. 定位操作元素</h2><p>（1）通过 Appium Inspector 获取元素的 id</p>
+<h2 id="2-定位操作元素"><a href="#2-定位操作元素" class="headerlink" title="2.定位操作元素"></a>2. 定位操作元素</h2><h4 id="（1）通过-id-定位，操作元素"><a href="#（1）通过-id-定位，操作元素" class="headerlink" title="（1）通过 id 定位，操作元素"></a>（1）通过 id 定位，操作元素</h4><p>​	1️⃣通过 Appium Inspector 获取元素的 id</p>
 <p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/2024-07-31%2018.12.29.gif" alt="2024-07-31 18.12.29"></p>
-<p>（2）通过 id 获取获取元素，操作元素</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># 通过 ID 找元素</span></span><br><span class="line"><span class="comment"># 分别获取计算器上按键 1+2= 四个按钮的按键，并且点击</span></span><br><span class="line">driver.find_element(AppiumBy.ID, <span class="string">'com.dreamfish.com.autocalc:id/btn_pad_number_1'</span>).click()</span><br><span class="line">time.sleep(1)</span><br><span class="line">driver.find_element(AppiumBy.ID, <span class="string">'com.dreamfish.com.autocalc:id/btn_pad_plus'</span>).click()</span><br><span class="line">time.sleep(1)</span><br><span class="line">driver.find_element(AppiumBy.ID, <span class="string">'com.dreamfish.com.autocalc:id/btn_pad_number_2'</span>).click()</span><br><span class="line">time.sleep(1)</span><br><span class="line">driver.find_element(AppiumBy.ID, <span class="string">'com.dreamfish.com.autocalc:id/btn_pad_equal'</span>).click()</span><br></pre></td></tr></tbody></table></figure>
+<p>​	2️⃣通过 id 获取获取元素🌰</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># 通过 ID 找元素</span></span><br><span class="line"><span class="comment"># 分别获取计算器上按键 1+2= 四个按钮的按键，并且点击</span></span><br><span class="line">driver.find_element(AppiumBy.ID, <span class="string">'com.dreamfish.com.autocalc:id/btn_pad_number_1'</span>).click()</span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line">driver.find_element(AppiumBy.ID, <span class="string">'com.dreamfish.com.autocalc:id/btn_pad_plus'</span>).click()</span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line">driver.find_element(AppiumBy.ID, <span class="string">'com.dreamfish.com.autocalc:id/btn_pad_number_2'</span>).click()</span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line">driver.find_element(AppiumBy.ID, <span class="string">'com.dreamfish.com.autocalc:id/btn_pad_equal'</span>).click()</span><br></pre></td></tr></tbody></table></figure>
 
+<h4 id="（2）通过-xpath-定位操作元素"><a href="#（2）通过-xpath-定位操作元素" class="headerlink" title="（2）通过 xpath 定位操作元素"></a>（2）通过 xpath 定位操作元素</h4><p>​	1️⃣通过 Appium Inspector 获取元素的 xpath</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240801104459184.png" alt="image-20240801104459184"></p>
+<p>​	2️⃣通过 xpath 获取元素，点击元素的🌰</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line">driver.find_element(AppiumBy.XPATH, <span class="string">'//android.widget.Button[@resource-id="com.dreamfish.com.autocalc:id/btn_pad_number_1"]'</span>).click()</span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line">driver.find_element(AppiumBy.XPATH, <span class="string">'//android.widget.Button[@resource-id="com.dreamfish.com.autocalc:id/btn_pad_plus"]'</span>).click()</span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line">driver.find_element(AppiumBy.XPATH, <span class="string">'//android.widget.Button[@resource-id="com.dreamfish.com.autocalc:id/btn_pad_number_2"]'</span>).click()</span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line">driver.find_element(AppiumBy.XPATH, <span class="string">'//android.widget.Button[@resource-id="com.dreamfish.com.autocalc:id/btn_pad_equal"]'</span>).click()</span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br></pre></td></tr></tbody></table></figure>
 
+<h4 id="（3）通过-accessibility-id-定位操作元素"><a href="#（3）通过-accessibility-id-定位操作元素" class="headerlink" title="（3）通过 accessibility id 定位操作元素"></a>（3）通过 accessibility id 定位操作元素</h4><p>​	 安卓独有的定位方式，有些元素有，有些没有</p>
+<p>​	1️⃣通过 Appium Inspector 获取元素的 xpath</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240801110329274.png" alt="image-20240801110329274"></p>
+<p>​	2️⃣通过 accessibility id 获取元素，点击元素的🌰(当 content-desc 这个值有值时，可用，如果没有则不可用)</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line">driver.find_element(AppiumBy.ACCESSIBILITY_ID, <span class="string">r"Access'ibility"</span>).click()</span><br></pre></td></tr></tbody></table></figure>
 
-<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2>]]></content>
+<h4 id="（4）通过界面元素的-class-属性定位"><a href="#（4）通过界面元素的-class-属性定位" class="headerlink" title="（4）通过界面元素的 class 属性定位"></a>（4）通过界面元素的 <code>class</code> 属性定位</h4><p>​	1️⃣通过 Appium Inspector 获取元素的 class</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240801110953875.png" alt="image-20240801110953875"></p>
+<p>​	2️⃣通过 class 获取元素，点击元素的🌰</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># 执行可能看不到效果，因为有多个元素的 class 都是'android.widget.TextView'，定位元素时支取第一个</span></span><br><span class="line">driver.find_element(AppiumBy.CLASS_NAME, <span class="string">'android.widget.TextView'</span>).click()</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="（5）其他定位方式"><a href="#（5）其他定位方式" class="headerlink" title="（5）其他定位方式"></a>（5）其他定位方式</h4><p>以上四种基本够用了，其他的如 <code>NAME</code>、<code>CSS_SELECTOR</code>、<code>LINK_TEXT</code>、<code>PARTIAL_LINK_TEXT</code>、<code>TAG_NAME</code> 等等这些和 selenium 相同 (直接就用的 selenium，适用于网页元素)，而 <code>ANDROID_VIEWTAG</code>、<code>ANDROID_UIAUTOMATOR</code>、<code>ANDROID_VIEW_MATCHER</code> 都是借助非 appium 的其他自动化工具，个别情况也是可以使用，用到了再查。</p>
+<h2 id="3-操作元素"><a href="#3-操作元素" class="headerlink" title="3.操作元素"></a>3. 操作元素</h2><h4 id="（1）点击操作。"><a href="#（1）点击操作。" class="headerlink" title="（1）点击操作。"></a>（1）点击操作。</h4><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line">driver.find_element(AppiumBy.ACCESSIBILITY_ID, <span class="string">'App'</span>).click()</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="（2）文本框中输入文本。"><a href="#（2）文本框中输入文本。" class="headerlink" title="（2）文本框中输入文本。"></a>（2）文本框中输入文本。</h4><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line">driver.find_element(AppiumBy.ID, <span class="string">'android:id/search_src_text'</span>).send_keys(<span class="string">'test_send_keys'</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="（3）清除文本框内容。"><a href="#（3）清除文本框内容。" class="headerlink" title="（3）清除文本框内容。"></a>（3）清除文本框内容。</h4><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line">driver.find_element(AppiumBy.ID, <span class="string">'android:id/search_src_text'</span>).clear()</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="（4）滑动操作"><a href="#（4）滑动操作" class="headerlink" title="（4）滑动操作"></a>（4）滑动操作</h4><p>​	1️⃣坐标滑动</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line">driver.swipe(<span class="number">313</span>,<span class="number">267</span>, <span class="number">500</span>, <span class="number">267</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<p>​	2️⃣元素滑动</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># 点击进入 Views 界面</span></span><br><span class="line">driver.find_element(AppiumBy.ACCESSIBILITY_ID, <span class="string">'Views'</span>).click()</span><br><span class="line"><span class="comment"># 滑动起始元素</span></span><br><span class="line">Custom_btn = driver.find_element(AppiumBy.ACCESSIBILITY_ID, <span class="string">'Custom'</span>)</span><br><span class="line"><span class="comment"># 滑动结束元素</span></span><br><span class="line">button = driver.find_element(AppiumBy.ACCESSIBILITY_ID, <span class="string">'Buttons'</span>)</span><br><span class="line"><span class="comment"># 执行滑动操作</span></span><br><span class="line">driver.scroll(Custom_btn, button, duration=<span class="number">2000</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="（5）点击坐标"><a href="#（5）点击坐标" class="headerlink" title="（5）点击坐标"></a>（5）点击坐标</h4><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># 点击坐标</span></span><br><span class="line">driver.tap([(<span class="number">511</span>, <span class="number">755</span>)])</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="（6）长按操作"><a href="#（6）长按操作" class="headerlink" title="（6）长按操作"></a>（6）长按操作</h4><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line">el = driver.find_element(AppiumBy.ACCESSIBILITY_ID, <span class="string">'App'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建一个动作类对象，按住 el 元素 10秒后释放</span></span><br><span class="line">ActionChains(driver).click_and_hold(el).pause(<span class="number">10</span>).release().perform()</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="（7）打开系统通知栏"><a href="#（7）打开系统通知栏" class="headerlink" title="（7）打开系统通知栏"></a>（7）打开系统通知栏</h4><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># 打开系统通知栏</span></span><br><span class="line">driver.open_notifications()</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="（8）按返回键操作"><a href="#（8）按返回键操作" class="headerlink" title="（8）按返回键操作"></a>（8）按返回键操作</h4><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># 按下返回键</span></span><br><span class="line">driver.back()</span><br><span class="line">driver.press_keycode(<span class="number">4</span>)</span><br><span class="line"><span class="comment"># 按下 home 键</span></span><br><span class="line">driver.press_keycode(<span class="number">3</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="（9）安装-apk-文件"><a href="#（9）安装-apk-文件" class="headerlink" title="（9）安装 apk 文件"></a>（9）安装 apk 文件</h4><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># 安装 apk, 测试这个时，记得注释掉包名和界面名</span></span><br><span class="line">driver.install_app(<span class="string">'/Users/user1/Downloads/ApiDemos-debug.apk'</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="（10）打开指定的应用，参数为app包名"><a href="#（10）打开指定的应用，参数为app包名" class="headerlink" title="（10）打开指定的应用，参数为app包名"></a>（10）打开指定的应用，参数为 app 包名</h4><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># 打开指定应用，参数为应用包名</span></span><br><span class="line">driver.activate_app(<span class="string">'io.appium.android.apis'</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="（11）将当前的应用放在后台执行一段时间，在回到前台"><a href="#（11）将当前的应用放在后台执行一段时间，在回到前台" class="headerlink" title="（11）将当前的应用放在后台执行一段时间，在回到前台"></a>（11）将当前的应用放在后台执行一段时间，在回到前台</h4><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># 将当前的应用放在后台执行一段时间，在回到前台</span></span><br><span class="line">driver.background_app(<span class="number">10</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="（12）终结-app-的运行，参数为app包名"><a href="#（12）终结-app-的运行，参数为app包名" class="headerlink" title="（12）终结 app 的运行，参数为app包名"></a>（12）终结 app 的运行，参数为 app 包名</h4><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># 终止 app 的运行</span></span><br><span class="line">driver.terminate_app(<span class="string">'io.appium.android.apis'</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="（13）卸载-app，参数为应用包名"><a href="#（13）卸载-app，参数为应用包名" class="headerlink" title="（13）卸载 app，参数为应用包名"></a>（13）卸载 app，参数为应用包名</h4><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># 卸载 app</span></span><br><span class="line">driver.remove_app(<span class="string">'io.appium.android.apis'</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<p>🌰：ps 测试时有些需要注释掉，有些需要重新打开</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> unittest</span><br><span class="line"><span class="keyword">from</span> appium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> appium.options.android <span class="keyword">import</span> UiAutomator2Options</span><br><span class="line"><span class="keyword">from</span> appium.webdriver.common.appiumby <span class="keyword">import</span> AppiumBy</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver <span class="keyword">import</span> ActionChains</span><br><span class="line"></span><br><span class="line">capabilities = <span class="built_in">dict</span>(</span><br><span class="line">    platformName=<span class="string">'Android'</span>,</span><br><span class="line">    automationName=<span class="string">'uiautomator2'</span>,</span><br><span class="line">    deviceName=<span class="string">'XX'</span>,  <span class="comment"># 这块在 android 平台上不作要求，填写 xx 都可以，在 ios 上必填</span></span><br><span class="line">    <span class="comment"># udid='XX', 区别多设备</span></span><br><span class="line">    <span class="comment"># appPackage='io.appium.android.apis',  # appium 官网 demo 包名</span></span><br><span class="line">    <span class="comment"># appActivity='.ApiDemos',  # appium 官网 demo 界面名</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># appPackage='com.dreamfish.com.autocalc',  # 计算器包名</span></span><br><span class="line">    <span class="comment"># appActivity='.LauncherActivity',  # 这个 activity 要通过 monkey 来取，要不取的不是首次界面名</span></span><br><span class="line">    <span class="comment"># noReset=True,  # 不重置（是否初始化环境, 一般打开应用时有这样那样的授权如存储权限等，相机等，这些授权会导致报错，所以现点一遍，然后不重置即可跳过报错）</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">appium_server_url = <span class="string">'http://localhost:4723'</span>  <span class="comment"># appium 服务地址</span></span><br><span class="line"></span><br><span class="line">driver = webdriver.Remote(appium_server_url, options=UiAutomator2Options().load_capabilities(capabilities))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 通过 ID 找元素</span></span><br><span class="line"><span class="comment"># 分别获取计算器上按键 1+2= 四个按钮的按键，并且点击</span></span><br><span class="line"><span class="comment"># driver.find_element(AppiumBy.ID, 'com.dreamfish.com.autocalc:id/btn_pad_number_1').click()</span></span><br><span class="line"><span class="comment"># time.sleep(1)</span></span><br><span class="line"><span class="comment"># driver.find_element(AppiumBy.ID, 'com.dreamfish.com.autocalc:id/btn_pad_plus').click()</span></span><br><span class="line"><span class="comment"># time.sleep(1)</span></span><br><span class="line"><span class="comment"># driver.find_element(AppiumBy.ID, 'com.dreamfish.com.autocalc:id/btn_pad_number_2').click()</span></span><br><span class="line"><span class="comment"># time.sleep(1)</span></span><br><span class="line"><span class="comment"># driver.find_element(AppiumBy.ID, 'com.dreamfish.com.autocalc:id/btn_pad_equal').click()</span></span><br><span class="line"><span class="comment"># time.sleep(1)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 通过 xpath 定位元素</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># driver.find_element(AppiumBy.XPATH, '//android.widget.Button[@resource-id="com.dreamfish.com.autocalc:id/btn_pad_number_1"]').click()</span></span><br><span class="line"><span class="comment"># time.sleep(1)</span></span><br><span class="line"><span class="comment"># driver.find_element(AppiumBy.XPATH, '//android.widget.Button[@resource-id="com.dreamfish.com.autocalc:id/btn_pad_plus"]').click()</span></span><br><span class="line"><span class="comment"># time.sleep(1)</span></span><br><span class="line"><span class="comment"># driver.find_element(AppiumBy.XPATH, '//android.widget.Button[@resource-id="com.dreamfish.com.autocalc:id/btn_pad_number_2"]').click()</span></span><br><span class="line"><span class="comment"># time.sleep(1)</span></span><br><span class="line"><span class="comment"># driver.find_element(AppiumBy.XPATH, '//android.widget.Button[@resource-id="com.dreamfish.com.autocalc:id/btn_pad_equal"]').click()</span></span><br><span class="line"><span class="comment"># time.sleep(1)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 通过 accessibility id 定位</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># driver.find_element(AppiumBy.ACCESSIBILITY_ID, r"Access'ibility").click()</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 执行可能看不到效果，因为有多个元素的 class 都是'android.widget.TextView'，定位元素时支取第一个</span></span><br><span class="line"><span class="comment"># driver.find_element(AppiumBy.CLASS_NAME, 'android.widget.TextView').click()</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value='App').click()</span></span><br><span class="line"><span class="comment"># driver.find_element(by=AppiumBy.XPATH, value='//*[@text="Battery"]').click()</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 实现操作 点击</span></span><br><span class="line"><span class="comment"># time.sleep(1)</span></span><br><span class="line"><span class="comment"># driver.find_element(AppiumBy.ACCESSIBILITY_ID, 'App').click()</span></span><br><span class="line"><span class="comment"># time.sleep(1)</span></span><br><span class="line"><span class="comment"># driver.find_element(AppiumBy.ACCESSIBILITY_ID, 'Search').click()</span></span><br><span class="line"><span class="comment"># time.sleep(1)</span></span><br><span class="line"><span class="comment"># driver.find_element(AppiumBy.ACCESSIBILITY_ID, 'Invoke Search').click()</span></span><br><span class="line"><span class="comment"># time.sleep(1)</span></span><br><span class="line"><span class="comment"># driver.find_element(AppiumBy.ACCESSIBILITY_ID, 'onSearchRequested()').click()</span></span><br><span class="line"><span class="comment"># time.sleep(1)</span></span><br><span class="line"><span class="comment"># driver.find_element(AppiumBy.ID, 'android:id/search_src_text').send_keys('test_send_keys')</span></span><br><span class="line"><span class="comment"># time.sleep(1)</span></span><br><span class="line"><span class="comment"># driver.find_element(AppiumBy.ID, 'android:id/search_src_text').clear()</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 坐标滑动</span></span><br><span class="line"><span class="comment"># driver.swipe(313,267, 500, 267)</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">driver.implicitly_wait(<span class="number">10</span>)</span><br><span class="line"><span class="comment"># 元素滑动</span></span><br><span class="line"><span class="comment"># # 点击进入 Views 界面</span></span><br><span class="line"><span class="comment"># driver.find_element(AppiumBy.ACCESSIBILITY_ID, 'Views').click()</span></span><br><span class="line"><span class="comment"># # 滑动起始元素</span></span><br><span class="line"><span class="comment"># Custom_btn = driver.find_element(AppiumBy.ACCESSIBILITY_ID, 'Custom')</span></span><br><span class="line"><span class="comment"># # 滑动结束元素</span></span><br><span class="line"><span class="comment"># button = driver.find_element(AppiumBy.ACCESSIBILITY_ID, 'Buttons')</span></span><br><span class="line"><span class="comment"># # 执行滑动操作</span></span><br><span class="line"><span class="comment"># driver.scroll(Custom_btn, button, duration=2000)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># # 点击坐标</span></span><br><span class="line"><span class="comment"># driver.tap([(511, 755)])</span></span><br><span class="line"><span class="comment"># # 打开系统通知栏</span></span><br><span class="line"><span class="comment"># driver.open_notifications()</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># # 按下返回键</span></span><br><span class="line"><span class="comment"># driver.back()</span></span><br><span class="line"><span class="comment"># driver.press_keycode(4)</span></span><br><span class="line"><span class="comment"># # 按下 home 键</span></span><br><span class="line"><span class="comment"># driver.press_keycode(3)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># el = driver.find_element(AppiumBy.ACCESSIBILITY_ID, 'App')</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># # 创建一个动作类对象，按住 el 元素 10秒后释放</span></span><br><span class="line"><span class="comment"># ActionChains(driver).click_and_hold(el).pause(10).release().perform()</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装 apk</span></span><br><span class="line"><span class="comment"># driver.install_app('/Users/user1/Downloads/ApiDemos-debug.apk')</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 打开指定应用，参数为应用包名</span></span><br><span class="line">driver.activate_app(<span class="string">'io.appium.android.apis'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将当前的应用放在后台执行一段时间，在回到前台</span></span><br><span class="line">driver.background_app(<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 终止 app 的运行</span></span><br><span class="line">driver.terminate_app(<span class="string">'io.appium.android.apis'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 卸载 app</span></span><br><span class="line">driver.remove_app(<span class="string">'io.appium.android.apis'</span>)</span><br><span class="line"></span><br><span class="line">time.sleep(<span class="number">3</span>)</span><br><span class="line">driver.quit()</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+]]></content>
       <categories>
         <category>自动化测试</category>
       </categories>
@@ -316,64 +415,6 @@
       </tags>
   </entry>
   <entry>
-    <title>MySQL 中的 DATE_ADD 函数基本使用</title>
-    <url>/2024/06/13/MySQL%E4%B8%AD%E7%9A%84DATE-ADD%E5%87%BD%E6%95%B0%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>每次用到 MySQL 关于时间的计算，都跑不了 <code>DATE_ADD</code> 函数，每次都得查，特此记录下，下次用时直接看。</p>
-<span id="more"></span>
-
-<p>MySQL 中的 <code>DATE_ADD()</code> 函数用于将一个时间间隔加到一个日期或时间值上。这个函数非常有用，特别是当你需要计算未来的日期或时间点时。</p>
-<h2 id="2-基本语法"><a href="#2-基本语法" class="headerlink" title="2.基本语法"></a>2. 基本语法</h2><figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line">DATE_ADD(<span class="type">date</span>, <span class="type">INTERVAL</span> <span class="keyword">value</span> unit)</span><br></pre></td></tr></tbody></table></figure>
-
-<ul>
-<li><code>date</code> 是你想要添加时间间隔的原始日期或时间值。</li>
-<li><code>INTERVAL</code> 关键字指定了要添加的时间间隔。</li>
-<li><code>value</code> 是时间间隔的数量。</li>
-<li><code>unit</code> 是时间间隔的单位，可以是以下几种之一：<ul>
-<li><code>MICROSECOND</code>（微秒）</li>
-<li><code>SECOND</code>（秒）</li>
-<li><code>MINUTE</code>（分钟）</li>
-<li><code>HOUR</code>（小时）</li>
-<li><code>DAY</code>（天）</li>
-<li><code>WEEK</code>（周）</li>
-<li><code>MONTH</code>（月）</li>
-<li><code>QUARTER</code>（季度）</li>
-<li><code>YEAR</code>（年）</li>
-<li><code>SECOND_MICROSECOND</code>（秒和微秒）</li>
-<li><code>MINUTE_MICROSECOND</code>（分钟和微秒）</li>
-<li><code>MINUTE_SECOND</code>（分钟和秒）</li>
-<li><code>HOUR_MICROSECOND</code>（小时和微秒）</li>
-<li><code>HOUR_SECOND</code>（小时和秒）</li>
-<li><code>DAY_MICROSECOND</code>（天和微秒）</li>
-<li><code>DAY_SECOND</code>（天和秒）</li>
-<li><code>YEAR_MONTH</code>（年和月）</li>
-</ul>
-</li>
-</ul>
-<h2 id="3-常用例子"><a href="#3-常用例子" class="headerlink" title="3.常用例子"></a>3. 常用例子</h2><p>（1）<strong>添加天数</strong>：</p>
-<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> DATE_ADD(<span class="string">'2024-06-12'</span>, <span class="type">INTERVAL</span> <span class="number">10</span> <span class="keyword">DAY</span>);</span><br></pre></td></tr></tbody></table></figure>
-
-<p>（2）<strong>添加小时</strong>：</p>
-<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> DATE_ADD(<span class="string">'2024-06-12 14:30:00'</span>, <span class="type">INTERVAL</span> <span class="number">2</span> <span class="keyword">HOUR</span>);</span><br></pre></td></tr></tbody></table></figure>
-
-<p>（3）<strong>添加分钟和秒</strong>：</p>
-<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> DATE_ADD(<span class="string">'2024-06-12 14:30:00'</span>, <span class="type">INTERVAL</span> <span class="number">30</span> <span class="keyword">MINUTE</span>);</span><br><span class="line"><span class="keyword">SELECT</span> DATE_ADD(<span class="string">'2024-06-12 14:30:00'</span>, <span class="type">INTERVAL</span> <span class="number">5</span> <span class="keyword">SECOND</span>);</span><br></pre></td></tr></tbody></table></figure>
-
-<p>（4）<strong>添加年和月</strong>：</p>
-<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> DATE_ADD(<span class="string">'2024-06-12'</span>, <span class="type">INTERVAL</span> <span class="number">1</span> <span class="keyword">YEAR</span>);</span><br><span class="line"><span class="keyword">SELECT</span> DATE_ADD(<span class="string">'2024-06-12'</span>, <span class="type">INTERVAL</span> <span class="number">3</span> <span class="keyword">MONTH</span>);</span><br></pre></td></tr></tbody></table></figure>
-
-<p>（5）<strong>添加复杂时间间隔</strong>（例如，1 天 3 小时 30 分钟）：</p>
-<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> DATE_ADD(<span class="string">'2024-06-12'</span>, <span class="type">INTERVAL</span> <span class="number">1</span> <span class="keyword">DAY</span> <span class="number">3</span> <span class="keyword">HOUR</span> <span class="number">30</span> <span class="keyword">MINUTE</span>);</span><br></pre></td></tr></tbody></table></figure>
-
-<p>请注意，当使用 <code>DATE_ADD()</code> 函数时，结果的日期和时间格式将取决于你的 MySQL 服务器的设置，包括时区和日期时间格式。</p>
-]]></content>
-      <categories>
-        <category>数据库</category>
-      </categories>
-      <tags>
-        <tag>mysql</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Nginx 服务器 SSL 证书安装部署（Linux）</title>
     <url>/2024/06/05/Nginx%E6%9C%8D%E5%8A%A1%E5%99%A8SSL%E8%AF%81%E4%B9%A6%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%EF%BC%88Linux%EF%BC%89/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>如何将 SSL 证书上传到 centos 服务器，并使用 nginx 配置后，使其生效？</p>
@@ -421,6 +462,47 @@
       </tags>
   </entry>
   <entry>
+    <title>jmeter 通过 log4j2.xml 修改 log 文件位置</title>
+    <url>/2024/04/15/jmeter%E9%80%9A%E8%BF%87log4j2-xml%E4%BF%AE%E6%94%B9log%E6%96%87%E4%BB%B6%E4%BD%8D%E7%BD%AE/</url>
+    <content><![CDATA[<p>在 Apache JMeter 中，如果你使用的是 Log4j2 作为日志系统，并且想通过 <code>log4j2.xml</code> 配置文件修改日志文件的位置，你可以按照以下步骤操作：（文中使用 jmeter 版本为:apache-jmeter-5.6.3）</p>
+<ol>
+<li>找到 JMeter 安装目录下的 <code>log4j2.xml</code> 配置文件。在 JMeter 3.x 及以上版本中，这个文件通常位于 <code>apache-jmeter-X.XX/bin</code> 目录下。</li>
+<li>打开 <code>log4j2.xml</code> 文件，找到 <code>RollingFile</code> 或 <code>File</code> 类型的 Appender 配置部分。</li>
+</ol>
+<span id="more"></span>
+
+<figure class="highlight xml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</span></span><br><span class="line"><span class="comment">&lt;!--......--&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">Configuration</span> <span class="attr">status</span>=<span class="string">"WARN"</span> <span class="attr">packages</span>=<span class="string">"org.apache.jmeter.gui.logging"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Appenders</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 修改这里，修改日志文件位置 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">File</span> <span class="attr">name</span>=<span class="string">"jmeter-log"</span> <span class="attr">fileName</span>=<span class="string">"/path/to/your/log/jmeter.log"</span> <span class="attr">append</span>=<span class="string">"false"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>%d %p %c{1.}: %m%n<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">File</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">GuiLogEvent</span> <span class="attr">name</span>=<span class="string">"gui-log-event"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>%d %p %c{1.}: %m%n<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">GuiLogEvent</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;/<span class="name">Appenders</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">Loggers</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Root</span> <span class="attr">level</span>=<span class="string">"info"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">AppenderRef</span> <span class="attr">ref</span>=<span class="string">"jmeter-log"</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">AppenderRef</span> <span class="attr">ref</span>=<span class="string">"gui-log-event"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Root</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Logger</span> <span class="attr">name</span>=<span class="string">"org.apache.jmeter.junit"</span> <span class="attr">level</span>=<span class="string">"debug"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;/<span class="name">Loggers</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">Configuration</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+]]></content>
+      <categories>
+        <category>性能测试</category>
+      </categories>
+      <tags>
+        <tag>jmeter</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用 hexo 搭建 GitHub Page 博客后，网页显示 404 的问题解决</title>
+    <url>/2019/08/14/hexo%E7%AC%AC%E4%B8%80%E6%AC%A1%E9%83%A8%E7%BD%B2%E7%BD%91%E9%A1%B5%E6%98%BE%E7%A4%BA404/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>使用 hexo 搭建 GitHub Page 博客后，第一次正常，第二次上传后，博客网页显示 404 页面。</p>
+<span id="more"></span>
+
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>因为绑定了域名，所以在 github 仓库根目录下有一个 CNAME 的文件，文件中写有需要绑定的域名。而使用 hexo 远程部署时会删除这个文件。所以页面会报 404 错误。</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>只要在 github 仓库根目录下添加一个 CNAME 文件，且上传时不会被覆盖即可，方法如下：</p>
+<h3 id="3-1-在-hexo-指定文件夹下的-source-文件夹下添加-CNAME-文件，CNAME-文件中添加域名。"><a href="#3-1-在-hexo-指定文件夹下的-source-文件夹下添加-CNAME-文件，CNAME-文件中添加域名。" class="headerlink" title="3.1 在 hexo 指定文件夹下的 source 文件夹下添加 CNAME 文件，CNAME 文件中添加域名。"></a>3.1 在 hexo 指定文件夹下的 source 文件夹下添加 CNAME 文件，CNAME 文件中添加域名。</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2019-08-15_20-35-35.png"></p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2019-08-15_20-36-55.png"></p>
+<h3 id="3-2-然后在-Terminal-执行"><a href="#3-2-然后在-Terminal-执行" class="headerlink" title="3.2 然后在 Terminal 执行"></a>3.2 然后在 Terminal 执行</h3><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="3-3-查看-github-仓库根目录有该-CNAME-且博客可以正常访问"><a href="#3-3-查看-github-仓库根目录有该-CNAME-且博客可以正常访问" class="headerlink" title="3.3 查看 github 仓库根目录有该 CNAME 且博客可以正常访问"></a>3.3 查看 github 仓库根目录有该 CNAME 且博客可以正常访问</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2019-08-15_21-01-09.png"></p>
+]]></content>
+      <categories>
+        <category>环境部署</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>mysql 实现 excel 中复制某一列，粘贴转置为行功能</title>
     <url>/2021/05/31/group-concat%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>数据处理需要，需要将大批量的列，转置为行。</p>
@@ -454,47 +536,6 @@
       </tags>
   </entry>
   <entry>
-    <title>使用 hexo 搭建 GitHub Page 博客后，网页显示 404 的问题解决</title>
-    <url>/2019/08/14/hexo%E7%AC%AC%E4%B8%80%E6%AC%A1%E9%83%A8%E7%BD%B2%E7%BD%91%E9%A1%B5%E6%98%BE%E7%A4%BA404/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>使用 hexo 搭建 GitHub Page 博客后，第一次正常，第二次上传后，博客网页显示 404 页面。</p>
-<span id="more"></span>
-
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>因为绑定了域名，所以在 github 仓库根目录下有一个 CNAME 的文件，文件中写有需要绑定的域名。而使用 hexo 远程部署时会删除这个文件。所以页面会报 404 错误。</p>
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>只要在 github 仓库根目录下添加一个 CNAME 文件，且上传时不会被覆盖即可，方法如下：</p>
-<h3 id="3-1-在-hexo-指定文件夹下的-source-文件夹下添加-CNAME-文件，CNAME-文件中添加域名。"><a href="#3-1-在-hexo-指定文件夹下的-source-文件夹下添加-CNAME-文件，CNAME-文件中添加域名。" class="headerlink" title="3.1 在 hexo 指定文件夹下的 source 文件夹下添加 CNAME 文件，CNAME 文件中添加域名。"></a>3.1 在 hexo 指定文件夹下的 source 文件夹下添加 CNAME 文件，CNAME 文件中添加域名。</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2019-08-15_20-35-35.png"></p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2019-08-15_20-36-55.png"></p>
-<h3 id="3-2-然后在-Terminal-执行"><a href="#3-2-然后在-Terminal-执行" class="headerlink" title="3.2 然后在 Terminal 执行"></a>3.2 然后在 Terminal 执行</h3><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="3-3-查看-github-仓库根目录有该-CNAME-且博客可以正常访问"><a href="#3-3-查看-github-仓库根目录有该-CNAME-且博客可以正常访问" class="headerlink" title="3.3 查看 github 仓库根目录有该 CNAME 且博客可以正常访问"></a>3.3 查看 github 仓库根目录有该 CNAME 且博客可以正常访问</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2019-08-15_21-01-09.png"></p>
-]]></content>
-      <categories>
-        <category>环境部署</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>jmeter 通过 log4j2.xml 修改 log 文件位置</title>
-    <url>/2024/04/15/jmeter%E9%80%9A%E8%BF%87log4j2-xml%E4%BF%AE%E6%94%B9log%E6%96%87%E4%BB%B6%E4%BD%8D%E7%BD%AE/</url>
-    <content><![CDATA[<p>在 Apache JMeter 中，如果你使用的是 Log4j2 作为日志系统，并且想通过 <code>log4j2.xml</code> 配置文件修改日志文件的位置，你可以按照以下步骤操作：（文中使用 jmeter 版本为:apache-jmeter-5.6.3）</p>
-<ol>
-<li>找到 JMeter 安装目录下的 <code>log4j2.xml</code> 配置文件。在 JMeter 3.x 及以上版本中，这个文件通常位于 <code>apache-jmeter-X.XX/bin</code> 目录下。</li>
-<li>打开 <code>log4j2.xml</code> 文件，找到 <code>RollingFile</code> 或 <code>File</code> 类型的 Appender 配置部分。</li>
-</ol>
-<span id="more"></span>
-
-<figure class="highlight xml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</span></span><br><span class="line"><span class="comment">&lt;!--......--&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">Configuration</span> <span class="attr">status</span>=<span class="string">"WARN"</span> <span class="attr">packages</span>=<span class="string">"org.apache.jmeter.gui.logging"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Appenders</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 修改这里，修改日志文件位置 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">File</span> <span class="attr">name</span>=<span class="string">"jmeter-log"</span> <span class="attr">fileName</span>=<span class="string">"/path/to/your/log/jmeter.log"</span> <span class="attr">append</span>=<span class="string">"false"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>%d %p %c{1.}: %m%n<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">File</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">GuiLogEvent</span> <span class="attr">name</span>=<span class="string">"gui-log-event"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>%d %p %c{1.}: %m%n<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">GuiLogEvent</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;/<span class="name">Appenders</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">Loggers</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Root</span> <span class="attr">level</span>=<span class="string">"info"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">AppenderRef</span> <span class="attr">ref</span>=<span class="string">"jmeter-log"</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">AppenderRef</span> <span class="attr">ref</span>=<span class="string">"gui-log-event"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Root</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Logger</span> <span class="attr">name</span>=<span class="string">"org.apache.jmeter.junit"</span> <span class="attr">level</span>=<span class="string">"debug"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;/<span class="name">Loggers</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">Configuration</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-
-]]></content>
-      <categories>
-        <category>性能测试</category>
-      </categories>
-      <tags>
-        <tag>jmeter</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>mysql 实现 excel 中复制某一列，粘贴转置为行功能</title>
     <url>/2021/05/31/mysql%E5%AE%9E%E7%8E%B0excel%E4%B8%AD%E5%A4%8D%E5%88%B6%E6%9F%90%E4%B8%80%E5%88%97%E7%B2%98%E8%B4%B4%E8%BD%AC%E7%BD%AE%E4%B8%BA%E8%A1%8C%E5%8A%9F%E8%83%BD/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>数据处理需要，需要将大批量的列，转置为行。</p>
@@ -519,6 +560,37 @@
 <figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">group_concat_max_len = -1</span><br></pre></td></tr></tbody></table></figure>
 
 <h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p>参考于该<a href="https://www.cnblogs.com/zjfblog/p/13658936.html">博客园博客</a></p>
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>mysql 按照分组筛选出时间倒序前三条记录</title>
+    <url>/2024/05/22/mysql%E6%8C%89%E7%85%A7%E5%88%86%E7%BB%84%E7%AD%9B%E9%80%89%E5%87%BA%E6%97%B6%E9%97%B4%E5%80%92%E5%BA%8F%E5%89%8D%E4%B8%89%E6%9D%A1%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在 MySQL 低版本 (5.7 以下) 中，如何按照分组筛选出时间倒序前三条记录？</p>
+<span id="more"></span>
+
+<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> t.<span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> (</span><br><span class="line">  <span class="keyword">SELECT</span> <span class="operator">*</span>, </span><br><span class="line">    <span class="variable">@rn</span> :<span class="operator">=</span> IF(<span class="variable">@prev_group</span> <span class="operator">=</span> group_column, <span class="variable">@rn</span> <span class="operator">+</span> <span class="number">1</span>, <span class="number">1</span>) <span class="keyword">AS</span> rn,</span><br><span class="line">    <span class="variable">@prev_group</span> :<span class="operator">=</span> group_column</span><br><span class="line">  <span class="keyword">FROM</span> your_table, (<span class="keyword">SELECT</span> <span class="variable">@rn</span> :<span class="operator">=</span> <span class="number">0</span>, <span class="variable">@prev_group</span> :<span class="operator">=</span> <span class="keyword">NULL</span>) r</span><br><span class="line">  <span class="keyword">ORDER</span> <span class="keyword">BY</span> group_column, time_column <span class="keyword">DESC</span></span><br><span class="line">) t</span><br><span class="line"><span class="keyword">WHERE</span> rn <span class="operator">&lt;=</span> <span class="number">3</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> group_column, time_column <span class="keyword">DESC</span>;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p>(1) 在子查询中，使用变量 <code>@rn</code> 和 <code>@prev_group</code> 来记录当前行的记录编号和前一行的分组。</p>
+<p>(2)<code>@rn := IF(@prev_group = group_column, @rn + 1, 1) AS rn</code> 这一行代码的作用是：如果当前行的分组与上一行相同，则记录编号 <code>rn</code> 递增 1, 否则从 1 开始计数。</p>
+<p>(3)<code>@prev_group := group_column</code> 这一行代码是更新上一行的分组。</p>
+<p>(4) 在外层查询中，使用 <code>WHERE rn &lt;= 3</code> 来筛选出每个分组中时间倒序的前 3 条记录。</p>
+<p>(5) 最后按分组 <code>group_column</code> 和时间 <code>time_column</code> 倒序排列输出结果。</p>
+<p>你可以将 <code>your_table</code> 替换成你自己的表名，<code>group_column</code> 替换成你表中的分组列名，<code>time_column</code> 替换成你表中的时间列名。</p>
+<p>这种方法在 MySQL 5.7 以下版本中都可以使用，不需要使用 <code>ROW_NUMBER()</code> 函数，性能也较好。</p>
+<p>在 MySQL8.0 及以上可以使用如下方法：</p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> t.<span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> (</span><br><span class="line">  <span class="keyword">SELECT</span> <span class="operator">*</span>, </span><br><span class="line">    <span class="built_in">ROW_NUMBER</span>() <span class="keyword">OVER</span> (<span class="keyword">PARTITION</span> <span class="keyword">BY</span> group_column <span class="keyword">ORDER</span> <span class="keyword">BY</span> time_column <span class="keyword">DESC</span>) <span class="keyword">AS</span> rn</span><br><span class="line">  <span class="keyword">FROM</span> your_table</span><br><span class="line">) t</span><br><span class="line"><span class="keyword">WHERE</span> rn <span class="operator">&lt;=</span> <span class="number">3</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> group_column, time_column <span class="keyword">DESC</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>（1）首先使用子查询，在每个分组 <code>group_column</code> 内根据时间列 <code>time_column</code> 使用 <code>ROW_NUMBER()</code> 函数给每条记录编号，按时间顺序倒序排列。</p>
+<p>（2）然后在外层查询中，使用 <code>WHERE rn &lt;= 3</code> 筛选出每个分组中时间倒序的前 3 条记录。</p>
+<p>（3）最后按分组 <code>group_column</code> 和时间 <code>time_column</code> 倒序排列输出结果。</p>
+<p>这样就可以实现按分组筛选出时间倒序前 3 条记录的功能。你可以将 <code>your_table</code> 替换成你自己的表名，<code>group_column</code> 替换成你表中的分组列名，<code>time_column</code> 替换成你表中的时间列名。</p>
+<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2><p><a href="https://kimi.moonshot.cn/">https://kimi.moonshot.cn/</a></p>
 ]]></content>
       <categories>
         <category>数据库</category>
@@ -591,37 +663,6 @@
         <tag>selenium</tag>
         <tag>python</tag>
         <tag>pycharm</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>mysql 按照分组筛选出时间倒序前三条记录</title>
-    <url>/2024/05/22/mysql%E6%8C%89%E7%85%A7%E5%88%86%E7%BB%84%E7%AD%9B%E9%80%89%E5%87%BA%E6%97%B6%E9%97%B4%E5%80%92%E5%BA%8F%E5%89%8D%E4%B8%89%E6%9D%A1%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在 MySQL 低版本 (5.7 以下) 中，如何按照分组筛选出时间倒序前三条记录？</p>
-<span id="more"></span>
-
-<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> t.<span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> (</span><br><span class="line">  <span class="keyword">SELECT</span> <span class="operator">*</span>, </span><br><span class="line">    <span class="variable">@rn</span> :<span class="operator">=</span> IF(<span class="variable">@prev_group</span> <span class="operator">=</span> group_column, <span class="variable">@rn</span> <span class="operator">+</span> <span class="number">1</span>, <span class="number">1</span>) <span class="keyword">AS</span> rn,</span><br><span class="line">    <span class="variable">@prev_group</span> :<span class="operator">=</span> group_column</span><br><span class="line">  <span class="keyword">FROM</span> your_table, (<span class="keyword">SELECT</span> <span class="variable">@rn</span> :<span class="operator">=</span> <span class="number">0</span>, <span class="variable">@prev_group</span> :<span class="operator">=</span> <span class="keyword">NULL</span>) r</span><br><span class="line">  <span class="keyword">ORDER</span> <span class="keyword">BY</span> group_column, time_column <span class="keyword">DESC</span></span><br><span class="line">) t</span><br><span class="line"><span class="keyword">WHERE</span> rn <span class="operator">&lt;=</span> <span class="number">3</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> group_column, time_column <span class="keyword">DESC</span>;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-
-<p>(1) 在子查询中，使用变量 <code>@rn</code> 和 <code>@prev_group</code> 来记录当前行的记录编号和前一行的分组。</p>
-<p>(2)<code>@rn := IF(@prev_group = group_column, @rn + 1, 1) AS rn</code> 这一行代码的作用是：如果当前行的分组与上一行相同，则记录编号 <code>rn</code> 递增 1, 否则从 1 开始计数。</p>
-<p>(3)<code>@prev_group := group_column</code> 这一行代码是更新上一行的分组。</p>
-<p>(4) 在外层查询中，使用 <code>WHERE rn &lt;= 3</code> 来筛选出每个分组中时间倒序的前 3 条记录。</p>
-<p>(5) 最后按分组 <code>group_column</code> 和时间 <code>time_column</code> 倒序排列输出结果。</p>
-<p>你可以将 <code>your_table</code> 替换成你自己的表名，<code>group_column</code> 替换成你表中的分组列名，<code>time_column</code> 替换成你表中的时间列名。</p>
-<p>这种方法在 MySQL 5.7 以下版本中都可以使用，不需要使用 <code>ROW_NUMBER()</code> 函数，性能也较好。</p>
-<p>在 MySQL8.0 及以上可以使用如下方法：</p>
-<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> t.<span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> (</span><br><span class="line">  <span class="keyword">SELECT</span> <span class="operator">*</span>, </span><br><span class="line">    <span class="built_in">ROW_NUMBER</span>() <span class="keyword">OVER</span> (<span class="keyword">PARTITION</span> <span class="keyword">BY</span> group_column <span class="keyword">ORDER</span> <span class="keyword">BY</span> time_column <span class="keyword">DESC</span>) <span class="keyword">AS</span> rn</span><br><span class="line">  <span class="keyword">FROM</span> your_table</span><br><span class="line">) t</span><br><span class="line"><span class="keyword">WHERE</span> rn <span class="operator">&lt;=</span> <span class="number">3</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> group_column, time_column <span class="keyword">DESC</span>;</span><br></pre></td></tr></tbody></table></figure>
-
-<p>（1）首先使用子查询，在每个分组 <code>group_column</code> 内根据时间列 <code>time_column</code> 使用 <code>ROW_NUMBER()</code> 函数给每条记录编号，按时间顺序倒序排列。</p>
-<p>（2）然后在外层查询中，使用 <code>WHERE rn &lt;= 3</code> 筛选出每个分组中时间倒序的前 3 条记录。</p>
-<p>（3）最后按分组 <code>group_column</code> 和时间 <code>time_column</code> 倒序排列输出结果。</p>
-<p>这样就可以实现按分组筛选出时间倒序前 3 条记录的功能。你可以将 <code>your_table</code> 替换成你自己的表名，<code>group_column</code> 替换成你表中的分组列名，<code>time_column</code> 替换成你表中的时间列名。</p>
-<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2><p><a href="https://kimi.moonshot.cn/">https://kimi.moonshot.cn/</a></p>
-]]></content>
-      <categories>
-        <category>数据库</category>
-      </categories>
-      <tags>
-        <tag>mysql</tag>
       </tags>
   </entry>
   <entry>
@@ -769,17 +810,30 @@
       </tags>
   </entry>
   <entry>
-    <title>博客重新装修删除冗余内容</title>
-    <url>/2024/05/06/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%96%B0%E8%A3%85%E4%BF%AE%E5%88%A0%E9%99%A4%E5%86%97%E4%BD%99%E5%86%85%E5%AE%B9/</url>
-    <content><![CDATA[<p>最近有空闲时间，就重新装修了长时间没管过的博客，将以前的内容做了精简以及删除，后续会陆续将之前做的笔记整理后，写成 blog，大体做了如下改变。</p>
+    <title>如何去除 macOS12-13 更新小红点</title>
+    <url>/2024/05/06/%E5%A6%82%E4%BD%95%E5%8E%BB%E9%99%A4macOS12-13%E6%9B%B4%E6%96%B0%E5%B0%8F%E7%BA%A2%E7%82%B9/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>2 个小红点位置如下：</p>
+<ul>
+<li>设置→通用→软件更新→红点 1</li>
+<li>Dock→红点 1</li>
+</ul>
 <span id="more"></span>
 
-<h2 id="1-更改主题为-nexT。"><a href="#1-更改主题为-nexT。" class="headerlink" title="1.更改主题为 nexT。"></a>1. 更改主题为 nexT。</h2><h2 id="2-删除之前冗余内容。"><a href="#2-删除之前冗余内容。" class="headerlink" title="2.删除之前冗余内容。"></a>2. 删除之前冗余内容。</h2><h2 id="3-将一些以前学习的内容做个总结。"><a href="#3-将一些以前学习的内容做个总结。" class="headerlink" title="3.将一些以前学习的内容做个总结。"></a>3. 将一些以前学习的内容做个总结。</h2>]]></content>
+<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><h3 id="（1）关闭自动更新"><a href="#（1）关闭自动更新" class="headerlink" title="（1）关闭自动更新"></a>（1）关闭自动更新</h3><h3 id="（2）host添加相关内容"><a href="#（2）host添加相关内容" class="headerlink" title="（2）host添加相关内容"></a>（2）host 添加相关内容</h3><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">127.0.0.1 swdist.apple.com</span><br><span class="line">127.0.0.1 swscan.apple.com</span><br><span class="line">127.0.0.1 swcdn.apple.com </span><br><span class="line">127.0.0.1 gdmf.apple.com</span><br><span class="line">127.0.0.1 mesu.apple.com</span><br><span class="line">127.0.0.1 xp.apple.com</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="（3）终端执行"><a href="#（3）终端执行" class="headerlink" title="（3）终端执行"></a>（3）终端执行</h3><p>先执行</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">defaults write com.apple.systempreferences AttentionPrefBundleIDs 0</span><br><span class="line">Killall Dock</span><br></pre></td></tr></tbody></table></figure>
+
+<p>如果无法去除，则执行</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">defaults delete com.apple.systempreferences AttentionPrefBundleIDs</span><br><span class="line">defaults delete com.apple.systempreferences DidShowPrefBundleIDs</span><br><span class="line">killall Dock</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2><p><a href="https://sysin.org/blog/disable-macos-ventura-update/">https://sysin.org/blog/disable-macos-ventura-update/</a></p>
+]]></content>
       <categories>
-        <category>环境部署</category>
+        <category>操作系统</category>
       </categories>
       <tags>
-        <tag>hexo</tag>
+        <tag>macos</tag>
       </tags>
   </entry>
   <entry>
@@ -918,6 +972,20 @@
 <h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2>]]></content>
   </entry>
   <entry>
+    <title>博客重新装修删除冗余内容</title>
+    <url>/2024/05/06/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%96%B0%E8%A3%85%E4%BF%AE%E5%88%A0%E9%99%A4%E5%86%97%E4%BD%99%E5%86%85%E5%AE%B9/</url>
+    <content><![CDATA[<p>最近有空闲时间，就重新装修了长时间没管过的博客，将以前的内容做了精简以及删除，后续会陆续将之前做的笔记整理后，写成 blog，大体做了如下改变。</p>
+<span id="more"></span>
+
+<h2 id="1-更改主题为-nexT。"><a href="#1-更改主题为-nexT。" class="headerlink" title="1.更改主题为 nexT。"></a>1. 更改主题为 nexT。</h2><h2 id="2-删除之前冗余内容。"><a href="#2-删除之前冗余内容。" class="headerlink" title="2.删除之前冗余内容。"></a>2. 删除之前冗余内容。</h2><h2 id="3-将一些以前学习的内容做个总结。"><a href="#3-将一些以前学习的内容做个总结。" class="headerlink" title="3.将一些以前学习的内容做个总结。"></a>3. 将一些以前学习的内容做个总结。</h2>]]></content>
+      <categories>
+        <category>环境部署</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>测试计划模板</title>
     <url>/2019/07/11/%E6%B5%8B%E8%AF%95%E8%AE%A1%E5%88%92%E6%A8%A1%E6%9D%BF/</url>
     <content><![CDATA[<h1 id="测试计划"><a href="#测试计划" class="headerlink" title="测试计划"></a>测试计划</h1><h1 id="XXX-项目测试计划"><a href="#XXX-项目测试计划" class="headerlink" title="XXX 项目测试计划"></a><center>XXX 项目测试计划</center></h1><h2 id="1-引言"><a href="#1-引言" class="headerlink" title="1.引言"></a>1. 引言</h2><h3 id="1-1-编写目的"><a href="#1-1-编写目的" class="headerlink" title="1.1 编写目的"></a>1.1 编写目的</h3><p>根据需求文档，提炼测试功能点、制定测试策略、评估测试风险，预估编写测试用例、执行功能测试和回归测试的工作量，进行人员和进度安排。</p>
@@ -944,33 +1012,6 @@
       </categories>
       <tags>
         <tag>documents</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何去除 macOS12-13 更新小红点</title>
-    <url>/2024/05/06/%E5%A6%82%E4%BD%95%E5%8E%BB%E9%99%A4macOS12-13%E6%9B%B4%E6%96%B0%E5%B0%8F%E7%BA%A2%E7%82%B9/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>2 个小红点位置如下：</p>
-<ul>
-<li>设置→通用→软件更新→红点 1</li>
-<li>Dock→红点 1</li>
-</ul>
-<span id="more"></span>
-
-<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><h3 id="（1）关闭自动更新"><a href="#（1）关闭自动更新" class="headerlink" title="（1）关闭自动更新"></a>（1）关闭自动更新</h3><h3 id="（2）host添加相关内容"><a href="#（2）host添加相关内容" class="headerlink" title="（2）host添加相关内容"></a>（2）host 添加相关内容</h3><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">127.0.0.1 swdist.apple.com</span><br><span class="line">127.0.0.1 swscan.apple.com</span><br><span class="line">127.0.0.1 swcdn.apple.com </span><br><span class="line">127.0.0.1 gdmf.apple.com</span><br><span class="line">127.0.0.1 mesu.apple.com</span><br><span class="line">127.0.0.1 xp.apple.com</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="（3）终端执行"><a href="#（3）终端执行" class="headerlink" title="（3）终端执行"></a>（3）终端执行</h3><p>先执行</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">defaults write com.apple.systempreferences AttentionPrefBundleIDs 0</span><br><span class="line">Killall Dock</span><br></pre></td></tr></tbody></table></figure>
-
-<p>如果无法去除，则执行</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">defaults delete com.apple.systempreferences AttentionPrefBundleIDs</span><br><span class="line">defaults delete com.apple.systempreferences DidShowPrefBundleIDs</span><br><span class="line">killall Dock</span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2><p><a href="https://sysin.org/blog/disable-macos-ventura-update/">https://sysin.org/blog/disable-macos-ventura-update/</a></p>
-]]></content>
-      <categories>
-        <category>操作系统</category>
-      </categories>
-      <tags>
-        <tag>macos</tag>
       </tags>
   </entry>
   <entry>
@@ -1063,7 +1104,7 @@
   <entry>
     <title>解决 gitea 报错初始 URL 和访问 URL 不同的问题</title>
     <url>/2024/07/22/%E8%A7%A3%E5%86%B3gitea%E6%8A%A5%E9%94%99%E5%88%9D%E5%A7%8BURL%E5%92%8C%E8%AE%BF%E9%97%AEURL%E4%B8%8D%E5%90%8C%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>Your ROOT_URL in app.ini is <a href="https://XXX.XXX.XXX:XXXX/">https://XXX.XXX.XXX:XXXX/</a> but you are visiting <a href="http://XXX.XXX.XXX.XXX:XXXX/">http://XXX.XXX.XXX.XXX:XXXX/</a> You should set ROOT_URL correctly, otherwise the web may not work correctly.</p>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>Your ROOT_URL in app.ini is <code>https://192.168.1.11:1234/</code> but you are visiting <code>https://192.168.1.12:1234/</code> You should set ROOT_URL correctly, otherwise the web may not work correctly.</p>
 <span id="more"></span>
 
 <h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>翻译可知，初始化的域名和访问的域名不一致，可能会导致问题。</p>
@@ -1167,28 +1208,6 @@
       </tags>
   </entry>
   <entry>
-    <title>解决使用 excel 打开 csv 文件时出现乱码的问题</title>
-    <url>/2020/06/11/%E8%A7%A3%E5%86%B3%E4%BD%BF%E7%94%A8excel%E6%89%93%E5%BC%80csv%E6%96%87%E4%BB%B6%E6%97%B6%E5%87%BA%E7%8E%B0%E4%B9%B1%E7%A0%81%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>使用 excel 打开 csv 文件时出现乱码</p>
-<span id="more"></span>
-
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>excel 默认识别的是带 BOM 格式的 csv 文档，而打开纯 UTF-8 的文件时，没有 BOM 的头，也就是第一行，所以打开是乱码。(开头多了一串字符”\ufeff”)</p>
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>将”utf-8” 格式转换为”utf-8 with BOM”，python 中这个带 BOM 格式的叫做 UTF-8-SIG，都是 UTF-8 带签名的意思。</p>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> codecs</span><br><span class="line"><span class="keyword">import</span> chardet</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># from subFunc_tools import *</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">list_folders_files</span>(<span class="params">path</span>):</span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    返回 "文件夹" 和 "文件" 名字</span></span><br><span class="line"><span class="string">    :param path: "文件夹"和"文件"所在的路径</span></span><br><span class="line"><span class="string">    :return:  (list_folders, list_files)</span></span><br><span class="line"><span class="string">            :list_folders: 文件夹</span></span><br><span class="line"><span class="string">            :list_files: 文件</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    list_folders = []</span><br><span class="line">    list_files = []</span><br><span class="line">    <span class="keyword">for</span> file <span class="keyword">in</span> os.listdir(path):</span><br><span class="line">        file_path = os.path.join(path, file)</span><br><span class="line">        <span class="keyword">if</span> os.path.isdir(file_path):</span><br><span class="line">            list_folders.append(file)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            list_files.append(file)</span><br><span class="line">    <span class="keyword">return</span> (list_folders, list_files)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">convert</span>(<span class="params">file, in_enc=<span class="string">"GBK"</span>, out_enc=<span class="string">"UTF-8"</span></span>):</span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    该程序用于将目录下的文件从指定格式转换到指定格式，默认的是GBK转到utf-8</span></span><br><span class="line"><span class="string">    :param file:    文件路径</span></span><br><span class="line"><span class="string">    :param in_enc:  输入文件格式</span></span><br><span class="line"><span class="string">    :param out_enc: 输出文件格式</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    in_enc = in_enc.upper()</span><br><span class="line">    out_enc = out_enc.upper()</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"convert [ "</span> + file.split(<span class="string">'\\'</span>)[-<span class="number">1</span>] + <span class="string">" ].....From "</span> + in_enc + <span class="string">" --&gt; "</span> + out_enc)</span><br><span class="line">        f = codecs.<span class="built_in">open</span>(file, <span class="string">'r'</span>, in_enc)</span><br><span class="line">        new_content = f.read()</span><br><span class="line">        codecs.<span class="built_in">open</span>(file, <span class="string">'w'</span>, out_enc).write(new_content)</span><br><span class="line">    <span class="comment"># print (f.read())</span></span><br><span class="line">    <span class="keyword">except</span> IOError <span class="keyword">as</span> err:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"I/O error: {0}"</span>.<span class="built_in">format</span>(err))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将路径下面的所有文件，从原来的格式变为UTF-8的格式</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    path = <span class="string">r'G:\desktop\Convert-UTF8'</span></span><br><span class="line"></span><br><span class="line">    (list_folders, list_files) = list_folders_files(path)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Path: "</span> + path)</span><br><span class="line">    <span class="keyword">for</span> fileName <span class="keyword">in</span> list_files:</span><br><span class="line">        filePath = path + <span class="string">'\\'</span> + fileName</span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(filePath, <span class="string">"rb"</span>) <span class="keyword">as</span> f:</span><br><span class="line">            data = f.read()</span><br><span class="line">            codeType = chardet.detect(data)[<span class="string">'encoding'</span>]</span><br><span class="line">            convert(filePath, codeType, <span class="string">'UTF-8-SIG'</span>)</span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p>代码参考于以下博客，自己做了相关调整：</p>
-<p><a href="https://www.cnblogs.com/monster-yher/p/13418600.html">https://www.cnblogs.com/monster-yher/p/13418600.html</a></p>
-]]></content>
-      <categories>
-        <category>测试脚本</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>解决新版本 MacOS 下 Sublime Text4 package control 无法加载问题</title>
     <url>/2024/05/24/%E8%A7%A3%E5%86%B3%E6%96%B0%E7%89%88%E6%9C%ACMacOS%E4%B8%8BSublimeText4packagecontrol%E6%97%A0%E6%B3%95%E5%8A%A0%E8%BD%BD%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>cmd + shift + p 输入 install package 有对应菜单选项，没反应。</p>
@@ -1240,22 +1259,6 @@
       </tags>
   </entry>
   <entry>
-    <title>记录一个 mysql 存储过程模板</title>
-    <url>/2024/06/14/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%AAmysql%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B%E6%A8%A1%E6%9D%BF/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>记录一个 mysql 存储过程模板，方便以后使用。</p>
-<span id="more"></span>
-
-<h2 id="2-相关sql"><a href="#2-相关sql" class="headerlink" title="2.相关sql"></a>2. 相关 sql</h2><figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> definer <span class="operator">=</span> user1@`<span class="operator">%</span>` <span class="keyword">procedure</span> procedure_name( <span class="comment">-- user1为数据库用户名</span></span><br><span class="line">      <span class="comment">-- 定义输入输入参数</span></span><br><span class="line">      <span class="keyword">IN</span> parameter1 <span class="type">varchar</span>(<span class="number">50</span>),                                                   </span><br><span class="line">      <span class="keyword">IN</span> parameter2 <span class="type">decimal</span>(<span class="number">15</span>, <span class="number">2</span>),</span><br><span class="line">      <span class="keyword">IN</span> parameter3 <span class="type">decimal</span>(<span class="number">10</span>, <span class="number">4</span>),</span><br><span class="line">      <span class="keyword">IN</span> parameter4 tinyint(<span class="number">3</span>),</span><br><span class="line">      <span class="keyword">IN</span> parameter5 <span class="type">varchar</span>(<span class="number">32</span>))</span><br><span class="line">      </span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">    <span class="comment">-- 变量定义</span></span><br><span class="line">    <span class="keyword">declare</span> s_parameter1 <span class="type">varchar</span>(<span class="number">32</span>); </span><br><span class="line">    <span class="keyword">declare</span> s_parameter2 datetime; </span><br><span class="line">    <span class="keyword">declare</span> s_parameter3 datetime; </span><br><span class="line">    <span class="keyword">declare</span> s_parameter4 <span class="type">decimal</span>(<span class="number">15</span>,<span class="number">2</span>); </span><br><span class="line">    <span class="keyword">declare</span> s_parameter5 <span class="type">bigint</span>; </span><br><span class="line">    <span class="keyword">declare</span> s_parameter6 <span class="type">bigint</span>; </span><br><span class="line"></span><br><span class="line">    <span class="comment">-- 变量赋值</span></span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        param1,</span><br><span class="line">        param2,</span><br><span class="line">        date_add((date_format(param3,<span class="string">'%Y-%m-%d %H:%i:%s'</span>)),<span class="type">interval</span> <span class="number">10</span> <span class="keyword">MINUTE</span> ), # 时间<span class="operator">+</span><span class="number">10</span>分钟</span><br><span class="line">        date_add((date_format(param4,<span class="string">'%Y-%m-%d %H:%i:%s'</span>)),<span class="type">interval</span> <span class="number">10</span> <span class="keyword">MINUTE</span> )  # 时间<span class="operator">+</span><span class="number">10</span>分钟</span><br><span class="line">    <span class="keyword">into</span></span><br><span class="line">        s_parameter1,</span><br><span class="line">        s_parameter2,</span><br><span class="line">        s_parameter3,</span><br><span class="line">        s_parameter4</span><br><span class="line">    <span class="keyword">from</span> table1</span><br><span class="line">    <span class="keyword">where</span> param1 <span class="operator">=</span> parameter1;</span><br><span class="line"></span><br><span class="line">    <span class="comment">-- 更新</span></span><br><span class="line">    <span class="keyword">UPDATE</span> table2</span><br><span class="line">    <span class="keyword">SET</span> `param1` <span class="operator">=</span> <span class="string">'test'</span>,</span><br><span class="line">        `param2` <span class="operator">=</span> s_parameter1,</span><br><span class="line">        `param3` <span class="operator">=</span> s_parameter2,</span><br><span class="line">        `param4` <span class="operator">=</span> s_parameter3,</span><br><span class="line">        `param5` <span class="operator">=</span> date_format(now(), <span class="string">'%Y-%m-%d %H:%i:%s'</span>), # 设置时间为当前时间</span><br><span class="line">        `param6` <span class="operator">=</span> s_parameter4,</span><br><span class="line">        `param7` <span class="operator">=</span> s_parameter5,</span><br><span class="line">        `param8` <span class="operator">=</span> s_parameter6,</span><br><span class="line">        `param9` <span class="operator">=</span> s_parameter6,</span><br><span class="line">        `param10`<span class="operator">=</span> date_format(now(), <span class="string">'%Y-%m-%d %H:%i:%s'</span>) # 设置时间为当前时间</span><br><span class="line">    <span class="keyword">WHERE</span> param1 <span class="operator">=</span> parameter1;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">-- 条件判断</span></span><br><span class="line">    if parameter2 <span class="operator">*</span> <span class="number">0.015</span> <span class="operator">&lt;</span> <span class="number">500</span> <span class="keyword">then</span></span><br><span class="line">        <span class="keyword">set</span> s_parameter3 <span class="operator">=</span> <span class="number">500</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">set</span> s_parameter3 <span class="operator">=</span> parameter2 <span class="operator">*</span> <span class="number">0.015</span>;</span><br><span class="line">    <span class="keyword">end</span> if;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">-- 最大编号自动+1</span></span><br><span class="line">		<span class="keyword">select</span> <span class="built_in">max</span>(id)<span class="operator">+</span><span class="number">1</span> <span class="keyword">into</span> s_parameter5 <span class="keyword">from</span> table3;</span><br><span class="line">    <span class="keyword">select</span> <span class="built_in">max</span>(id)<span class="operator">+</span><span class="number">1</span> <span class="keyword">into</span> s_parameter6 <span class="keyword">from</span> table4;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">-- 插入</span></span><br><span class="line">    <span class="keyword">insert</span> <span class="keyword">into</span> </span><br><span class="line">    table5(p1, p2, p3, p4)  </span><br><span class="line">    <span class="keyword">values</span></span><br><span class="line">    (s_parameter1, s_parameter2, s_parameter3, s_parameter4);</span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span>;</span><br></pre></td></tr></tbody></table></figure>
-
-]]></content>
-      <categories>
-        <category>数据库</category>
-      </categories>
-      <tags>
-        <tag>mysql</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>读书笔记模版</title>
     <url>/2019/08/14/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E6%A8%A1%E7%89%88/</url>
     <content><![CDATA[<h2 id="1-书摘"><a href="#1-书摘" class="headerlink" title="1.书摘"></a>1. 书摘</h2><p>读书要有所得，必须要有思考，而思考的最佳验收方式就是输出。不论是书评还是读书笔记，怎样都好，只要是经过你理解的输出，就非常有价值。</p>
@@ -1274,6 +1277,44 @@
       </categories>
       <tags>
         <tag>templates</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解决使用 excel 打开 csv 文件时出现乱码的问题</title>
+    <url>/2020/06/11/%E8%A7%A3%E5%86%B3%E4%BD%BF%E7%94%A8excel%E6%89%93%E5%BC%80csv%E6%96%87%E4%BB%B6%E6%97%B6%E5%87%BA%E7%8E%B0%E4%B9%B1%E7%A0%81%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>使用 excel 打开 csv 文件时出现乱码</p>
+<span id="more"></span>
+
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>excel 默认识别的是带 BOM 格式的 csv 文档，而打开纯 UTF-8 的文件时，没有 BOM 的头，也就是第一行，所以打开是乱码。(开头多了一串字符”\ufeff”)</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>将”utf-8” 格式转换为”utf-8 with BOM”，python 中这个带 BOM 格式的叫做 UTF-8-SIG，都是 UTF-8 带签名的意思。</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> codecs</span><br><span class="line"><span class="keyword">import</span> chardet</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># from subFunc_tools import *</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">list_folders_files</span>(<span class="params">path</span>):</span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    返回 "文件夹" 和 "文件" 名字</span></span><br><span class="line"><span class="string">    :param path: "文件夹"和"文件"所在的路径</span></span><br><span class="line"><span class="string">    :return:  (list_folders, list_files)</span></span><br><span class="line"><span class="string">            :list_folders: 文件夹</span></span><br><span class="line"><span class="string">            :list_files: 文件</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    list_folders = []</span><br><span class="line">    list_files = []</span><br><span class="line">    <span class="keyword">for</span> file <span class="keyword">in</span> os.listdir(path):</span><br><span class="line">        file_path = os.path.join(path, file)</span><br><span class="line">        <span class="keyword">if</span> os.path.isdir(file_path):</span><br><span class="line">            list_folders.append(file)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            list_files.append(file)</span><br><span class="line">    <span class="keyword">return</span> (list_folders, list_files)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">convert</span>(<span class="params">file, in_enc=<span class="string">"GBK"</span>, out_enc=<span class="string">"UTF-8"</span></span>):</span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    该程序用于将目录下的文件从指定格式转换到指定格式，默认的是GBK转到utf-8</span></span><br><span class="line"><span class="string">    :param file:    文件路径</span></span><br><span class="line"><span class="string">    :param in_enc:  输入文件格式</span></span><br><span class="line"><span class="string">    :param out_enc: 输出文件格式</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    in_enc = in_enc.upper()</span><br><span class="line">    out_enc = out_enc.upper()</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"convert [ "</span> + file.split(<span class="string">'\\'</span>)[-<span class="number">1</span>] + <span class="string">" ].....From "</span> + in_enc + <span class="string">" --&gt; "</span> + out_enc)</span><br><span class="line">        f = codecs.<span class="built_in">open</span>(file, <span class="string">'r'</span>, in_enc)</span><br><span class="line">        new_content = f.read()</span><br><span class="line">        codecs.<span class="built_in">open</span>(file, <span class="string">'w'</span>, out_enc).write(new_content)</span><br><span class="line">    <span class="comment"># print (f.read())</span></span><br><span class="line">    <span class="keyword">except</span> IOError <span class="keyword">as</span> err:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"I/O error: {0}"</span>.<span class="built_in">format</span>(err))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将路径下面的所有文件，从原来的格式变为UTF-8的格式</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    path = <span class="string">r'G:\desktop\Convert-UTF8'</span></span><br><span class="line"></span><br><span class="line">    (list_folders, list_files) = list_folders_files(path)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Path: "</span> + path)</span><br><span class="line">    <span class="keyword">for</span> fileName <span class="keyword">in</span> list_files:</span><br><span class="line">        filePath = path + <span class="string">'\\'</span> + fileName</span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(filePath, <span class="string">"rb"</span>) <span class="keyword">as</span> f:</span><br><span class="line">            data = f.read()</span><br><span class="line">            codeType = chardet.detect(data)[<span class="string">'encoding'</span>]</span><br><span class="line">            convert(filePath, codeType, <span class="string">'UTF-8-SIG'</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p>代码参考于以下博客，自己做了相关调整：</p>
+<p><a href="https://www.cnblogs.com/monster-yher/p/13418600.html">https://www.cnblogs.com/monster-yher/p/13418600.html</a></p>
+]]></content>
+      <categories>
+        <category>测试脚本</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>记录一个 mysql 存储过程模板</title>
+    <url>/2024/06/14/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%AAmysql%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B%E6%A8%A1%E6%9D%BF/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>记录一个 mysql 存储过程模板，方便以后使用。</p>
+<span id="more"></span>
+
+<h2 id="2-相关sql"><a href="#2-相关sql" class="headerlink" title="2.相关sql"></a>2. 相关 sql</h2><figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> definer <span class="operator">=</span> user1@`<span class="operator">%</span>` <span class="keyword">procedure</span> procedure_name( <span class="comment">-- user1为数据库用户名</span></span><br><span class="line">      <span class="comment">-- 定义输入输入参数</span></span><br><span class="line">      <span class="keyword">IN</span> parameter1 <span class="type">varchar</span>(<span class="number">50</span>),                                                   </span><br><span class="line">      <span class="keyword">IN</span> parameter2 <span class="type">decimal</span>(<span class="number">15</span>, <span class="number">2</span>),</span><br><span class="line">      <span class="keyword">IN</span> parameter3 <span class="type">decimal</span>(<span class="number">10</span>, <span class="number">4</span>),</span><br><span class="line">      <span class="keyword">IN</span> parameter4 tinyint(<span class="number">3</span>),</span><br><span class="line">      <span class="keyword">IN</span> parameter5 <span class="type">varchar</span>(<span class="number">32</span>))</span><br><span class="line">      </span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">    <span class="comment">-- 变量定义</span></span><br><span class="line">    <span class="keyword">declare</span> s_parameter1 <span class="type">varchar</span>(<span class="number">32</span>); </span><br><span class="line">    <span class="keyword">declare</span> s_parameter2 datetime; </span><br><span class="line">    <span class="keyword">declare</span> s_parameter3 datetime; </span><br><span class="line">    <span class="keyword">declare</span> s_parameter4 <span class="type">decimal</span>(<span class="number">15</span>,<span class="number">2</span>); </span><br><span class="line">    <span class="keyword">declare</span> s_parameter5 <span class="type">bigint</span>; </span><br><span class="line">    <span class="keyword">declare</span> s_parameter6 <span class="type">bigint</span>; </span><br><span class="line"></span><br><span class="line">    <span class="comment">-- 变量赋值</span></span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        param1,</span><br><span class="line">        param2,</span><br><span class="line">        date_add((date_format(param3,<span class="string">'%Y-%m-%d %H:%i:%s'</span>)),<span class="type">interval</span> <span class="number">10</span> <span class="keyword">MINUTE</span> ), # 时间<span class="operator">+</span><span class="number">10</span>分钟</span><br><span class="line">        date_add((date_format(param4,<span class="string">'%Y-%m-%d %H:%i:%s'</span>)),<span class="type">interval</span> <span class="number">10</span> <span class="keyword">MINUTE</span> )  # 时间<span class="operator">+</span><span class="number">10</span>分钟</span><br><span class="line">    <span class="keyword">into</span></span><br><span class="line">        s_parameter1,</span><br><span class="line">        s_parameter2,</span><br><span class="line">        s_parameter3,</span><br><span class="line">        s_parameter4</span><br><span class="line">    <span class="keyword">from</span> table1</span><br><span class="line">    <span class="keyword">where</span> param1 <span class="operator">=</span> parameter1;</span><br><span class="line"></span><br><span class="line">    <span class="comment">-- 更新</span></span><br><span class="line">    <span class="keyword">UPDATE</span> table2</span><br><span class="line">    <span class="keyword">SET</span> `param1` <span class="operator">=</span> <span class="string">'test'</span>,</span><br><span class="line">        `param2` <span class="operator">=</span> s_parameter1,</span><br><span class="line">        `param3` <span class="operator">=</span> s_parameter2,</span><br><span class="line">        `param4` <span class="operator">=</span> s_parameter3,</span><br><span class="line">        `param5` <span class="operator">=</span> date_format(now(), <span class="string">'%Y-%m-%d %H:%i:%s'</span>), # 设置时间为当前时间</span><br><span class="line">        `param6` <span class="operator">=</span> s_parameter4,</span><br><span class="line">        `param7` <span class="operator">=</span> s_parameter5,</span><br><span class="line">        `param8` <span class="operator">=</span> s_parameter6,</span><br><span class="line">        `param9` <span class="operator">=</span> s_parameter6,</span><br><span class="line">        `param10`<span class="operator">=</span> date_format(now(), <span class="string">'%Y-%m-%d %H:%i:%s'</span>) # 设置时间为当前时间</span><br><span class="line">    <span class="keyword">WHERE</span> param1 <span class="operator">=</span> parameter1;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">-- 条件判断</span></span><br><span class="line">    if parameter2 <span class="operator">*</span> <span class="number">0.015</span> <span class="operator">&lt;</span> <span class="number">500</span> <span class="keyword">then</span></span><br><span class="line">        <span class="keyword">set</span> s_parameter3 <span class="operator">=</span> <span class="number">500</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">set</span> s_parameter3 <span class="operator">=</span> parameter2 <span class="operator">*</span> <span class="number">0.015</span>;</span><br><span class="line">    <span class="keyword">end</span> if;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">-- 最大编号自动+1</span></span><br><span class="line">		<span class="keyword">select</span> <span class="built_in">max</span>(id)<span class="operator">+</span><span class="number">1</span> <span class="keyword">into</span> s_parameter5 <span class="keyword">from</span> table3;</span><br><span class="line">    <span class="keyword">select</span> <span class="built_in">max</span>(id)<span class="operator">+</span><span class="number">1</span> <span class="keyword">into</span> s_parameter6 <span class="keyword">from</span> table4;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">-- 插入</span></span><br><span class="line">    <span class="keyword">insert</span> <span class="keyword">into</span> </span><br><span class="line">    table5(p1, p2, p3, p4)  </span><br><span class="line">    <span class="keyword">values</span></span><br><span class="line">    (s_parameter1, s_parameter2, s_parameter3, s_parameter4);</span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
       </tags>
   </entry>
 </search>

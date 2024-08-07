@@ -1,32 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Appium2 总结（三）图像识别定位</title>
-    <url>/2024/08/01/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%89%EF%BC%89%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB%E5%AE%9A%E4%BD%8D/</url>
-    <content><![CDATA[<h2 id="1-Appium-图像识别插件images安装"><a href="#1-Appium-图像识别插件images安装" class="headerlink" title="1.Appium 图像识别插件images安装"></a>1.Appium 图像识别插件 images 安装</h2><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">➜  ~ appium plugin install images</span><br><span class="line">✔ Checking <span class="keyword">if</span> <span class="string">'@appium/images-plugin'</span> is compatible</span><br><span class="line">✔ Installing <span class="string">'images'</span> using NPM install spec <span class="string">'@appium/images-plugin'</span></span><br><span class="line">ℹ Plugin images@3.0.17 successfully installed</span><br></pre></td></tr></tbody></table></figure>
-
-<span id="more"></span>
-
-<h2 id="2-Appium带着-images-插件启动"><a href="#2-Appium带着-images-插件启动" class="headerlink" title="2.Appium带着 images 插件启动"></a>2.Appium 带着 images 插件启动</h2><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">➜  ~ appium --use-plugins=images</span><br><span class="line">[Appium] Attempting to load plugin images...</span><br><span class="line">[Appium] .........</span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<h2 id="3-裁剪图片"><a href="#3-裁剪图片" class="headerlink" title="3.裁剪图片"></a>3. 裁剪图片</h2><p>（1）使用模拟器或者手机截图</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Screenshot_20240801-184130.png" alt="Screenshot_20240801-184130"></p>
-<p>（2）不改变尺寸大小和文件格式的情况下裁剪所要定位的图片</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/p1.png" alt="p1"></p>
-<h2 id="4-python🌰"><a href="#4-python🌰" class="headerlink" title="4.python🌰"></a>4.python🌰</h2><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> appium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> appium.options.android <span class="keyword">import</span> UiAutomator2Options</span><br><span class="line"><span class="keyword">from</span> appium.webdriver.common.appiumby <span class="keyword">import</span> AppiumBy</span><br><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"></span><br><span class="line">capabilities = <span class="built_in">dict</span>(</span><br><span class="line">    platformName=<span class="string">'Android'</span>,</span><br><span class="line">    automationName=<span class="string">'uiautomator2'</span>,</span><br><span class="line">    deviceName=<span class="string">'xx'</span>, <span class="comment"># 这块在 android 平台上不作要求，填写 xx 都可以，在 ios 上必填</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">appium_server_url = <span class="string">'http://localhost:4723'</span> <span class="comment"># appium 服务地址</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 驱动</span></span><br><span class="line">driver = webdriver.Remote(appium_server_url, options=UiAutomator2Options().load_capabilities(capabilities))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打开图片文件</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">'images/p1.png'</span>, <span class="string">'rb'</span>) <span class="keyword">as</span> image_file:</span><br><span class="line">    <span class="comment"># 读取图片数据</span></span><br><span class="line">    image_data = image_file.read()</span><br><span class="line"><span class="comment"># 将图片数据使用 base64 编码</span></span><br><span class="line">encoded_image = base64.b64encode(image_data)</span><br><span class="line"><span class="comment"># 将编码后的图片数据转换为字符串</span></span><br><span class="line">encoded_image_str = encoded_image.decode(<span class="string">'utf-8'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 这个原理是将所定位的图片转换为字符串，将目标页面也转换为字符串，然后在目标页面中对比相似度，相似度高的部分就定位成功</span></span><br><span class="line">driver.find_element(AppiumBy.IMAGE, encoded_image_str).click()</span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="5-相关参考"><a href="#5-相关参考" class="headerlink" title="5.相关参考"></a>5. 相关参考</h2><p><a href="https://www.bilibili.com/video/BV1qt421M7kZ/?spm_id_from=333.999.0.0&amp;vd_source=fd555860cd7cf9b09d9279e5deaabb9d">https://www.bilibili.com/video/BV1qt421M7kZ/?spm_id_from=333.999.0.0&amp;vd_source=fd555860cd7cf9b09d9279e5deaabb9d</a></p>
-]]></content>
-      <categories>
-        <category>自动化测试</category>
-      </categories>
-      <tags>
-        <tag>appium</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Appium2 总结（一）环境搭建以及简单脚本测试</title>
     <url>/2024/07/29/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%80%EF%BC%89%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%BB%A5%E5%8F%8A%E7%AE%80%E5%8D%95%E8%84%9A%E6%9C%AC%E6%B5%8B%E8%AF%95/</url>
     <content><![CDATA[<p>Appium 是一个开源项目和相关软件的生态系统。 软件，旨在促进许多应用程序平台的 UI 自动化，包括移动平台（iOS、 Android、Tizen）、浏览器（Chrome、Firefox、Safari）、桌面（macOS、Windows）、电视（Roku、tvOS、 Android TV、三星）等，它还旨在支持用不同语言（JS、Java、Python 等）编写的自动化代码。</p>
@@ -227,6 +201,32 @@
 <p>6️⃣在 pycharm 上运行 <code>test_appium.py</code>，测试通过。</p>
 <p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240730193606283.png" alt="image-20240730193606283"></p>
 <h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2>]]></content>
+      <categories>
+        <category>自动化测试</category>
+      </categories>
+      <tags>
+        <tag>appium</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Appium2 总结（三）图像识别定位</title>
+    <url>/2024/08/01/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%89%EF%BC%89%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB%E5%AE%9A%E4%BD%8D/</url>
+    <content><![CDATA[<h2 id="1-Appium-图像识别插件images安装"><a href="#1-Appium-图像识别插件images安装" class="headerlink" title="1.Appium 图像识别插件images安装"></a>1.Appium 图像识别插件 images 安装</h2><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">➜  ~ appium plugin install images</span><br><span class="line">✔ Checking <span class="keyword">if</span> <span class="string">'@appium/images-plugin'</span> is compatible</span><br><span class="line">✔ Installing <span class="string">'images'</span> using NPM install spec <span class="string">'@appium/images-plugin'</span></span><br><span class="line">ℹ Plugin images@3.0.17 successfully installed</span><br></pre></td></tr></tbody></table></figure>
+
+<span id="more"></span>
+
+<h2 id="2-Appium带着-images-插件启动"><a href="#2-Appium带着-images-插件启动" class="headerlink" title="2.Appium带着 images 插件启动"></a>2.Appium 带着 images 插件启动</h2><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">➜  ~ appium --use-plugins=images</span><br><span class="line">[Appium] Attempting to load plugin images...</span><br><span class="line">[Appium] .........</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h2 id="3-裁剪图片"><a href="#3-裁剪图片" class="headerlink" title="3.裁剪图片"></a>3. 裁剪图片</h2><p>（1）使用模拟器或者手机截图</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Screenshot_20240801-184130.png" alt="Screenshot_20240801-184130"></p>
+<p>（2）不改变尺寸大小和文件格式的情况下裁剪所要定位的图片</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/p1.png" alt="p1"></p>
+<h2 id="4-python🌰"><a href="#4-python🌰" class="headerlink" title="4.python🌰"></a>4.python🌰</h2><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> appium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> appium.options.android <span class="keyword">import</span> UiAutomator2Options</span><br><span class="line"><span class="keyword">from</span> appium.webdriver.common.appiumby <span class="keyword">import</span> AppiumBy</span><br><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"></span><br><span class="line">capabilities = <span class="built_in">dict</span>(</span><br><span class="line">    platformName=<span class="string">'Android'</span>,</span><br><span class="line">    automationName=<span class="string">'uiautomator2'</span>,</span><br><span class="line">    deviceName=<span class="string">'xx'</span>, <span class="comment"># 这块在 android 平台上不作要求，填写 xx 都可以，在 ios 上必填</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">appium_server_url = <span class="string">'http://localhost:4723'</span> <span class="comment"># appium 服务地址</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 驱动</span></span><br><span class="line">driver = webdriver.Remote(appium_server_url, options=UiAutomator2Options().load_capabilities(capabilities))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打开图片文件</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">'images/p1.png'</span>, <span class="string">'rb'</span>) <span class="keyword">as</span> image_file:</span><br><span class="line">    <span class="comment"># 读取图片数据</span></span><br><span class="line">    image_data = image_file.read()</span><br><span class="line"><span class="comment"># 将图片数据使用 base64 编码</span></span><br><span class="line">encoded_image = base64.b64encode(image_data)</span><br><span class="line"><span class="comment"># 将编码后的图片数据转换为字符串</span></span><br><span class="line">encoded_image_str = encoded_image.decode(<span class="string">'utf-8'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 这个原理是将所定位的图片转换为字符串，将目标页面也转换为字符串，然后在目标页面中对比相似度，相似度高的部分就定位成功</span></span><br><span class="line">driver.find_element(AppiumBy.IMAGE, encoded_image_str).click()</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="5-相关参考"><a href="#5-相关参考" class="headerlink" title="5.相关参考"></a>5. 相关参考</h2><p><a href="https://www.bilibili.com/video/BV1qt421M7kZ/?spm_id_from=333.999.0.0&amp;vd_source=fd555860cd7cf9b09d9279e5deaabb9d">https://www.bilibili.com/video/BV1qt421M7kZ/?spm_id_from=333.999.0.0&amp;vd_source=fd555860cd7cf9b09d9279e5deaabb9d</a></p>
+]]></content>
       <categories>
         <category>自动化测试</category>
       </categories>
@@ -529,24 +529,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Ubuntu 中 chromdriver 和 geckodriver 的下载和配置</title>
-    <url>/2021/05/25/Ubuntu%E4%B8%ADchromdriver%E5%92%8Cgeckodriver%E7%9A%84%E4%B8%8B%E8%BD%BD%E5%92%8C%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<h2 id="1-下载地址为："><a href="#1-下载地址为：" class="headerlink" title="1.下载地址为："></a>1. 下载地址为：</h2><h3 id="（1）Chromedriver"><a href="#（1）Chromedriver" class="headerlink" title="（1）Chromedriver:"></a>（1）Chromedriver:</h3><h3 id="http-chromedriver-storage-googleapis-com-index-html"><a href="#http-chromedriver-storage-googleapis-com-index-html" class="headerlink" title="http://chromedriver.storage.googleapis.com/index.html"></a><a href="http://chromedriver.storage.googleapis.com/index.html">http://chromedriver.storage.googleapis.com/index.html</a></h3><h3 id="（2）Geckodriver"><a href="#（2）Geckodriver" class="headerlink" title="（2）Geckodriver:"></a>（2）Geckodriver:</h3><h3 id="https-github-com-mozilla-geckodriver-releases"><a href="#https-github-com-mozilla-geckodriver-releases" class="headerlink" title="https://github.com/mozilla/geckodriver/releases/"></a><a href="https://github.com/mozilla/geckodriver/releases/">https://github.com/mozilla/geckodriver/releases/</a></h3><span id="more"></span>
-
-<h2 id="2-查找文件地址后，下载文件"><a href="#2-查找文件地址后，下载文件" class="headerlink" title="2.查找文件地址后，下载文件:"></a>2. 查找文件地址后，下载文件:</h2><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">wget -P /home/user/testWget/ http://chromedriver.storage.googleapis.com/90.0.4430.24/chromedriver_linux64.zip</span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="3-将Chromedriver解压后，放到-usr-bin目录下"><a href="#3-将Chromedriver解压后，放到-usr-bin目录下" class="headerlink" title="3.将Chromedriver解压后，放到/usr/bin目录下:"></a>3. 将 Chromedriver 解压后，放到 /usr/bin 目录下:</h2><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">unzip /home/git/testScp/chromedriver_linux64.zip</span><br><span class="line"><span class="built_in">mv</span> chromedriver /usr/bin</span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="4-Geckodriver同以上Chromedriver步骤。"><a href="#4-Geckodriver同以上Chromedriver步骤。" class="headerlink" title="4.Geckodriver同以上Chromedriver步骤。"></a>4.Geckodriver 同以上 Chromedriver 步骤。</h2>]]></content>
-      <categories>
-        <category>环境部署</category>
-      </categories>
-      <tags>
-        <tag>ubuntu</tag>
-        <tag>selenium</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>mysql 实现 excel 中复制某一列，粘贴转置为行功能</title>
     <url>/2021/05/31/group-concat%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>数据处理需要，需要将大批量的列，转置为行。</p>
@@ -580,6 +562,31 @@
       </tags>
   </entry>
   <entry>
+    <title>Ubuntu 中 chromdriver 和 geckodriver 的下载和配置</title>
+    <url>/2021/05/25/Ubuntu%E4%B8%ADchromdriver%E5%92%8Cgeckodriver%E7%9A%84%E4%B8%8B%E8%BD%BD%E5%92%8C%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<h2 id="1-下载地址为："><a href="#1-下载地址为：" class="headerlink" title="1.下载地址为："></a>1. 下载地址为：</h2><h3 id="（1）Chromedriver"><a href="#（1）Chromedriver" class="headerlink" title="（1）Chromedriver:"></a>（1）Chromedriver:</h3><h3 id="http-chromedriver-storage-googleapis-com-index-html"><a href="#http-chromedriver-storage-googleapis-com-index-html" class="headerlink" title="http://chromedriver.storage.googleapis.com/index.html"></a><a href="http://chromedriver.storage.googleapis.com/index.html">http://chromedriver.storage.googleapis.com/index.html</a></h3><h3 id="（2）Geckodriver"><a href="#（2）Geckodriver" class="headerlink" title="（2）Geckodriver:"></a>（2）Geckodriver:</h3><h3 id="https-github-com-mozilla-geckodriver-releases"><a href="#https-github-com-mozilla-geckodriver-releases" class="headerlink" title="https://github.com/mozilla/geckodriver/releases/"></a><a href="https://github.com/mozilla/geckodriver/releases/">https://github.com/mozilla/geckodriver/releases/</a></h3><span id="more"></span>
+
+<h2 id="2-查找文件地址后，下载文件"><a href="#2-查找文件地址后，下载文件" class="headerlink" title="2.查找文件地址后，下载文件:"></a>2. 查找文件地址后，下载文件:</h2><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">wget -P /home/user/testWget/ http://chromedriver.storage.googleapis.com/90.0.4430.24/chromedriver_linux64.zip</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="3-将Chromedriver解压后，放到-usr-bin目录下"><a href="#3-将Chromedriver解压后，放到-usr-bin目录下" class="headerlink" title="3.将Chromedriver解压后，放到/usr/bin目录下:"></a>3. 将 Chromedriver 解压后，放到 /usr/bin 目录下:</h2><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">unzip /home/git/testScp/chromedriver_linux64.zip</span><br><span class="line"><span class="built_in">mv</span> chromedriver /usr/bin</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="4-Geckodriver同以上Chromedriver步骤。"><a href="#4-Geckodriver同以上Chromedriver步骤。" class="headerlink" title="4.Geckodriver同以上Chromedriver步骤。"></a>4.Geckodriver 同以上 Chromedriver 步骤。</h2>]]></content>
+      <categories>
+        <category>环境部署</category>
+      </categories>
+      <tags>
+        <tag>ubuntu</tag>
+        <tag>selenium</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>allure 相关总结</title>
+    <url>/2024/08/07/allure%E7%9B%B8%E5%85%B3%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><span id="more"></span>
+
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2>]]></content>
+  </entry>
+  <entry>
     <title>使用 hexo 搭建 GitHub Page 博客后，网页显示 404 的问题解决</title>
     <url>/2019/08/14/hexo%E7%AC%AC%E4%B8%80%E6%AC%A1%E9%83%A8%E7%BD%B2%E7%BD%91%E9%A1%B5%E6%98%BE%E7%A4%BA404/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>使用 hexo 搭建 GitHub Page 博客后，第一次正常，第二次上传后，博客网页显示 404 页面。</p>
@@ -598,6 +605,26 @@
       </categories>
       <tags>
         <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>jmeter 通过 log4j2.xml 修改 log 文件位置</title>
+    <url>/2024/04/15/jmeter%E9%80%9A%E8%BF%87log4j2-xml%E4%BF%AE%E6%94%B9log%E6%96%87%E4%BB%B6%E4%BD%8D%E7%BD%AE/</url>
+    <content><![CDATA[<p>在 Apache JMeter 中，如果你使用的是 Log4j2 作为日志系统，并且想通过 <code>log4j2.xml</code> 配置文件修改日志文件的位置，你可以按照以下步骤操作：（文中使用 jmeter 版本为:apache-jmeter-5.6.3）</p>
+<ol>
+<li>找到 JMeter 安装目录下的 <code>log4j2.xml</code> 配置文件。在 JMeter 3.x 及以上版本中，这个文件通常位于 <code>apache-jmeter-X.XX/bin</code> 目录下。</li>
+<li>打开 <code>log4j2.xml</code> 文件，找到 <code>RollingFile</code> 或 <code>File</code> 类型的 Appender 配置部分。</li>
+</ol>
+<span id="more"></span>
+
+<figure class="highlight xml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</span></span><br><span class="line"><span class="comment">&lt;!--......--&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">Configuration</span> <span class="attr">status</span>=<span class="string">"WARN"</span> <span class="attr">packages</span>=<span class="string">"org.apache.jmeter.gui.logging"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Appenders</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 修改这里，修改日志文件位置 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">File</span> <span class="attr">name</span>=<span class="string">"jmeter-log"</span> <span class="attr">fileName</span>=<span class="string">"/path/to/your/log/jmeter.log"</span> <span class="attr">append</span>=<span class="string">"false"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>%d %p %c{1.}: %m%n<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">File</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">GuiLogEvent</span> <span class="attr">name</span>=<span class="string">"gui-log-event"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>%d %p %c{1.}: %m%n<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">GuiLogEvent</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;/<span class="name">Appenders</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">Loggers</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Root</span> <span class="attr">level</span>=<span class="string">"info"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">AppenderRef</span> <span class="attr">ref</span>=<span class="string">"jmeter-log"</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">AppenderRef</span> <span class="attr">ref</span>=<span class="string">"gui-log-event"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Root</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Logger</span> <span class="attr">name</span>=<span class="string">"org.apache.jmeter.junit"</span> <span class="attr">level</span>=<span class="string">"debug"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;/<span class="name">Loggers</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">Configuration</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+]]></content>
+      <categories>
+        <category>性能测试</category>
+      </categories>
+      <tags>
+        <tag>jmeter</tag>
       </tags>
   </entry>
   <entry>
@@ -631,26 +658,6 @@
       </categories>
       <tags>
         <tag>mysql</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>jmeter 通过 log4j2.xml 修改 log 文件位置</title>
-    <url>/2024/04/15/jmeter%E9%80%9A%E8%BF%87log4j2-xml%E4%BF%AE%E6%94%B9log%E6%96%87%E4%BB%B6%E4%BD%8D%E7%BD%AE/</url>
-    <content><![CDATA[<p>在 Apache JMeter 中，如果你使用的是 Log4j2 作为日志系统，并且想通过 <code>log4j2.xml</code> 配置文件修改日志文件的位置，你可以按照以下步骤操作：（文中使用 jmeter 版本为:apache-jmeter-5.6.3）</p>
-<ol>
-<li>找到 JMeter 安装目录下的 <code>log4j2.xml</code> 配置文件。在 JMeter 3.x 及以上版本中，这个文件通常位于 <code>apache-jmeter-X.XX/bin</code> 目录下。</li>
-<li>打开 <code>log4j2.xml</code> 文件，找到 <code>RollingFile</code> 或 <code>File</code> 类型的 Appender 配置部分。</li>
-</ol>
-<span id="more"></span>
-
-<figure class="highlight xml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</span></span><br><span class="line"><span class="comment">&lt;!--......--&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">Configuration</span> <span class="attr">status</span>=<span class="string">"WARN"</span> <span class="attr">packages</span>=<span class="string">"org.apache.jmeter.gui.logging"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Appenders</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 修改这里，修改日志文件位置 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">File</span> <span class="attr">name</span>=<span class="string">"jmeter-log"</span> <span class="attr">fileName</span>=<span class="string">"/path/to/your/log/jmeter.log"</span> <span class="attr">append</span>=<span class="string">"false"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>%d %p %c{1.}: %m%n<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">File</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">GuiLogEvent</span> <span class="attr">name</span>=<span class="string">"gui-log-event"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>%d %p %c{1.}: %m%n<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">GuiLogEvent</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;/<span class="name">Appenders</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">Loggers</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Root</span> <span class="attr">level</span>=<span class="string">"info"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">AppenderRef</span> <span class="attr">ref</span>=<span class="string">"jmeter-log"</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">AppenderRef</span> <span class="attr">ref</span>=<span class="string">"gui-log-event"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Root</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Logger</span> <span class="attr">name</span>=<span class="string">"org.apache.jmeter.junit"</span> <span class="attr">level</span>=<span class="string">"debug"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;/<span class="name">Loggers</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">Configuration</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-
-]]></content>
-      <categories>
-        <category>性能测试</category>
-      </categories>
-      <tags>
-        <tag>jmeter</tag>
       </tags>
   </entry>
   <entry>
@@ -826,13 +833,13 @@
 
 <h2 id="9-pytest-前后置-fixture-固件"><a href="#9-pytest-前后置-fixture-固件" class="headerlink" title="9.pytest 前后置 fixture 固件"></a>9.pytest 前后置 fixture 固件</h2><p>当用例执行之前或者执行完成后需要固定的测试环境可以卸载 fixture 当中，然后进行使用。</p>
 <p>（这个相对于之前的 setup，teardown 就要清爽多了啊）</p>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># conftest.py</span></span><br><span class="line"><span class="keyword">from</span> _pytest.fixtures <span class="keyword">import</span> fixture</span><br><span class="line"></span><br><span class="line"><span class="comment"># fixture的作用范围:session &gt; module &gt; class &gt; function, 不写默认为 session</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@fixture(<span class="params">scope=<span class="string">'function'</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">e_x</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'连接数据库'</span>)</span><br><span class="line">    <span class="keyword">yield</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'关闭数据库'</span>)</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># conftest.py</span></span><br><span class="line"><span class="keyword">from</span> _pytest.fixtures <span class="keyword">import</span> fixture</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># fixture的作用范围:session &gt; module &gt; class &gt; function, 不写默认为 session</span></span><br><span class="line"><span class="meta">@fixture(<span class="params">scope=<span class="string">'function'</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">e_x_function</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'function级别开始'</span>)</span><br><span class="line">    <span class="keyword">yield</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'function级别结束'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@fixture(<span class="params">scope=<span class="string">'class'</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">e_x_class</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'class级别开始'</span>)</span><br><span class="line">    <span class="keyword">yield</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'class级别结束'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@fixture(<span class="params">scope=<span class="string">'module'</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">e_x_module</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'module级别开始'</span>)</span><br><span class="line">    <span class="keyword">yield</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'module级别结束'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@fixture(<span class="params">scope=<span class="string">'session'</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">e_x_session</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'session级别开始'</span>)</span><br><span class="line">    <span class="keyword">yield</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'session级别结束'</span>)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
 
 <p>测试用例中使用：</p>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test_login_12</span>(<span class="params">e_x</span>): <span class="comment"># 将 e_x 这个函数名当做参数传递进去</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'查询数据库中的数据'</span>)</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Test03</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">test_03_01</span>(<span class="params">self, e_x_function</span>):</span><br><span class="line">        <span class="keyword">assert</span> <span class="number">3</span> &gt; <span class="number">2</span>, <span class="string">'为真，通过0301'</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">test_03_02</span>(<span class="params">self, e_x_class, e_x_function</span>):</span><br><span class="line">        <span class="keyword">assert</span> <span class="number">3</span> &lt; <span class="number">2</span>, <span class="string">'为假，不通过0302'</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">test_03_03</span>(<span class="params">self, e_x_class, e_x_module, e_x_function</span>):</span><br><span class="line">        <span class="keyword">assert</span> <span class="literal">True</span>, <span class="string">'为真，通过0303'</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test_03_04</span>(<span class="params">e_x_module, e_x_function</span>):</span><br><span class="line">    <span class="keyword">assert</span> <span class="literal">True</span>, <span class="string">'为真，通过 0304'</span></span><br></pre></td></tr></tbody></table></figure>
 
 <p>执行结果：</p>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line">(.venv) ➜  StudyPytest pytest -vsk test_login_12</span><br><span class="line">============================================================= test session starts ==============================================================</span><br><span class="line"><span class="comment"># ...省略</span></span><br><span class="line"></span><br><span class="line">collected <span class="number">14</span> items / <span class="number">13</span> deselected / <span class="number">1</span> selected                                                                                               </span><br><span class="line"></span><br><span class="line">testcases/test_01.py::test_login_12 连接数据库</span><br><span class="line">查询数据库中的数据</span><br><span class="line">PASSED关闭数据库</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line">(.venv) ➜  StudyPytest pytest -vs -k=test_03</span><br><span class="line">============================================================= test session starts ==============================================================</span><br><span class="line">platform darwin -- Python <span class="number">3.12</span><span class="number">.4</span>, pytest-<span class="number">8.3</span><span class="number">.2</span>, pluggy-<span class="number">1.5</span><span class="number">.0</span> -- /Users/candy/Project/PycharmProjects/StudyPytest/.venv/<span class="built_in">bin</span>/python</span><br><span class="line">cachedir: .pytest_cache</span><br><span class="line">metadata: {<span class="string">'Python'</span>: <span class="string">'3.12.4'</span>, <span class="string">'Platform'</span>: <span class="string">'macOS-13.6.7-x86_64-i386-64bit'</span>, <span class="string">'Packages'</span>: {<span class="string">'pytest'</span>: <span class="string">'8.3.2'</span>, <span class="string">'pluggy'</span>: <span class="string">'1.5.0'</span>}, <span class="string">'Plugins'</span>: {<span class="string">'html'</span>: <span class="string">'4.1.1'</span>, <span class="string">'metadata'</span>: <span class="string">'3.1.1'</span>, <span class="string">'rerunfailures'</span>: <span class="string">'14.0'</span>, <span class="string">'allure-pytest'</span>: <span class="string">'2.13.5'</span>, <span class="string">'ordering'</span>: <span class="string">'0.6'</span>, <span class="string">'base-url'</span>: <span class="string">'2.1.0'</span>, <span class="string">'xdist'</span>: <span class="string">'3.6.1'</span>}, <span class="string">'Base URL'</span>: <span class="string">''</span>}</span><br><span class="line">rootdir: /Users/candy/Project/PycharmProjects/StudyPytest</span><br><span class="line">plugins: html-<span class="number">4.1</span><span class="number">.1</span>, metadata-<span class="number">3.1</span><span class="number">.1</span>, rerunfailures-<span class="number">14.0</span>, allure-pytest-<span class="number">2.13</span><span class="number">.5</span>, ordering-<span class="number">0.6</span>, base-url-<span class="number">2.1</span><span class="number">.0</span>, xdist-<span class="number">3.6</span><span class="number">.1</span></span><br><span class="line">collected <span class="number">21</span> items / <span class="number">17</span> deselected / <span class="number">4</span> selected                                                                                                </span><br><span class="line"></span><br><span class="line">testcases/test_03.py::Test03::test_03_01 </span><br><span class="line">function级别开始</span><br><span class="line">PASSED</span><br><span class="line">function级别结束</span><br><span class="line"></span><br><span class="line">testcases/test_03.py::Test03::test_03_02 </span><br><span class="line"><span class="keyword">class</span>级别开始</span><br><span class="line">function级别开始</span><br><span class="line">FAILED</span><br><span class="line">function级别结束</span><br><span class="line"></span><br><span class="line">testcases/test_03.py::Test03::test_03_03 </span><br><span class="line">module级别开始</span><br><span class="line">function级别开始</span><br><span class="line">PASSED</span><br><span class="line">function级别结束</span><br><span class="line"><span class="keyword">class</span>级别结束</span><br><span class="line"></span><br><span class="line">testcases/test_03.py::test_03_04 </span><br><span class="line">function级别开始</span><br><span class="line">PASSED</span><br><span class="line">function级别结束</span><br><span class="line">module级别结束</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
 
 <h2 id="9-pytest-ini-配置文件"><a href="#9-pytest-ini-配置文件" class="headerlink" title="9.pytest.ini 配置文件"></a>9.pytest.ini 配置文件</h2><figure class="highlight ini"><table><tbody><tr><td class="code"><pre><span class="line"><span class="section">[pytest]</span></span><br><span class="line"><span class="comment"># 添加额外的测试文件或目录到测试搜索路径</span></span><br><span class="line"><span class="attr">testpaths</span> = tests</span><br><span class="line"></span><br><span class="line"><span class="comment"># 指定测试文件的模式，例如 test_*.py 或者 *_test.py</span></span><br><span class="line"><span class="attr">python_files</span> = test_*.py</span><br><span class="line"></span><br><span class="line"><span class="comment"># 指定测试目录的模式</span></span><br><span class="line">testpaths =</span><br><span class="line"></span><br><span class="line"><span class="comment"># 指定 pytest 的插件</span></span><br><span class="line"><span class="attr">addopts</span> = -v</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置日志记录</span></span><br><span class="line"><span class="attr">log_cli</span> = <span class="literal">true</span></span><br><span class="line"><span class="attr">log_cli_level</span> = INFO</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置覆盖率报告</span></span><br><span class="line"><span class="attr">cov</span> = my_package</span><br><span class="line"><span class="attr">cov_config</span> = .coveragerc</span><br><span class="line"><span class="attr">cov_report</span> = term-missing:skip-covered</span><br></pre></td></tr></tbody></table></figure>
 
@@ -884,34 +891,6 @@
 
 <p>MD5 已经不再被认为是安全的哈希函数，因为它容易受到多种攻击，如碰撞攻击。</p>
 <h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2>]]></content>
-  </entry>
-  <entry>
-    <title>requirements 总结</title>
-    <url>/2021/05/21/requirements%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在搭建 Liunx 服务器时，需要在新的 Python 环境中安装项目需要的包的依赖，一条一条 pip install 太慢，有没有可以批量安装方法？</p>
-<span id="more"></span>
-
-<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><p>百度后，方法如下：</p>
-<p>在旧环境下执行:</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pip freeze &gt; requirements.txt</span><br></pre></td></tr></tbody></table></figure>
-
-<p>执行后，会在当前项目下生成一个 requirements.txt 的文件，然后将该文件上传到新的环境项目下，在新环境下执行:</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></tbody></table></figure>
-
-<p>有时执行上面命令会报错 (改错误是在 Jenkins 中执行 shell 时报错)</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">ERROR: Could not find a version that satisfies the requirement request==1.0.117 (from -r requirements.txt (line 6)) (from versions: none)</span><br></pre></td></tr></tbody></table></figure>
-
-<p>一般情况下是国外源的原因，将其临时替换为国内源：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple/</span><br></pre></td></tr></tbody></table></figure>
-
-]]></content>
-      <categories>
-        <category>环境部署</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>pycharm</tag>
-      </tags>
   </entry>
   <entry>
     <title>python 读写 csv 总结</title>
@@ -1012,6 +991,34 @@
       </tags>
   </entry>
   <entry>
+    <title>requirements 总结</title>
+    <url>/2021/05/21/requirements%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在搭建 Liunx 服务器时，需要在新的 Python 环境中安装项目需要的包的依赖，一条一条 pip install 太慢，有没有可以批量安装方法？</p>
+<span id="more"></span>
+
+<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><p>百度后，方法如下：</p>
+<p>在旧环境下执行:</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pip freeze &gt; requirements.txt</span><br></pre></td></tr></tbody></table></figure>
+
+<p>执行后，会在当前项目下生成一个 requirements.txt 的文件，然后将该文件上传到新的环境项目下，在新环境下执行:</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></tbody></table></figure>
+
+<p>有时执行上面命令会报错 (改错误是在 Jenkins 中执行 shell 时报错)</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">ERROR: Could not find a version that satisfies the requirement request==1.0.117 (from -r requirements.txt (line 6)) (from versions: none)</span><br></pre></td></tr></tbody></table></figure>
+
+<p>一般情况下是国外源的原因，将其临时替换为国内源：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple/</span><br></pre></td></tr></tbody></table></figure>
+
+]]></content>
+      <categories>
+        <category>环境部署</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>pycharm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>博客重新装修删除冗余内容</title>
     <url>/2024/05/06/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%96%B0%E8%A3%85%E4%BF%AE%E5%88%A0%E9%99%A4%E5%86%97%E4%BD%99%E5%86%85%E5%AE%B9/</url>
     <content><![CDATA[<p>最近有空闲时间，就重新装修了长时间没管过的博客，将以前的内容做了精简以及删除，后续会陆续将之前做的笔记整理后，写成 blog，大体做了如下改变。</p>
@@ -1023,6 +1030,33 @@
       </categories>
       <tags>
         <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何去除 macOS12-13 更新小红点</title>
+    <url>/2024/05/06/%E5%A6%82%E4%BD%95%E5%8E%BB%E9%99%A4macOS12-13%E6%9B%B4%E6%96%B0%E5%B0%8F%E7%BA%A2%E7%82%B9/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>2 个小红点位置如下：</p>
+<ul>
+<li>设置→通用→软件更新→红点 1</li>
+<li>Dock→红点 1</li>
+</ul>
+<span id="more"></span>
+
+<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><h3 id="（1）关闭自动更新"><a href="#（1）关闭自动更新" class="headerlink" title="（1）关闭自动更新"></a>（1）关闭自动更新</h3><h3 id="（2）host添加相关内容"><a href="#（2）host添加相关内容" class="headerlink" title="（2）host添加相关内容"></a>（2）host 添加相关内容</h3><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">127.0.0.1 swdist.apple.com</span><br><span class="line">127.0.0.1 swscan.apple.com</span><br><span class="line">127.0.0.1 swcdn.apple.com </span><br><span class="line">127.0.0.1 gdmf.apple.com</span><br><span class="line">127.0.0.1 mesu.apple.com</span><br><span class="line">127.0.0.1 xp.apple.com</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="（3）终端执行"><a href="#（3）终端执行" class="headerlink" title="（3）终端执行"></a>（3）终端执行</h3><p>先执行</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">defaults write com.apple.systempreferences AttentionPrefBundleIDs 0</span><br><span class="line">Killall Dock</span><br></pre></td></tr></tbody></table></figure>
+
+<p>如果无法去除，则执行</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">defaults delete com.apple.systempreferences AttentionPrefBundleIDs</span><br><span class="line">defaults delete com.apple.systempreferences DidShowPrefBundleIDs</span><br><span class="line">killall Dock</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2><p><a href="https://sysin.org/blog/disable-macos-ventura-update/">https://sysin.org/blog/disable-macos-ventura-update/</a></p>
+]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>macos</tag>
       </tags>
   </entry>
   <entry>
@@ -1055,33 +1089,6 @@
         <tag>ubuntu</tag>
         <tag>macos</tag>
         <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何去除 macOS12-13 更新小红点</title>
-    <url>/2024/05/06/%E5%A6%82%E4%BD%95%E5%8E%BB%E9%99%A4macOS12-13%E6%9B%B4%E6%96%B0%E5%B0%8F%E7%BA%A2%E7%82%B9/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>2 个小红点位置如下：</p>
-<ul>
-<li>设置→通用→软件更新→红点 1</li>
-<li>Dock→红点 1</li>
-</ul>
-<span id="more"></span>
-
-<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><h3 id="（1）关闭自动更新"><a href="#（1）关闭自动更新" class="headerlink" title="（1）关闭自动更新"></a>（1）关闭自动更新</h3><h3 id="（2）host添加相关内容"><a href="#（2）host添加相关内容" class="headerlink" title="（2）host添加相关内容"></a>（2）host 添加相关内容</h3><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">127.0.0.1 swdist.apple.com</span><br><span class="line">127.0.0.1 swscan.apple.com</span><br><span class="line">127.0.0.1 swcdn.apple.com </span><br><span class="line">127.0.0.1 gdmf.apple.com</span><br><span class="line">127.0.0.1 mesu.apple.com</span><br><span class="line">127.0.0.1 xp.apple.com</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="（3）终端执行"><a href="#（3）终端执行" class="headerlink" title="（3）终端执行"></a>（3）终端执行</h3><p>先执行</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">defaults write com.apple.systempreferences AttentionPrefBundleIDs 0</span><br><span class="line">Killall Dock</span><br></pre></td></tr></tbody></table></figure>
-
-<p>如果无法去除，则执行</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">defaults delete com.apple.systempreferences AttentionPrefBundleIDs</span><br><span class="line">defaults delete com.apple.systempreferences DidShowPrefBundleIDs</span><br><span class="line">killall Dock</span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2><p><a href="https://sysin.org/blog/disable-macos-ventura-update/">https://sysin.org/blog/disable-macos-ventura-update/</a></p>
-]]></content>
-      <categories>
-        <category>操作系统</category>
-      </categories>
-      <tags>
-        <tag>macos</tag>
       </tags>
   </entry>
   <entry>
@@ -1275,35 +1282,6 @@
       </tags>
   </entry>
   <entry>
-    <title>解决 appium 报错 java.lang.SecurityException - Permission Denial- starting Intent 的问题</title>
-    <url>/2024/07/27/%E8%A7%A3%E5%86%B3appium%E6%8A%A5%E9%94%99java-lang-SecurityException%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在使用 appium 时，出现以下问题：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">java.lang.SecurityException: Permission Denial: starting Intent { act=android.intent.action.MAIN <span class="built_in">cat</span>=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=com.dreamfish.com.autocalc/.MainActivity } from null (pid=9251, uid=2000) not exported from uid 10053</span><br><span class="line">	at com.android.server.am.ActivityStackSupervisor.checkStartAnyActivityPermission(ActivityStackSupervisor.java:1779)</span><br><span class="line">	at com.android.server.am.ActivityStarter.startActivity(ActivityStarter.java:725)</span><br><span class="line">	at com.android.server.am.ActivityStarter.startActivity(ActivityStarter.java:551)</span><br><span class="line">	at com.android.server.am.ActivityStarter.startActivityMayWait(ActivityStarter.java:1156)</span><br><span class="line">	at com.android.server.am.ActivityStarter.execute(ActivityStarter.java:490)</span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<span id="more"></span>
-
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>出现这样的错误一定是因为当前的 appActivity 设置的不是 app 首次进入的 appActivity.</p>
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>（1）首先获取该 <code>App</code> 的包名</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">➜  ~ adb shell dumpsys window | grep mFocusedApp</span><br><span class="line">    mFocusedApp=Token{2e61d6 ActivityRecord{a39b1f1 u0 com.dreamfish.com.autocalc/.MainActivity t32}}</span><br><span class="line">    mFocusedApp=AppWindowToken{7130c57 token=Token{2e61d6 ActivityRecord{a39b1f1 u0 com.dreamfish.com.autocalc/.MainActivity t32}}}</span><br></pre></td></tr></tbody></table></figure>
-
-<p>（2）通过 monkey 命令找到 <code>cmp=</code> 后面的 <code>activity</code>，本列中的 <code>activity</code> 为<code>.LauncherActivity</code></p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">➜  ~ adb shell monkey -p com.dreamfish.com.autocalc -v 1 | grep cmp=</span><br><span class="line">args: [-p, com.dreamfish.com.autocalc, -v, 1]</span><br><span class="line"> arg: <span class="string">"-p"</span></span><br><span class="line"> arg: <span class="string">"com.dreamfish.com.autocalc"</span></span><br><span class="line"> arg: <span class="string">"-v"</span></span><br><span class="line"> arg: <span class="string">"1"</span></span><br><span class="line">data=<span class="string">"com.dreamfish.com.autocalc"</span></span><br><span class="line">    // Allowing start of Intent { act=android.intent.action.MAIN <span class="built_in">cat</span>=[android.intent.category.LAUNCHER] cmp=com.dreamfish.com.autocalc/.LauncherActivity } <span class="keyword">in</span> package com.dreamfish.com.autocalc</span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p>代码参考于以下博客，自己做了相关调整：</p>
-<p><a href="https://blog.csdn.net/For_if_while/article/details/122946460">https://blog.csdn.net/For_if_while/article/details/122946460</a></p>
-]]></content>
-      <categories>
-        <category>自动化测试</category>
-      </categories>
-      <tags>
-        <tag>appium</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>解决 gitea 报错初始 URL 和访问 URL 不同的问题</title>
     <url>/2024/07/22/%E8%A7%A3%E5%86%B3gitea%E6%8A%A5%E9%94%99%E5%88%9D%E5%A7%8BURL%E5%92%8C%E8%AE%BF%E9%97%AEURL%E4%B8%8D%E5%90%8C%E7%9A%84%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>Your ROOT_URL in app.ini is <code>https://192.168.1.11:1234/</code> but you are visiting <code>https://192.168.1.12:1234/</code> You should set ROOT_URL correctly, otherwise the web may not work correctly.</p>
@@ -1331,6 +1309,35 @@
       <tags>
         <tag>synology</tag>
         <tag>gitea</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解决 appium 报错 java.lang.SecurityException - Permission Denial- starting Intent 的问题</title>
+    <url>/2024/07/27/%E8%A7%A3%E5%86%B3appium%E6%8A%A5%E9%94%99java-lang-SecurityException%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在使用 appium 时，出现以下问题：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">java.lang.SecurityException: Permission Denial: starting Intent { act=android.intent.action.MAIN <span class="built_in">cat</span>=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=com.dreamfish.com.autocalc/.MainActivity } from null (pid=9251, uid=2000) not exported from uid 10053</span><br><span class="line">	at com.android.server.am.ActivityStackSupervisor.checkStartAnyActivityPermission(ActivityStackSupervisor.java:1779)</span><br><span class="line">	at com.android.server.am.ActivityStarter.startActivity(ActivityStarter.java:725)</span><br><span class="line">	at com.android.server.am.ActivityStarter.startActivity(ActivityStarter.java:551)</span><br><span class="line">	at com.android.server.am.ActivityStarter.startActivityMayWait(ActivityStarter.java:1156)</span><br><span class="line">	at com.android.server.am.ActivityStarter.execute(ActivityStarter.java:490)</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<span id="more"></span>
+
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>出现这样的错误一定是因为当前的 appActivity 设置的不是 app 首次进入的 appActivity.</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>（1）首先获取该 <code>App</code> 的包名</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">➜  ~ adb shell dumpsys window | grep mFocusedApp</span><br><span class="line">    mFocusedApp=Token{2e61d6 ActivityRecord{a39b1f1 u0 com.dreamfish.com.autocalc/.MainActivity t32}}</span><br><span class="line">    mFocusedApp=AppWindowToken{7130c57 token=Token{2e61d6 ActivityRecord{a39b1f1 u0 com.dreamfish.com.autocalc/.MainActivity t32}}}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>（2）通过 monkey 命令找到 <code>cmp=</code> 后面的 <code>activity</code>，本列中的 <code>activity</code> 为<code>.LauncherActivity</code></p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">➜  ~ adb shell monkey -p com.dreamfish.com.autocalc -v 1 | grep cmp=</span><br><span class="line">args: [-p, com.dreamfish.com.autocalc, -v, 1]</span><br><span class="line"> arg: <span class="string">"-p"</span></span><br><span class="line"> arg: <span class="string">"com.dreamfish.com.autocalc"</span></span><br><span class="line"> arg: <span class="string">"-v"</span></span><br><span class="line"> arg: <span class="string">"1"</span></span><br><span class="line">data=<span class="string">"com.dreamfish.com.autocalc"</span></span><br><span class="line">    // Allowing start of Intent { act=android.intent.action.MAIN <span class="built_in">cat</span>=[android.intent.category.LAUNCHER] cmp=com.dreamfish.com.autocalc/.LauncherActivity } <span class="keyword">in</span> package com.dreamfish.com.autocalc</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p>代码参考于以下博客，自己做了相关调整：</p>
+<p><a href="https://blog.csdn.net/For_if_while/article/details/122946460">https://blog.csdn.net/For_if_while/article/details/122946460</a></p>
+]]></content>
+      <categories>
+        <category>自动化测试</category>
+      </categories>
+      <tags>
+        <tag>appium</tag>
       </tags>
   </entry>
   <entry>

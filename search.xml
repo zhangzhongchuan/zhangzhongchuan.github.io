@@ -451,6 +451,35 @@
       </tags>
   </entry>
   <entry>
+    <title>Nginx 服务器 SSL 证书安装部署（Linux）</title>
+    <url>/2024/06/05/Nginx%E6%9C%8D%E5%8A%A1%E5%99%A8SSL%E8%AF%81%E4%B9%A6%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%EF%BC%88Linux%EF%BC%89/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>如何将 SSL 证书上传到 centos 服务器，并使用 nginx 配置后，使其生效？</p>
+<span id="more"></span>
+
+<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><p>（1）下载已申请好的<a href="https://cloud.tencent.com/document/product/400/6814">腾讯云免费 SSL 证书</a>，解压。</p>
+<p>（2）上传证书文件到 Linux 云服务器。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">scp /Users/user1/Downloads/tangxdou.com_nginx/tangxdou.com.key root@123.207.205.145:/etc/nginx/ssl</span><br><span class="line"></span><br><span class="line">scp /Users/user1/Downloads/tangxdou.com_nginx/tangxdou.com_bundle.crt root@123.207.205.145:/etc/nginx/ssl</span><br></pre></td></tr></tbody></table></figure>
+
+<p>（3）修改配置文件。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo vim /etc/nginx/conf.d/default.conf</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">server {</span><br><span class="line">    listen 80;</span><br><span class="line">    server_name tangxdou.com www.tangxdou.com;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 重定向到HTTPS</span></span><br><span class="line">    <span class="built_in">return</span> 301 https://$server_name<span class="variable">$request_uri</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">server {</span><br><span class="line">    listen 443 ssl;</span><br><span class="line">    server_name tangxdou.com www.tangxdou.com;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># SSL证书配置</span></span><br><span class="line">    ssl_certificate /etc/nginx/ssl/tangxdou.com_bundle.crt;</span><br><span class="line">    ssl_certificate_key /etc/nginx/ssl/tangxdou.com.key;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 其他SSL设置</span></span><br><span class="line">    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">    ssl_ciphers <span class="string">'ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384'</span>;</span><br><span class="line">    ssl_prefer_server_ciphers on;</span><br><span class="line">    ssl_session_cache shared:SSL:10m;</span><br><span class="line">    ssl_session_timeout 5m;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 配置日志文件</span></span><br><span class="line">    access_log /var/log/nginx/example.access.log;</span><br><span class="line">    error_log /var/log/nginx/example.error.log;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 网站根目录</span></span><br><span class="line">    root /home/git/project/hexo-blog;</span><br><span class="line">    index index.html index.htm;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>（4）重载 Nginx 配置。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">nginx -s reload</span><br></pre></td></tr></tbody></table></figure>
+
+<p>（5）若证书到期，重复执行（2）（4）即可。</p>
+<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2><p><a href="https://cloud.tencent.com/document/product/400/35244">https://cloud.tencent.com/document/product/400/35244</a></p>
+]]></content>
+      <categories>
+        <category>环境部署</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>nginx</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MySQL 中的 DATE_FORMAT 函数基本使用</title>
     <url>/2024/06/13/MySQL%E4%B8%AD%E7%9A%84DATE-FORMAT%E5%87%BD%E6%95%B0%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>MySQL 中的 <code>DATE_FORMAT()</code> 函数用于将日期或时间戳格式化为字符串。这个函数允许你自定义日期和时间的显示格式，使其更易于阅读或符合特定的格式要求。</p>
@@ -500,32 +529,45 @@
       </tags>
   </entry>
   <entry>
-    <title>Nginx 服务器 SSL 证书安装部署（Linux）</title>
-    <url>/2024/06/05/Nginx%E6%9C%8D%E5%8A%A1%E5%99%A8SSL%E8%AF%81%E4%B9%A6%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%EF%BC%88Linux%EF%BC%89/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>如何将 SSL 证书上传到 centos 服务器，并使用 nginx 配置后，使其生效？</p>
-<span id="more"></span>
+    <title>Ubuntu 中 chromdriver 和 geckodriver 的下载和配置</title>
+    <url>/2021/05/25/Ubuntu%E4%B8%ADchromdriver%E5%92%8Cgeckodriver%E7%9A%84%E4%B8%8B%E8%BD%BD%E5%92%8C%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<h2 id="1-下载地址为："><a href="#1-下载地址为：" class="headerlink" title="1.下载地址为："></a>1. 下载地址为：</h2><h3 id="（1）Chromedriver"><a href="#（1）Chromedriver" class="headerlink" title="（1）Chromedriver:"></a>（1）Chromedriver:</h3><h3 id="http-chromedriver-storage-googleapis-com-index-html"><a href="#http-chromedriver-storage-googleapis-com-index-html" class="headerlink" title="http://chromedriver.storage.googleapis.com/index.html"></a><a href="http://chromedriver.storage.googleapis.com/index.html">http://chromedriver.storage.googleapis.com/index.html</a></h3><h3 id="（2）Geckodriver"><a href="#（2）Geckodriver" class="headerlink" title="（2）Geckodriver:"></a>（2）Geckodriver:</h3><h3 id="https-github-com-mozilla-geckodriver-releases"><a href="#https-github-com-mozilla-geckodriver-releases" class="headerlink" title="https://github.com/mozilla/geckodriver/releases/"></a><a href="https://github.com/mozilla/geckodriver/releases/">https://github.com/mozilla/geckodriver/releases/</a></h3><span id="more"></span>
 
-<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><p>（1）下载已申请好的<a href="https://cloud.tencent.com/document/product/400/6814">腾讯云免费 SSL 证书</a>，解压。</p>
-<p>（2）上传证书文件到 Linux 云服务器。</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">scp /Users/user1/Downloads/tangxdou.com_nginx/tangxdou.com.key root@123.207.205.145:/etc/nginx/ssl</span><br><span class="line"></span><br><span class="line">scp /Users/user1/Downloads/tangxdou.com_nginx/tangxdou.com_bundle.crt root@123.207.205.145:/etc/nginx/ssl</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="2-查找文件地址后，下载文件"><a href="#2-查找文件地址后，下载文件" class="headerlink" title="2.查找文件地址后，下载文件:"></a>2. 查找文件地址后，下载文件:</h2><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">wget -P /home/user/testWget/ http://chromedriver.storage.googleapis.com/90.0.4430.24/chromedriver_linux64.zip</span><br></pre></td></tr></tbody></table></figure>
 
-<p>（3）修改配置文件。</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo vim /etc/nginx/conf.d/default.conf</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="3-将Chromedriver解压后，放到-usr-bin目录下"><a href="#3-将Chromedriver解压后，放到-usr-bin目录下" class="headerlink" title="3.将Chromedriver解压后，放到/usr/bin目录下:"></a>3. 将 Chromedriver 解压后，放到 /usr/bin 目录下:</h2><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">unzip /home/git/testScp/chromedriver_linux64.zip</span><br><span class="line"><span class="built_in">mv</span> chromedriver /usr/bin</span><br></pre></td></tr></tbody></table></figure>
 
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">server {</span><br><span class="line">    listen 80;</span><br><span class="line">    server_name tangxdou.com www.tangxdou.com;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 重定向到HTTPS</span></span><br><span class="line">    <span class="built_in">return</span> 301 https://$server_name<span class="variable">$request_uri</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">server {</span><br><span class="line">    listen 443 ssl;</span><br><span class="line">    server_name tangxdou.com www.tangxdou.com;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># SSL证书配置</span></span><br><span class="line">    ssl_certificate /etc/nginx/ssl/tangxdou.com_bundle.crt;</span><br><span class="line">    ssl_certificate_key /etc/nginx/ssl/tangxdou.com.key;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 其他SSL设置</span></span><br><span class="line">    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">    ssl_ciphers <span class="string">'ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384'</span>;</span><br><span class="line">    ssl_prefer_server_ciphers on;</span><br><span class="line">    ssl_session_cache shared:SSL:10m;</span><br><span class="line">    ssl_session_timeout 5m;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 配置日志文件</span></span><br><span class="line">    access_log /var/log/nginx/example.access.log;</span><br><span class="line">    error_log /var/log/nginx/example.error.log;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 网站根目录</span></span><br><span class="line">    root /home/git/project/hexo-blog;</span><br><span class="line">    index index.html index.htm;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<p>（4）重载 Nginx 配置。</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">nginx -s reload</span><br></pre></td></tr></tbody></table></figure>
-
-<p>（5）若证书到期，重复执行（2）（4）即可。</p>
-<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2><p><a href="https://cloud.tencent.com/document/product/400/35244">https://cloud.tencent.com/document/product/400/35244</a></p>
-]]></content>
+<h2 id="4-Geckodriver同以上Chromedriver步骤。"><a href="#4-Geckodriver同以上Chromedriver步骤。" class="headerlink" title="4.Geckodriver同以上Chromedriver步骤。"></a>4.Geckodriver 同以上 Chromedriver 步骤。</h2>]]></content>
       <categories>
         <category>环境部署</category>
       </categories>
       <tags>
-        <tag>hexo</tag>
-        <tag>nginx</tag>
+        <tag>ubuntu</tag>
+        <tag>selenium</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>allure 简单实用</title>
+    <url>/2024/08/07/allure%E7%9B%B8%E5%85%B3%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<h2 id="1-allure-安装"><a href="#1-allure-安装" class="headerlink" title="1.allure 安装"></a>1.allure 安装</h2><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">brew install allure</span><br></pre></td></tr></tbody></table></figure>
+
+<span id="more"></span>
+
+<h2 id="2-allure-pytest-安装"><a href="#2-allure-pytest-安装" class="headerlink" title="2.allure-pytest 安装"></a>2.allure-pytest 安装</h2><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line">pip install allure-pytest</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="3-pytest命令带上-allure-的参数"><a href="#3-pytest命令带上-allure-的参数" class="headerlink" title="3.pytest命令带上 allure 的参数"></a>3.pytest 命令带上 allure 的参数</h2><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pytest -vs -k=test_03 --alluredir ./allure-results</span><br></pre></td></tr></tbody></table></figure>
+
+<p>这里将会在项目更目录下生产一个 result 的文件夹用来存储 allure 生成的 json 文件</p>
+<h2 id="4-allure-命令将生成的-json-文件转换为测试报告"><a href="#4-allure-命令将生成的-json-文件转换为测试报告" class="headerlink" title="4.allure 命令将生成的 json 文件转换为测试报告"></a>4.allure 命令将生成的 json 文件转换为测试报告</h2><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">allure generate -o report</span><br></pre></td></tr></tbody></table></figure>
+
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240807144530827.png" alt="image-20240807144530827"></p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240807144643429.png" alt="image-20240807144643429"></p>
+]]></content>
+      <categories>
+        <category>自动化测试</category>
+      </categories>
+      <tags>
+        <tag>allure</tag>
       </tags>
   </entry>
   <entry>
@@ -560,31 +602,6 @@
       <tags>
         <tag>mysql</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Ubuntu 中 chromdriver 和 geckodriver 的下载和配置</title>
-    <url>/2021/05/25/Ubuntu%E4%B8%ADchromdriver%E5%92%8Cgeckodriver%E7%9A%84%E4%B8%8B%E8%BD%BD%E5%92%8C%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<h2 id="1-下载地址为："><a href="#1-下载地址为：" class="headerlink" title="1.下载地址为："></a>1. 下载地址为：</h2><h3 id="（1）Chromedriver"><a href="#（1）Chromedriver" class="headerlink" title="（1）Chromedriver:"></a>（1）Chromedriver:</h3><h3 id="http-chromedriver-storage-googleapis-com-index-html"><a href="#http-chromedriver-storage-googleapis-com-index-html" class="headerlink" title="http://chromedriver.storage.googleapis.com/index.html"></a><a href="http://chromedriver.storage.googleapis.com/index.html">http://chromedriver.storage.googleapis.com/index.html</a></h3><h3 id="（2）Geckodriver"><a href="#（2）Geckodriver" class="headerlink" title="（2）Geckodriver:"></a>（2）Geckodriver:</h3><h3 id="https-github-com-mozilla-geckodriver-releases"><a href="#https-github-com-mozilla-geckodriver-releases" class="headerlink" title="https://github.com/mozilla/geckodriver/releases/"></a><a href="https://github.com/mozilla/geckodriver/releases/">https://github.com/mozilla/geckodriver/releases/</a></h3><span id="more"></span>
-
-<h2 id="2-查找文件地址后，下载文件"><a href="#2-查找文件地址后，下载文件" class="headerlink" title="2.查找文件地址后，下载文件:"></a>2. 查找文件地址后，下载文件:</h2><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">wget -P /home/user/testWget/ http://chromedriver.storage.googleapis.com/90.0.4430.24/chromedriver_linux64.zip</span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="3-将Chromedriver解压后，放到-usr-bin目录下"><a href="#3-将Chromedriver解压后，放到-usr-bin目录下" class="headerlink" title="3.将Chromedriver解压后，放到/usr/bin目录下:"></a>3. 将 Chromedriver 解压后，放到 /usr/bin 目录下:</h2><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">unzip /home/git/testScp/chromedriver_linux64.zip</span><br><span class="line"><span class="built_in">mv</span> chromedriver /usr/bin</span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="4-Geckodriver同以上Chromedriver步骤。"><a href="#4-Geckodriver同以上Chromedriver步骤。" class="headerlink" title="4.Geckodriver同以上Chromedriver步骤。"></a>4.Geckodriver 同以上 Chromedriver 步骤。</h2>]]></content>
-      <categories>
-        <category>环境部署</category>
-      </categories>
-      <tags>
-        <tag>ubuntu</tag>
-        <tag>selenium</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>allure 相关总结</title>
-    <url>/2024/08/07/allure%E7%9B%B8%E5%85%B3%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><span id="more"></span>
-
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2>]]></content>
   </entry>
   <entry>
     <title>使用 hexo 搭建 GitHub Page 博客后，网页显示 404 的问题解决</title>
@@ -1033,33 +1050,6 @@
       </tags>
   </entry>
   <entry>
-    <title>如何去除 macOS12-13 更新小红点</title>
-    <url>/2024/05/06/%E5%A6%82%E4%BD%95%E5%8E%BB%E9%99%A4macOS12-13%E6%9B%B4%E6%96%B0%E5%B0%8F%E7%BA%A2%E7%82%B9/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>2 个小红点位置如下：</p>
-<ul>
-<li>设置→通用→软件更新→红点 1</li>
-<li>Dock→红点 1</li>
-</ul>
-<span id="more"></span>
-
-<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><h3 id="（1）关闭自动更新"><a href="#（1）关闭自动更新" class="headerlink" title="（1）关闭自动更新"></a>（1）关闭自动更新</h3><h3 id="（2）host添加相关内容"><a href="#（2）host添加相关内容" class="headerlink" title="（2）host添加相关内容"></a>（2）host 添加相关内容</h3><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">127.0.0.1 swdist.apple.com</span><br><span class="line">127.0.0.1 swscan.apple.com</span><br><span class="line">127.0.0.1 swcdn.apple.com </span><br><span class="line">127.0.0.1 gdmf.apple.com</span><br><span class="line">127.0.0.1 mesu.apple.com</span><br><span class="line">127.0.0.1 xp.apple.com</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="（3）终端执行"><a href="#（3）终端执行" class="headerlink" title="（3）终端执行"></a>（3）终端执行</h3><p>先执行</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">defaults write com.apple.systempreferences AttentionPrefBundleIDs 0</span><br><span class="line">Killall Dock</span><br></pre></td></tr></tbody></table></figure>
-
-<p>如果无法去除，则执行</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">defaults delete com.apple.systempreferences AttentionPrefBundleIDs</span><br><span class="line">defaults delete com.apple.systempreferences DidShowPrefBundleIDs</span><br><span class="line">killall Dock</span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2><p><a href="https://sysin.org/blog/disable-macos-ventura-update/">https://sysin.org/blog/disable-macos-ventura-update/</a></p>
-]]></content>
-      <categories>
-        <category>操作系统</category>
-      </categories>
-      <tags>
-        <tag>macos</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>如何从 mac 系统传输文件或文件夹到 Ubuntu 系统</title>
     <url>/2021/05/24/%E5%A6%82%E4%BD%95%E4%BB%8Emac%E7%B3%BB%E7%BB%9F%E4%BC%A0%E8%BE%93%E6%96%87%E4%BB%B6%E5%88%B0Ubuntu%E7%B3%BB%E7%BB%9F/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>如何从 macOS 系统传输文件到 Ubuntu 系统？</p>
@@ -1089,6 +1079,33 @@
         <tag>ubuntu</tag>
         <tag>macos</tag>
         <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何去除 macOS12-13 更新小红点</title>
+    <url>/2024/05/06/%E5%A6%82%E4%BD%95%E5%8E%BB%E9%99%A4macOS12-13%E6%9B%B4%E6%96%B0%E5%B0%8F%E7%BA%A2%E7%82%B9/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>2 个小红点位置如下：</p>
+<ul>
+<li>设置→通用→软件更新→红点 1</li>
+<li>Dock→红点 1</li>
+</ul>
+<span id="more"></span>
+
+<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><h3 id="（1）关闭自动更新"><a href="#（1）关闭自动更新" class="headerlink" title="（1）关闭自动更新"></a>（1）关闭自动更新</h3><h3 id="（2）host添加相关内容"><a href="#（2）host添加相关内容" class="headerlink" title="（2）host添加相关内容"></a>（2）host 添加相关内容</h3><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">127.0.0.1 swdist.apple.com</span><br><span class="line">127.0.0.1 swscan.apple.com</span><br><span class="line">127.0.0.1 swcdn.apple.com </span><br><span class="line">127.0.0.1 gdmf.apple.com</span><br><span class="line">127.0.0.1 mesu.apple.com</span><br><span class="line">127.0.0.1 xp.apple.com</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="（3）终端执行"><a href="#（3）终端执行" class="headerlink" title="（3）终端执行"></a>（3）终端执行</h3><p>先执行</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">defaults write com.apple.systempreferences AttentionPrefBundleIDs 0</span><br><span class="line">Killall Dock</span><br></pre></td></tr></tbody></table></figure>
+
+<p>如果无法去除，则执行</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">defaults delete com.apple.systempreferences AttentionPrefBundleIDs</span><br><span class="line">defaults delete com.apple.systempreferences DidShowPrefBundleIDs</span><br><span class="line">killall Dock</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2><p><a href="https://sysin.org/blog/disable-macos-ventura-update/">https://sysin.org/blog/disable-macos-ventura-update/</a></p>
+]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>macos</tag>
       </tags>
   </entry>
   <entry>
@@ -1188,13 +1205,6 @@
       </tags>
   </entry>
   <entry>
-    <title>正则表达式相关总结</title>
-    <url>/2024/07/08/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9B%B8%E5%85%B3%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><span id="more"></span>
-
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2>]]></content>
-  </entry>
-  <entry>
     <title>测试计划模板</title>
     <url>/2019/07/11/%E6%B5%8B%E8%AF%95%E8%AE%A1%E5%88%92%E6%A8%A1%E6%9D%BF/</url>
     <content><![CDATA[<h1 id="测试计划"><a href="#测试计划" class="headerlink" title="测试计划"></a>测试计划</h1><h1 id="XXX-项目测试计划"><a href="#XXX-项目测试计划" class="headerlink" title="XXX 项目测试计划"></a><center>XXX 项目测试计划</center></h1><h2 id="1-引言"><a href="#1-引言" class="headerlink" title="1.引言"></a>1. 引言</h2><h3 id="1-1-编写目的"><a href="#1-1-编写目的" class="headerlink" title="1.1 编写目的"></a>1.1 编写目的</h3><p>根据需求文档，提炼测试功能点、制定测试策略、评估测试风险，预估编写测试用例、执行功能测试和回归测试的工作量，进行人员和进度安排。</p>
@@ -1224,24 +1234,11 @@
       </tags>
   </entry>
   <entry>
-    <title>解决 Jenkins 插件安装失败 - 插件下载慢的问题</title>
-    <url>/2021/05/25/%E8%A7%A3%E5%86%B3Jenkins%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5-%E6%8F%92%E4%BB%B6%E4%B8%8B%E8%BD%BD%E6%85%A2%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在安装 Jenkins 的过程中，插件总是安装失败或者下载很慢。</p>
-<span id="more"></span>
+    <title>正则表达式相关总结</title>
+    <url>/2024/07/08/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9B%B8%E5%85%B3%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><span id="more"></span>
 
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>安装源为国外的网站，所以下载速度慢。</p>
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>直接把源换为国内的镜像站，步骤如下：</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2021-05-25_15-15-12.png" alt="p1"></p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2021-05-25_15-20-26.png" alt="p2"></p>
-<p>清华大学镜像站:</p>
-<p><a href="https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json">https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json</a></p>
-]]></content>
-      <categories>
-        <category>软件使用</category>
-      </categories>
-      <tags>
-        <tag>jenkins</tag>
-      </tags>
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2>]]></content>
   </entry>
   <entry>
     <title>解决 Mac 突然黑屏然后出现登录界面的问题</title>
@@ -1264,6 +1261,26 @@
       </tags>
   </entry>
   <entry>
+    <title>解决 Jenkins 插件安装失败 - 插件下载慢的问题</title>
+    <url>/2021/05/25/%E8%A7%A3%E5%86%B3Jenkins%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5-%E6%8F%92%E4%BB%B6%E4%B8%8B%E8%BD%BD%E6%85%A2%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在安装 Jenkins 的过程中，插件总是安装失败或者下载很慢。</p>
+<span id="more"></span>
+
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>安装源为国外的网站，所以下载速度慢。</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>直接把源换为国内的镜像站，步骤如下：</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2021-05-25_15-15-12.png" alt="p1"></p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2021-05-25_15-20-26.png" alt="p2"></p>
+<p>清华大学镜像站:</p>
+<p><a href="https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json">https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json</a></p>
+]]></content>
+      <categories>
+        <category>软件使用</category>
+      </categories>
+      <tags>
+        <tag>jenkins</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>解决 SQLServer 执行超时已过期完成操作之前已超时或服务器未响应</title>
     <url>/2024/06/26/%E8%A7%A3%E5%86%B3SQLServer%E6%89%A7%E8%A1%8C%E8%B6%85%E6%97%B6%E5%B7%B2%E8%BF%87%E6%9C%9F%E5%AE%8C%E6%88%90%E6%93%8D%E4%BD%9C%E4%B9%8B%E5%89%8D%E5%B7%B2%E8%B6%85%E6%97%B6%E6%88%96%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9C%AA%E5%93%8D%E5%BA%94/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>还原 SQL Server 数据库时，报错，信息：执行超时已过期。完成操作之前已超时或服务器未响应。</p>
@@ -1279,6 +1296,35 @@
       </categories>
       <tags>
         <tag>sqlserver</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解决 appium 报错 java.lang.SecurityException - Permission Denial- starting Intent 的问题</title>
+    <url>/2024/07/27/%E8%A7%A3%E5%86%B3appium%E6%8A%A5%E9%94%99java-lang-SecurityException%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在使用 appium 时，出现以下问题：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">java.lang.SecurityException: Permission Denial: starting Intent { act=android.intent.action.MAIN <span class="built_in">cat</span>=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=com.dreamfish.com.autocalc/.MainActivity } from null (pid=9251, uid=2000) not exported from uid 10053</span><br><span class="line">	at com.android.server.am.ActivityStackSupervisor.checkStartAnyActivityPermission(ActivityStackSupervisor.java:1779)</span><br><span class="line">	at com.android.server.am.ActivityStarter.startActivity(ActivityStarter.java:725)</span><br><span class="line">	at com.android.server.am.ActivityStarter.startActivity(ActivityStarter.java:551)</span><br><span class="line">	at com.android.server.am.ActivityStarter.startActivityMayWait(ActivityStarter.java:1156)</span><br><span class="line">	at com.android.server.am.ActivityStarter.execute(ActivityStarter.java:490)</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<span id="more"></span>
+
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>出现这样的错误一定是因为当前的 appActivity 设置的不是 app 首次进入的 appActivity.</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>（1）首先获取该 <code>App</code> 的包名</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">➜  ~ adb shell dumpsys window | grep mFocusedApp</span><br><span class="line">    mFocusedApp=Token{2e61d6 ActivityRecord{a39b1f1 u0 com.dreamfish.com.autocalc/.MainActivity t32}}</span><br><span class="line">    mFocusedApp=AppWindowToken{7130c57 token=Token{2e61d6 ActivityRecord{a39b1f1 u0 com.dreamfish.com.autocalc/.MainActivity t32}}}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>（2）通过 monkey 命令找到 <code>cmp=</code> 后面的 <code>activity</code>，本列中的 <code>activity</code> 为<code>.LauncherActivity</code></p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">➜  ~ adb shell monkey -p com.dreamfish.com.autocalc -v 1 | grep cmp=</span><br><span class="line">args: [-p, com.dreamfish.com.autocalc, -v, 1]</span><br><span class="line"> arg: <span class="string">"-p"</span></span><br><span class="line"> arg: <span class="string">"com.dreamfish.com.autocalc"</span></span><br><span class="line"> arg: <span class="string">"-v"</span></span><br><span class="line"> arg: <span class="string">"1"</span></span><br><span class="line">data=<span class="string">"com.dreamfish.com.autocalc"</span></span><br><span class="line">    // Allowing start of Intent { act=android.intent.action.MAIN <span class="built_in">cat</span>=[android.intent.category.LAUNCHER] cmp=com.dreamfish.com.autocalc/.LauncherActivity } <span class="keyword">in</span> package com.dreamfish.com.autocalc</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p>代码参考于以下博客，自己做了相关调整：</p>
+<p><a href="https://blog.csdn.net/For_if_while/article/details/122946460">https://blog.csdn.net/For_if_while/article/details/122946460</a></p>
+]]></content>
+      <categories>
+        <category>自动化测试</category>
+      </categories>
+      <tags>
+        <tag>appium</tag>
       </tags>
   </entry>
   <entry>
@@ -1309,35 +1355,6 @@
       <tags>
         <tag>synology</tag>
         <tag>gitea</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>解决 appium 报错 java.lang.SecurityException - Permission Denial- starting Intent 的问题</title>
-    <url>/2024/07/27/%E8%A7%A3%E5%86%B3appium%E6%8A%A5%E9%94%99java-lang-SecurityException%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在使用 appium 时，出现以下问题：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">java.lang.SecurityException: Permission Denial: starting Intent { act=android.intent.action.MAIN <span class="built_in">cat</span>=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=com.dreamfish.com.autocalc/.MainActivity } from null (pid=9251, uid=2000) not exported from uid 10053</span><br><span class="line">	at com.android.server.am.ActivityStackSupervisor.checkStartAnyActivityPermission(ActivityStackSupervisor.java:1779)</span><br><span class="line">	at com.android.server.am.ActivityStarter.startActivity(ActivityStarter.java:725)</span><br><span class="line">	at com.android.server.am.ActivityStarter.startActivity(ActivityStarter.java:551)</span><br><span class="line">	at com.android.server.am.ActivityStarter.startActivityMayWait(ActivityStarter.java:1156)</span><br><span class="line">	at com.android.server.am.ActivityStarter.execute(ActivityStarter.java:490)</span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<span id="more"></span>
-
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>出现这样的错误一定是因为当前的 appActivity 设置的不是 app 首次进入的 appActivity.</p>
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>（1）首先获取该 <code>App</code> 的包名</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">➜  ~ adb shell dumpsys window | grep mFocusedApp</span><br><span class="line">    mFocusedApp=Token{2e61d6 ActivityRecord{a39b1f1 u0 com.dreamfish.com.autocalc/.MainActivity t32}}</span><br><span class="line">    mFocusedApp=AppWindowToken{7130c57 token=Token{2e61d6 ActivityRecord{a39b1f1 u0 com.dreamfish.com.autocalc/.MainActivity t32}}}</span><br></pre></td></tr></tbody></table></figure>
-
-<p>（2）通过 monkey 命令找到 <code>cmp=</code> 后面的 <code>activity</code>，本列中的 <code>activity</code> 为<code>.LauncherActivity</code></p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">➜  ~ adb shell monkey -p com.dreamfish.com.autocalc -v 1 | grep cmp=</span><br><span class="line">args: [-p, com.dreamfish.com.autocalc, -v, 1]</span><br><span class="line"> arg: <span class="string">"-p"</span></span><br><span class="line"> arg: <span class="string">"com.dreamfish.com.autocalc"</span></span><br><span class="line"> arg: <span class="string">"-v"</span></span><br><span class="line"> arg: <span class="string">"1"</span></span><br><span class="line">data=<span class="string">"com.dreamfish.com.autocalc"</span></span><br><span class="line">    // Allowing start of Intent { act=android.intent.action.MAIN <span class="built_in">cat</span>=[android.intent.category.LAUNCHER] cmp=com.dreamfish.com.autocalc/.LauncherActivity } <span class="keyword">in</span> package com.dreamfish.com.autocalc</span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p>代码参考于以下博客，自己做了相关调整：</p>
-<p><a href="https://blog.csdn.net/For_if_while/article/details/122946460">https://blog.csdn.net/For_if_while/article/details/122946460</a></p>
-]]></content>
-      <categories>
-        <category>自动化测试</category>
-      </categories>
-      <tags>
-        <tag>appium</tag>
       </tags>
   </entry>
   <entry>

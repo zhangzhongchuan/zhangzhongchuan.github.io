@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Appium2 总结（三）图像识别定位</title>
+    <url>/2024/08/01/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%89%EF%BC%89%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB%E5%AE%9A%E4%BD%8D/</url>
+    <content><![CDATA[<h2 id="1-Appium-图像识别插件images安装"><a href="#1-Appium-图像识别插件images安装" class="headerlink" title="1.Appium 图像识别插件images安装"></a>1.Appium 图像识别插件 images 安装</h2><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">➜  ~ appium plugin install images</span><br><span class="line">✔ Checking <span class="keyword">if</span> <span class="string">'@appium/images-plugin'</span> is compatible</span><br><span class="line">✔ Installing <span class="string">'images'</span> using NPM install spec <span class="string">'@appium/images-plugin'</span></span><br><span class="line">ℹ Plugin images@3.0.17 successfully installed</span><br></pre></td></tr></tbody></table></figure>
+
+<span id="more"></span>
+
+<h2 id="2-Appium带着-images-插件启动"><a href="#2-Appium带着-images-插件启动" class="headerlink" title="2.Appium带着 images 插件启动"></a>2.Appium 带着 images 插件启动</h2><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">➜  ~ appium --use-plugins=images</span><br><span class="line">[Appium] Attempting to load plugin images...</span><br><span class="line">[Appium] .........</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h2 id="3-裁剪图片"><a href="#3-裁剪图片" class="headerlink" title="3.裁剪图片"></a>3. 裁剪图片</h2><p>（1）使用模拟器或者手机截图</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Screenshot_20240801-184130.png" alt="Screenshot_20240801-184130"></p>
+<p>（2）不改变尺寸大小和文件格式的情况下裁剪所要定位的图片</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/p1.png" alt="p1"></p>
+<h2 id="4-python🌰"><a href="#4-python🌰" class="headerlink" title="4.python🌰"></a>4.python🌰</h2><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> appium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> appium.options.android <span class="keyword">import</span> UiAutomator2Options</span><br><span class="line"><span class="keyword">from</span> appium.webdriver.common.appiumby <span class="keyword">import</span> AppiumBy</span><br><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"></span><br><span class="line">capabilities = <span class="built_in">dict</span>(</span><br><span class="line">    platformName=<span class="string">'Android'</span>,</span><br><span class="line">    automationName=<span class="string">'uiautomator2'</span>,</span><br><span class="line">    deviceName=<span class="string">'xx'</span>, <span class="comment"># 这块在 android 平台上不作要求，填写 xx 都可以，在 ios 上必填</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">appium_server_url = <span class="string">'http://localhost:4723'</span> <span class="comment"># appium 服务地址</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 驱动</span></span><br><span class="line">driver = webdriver.Remote(appium_server_url, options=UiAutomator2Options().load_capabilities(capabilities))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打开图片文件</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">'images/p1.png'</span>, <span class="string">'rb'</span>) <span class="keyword">as</span> image_file:</span><br><span class="line">    <span class="comment"># 读取图片数据</span></span><br><span class="line">    image_data = image_file.read()</span><br><span class="line"><span class="comment"># 将图片数据使用 base64 编码</span></span><br><span class="line">encoded_image = base64.b64encode(image_data)</span><br><span class="line"><span class="comment"># 将编码后的图片数据转换为字符串</span></span><br><span class="line">encoded_image_str = encoded_image.decode(<span class="string">'utf-8'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 这个原理是将所定位的图片转换为字符串，将目标页面也转换为字符串，然后在目标页面中对比相似度，相似度高的部分就定位成功</span></span><br><span class="line">driver.find_element(AppiumBy.IMAGE, encoded_image_str).click()</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="5-相关参考"><a href="#5-相关参考" class="headerlink" title="5.相关参考"></a>5. 相关参考</h2><p><a href="https://www.bilibili.com/video/BV1qt421M7kZ/?spm_id_from=333.999.0.0&amp;vd_source=fd555860cd7cf9b09d9279e5deaabb9d">https://www.bilibili.com/video/BV1qt421M7kZ/?spm_id_from=333.999.0.0&amp;vd_source=fd555860cd7cf9b09d9279e5deaabb9d</a></p>
+]]></content>
+      <categories>
+        <category>自动化测试</category>
+      </categories>
+      <tags>
+        <tag>appium</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Appium2 总结（一）环境搭建以及简单脚本测试</title>
     <url>/2024/07/29/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%80%EF%BC%89%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%BB%A5%E5%8F%8A%E7%AE%80%E5%8D%95%E8%84%9A%E6%9C%AC%E6%B5%8B%E8%AF%95/</url>
     <content><![CDATA[<p>Appium 是一个开源项目和相关软件的生态系统。 软件，旨在促进许多应用程序平台的 UI 自动化，包括移动平台（iOS、 Android、Tizen）、浏览器（Chrome、Firefox、Safari）、桌面（macOS、Windows）、电视（Roku、tvOS、 Android TV、三星）等，它还旨在支持用不同语言（JS、Java、Python 等）编写的自动化代码。</p>
@@ -201,32 +227,6 @@
 <p>6️⃣在 pycharm 上运行 <code>test_appium.py</code>，测试通过。</p>
 <p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240730193606283.png" alt="image-20240730193606283"></p>
 <h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2>]]></content>
-      <categories>
-        <category>自动化测试</category>
-      </categories>
-      <tags>
-        <tag>appium</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Appium2 总结（三）图像识别定位</title>
-    <url>/2024/08/01/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%89%EF%BC%89%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB%E5%AE%9A%E4%BD%8D/</url>
-    <content><![CDATA[<h2 id="1-Appium-图像识别插件images安装"><a href="#1-Appium-图像识别插件images安装" class="headerlink" title="1.Appium 图像识别插件images安装"></a>1.Appium 图像识别插件 images 安装</h2><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">➜  ~ appium plugin install images</span><br><span class="line">✔ Checking <span class="keyword">if</span> <span class="string">'@appium/images-plugin'</span> is compatible</span><br><span class="line">✔ Installing <span class="string">'images'</span> using NPM install spec <span class="string">'@appium/images-plugin'</span></span><br><span class="line">ℹ Plugin images@3.0.17 successfully installed</span><br></pre></td></tr></tbody></table></figure>
-
-<span id="more"></span>
-
-<h2 id="2-Appium带着-images-插件启动"><a href="#2-Appium带着-images-插件启动" class="headerlink" title="2.Appium带着 images 插件启动"></a>2.Appium 带着 images 插件启动</h2><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">➜  ~ appium --use-plugins=images</span><br><span class="line">[Appium] Attempting to load plugin images...</span><br><span class="line">[Appium] .........</span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<h2 id="3-裁剪图片"><a href="#3-裁剪图片" class="headerlink" title="3.裁剪图片"></a>3. 裁剪图片</h2><p>（1）使用模拟器或者手机截图</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Screenshot_20240801-184130.png" alt="Screenshot_20240801-184130"></p>
-<p>（2）不改变尺寸大小和文件格式的情况下裁剪所要定位的图片</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/p1.png" alt="p1"></p>
-<h2 id="4-python🌰"><a href="#4-python🌰" class="headerlink" title="4.python🌰"></a>4.python🌰</h2><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> appium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> appium.options.android <span class="keyword">import</span> UiAutomator2Options</span><br><span class="line"><span class="keyword">from</span> appium.webdriver.common.appiumby <span class="keyword">import</span> AppiumBy</span><br><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"></span><br><span class="line">capabilities = <span class="built_in">dict</span>(</span><br><span class="line">    platformName=<span class="string">'Android'</span>,</span><br><span class="line">    automationName=<span class="string">'uiautomator2'</span>,</span><br><span class="line">    deviceName=<span class="string">'xx'</span>, <span class="comment"># 这块在 android 平台上不作要求，填写 xx 都可以，在 ios 上必填</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">appium_server_url = <span class="string">'http://localhost:4723'</span> <span class="comment"># appium 服务地址</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 驱动</span></span><br><span class="line">driver = webdriver.Remote(appium_server_url, options=UiAutomator2Options().load_capabilities(capabilities))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打开图片文件</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">'images/p1.png'</span>, <span class="string">'rb'</span>) <span class="keyword">as</span> image_file:</span><br><span class="line">    <span class="comment"># 读取图片数据</span></span><br><span class="line">    image_data = image_file.read()</span><br><span class="line"><span class="comment"># 将图片数据使用 base64 编码</span></span><br><span class="line">encoded_image = base64.b64encode(image_data)</span><br><span class="line"><span class="comment"># 将编码后的图片数据转换为字符串</span></span><br><span class="line">encoded_image_str = encoded_image.decode(<span class="string">'utf-8'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 这个原理是将所定位的图片转换为字符串，将目标页面也转换为字符串，然后在目标页面中对比相似度，相似度高的部分就定位成功</span></span><br><span class="line">driver.find_element(AppiumBy.IMAGE, encoded_image_str).click()</span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="5-相关参考"><a href="#5-相关参考" class="headerlink" title="5.相关参考"></a>5. 相关参考</h2><p><a href="https://www.bilibili.com/video/BV1qt421M7kZ/?spm_id_from=333.999.0.0&amp;vd_source=fd555860cd7cf9b09d9279e5deaabb9d">https://www.bilibili.com/video/BV1qt421M7kZ/?spm_id_from=333.999.0.0&amp;vd_source=fd555860cd7cf9b09d9279e5deaabb9d</a></p>
-]]></content>
       <categories>
         <category>自动化测试</category>
       </categories>
@@ -500,24 +500,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Ubuntu 中 chromdriver 和 geckodriver 的下载和配置</title>
-    <url>/2021/05/25/Ubuntu%E4%B8%ADchromdriver%E5%92%8Cgeckodriver%E7%9A%84%E4%B8%8B%E8%BD%BD%E5%92%8C%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<h2 id="1-下载地址为："><a href="#1-下载地址为：" class="headerlink" title="1.下载地址为："></a>1. 下载地址为：</h2><h3 id="（1）Chromedriver"><a href="#（1）Chromedriver" class="headerlink" title="（1）Chromedriver:"></a>（1）Chromedriver:</h3><h3 id="http-chromedriver-storage-googleapis-com-index-html"><a href="#http-chromedriver-storage-googleapis-com-index-html" class="headerlink" title="http://chromedriver.storage.googleapis.com/index.html"></a><a href="http://chromedriver.storage.googleapis.com/index.html">http://chromedriver.storage.googleapis.com/index.html</a></h3><h3 id="（2）Geckodriver"><a href="#（2）Geckodriver" class="headerlink" title="（2）Geckodriver:"></a>（2）Geckodriver:</h3><h3 id="https-github-com-mozilla-geckodriver-releases"><a href="#https-github-com-mozilla-geckodriver-releases" class="headerlink" title="https://github.com/mozilla/geckodriver/releases/"></a><a href="https://github.com/mozilla/geckodriver/releases/">https://github.com/mozilla/geckodriver/releases/</a></h3><span id="more"></span>
-
-<h2 id="2-查找文件地址后，下载文件"><a href="#2-查找文件地址后，下载文件" class="headerlink" title="2.查找文件地址后，下载文件:"></a>2. 查找文件地址后，下载文件:</h2><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">wget -P /home/user/testWget/ http://chromedriver.storage.googleapis.com/90.0.4430.24/chromedriver_linux64.zip</span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="3-将Chromedriver解压后，放到-usr-bin目录下"><a href="#3-将Chromedriver解压后，放到-usr-bin目录下" class="headerlink" title="3.将Chromedriver解压后，放到/usr/bin目录下:"></a>3. 将 Chromedriver 解压后，放到 /usr/bin 目录下:</h2><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">unzip /home/git/testScp/chromedriver_linux64.zip</span><br><span class="line"><span class="built_in">mv</span> chromedriver /usr/bin</span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="4-Geckodriver同以上Chromedriver步骤。"><a href="#4-Geckodriver同以上Chromedriver步骤。" class="headerlink" title="4.Geckodriver同以上Chromedriver步骤。"></a>4.Geckodriver 同以上 Chromedriver 步骤。</h2>]]></content>
-      <categories>
-        <category>环境部署</category>
-      </categories>
-      <tags>
-        <tag>ubuntu</tag>
-        <tag>selenium</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Nginx 服务器 SSL 证书安装部署（Linux）</title>
     <url>/2024/06/05/Nginx%E6%9C%8D%E5%8A%A1%E5%99%A8SSL%E8%AF%81%E4%B9%A6%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%EF%BC%88Linux%EF%BC%89/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>如何将 SSL 证书上传到 centos 服务器，并使用 nginx 配置后，使其生效？</p>
@@ -544,6 +526,24 @@
       <tags>
         <tag>hexo</tag>
         <tag>nginx</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ubuntu 中 chromdriver 和 geckodriver 的下载和配置</title>
+    <url>/2021/05/25/Ubuntu%E4%B8%ADchromdriver%E5%92%8Cgeckodriver%E7%9A%84%E4%B8%8B%E8%BD%BD%E5%92%8C%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<h2 id="1-下载地址为："><a href="#1-下载地址为：" class="headerlink" title="1.下载地址为："></a>1. 下载地址为：</h2><h3 id="（1）Chromedriver"><a href="#（1）Chromedriver" class="headerlink" title="（1）Chromedriver:"></a>（1）Chromedriver:</h3><h3 id="http-chromedriver-storage-googleapis-com-index-html"><a href="#http-chromedriver-storage-googleapis-com-index-html" class="headerlink" title="http://chromedriver.storage.googleapis.com/index.html"></a><a href="http://chromedriver.storage.googleapis.com/index.html">http://chromedriver.storage.googleapis.com/index.html</a></h3><h3 id="（2）Geckodriver"><a href="#（2）Geckodriver" class="headerlink" title="（2）Geckodriver:"></a>（2）Geckodriver:</h3><h3 id="https-github-com-mozilla-geckodriver-releases"><a href="#https-github-com-mozilla-geckodriver-releases" class="headerlink" title="https://github.com/mozilla/geckodriver/releases/"></a><a href="https://github.com/mozilla/geckodriver/releases/">https://github.com/mozilla/geckodriver/releases/</a></h3><span id="more"></span>
+
+<h2 id="2-查找文件地址后，下载文件"><a href="#2-查找文件地址后，下载文件" class="headerlink" title="2.查找文件地址后，下载文件:"></a>2. 查找文件地址后，下载文件:</h2><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">wget -P /home/user/testWget/ http://chromedriver.storage.googleapis.com/90.0.4430.24/chromedriver_linux64.zip</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="3-将Chromedriver解压后，放到-usr-bin目录下"><a href="#3-将Chromedriver解压后，放到-usr-bin目录下" class="headerlink" title="3.将Chromedriver解压后，放到/usr/bin目录下:"></a>3. 将 Chromedriver 解压后，放到 /usr/bin 目录下:</h2><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">unzip /home/git/testScp/chromedriver_linux64.zip</span><br><span class="line"><span class="built_in">mv</span> chromedriver /usr/bin</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="4-Geckodriver同以上Chromedriver步骤。"><a href="#4-Geckodriver同以上Chromedriver步骤。" class="headerlink" title="4.Geckodriver同以上Chromedriver步骤。"></a>4.Geckodriver 同以上 Chromedriver 步骤。</h2>]]></content>
+      <categories>
+        <category>环境部署</category>
+      </categories>
+      <tags>
+        <tag>ubuntu</tag>
+        <tag>selenium</tag>
       </tags>
   </entry>
   <entry>
@@ -601,26 +601,6 @@
       </tags>
   </entry>
   <entry>
-    <title>jmeter 通过 log4j2.xml 修改 log 文件位置</title>
-    <url>/2024/04/15/jmeter%E9%80%9A%E8%BF%87log4j2-xml%E4%BF%AE%E6%94%B9log%E6%96%87%E4%BB%B6%E4%BD%8D%E7%BD%AE/</url>
-    <content><![CDATA[<p>在 Apache JMeter 中，如果你使用的是 Log4j2 作为日志系统，并且想通过 <code>log4j2.xml</code> 配置文件修改日志文件的位置，你可以按照以下步骤操作：（文中使用 jmeter 版本为:apache-jmeter-5.6.3）</p>
-<ol>
-<li>找到 JMeter 安装目录下的 <code>log4j2.xml</code> 配置文件。在 JMeter 3.x 及以上版本中，这个文件通常位于 <code>apache-jmeter-X.XX/bin</code> 目录下。</li>
-<li>打开 <code>log4j2.xml</code> 文件，找到 <code>RollingFile</code> 或 <code>File</code> 类型的 Appender 配置部分。</li>
-</ol>
-<span id="more"></span>
-
-<figure class="highlight xml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</span></span><br><span class="line"><span class="comment">&lt;!--......--&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">Configuration</span> <span class="attr">status</span>=<span class="string">"WARN"</span> <span class="attr">packages</span>=<span class="string">"org.apache.jmeter.gui.logging"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Appenders</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 修改这里，修改日志文件位置 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">File</span> <span class="attr">name</span>=<span class="string">"jmeter-log"</span> <span class="attr">fileName</span>=<span class="string">"/path/to/your/log/jmeter.log"</span> <span class="attr">append</span>=<span class="string">"false"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>%d %p %c{1.}: %m%n<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">File</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">GuiLogEvent</span> <span class="attr">name</span>=<span class="string">"gui-log-event"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>%d %p %c{1.}: %m%n<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">GuiLogEvent</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;/<span class="name">Appenders</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">Loggers</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Root</span> <span class="attr">level</span>=<span class="string">"info"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">AppenderRef</span> <span class="attr">ref</span>=<span class="string">"jmeter-log"</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">AppenderRef</span> <span class="attr">ref</span>=<span class="string">"gui-log-event"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Root</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Logger</span> <span class="attr">name</span>=<span class="string">"org.apache.jmeter.junit"</span> <span class="attr">level</span>=<span class="string">"debug"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;/<span class="name">Loggers</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">Configuration</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-
-]]></content>
-      <categories>
-        <category>性能测试</category>
-      </categories>
-      <tags>
-        <tag>jmeter</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>mysql 实现 excel 中复制某一列，粘贴转置为行功能</title>
     <url>/2021/05/31/mysql%E5%AE%9E%E7%8E%B0excel%E4%B8%AD%E5%A4%8D%E5%88%B6%E6%9F%90%E4%B8%80%E5%88%97%E7%B2%98%E8%B4%B4%E8%BD%AC%E7%BD%AE%E4%B8%BA%E8%A1%8C%E5%8A%9F%E8%83%BD/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>数据处理需要，需要将大批量的列，转置为行。</p>
@@ -651,6 +631,26 @@
       </categories>
       <tags>
         <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>jmeter 通过 log4j2.xml 修改 log 文件位置</title>
+    <url>/2024/04/15/jmeter%E9%80%9A%E8%BF%87log4j2-xml%E4%BF%AE%E6%94%B9log%E6%96%87%E4%BB%B6%E4%BD%8D%E7%BD%AE/</url>
+    <content><![CDATA[<p>在 Apache JMeter 中，如果你使用的是 Log4j2 作为日志系统，并且想通过 <code>log4j2.xml</code> 配置文件修改日志文件的位置，你可以按照以下步骤操作：（文中使用 jmeter 版本为:apache-jmeter-5.6.3）</p>
+<ol>
+<li>找到 JMeter 安装目录下的 <code>log4j2.xml</code> 配置文件。在 JMeter 3.x 及以上版本中，这个文件通常位于 <code>apache-jmeter-X.XX/bin</code> 目录下。</li>
+<li>打开 <code>log4j2.xml</code> 文件，找到 <code>RollingFile</code> 或 <code>File</code> 类型的 Appender 配置部分。</li>
+</ol>
+<span id="more"></span>
+
+<figure class="highlight xml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</span></span><br><span class="line"><span class="comment">&lt;!--......--&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">Configuration</span> <span class="attr">status</span>=<span class="string">"WARN"</span> <span class="attr">packages</span>=<span class="string">"org.apache.jmeter.gui.logging"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Appenders</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 修改这里，修改日志文件位置 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">File</span> <span class="attr">name</span>=<span class="string">"jmeter-log"</span> <span class="attr">fileName</span>=<span class="string">"/path/to/your/log/jmeter.log"</span> <span class="attr">append</span>=<span class="string">"false"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>%d %p %c{1.}: %m%n<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">File</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">GuiLogEvent</span> <span class="attr">name</span>=<span class="string">"gui-log-event"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>%d %p %c{1.}: %m%n<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">GuiLogEvent</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;/<span class="name">Appenders</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">Loggers</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Root</span> <span class="attr">level</span>=<span class="string">"info"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">AppenderRef</span> <span class="attr">ref</span>=<span class="string">"jmeter-log"</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">AppenderRef</span> <span class="attr">ref</span>=<span class="string">"gui-log-event"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Root</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Logger</span> <span class="attr">name</span>=<span class="string">"org.apache.jmeter.junit"</span> <span class="attr">level</span>=<span class="string">"debug"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;/<span class="name">Loggers</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">Configuration</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+]]></content>
+      <categories>
+        <category>性能测试</category>
+      </categories>
+      <tags>
+        <tag>jmeter</tag>
       </tags>
   </entry>
   <entry>
@@ -779,46 +779,31 @@
 <h2 id="4-pytest标记跳过用例"><a href="#4-pytest标记跳过用例" class="headerlink" title="4.pytest标记跳过用例"></a>4.pytest 标记跳过用例</h2><p>跳过用例的方式有 2 中类型：</p>
 <ul>
 <li><p>无条件跳过</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">@pytest.mark.skipif(<span class="params">reason=<span class="string">'无条件跳过该测试用例'</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test_login_01</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"1.打开页面"</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"2.输入账号密码"</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"3.点击登录按钮"</span>)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>有条件跳过</p>
 <ul>
-<li><pre><code class="python">@pytest.mark.skipif(reason='无条件跳过该测试用例')
-def test_login_01():
-    print("1.打开页面")
-    print("2.输入账号密码")
-    print("3.点击登录按钮")
-
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line"></span><br><span class="line">- 有条件跳过</span><br><span class="line"></span><br><span class="line">  - 满足条件就跳过不执行</span><br><span class="line"></span><br><span class="line">    - ```python</span><br><span class="line">      @pytest.mark.skipif(3&gt;2, reason='如果前面条件为真，则跳过该用例，不执行')</span><br><span class="line">      def test_login_04():</span><br><span class="line">          print("测试函数 4：打开页面")</span><br><span class="line">          print("测试函数 4：输入账号密码")</span><br><span class="line">          print("测试函数 4：点击登录按钮")</span><br></pre></td></tr></tbody></table></figure>
-</code></pre>
+<li><p>满足条件就跳过不执行</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">@pytest.mark.skipif(<span class="params"><span class="number">3</span>&gt;<span class="number">2</span>, reason=<span class="string">'如果前面条件为真，则跳过该用例，不执行'</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test_login_04</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"测试函数 4：打开页面"</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"测试函数 4：输入账号密码"</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"测试函数 4：点击登录按钮"</span>)</span><br></pre></td></tr></tbody></table></figure>
 </li>
 <li><p>不满足条件，就不跳过，正常执行</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">@pytest.mark.skipif(<span class="params"><span class="number">3</span>&lt;<span class="number">2</span>, reason=<span class="string">'如果前面条件为假， 则不跳过用例正常执行'</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test_login_05</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"测试函数 5：打开页面"</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"测试函数 5：输入账号密码"</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"测试函数 5：点击登录按钮"</span>)</span><br></pre></td></tr></tbody></table></figure></li>
+</ul>
+</li>
+</ul>
+<h2 id="5-pytest-控制测试用例的执行顺序"><a href="#5-pytest-控制测试用例的执行顺序" class="headerlink" title="5.pytest 控制测试用例的执行顺序"></a>5.pytest 控制测试用例的执行顺序</h2><p>默认是按照文件名以及用例名的先后顺序进行执行的，想要改变默认执行规则，可以进行修改调整。</p>
 <ul>
-<li><pre><code class="python">@pytest.mark.skipif(3&lt;2, reason='如果前面条件为假， 则不跳过用例正常执行')
-def test_login_05():
-    print("测试函数 5：打开页面")
-    print("测试函数 5：输入账号密码")
-    print("测试函数 5：点击登录按钮")
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line"></span><br><span class="line">## 5.pytest 控制测试用例的执行顺序</span><br><span class="line"></span><br><span class="line">默认是按照文件名以及用例名的先后顺序进行执行的，想要改变默认执行规则，可以进行修改调整。</span><br><span class="line"></span><br><span class="line">- pytest-ordring ???这里也没有用这个包的内容呢？？</span><br><span class="line"></span><br><span class="line">``` python</span><br><span class="line">@pytest.mark.run(order=3)</span><br><span class="line">def test_login_06():</span><br><span class="line">    print("测试函数 6：打开页面")</span><br><span class="line">    print("测试函数 6：输入账号密码")</span><br><span class="line">    print("测试函数 6：点击登录按钮")</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">@pytest.mark.run(order=2)</span><br><span class="line">def test_login_07():</span><br><span class="line">    print("测试函数 7：打开页面")</span><br><span class="line">    print("测试函数 7：输入账号密码")</span><br><span class="line">    print("测试函数 7：点击登录按钮")</span><br><span class="line"></span><br><span class="line"># 使用@pytest.mark.run(order=1)，order 的数字越小，执行顺序越靠前，没有该装饰器的则按照原有的方式执行</span><br><span class="line">@pytest.mark.run(order=1)</span><br><span class="line">def test_login_08():</span><br><span class="line">    print("测试函数 8：打开页面")</span><br><span class="line">    print("测试函数 8：输入账号密码")</span><br><span class="line">    print("测试函数 8：点击登录按钮")</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-</code></pre>
-</li>
+<li>pytest-ordring ??? 这里也没有用这个包的内容呢？？</li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">@pytest.mark.run(<span class="params">order=<span class="number">3</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test_login_06</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"测试函数 6：打开页面"</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"测试函数 6：输入账号密码"</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"测试函数 6：点击登录按钮"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@pytest.mark.run(<span class="params">order=<span class="number">2</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test_login_07</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"测试函数 7：打开页面"</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"测试函数 7：输入账号密码"</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"测试函数 7：点击登录按钮"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用@pytest.mark.run(order=1)，order 的数字越小，执行顺序越靠前，没有该装饰器的则按照原有的方式执行</span></span><br><span class="line"><span class="meta">@pytest.mark.run(<span class="params">order=<span class="number">1</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test_login_08</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"测试函数 8：打开页面"</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"测试函数 8：输入账号密码"</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"测试函数 8：点击登录按钮"</span>)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
 <h2 id="6-pytest标记失败的用例"><a href="#6-pytest标记失败的用例" class="headerlink" title="6.pytest标记失败的用例"></a>6.pytest 标记失败的用例</h2><p>标记预期会出现异常或者失败的测试用例，只有出现异常才符合预期，如果不出现异常反而不符合预期。</p>
 <ul>
 <li><p>正常预期失败</p>
-<ul>
-<li><pre><code class="python">@pytest.mark.xfail(reason='出现了被除数为 0 的情况')
-def test_login_09():
-    print("测试函数 9：打开页面")
-    print("测试函数 9：输入账号密码")
-    print(1/0)
-    print("测试函数 9：点击登录按钮")
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line"></span><br><span class="line">- 意外预期通过</span><br><span class="line"></span><br><span class="line">  - ```python</span><br><span class="line">    @pytest.mark.xfail(reason='意外通过了被除数为 0 的情况')</span><br><span class="line">    def test_login_10():</span><br><span class="line">        print("测试函数 10：打开页面")</span><br><span class="line">        print("测试函数 10：输入账号密码")</span><br><span class="line">        # print(1 / 0)</span><br><span class="line">        print("测试函数 10：点击登录按钮")</span><br></pre></td></tr></tbody></table></figure>
-</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">@pytest.mark.xfail(<span class="params">reason=<span class="string">'出现了被除数为 0 的情况'</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test_login_09</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"测试函数 9：打开页面"</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"测试函数 9：输入账号密码"</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="number">1</span>/<span class="number">0</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"测试函数 9：点击登录按钮"</span>)</span><br></pre></td></tr></tbody></table></figure>
 </li>
-</ul>
-</li>
+<li><p>意外预期通过</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">@pytest.mark.xfail(<span class="params">reason=<span class="string">'意外通过了被除数为 0 的情况'</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test_login_10</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"测试函数 10：打开页面"</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"测试函数 10：输入账号密码"</span>)</span><br><span class="line">    <span class="comment"># print(1 / 0)</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"测试函数 10：点击登录按钮"</span>)</span><br></pre></td></tr></tbody></table></figure></li>
 </ul>
 <p>执行结果如下：</p>
 <figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># ......</span></span><br><span class="line"></span><br><span class="line">testcases/test_01.py::test_login_09 测试函数 9：打开页面</span><br><span class="line">测试函数 9：输入账号密码</span><br><span class="line">XFAIL (出现了被除数为 0 的情况)</span><br><span class="line">testcases/test_01.py::test_login_10 测试函数 10：打开页面</span><br><span class="line">测试函数 10：输入账号密码</span><br><span class="line">测试函数 10：点击登录按钮</span><br><span class="line">XPASS (意外通过了被除数为 0 的情况)</span><br><span class="line"></span><br><span class="line">============================================== 6 passed, 2 skipped, 1 xfailed, 1 xpassed <span class="keyword">in</span> 0.06s ==============================================</span><br><span class="line">(.venv) ➜  StudyPytest</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
@@ -899,6 +884,34 @@ def test_login_09():
 
 <p>MD5 已经不再被认为是安全的哈希函数，因为它容易受到多种攻击，如碰撞攻击。</p>
 <h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2>]]></content>
+  </entry>
+  <entry>
+    <title>requirements 总结</title>
+    <url>/2021/05/21/requirements%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在搭建 Liunx 服务器时，需要在新的 Python 环境中安装项目需要的包的依赖，一条一条 pip install 太慢，有没有可以批量安装方法？</p>
+<span id="more"></span>
+
+<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><p>百度后，方法如下：</p>
+<p>在旧环境下执行:</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pip freeze &gt; requirements.txt</span><br></pre></td></tr></tbody></table></figure>
+
+<p>执行后，会在当前项目下生成一个 requirements.txt 的文件，然后将该文件上传到新的环境项目下，在新环境下执行:</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></tbody></table></figure>
+
+<p>有时执行上面命令会报错 (改错误是在 Jenkins 中执行 shell 时报错)</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">ERROR: Could not find a version that satisfies the requirement request==1.0.117 (from -r requirements.txt (line 6)) (from versions: none)</span><br></pre></td></tr></tbody></table></figure>
+
+<p>一般情况下是国外源的原因，将其临时替换为国内源：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple/</span><br></pre></td></tr></tbody></table></figure>
+
+]]></content>
+      <categories>
+        <category>环境部署</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>pycharm</tag>
+      </tags>
   </entry>
   <entry>
     <title>python 读写 csv 总结</title>
@@ -996,34 +1009,6 @@ def test_login_09():
       </categories>
       <tags>
         <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>requirements 总结</title>
-    <url>/2021/05/21/requirements%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在搭建 Liunx 服务器时，需要在新的 Python 环境中安装项目需要的包的依赖，一条一条 pip install 太慢，有没有可以批量安装方法？</p>
-<span id="more"></span>
-
-<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><p>百度后，方法如下：</p>
-<p>在旧环境下执行:</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pip freeze &gt; requirements.txt</span><br></pre></td></tr></tbody></table></figure>
-
-<p>执行后，会在当前项目下生成一个 requirements.txt 的文件，然后将该文件上传到新的环境项目下，在新环境下执行:</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></tbody></table></figure>
-
-<p>有时执行上面命令会报错 (改错误是在 Jenkins 中执行 shell 时报错)</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">ERROR: Could not find a version that satisfies the requirement request==1.0.117 (from -r requirements.txt (line 6)) (from versions: none)</span><br></pre></td></tr></tbody></table></figure>
-
-<p>一般情况下是国外源的原因，将其临时替换为国内源：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple/</span><br></pre></td></tr></tbody></table></figure>
-
-]]></content>
-      <categories>
-        <category>环境部署</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>pycharm</tag>
       </tags>
   </entry>
   <entry>
@@ -1319,6 +1304,36 @@ def test_login_09():
       </tags>
   </entry>
   <entry>
+    <title>解决 gitea 报错初始 URL 和访问 URL 不同的问题</title>
+    <url>/2024/07/22/%E8%A7%A3%E5%86%B3gitea%E6%8A%A5%E9%94%99%E5%88%9D%E5%A7%8BURL%E5%92%8C%E8%AE%BF%E9%97%AEURL%E4%B8%8D%E5%90%8C%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>Your ROOT_URL in app.ini is <code>https://192.168.1.11:1234/</code> but you are visiting <code>https://192.168.1.12:1234/</code> You should set ROOT_URL correctly, otherwise the web may not work correctly.</p>
+<span id="more"></span>
+
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>翻译可知，初始化的域名和访问的域名不一致，可能会导致问题。</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>因为 gitea 是群晖的套件，所以要找到配置文件，然后修改。步骤如下：</p>
+<p>(1) 登录群晖 (DMS 版本：DSM 6.2.3-25426 Update 3)→终端机和 SNMP→启动 Telnet 功能和启动 SSH 功能→应用。</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240722163031974.png" alt="image-20240722163031974"></p>
+<p>(2) ssh user@ip_address，输入密码。<br>(3) 进入目录 /var/packages/gitea/var</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /var/packages/gitea/var</span><br></pre></td></tr></tbody></table></figure>
+
+<p>(4) 打开 conf.ini 文件，需要用户 root 权限。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo vi conf.ini</span><br></pre></td></tr></tbody></table></figure>
+
+<p>修改 [server] 下的 ROOT_URL 为现在的访问地址</p>
+<figure class="highlight ini"><table><tbody><tr><td class="code"><pre><span class="line"><span class="section">[server]</span></span><br><span class="line"><span class="attr">LFS_CONTENT_PATH</span> = /xxx/xxx/xxx</span><br><span class="line"><span class="attr">SSH_DOMAIN</span>       = <span class="number">192.168</span>.xx.xx</span><br><span class="line"><span class="attr">DOMAIN</span>           = <span class="number">192.168</span>.xx.xx</span><br><span class="line"><span class="attr">ROOT_URL</span>         = https://xxx.xxx.xxx:xxx/</span><br><span class="line"><span class="attr">LOCAL_ROOT_URL</span>   = http://localhost:xxx/</span><br><span class="line"><span class="attr">HTTP_PORT</span>        = xxx</span><br><span class="line"><span class="attr">DISABLE_SSH</span>      = <span class="literal">false</span></span><br><span class="line"><span class="attr">SSH_PORT</span>         = <span class="number">22</span></span><br><span class="line"><span class="attr">LFS_START_SERVER</span> = <span class="literal">true</span></span><br><span class="line"><span class="attr">LFS_JWT_SECRET</span>   = xxxxxxxxxxxxxxxxxxxxxxxxxx</span><br><span class="line"><span class="attr">OFFLINE_MODE</span>     = <span class="literal">false</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>(5) 重启（停用→启用）</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240722163415690.png" alt="image-20240722163415690"></p>
+]]></content>
+      <categories>
+        <category>环境部署</category>
+      </categories>
+      <tags>
+        <tag>synology</tag>
+        <tag>gitea</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>解决 hexoblog 标签点击没有响应的问题</title>
     <url>/2024/05/23/%E8%A7%A3%E5%86%B3hexoblog%E6%A0%87%E7%AD%BE%E7%82%B9%E5%87%BB%E6%B2%A1%E6%9C%89%E5%93%8D%E5%BA%94%E7%9A%84%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>点击博客标签页面里面的标签，没有反应。</p>
@@ -1351,36 +1366,6 @@ def test_login_09():
       </categories>
       <tags>
         <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>解决 gitea 报错初始 URL 和访问 URL 不同的问题</title>
-    <url>/2024/07/22/%E8%A7%A3%E5%86%B3gitea%E6%8A%A5%E9%94%99%E5%88%9D%E5%A7%8BURL%E5%92%8C%E8%AE%BF%E9%97%AEURL%E4%B8%8D%E5%90%8C%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>Your ROOT_URL in app.ini is <code>https://192.168.1.11:1234/</code> but you are visiting <code>https://192.168.1.12:1234/</code> You should set ROOT_URL correctly, otherwise the web may not work correctly.</p>
-<span id="more"></span>
-
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>翻译可知，初始化的域名和访问的域名不一致，可能会导致问题。</p>
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>因为 gitea 是群晖的套件，所以要找到配置文件，然后修改。步骤如下：</p>
-<p>(1) 登录群晖 (DMS 版本：DSM 6.2.3-25426 Update 3)→终端机和 SNMP→启动 Telnet 功能和启动 SSH 功能→应用。</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240722163031974.png" alt="image-20240722163031974"></p>
-<p>(2) ssh user@ip_address，输入密码。<br>(3) 进入目录 /var/packages/gitea/var</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /var/packages/gitea/var</span><br></pre></td></tr></tbody></table></figure>
-
-<p>(4) 打开 conf.ini 文件，需要用户 root 权限。</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo vi conf.ini</span><br></pre></td></tr></tbody></table></figure>
-
-<p>修改 [server] 下的 ROOT_URL 为现在的访问地址</p>
-<figure class="highlight ini"><table><tbody><tr><td class="code"><pre><span class="line"><span class="section">[server]</span></span><br><span class="line"><span class="attr">LFS_CONTENT_PATH</span> = /xxx/xxx/xxx</span><br><span class="line"><span class="attr">SSH_DOMAIN</span>       = <span class="number">192.168</span>.xx.xx</span><br><span class="line"><span class="attr">DOMAIN</span>           = <span class="number">192.168</span>.xx.xx</span><br><span class="line"><span class="attr">ROOT_URL</span>         = https://xxx.xxx.xxx:xxx/</span><br><span class="line"><span class="attr">LOCAL_ROOT_URL</span>   = http://localhost:xxx/</span><br><span class="line"><span class="attr">HTTP_PORT</span>        = xxx</span><br><span class="line"><span class="attr">DISABLE_SSH</span>      = <span class="literal">false</span></span><br><span class="line"><span class="attr">SSH_PORT</span>         = <span class="number">22</span></span><br><span class="line"><span class="attr">LFS_START_SERVER</span> = <span class="literal">true</span></span><br><span class="line"><span class="attr">LFS_JWT_SECRET</span>   = xxxxxxxxxxxxxxxxxxxxxxxxxx</span><br><span class="line"><span class="attr">OFFLINE_MODE</span>     = <span class="literal">false</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>(5) 重启（停用→启用）</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240722163415690.png" alt="image-20240722163415690"></p>
-]]></content>
-      <categories>
-        <category>环境部署</category>
-      </categories>
-      <tags>
-        <tag>synology</tag>
-        <tag>gitea</tag>
       </tags>
   </entry>
   <entry>

@@ -758,6 +758,29 @@
       </tags>
   </entry>
   <entry>
+    <title>python 创建虚拟环境</title>
+    <url>/2021/06/29/python%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>python 如何创建虚拟环境？</p>
+<span id="more"></span>
+
+<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><p>使用 venv 命令，方法如下 (python3.5 以后)：</p>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">python3 -m venv /xx/xx/myvenv <span class="comment">#(myvenv环境名称)</span></span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>激活虚拟环境</p>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">source</span> myvenv/bin/activate</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>关闭虚拟环境</p>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">deactivate</span></span><br></pre></td></tr></tbody></table></figure>
+
+]]></content>
+      <categories>
+        <category>环境部署</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>pytest 相关总结</title>
     <url>/2024/08/07/pytest%E7%9B%B8%E5%85%B3%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<h2 id="0-pytest-常用插件"><a href="#0-pytest-常用插件" class="headerlink" title="0.pytest 常用插件"></a>0.pytest 常用插件</h2><ul>
@@ -875,29 +898,6 @@
       </tags>
   </entry>
   <entry>
-    <title>python 创建虚拟环境</title>
-    <url>/2021/06/29/python%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>python 如何创建虚拟环境？</p>
-<span id="more"></span>
-
-<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><p>使用 venv 命令，方法如下 (python3.5 以后)：</p>
-<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">python3 -m venv /xx/xx/myvenv <span class="comment">#(myvenv环境名称)</span></span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>激活虚拟环境</p>
-<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">source</span> myvenv/bin/activate</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>关闭虚拟环境</p>
-<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">deactivate</span></span><br></pre></td></tr></tbody></table></figure>
-
-]]></content>
-      <categories>
-        <category>环境部署</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>python 加密总结</title>
     <url>/2024/06/24/python%E5%8A%A0%E5%AF%86%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>每次都查系列，总结一下，以方便下次查。</p>
@@ -940,40 +940,25 @@
 <h2 id="3-高级🌰"><a href="#3-高级🌰" class="headerlink" title="3.高级🌰"></a>3. 高级🌰</h2><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> logging, os</span><br><span class="line"></span><br><span class="line">log_path = os.path.join(os.path.dirname(__file__), <span class="string">'demo_log.log'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建一个 log 对象</span></span><br><span class="line">logger = logging.getLogger(<span class="string">'__name__'</span>)  <span class="comment"># 其中的__name__代表当前 py 文件的名称，也可以不写</span></span><br><span class="line"><span class="comment"># 设置 log 对象的等级，记录所有文件级别日志</span></span><br><span class="line">logger.setLevel(logging.DEBUG)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建一个 FileHandler，将写入文件</span></span><br><span class="line">fh = logging.FileHandler(log_path, mode=<span class="string">'w'</span>)</span><br><span class="line"><span class="comment"># 设置log 等级，记录所有文件级别日志</span></span><br><span class="line">fh.setLevel(logging.DEBUG)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建一个 StreamHandler, 将 log 输出到控制台</span></span><br><span class="line">ch = logging.StreamHandler()</span><br><span class="line"><span class="comment"># 设置 log 等级，控制台只记录 Error 以及以上的记录</span></span><br><span class="line">ch.setLevel(logging.ERROR)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置输出格式</span></span><br><span class="line">log_formatter = <span class="string">'%(asctime)s - %(filename)s[line:%(lineno)d] - %(levelname)s : %(message)s'</span></span><br><span class="line">formatter = logging.Formatter(log_formatter)</span><br><span class="line"></span><br><span class="line">ch.setFormatter(formatter)</span><br><span class="line">fh.setFormatter(formatter)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 把handler添加到 logger 里</span></span><br><span class="line">logger.addHandler(ch)</span><br><span class="line">logger.addHandler(fh)</span><br><span class="line"></span><br><span class="line">logger.error(<span class="string">'error message'</span>)</span><br><span class="line">logger.debug(<span class="string">'debug message'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 干完之后清理下，这里主要为了以后多次调用出现重复日志输出</span></span><br><span class="line"><span class="comment"># logger.removeHandler(ch)</span></span><br><span class="line"><span class="comment"># logger.removeHandler(fh)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># logger.error('error message')</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
 
 <p>在这个示例中，我们创建了一个 <code>Logger</code> 对象，并设置了两个 Handler：一个输出到控制台的 <code>StreamHandler</code> 和一个输出到文件的 <code>FileHandler</code>。我们还定义了一个 <code>Formatter</code> 来格式化日志消息，并将其应用到了两个 Handler 上。最后，我们添加了日志消息，它们会根据设置的日志级别被输出到相应的目的地。</p>
+<h2 id="4-封装后使用"><a href="#4-封装后使用" class="headerlink" title="4.封装后使用"></a>4. 封装后使用</h2><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># demo_log2.py</span></span><br><span class="line"><span class="keyword">import</span> logging, os</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">demo_log2</span>():</span><br><span class="line">    log_path = os.path.join(os.path.dirname(__file__), <span class="string">'demo_log.log'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 创建一个 log 对象</span></span><br><span class="line">    logger = logging.getLogger(<span class="string">'__name__'</span>)  <span class="comment"># 其中的__name__代表当前 py 文件的名称，也可以不写</span></span><br><span class="line">    logger.handlers.clear()  <span class="comment"># 防止重复输出日志，因为添加一个 handler就会输出一次</span></span><br><span class="line">    <span class="comment"># 设置 log 对象的等级</span></span><br><span class="line">    logger.setLevel(logging.DEBUG)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 创建一个 handler，将写入文件</span></span><br><span class="line">    fh = logging.FileHandler(log_path, mode=<span class="string">'a'</span>)</span><br><span class="line">    <span class="comment"># 设置log 等级与前面保持一致</span></span><br><span class="line">    fh.setLevel(logging.DEBUG)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 创建一个 handler, 将 log 输出到控制台</span></span><br><span class="line">    ch = logging.StreamHandler()</span><br><span class="line">    <span class="comment"># 设置 log 等级与 log 对象保持一致</span></span><br><span class="line">    ch.setLevel(logging.ERROR)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 设置输出格式</span></span><br><span class="line">    log_formatter = <span class="string">'%(asctime)s - %(filename)s[line:%(lineno)d] - %(levelname)s : %(message)s'</span></span><br><span class="line">    formatter = logging.Formatter(log_formatter)</span><br><span class="line">    ch.setFormatter(formatter)</span><br><span class="line">    fh.setFormatter(formatter)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 把handler添加到 logger 里</span></span><br><span class="line">    <span class="comment"># print(logger.handlers) # 没添加时，logger.handlers == []</span></span><br><span class="line">    <span class="comment"># 如果 logger.handlers 为空，则添加 ch / fh ，防止重复输出日志，因为添加一个 handler就会输出一次</span></span><br><span class="line">    <span class="comment"># if logger.handlers.__len__() == 0:</span></span><br><span class="line">    logger.addHandler(ch)</span><br><span class="line">    logger.addHandler(fh)</span><br><span class="line">    <span class="comment"># print(logger.handlers)</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> logger</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># demo_user_log.py</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> demo_log2</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">calc_sum</span>(<span class="params">a, b</span>):</span><br><span class="line"></span><br><span class="line">    logger = demo_log2.demo_log2()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="built_in">sum</span> = a / b</span><br><span class="line">        logger.debug(<span class="string">f'<span class="subst">{a}</span> / <span class="subst">{b}</span> = <span class="subst">{<span class="built_in">sum</span>}</span> '</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">sum</span></span><br><span class="line">    <span class="keyword">except</span> ZeroDivisionError <span class="keyword">as</span> e:</span><br><span class="line">        logger.error(<span class="string">f'被除数不能为 0： <span class="subst">{e}</span>'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    calc_sum(<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line">    calc_sum(<span class="number">1</span>,<span class="number">0</span>)</span><br><span class="line"> </span><br></pre></td></tr></tbody></table></figure>
+
+<p>输出结果：</p>
+<p>控制台输出结果：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">2024-08-08 15:13:56,611 - demo_user_log.py[line:13] - ERROR : 被除数不能为 0： division by zero</span><br></pre></td></tr></tbody></table></figure>
+
+<p>日志文件输出结果：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">2024-08-08 15:13:56,611 - demo_user_log.py[line:10] - DEBUG : 1 / 1 = 1.0 </span><br><span class="line">2024-08-08 15:13:56,611 - demo_user_log.py[line:13] - ERROR : 被除数不能为 0： division by zero</span><br></pre></td></tr></tbody></table></figure>
+
 ]]></content>
       <categories>
         <category>测试脚本</category>
       </categories>
       <tags>
         <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>requirements 总结</title>
-    <url>/2021/05/21/requirements%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在搭建 Liunx 服务器时，需要在新的 Python 环境中安装项目需要的包的依赖，一条一条 pip install 太慢，有没有可以批量安装方法？</p>
-<span id="more"></span>
-
-<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><p>百度后，方法如下：</p>
-<p>在旧环境下执行:</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pip freeze &gt; requirements.txt</span><br></pre></td></tr></tbody></table></figure>
-
-<p>执行后，会在当前项目下生成一个 requirements.txt 的文件，然后将该文件上传到新的环境项目下，在新环境下执行:</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></tbody></table></figure>
-
-<p>有时执行上面命令会报错 (改错误是在 Jenkins 中执行 shell 时报错)</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">ERROR: Could not find a version that satisfies the requirement request==1.0.117 (from -r requirements.txt (line 6)) (from versions: none)</span><br></pre></td></tr></tbody></table></figure>
-
-<p>一般情况下是国外源的原因，将其临时替换为国内源：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple/</span><br></pre></td></tr></tbody></table></figure>
-
-]]></content>
-      <categories>
-        <category>环境部署</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>pycharm</tag>
       </tags>
   </entry>
   <entry>
@@ -1075,6 +1060,48 @@
       </tags>
   </entry>
   <entry>
+    <title>requirements 总结</title>
+    <url>/2021/05/21/requirements%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在搭建 Liunx 服务器时，需要在新的 Python 环境中安装项目需要的包的依赖，一条一条 pip install 太慢，有没有可以批量安装方法？</p>
+<span id="more"></span>
+
+<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><p>百度后，方法如下：</p>
+<p>在旧环境下执行:</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pip freeze &gt; requirements.txt</span><br></pre></td></tr></tbody></table></figure>
+
+<p>执行后，会在当前项目下生成一个 requirements.txt 的文件，然后将该文件上传到新的环境项目下，在新环境下执行:</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></tbody></table></figure>
+
+<p>有时执行上面命令会报错 (改错误是在 Jenkins 中执行 shell 时报错)</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">ERROR: Could not find a version that satisfies the requirement request==1.0.117 (from -r requirements.txt (line 6)) (from versions: none)</span><br></pre></td></tr></tbody></table></figure>
+
+<p>一般情况下是国外源的原因，将其临时替换为国内源：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple/</span><br></pre></td></tr></tbody></table></figure>
+
+]]></content>
+      <categories>
+        <category>环境部署</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>pycharm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>博客重新装修删除冗余内容</title>
+    <url>/2024/05/06/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%96%B0%E8%A3%85%E4%BF%AE%E5%88%A0%E9%99%A4%E5%86%97%E4%BD%99%E5%86%85%E5%AE%B9/</url>
+    <content><![CDATA[<p>最近有空闲时间，就重新装修了长时间没管过的博客，将以前的内容做了精简以及删除，后续会陆续将之前做的笔记整理后，写成 blog，大体做了如下改变。</p>
+<span id="more"></span>
+
+<h2 id="1-更改主题为-nexT。"><a href="#1-更改主题为-nexT。" class="headerlink" title="1.更改主题为 nexT。"></a>1. 更改主题为 nexT。</h2><h2 id="2-删除之前冗余内容。"><a href="#2-删除之前冗余内容。" class="headerlink" title="2.删除之前冗余内容。"></a>2. 删除之前冗余内容。</h2><h2 id="3-将一些以前学习的内容做个总结。"><a href="#3-将一些以前学习的内容做个总结。" class="headerlink" title="3.将一些以前学习的内容做个总结。"></a>3. 将一些以前学习的内容做个总结。</h2>]]></content>
+      <categories>
+        <category>环境部署</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>如何从 mac 系统传输文件或文件夹到 Ubuntu 系统</title>
     <url>/2021/05/24/%E5%A6%82%E4%BD%95%E4%BB%8Emac%E7%B3%BB%E7%BB%9F%E4%BC%A0%E8%BE%93%E6%96%87%E4%BB%B6%E5%88%B0Ubuntu%E7%B3%BB%E7%BB%9F/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>如何从 macOS 系统传输文件到 Ubuntu 系统？</p>
@@ -1104,20 +1131,6 @@
         <tag>ubuntu</tag>
         <tag>macos</tag>
         <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>博客重新装修删除冗余内容</title>
-    <url>/2024/05/06/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%96%B0%E8%A3%85%E4%BF%AE%E5%88%A0%E9%99%A4%E5%86%97%E4%BD%99%E5%86%85%E5%AE%B9/</url>
-    <content><![CDATA[<p>最近有空闲时间，就重新装修了长时间没管过的博客，将以前的内容做了精简以及删除，后续会陆续将之前做的笔记整理后，写成 blog，大体做了如下改变。</p>
-<span id="more"></span>
-
-<h2 id="1-更改主题为-nexT。"><a href="#1-更改主题为-nexT。" class="headerlink" title="1.更改主题为 nexT。"></a>1. 更改主题为 nexT。</h2><h2 id="2-删除之前冗余内容。"><a href="#2-删除之前冗余内容。" class="headerlink" title="2.删除之前冗余内容。"></a>2. 删除之前冗余内容。</h2><h2 id="3-将一些以前学习的内容做个总结。"><a href="#3-将一些以前学习的内容做个总结。" class="headerlink" title="3.将一些以前学习的内容做个总结。"></a>3. 将一些以前学习的内容做个总结。</h2>]]></content>
-      <categories>
-        <category>环境部署</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>

@@ -366,6 +366,63 @@
       </tags>
   </entry>
   <entry>
+    <title>Appium2 总结（二）inspector 工具使用及定位操作元素</title>
+    <url>/2024/07/30/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89inspector%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AE%9A%E4%BD%8D%E6%93%8D%E4%BD%9C%E5%85%83%E7%B4%A0/</url>
+    <content><![CDATA[<p>Appium Inspector 是 Appium 的一个工具，<strong>用于帮助开发人员和测试人员分析和调试移动应用程序</strong>。 它提供了图形界面和交互式的功能，使您能够轻松地检查应用程序的 UI 元素、获取元素属性、执行操作和生成自动化测试脚本。</p>
+<span id="more"></span>
+
+<h2 id="1-Appium-Inspector-下载"><a href="#1-Appium-Inspector-下载" class="headerlink" title="1.Appium Inspector 下载"></a>1.Appium Inspector 下载</h2><p><a href="https://github.com/appium/appium-inspector/releases">下载地址</a></p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240730200543128.png" alt="image-20240730200543128"></p>
+<p>选择相应版本下载后安装。</p>
+<h2 id="2-Appium-Inspector使用"><a href="#2-Appium-Inspector使用" class="headerlink" title="2.Appium Inspector使用"></a>2.Appium Inspector 使用</h2><p>（1）首先连接模拟器。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">➜  ~ adb connect 192.168.XX.XX:5555</span><br><span class="line">connected to 192.168.XX.XX:5555</span><br></pre></td></tr></tbody></table></figure>
+
+<p>（2）启动 appium 服务</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">➜  ~ appium</span><br><span class="line">[Appium] Welcome to Appium v2.11.2</span><br><span class="line">......</span><br></pre></td></tr></tbody></table></figure>
+
+<p>（3）打开 Appium Inspector</p>
+<p>在 Capability Builder 中，填写</p>
+<p>platformName=’Android’</p>
+<p>automationName=’uiautomator2’</p>
+<p>然后点击 <code>Start Session</code> 按钮。</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240731112127407.png" alt="image-20240731112127407"></p>
+<p>界面看到模拟器的截图，说明连接成功。</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240731112511529.png" alt="image-20240731112511529"></p>
+<p>（4）安装 2 个 app 用于测试</p>
+<p><a href="https://github.com/appium/appium/raw/master/packages/appium/sample-code/apps/ApiDemos-debug.apk">appium 官方 Demo apk 下载地址</a></p>
+<p>使用 adb 命令安装：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">➜  ~ adb install /Users/user1/Downloads/ApiDemos-debug.apk</span><br><span class="line">Performing Streamed Install</span><br><span class="line">Success</span><br></pre></td></tr></tbody></table></figure>
+
+<p><a href="https://github.com/imengyu/AutoCalc/raw/master/app-debug.apk">计算器 AutoCalc</a></p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">➜  ~ adb install /Users/user1/Downloads/ApiDemos-debug.apk.apk</span><br><span class="line">Performing Streamed Install</span><br><span class="line">Success</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<p>安装成功后，模拟器出现如下 app</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240731145423828.png" alt="image-20240731145423828"></p>
+<p>（5）打开 API Demos ，获取包名界面名（活动名）</p>
+<p>1️⃣通过 adb 命令获取</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">➜  ~ adb shell dumpsys window |grep mFocusedApp</span><br><span class="line">    mFocusedApp=Token{b14e783 ActivityRecord{3e73e32 u0 io.appium.android.apis/.ApiDemos t9}}</span><br><span class="line">    mFocusedApp=AppWindowToken{8c2ad00 token=Token{b14e783 ActivityRecord{3e73e32 u0 io.appium.android.apis/.ApiDemos t9}}}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>2️⃣通过 Appium Inspector 获取</p>
+<p>获取包名 <code>Commands</code>→<code>App Management</code>→<code>getCurrentPackage</code></p>
+<p>获取界面名 <code>Commands</code>→<code>App Management</code>→<code>getCurrentPackage</code></p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/2024-07-31%2015.38.57.gif" alt="2024-07-31 15.38.57"></p>
+<h2 id="2-定位操作元素"><a href="#2-定位操作元素" class="headerlink" title="2.定位操作元素"></a>2. 定位操作元素</h2><p>（1）通过 Appium Inspector 获取元素的 id</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/2024-07-31%2018.12.29.gif" alt="2024-07-31 18.12.29"></p>
+<p>（2）通过 id 获取获取元素，操作元素</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># 通过 ID 找元素</span></span><br><span class="line"><span class="comment"># 分别获取计算器上按键 1+2= 四个按钮的按键，并且点击</span></span><br><span class="line">driver.find_element(AppiumBy.ID, <span class="string">'com.dreamfish.com.autocalc:id/btn_pad_number_1'</span>).click()</span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line">driver.find_element(AppiumBy.ID, <span class="string">'com.dreamfish.com.autocalc:id/btn_pad_plus'</span>).click()</span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line">driver.find_element(AppiumBy.ID, <span class="string">'com.dreamfish.com.autocalc:id/btn_pad_number_2'</span>).click()</span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line">driver.find_element(AppiumBy.ID, <span class="string">'com.dreamfish.com.autocalc:id/btn_pad_equal'</span>).click()</span><br></pre></td></tr></tbody></table></figure>
+
+<p>(2) 通过</p>
+<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2>]]></content>
+      <categories>
+        <category>自动化测试</category>
+      </categories>
+      <tags>
+        <tag>appium</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MySQL 中的 DATE_ADD 函数基本使用</title>
     <url>/2024/06/13/MySQL%E4%B8%AD%E7%9A%84DATE-ADD%E5%87%BD%E6%95%B0%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>每次用到 MySQL 关于时间的计算，都跑不了 <code>DATE_ADD</code> 函数，每次都得查，特此记录下，下次用时直接看。</p>
@@ -421,63 +478,6 @@
       </categories>
       <tags>
         <tag>mysql</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Appium2 总结（二）inspector 工具使用及定位操作元素</title>
-    <url>/2024/07/30/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89inspector%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AE%9A%E4%BD%8D%E6%93%8D%E4%BD%9C%E5%85%83%E7%B4%A0/</url>
-    <content><![CDATA[<p>Appium Inspector 是 Appium 的一个工具，<strong>用于帮助开发人员和测试人员分析和调试移动应用程序</strong>。 它提供了图形界面和交互式的功能，使您能够轻松地检查应用程序的 UI 元素、获取元素属性、执行操作和生成自动化测试脚本。</p>
-<span id="more"></span>
-
-<h2 id="1-Appium-Inspector-下载"><a href="#1-Appium-Inspector-下载" class="headerlink" title="1.Appium Inspector 下载"></a>1.Appium Inspector 下载</h2><p><a href="https://github.com/appium/appium-inspector/releases">下载地址</a></p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240730200543128.png" alt="image-20240730200543128"></p>
-<p>选择相应版本下载后安装。</p>
-<h2 id="2-Appium-Inspector使用"><a href="#2-Appium-Inspector使用" class="headerlink" title="2.Appium Inspector使用"></a>2.Appium Inspector 使用</h2><p>（1）首先连接模拟器。</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">➜  ~ adb connect 192.168.XX.XX:5555</span><br><span class="line">connected to 192.168.XX.XX:5555</span><br></pre></td></tr></tbody></table></figure>
-
-<p>（2）启动 appium 服务</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">➜  ~ appium</span><br><span class="line">[Appium] Welcome to Appium v2.11.2</span><br><span class="line">......</span><br></pre></td></tr></tbody></table></figure>
-
-<p>（3）打开 Appium Inspector</p>
-<p>在 Capability Builder 中，填写</p>
-<p>platformName=’Android’</p>
-<p>automationName=’uiautomator2’</p>
-<p>然后点击 <code>Start Session</code> 按钮。</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240731112127407.png" alt="image-20240731112127407"></p>
-<p>界面看到模拟器的截图，说明连接成功。</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240731112511529.png" alt="image-20240731112511529"></p>
-<p>（4）安装 2 个 app 用于测试</p>
-<p><a href="https://github.com/appium/appium/raw/master/packages/appium/sample-code/apps/ApiDemos-debug.apk">appium 官方 Demo apk 下载地址</a></p>
-<p>使用 adb 命令安装：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">➜  ~ adb install /Users/user1/Downloads/ApiDemos-debug.apk</span><br><span class="line">Performing Streamed Install</span><br><span class="line">Success</span><br></pre></td></tr></tbody></table></figure>
-
-<p><a href="https://github.com/imengyu/AutoCalc/raw/master/app-debug.apk">计算器 AutoCalc</a></p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">➜  ~ adb install /Users/user1/Downloads/ApiDemos-debug.apk.apk</span><br><span class="line">Performing Streamed Install</span><br><span class="line">Success</span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<p>安装成功后，模拟器出现如下 app</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240731145423828.png" alt="image-20240731145423828"></p>
-<p>（5）打开 API Demos ，获取包名界面名（活动名）</p>
-<p>1️⃣通过 adb 命令获取</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">➜  ~ adb shell dumpsys window |grep mFocusedApp</span><br><span class="line">    mFocusedApp=Token{b14e783 ActivityRecord{3e73e32 u0 io.appium.android.apis/.ApiDemos t9}}</span><br><span class="line">    mFocusedApp=AppWindowToken{8c2ad00 token=Token{b14e783 ActivityRecord{3e73e32 u0 io.appium.android.apis/.ApiDemos t9}}}</span><br></pre></td></tr></tbody></table></figure>
-
-<p>2️⃣通过 Appium Inspector 获取</p>
-<p>获取包名 <code>Commands</code>→<code>App Management</code>→<code>getCurrentPackage</code></p>
-<p>获取界面名 <code>Commands</code>→<code>App Management</code>→<code>getCurrentPackage</code></p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/2024-07-31%2015.38.57.gif" alt="2024-07-31 15.38.57"></p>
-<h2 id="2-定位操作元素"><a href="#2-定位操作元素" class="headerlink" title="2.定位操作元素"></a>2. 定位操作元素</h2><p>（1）通过 Appium Inspector 获取元素的 id</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/2024-07-31%2018.12.29.gif" alt="2024-07-31 18.12.29"></p>
-<p>（2）通过 id 获取获取元素，操作元素</p>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># 通过 ID 找元素</span></span><br><span class="line"><span class="comment"># 分别获取计算器上按键 1+2= 四个按钮的按键，并且点击</span></span><br><span class="line">driver.find_element(AppiumBy.ID, <span class="string">'com.dreamfish.com.autocalc:id/btn_pad_number_1'</span>).click()</span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line">driver.find_element(AppiumBy.ID, <span class="string">'com.dreamfish.com.autocalc:id/btn_pad_plus'</span>).click()</span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line">driver.find_element(AppiumBy.ID, <span class="string">'com.dreamfish.com.autocalc:id/btn_pad_number_2'</span>).click()</span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line">driver.find_element(AppiumBy.ID, <span class="string">'com.dreamfish.com.autocalc:id/btn_pad_equal'</span>).click()</span><br></pre></td></tr></tbody></table></figure>
-
-<p>(2) 通过</p>
-<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2>]]></content>
-      <categories>
-        <category>自动化测试</category>
-      </categories>
-      <tags>
-        <tag>appium</tag>
       </tags>
   </entry>
   <entry>
@@ -610,26 +610,6 @@
       </tags>
   </entry>
   <entry>
-    <title>jmeter 通过 log4j2.xml 修改 log 文件位置</title>
-    <url>/2024/04/15/jmeter%E9%80%9A%E8%BF%87log4j2-xml%E4%BF%AE%E6%94%B9log%E6%96%87%E4%BB%B6%E4%BD%8D%E7%BD%AE/</url>
-    <content><![CDATA[<p>在 Apache JMeter 中，如果你使用的是 Log4j2 作为日志系统，并且想通过 <code>log4j2.xml</code> 配置文件修改日志文件的位置，你可以按照以下步骤操作：（文中使用 jmeter 版本为:apache-jmeter-5.6.3）</p>
-<ol>
-<li>找到 JMeter 安装目录下的 <code>log4j2.xml</code> 配置文件。在 JMeter 3.x 及以上版本中，这个文件通常位于 <code>apache-jmeter-X.XX/bin</code> 目录下。</li>
-<li>打开 <code>log4j2.xml</code> 文件，找到 <code>RollingFile</code> 或 <code>File</code> 类型的 Appender 配置部分。</li>
-</ol>
-<span id="more"></span>
-
-<figure class="highlight xml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</span></span><br><span class="line"><span class="comment">&lt;!--......--&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">Configuration</span> <span class="attr">status</span>=<span class="string">"WARN"</span> <span class="attr">packages</span>=<span class="string">"org.apache.jmeter.gui.logging"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Appenders</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 修改这里，修改日志文件位置 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">File</span> <span class="attr">name</span>=<span class="string">"jmeter-log"</span> <span class="attr">fileName</span>=<span class="string">"/path/to/your/log/jmeter.log"</span> <span class="attr">append</span>=<span class="string">"false"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>%d %p %c{1.}: %m%n<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">File</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">GuiLogEvent</span> <span class="attr">name</span>=<span class="string">"gui-log-event"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>%d %p %c{1.}: %m%n<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">GuiLogEvent</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;/<span class="name">Appenders</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">Loggers</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Root</span> <span class="attr">level</span>=<span class="string">"info"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">AppenderRef</span> <span class="attr">ref</span>=<span class="string">"jmeter-log"</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">AppenderRef</span> <span class="attr">ref</span>=<span class="string">"gui-log-event"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Root</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Logger</span> <span class="attr">name</span>=<span class="string">"org.apache.jmeter.junit"</span> <span class="attr">level</span>=<span class="string">"debug"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;/<span class="name">Loggers</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">Configuration</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-
-]]></content>
-      <categories>
-        <category>性能测试</category>
-      </categories>
-      <tags>
-        <tag>jmeter</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>使用 hexo 搭建 GitHub Page 博客后，网页显示 404 的问题解决</title>
     <url>/2019/08/14/hexo%E7%AC%AC%E4%B8%80%E6%AC%A1%E9%83%A8%E7%BD%B2%E7%BD%91%E9%A1%B5%E6%98%BE%E7%A4%BA404/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>使用 hexo 搭建 GitHub Page 博客后，第一次正常，第二次上传后，博客网页显示 404 页面。</p>
@@ -651,34 +631,23 @@
       </tags>
   </entry>
   <entry>
-    <title>mysql 按照分组筛选出时间倒序前三条记录</title>
-    <url>/2024/05/22/mysql%E6%8C%89%E7%85%A7%E5%88%86%E7%BB%84%E7%AD%9B%E9%80%89%E5%87%BA%E6%97%B6%E9%97%B4%E5%80%92%E5%BA%8F%E5%89%8D%E4%B8%89%E6%9D%A1%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在 MySQL 低版本 (5.7 以下) 中，如何按照分组筛选出时间倒序前三条记录？</p>
+    <title>jmeter 通过 log4j2.xml 修改 log 文件位置</title>
+    <url>/2024/04/15/jmeter%E9%80%9A%E8%BF%87log4j2-xml%E4%BF%AE%E6%94%B9log%E6%96%87%E4%BB%B6%E4%BD%8D%E7%BD%AE/</url>
+    <content><![CDATA[<p>在 Apache JMeter 中，如果你使用的是 Log4j2 作为日志系统，并且想通过 <code>log4j2.xml</code> 配置文件修改日志文件的位置，你可以按照以下步骤操作：（文中使用 jmeter 版本为:apache-jmeter-5.6.3）</p>
+<ol>
+<li>找到 JMeter 安装目录下的 <code>log4j2.xml</code> 配置文件。在 JMeter 3.x 及以上版本中，这个文件通常位于 <code>apache-jmeter-X.XX/bin</code> 目录下。</li>
+<li>打开 <code>log4j2.xml</code> 文件，找到 <code>RollingFile</code> 或 <code>File</code> 类型的 Appender 配置部分。</li>
+</ol>
 <span id="more"></span>
 
-<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> t.<span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> (</span><br><span class="line">  <span class="keyword">SELECT</span> <span class="operator">*</span>, </span><br><span class="line">    <span class="variable">@rn</span> :<span class="operator">=</span> IF(<span class="variable">@prev_group</span> <span class="operator">=</span> group_column, <span class="variable">@rn</span> <span class="operator">+</span> <span class="number">1</span>, <span class="number">1</span>) <span class="keyword">AS</span> rn,</span><br><span class="line">    <span class="variable">@prev_group</span> :<span class="operator">=</span> group_column</span><br><span class="line">  <span class="keyword">FROM</span> your_table, (<span class="keyword">SELECT</span> <span class="variable">@rn</span> :<span class="operator">=</span> <span class="number">0</span>, <span class="variable">@prev_group</span> :<span class="operator">=</span> <span class="keyword">NULL</span>) r</span><br><span class="line">  <span class="keyword">ORDER</span> <span class="keyword">BY</span> group_column, time_column <span class="keyword">DESC</span></span><br><span class="line">) t</span><br><span class="line"><span class="keyword">WHERE</span> rn <span class="operator">&lt;=</span> <span class="number">3</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> group_column, time_column <span class="keyword">DESC</span>;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight xml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</span></span><br><span class="line"><span class="comment">&lt;!--......--&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">Configuration</span> <span class="attr">status</span>=<span class="string">"WARN"</span> <span class="attr">packages</span>=<span class="string">"org.apache.jmeter.gui.logging"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Appenders</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 修改这里，修改日志文件位置 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">File</span> <span class="attr">name</span>=<span class="string">"jmeter-log"</span> <span class="attr">fileName</span>=<span class="string">"/path/to/your/log/jmeter.log"</span> <span class="attr">append</span>=<span class="string">"false"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>%d %p %c{1.}: %m%n<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">File</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">GuiLogEvent</span> <span class="attr">name</span>=<span class="string">"gui-log-event"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>%d %p %c{1.}: %m%n<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">GuiLogEvent</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;/<span class="name">Appenders</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">Loggers</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Root</span> <span class="attr">level</span>=<span class="string">"info"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">AppenderRef</span> <span class="attr">ref</span>=<span class="string">"jmeter-log"</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">AppenderRef</span> <span class="attr">ref</span>=<span class="string">"gui-log-event"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Root</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Logger</span> <span class="attr">name</span>=<span class="string">"org.apache.jmeter.junit"</span> <span class="attr">level</span>=<span class="string">"debug"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;/<span class="name">Loggers</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">Configuration</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
 
-<p>(1) 在子查询中，使用变量 <code>@rn</code> 和 <code>@prev_group</code> 来记录当前行的记录编号和前一行的分组。</p>
-<p>(2)<code>@rn := IF(@prev_group = group_column, @rn + 1, 1) AS rn</code> 这一行代码的作用是：如果当前行的分组与上一行相同，则记录编号 <code>rn</code> 递增 1, 否则从 1 开始计数。</p>
-<p>(3)<code>@prev_group := group_column</code> 这一行代码是更新上一行的分组。</p>
-<p>(4) 在外层查询中，使用 <code>WHERE rn &lt;= 3</code> 来筛选出每个分组中时间倒序的前 3 条记录。</p>
-<p>(5) 最后按分组 <code>group_column</code> 和时间 <code>time_column</code> 倒序排列输出结果。</p>
-<p>你可以将 <code>your_table</code> 替换成你自己的表名，<code>group_column</code> 替换成你表中的分组列名，<code>time_column</code> 替换成你表中的时间列名。</p>
-<p>这种方法在 MySQL 5.7 以下版本中都可以使用，不需要使用 <code>ROW_NUMBER()</code> 函数，性能也较好。</p>
-<p>在 MySQL8.0 及以上可以使用如下方法：</p>
-<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> t.<span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> (</span><br><span class="line">  <span class="keyword">SELECT</span> <span class="operator">*</span>, </span><br><span class="line">    <span class="built_in">ROW_NUMBER</span>() <span class="keyword">OVER</span> (<span class="keyword">PARTITION</span> <span class="keyword">BY</span> group_column <span class="keyword">ORDER</span> <span class="keyword">BY</span> time_column <span class="keyword">DESC</span>) <span class="keyword">AS</span> rn</span><br><span class="line">  <span class="keyword">FROM</span> your_table</span><br><span class="line">) t</span><br><span class="line"><span class="keyword">WHERE</span> rn <span class="operator">&lt;=</span> <span class="number">3</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> group_column, time_column <span class="keyword">DESC</span>;</span><br></pre></td></tr></tbody></table></figure>
-
-<p>（1）首先使用子查询，在每个分组 <code>group_column</code> 内根据时间列 <code>time_column</code> 使用 <code>ROW_NUMBER()</code> 函数给每条记录编号，按时间顺序倒序排列。</p>
-<p>（2）然后在外层查询中，使用 <code>WHERE rn &lt;= 3</code> 筛选出每个分组中时间倒序的前 3 条记录。</p>
-<p>（3）最后按分组 <code>group_column</code> 和时间 <code>time_column</code> 倒序排列输出结果。</p>
-<p>这样就可以实现按分组筛选出时间倒序前 3 条记录的功能。你可以将 <code>your_table</code> 替换成你自己的表名，<code>group_column</code> 替换成你表中的分组列名，<code>time_column</code> 替换成你表中的时间列名。</p>
-<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2><p><a href="https://kimi.moonshot.cn/">https://kimi.moonshot.cn/</a></p>
 ]]></content>
       <categories>
-        <category>数据库</category>
+        <category>性能测试</category>
       </categories>
       <tags>
-        <tag>mysql</tag>
+        <tag>jmeter</tag>
       </tags>
   </entry>
   <entry>
@@ -706,6 +675,37 @@
 <figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">group_concat_max_len = -1</span><br></pre></td></tr></tbody></table></figure>
 
 <h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p>参考于该<a href="https://www.cnblogs.com/zjfblog/p/13658936.html">博客园博客</a></p>
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>mysql 按照分组筛选出时间倒序前三条记录</title>
+    <url>/2024/05/22/mysql%E6%8C%89%E7%85%A7%E5%88%86%E7%BB%84%E7%AD%9B%E9%80%89%E5%87%BA%E6%97%B6%E9%97%B4%E5%80%92%E5%BA%8F%E5%89%8D%E4%B8%89%E6%9D%A1%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在 MySQL 低版本 (5.7 以下) 中，如何按照分组筛选出时间倒序前三条记录？</p>
+<span id="more"></span>
+
+<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> t.<span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> (</span><br><span class="line">  <span class="keyword">SELECT</span> <span class="operator">*</span>, </span><br><span class="line">    <span class="variable">@rn</span> :<span class="operator">=</span> IF(<span class="variable">@prev_group</span> <span class="operator">=</span> group_column, <span class="variable">@rn</span> <span class="operator">+</span> <span class="number">1</span>, <span class="number">1</span>) <span class="keyword">AS</span> rn,</span><br><span class="line">    <span class="variable">@prev_group</span> :<span class="operator">=</span> group_column</span><br><span class="line">  <span class="keyword">FROM</span> your_table, (<span class="keyword">SELECT</span> <span class="variable">@rn</span> :<span class="operator">=</span> <span class="number">0</span>, <span class="variable">@prev_group</span> :<span class="operator">=</span> <span class="keyword">NULL</span>) r</span><br><span class="line">  <span class="keyword">ORDER</span> <span class="keyword">BY</span> group_column, time_column <span class="keyword">DESC</span></span><br><span class="line">) t</span><br><span class="line"><span class="keyword">WHERE</span> rn <span class="operator">&lt;=</span> <span class="number">3</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> group_column, time_column <span class="keyword">DESC</span>;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p>(1) 在子查询中，使用变量 <code>@rn</code> 和 <code>@prev_group</code> 来记录当前行的记录编号和前一行的分组。</p>
+<p>(2)<code>@rn := IF(@prev_group = group_column, @rn + 1, 1) AS rn</code> 这一行代码的作用是：如果当前行的分组与上一行相同，则记录编号 <code>rn</code> 递增 1, 否则从 1 开始计数。</p>
+<p>(3)<code>@prev_group := group_column</code> 这一行代码是更新上一行的分组。</p>
+<p>(4) 在外层查询中，使用 <code>WHERE rn &lt;= 3</code> 来筛选出每个分组中时间倒序的前 3 条记录。</p>
+<p>(5) 最后按分组 <code>group_column</code> 和时间 <code>time_column</code> 倒序排列输出结果。</p>
+<p>你可以将 <code>your_table</code> 替换成你自己的表名，<code>group_column</code> 替换成你表中的分组列名，<code>time_column</code> 替换成你表中的时间列名。</p>
+<p>这种方法在 MySQL 5.7 以下版本中都可以使用，不需要使用 <code>ROW_NUMBER()</code> 函数，性能也较好。</p>
+<p>在 MySQL8.0 及以上可以使用如下方法：</p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> t.<span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> (</span><br><span class="line">  <span class="keyword">SELECT</span> <span class="operator">*</span>, </span><br><span class="line">    <span class="built_in">ROW_NUMBER</span>() <span class="keyword">OVER</span> (<span class="keyword">PARTITION</span> <span class="keyword">BY</span> group_column <span class="keyword">ORDER</span> <span class="keyword">BY</span> time_column <span class="keyword">DESC</span>) <span class="keyword">AS</span> rn</span><br><span class="line">  <span class="keyword">FROM</span> your_table</span><br><span class="line">) t</span><br><span class="line"><span class="keyword">WHERE</span> rn <span class="operator">&lt;=</span> <span class="number">3</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> group_column, time_column <span class="keyword">DESC</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>（1）首先使用子查询，在每个分组 <code>group_column</code> 内根据时间列 <code>time_column</code> 使用 <code>ROW_NUMBER()</code> 函数给每条记录编号，按时间顺序倒序排列。</p>
+<p>（2）然后在外层查询中，使用 <code>WHERE rn &lt;= 3</code> 筛选出每个分组中时间倒序的前 3 条记录。</p>
+<p>（3）最后按分组 <code>group_column</code> 和时间 <code>time_column</code> 倒序排列输出结果。</p>
+<p>这样就可以实现按分组筛选出时间倒序前 3 条记录的功能。你可以将 <code>your_table</code> 替换成你自己的表名，<code>group_column</code> 替换成你表中的分组列名，<code>time_column</code> 替换成你表中的时间列名。</p>
+<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2><p><a href="https://kimi.moonshot.cn/">https://kimi.moonshot.cn/</a></p>
 ]]></content>
       <categories>
         <category>数据库</category>
@@ -898,32 +898,6 @@
       </tags>
   </entry>
   <entry>
-    <title>python 日志模块总结</title>
-    <url>/2024/08/07/python%E6%97%A5%E5%BF%97%E6%A8%A1%E5%9D%97%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<p>Python 的 <code>logging</code> 模块是 Python 标准库的一部分，它提供了一个灵活的框架来将日志信息发送到不同的目的地，如控制台、文件、远程服务器等。使用 <code>logging</code> 模块，你可以控制日志信息的级别，并且可以针对不同的应用模块进行日志管理。</p>
-<h2 id="1-日志级别"><a href="#1-日志级别" class="headerlink" title="1.日志级别"></a>1. 日志级别</h2><ul>
-<li><p><code>DEBUG</code>: 调试信息，用于问题诊断。</p>
-</li>
-<li><p><code>INFO</code>: 一般信息，用于记录程序运行状态。</p>
-</li>
-<li><p><code>WARNING</code>: 警告信息，表示有潜在问题。</p>
-</li>
-<li><p><code>ERROR</code>: 错误信息，表示严重问题。</p>
-</li>
-<li><p><code>CRITICAL</code>: 临界信息，表示非常严重的问题。</p>
-</li>
-</ul>
-<span id="more"></span>
-
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2>]]></content>
-      <categories>
-        <category>测试脚本</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>python 加密总结</title>
     <url>/2024/06/24/python%E5%8A%A0%E5%AF%86%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>每次都查系列，总结一下，以方便下次查。</p>
@@ -940,6 +914,67 @@
 
 <p>MD5 已经不再被认为是安全的哈希函数，因为它容易受到多种攻击，如碰撞攻击。</p>
 <h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2>]]></content>
+  </entry>
+  <entry>
+    <title>python 日志模块总结</title>
+    <url>/2024/08/07/python%E6%97%A5%E5%BF%97%E6%A8%A1%E5%9D%97%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<p>Python 的 <code>logging</code> 模块是 Python 标准库的一部分，它提供了一个灵活的框架来将日志信息发送到不同的目的地，如控制台、文件、远程服务器等。使用 <code>logging</code> 模块，你可以控制日志信息的级别，并且可以针对不同的应用模块进行日志管理。</p>
+<h2 id="1-日志级别"><a href="#1-日志级别" class="headerlink" title="1.日志级别"></a>1. 日志级别</h2><ul>
+<li><code>DEBUG</code>: 调试信息，用于问题诊断。</li>
+<li><code>INFO</code>: 一般信息，用于记录程序运行状态。</li>
+<li><code>WARNING</code>: 警告信息，表示有潜在问题。</li>
+<li><code>ERROR</code>: 错误信息，表示严重问题。</li>
+<li><code>CRITICAL</code>: 临界信息，表示非常严重的问题。</li>
+</ul>
+<p>日志级别默认为<code> WARNING</code>，从大到小为：</p>
+<p>CRITICAL &gt; ERROR &gt; WARNING &gt; INFO &gt; DEBUG</p>
+<p>输出的日志是设置的日志级别及其以上级别：</p>
+<p>如果设置的日志级别为 WARNING，则只会显示 WARNING 及其以上级别的信息：<code>WARNING</code>,<code> ERROR</code>,<code> CRITICAL</code></p>
+<span id="more"></span>
+
+<h2 id="2-简单🌰"><a href="#2-简单🌰" class="headerlink" title="2.简单🌰"></a>2. 简单🌰</h2><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"></span><br><span class="line"><span class="comment"># log 文件路径</span></span><br><span class="line">log_file = <span class="string">'demo_log.log'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># log 输出格式,格式有很多，这个是常用的格式，不够用在查</span></span><br><span class="line">log_format = <span class="string">'%(asctime)s - %(filename)s[line:%(lineno)d] - %(levelname)s : %(message)s'</span></span><br><span class="line"></span><br><span class="line">logging.basicConfig(filename=log_file,  <span class="comment"># 设置 log 输出文件</span></span><br><span class="line">                    level=logging.DEBUG,  <span class="comment"># 输出等级</span></span><br><span class="line">                    <span class="built_in">format</span>=log_format,  <span class="comment"># 输出格式</span></span><br><span class="line">                    filemode=<span class="string">'w'</span>)  <span class="comment"># 日志文件打开模式 w是写入，a是追加</span></span><br><span class="line"></span><br><span class="line">logging.debug(<span class="string">'This is a debug message'</span>)</span><br><span class="line">logging.info(<span class="string">'This is an info message'</span>)</span><br><span class="line">logging.warning(<span class="string">'This is a warning message'</span>)</span><br><span class="line">logging.error(<span class="string">'This is an error message'</span>)</span><br><span class="line">logging.critical(<span class="string">'This is a critical message'</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<p>结果：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">2024-08-08 11:33:40,649 - demo_log0.py[line:16] - INFO : This is an info message</span><br><span class="line">2024-08-08 11:33:40,649 - demo_log0.py[line:17] - WARNING : This is a warning message</span><br><span class="line">2024-08-08 11:33:40,649 - demo_log0.py[line:18] - ERROR : This is an error message</span><br><span class="line">2024-08-08 11:33:40,649 - demo_log0.py[line:19] - CRITICAL : This is a critical message</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="3-高级🌰"><a href="#3-高级🌰" class="headerlink" title="3.高级🌰"></a>3. 高级🌰</h2><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> logging, os</span><br><span class="line"></span><br><span class="line">log_path = os.path.join(os.path.dirname(__file__), <span class="string">'demo_log.log'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建一个 log 对象</span></span><br><span class="line">logger = logging.getLogger(<span class="string">'__name__'</span>)  <span class="comment"># 其中的__name__代表当前 py 文件的名称，也可以不写</span></span><br><span class="line"><span class="comment"># 设置 log 对象的等级，记录所有文件级别日志</span></span><br><span class="line">logger.setLevel(logging.DEBUG)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建一个 FileHandler，将写入文件</span></span><br><span class="line">fh = logging.FileHandler(log_path, mode=<span class="string">'w'</span>)</span><br><span class="line"><span class="comment"># 设置log 等级，记录所有文件级别日志</span></span><br><span class="line">fh.setLevel(logging.DEBUG)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建一个 StreamHandler, 将 log 输出到控制台</span></span><br><span class="line">ch = logging.StreamHandler()</span><br><span class="line"><span class="comment"># 设置 log 等级，控制台只记录 Error 以及以上的记录</span></span><br><span class="line">ch.setLevel(logging.ERROR)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置输出格式</span></span><br><span class="line">log_formatter = <span class="string">'%(asctime)s - %(filename)s[line:%(lineno)d] - %(levelname)s : %(message)s'</span></span><br><span class="line">formatter = logging.Formatter(log_formatter)</span><br><span class="line"></span><br><span class="line">ch.setFormatter(formatter)</span><br><span class="line">fh.setFormatter(formatter)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 把handler添加到 logger 里</span></span><br><span class="line">logger.addHandler(ch)</span><br><span class="line">logger.addHandler(fh)</span><br><span class="line"></span><br><span class="line">logger.error(<span class="string">'error message'</span>)</span><br><span class="line">logger.debug(<span class="string">'debug message'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 干完之后清理下，这里主要为了以后多次调用出现重复日志输出</span></span><br><span class="line"><span class="comment"># logger.removeHandler(ch)</span></span><br><span class="line"><span class="comment"># logger.removeHandler(fh)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># logger.error('error message')</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p>在这个示例中，我们创建了一个 <code>Logger</code> 对象，并设置了两个 Handler：一个输出到控制台的 <code>StreamHandler</code> 和一个输出到文件的 <code>FileHandler</code>。我们还定义了一个 <code>Formatter</code> 来格式化日志消息，并将其应用到了两个 Handler 上。最后，我们添加了日志消息，它们会根据设置的日志级别被输出到相应的目的地。</p>
+]]></content>
+      <categories>
+        <category>测试脚本</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>requirements 总结</title>
+    <url>/2021/05/21/requirements%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在搭建 Liunx 服务器时，需要在新的 Python 环境中安装项目需要的包的依赖，一条一条 pip install 太慢，有没有可以批量安装方法？</p>
+<span id="more"></span>
+
+<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><p>百度后，方法如下：</p>
+<p>在旧环境下执行:</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pip freeze &gt; requirements.txt</span><br></pre></td></tr></tbody></table></figure>
+
+<p>执行后，会在当前项目下生成一个 requirements.txt 的文件，然后将该文件上传到新的环境项目下，在新环境下执行:</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></tbody></table></figure>
+
+<p>有时执行上面命令会报错 (改错误是在 Jenkins 中执行 shell 时报错)</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">ERROR: Could not find a version that satisfies the requirement request==1.0.117 (from -r requirements.txt (line 6)) (from versions: none)</span><br></pre></td></tr></tbody></table></figure>
+
+<p>一般情况下是国外源的原因，将其临时替换为国内源：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple/</span><br></pre></td></tr></tbody></table></figure>
+
+]]></content>
+      <categories>
+        <category>环境部署</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>pycharm</tag>
+      </tags>
   </entry>
   <entry>
     <title>python 读写 csv 总结</title>
@@ -1040,48 +1075,6 @@
       </tags>
   </entry>
   <entry>
-    <title>requirements 总结</title>
-    <url>/2021/05/21/requirements%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在搭建 Liunx 服务器时，需要在新的 Python 环境中安装项目需要的包的依赖，一条一条 pip install 太慢，有没有可以批量安装方法？</p>
-<span id="more"></span>
-
-<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><p>百度后，方法如下：</p>
-<p>在旧环境下执行:</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pip freeze &gt; requirements.txt</span><br></pre></td></tr></tbody></table></figure>
-
-<p>执行后，会在当前项目下生成一个 requirements.txt 的文件，然后将该文件上传到新的环境项目下，在新环境下执行:</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></tbody></table></figure>
-
-<p>有时执行上面命令会报错 (改错误是在 Jenkins 中执行 shell 时报错)</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">ERROR: Could not find a version that satisfies the requirement request==1.0.117 (from -r requirements.txt (line 6)) (from versions: none)</span><br></pre></td></tr></tbody></table></figure>
-
-<p>一般情况下是国外源的原因，将其临时替换为国内源：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple/</span><br></pre></td></tr></tbody></table></figure>
-
-]]></content>
-      <categories>
-        <category>环境部署</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>pycharm</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>博客重新装修删除冗余内容</title>
-    <url>/2024/05/06/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%96%B0%E8%A3%85%E4%BF%AE%E5%88%A0%E9%99%A4%E5%86%97%E4%BD%99%E5%86%85%E5%AE%B9/</url>
-    <content><![CDATA[<p>最近有空闲时间，就重新装修了长时间没管过的博客，将以前的内容做了精简以及删除，后续会陆续将之前做的笔记整理后，写成 blog，大体做了如下改变。</p>
-<span id="more"></span>
-
-<h2 id="1-更改主题为-nexT。"><a href="#1-更改主题为-nexT。" class="headerlink" title="1.更改主题为 nexT。"></a>1. 更改主题为 nexT。</h2><h2 id="2-删除之前冗余内容。"><a href="#2-删除之前冗余内容。" class="headerlink" title="2.删除之前冗余内容。"></a>2. 删除之前冗余内容。</h2><h2 id="3-将一些以前学习的内容做个总结。"><a href="#3-将一些以前学习的内容做个总结。" class="headerlink" title="3.将一些以前学习的内容做个总结。"></a>3. 将一些以前学习的内容做个总结。</h2>]]></content>
-      <categories>
-        <category>环境部署</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>如何从 mac 系统传输文件或文件夹到 Ubuntu 系统</title>
     <url>/2021/05/24/%E5%A6%82%E4%BD%95%E4%BB%8Emac%E7%B3%BB%E7%BB%9F%E4%BC%A0%E8%BE%93%E6%96%87%E4%BB%B6%E5%88%B0Ubuntu%E7%B3%BB%E7%BB%9F/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>如何从 macOS 系统传输文件到 Ubuntu 系统？</p>
@@ -1111,6 +1104,20 @@
         <tag>ubuntu</tag>
         <tag>macos</tag>
         <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>博客重新装修删除冗余内容</title>
+    <url>/2024/05/06/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%96%B0%E8%A3%85%E4%BF%AE%E5%88%A0%E9%99%A4%E5%86%97%E4%BD%99%E5%86%85%E5%AE%B9/</url>
+    <content><![CDATA[<p>最近有空闲时间，就重新装修了长时间没管过的博客，将以前的内容做了精简以及删除，后续会陆续将之前做的笔记整理后，写成 blog，大体做了如下改变。</p>
+<span id="more"></span>
+
+<h2 id="1-更改主题为-nexT。"><a href="#1-更改主题为-nexT。" class="headerlink" title="1.更改主题为 nexT。"></a>1. 更改主题为 nexT。</h2><h2 id="2-删除之前冗余内容。"><a href="#2-删除之前冗余内容。" class="headerlink" title="2.删除之前冗余内容。"></a>2. 删除之前冗余内容。</h2><h2 id="3-将一些以前学习的内容做个总结。"><a href="#3-将一些以前学习的内容做个总结。" class="headerlink" title="3.将一些以前学习的内容做个总结。"></a>3. 将一些以前学习的内容做个总结。</h2>]]></content>
+      <categories>
+        <category>环境部署</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>

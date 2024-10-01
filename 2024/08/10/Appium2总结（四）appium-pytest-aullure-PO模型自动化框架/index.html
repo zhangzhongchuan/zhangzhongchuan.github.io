@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="manifest" href="/manifest.json">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha256-wiz7ZSCn/btzhjKDQBms9Hx4sSeUYsDrTLg7roPstac=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.tangxdou.com","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="0.先展示成果 1.什么是自动化测试PO模型自动化测试PO模型，即页面对象(Page Object)模型，是一种在自动化测试中常用的设计模式。它主要用于提高测试代码的可维护性、可读性和复用性。PO模型的核心思想是将页面元素的定位器和操作封装到一个类中，这个类代表了页面的界面。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Appium2总结（四）appium-pytest-aullure-PO模型自动化框架">
+<meta property="og:url" content="https://www.tangxdou.com/2024/08/10/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E5%9B%9B%EF%BC%89appium-pytest-aullure-PO%E6%A8%A1%E5%9E%8B%E8%87%AA%E5%8A%A8%E5%8C%96%E6%A1%86%E6%9E%B6/index.html">
+<meta property="og:site_name" content="糖小豆">
+<meta property="og:description" content="0.先展示成果 1.什么是自动化测试PO模型自动化测试PO模型，即页面对象(Page Object)模型，是一种在自动化测试中常用的设计模式。它主要用于提高测试代码的可维护性、可读性和复用性。PO模型的核心思想是将页面元素的定位器和操作封装到一个类中，这个类代表了页面的界面。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/pico_pico.gif">
+<meta property="og:image" content="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240810023833669.png">
+<meta property="og:image" content="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240810024915399.png">
+<meta property="og:image" content="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240810024957661.png">
+<meta property="article:published_time" content="2024-08-09T18:20:09.000Z">
+<meta property="article:modified_time" content="2024-08-13T01:26:40.000Z">
+<meta property="article:author" content="糖小豆">
+<meta property="article:tag" content="appium">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/pico_pico.gif">
+
+
+<link rel="canonical" href="https://www.tangxdou.com/2024/08/10/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E5%9B%9B%EF%BC%89appium-pytest-aullure-PO%E6%A8%A1%E5%9E%8B%E8%87%AA%E5%8A%A8%E5%8C%96%E6%A1%86%E6%9E%B6/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.tangxdou.com/2024/08/10/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E5%9B%9B%EF%BC%89appium-pytest-aullure-PO%E6%A8%A1%E5%9E%8B%E8%87%AA%E5%8A%A8%E5%8C%96%E6%A1%86%E6%9E%B6/","path":"2024/08/10/Appium2总结（四）appium-pytest-aullure-PO模型自动化框架/","title":"Appium2总结（四）appium-pytest-aullure-PO模型自动化框架"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Appium2总结（四）appium-pytest-aullure-PO模型自动化框架 | 糖小豆</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">糖小豆</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#0-%E5%85%88%E5%B1%95%E7%A4%BA%E6%88%90%E6%9E%9C"><span class="nav-text">0.先展示成果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E4%BB%80%E4%B9%88%E6%98%AF%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95PO%E6%A8%A1%E5%9E%8B"><span class="nav-text">1.什么是自动化测试PO模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-PO%E6%A8%A1%E5%9E%8B%E7%9A%84%E4%B8%BB%E8%A6%81%E7%89%B9%E7%82%B9%EF%BC%9A"><span class="nav-text">2.PO模型的主要特点：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-PO%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%AD%A5%E9%AA%A4%EF%BC%9A"><span class="nav-text">3.PO模型的实现步骤：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%F0%9F%8C%B0"><span class="nav-text">4.🌰</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%881%EF%BC%89%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%E5%A6%82%E4%B8%8B%E5%9B%BE%EF%BC%9A"><span class="nav-text">（1）目录结构如下图：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%882%EF%BC%89%E4%BB%A3%E7%A0%81"><span class="nav-text">（2）代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%883%EF%BC%89allure%E7%94%9F%E6%88%90%E6%8A%A5%E5%91%8A%E6%88%AA%E5%9B%BE"><span class="nav-text">（3）allure生成报告截图</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="糖小豆"
+      src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/tangdou500.png">
+  <p class="site-author-name" itemprop="name">糖小豆</p>
+  <div class="site-description" itemprop="description">一个测试de技术小站</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zhangzhongchuan" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;zhangzhongchuan" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:zhangzhongchuan@foxmail.com" title="E-Mail → mailto:zhangzhongchuan@foxmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.tangxdou.com/2024/08/10/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E5%9B%9B%EF%BC%89appium-pytest-aullure-PO%E6%A8%A1%E5%9E%8B%E8%87%AA%E5%8A%A8%E5%8C%96%E6%A1%86%E6%9E%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/tangdou500.png">
+      <meta itemprop="name" content="糖小豆">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="糖小豆">
+      <meta itemprop="description" content="一个测试de技术小站">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Appium2总结（四）appium-pytest-aullure-PO模型自动化框架 | 糖小豆">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Appium2总结（四）appium-pytest-aullure-PO模型自动化框架
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-08-10 02:20:09" itemprop="dateCreated datePublished" datetime="2024-08-10T02:20:09+08:00">2024-08-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" itemprop="url" rel="index"><span itemprop="name">自动化测试</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="0-先展示成果"><a href="#0-先展示成果" class="headerlink" title="0.先展示成果"></a>0.先展示成果</h2><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/pico_pico.gif"></p>
+<h2 id="1-什么是自动化测试PO模型"><a href="#1-什么是自动化测试PO模型" class="headerlink" title="1.什么是自动化测试PO模型"></a>1.什么是自动化测试PO模型</h2><p>自动化测试PO模型，即页面对象(Page Object)模型，是一种在自动化测试中常用的设计模式。它主要用于提高测试代码的可维护性、可读性和复用性。PO模型的核心思想是将页面元素的定位器和操作封装到一个类中，这个类代表了页面的界面。</p>
+<span id="more"></span>
+
+<h2 id="2-PO模型的主要特点："><a href="#2-PO模型的主要特点：" class="headerlink" title="2.PO模型的主要特点："></a>2.PO模型的主要特点：</h2><p>（1）<strong>封装性</strong>：页面元素的定位器（如ID、类名、XPath等）和与元素相关的操作都被封装在页面对象类中。</p>
+<p>（2）<strong>可复用性</strong>：页面对象类可以在多个测试场景中复用，减少了代码的重复。</p>
+<p>（3）<strong>低耦合</strong>：测试脚本与页面元素的定位器解耦，当页面元素发生变化时，只需修改页面对象类，而不需要修改测试脚本。</p>
+<p>（4）<strong>易于维护</strong>：当页面元素更新或移动时，只需在页面对象类中更新定位器，测试脚本不需要修改。</p>
+<h2 id="3-PO模型的实现步骤："><a href="#3-PO模型的实现步骤：" class="headerlink" title="3.PO模型的实现步骤："></a>3.PO模型的实现步骤：</h2><p>（1）<strong>创建页面类</strong>：为每个页面创建一个页面类，类名通常与页面功能相关。</p>
+<p>（2）<strong>定义元素定位器</strong>：在页面类中定义所有需要操作的元素的定位器。</p>
+<p>（3）<strong>实现元素操作</strong>：为页面类提供方法来实现对页面元素的操作，如点击、输入文本等。</p>
+<p>（4）<strong>使用页面对象</strong>：在测试脚本中，通过页面对象来访问和操作页面元素。</p>
+<h2 id="4-🌰"><a href="#4-🌰" class="headerlink" title="4.🌰"></a>4.🌰</h2><h3 id="（1）目录结构如下图："><a href="#（1）目录结构如下图：" class="headerlink" title="（1）目录结构如下图："></a>（1）目录结构如下图：</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240810023833669.png" alt="image-20240810023833669"></p>
+<h3 id="（2）代码"><a href="#（2）代码" class="headerlink" title="（2）代码"></a>（2）代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># base/base_page.py</span></span><br><span class="line"><span class="keyword">from</span> appium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> appium.webdriver.common.appiumby <span class="keyword">import</span> AppiumBy</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> conftest <span class="keyword">import</span> android_driver</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">BasePage</span>:</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, driver: webdriver = <span class="literal">None</span></span>):</span><br><span class="line">        <span class="variable language_">self</span>.driver = driver</span><br><span class="line"></span><br><span class="line">    <span class="comment"># id 定位</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">by_id</span>(<span class="params">self, id_value: <span class="built_in">str</span></span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">self</span>.driver.find_element(AppiumBy.ID, id_value)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># xpath 定位</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">by_xpath</span>(<span class="params">self, xpath_value: <span class="built_in">str</span></span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">self</span>.driver.find_element(AppiumBy.XPATH, xpath_value)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># accessibility_id定位</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">by_accessibility_id</span>(<span class="params">self, accessibility_id_value: <span class="built_in">str</span></span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">self</span>.driver.find_element(AppiumBy.ACCESSIBILITY_ID, accessibility_id_value)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># common/get_log.py</span></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">GetLog</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, name, level=logging.DEBUG</span>):</span><br><span class="line">        <span class="comment"># 创建一个 log 对象</span></span><br><span class="line">        <span class="comment"># 其中的__name__代表当前 py 文件的名称，也可以不写</span></span><br><span class="line">        <span class="variable language_">self</span>.logger = logging.getLogger(name)</span><br><span class="line">        <span class="variable language_">self</span>.logger.handlers.clear()  <span class="comment"># 防止重复输出日志，因为添加一个 handler就会输出一次</span></span><br><span class="line">        <span class="comment"># 设置 log 对象的等级</span></span><br><span class="line">        <span class="variable language_">self</span>.logger.setLevel(level)</span><br><span class="line"></span><br><span class="line">        log_path = os.path.join(os.path.dirname(__file__), name + <span class="string">&#x27;.log&#x27;</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 创建一个 handler，将写入文件</span></span><br><span class="line">        fh = logging.FileHandler(log_path, mode=<span class="string">&#x27;a&#x27;</span>)</span><br><span class="line">        <span class="comment"># 设置log 等级与前面保持一致</span></span><br><span class="line">        fh.setLevel(level)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 创建一个 handler, 将 log 输出到控制台</span></span><br><span class="line">        ch = logging.StreamHandler()</span><br><span class="line">        <span class="comment"># 设置 log 等级与 log 对象保持一致</span></span><br><span class="line">        ch.setLevel(level)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 设置输出格式</span></span><br><span class="line">        log_formatter = <span class="string">&#x27;%(asctime)s - %(filename)s[line:%(lineno)d] - %(levelname)s : %(message)s&#x27;</span></span><br><span class="line">        formatter = logging.Formatter(log_formatter)</span><br><span class="line">        ch.setFormatter(formatter)</span><br><span class="line">        fh.setFormatter(formatter)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 把handler添加到 logger 里</span></span><br><span class="line">        <span class="comment"># print(logger.handlers) # 没添加时，logger.handlers == []</span></span><br><span class="line">        <span class="comment"># 如果 logger.handlers 为空，则添加 ch / fh ，防止重复输出日志，因为添加一个 handler就会输出一次</span></span><br><span class="line">        <span class="comment"># if logger.handlers.__len__() == 0:</span></span><br><span class="line">        <span class="variable language_">self</span>.logger.addHandler(ch)</span><br><span class="line">        <span class="variable language_">self</span>.logger.addHandler(fh)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># print(logger.handlers)</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">debug</span>(<span class="params">self, msg</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        记录debug级别的日志</span></span><br><span class="line"><span class="string">        :param msg: 日志消息</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        <span class="variable language_">self</span>.logger.debug(msg)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">info</span>(<span class="params">self, msg</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        记录info级别的日志</span></span><br><span class="line"><span class="string">        :param msg: 日志消息</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        <span class="variable language_">self</span>.logger.info(msg)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">warning</span>(<span class="params">self, msg</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        记录warning级别的日志</span></span><br><span class="line"><span class="string">        :param msg: 日志消息</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        <span class="variable language_">self</span>.logger.warning(msg)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">error</span>(<span class="params">self, msg</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        记录error级别的日志</span></span><br><span class="line"><span class="string">        :param msg: 日志消息</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        <span class="variable language_">self</span>.logger.error(msg)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">critical</span>(<span class="params">self, msg</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        记录critical级别的日志</span></span><br><span class="line"><span class="string">        :param msg: 日志消息</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        <span class="variable language_">self</span>.logger.critical(msg)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 使用示例</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    log = GetLog(__name__)</span><br><span class="line">    log.debug(<span class="string">&#x27;This is a debug message&#x27;</span>)</span><br><span class="line">    log.info(<span class="string">&#x27;This is an info message&#x27;</span>)</span><br><span class="line">    log.warning(<span class="string">&#x27;This is a warning message&#x27;</span>)</span><br><span class="line">    log.error(<span class="string">&#x27;This is an error message&#x27;</span>)</span><br><span class="line">    log.critical(<span class="string">&#x27;This is a critical message&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># page/login_page.py</span></span><br><span class="line"><span class="keyword">from</span> base.base_page <span class="keyword">import</span> BasePage</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">LoginPage</span>(<span class="title class_ inherited__">BasePage</span>):</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 勾选协议</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">agree_protocol</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="variable language_">self</span>.by_id(<span class="string">&#x27;com.xintiaotime.yoy:id/agree_protocol_checkbox&#x27;</span>).click()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 点击本机号码登录按钮</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">local_phone_btn</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="variable language_">self</span>.by_id(<span class="string">&#x27;com.xintiaotime.yoy:id/local_phone_one_click_login_btn&#x27;</span>).click()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 选择其他手机号码登录</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">other_phone_login_btn</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="variable language_">self</span>.by_id(<span class="string">&#x27;com.xintiaotime.yoy:id/other_phone_login_btn&#x27;</span>).click()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 输入电话号码</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">input_phone_number</span>(<span class="params">self, phone_number</span>):</span><br><span class="line">        <span class="variable language_">self</span>.by_id(<span class="string">&#x27;com.xintiaotime.yoy:id/input_phone_number_editText&#x27;</span>).send_keys(phone_number)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 点击获取验证码</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get_phone_verification</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="variable language_">self</span>.by_id(<span class="string">&#x27;com.xintiaotime.yoy:id/get_phone_verification_code_btn&#x27;</span>).click()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 填写验证码</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">input_phone_verification</span>(<span class="params">self, verification_code</span>):</span><br><span class="line">        <span class="variable language_">self</span>.by_id(<span class="string">&#x27;input_phone_verification_code_editText&#x27;</span>).send_keys(verification_code)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 获取 toast 中“验证码错误，请重试”的文本</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get_verification_code_error_toast</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">self</span>.by_xpath(<span class="string">&#x27;//android.widget.Toast[@text=&quot;验证码错误，请重试&quot;]&#x27;</span>).text</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 显示元素“请先阅读并同意协议”</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">show_read_and_agreed_btn</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">self</span>.by_id(<span class="string">&#x27;com.xintiaotime.yoy:id/not_agreed_protocol_hint&#x27;</span>).is_displayed()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># testcases/test_login_page.py</span></span><br><span class="line"><span class="keyword">import</span> allure</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> page.login_page <span class="keyword">import</span> LoginPage</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@allure.epic(<span class="params"><span class="string">&#x27;测试登录&#x27;</span></span>)</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">TestLogin</span>:</span><br><span class="line"></span><br><span class="line"><span class="meta">    @allure.story(<span class="params"><span class="string">&#x27;测试直接点击其他手机号码登录&#x27;</span></span>)</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">test_login_01</span>(<span class="params">self, android_driver</span>):</span><br><span class="line">        login_page = LoginPage(android_driver)</span><br><span class="line">        <span class="keyword">with</span> allure.step(<span class="string">&#x27;点击其他手机号码登录按钮&#x27;</span>):</span><br><span class="line">            login_page.local_phone_btn()</span><br><span class="line">        <span class="keyword">with</span> allure.step(<span class="string">&#x27;显示元素“请先阅读并同意协议”&#x27;</span>):</span><br><span class="line">            <span class="keyword">assert</span> login_page.show_read_and_agreed_btn() <span class="keyword">is</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"><span class="meta">    @allure.story(<span class="params"><span class="string">&#x27;点击同意协议复选框2次&#x27;</span></span>)</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">test_login_02</span>(<span class="params">self, android_driver</span>):</span><br><span class="line">        login_page = LoginPage(android_driver)</span><br><span class="line">        <span class="keyword">with</span> allure.step(<span class="string">&#x27;点击同意协议复选框2次，让“请先阅读并同意协议”消失&#x27;</span>):</span><br><span class="line">            login_page.local_phone_btn()</span><br><span class="line">            login_page.local_phone_btn()</span><br><span class="line"></span><br><span class="line"><span class="meta">    @allure.story(<span class="params"><span class="string">&#x27;测试直接点击其他手机号码登录&#x27;</span></span>)</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">test_login_03</span>(<span class="params">self, android_driver</span>):</span><br><span class="line">        login_page = LoginPage(android_driver)</span><br><span class="line">        <span class="keyword">with</span> allure.step(<span class="string">&#x27;点击其他手机号码登录按钮&#x27;</span>):</span><br><span class="line">            login_page.other_phone_login_btn()</span><br><span class="line">        <span class="keyword">with</span> allure.step(<span class="string">&#x27;显示元素“请先阅读并同意协议”&#x27;</span>):</span><br><span class="line">            <span class="keyword">assert</span> login_page.show_read_and_agreed_btn() <span class="keyword">is</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"><span class="meta">    @allure.story(<span class="params"><span class="string">&#x27;测试其他电话登录&#x27;</span></span>)</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">test_login_04</span>(<span class="params">self, android_driver</span>):</span><br><span class="line">        login_page = LoginPage(android_driver)</span><br><span class="line">        <span class="keyword">with</span> allure.step(<span class="string">&#x27;点击同意协议复选框&#x27;</span>):</span><br><span class="line">            login_page.agree_protocol()</span><br><span class="line">        <span class="keyword">with</span> allure.step(<span class="string">&#x27;点击其他手机号码登录按钮&#x27;</span>):</span><br><span class="line">            login_page.other_phone_login_btn()</span><br><span class="line">        <span class="keyword">with</span> allure.step(<span class="string">&#x27;输入电话号码&#x27;</span>):</span><br><span class="line">            login_page.input_phone_number(<span class="string">&#x27;17312341234&#x27;</span>)</span><br><span class="line">        <span class="keyword">with</span> allure.step(<span class="string">&#x27;点击获取短信验证码&#x27;</span>):</span><br><span class="line">            login_page.get_phone_verification()</span><br><span class="line">        <span class="keyword">with</span> allure.step(<span class="string">&#x27;输入验证码&#x27;</span>):</span><br><span class="line">            login_page.input_phone_verification(<span class="string">&#x27;1234&#x27;</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">assert</span> login_page.get_verification_code_error_toast() == <span class="string">&#x27;验证码错误，请重试&#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># conftest.py</span></span><br><span class="line"><span class="keyword">import</span> pytest</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> appium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> appium.options.android <span class="keyword">import</span> UiAutomator2Options</span><br><span class="line"><span class="keyword">from</span> appium.options.ios <span class="keyword">import</span> XCUITestOptions</span><br><span class="line"><span class="keyword">from</span> appium.webdriver.appium_service <span class="keyword">import</span> AppiumService</span><br><span class="line"></span><br><span class="line">APPIUM_PORT = <span class="number">4723</span></span><br><span class="line">APPIUM_HOST = <span class="string">&quot;127.0.0.1&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 华为真机配置</span></span><br><span class="line">capabilities = <span class="built_in">dict</span>(</span><br><span class="line">    platformName=<span class="string">&#x27;Android&#x27;</span>,</span><br><span class="line">    platformVersion=<span class="string">&#x27;12&#x27;</span>,</span><br><span class="line">    deviceName=<span class="string">&#x27;TAS-AN00&#x27;</span>,</span><br><span class="line">    automationName=<span class="string">&#x27;uiautomator2&#x27;</span>,</span><br><span class="line">    skipServerInstallation=<span class="literal">False</span>,</span><br><span class="line">    appPackage=<span class="string">&#x27;com.xintiaotime.yoy&#x27;</span>,  <span class="comment"># 包名</span></span><br><span class="line">    appActivity=<span class="string">&#x27;.ui.guide.SplashActivity&#x27;</span>,  <span class="comment"># 界面名，这个界面名字一定要用 monkey 找，要补就要报错。。。</span></span><br><span class="line">    <span class="comment"># 不清空缓存信息，保存登录信息</span></span><br><span class="line">    noReset=<span class="literal">True</span>,</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@pytest.fixture(<span class="params">scope=<span class="string">&quot;session&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">appium_service</span>():</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">create_ios_driver</span>(<span class="params">custom_opts=<span class="literal">None</span></span>):</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">create_android_driver</span>(<span class="params">custom_opts=capabilities</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;Create Android driver.&quot;&quot;&quot;</span></span><br><span class="line">    options = UiAutomator2Options()</span><br><span class="line">    <span class="keyword">if</span> custom_opts <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">        options.load_capabilities(custom_opts)</span><br><span class="line">    <span class="comment"># Appium1 points to http://127.0.0.1:4723/wd/hub by default</span></span><br><span class="line">    driver = webdriver.Remote(<span class="string">f&quot;http://<span class="subst">&#123;APPIUM_HOST&#125;</span>:<span class="subst">&#123;APPIUM_PORT&#125;</span>&quot;</span>, options=options)</span><br><span class="line">    driver.implicitly_wait(<span class="number">15</span>)</span><br><span class="line">    <span class="keyword">return</span> driver</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@pytest.fixture</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">ios_driver_factory</span>():</span><br><span class="line">    <span class="string">&quot;&quot;&quot;ios_driver_factory&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> create_ios_driver</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@pytest.fixture</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">ios_driver</span>():</span><br><span class="line">    <span class="string">&quot;&quot;&quot;return ios_driver to the function using it, quit driver afterwards.&quot;&quot;&quot;</span></span><br><span class="line">    <span class="comment"># prefer this fixture if there is no need to customize driver options in tests</span></span><br><span class="line">    driver = create_ios_driver()</span><br><span class="line">    <span class="keyword">yield</span> driver</span><br><span class="line">    driver.quit()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@pytest.fixture</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">android_driver_factory</span>():</span><br><span class="line">    <span class="string">&quot;&quot;&quot;android_driver_factory&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> create_android_driver</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@pytest.fixture</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">android_driver</span>():</span><br><span class="line">    <span class="string">&quot;&quot;&quot;return android_driver to the function using it, quit driver afterwards.&quot;&quot;&quot;</span></span><br><span class="line">    <span class="comment"># prefer this fixture if there is no need to customize driver options in tests</span></span><br><span class="line">    driver = create_android_driver()</span><br><span class="line">    <span class="keyword">yield</span> driver</span><br><span class="line">    driver.quit()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># run_test.py</span></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> pytest</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="comment"># pytest.main([])</span></span><br><span class="line">    <span class="comment"># 带参数执行</span></span><br><span class="line">    <span class="comment"># --clean-alluredir每次情况生成的json文件地址</span></span><br><span class="line">    pytest.main([<span class="string">&#x27;-v&#x27;</span>, <span class="string">&#x27;-s&#x27;</span>, <span class="string">&#x27;--clean-alluredir&#x27;</span>, <span class="string">&#x27;--alluredir&#x27;</span>, <span class="string">&#x27;./allure-results&#x27;</span>])</span><br><span class="line">    <span class="comment"># allure generat + 数据源文件目录 -o + 报告的目录</span></span><br><span class="line">    os.system(<span class="string">&#x27;allure generate ./allure-results -o ./report --clean&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="（3）allure生成报告截图"><a href="#（3）allure生成报告截图" class="headerlink" title="（3）allure生成报告截图"></a>（3）allure生成报告截图</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240810024915399.png" alt="image-20240810024915399"></p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240810024957661.png" alt="image-20240810024957661"></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/wechatpay.png" alt="糖小豆 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/alipay.png" alt="糖小豆 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>糖小豆
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://www.tangxdou.com/2024/08/10/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E5%9B%9B%EF%BC%89appium-pytest-aullure-PO%E6%A8%A1%E5%9E%8B%E8%87%AA%E5%8A%A8%E5%8C%96%E6%A1%86%E6%9E%B6/" title="Appium2总结（四）appium-pytest-aullure-PO模型自动化框架">https://www.tangxdou.com/2024/08/10/Appium2总结（四）appium-pytest-aullure-PO模型自动化框架/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/appium/" rel="tag"><i class="fa fa-tag"></i> appium</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/08/09/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%89%EF%BC%89%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB%E5%AE%9A%E4%BD%8D/" rel="prev" title="Appium2总结（三）图像识别定位">
+                  <i class="fa fa-angle-left"></i> Appium2总结（三）图像识别定位
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/10/01/%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/" rel="next" title="面试总结">
+                  面试总结 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">蜀ICP备2024080138号 </a>
+      <img src="/images/beian_logo.png" alt=""><a href="https://beian.mps.gov.cn/#/query/webSearch?code=51011202000789" rel="noopener" target="_blank">川公网安备51011202000789号 </a>
+  </div>
+  <div class="copyright">
+    &copy; 2019 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">糖小豆</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/zhangzhongchuan" class="github-corner" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+<script class="next-config" data-name="chatra" type="application/json">{"enable":true,"async":true,"id":null}</script>
+<script src="/js/third-party/chat/chatra.js"></script>
+<script async src="https://call.chatra.io/chatra.js"></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/my_js/clicklove.js"></script>
+</body>
+</html>

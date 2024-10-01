@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="manifest" href="/manifest.json">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha256-wiz7ZSCn/btzhjKDQBms9Hx4sSeUYsDrTLg7roPstac=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.tangxdou.com","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Python 的 logging 模块是 Python 标准库的一部分，它提供了一个灵活的框架来将日志信息发送到不同的目的地，如控制台、文件、远程服务器等。使用 logging 模块，你可以控制日志信息的级别，并且可以针对不同的应用模块进行日志管理。 1.日志级别 DEBUG: 调试信息，用于问题诊断。 INFO: 一般信息，用于记录程序运行状态。 WARNING: 警告信息，表示有潜在问题。 E">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python日志模块总结">
+<meta property="og:url" content="https://www.tangxdou.com/2024/08/07/python%E6%97%A5%E5%BF%97%E6%A8%A1%E5%9D%97%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="糖小豆">
+<meta property="og:description" content="Python 的 logging 模块是 Python 标准库的一部分，它提供了一个灵活的框架来将日志信息发送到不同的目的地，如控制台、文件、远程服务器等。使用 logging 模块，你可以控制日志信息的级别，并且可以针对不同的应用模块进行日志管理。 1.日志级别 DEBUG: 调试信息，用于问题诊断。 INFO: 一般信息，用于记录程序运行状态。 WARNING: 警告信息，表示有潜在问题。 E">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-08-07T11:21:02.000Z">
+<meta property="article:modified_time" content="2024-08-08T07:46:27.000Z">
+<meta property="article:author" content="糖小豆">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://www.tangxdou.com/2024/08/07/python%E6%97%A5%E5%BF%97%E6%A8%A1%E5%9D%97%E6%80%BB%E7%BB%93/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.tangxdou.com/2024/08/07/python%E6%97%A5%E5%BF%97%E6%A8%A1%E5%9D%97%E6%80%BB%E7%BB%93/","path":"2024/08/07/python日志模块总结/","title":"python日志模块总结"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>python日志模块总结 | 糖小豆</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">糖小豆</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E6%97%A5%E5%BF%97%E7%BA%A7%E5%88%AB"><span class="nav-text">1.日志级别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E7%AE%80%E5%8D%95%F0%9F%8C%B0"><span class="nav-text">2.简单🌰</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E9%AB%98%E7%BA%A7%F0%9F%8C%B0"><span class="nav-text">3.高级🌰</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E5%B0%81%E8%A3%85%E5%90%8E%E4%BD%BF%E7%94%A8"><span class="nav-text">4.封装后使用</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="糖小豆"
+      src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/tangdou500.png">
+  <p class="site-author-name" itemprop="name">糖小豆</p>
+  <div class="site-description" itemprop="description">一个测试de技术小站</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zhangzhongchuan" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;zhangzhongchuan" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:zhangzhongchuan@foxmail.com" title="E-Mail → mailto:zhangzhongchuan@foxmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.tangxdou.com/2024/08/07/python%E6%97%A5%E5%BF%97%E6%A8%A1%E5%9D%97%E6%80%BB%E7%BB%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/tangdou500.png">
+      <meta itemprop="name" content="糖小豆">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="糖小豆">
+      <meta itemprop="description" content="一个测试de技术小站">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="python日志模块总结 | 糖小豆">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          python日志模块总结
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-08-07 19:21:02" itemprop="dateCreated datePublished" datetime="2024-08-07T19:21:02+08:00">2024-08-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%B5%8B%E8%AF%95%E8%84%9A%E6%9C%AC/" itemprop="url" rel="index"><span itemprop="name">测试脚本</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>Python 的 <code>logging</code> 模块是 Python 标准库的一部分，它提供了一个灵活的框架来将日志信息发送到不同的目的地，如控制台、文件、远程服务器等。使用 <code>logging</code> 模块，你可以控制日志信息的级别，并且可以针对不同的应用模块进行日志管理。</p>
+<h2 id="1-日志级别"><a href="#1-日志级别" class="headerlink" title="1.日志级别"></a>1.日志级别</h2><ul>
+<li><code>DEBUG</code>: 调试信息，用于问题诊断。</li>
+<li><code>INFO</code>: 一般信息，用于记录程序运行状态。</li>
+<li><code>WARNING</code>: 警告信息，表示有潜在问题。</li>
+<li><code>ERROR</code>: 错误信息，表示严重问题。</li>
+<li><code>CRITICAL</code>: 临界信息，表示非常严重的问题。</li>
+</ul>
+<p>日志级别默认为<code> WARNING</code>，从大到小为：</p>
+<p>CRITICAL &gt; ERROR &gt; WARNING &gt; INFO &gt; DEBUG</p>
+<p>输出的日志是设置的日志级别及其以上级别：</p>
+<p>如果设置的日志级别为 WARNING，则只会显示 WARNING 及其以上级别的信息：<code>WARNING</code>,<code> ERROR</code>,<code> CRITICAL</code></p>
+<span id="more"></span>
+
+<h2 id="2-简单🌰"><a href="#2-简单🌰" class="headerlink" title="2.简单🌰"></a>2.简单🌰</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"></span><br><span class="line"><span class="comment"># log 文件路径</span></span><br><span class="line">log_file = <span class="string">&#x27;demo_log.log&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># log 输出格式,格式有很多，这个是常用的格式，不够用在查</span></span><br><span class="line">log_format = <span class="string">&#x27;%(asctime)s - %(filename)s[line:%(lineno)d] - %(levelname)s : %(message)s&#x27;</span></span><br><span class="line"></span><br><span class="line">logging.basicConfig(filename=log_file,  <span class="comment"># 设置 log 输出文件</span></span><br><span class="line">                    level=logging.DEBUG,  <span class="comment"># 输出等级</span></span><br><span class="line">                    <span class="built_in">format</span>=log_format,  <span class="comment"># 输出格式</span></span><br><span class="line">                    filemode=<span class="string">&#x27;w&#x27;</span>)  <span class="comment"># 日志文件打开模式 w是写入，a是追加</span></span><br><span class="line"></span><br><span class="line">logging.debug(<span class="string">&#x27;This is a debug message&#x27;</span>)</span><br><span class="line">logging.info(<span class="string">&#x27;This is an info message&#x27;</span>)</span><br><span class="line">logging.warning(<span class="string">&#x27;This is a warning message&#x27;</span>)</span><br><span class="line">logging.error(<span class="string">&#x27;This is an error message&#x27;</span>)</span><br><span class="line">logging.critical(<span class="string">&#x27;This is a critical message&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">2024-08-08 11:33:40,649 - demo_log0.py[line:16] - INFO : This is an info message</span><br><span class="line">2024-08-08 11:33:40,649 - demo_log0.py[line:17] - WARNING : This is a warning message</span><br><span class="line">2024-08-08 11:33:40,649 - demo_log0.py[line:18] - ERROR : This is an error message</span><br><span class="line">2024-08-08 11:33:40,649 - demo_log0.py[line:19] - CRITICAL : This is a critical message</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-高级🌰"><a href="#3-高级🌰" class="headerlink" title="3.高级🌰"></a>3.高级🌰</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> logging, os</span><br><span class="line"></span><br><span class="line">log_path = os.path.join(os.path.dirname(__file__), <span class="string">&#x27;demo_log.log&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建一个 log 对象</span></span><br><span class="line">logger = logging.getLogger(<span class="string">&#x27;__name__&#x27;</span>)  <span class="comment"># 其中的__name__代表当前 py 文件的名称，也可以不写</span></span><br><span class="line"><span class="comment"># 设置 log 对象的等级，记录所有文件级别日志</span></span><br><span class="line">logger.setLevel(logging.DEBUG)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建一个 FileHandler，将写入文件</span></span><br><span class="line">fh = logging.FileHandler(log_path, mode=<span class="string">&#x27;w&#x27;</span>)</span><br><span class="line"><span class="comment"># 设置log 等级，记录所有文件级别日志</span></span><br><span class="line">fh.setLevel(logging.DEBUG)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建一个 StreamHandler, 将 log 输出到控制台</span></span><br><span class="line">ch = logging.StreamHandler()</span><br><span class="line"><span class="comment"># 设置 log 等级，控制台只记录 Error 以及以上的记录</span></span><br><span class="line">ch.setLevel(logging.ERROR)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置输出格式</span></span><br><span class="line">log_formatter = <span class="string">&#x27;%(asctime)s - %(filename)s[line:%(lineno)d] - %(levelname)s : %(message)s&#x27;</span></span><br><span class="line">formatter = logging.Formatter(log_formatter)</span><br><span class="line"></span><br><span class="line">ch.setFormatter(formatter)</span><br><span class="line">fh.setFormatter(formatter)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 把handler添加到 logger 里</span></span><br><span class="line">logger.addHandler(ch)</span><br><span class="line">logger.addHandler(fh)</span><br><span class="line"></span><br><span class="line">logger.error(<span class="string">&#x27;error message&#x27;</span>)</span><br><span class="line">logger.debug(<span class="string">&#x27;debug message&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 干完之后清理下，这里主要为了以后多次调用出现重复日志输出</span></span><br><span class="line"><span class="comment"># logger.removeHandler(ch)</span></span><br><span class="line"><span class="comment"># logger.removeHandler(fh)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># logger.error(&#x27;error message&#x27;)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>在这个示例中，我们创建了一个 <code>Logger</code> 对象，并设置了两个 Handler：一个输出到控制台的 <code>StreamHandler</code> 和一个输出到文件的 <code>FileHandler</code>。我们还定义了一个 <code>Formatter</code> 来格式化日志消息，并将其应用到了两个 Handler 上。最后，我们添加了日志消息，它们会根据设置的日志级别被输出到相应的目的地。</p>
+<h2 id="4-封装后使用"><a href="#4-封装后使用" class="headerlink" title="4.封装后使用"></a>4.封装后使用</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># demo_log2.py</span></span><br><span class="line"><span class="keyword">import</span> logging, os</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">demo_log2</span>():</span><br><span class="line">    log_path = os.path.join(os.path.dirname(__file__), <span class="string">&#x27;demo_log.log&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 创建一个 log 对象</span></span><br><span class="line">    logger = logging.getLogger(<span class="string">&#x27;__name__&#x27;</span>)  <span class="comment"># 其中的__name__代表当前 py 文件的名称，也可以不写</span></span><br><span class="line">    logger.handlers.clear()  <span class="comment"># 防止重复输出日志，因为添加一个 handler就会输出一次</span></span><br><span class="line">    <span class="comment"># 设置 log 对象的等级</span></span><br><span class="line">    logger.setLevel(logging.DEBUG)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 创建一个 handler，将写入文件</span></span><br><span class="line">    fh = logging.FileHandler(log_path, mode=<span class="string">&#x27;a&#x27;</span>)</span><br><span class="line">    <span class="comment"># 设置log 等级与前面保持一致</span></span><br><span class="line">    fh.setLevel(logging.DEBUG)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 创建一个 handler, 将 log 输出到控制台</span></span><br><span class="line">    ch = logging.StreamHandler()</span><br><span class="line">    <span class="comment"># 设置 log 等级与 log 对象保持一致</span></span><br><span class="line">    ch.setLevel(logging.ERROR)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 设置输出格式</span></span><br><span class="line">    log_formatter = <span class="string">&#x27;%(asctime)s - %(filename)s[line:%(lineno)d] - %(levelname)s : %(message)s&#x27;</span></span><br><span class="line">    formatter = logging.Formatter(log_formatter)</span><br><span class="line">    ch.setFormatter(formatter)</span><br><span class="line">    fh.setFormatter(formatter)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 把handler添加到 logger 里</span></span><br><span class="line">    <span class="comment"># print(logger.handlers) # 没添加时，logger.handlers == []</span></span><br><span class="line">    <span class="comment"># 如果 logger.handlers 为空，则添加 ch / fh ，防止重复输出日志，因为添加一个 handler就会输出一次</span></span><br><span class="line">    <span class="comment"># if logger.handlers.__len__() == 0:</span></span><br><span class="line">    logger.addHandler(ch)</span><br><span class="line">    logger.addHandler(fh)</span><br><span class="line">    <span class="comment"># print(logger.handlers)</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> logger</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># demo_user_log.py</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> demo_log2</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">calc_sum</span>(<span class="params">a, b</span>):</span><br><span class="line"></span><br><span class="line">    logger = demo_log2.demo_log2()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="built_in">sum</span> = a / b</span><br><span class="line">        logger.debug(<span class="string">f&#x27;<span class="subst">&#123;a&#125;</span> / <span class="subst">&#123;b&#125;</span> = <span class="subst">&#123;<span class="built_in">sum</span>&#125;</span> &#x27;</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">sum</span></span><br><span class="line">    <span class="keyword">except</span> ZeroDivisionError <span class="keyword">as</span> e:</span><br><span class="line">        logger.error(<span class="string">f&#x27;被除数不能为 0： <span class="subst">&#123;e&#125;</span>&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    calc_sum(<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line">    calc_sum(<span class="number">1</span>,<span class="number">0</span>)</span><br><span class="line"> </span><br></pre></td></tr></table></figure>
+
+<p>输出结果：</p>
+<p>控制台输出结果：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2024-08-08 15:13:56,611 - demo_user_log.py[line:13] - ERROR : 被除数不能为 0： division by zero</span><br></pre></td></tr></table></figure>
+
+<p>日志文件输出结果：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2024-08-08 15:13:56,611 - demo_user_log.py[line:10] - DEBUG : 1 / 1 = 1.0 </span><br><span class="line">2024-08-08 15:13:56,611 - demo_user_log.py[line:13] - ERROR : 被除数不能为 0： division by zero</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/wechatpay.png" alt="糖小豆 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/alipay.png" alt="糖小豆 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>糖小豆
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://www.tangxdou.com/2024/08/07/python%E6%97%A5%E5%BF%97%E6%A8%A1%E5%9D%97%E6%80%BB%E7%BB%93/" title="python日志模块总结">https://www.tangxdou.com/2024/08/07/python日志模块总结/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/08/07/allure%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/" rel="prev" title="allure简单使用">
+                  <i class="fa fa-angle-left"></i> allure简单使用
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/08/09/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%80%EF%BC%89%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%BB%A5%E5%8F%8A%E7%AE%80%E5%8D%95%E8%84%9A%E6%9C%AC%E6%B5%8B%E8%AF%95/" rel="next" title="Appium2总结（一）环境搭建以及简单脚本测试">
+                  Appium2总结（一）环境搭建以及简单脚本测试 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">蜀ICP备2024080138号 </a>
+      <img src="/images/beian_logo.png" alt=""><a href="https://beian.mps.gov.cn/#/query/webSearch?code=51011202000789" rel="noopener" target="_blank">川公网安备51011202000789号 </a>
+  </div>
+  <div class="copyright">
+    &copy; 2019 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">糖小豆</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/zhangzhongchuan" class="github-corner" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+<script class="next-config" data-name="chatra" type="application/json">{"enable":true,"async":true,"id":null}</script>
+<script src="/js/third-party/chat/chatra.js"></script>
+<script async src="https://call.chatra.io/chatra.js"></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/my_js/clicklove.js"></script>
+</body>
+</html>

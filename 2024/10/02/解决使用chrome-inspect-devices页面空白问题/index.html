@@ -21,25 +21,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.tangxdou.com","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="一个测试de技术小站">
-<meta property="og:type" content="website">
-<meta property="og:title" content="糖小豆">
-<meta property="og:url" content="https://www.tangxdou.com/categories/%E6%B5%8B%E8%AF%95%E6%96%87%E6%A1%A3/index.html">
+    <meta name="description" content="1.问题描述在使用chrome:&#x2F;&#x2F;inspect&#x2F;#devices，页面空白">
+<meta property="og:type" content="article">
+<meta property="og:title" content="解决使用chrome-inspect-devices页面空白问题">
+<meta property="og:url" content="https://www.tangxdou.com/2024/10/02/%E8%A7%A3%E5%86%B3%E4%BD%BF%E7%94%A8chrome-inspect-devices%E9%A1%B5%E9%9D%A2%E7%A9%BA%E7%99%BD%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="糖小豆">
-<meta property="og:description" content="一个测试de技术小站">
+<meta property="og:description" content="1.问题描述在使用chrome:&#x2F;&#x2F;inspect&#x2F;#devices，页面空白">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-10-02T09:36:51.000Z">
+<meta property="article:modified_time" content="2024-10-02T09:55:26.359Z">
 <meta property="article:author" content="糖小豆">
+<meta property="article:tag" content="chrome">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://www.tangxdou.com/categories/%E6%B5%8B%E8%AF%95%E6%96%87%E6%A1%A3/">
+<link rel="canonical" href="https://www.tangxdou.com/2024/10/02/%E8%A7%A3%E5%86%B3%E4%BD%BF%E7%94%A8chrome-inspect-devices%E9%A1%B5%E9%9D%A2%E7%A9%BA%E7%99%BD%E9%97%AE%E9%A2%98/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"categories/测试文档/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.tangxdou.com/2024/10/02/%E8%A7%A3%E5%86%B3%E4%BD%BF%E7%94%A8chrome-inspect-devices%E9%A1%B5%E9%9D%A2%E7%A9%BA%E7%99%BD%E9%97%AE%E9%A2%98/","path":"2024/10/02/解决使用chrome-inspect-devices页面空白问题/","title":"解决使用chrome-inspect-devices页面空白问题"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>分类: 测试文档 | 糖小豆</title>
+<title>解决使用chrome-inspect-devices页面空白问题 | 糖小豆</title>
   
 
 
@@ -125,7 +128,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -138,6 +141,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="nav-text">1.问题描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E9%97%AE%E9%A2%98%E5%8E%9F%E5%9B%A0"><span class="nav-text">2.问题原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E4%BD%BF%E7%94%A8%E6%9D%A1%E4%BB%B6"><span class="nav-text">3.使用条件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%881%EF%BC%89%E8%83%BD%E5%A4%9F%E8%AE%BF%E9%97%AEgoogle-com"><span class="nav-text">（1）能够访问google.com</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%882%EF%BC%89%E6%89%8B%E6%9C%BA%E5%BC%80%E5%90%AFusb%E8%B0%83%E8%AF%95%E6%A8%A1%E5%BC%8F"><span class="nav-text">（2）手机开启usb调试模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%883%EF%BC%89%E5%85%81%E8%AE%B8%E7%94%B5%E8%84%91%E8%AE%BF%E9%97%AE%E6%89%8B%E6%9C%BA"><span class="nav-text">（3）允许电脑访问手机</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E7%9B%B8%E5%85%B3%E5%8F%82%E8%80%83"><span class="nav-text">4.相关参考</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -187,50 +191,138 @@
 
     </div>
 
-    <div class="main-inner category posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
+
+
+<div class="post-block">
   
   
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <h1 class="collection-header">测试文档
-          <small>分类</small>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.tangxdou.com/2024/10/02/%E8%A7%A3%E5%86%B3%E4%BD%BF%E7%94%A8chrome-inspect-devices%E9%A1%B5%E9%9D%A2%E7%A9%BA%E7%99%BD%E9%97%AE%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/tangdou500.png">
+      <meta itemprop="name" content="糖小豆">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="糖小豆">
+      <meta itemprop="description" content="一个测试de技术小站">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="解决使用chrome-inspect-devices页面空白问题 | 糖小豆">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          解决使用chrome-inspect-devices页面空白问题
         </h1>
-      </div>
 
-      
-    <div class="collection-year">
-      <span class="collection-header">2019</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-10-02 17:36:51" itemprop="dateCreated datePublished" datetime="2024-10-02T17:36:51+08:00">2024-10-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">软件使用</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1.问题描述</h2><p>在使用chrome:&#x2F;&#x2F;inspect&#x2F;#devices，页面空白</p>
+<span id="more"></span>
+
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2.问题原因</h2><p>需要科学上网</p>
+<h2 id="3-使用条件"><a href="#3-使用条件" class="headerlink" title="3.使用条件"></a>3.使用条件</h2><h3 id="（1）能够访问google-com"><a href="#（1）能够访问google-com" class="headerlink" title="（1）能够访问google.com"></a>（1）能够访问google.com</h3><h3 id="（2）手机开启usb调试模式"><a href="#（2）手机开启usb调试模式" class="headerlink" title="（2）手机开启usb调试模式"></a>（2）手机开启usb调试模式</h3><h3 id="（3）允许电脑访问手机"><a href="#（3）允许电脑访问手机" class="headerlink" title="（3）允许电脑访问手机"></a>（3）允许电脑访问手机</h3><h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4.相关参考</h2><p><a target="_blank" rel="noopener" href="https://github.com/HuarenYu/note/issues/1">https://github.com/HuarenYu/note/issues/1</a></p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2019-07-11T00:47:19+08:00"
-              content="2019-07-11">
-          07-11
-        </time>
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/wechatpay.png" alt="糖小豆 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/alipay.png" alt="糖小豆 支付宝">
+        <span>支付宝</span>
       </div>
 
-      <div class="post-title">
-        <a class="post-title-link" href="/2019/07/11/%E6%B5%8B%E8%AF%95%E8%AE%A1%E5%88%92%E6%A8%A1%E6%9D%BF/" itemprop="url">
-          <span itemprop="name">测试计划模板</span>
-        </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-    </div>
   </div>
-  
-  
-  
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>糖小豆
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://www.tangxdou.com/2024/10/02/%E8%A7%A3%E5%86%B3%E4%BD%BF%E7%94%A8chrome-inspect-devices%E9%A1%B5%E9%9D%A2%E7%A9%BA%E7%99%BD%E9%97%AE%E9%A2%98/" title="解决使用chrome-inspect-devices页面空白问题">https://www.tangxdou.com/2024/10/02/解决使用chrome-inspect-devices页面空白问题/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/chrome/" rel="tag"><i class="fa fa-tag"></i> chrome</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/10/02/DataGrip%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="prev" title="DataGrip的使用">
+                  <i class="fa fa-angle-left"></i> DataGrip的使用
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
 
 </div>
   </main>

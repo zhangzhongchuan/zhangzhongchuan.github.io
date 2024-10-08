@@ -21,28 +21,37 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.tangxdou.com","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="在Apache JMeter中，如果你使用的是Log4j2作为日志系统，并且想通过log4j2.xml配置文件修改日志文件的位置，你可以按照以下步骤操作：（文中使用jmeter版本为:apache-jmeter-5.6.3）  找到JMeter安装目录下的log4j2.xml配置文件。在JMeter 3.x及以上版本中，这个文件通常位于apache-jmeter-X.XX&#x2F;bin目录下。 打开lo">
+    <meta name="description" content="1.问题描述由于免费的证书，现在有效期只有 3 个月，这意味着 1 年你要替换 4 次证书，记录一下，下次方便。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="jmeter通过log4j2.xml修改log文件位置">
-<meta property="og:url" content="https://www.tangxdou.com/2024/04/15/jmeter%E9%80%9A%E8%BF%87log4j2-xml%E4%BF%AE%E6%94%B9log%E6%96%87%E4%BB%B6%E4%BD%8D%E7%BD%AE/index.html">
+<meta property="og:title" content="群晖替换快到期证书">
+<meta property="og:url" content="https://www.tangxdou.com/2024/10/08/%E7%BE%A4%E6%99%96%E6%9B%BF%E6%8D%A2%E5%BF%AB%E5%88%B0%E6%9C%9F%E8%AF%81%E4%B9%A6/index.html">
 <meta property="og:site_name" content="糖小豆">
-<meta property="og:description" content="在Apache JMeter中，如果你使用的是Log4j2作为日志系统，并且想通过log4j2.xml配置文件修改日志文件的位置，你可以按照以下步骤操作：（文中使用jmeter版本为:apache-jmeter-5.6.3）  找到JMeter安装目录下的log4j2.xml配置文件。在JMeter 3.x及以上版本中，这个文件通常位于apache-jmeter-X.XX&#x2F;bin目录下。 打开lo">
+<meta property="og:description" content="1.问题描述由于免费的证书，现在有效期只有 3 个月，这意味着 1 年你要替换 4 次证书，记录一下，下次方便。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-04-15T06:54:19.000Z">
-<meta property="article:modified_time" content="2024-05-06T07:43:15.000Z">
+<meta property="og:image" content="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410081102614.jpg">
+<meta property="og:image" content="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410081056134.jpg">
+<meta property="og:image" content="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410081057607.jpg">
+<meta property="og:image" content="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410081058342.jpg">
+<meta property="og:image" content="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410081108484.png">
+<meta property="og:image" content="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410081108599.png">
+<meta property="og:image" content="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410081102182.jpg">
+<meta property="og:image" content="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410081110276.png">
+<meta property="article:published_time" content="2024-10-08T02:50:44.000Z">
+<meta property="article:modified_time" content="2024-10-08T03:10:37.683Z">
 <meta property="article:author" content="糖小豆">
-<meta property="article:tag" content="jmeter">
+<meta property="article:tag" content="synology">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410081102614.jpg">
 
 
-<link rel="canonical" href="https://www.tangxdou.com/2024/04/15/jmeter%E9%80%9A%E8%BF%87log4j2-xml%E4%BF%AE%E6%94%B9log%E6%96%87%E4%BB%B6%E4%BD%8D%E7%BD%AE/">
+<link rel="canonical" href="https://www.tangxdou.com/2024/10/08/%E7%BE%A4%E6%99%96%E6%9B%BF%E6%8D%A2%E5%BF%AB%E5%88%B0%E6%9C%9F%E8%AF%81%E4%B9%A6/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.tangxdou.com/2024/04/15/jmeter%E9%80%9A%E8%BF%87log4j2-xml%E4%BF%AE%E6%94%B9log%E6%96%87%E4%BB%B6%E4%BD%8D%E7%BD%AE/","path":"2024/04/15/jmeter通过log4j2-xml修改log文件位置/","title":"jmeter通过log4j2.xml修改log文件位置"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.tangxdou.com/2024/10/08/%E7%BE%A4%E6%99%96%E6%9B%BF%E6%8D%A2%E5%BF%AB%E5%88%B0%E6%9C%9F%E8%AF%81%E4%B9%A6/","path":"2024/10/08/群晖替换快到期证书/","title":"群晖替换快到期证书"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>jmeter通过log4j2.xml修改log文件位置 | 糖小豆</title>
+<title>群晖替换快到期证书 | 糖小豆</title>
   
 
 
@@ -128,7 +137,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -141,6 +150,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="nav-text">1.问题描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="nav-text">2.解决方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%880%EF%BC%89%E4%B8%8B%E8%BD%BD%E8%AF%81%E4%B9%A6%EF%BC%8C%E7%B1%BB%E5%9E%8B%E9%80%89%E6%8B%A9%E2%80%9CNginx%E2%80%9D"><span class="nav-text">（0）下载证书，类型选择“Nginx”</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%881%EF%BC%89%E6%89%93%E5%BC%80%E6%8E%A7%E5%88%B6%E9%9D%A2%E6%9D%BF"><span class="nav-text">（1）打开控制面板</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%882%EF%BC%89%E6%89%93%E5%BC%80%E7%BD%91%E7%BB%9C"><span class="nav-text">（2）打开网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%883%EF%BC%89%E6%89%93%E5%BC%80%E5%AE%89%E5%85%A8%E6%80%A7"><span class="nav-text">（3）打开安全性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%884%EF%BC%89%E6%89%93%E5%BC%80%E2%80%9C%E6%96%B0%E5%A2%9E%E2%80%9D%E9%A1%B5%E9%9D%A2"><span class="nav-text">（4）打开“新增”页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%885%EF%BC%89%E9%80%89%E6%8B%A9%E2%80%9C%E6%9B%BF%E6%8D%A2%E5%B7%B2%E6%9C%89%E8%AF%81%E4%B9%A6%E2%80%9D"><span class="nav-text">（5）选择“替换已有证书”</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%886%EF%BC%89%E9%80%89%E6%8B%A9%E2%80%9C%E5%AF%BC%E5%85%A5%E8%AF%81%E4%B9%A6%E2%80%9D"><span class="nav-text">（6）选择“导入证书”</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%887%EF%BC%89%E5%9C%A8%E7%9B%B8%E5%BA%94%E4%BD%8D%E7%BD%AE%E9%80%89%E6%8B%A9%E7%9B%B8%E5%BA%94%E7%9A%84%E6%96%87%E4%BB%B6%EF%BC%8C%E7%82%B9%E5%87%BB%E2%80%9C%E7%A1%AE%E5%AE%9A%E2%80%9D"><span class="nav-text">（7）在相应位置选择相应的文件，点击“确定”</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-text"></span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -201,7 +211,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.tangxdou.com/2024/04/15/jmeter%E9%80%9A%E8%BF%87log4j2-xml%E4%BF%AE%E6%94%B9log%E6%96%87%E4%BB%B6%E4%BD%8D%E7%BD%AE/">
+    <link itemprop="mainEntityOfPage" href="https://www.tangxdou.com/2024/10/08/%E7%BE%A4%E6%99%96%E6%9B%BF%E6%8D%A2%E5%BF%AB%E5%88%B0%E6%9C%9F%E8%AF%81%E4%B9%A6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/tangdou500.png">
@@ -214,12 +224,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="jmeter通过log4j2.xml修改log文件位置 | 糖小豆">
+      <meta itemprop="name" content="群晖替换快到期证书 | 糖小豆">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          jmeter通过log4j2.xml修改log文件位置
+          群晖替换快到期证书
         </h1>
 
         <div class="post-meta-container">
@@ -230,7 +240,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2024-04-15 14:54:19" itemprop="dateCreated datePublished" datetime="2024-04-15T14:54:19+08:00">2024-04-15</time>
+      <time title="创建时间：2024-10-08 10:50:44" itemprop="dateCreated datePublished" datetime="2024-10-08T10:50:44+08:00">2024-10-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -238,7 +248,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/" itemprop="url" rel="index"><span itemprop="name">性能测试</span></a>
+          <a href="/categories/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/" itemprop="url" rel="index"><span itemprop="name">环境部署</span></a>
         </span>
     </span>
 
@@ -251,16 +261,18 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>在Apache JMeter中，如果你使用的是Log4j2作为日志系统，并且想通过<code>log4j2.xml</code>配置文件修改日志文件的位置，你可以按照以下步骤操作：（文中使用jmeter版本为:apache-jmeter-5.6.3）</p>
-<ol>
-<li>找到JMeter安装目录下的<code>log4j2.xml</code>配置文件。在JMeter 3.x及以上版本中，这个文件通常位于<code>apache-jmeter-X.XX/bin</code>目录下。</li>
-<li>打开<code>log4j2.xml</code>文件，找到<code>RollingFile</code>或<code>File</code>类型的Appender配置部分。</li>
-</ol>
+    <div class="post-body" itemprop="articleBody"><h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1.问题描述</h2><p>由于免费的证书，现在有效期只有 3 个月，这意味着 1 年你要替换 4 次证书，记录一下，下次方便。</p>
 <span id="more"></span>
 
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="comment">&lt;!--......--&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">Configuration</span> <span class="attr">status</span>=<span class="string">&quot;WARN&quot;</span> <span class="attr">packages</span>=<span class="string">&quot;org.apache.jmeter.gui.logging&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Appenders</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 修改这里，修改日志文件位置 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">File</span> <span class="attr">name</span>=<span class="string">&quot;jmeter-log&quot;</span> <span class="attr">fileName</span>=<span class="string">&quot;/path/to/your/log/jmeter.log&quot;</span> <span class="attr">append</span>=<span class="string">&quot;false&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>%d %p %c&#123;1.&#125;: %m%n<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">File</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">GuiLogEvent</span> <span class="attr">name</span>=<span class="string">&quot;gui-log-event&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>%d %p %c&#123;1.&#125;: %m%n<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">GuiLogEvent</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;/<span class="name">Appenders</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">Loggers</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Root</span> <span class="attr">level</span>=<span class="string">&quot;info&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">AppenderRef</span> <span class="attr">ref</span>=<span class="string">&quot;jmeter-log&quot;</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">AppenderRef</span> <span class="attr">ref</span>=<span class="string">&quot;gui-log-event&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Root</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Logger</span> <span class="attr">name</span>=<span class="string">&quot;org.apache.jmeter.junit&quot;</span> <span class="attr">level</span>=<span class="string">&quot;debug&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;/<span class="name">Loggers</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">Configuration</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
+<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2.解决方法</h2><h3 id="（0）下载证书，类型选择“Nginx”"><a href="#（0）下载证书，类型选择“Nginx”" class="headerlink" title="（0）下载证书，类型选择“Nginx”"></a>（0）下载证书，类型选择“Nginx”</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410081102614.jpg" alt="0 选择Nginx"></p>
+<h3 id="（1）打开控制面板"><a href="#（1）打开控制面板" class="headerlink" title="（1）打开控制面板"></a>（1）打开控制面板</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410081056134.jpg" alt="1.打开控制面板"></p>
+<h3 id="（2）打开网络"><a href="#（2）打开网络" class="headerlink" title="（2）打开网络"></a>（2）打开网络</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410081057607.jpg" alt="2 打开网络"></p>
+<h3 id="（3）打开安全性"><a href="#（3）打开安全性" class="headerlink" title="（3）打开安全性"></a>（3）打开安全性</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410081058342.jpg" alt="2 打开安全性"></p>
+<h3 id="（4）打开“新增”页面"><a href="#（4）打开“新增”页面" class="headerlink" title="（4）打开“新增”页面"></a>（4）打开“新增”页面</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410081108484.png" alt="image-20241008110800451"></p>
+<h3 id="（5）选择“替换已有证书”"><a href="#（5）选择“替换已有证书”" class="headerlink" title="（5）选择“替换已有证书”"></a>（5）选择“替换已有证书”</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410081108599.png" alt="image-20241008110859574"></p>
+<h3 id="（6）选择“导入证书”"><a href="#（6）选择“导入证书”" class="headerlink" title="（6）选择“导入证书”"></a>（6）选择“导入证书”</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410081102182.jpg" alt="5.选择导入证书"></p>
+<h3 id="（7）在相应位置选择相应的文件，点击“确定”"><a href="#（7）在相应位置选择相应的文件，点击“确定”" class="headerlink" title="（7）在相应位置选择相应的文件，点击“确定”"></a>（7）在相应位置选择相应的文件，点击“确定”</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410081110276.png" alt="image-20241008111026250"></p>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2>
     </div>
 
     
@@ -295,7 +307,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://www.tangxdou.com/2024/04/15/jmeter%E9%80%9A%E8%BF%87log4j2-xml%E4%BF%AE%E6%94%B9log%E6%96%87%E4%BB%B6%E4%BD%8D%E7%BD%AE/" title="jmeter通过log4j2.xml修改log文件位置">https://www.tangxdou.com/2024/04/15/jmeter通过log4j2-xml修改log文件位置/</a>
+      <a href="https://www.tangxdou.com/2024/10/08/%E7%BE%A4%E6%99%96%E6%9B%BF%E6%8D%A2%E5%BF%AB%E5%88%B0%E6%9C%9F%E8%AF%81%E4%B9%A6/" title="群晖替换快到期证书">https://www.tangxdou.com/2024/10/08/群晖替换快到期证书/</a>
   </li>
   <li class="post-copyright-license">
       <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -304,21 +316,18 @@
 </div>
 
           <div class="post-tags">
-              <a href="/tags/jmeter/" rel="tag"><i class="fa fa-tag"></i> jmeter</a>
+              <a href="/tags/synology/" rel="tag"><i class="fa fa-tag"></i> synology</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/06/29/python%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/" rel="prev" title="python创建虚拟环境">
-                  <i class="fa fa-angle-left"></i> python创建虚拟环境
+                <a href="/2024/10/03/mumu%E6%A8%A1%E6%8B%9F%E5%99%A8pro%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E8%AF%81%E4%B9%A6/" rel="prev" title="mumu模拟器pro如何安装证书">
+                  <i class="fa fa-angle-left"></i> mumu模拟器pro如何安装证书
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2024/05/06/%E8%A7%A3%E5%86%B3Mac%E7%AA%81%E7%84%B6%E9%BB%91%E5%B1%8F%E7%84%B6%E5%90%8E%E5%87%BA%E7%8E%B0%E7%99%BB%E5%BD%95%E7%95%8C%E9%9D%A2%E7%9A%84%E9%97%AE%E9%A2%98/" rel="next" title="解决Mac突然黑屏然后出现登录界面的问题">
-                  解决Mac突然黑屏然后出现登录界面的问题 <i class="fa fa-angle-right"></i>
-                </a>
             </div>
           </div>
     </footer>

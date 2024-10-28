@@ -48,7 +48,7 @@
 
 
 
-
+<link rel="dns-prefetch" href="waline.tangxdou.com">
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -218,7 +218,7 @@
 
       <div class="post-title">
         <a class="post-title-link" href="/2024/10/13/%E8%A7%A3%E5%86%B3jmeter%E5%90%AF%E5%8A%A8%E6%97%B6%E6%8A%A5%E9%94%99Error-VM-optionUseG1GC%E9%97%AE%E9%A2%98/" itemprop="url">
-          <span itemprop="name">解决jmeter启动时报错Error VM option 'UseG1GC' is experimental问题</span>
+          <span itemprop="name">解决 jmeter 启动时报错 Error VM option 'UseG1GC' is experimental 问题</span>
         </a>
       </div>
 
@@ -238,7 +238,7 @@
 
       <div class="post-title">
         <a class="post-title-link" href="/2024/04/15/jmeter%E9%80%9A%E8%BF%87log4j2-xml%E4%BF%AE%E6%94%B9log%E6%96%87%E4%BB%B6%E4%BD%8D%E7%BD%AE/" itemprop="url">
-          <span itemprop="name">jmeter通过log4j2.xml修改log文件位置</span>
+          <span itemprop="name">jmeter 通过 log4j2.xml 修改 log 文件位置</span>
         </a>
       </div>
 
@@ -269,6 +269,20 @@
     </span>
     <span class="author" itemprop="copyrightHolder">糖小豆</span>
   </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">20k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:13</span>
+  </span>
+</div>
 
     </div>
   </footer>
@@ -311,6 +325,17 @@
 
 
 
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"waline.tangxdou.com","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":true,"locale":{"placeholder":"无需登录·请留下邮箱以接收回复·来说两句吧~"},"highlighter":"WalineHighlighter","avatar":"mm","meta":["nick","mail"],"pageSize":10,"visitor":false,"comment_count":false,"requiredFields":["nick"],"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","login":"enable","dark":"auto","reaction":false,"el":"#waline","comment":true,"path":"/categories/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/"}</script>
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => 
+    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
+  );
+});
+</script>
 
 
   <!-- 页面点击小红心 -->

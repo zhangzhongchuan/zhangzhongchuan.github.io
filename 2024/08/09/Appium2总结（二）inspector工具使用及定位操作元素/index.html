@@ -21,12 +21,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.tangxdou.com","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Appium Inspector 是Appium 的一个工具，用于帮助开发人员和测试人员分析和调试移动应用程序。 它提供了图形界面和交互式的功能，使您能够轻松地检查应用程序的UI 元素、获取元素属性、执行操作和生成自动化测试脚本。">
+    <meta name="description" content="Appium Inspector 是 Appium 的一个工具，用于帮助开发人员和测试人员分析和调试移动应用程序。 它提供了图形界面和交互式的功能，使您能够轻松地检查应用程序的 UI 元素、获取元素属性、执行操作和生成自动化测试脚本。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Appium2总结（二）inspector工具使用及定位操作元素">
+<meta property="og:title" content="Appium2 总结（二）inspector 工具使用及定位操作元素">
 <meta property="og:url" content="https://www.tangxdou.com/2024/08/09/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89inspector%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AE%9A%E4%BD%8D%E6%93%8D%E4%BD%9C%E5%85%83%E7%B4%A0/index.html">
 <meta property="og:site_name" content="糖小豆">
-<meta property="og:description" content="Appium Inspector 是Appium 的一个工具，用于帮助开发人员和测试人员分析和调试移动应用程序。 它提供了图形界面和交互式的功能，使您能够轻松地检查应用程序的UI 元素、获取元素属性、执行操作和生成自动化测试脚本。">
+<meta property="og:description" content="Appium Inspector 是 Appium 的一个工具，用于帮助开发人员和测试人员分析和调试移动应用程序。 它提供了图形界面和交互式的功能，使您能够轻松地检查应用程序的 UI 元素、获取元素属性、执行操作和生成自动化测试脚本。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240730200543128.png">
 <meta property="og:image" content="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240731112127407.png">
@@ -46,10 +46,10 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.tangxdou.com/2024/08/09/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89inspector%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AE%9A%E4%BD%8D%E6%93%8D%E4%BD%9C%E5%85%83%E7%B4%A0/","path":"2024/08/09/Appium2总结（二）inspector工具使用及定位操作元素/","title":"Appium2总结（二）inspector工具使用及定位操作元素"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.tangxdou.com/2024/08/09/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89inspector%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AE%9A%E4%BD%8D%E6%93%8D%E4%BD%9C%E5%85%83%E7%B4%A0/","path":"2024/08/09/Appium2总结（二）inspector工具使用及定位操作元素/","title":"Appium2 总结（二）inspector 工具使用及定位操作元素"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Appium2总结（二）inspector工具使用及定位操作元素 | 糖小豆</title>
+<title>Appium2 总结（二）inspector 工具使用及定位操作元素 | 糖小豆</title>
   
 
 
@@ -58,7 +58,7 @@
 
 
 
-
+<link rel="dns-prefetch" href="waline.tangxdou.com">
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -148,7 +148,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Appium-Inspector-%E4%B8%8B%E8%BD%BD"><span class="nav-text">1.Appium Inspector 下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Appium-Inspector%E4%BD%BF%E7%94%A8"><span class="nav-text">2.Appium Inspector使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%AE%9A%E4%BD%8D%E6%93%8D%E4%BD%9C%E5%85%83%E7%B4%A0"><span class="nav-text">2.定位操作元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E7%9B%B8%E5%85%B3%E5%8F%82%E8%80%83"><span class="nav-text">3.相关参考</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Appium-Inspector-%E4%B8%8B%E8%BD%BD"><span class="nav-text">1.Appium Inspector 下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Appium-Inspector%E4%BD%BF%E7%94%A8"><span class="nav-text">2.Appium Inspector 使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%AE%9A%E4%BD%8D%E6%93%8D%E4%BD%9C%E5%85%83%E7%B4%A0"><span class="nav-text">2. 定位操作元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E7%9B%B8%E5%85%B3%E5%8F%82%E8%80%83"><span class="nav-text">3. 相关参考</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -222,12 +222,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Appium2总结（二）inspector工具使用及定位操作元素 | 糖小豆">
+      <meta itemprop="name" content="Appium2 总结（二）inspector 工具使用及定位操作元素 | 糖小豆">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Appium2总结（二）inspector工具使用及定位操作元素
+          Appium2 总结（二）inspector 工具使用及定位操作元素
         </h1>
 
         <div class="post-meta-container">
@@ -251,6 +251,43 @@
     </span>
 
   
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">评论数：</span>
+  
+    <a title="waline" href="/2024/08/09/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89inspector%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AE%9A%E4%BD%8D%E6%93%8D%E4%BD%9C%E5%85%83%E7%B4%A0/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2024/08/09/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89inspector%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AE%9A%E4%BD%8D%E6%93%8D%E4%BD%9C%E5%85%83%E7%B4%A0/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-item" title="阅读数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读数：</span>
+      <span class="waline-pageview-count" data-path="/2024/08/09/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89inspector%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AE%9A%E4%BD%8D%E6%93%8D%E4%BD%9C%E5%85%83%E7%B4%A0/"></span>
+    </span>
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>436</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
 </div>
 
         </div>
@@ -259,33 +296,33 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>Appium Inspector 是Appium 的一个工具，<strong>用于帮助开发人员和测试人员分析和调试移动应用程序</strong>。 它提供了图形界面和交互式的功能，使您能够轻松地检查应用程序的UI 元素、获取元素属性、执行操作和生成自动化测试脚本。</p>
+    <div class="post-body" itemprop="articleBody"><p>Appium Inspector 是 Appium 的一个工具，<strong>用于帮助开发人员和测试人员分析和调试移动应用程序</strong>。 它提供了图形界面和交互式的功能，使您能够轻松地检查应用程序的 UI 元素、获取元素属性、执行操作和生成自动化测试脚本。</p>
 <span id="more"></span>
 
 <h2 id="1-Appium-Inspector-下载"><a href="#1-Appium-Inspector-下载" class="headerlink" title="1.Appium Inspector 下载"></a>1.Appium Inspector 下载</h2><p><a target="_blank" rel="noopener" href="https://github.com/appium/appium-inspector/releases">下载地址</a></p>
 <p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240730200543128.png" alt="image-20240730200543128"></p>
 <p>选择相应版本下载后安装。</p>
-<h2 id="2-Appium-Inspector使用"><a href="#2-Appium-Inspector使用" class="headerlink" title="2.Appium Inspector使用"></a>2.Appium Inspector使用</h2><p>（1）首先连接模拟器。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ adb connect 192.168.XX.XX:5555</span><br><span class="line">connected to 192.168.XX.XX:5555</span><br></pre></td></tr></table></figure>
+<h2 id="2-Appium-Inspector使用"><a href="#2-Appium-Inspector使用" class="headerlink" title="2.Appium Inspector使用"></a>2.Appium Inspector 使用</h2><p>（1）首先连接模拟器。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ adb connect 192.168.XX.XX:5555</span><br><span class="line">connected to 192.168.XX.XX:5555</span><br></pre></td></tr></tbody></table></figure>
 
 <p>（2）启动 appium 服务</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ appium</span><br><span class="line">[Appium] Welcome to Appium v2.11.2</span><br><span class="line">......</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ appium</span><br><span class="line">[Appium] Welcome to Appium v2.11.2</span><br><span class="line">......</span><br></pre></td></tr></tbody></table></figure>
 
-<p>（3）打开Appium Inspector</p>
-<p>在Capability Builder 中，填写</p>
-<p>platformName&#x3D;’Android’</p>
-<p>automationName&#x3D;’uiautomator2’</p>
-<p>然后点击<code>Start Session</code>按钮。</p>
+<p>（3）打开 Appium Inspector</p>
+<p>在 Capability Builder 中，填写</p>
+<p>platformName=’Android’</p>
+<p>automationName=’uiautomator2’</p>
+<p>然后点击 <code>Start Session</code> 按钮。</p>
 <p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240731112127407.png" alt="image-20240731112127407"></p>
 <p>界面看到模拟器的截图，说明连接成功。</p>
 <p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240731112511529.png" alt="image-20240731112511529"></p>
-<p>（4）安装2 个 app用于测试</p>
+<p>（4）安装 2 个 app 用于测试</p>
 <p><a target="_blank" rel="noopener" href="https://github.com/appium/appium/raw/master/packages/appium/sample-code/apps/ApiDemos-debug.apk">appium 官方 Demo apk 下载地址</a></p>
 <p>使用 adb 命令安装：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ adb install /Users/user1/Downloads/ApiDemos-debug.apk</span><br><span class="line">Performing Streamed Install</span><br><span class="line">Success</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ adb install /Users/user1/Downloads/ApiDemos-debug.apk</span><br><span class="line">Performing Streamed Install</span><br><span class="line">Success</span><br></pre></td></tr></tbody></table></figure>
 
 <p><a target="_blank" rel="noopener" href="https://github.com/imengyu/AutoCalc/raw/master/app-debug.apk">计算器 AutoCalc</a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ adb install /Users/user1/Downloads/ApiDemos-debug.apk.apk</span><br><span class="line">Performing Streamed Install</span><br><span class="line">Success</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ adb install /Users/user1/Downloads/ApiDemos-debug.apk.apk</span><br><span class="line">Performing Streamed Install</span><br><span class="line">Success</span><br></pre></td></tr></tbody></table></figure>
 
 
 
@@ -293,19 +330,19 @@
 <p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240731145423828.png" alt="image-20240731145423828"></p>
 <p>（5）打开 API Demos ，获取包名界面名（活动名）</p>
 <p>1️⃣通过 adb 命令获取</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ adb shell dumpsys window |grep mFocusedApp</span><br><span class="line">    mFocusedApp=Token&#123;b14e783 ActivityRecord&#123;3e73e32 u0 io.appium.android.apis/.ApiDemos t9&#125;&#125;</span><br><span class="line">    mFocusedApp=AppWindowToken&#123;8c2ad00 token=Token&#123;b14e783 ActivityRecord&#123;3e73e32 u0 io.appium.android.apis/.ApiDemos t9&#125;&#125;&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ adb shell dumpsys window |grep mFocusedApp</span><br><span class="line">    mFocusedApp=Token{b14e783 ActivityRecord{3e73e32 u0 io.appium.android.apis/.ApiDemos t9}}</span><br><span class="line">    mFocusedApp=AppWindowToken{8c2ad00 token=Token{b14e783 ActivityRecord{3e73e32 u0 io.appium.android.apis/.ApiDemos t9}}}</span><br></pre></td></tr></tbody></table></figure>
 
 <p>2️⃣通过 Appium Inspector 获取</p>
 <p>获取包名 <code>Commands</code>→<code>App Management</code>→<code>getCurrentPackage</code></p>
-<p>获取界面名<code>Commands</code>→<code>App Management</code>→<code>getCurrentPackage</code></p>
+<p>获取界面名 <code>Commands</code>→<code>App Management</code>→<code>getCurrentPackage</code></p>
 <p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/2024-07-31%2015.38.57.gif" alt="2024-07-31 15.38.57"></p>
-<h2 id="2-定位操作元素"><a href="#2-定位操作元素" class="headerlink" title="2.定位操作元素"></a>2.定位操作元素</h2><p>（1）通过 Appium Inspector 获取元素的 id</p>
+<h2 id="2-定位操作元素"><a href="#2-定位操作元素" class="headerlink" title="2.定位操作元素"></a>2. 定位操作元素</h2><p>（1）通过 Appium Inspector 获取元素的 id</p>
 <p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/2024-07-31%2018.12.29.gif" alt="2024-07-31 18.12.29"></p>
-<p>（2）通过 id获取获取元素，操作元素</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 通过 ID 找元素</span></span><br><span class="line"><span class="comment"># 分别获取计算器上按键 1+2= 四个按钮的按键，并且点击</span></span><br><span class="line">driver.find_element(AppiumBy.ID, <span class="string">&#x27;com.dreamfish.com.autocalc:id/btn_pad_number_1&#x27;</span>).click()</span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line">driver.find_element(AppiumBy.ID, <span class="string">&#x27;com.dreamfish.com.autocalc:id/btn_pad_plus&#x27;</span>).click()</span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line">driver.find_element(AppiumBy.ID, <span class="string">&#x27;com.dreamfish.com.autocalc:id/btn_pad_number_2&#x27;</span>).click()</span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line">driver.find_element(AppiumBy.ID, <span class="string">&#x27;com.dreamfish.com.autocalc:id/btn_pad_equal&#x27;</span>).click()</span><br></pre></td></tr></table></figure>
+<p>（2）通过 id 获取获取元素，操作元素</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 通过 ID 找元素</span></span><br><span class="line"><span class="comment"># 分别获取计算器上按键 1+2= 四个按钮的按键，并且点击</span></span><br><span class="line">driver.find_element(AppiumBy.ID, <span class="string">'com.dreamfish.com.autocalc:id/btn_pad_number_1'</span>).click()</span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line">driver.find_element(AppiumBy.ID, <span class="string">'com.dreamfish.com.autocalc:id/btn_pad_plus'</span>).click()</span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line">driver.find_element(AppiumBy.ID, <span class="string">'com.dreamfish.com.autocalc:id/btn_pad_number_2'</span>).click()</span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line">driver.find_element(AppiumBy.ID, <span class="string">'com.dreamfish.com.autocalc:id/btn_pad_equal'</span>).click()</span><br></pre></td></tr></tbody></table></figure>
 
-<p>(2)通过</p>
-<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3.相关参考</h2>
+<p>(2) 通过</p>
+<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2>
     </div>
 
     
@@ -340,7 +377,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://www.tangxdou.com/2024/08/09/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89inspector%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AE%9A%E4%BD%8D%E6%93%8D%E4%BD%9C%E5%85%83%E7%B4%A0/" title="Appium2总结（二）inspector工具使用及定位操作元素">https://www.tangxdou.com/2024/08/09/Appium2总结（二）inspector工具使用及定位操作元素/</a>
+      <a href="https://www.tangxdou.com/2024/08/09/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89inspector%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AE%9A%E4%BD%8D%E6%93%8D%E4%BD%9C%E5%85%83%E7%B4%A0/" title="Appium2 总结（二）inspector 工具使用及定位操作元素">https://www.tangxdou.com/2024/08/09/Appium2总结（二）inspector工具使用及定位操作元素/</a>
   </li>
   <li class="post-copyright-license">
       <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -356,13 +393,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2024/08/09/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%80%EF%BC%89%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%BB%A5%E5%8F%8A%E7%AE%80%E5%8D%95%E8%84%9A%E6%9C%AC%E6%B5%8B%E8%AF%95/" rel="prev" title="Appium2总结（一）环境搭建以及简单脚本测试">
-                  <i class="fa fa-angle-left"></i> Appium2总结（一）环境搭建以及简单脚本测试
+                <a href="/2024/08/09/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%80%EF%BC%89%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%BB%A5%E5%8F%8A%E7%AE%80%E5%8D%95%E8%84%9A%E6%9C%AC%E6%B5%8B%E8%AF%95/" rel="prev" title="Appium2 总结（一）环境搭建以及简单脚本测试">
+                  <i class="fa fa-angle-left"></i> Appium2 总结（一）环境搭建以及简单脚本测试
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2024/08/09/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%89%EF%BC%89%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB%E5%AE%9A%E4%BD%8D/" rel="next" title="Appium2总结（三）图像识别定位">
-                  Appium2总结（三）图像识别定位 <i class="fa fa-angle-right"></i>
+                <a href="/2024/08/09/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%89%EF%BC%89%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB%E5%AE%9A%E4%BD%8D/" rel="next" title="Appium2 总结（三）图像识别定位">
+                  Appium2 总结（三）图像识别定位 <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
@@ -375,6 +412,7 @@
 
 
 
+    <div class="comments" id="waline"></div>
 </div>
   </main>
 
@@ -392,6 +430,20 @@
     </span>
     <span class="author" itemprop="copyrightHolder">糖小豆</span>
   </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">20k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:13</span>
+  </span>
+</div>
 
     </div>
   </footer>
@@ -434,6 +486,17 @@
 
 
 
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"waline.tangxdou.com","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":true,"locale":{"placeholder":"无需登录·请留下邮箱以接收回复·来说两句吧~"},"highlighter":"WalineHighlighter","avatar":"mm","meta":["nick","mail"],"pageSize":10,"visitor":false,"comment_count":false,"requiredFields":["nick"],"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","login":"enable","dark":"auto","reaction":false,"el":"#waline","comment":true,"path":"/2024/08/09/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89inspector%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AE%9A%E4%BD%8D%E6%93%8D%E4%BD%9C%E5%85%83%E7%B4%A0/"}</script>
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => 
+    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
+  );
+});
+</script>
 
 
   <!-- 页面点击小红心 -->

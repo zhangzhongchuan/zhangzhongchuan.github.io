@@ -21,12 +21,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.tangxdou.com","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="1.问题描述使用pycharm IDE使用unittest框架，代码执行完成且没有报错，没有在指定目录下生成测试报告。">
+    <meta name="description" content="1. 问题描述使用 pycharm IDE 使用 unittest 框架，代码执行完成且没有报错，没有在指定目录下生成测试报告。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="pycharm使用HTMLTestRunner不能生成测试报告解决方法">
+<meta property="og:title" content="pycharm 使用 HTMLTestRunner 不能生成测试报告解决方法">
 <meta property="og:url" content="https://www.tangxdou.com/2019/08/13/pycharm%E4%BD%BF%E7%94%A8HTMLTestRunner%E4%B8%8D%E8%83%BD%E7%94%9F%E6%88%90%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/index.html">
 <meta property="og:site_name" content="糖小豆">
-<meta property="og:description" content="1.问题描述使用pycharm IDE使用unittest框架，代码执行完成且没有报错，没有在指定目录下生成测试报告。">
+<meta property="og:description" content="1. 问题描述使用 pycharm IDE 使用 unittest 框架，代码执行完成且没有报错，没有在指定目录下生成测试报告。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2019-08-15_16-12-18-20240429121121384.png">
 <meta property="og:image" content="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2019-08-15_16-15-26-20240429121041426.png">
@@ -44,10 +44,10 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.tangxdou.com/2019/08/13/pycharm%E4%BD%BF%E7%94%A8HTMLTestRunner%E4%B8%8D%E8%83%BD%E7%94%9F%E6%88%90%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/","path":"2019/08/13/pycharm使用HTMLTestRunner不能生成测试报告解决方法/","title":"pycharm使用HTMLTestRunner不能生成测试报告解决方法"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.tangxdou.com/2019/08/13/pycharm%E4%BD%BF%E7%94%A8HTMLTestRunner%E4%B8%8D%E8%83%BD%E7%94%9F%E6%88%90%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/","path":"2019/08/13/pycharm使用HTMLTestRunner不能生成测试报告解决方法/","title":"pycharm 使用 HTMLTestRunner 不能生成测试报告解决方法"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>pycharm使用HTMLTestRunner不能生成测试报告解决方法 | 糖小豆</title>
+<title>pycharm 使用 HTMLTestRunner 不能生成测试报告解决方法 | 糖小豆</title>
   
 
 
@@ -56,7 +56,7 @@
 
 
 
-
+<link rel="dns-prefetch" href="waline.tangxdou.com">
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -146,7 +146,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="nav-text">1.问题描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E9%97%AE%E9%A2%98%E5%8E%9F%E5%9B%A0"><span class="nav-text">2.问题原因</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E4%BB%A3%E7%A0%81"><span class="nav-text">2.1 代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="nav-text">3.解决方法</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="nav-text">1. 问题描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E9%97%AE%E9%A2%98%E5%8E%9F%E5%9B%A0"><span class="nav-text">2. 问题原因</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E4%BB%A3%E7%A0%81"><span class="nav-text">2.1 代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="nav-text">3. 解决方法</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -220,12 +220,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="pycharm使用HTMLTestRunner不能生成测试报告解决方法 | 糖小豆">
+      <meta itemprop="name" content="pycharm 使用 HTMLTestRunner 不能生成测试报告解决方法 | 糖小豆">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          pycharm使用HTMLTestRunner不能生成测试报告解决方法
+          pycharm 使用 HTMLTestRunner 不能生成测试报告解决方法
         </h1>
 
         <div class="post-meta-container">
@@ -249,6 +249,43 @@
     </span>
 
   
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">评论数：</span>
+  
+    <a title="waline" href="/2019/08/13/pycharm%E4%BD%BF%E7%94%A8HTMLTestRunner%E4%B8%8D%E8%83%BD%E7%94%9F%E6%88%90%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2019/08/13/pycharm%E4%BD%BF%E7%94%A8HTMLTestRunner%E4%B8%8D%E8%83%BD%E7%94%9F%E6%88%90%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-item" title="阅读数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读数：</span>
+      <span class="waline-pageview-count" data-path="/2019/08/13/pycharm%E4%BD%BF%E7%94%A8HTMLTestRunner%E4%B8%8D%E8%83%BD%E7%94%9F%E6%88%90%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/"></span>
+    </span>
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>418</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
 </div>
 
         </div>
@@ -257,26 +294,26 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1.问题描述</h2><p>使用pycharm IDE使用unittest框架，代码执行完成且没有报错，没有在指定目录下生成测试报告。</p>
+    <div class="post-body" itemprop="articleBody"><h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>使用 pycharm IDE 使用 unittest 框架，代码执行完成且没有报错，没有在指定目录下生成测试报告。</p>
 <span id="more"></span>
 
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2.问题原因</h2><p>pyCharm会默认使用自带的框架如(unittest&#x2F;pytest)来执行单元测试，不会执行main函数中的代码，所以不生成测试报告。</p>
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>pyCharm 会默认使用自带的框架如 (unittest/pytest) 来执行单元测试，不会执行 main 函数中的代码，所以不生成测试报告。</p>
 <h3 id="2-1-代码"><a href="#2-1-代码" class="headerlink" title="2.1 代码"></a>2.1 代码</h3><p>test.py</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver	</span><br><span class="line"><span class="keyword">import</span> unittest</span><br><span class="line"><span class="keyword">from</span> HTMLTestRunner <span class="keyword">import</span> HTMLTestRunner</span><br><span class="line">	</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Baidu</span>(unittest.TestCase):</span><br><span class="line">	</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">setUp</span>(<span class="params">self</span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">        <span class="variable language_">self</span>.driver = webdriver.Chrome()</span><br><span class="line">        <span class="variable language_">self</span>.driver.implicitly_wait(<span class="number">10</span>)</span><br><span class="line">        <span class="variable language_">self</span>.base_url = <span class="string">&#x27;http://www.baidu.com&#x27;</span></span><br><span class="line">	</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">test_baidu_search</span>(<span class="params">self</span>):</span><br><span class="line">        driver = <span class="variable language_">self</span>.driver</span><br><span class="line">        driver.get(<span class="variable language_">self</span>.base_url)</span><br><span class="line">        driver.find_element_by_id(<span class="string">&quot;kw&quot;</span>).send_keys(<span class="string">&quot;HTMLTestRunner&quot;</span>)</span><br><span class="line">        driver.find_element_by_id(<span class="string">&quot;su&quot;</span>).click()</span><br><span class="line">	</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">tearDown</span>(<span class="params">self</span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">        <span class="variable language_">self</span>.driver.quit()</span><br><span class="line">	</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;test11111111&#x27;</span>)</span><br><span class="line">    testunit = unittest.TestSuite()</span><br><span class="line">    testunit.addTest(Baidu(<span class="string">&#x27;test_baidu_search&#x27;</span>))</span><br><span class="line">	</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;test22222222&#x27;</span>)</span><br><span class="line">    <span class="comment"># 定义报告存放路径</span></span><br><span class="line">    fp = <span class="built_in">open</span>(<span class="string">&#x27;./result.html&#x27;</span>, <span class="string">&#x27;wb&#x27;</span>)</span><br><span class="line">    <span class="comment"># 定义测试报告</span></span><br><span class="line">    runner = HTMLTestRunner(stream=fp, title=<span class="string">&#x27;百度搜索测试报告&#x27;</span>, description=<span class="string">&#x27;用例执行情况：&#x27;</span>)</span><br><span class="line">    <span class="comment"># 运行测试用例</span></span><br><span class="line">    runner.run(testunit)</span><br><span class="line">    <span class="comment"># 关闭报告文件</span></span><br><span class="line">    fp.close()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver	</span><br><span class="line"><span class="keyword">import</span> unittest</span><br><span class="line"><span class="keyword">from</span> HTMLTestRunner <span class="keyword">import</span> HTMLTestRunner</span><br><span class="line">	</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Baidu</span>(unittest.TestCase):</span><br><span class="line">	</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">setUp</span>(<span class="params">self</span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">        <span class="variable language_">self</span>.driver = webdriver.Chrome()</span><br><span class="line">        <span class="variable language_">self</span>.driver.implicitly_wait(<span class="number">10</span>)</span><br><span class="line">        <span class="variable language_">self</span>.base_url = <span class="string">'http://www.baidu.com'</span></span><br><span class="line">	</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">test_baidu_search</span>(<span class="params">self</span>):</span><br><span class="line">        driver = <span class="variable language_">self</span>.driver</span><br><span class="line">        driver.get(<span class="variable language_">self</span>.base_url)</span><br><span class="line">        driver.find_element_by_id(<span class="string">"kw"</span>).send_keys(<span class="string">"HTMLTestRunner"</span>)</span><br><span class="line">        driver.find_element_by_id(<span class="string">"su"</span>).click()</span><br><span class="line">	</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">tearDown</span>(<span class="params">self</span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">        <span class="variable language_">self</span>.driver.quit()</span><br><span class="line">	</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'test11111111'</span>)</span><br><span class="line">    testunit = unittest.TestSuite()</span><br><span class="line">    testunit.addTest(Baidu(<span class="string">'test_baidu_search'</span>))</span><br><span class="line">	</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'test22222222'</span>)</span><br><span class="line">    <span class="comment"># 定义报告存放路径</span></span><br><span class="line">    fp = <span class="built_in">open</span>(<span class="string">'./result.html'</span>, <span class="string">'wb'</span>)</span><br><span class="line">    <span class="comment"># 定义测试报告</span></span><br><span class="line">    runner = HTMLTestRunner(stream=fp, title=<span class="string">'百度搜索测试报告'</span>, description=<span class="string">'用例执行情况：'</span>)</span><br><span class="line">    <span class="comment"># 运行测试用例</span></span><br><span class="line">    runner.run(testunit)</span><br><span class="line">    <span class="comment"># 关闭报告文件</span></span><br><span class="line">    fp.close()</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
 
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3.解决方法</h2><p>使用普通模式执行该单元测试，切换普通模式方法如下：</p>
-<p>3.1 点击pycharm右上角的“Uittests in test_baidu.py”下拉框，选择“Edit Configuration”</p>
-
-
-<p>3.2 点击“+”按钮，在下拉菜单中选择“Python”选项</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>使用普通模式执行该单元测试，切换普通模式方法如下：</p>
+<p>3.1 点击 pycharm 右上角的 “Uittests in test_baidu.py” 下拉框，选择 “Edit Configuration”</p>
 
 
-<p>3.3 点击“Script Path”后的选择路径按钮，选择该文件的存储路径</p>
+<p>3.2 点击 “+” 按钮，在下拉菜单中选择 “Python” 选项</p>
+
+
+<p>3.3 点击 “Script Path” 后的选择路径按钮，选择该文件的存储路径</p>
 
 
 
 
-<p>3.4 在Unittest框架下选择该文件，然后点击“-”按钮，删除该文件</p>
+<p>3.4 在 Unittest 框架下选择该文件，然后点击 “-” 按钮，删除该文件</p>
 
 
 <p>3.5 然后重新执行该源代码即可在指定目录下生成测试报告</p>
@@ -285,8 +322,8 @@
 <p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2019-08-15_16-15-26-20240429121041426.png"></p>
 
 
-<p>4.相关参考</p>
-<p>4.1 代码来源于书《selenium2自动化测试实战基于Python语言》—虫师<br>4.2 参考于该<a target="_blank" rel="noopener" href="https://blog.csdn.net/alchaochao/article/details/79630830">CSDN博客</a></p>
+<p>4. 相关参考</p>
+<p>4.1 代码来源于书《selenium2 自动化测试实战基于 Python 语言》— 虫师<br>4.2 参考于该 <a target="_blank" rel="noopener" href="https://blog.csdn.net/alchaochao/article/details/79630830">CSDN 博客</a></p>
 
     </div>
 
@@ -322,7 +359,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://www.tangxdou.com/2019/08/13/pycharm%E4%BD%BF%E7%94%A8HTMLTestRunner%E4%B8%8D%E8%83%BD%E7%94%9F%E6%88%90%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" title="pycharm使用HTMLTestRunner不能生成测试报告解决方法">https://www.tangxdou.com/2019/08/13/pycharm使用HTMLTestRunner不能生成测试报告解决方法/</a>
+      <a href="https://www.tangxdou.com/2019/08/13/pycharm%E4%BD%BF%E7%94%A8HTMLTestRunner%E4%B8%8D%E8%83%BD%E7%94%9F%E6%88%90%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" title="pycharm 使用 HTMLTestRunner 不能生成测试报告解决方法">https://www.tangxdou.com/2019/08/13/pycharm使用HTMLTestRunner不能生成测试报告解决方法/</a>
   </li>
   <li class="post-copyright-license">
       <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -345,8 +382,8 @@
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2019/08/14/hexo%E7%AC%AC%E4%B8%80%E6%AC%A1%E9%83%A8%E7%BD%B2%E7%BD%91%E9%A1%B5%E6%98%BE%E7%A4%BA404/" rel="next" title="使用hexo搭建GitHub Page博客后，网页显示404的问题解决">
-                  使用hexo搭建GitHub Page博客后，网页显示404的问题解决 <i class="fa fa-angle-right"></i>
+                <a href="/2019/08/14/hexo%E7%AC%AC%E4%B8%80%E6%AC%A1%E9%83%A8%E7%BD%B2%E7%BD%91%E9%A1%B5%E6%98%BE%E7%A4%BA404/" rel="next" title="使用 hexo 搭建 GitHub Page 博客后，网页显示 404 的问题解决">
+                  使用 hexo 搭建 GitHub Page 博客后，网页显示 404 的问题解决 <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
@@ -359,6 +396,7 @@
 
 
 
+    <div class="comments" id="waline"></div>
 </div>
   </main>
 
@@ -376,6 +414,20 @@
     </span>
     <span class="author" itemprop="copyrightHolder">糖小豆</span>
   </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">20k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:13</span>
+  </span>
+</div>
 
     </div>
   </footer>
@@ -418,6 +470,17 @@
 
 
 
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"waline.tangxdou.com","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":true,"locale":{"placeholder":"无需登录·请留下邮箱以接收回复·来说两句吧~"},"highlighter":"WalineHighlighter","avatar":"mm","meta":["nick","mail"],"pageSize":10,"visitor":false,"comment_count":false,"requiredFields":["nick"],"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","login":"enable","dark":"auto","reaction":false,"el":"#waline","comment":true,"path":"/2019/08/13/pycharm%E4%BD%BF%E7%94%A8HTMLTestRunner%E4%B8%8D%E8%83%BD%E7%94%9F%E6%88%90%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/"}</script>
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => 
+    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
+  );
+});
+</script>
 
 
   <!-- 页面点击小红心 -->

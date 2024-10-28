@@ -21,12 +21,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.tangxdou.com","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="1.问题描述每次用到MySQL 关于时间的计算，都跑不了DATE_ADD函数，每次都得查，特此记录下，下次用时直接看。">
+    <meta name="description" content="1. 问题描述每次用到 MySQL 关于时间的计算，都跑不了 DATE_ADD 函数，每次都得查，特此记录下，下次用时直接看。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MySQL中的DATE_ADD函数基本使用">
+<meta property="og:title" content="MySQL 中的 DATE_ADD 函数基本使用">
 <meta property="og:url" content="https://www.tangxdou.com/2024/06/13/MySQL%E4%B8%AD%E7%9A%84DATE-ADD%E5%87%BD%E6%95%B0%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/index.html">
 <meta property="og:site_name" content="糖小豆">
-<meta property="og:description" content="1.问题描述每次用到MySQL 关于时间的计算，都跑不了DATE_ADD函数，每次都得查，特此记录下，下次用时直接看。">
+<meta property="og:description" content="1. 问题描述每次用到 MySQL 关于时间的计算，都跑不了 DATE_ADD 函数，每次都得查，特此记录下，下次用时直接看。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-06-13T08:40:58.000Z">
 <meta property="article:modified_time" content="2024-06-14T08:11:43.000Z">
@@ -39,10 +39,10 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.tangxdou.com/2024/06/13/MySQL%E4%B8%AD%E7%9A%84DATE-ADD%E5%87%BD%E6%95%B0%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/","path":"2024/06/13/MySQL中的DATE-ADD函数基本使用/","title":"MySQL中的DATE_ADD函数基本使用"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.tangxdou.com/2024/06/13/MySQL%E4%B8%AD%E7%9A%84DATE-ADD%E5%87%BD%E6%95%B0%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/","path":"2024/06/13/MySQL中的DATE-ADD函数基本使用/","title":"MySQL 中的 DATE_ADD 函数基本使用"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>MySQL中的DATE_ADD函数基本使用 | 糖小豆</title>
+<title>MySQL 中的 DATE_ADD 函数基本使用 | 糖小豆</title>
   
 
 
@@ -51,7 +51,7 @@
 
 
 
-
+<link rel="dns-prefetch" href="waline.tangxdou.com">
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -141,7 +141,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="nav-text">1.问题描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="nav-text">2.基本语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%B8%B8%E7%94%A8%E4%BE%8B%E5%AD%90"><span class="nav-text">3.常用例子</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="nav-text">1. 问题描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="nav-text">2. 基本语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%B8%B8%E7%94%A8%E4%BE%8B%E5%AD%90"><span class="nav-text">3. 常用例子</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -215,12 +215,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="MySQL中的DATE_ADD函数基本使用 | 糖小豆">
+      <meta itemprop="name" content="MySQL 中的 DATE_ADD 函数基本使用 | 糖小豆">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          MySQL中的DATE_ADD函数基本使用
+          MySQL 中的 DATE_ADD 函数基本使用
         </h1>
 
         <div class="post-meta-container">
@@ -244,6 +244,43 @@
     </span>
 
   
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">评论数：</span>
+  
+    <a title="waline" href="/2024/06/13/MySQL%E4%B8%AD%E7%9A%84DATE-ADD%E5%87%BD%E6%95%B0%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2024/06/13/MySQL%E4%B8%AD%E7%9A%84DATE-ADD%E5%87%BD%E6%95%B0%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-item" title="阅读数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读数：</span>
+      <span class="waline-pageview-count" data-path="/2024/06/13/MySQL%E4%B8%AD%E7%9A%84DATE-ADD%E5%87%BD%E6%95%B0%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/"></span>
+    </span>
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>395</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
 </div>
 
         </div>
@@ -252,17 +289,17 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1.问题描述</h2><p>每次用到MySQL 关于时间的计算，都跑不了<code>DATE_ADD</code>函数，每次都得查，特此记录下，下次用时直接看。</p>
+    <div class="post-body" itemprop="articleBody"><h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>每次用到 MySQL 关于时间的计算，都跑不了 <code>DATE_ADD</code> 函数，每次都得查，特此记录下，下次用时直接看。</p>
 <span id="more"></span>
 
 <p>MySQL 中的 <code>DATE_ADD()</code> 函数用于将一个时间间隔加到一个日期或时间值上。这个函数非常有用，特别是当你需要计算未来的日期或时间点时。</p>
-<h2 id="2-基本语法"><a href="#2-基本语法" class="headerlink" title="2.基本语法"></a>2.基本语法</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DATE_ADD(<span class="type">date</span>, <span class="type">INTERVAL</span> <span class="keyword">value</span> unit)</span><br></pre></td></tr></table></figure>
+<h2 id="2-基本语法"><a href="#2-基本语法" class="headerlink" title="2.基本语法"></a>2. 基本语法</h2><figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DATE_ADD(<span class="type">date</span>, <span class="type">INTERVAL</span> <span class="keyword">value</span> unit)</span><br></pre></td></tr></tbody></table></figure>
 
 <ul>
 <li><code>date</code> 是你想要添加时间间隔的原始日期或时间值。</li>
 <li><code>INTERVAL</code> 关键字指定了要添加的时间间隔。</li>
 <li><code>value</code> 是时间间隔的数量。</li>
-<li><code>unit</code>是时间间隔的单位，可以是以下几种之一：<ul>
+<li><code>unit</code> 是时间间隔的单位，可以是以下几种之一：<ul>
 <li><code>MICROSECOND</code>（微秒）</li>
 <li><code>SECOND</code>（秒）</li>
 <li><code>MINUTE</code>（分钟）</li>
@@ -283,20 +320,20 @@
 </ul>
 </li>
 </ul>
-<h2 id="3-常用例子"><a href="#3-常用例子" class="headerlink" title="3.常用例子"></a>3.常用例子</h2><p>（1）<strong>添加天数</strong>：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> DATE_ADD(<span class="string">&#x27;2024-06-12&#x27;</span>, <span class="type">INTERVAL</span> <span class="number">10</span> <span class="keyword">DAY</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="3-常用例子"><a href="#3-常用例子" class="headerlink" title="3.常用例子"></a>3. 常用例子</h2><p>（1）<strong>添加天数</strong>：</p>
+<figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> DATE_ADD(<span class="string">'2024-06-12'</span>, <span class="type">INTERVAL</span> <span class="number">10</span> <span class="keyword">DAY</span>);</span><br></pre></td></tr></tbody></table></figure>
 
 <p>（2）<strong>添加小时</strong>：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> DATE_ADD(<span class="string">&#x27;2024-06-12 14:30:00&#x27;</span>, <span class="type">INTERVAL</span> <span class="number">2</span> <span class="keyword">HOUR</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> DATE_ADD(<span class="string">'2024-06-12 14:30:00'</span>, <span class="type">INTERVAL</span> <span class="number">2</span> <span class="keyword">HOUR</span>);</span><br></pre></td></tr></tbody></table></figure>
 
 <p>（3）<strong>添加分钟和秒</strong>：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> DATE_ADD(<span class="string">&#x27;2024-06-12 14:30:00&#x27;</span>, <span class="type">INTERVAL</span> <span class="number">30</span> <span class="keyword">MINUTE</span>);</span><br><span class="line"><span class="keyword">SELECT</span> DATE_ADD(<span class="string">&#x27;2024-06-12 14:30:00&#x27;</span>, <span class="type">INTERVAL</span> <span class="number">5</span> <span class="keyword">SECOND</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> DATE_ADD(<span class="string">'2024-06-12 14:30:00'</span>, <span class="type">INTERVAL</span> <span class="number">30</span> <span class="keyword">MINUTE</span>);</span><br><span class="line"><span class="keyword">SELECT</span> DATE_ADD(<span class="string">'2024-06-12 14:30:00'</span>, <span class="type">INTERVAL</span> <span class="number">5</span> <span class="keyword">SECOND</span>);</span><br></pre></td></tr></tbody></table></figure>
 
 <p>（4）<strong>添加年和月</strong>：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> DATE_ADD(<span class="string">&#x27;2024-06-12&#x27;</span>, <span class="type">INTERVAL</span> <span class="number">1</span> <span class="keyword">YEAR</span>);</span><br><span class="line"><span class="keyword">SELECT</span> DATE_ADD(<span class="string">&#x27;2024-06-12&#x27;</span>, <span class="type">INTERVAL</span> <span class="number">3</span> <span class="keyword">MONTH</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> DATE_ADD(<span class="string">'2024-06-12'</span>, <span class="type">INTERVAL</span> <span class="number">1</span> <span class="keyword">YEAR</span>);</span><br><span class="line"><span class="keyword">SELECT</span> DATE_ADD(<span class="string">'2024-06-12'</span>, <span class="type">INTERVAL</span> <span class="number">3</span> <span class="keyword">MONTH</span>);</span><br></pre></td></tr></tbody></table></figure>
 
-<p>（5）<strong>添加复杂时间间隔</strong>（例如，1天3小时30分钟）：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> DATE_ADD(<span class="string">&#x27;2024-06-12&#x27;</span>, <span class="type">INTERVAL</span> <span class="number">1</span> <span class="keyword">DAY</span> <span class="number">3</span> <span class="keyword">HOUR</span> <span class="number">30</span> <span class="keyword">MINUTE</span>);</span><br></pre></td></tr></table></figure>
+<p>（5）<strong>添加复杂时间间隔</strong>（例如，1 天 3 小时 30 分钟）：</p>
+<figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> DATE_ADD(<span class="string">'2024-06-12'</span>, <span class="type">INTERVAL</span> <span class="number">1</span> <span class="keyword">DAY</span> <span class="number">3</span> <span class="keyword">HOUR</span> <span class="number">30</span> <span class="keyword">MINUTE</span>);</span><br></pre></td></tr></tbody></table></figure>
 
 <p>请注意，当使用 <code>DATE_ADD()</code> 函数时，结果的日期和时间格式将取决于你的 MySQL 服务器的设置，包括时区和日期时间格式。</p>
 
@@ -334,7 +371,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://www.tangxdou.com/2024/06/13/MySQL%E4%B8%AD%E7%9A%84DATE-ADD%E5%87%BD%E6%95%B0%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" title="MySQL中的DATE_ADD函数基本使用">https://www.tangxdou.com/2024/06/13/MySQL中的DATE-ADD函数基本使用/</a>
+      <a href="https://www.tangxdou.com/2024/06/13/MySQL%E4%B8%AD%E7%9A%84DATE-ADD%E5%87%BD%E6%95%B0%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" title="MySQL 中的 DATE_ADD 函数基本使用">https://www.tangxdou.com/2024/06/13/MySQL中的DATE-ADD函数基本使用/</a>
   </li>
   <li class="post-copyright-license">
       <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -350,13 +387,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2024/06/13/MySQL%E4%B8%AD%E7%9A%84DATE-FORMAT%E5%87%BD%E6%95%B0%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" rel="prev" title="MySQL中的DATE_FORMAT函数基本使用">
-                  <i class="fa fa-angle-left"></i> MySQL中的DATE_FORMAT函数基本使用
+                <a href="/2024/06/13/MySQL%E4%B8%AD%E7%9A%84DATE-FORMAT%E5%87%BD%E6%95%B0%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" rel="prev" title="MySQL 中的 DATE_FORMAT 函数基本使用">
+                  <i class="fa fa-angle-left"></i> MySQL 中的 DATE_FORMAT 函数基本使用
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2024/06/14/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%AAmysql%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B%E6%A8%A1%E6%9D%BF/" rel="next" title="记录一个mysql存储过程模板">
-                  记录一个mysql存储过程模板 <i class="fa fa-angle-right"></i>
+                <a href="/2024/06/14/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%AAmysql%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B%E6%A8%A1%E6%9D%BF/" rel="next" title="记录一个 mysql 存储过程模板">
+                  记录一个 mysql 存储过程模板 <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
@@ -369,6 +406,7 @@
 
 
 
+    <div class="comments" id="waline"></div>
 </div>
   </main>
 
@@ -386,6 +424,20 @@
     </span>
     <span class="author" itemprop="copyrightHolder">糖小豆</span>
   </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">20k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:13</span>
+  </span>
+</div>
 
     </div>
   </footer>
@@ -428,6 +480,17 @@
 
 
 
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"waline.tangxdou.com","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":true,"locale":{"placeholder":"无需登录·请留下邮箱以接收回复·来说两句吧~"},"highlighter":"WalineHighlighter","avatar":"mm","meta":["nick","mail"],"pageSize":10,"visitor":false,"comment_count":false,"requiredFields":["nick"],"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","login":"enable","dark":"auto","reaction":false,"el":"#waline","comment":true,"path":"/2024/06/13/MySQL%E4%B8%AD%E7%9A%84DATE-ADD%E5%87%BD%E6%95%B0%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/"}</script>
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => 
+    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
+  );
+});
+</script>
 
 
   <!-- 页面点击小红心 -->

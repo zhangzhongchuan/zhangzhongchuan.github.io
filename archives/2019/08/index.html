@@ -48,7 +48,7 @@
 
 
 
-
+<link rel="dns-prefetch" href="waline.tangxdou.com">
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -237,7 +237,7 @@
 
       <div class="post-title">
         <a class="post-title-link" href="/2019/08/14/hexo%E7%AC%AC%E4%B8%80%E6%AC%A1%E9%83%A8%E7%BD%B2%E7%BD%91%E9%A1%B5%E6%98%BE%E7%A4%BA404/" itemprop="url">
-          <span itemprop="name">使用hexo搭建GitHub Page博客后，网页显示404的问题解决</span>
+          <span itemprop="name">使用 hexo 搭建 GitHub Page 博客后，网页显示 404 的问题解决</span>
         </a>
       </div>
 
@@ -257,7 +257,7 @@
 
       <div class="post-title">
         <a class="post-title-link" href="/2019/08/13/pycharm%E4%BD%BF%E7%94%A8HTMLTestRunner%E4%B8%8D%E8%83%BD%E7%94%9F%E6%88%90%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" itemprop="url">
-          <span itemprop="name">pycharm使用HTMLTestRunner不能生成测试报告解决方法</span>
+          <span itemprop="name">pycharm 使用 HTMLTestRunner 不能生成测试报告解决方法</span>
         </a>
       </div>
 
@@ -289,6 +289,20 @@
     </span>
     <span class="author" itemprop="copyrightHolder">糖小豆</span>
   </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">20k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:13</span>
+  </span>
+</div>
 
     </div>
   </footer>
@@ -331,6 +345,17 @@
 
 
 
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"waline.tangxdou.com","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":true,"locale":{"placeholder":"无需登录·请留下邮箱以接收回复·来说两句吧~"},"highlighter":"WalineHighlighter","avatar":"mm","meta":["nick","mail"],"pageSize":10,"visitor":false,"comment_count":false,"requiredFields":["nick"],"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","login":"enable","dark":"auto","reaction":false,"el":"#waline","comment":true,"path":"/archives/2019/08/"}</script>
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => 
+    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
+  );
+});
+</script>
 
 
   <!-- 页面点击小红心 -->

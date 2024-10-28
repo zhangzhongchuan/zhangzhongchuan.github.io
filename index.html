@@ -48,7 +48,7 @@
 
 
 
-
+<link rel="dns-prefetch" href="waline.tangxdou.com">
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -215,7 +215,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/10/13/%E8%A7%A3%E5%86%B3jmeter%E5%90%AF%E5%8A%A8%E6%97%B6%E6%8A%A5%E9%94%99Error-VM-optionUseG1GC%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">解决jmeter启动时报错Error VM option 'UseG1GC' is experimental问题</a>
+          <a href="/2024/10/13/%E8%A7%A3%E5%86%B3jmeter%E5%90%AF%E5%8A%A8%E6%97%B6%E6%8A%A5%E9%94%99Error-VM-optionUseG1GC%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">解决 jmeter 启动时报错 Error VM option 'UseG1GC' is experimental 问题</a>
         </h2>
 
         <div class="post-meta-container">
@@ -239,6 +239,43 @@
     </span>
 
   
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">评论数：</span>
+  
+    <a title="waline" href="/2024/10/13/%E8%A7%A3%E5%86%B3jmeter%E5%90%AF%E5%8A%A8%E6%97%B6%E6%8A%A5%E9%94%99Error-VM-optionUseG1GC%E9%97%AE%E9%A2%98/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2024/10/13/%E8%A7%A3%E5%86%B3jmeter%E5%90%AF%E5%8A%A8%E6%97%B6%E6%8A%A5%E9%94%99Error-VM-optionUseG1GC%E9%97%AE%E9%A2%98/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-item" title="阅读数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读数：</span>
+      <span class="waline-pageview-count" data-path="/2024/10/13/%E8%A7%A3%E5%86%B3jmeter%E5%90%AF%E5%8A%A8%E6%97%B6%E6%8A%A5%E9%94%99Error-VM-optionUseG1GC%E9%97%AE%E9%A2%98/"></span>
+    </span>
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>229</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
 </div>
 
         </div>
@@ -248,8 +285,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1.问题描述</h2><p>新电脑安装最新<code>jmeter-5.6.3</code> 时报错如下：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ /Users/user1/Jmeter/apache-jmeter-5.6.3/bin/jmeter ; <span class="built_in">exit</span>;</span><br><span class="line">Error: VM option <span class="string">&#x27;UseG1GC&#x27;</span> is experimental and must be enabled via -XX:+UnlockExperimentalVMOptions.</span><br><span class="line">Error: Could not create the Java Virtual Machine.</span><br><span class="line">Error: A fatal exception has occurred. Program will <span class="built_in">exit</span>.</span><br><span class="line"></span><br><span class="line">Saving session...completed.</span><br><span class="line"></span><br><span class="line">[进程已完成]</span><br></pre></td></tr></table></figure>
+          <h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>新电脑安装最新 <code>jmeter-5.6.3</code> 时报错如下：</p>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ /Users/user1/Jmeter/apache-jmeter-5.6.3/bin/jmeter ; <span class="built_in">exit</span>;</span><br><span class="line">Error: VM option <span class="string">'UseG1GC'</span> is experimental and must be enabled via -XX:+UnlockExperimentalVMOptions.</span><br><span class="line">Error: Could not create the Java Virtual Machine.</span><br><span class="line">Error: A fatal exception has occurred. Program will <span class="built_in">exit</span>.</span><br><span class="line"></span><br><span class="line">Saving session...completed.</span><br><span class="line"></span><br><span class="line">[进程已完成]</span><br></pre></td></tr></tbody></table></figure>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2024/10/13/%E8%A7%A3%E5%86%B3jmeter%E5%90%AF%E5%8A%A8%E6%97%B6%E6%8A%A5%E9%94%99Error-VM-optionUseG1GC%E9%97%AE%E9%A2%98/#more" rel="contents">
@@ -325,6 +362,43 @@
     </span>
 
   
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">评论数：</span>
+  
+    <a title="waline" href="/2024/10/08/%E7%BE%A4%E6%99%96%E6%9B%BF%E6%8D%A2%E5%BF%AB%E5%88%B0%E6%9C%9F%E8%AF%81%E4%B9%A6/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2024/10/08/%E7%BE%A4%E6%99%96%E6%9B%BF%E6%8D%A2%E5%BF%AB%E5%88%B0%E6%9C%9F%E8%AF%81%E4%B9%A6/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-item" title="阅读数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读数：</span>
+      <span class="waline-pageview-count" data-path="/2024/10/08/%E7%BE%A4%E6%99%96%E6%9B%BF%E6%8D%A2%E5%BF%AB%E5%88%B0%E6%9C%9F%E8%AF%81%E4%B9%A6/"></span>
+    </span>
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>153</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
 </div>
 
         </div>
@@ -334,7 +408,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1.问题描述</h2><p>由于免费的证书，现在有效期只有 3 个月，这意味着 1 年你要替换 4 次证书，记录一下，下次方便。</p>
+          <h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>由于免费的证书，现在有效期只有 3 个月，这意味着 1 年你要替换 4 次证书，记录一下，下次方便。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2024/10/08/%E7%BE%A4%E6%99%96%E6%9B%BF%E6%8D%A2%E5%BF%AB%E5%88%B0%E6%9C%9F%E8%AF%81%E4%B9%A6/#more" rel="contents">
@@ -386,7 +460,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/10/03/mumu%E6%A8%A1%E6%8B%9F%E5%99%A8pro%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E8%AF%81%E4%B9%A6/" class="post-title-link" itemprop="url">mumu模拟器pro如何安装证书</a>
+          <a href="/2024/10/03/mumu%E6%A8%A1%E6%8B%9F%E5%99%A8pro%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E8%AF%81%E4%B9%A6/" class="post-title-link" itemprop="url">mumu 模拟器 pro 如何安装证书</a>
         </h2>
 
         <div class="post-meta-container">
@@ -410,6 +484,43 @@
     </span>
 
   
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">评论数：</span>
+  
+    <a title="waline" href="/2024/10/03/mumu%E6%A8%A1%E6%8B%9F%E5%99%A8pro%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E8%AF%81%E4%B9%A6/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2024/10/03/mumu%E6%A8%A1%E6%8B%9F%E5%99%A8pro%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E8%AF%81%E4%B9%A6/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-item" title="阅读数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读数：</span>
+      <span class="waline-pageview-count" data-path="/2024/10/03/mumu%E6%A8%A1%E6%8B%9F%E5%99%A8pro%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E8%AF%81%E4%B9%A6/"></span>
+    </span>
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>503</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
 </div>
 
         </div>
@@ -419,7 +530,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1.问题描述</h2><p><code>mumu模拟器pro</code> 和常规的 <code>Android</code> 真机的证书安装不同，官网给出了相关文档，现做下整理，确保下次可以直接对照这个文档装，下面用<code>Charles</code>例子，安装相关证书。</p>
+          <h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p><code>mumu模拟器pro</code> 和常规的 <code>Android</code> 真机的证书安装不同，官网给出了相关文档，现做下整理，确保下次可以直接对照这个文档装，下面用 <code>Charles</code> 例子，安装相关证书。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2024/10/03/mumu%E6%A8%A1%E6%8B%9F%E5%99%A8pro%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E8%AF%81%E4%B9%A6/#more" rel="contents">
@@ -471,7 +582,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/10/02/scrcpy%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">scrcpy的安装与使用</a>
+          <a href="/2024/10/02/scrcpy%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">scrcpy 的安装与使用</a>
         </h2>
 
         <div class="post-meta-container">
@@ -495,6 +606,43 @@
     </span>
 
   
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">评论数：</span>
+  
+    <a title="waline" href="/2024/10/02/scrcpy%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2024/10/02/scrcpy%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-item" title="阅读数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读数：</span>
+      <span class="waline-pageview-count" data-path="/2024/10/02/scrcpy%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/"></span>
+    </span>
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>821</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
 </div>
 
         </div>
@@ -504,7 +652,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="1-scrcpy简介"><a href="#1-scrcpy简介" class="headerlink" title="1.scrcpy简介"></a>1.scrcpy简介</h2><p>scacpy 是一个可以将Android设备投屏（电脑上可以操作）到电脑上的一个开源工具。</p>
+          <h2 id="1-scrcpy简介"><a href="#1-scrcpy简介" class="headerlink" title="1.scrcpy简介"></a>1.scrcpy 简介</h2><p>scacpy 是一个可以将 Android 设备投屏（电脑上可以操作）到电脑上的一个开源工具。</p>
 <p>神器官方的项目地址为：<a target="_blank" rel="noopener" href="https://github.com/Genymobile/scrcpy">https://github.com/Genymobile/scrcpy</a> </p>
 <p>无需 root 权限且支持多个平台，可以通过 USB 或者 WiFi 远程操作我们的 Adnroid 设备。</p>
           <!--noindex-->
@@ -558,7 +706,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/10/02/%E8%A7%A3%E5%86%B3mac%E4%B8%8A%E7%94%A8SourceTree%E5%85%8B%E9%9A%86git%E4%B8%8A%E7%9A%84%E9%A1%B9%E7%9B%AE%E6%97%B6%E9%95%BF%E6%97%B6%E9%97%B4clone%E4%B8%8D%E4%B8%8B%E7%9A%84%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">解决mac上用SourceTree克隆git上的项目时长时间clone不下的问题</a>
+          <a href="/2024/10/02/%E8%A7%A3%E5%86%B3mac%E4%B8%8A%E7%94%A8SourceTree%E5%85%8B%E9%9A%86git%E4%B8%8A%E7%9A%84%E9%A1%B9%E7%9B%AE%E6%97%B6%E9%95%BF%E6%97%B6%E9%97%B4clone%E4%B8%8D%E4%B8%8B%E7%9A%84%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">解决 mac 上用 SourceTree 克隆 git 上的项目时长时间 clone 不下的问题</a>
         </h2>
 
         <div class="post-meta-container">
@@ -582,6 +730,43 @@
     </span>
 
   
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">评论数：</span>
+  
+    <a title="waline" href="/2024/10/02/%E8%A7%A3%E5%86%B3mac%E4%B8%8A%E7%94%A8SourceTree%E5%85%8B%E9%9A%86git%E4%B8%8A%E7%9A%84%E9%A1%B9%E7%9B%AE%E6%97%B6%E9%95%BF%E6%97%B6%E9%97%B4clone%E4%B8%8D%E4%B8%8B%E7%9A%84%E9%97%AE%E9%A2%98/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2024/10/02/%E8%A7%A3%E5%86%B3mac%E4%B8%8A%E7%94%A8SourceTree%E5%85%8B%E9%9A%86git%E4%B8%8A%E7%9A%84%E9%A1%B9%E7%9B%AE%E6%97%B6%E9%95%BF%E6%97%B6%E9%97%B4clone%E4%B8%8D%E4%B8%8B%E7%9A%84%E9%97%AE%E9%A2%98/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-item" title="阅读数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读数：</span>
+      <span class="waline-pageview-count" data-path="/2024/10/02/%E8%A7%A3%E5%86%B3mac%E4%B8%8A%E7%94%A8SourceTree%E5%85%8B%E9%9A%86git%E4%B8%8A%E7%9A%84%E9%A1%B9%E7%9B%AE%E6%97%B6%E9%95%BF%E6%97%B6%E9%97%B4clone%E4%B8%8D%E4%B8%8B%E7%9A%84%E9%97%AE%E9%A2%98/"></span>
+    </span>
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>145</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
 </div>
 
         </div>
@@ -591,7 +776,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1.问题描述</h2><p>IOS 开发推荐了 <code>Sourcetree</code>,但是在 clone 时，发现进度条几乎满了，就是 clone 不下来。</p>
+          <h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>IOS 开发推荐了 <code>Sourcetree</code>, 但是在 clone 时，发现进度条几乎满了，就是 clone 不下来。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2024/10/02/%E8%A7%A3%E5%86%B3mac%E4%B8%8A%E7%94%A8SourceTree%E5%85%8B%E9%9A%86git%E4%B8%8A%E7%9A%84%E9%A1%B9%E7%9B%AE%E6%97%B6%E9%95%BF%E6%97%B6%E9%97%B4clone%E4%B8%8D%E4%B8%8B%E7%9A%84%E9%97%AE%E9%A2%98/#more" rel="contents">
@@ -643,7 +828,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/10/02/%E8%A7%A3%E5%86%B3%E4%BD%BF%E7%94%A8chrome-inspect-devices%E9%A1%B5%E9%9D%A2%E7%A9%BA%E7%99%BD%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">解决使用chrome-inspect-devices页面空白问题</a>
+          <a href="/2024/10/02/%E8%A7%A3%E5%86%B3%E4%BD%BF%E7%94%A8chrome-inspect-devices%E9%A1%B5%E9%9D%A2%E7%A9%BA%E7%99%BD%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">解决使用 chrome-inspect-devices 页面空白问题</a>
         </h2>
 
         <div class="post-meta-container">
@@ -667,6 +852,43 @@
     </span>
 
   
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">评论数：</span>
+  
+    <a title="waline" href="/2024/10/02/%E8%A7%A3%E5%86%B3%E4%BD%BF%E7%94%A8chrome-inspect-devices%E9%A1%B5%E9%9D%A2%E7%A9%BA%E7%99%BD%E9%97%AE%E9%A2%98/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2024/10/02/%E8%A7%A3%E5%86%B3%E4%BD%BF%E7%94%A8chrome-inspect-devices%E9%A1%B5%E9%9D%A2%E7%A9%BA%E7%99%BD%E9%97%AE%E9%A2%98/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-item" title="阅读数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读数：</span>
+      <span class="waline-pageview-count" data-path="/2024/10/02/%E8%A7%A3%E5%86%B3%E4%BD%BF%E7%94%A8chrome-inspect-devices%E9%A1%B5%E9%9D%A2%E7%A9%BA%E7%99%BD%E9%97%AE%E9%A2%98/"></span>
+    </span>
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>68</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
 </div>
 
         </div>
@@ -676,7 +898,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1.问题描述</h2><p>在使用chrome:&#x2F;&#x2F;inspect&#x2F;#devices，页面空白</p>
+          <h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在使用 chrome://inspect/#devices，页面空白</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2024/10/02/%E8%A7%A3%E5%86%B3%E4%BD%BF%E7%94%A8chrome-inspect-devices%E9%A1%B5%E9%9D%A2%E7%A9%BA%E7%99%BD%E9%97%AE%E9%A2%98/#more" rel="contents">
@@ -728,7 +950,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/10/02/DataGrip%E7%9A%84%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">DataGrip的使用</a>
+          <a href="/2024/10/02/DataGrip%E7%9A%84%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">DataGrip 的使用</a>
         </h2>
 
         <div class="post-meta-container">
@@ -752,6 +974,43 @@
     </span>
 
   
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">评论数：</span>
+  
+    <a title="waline" href="/2024/10/02/DataGrip%E7%9A%84%E4%BD%BF%E7%94%A8/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2024/10/02/DataGrip%E7%9A%84%E4%BD%BF%E7%94%A8/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-item" title="阅读数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读数：</span>
+      <span class="waline-pageview-count" data-path="/2024/10/02/DataGrip%E7%9A%84%E4%BD%BF%E7%94%A8/"></span>
+    </span>
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>88</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
 </div>
 
         </div>
@@ -761,8 +1020,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="1-“多光标”模式"><a href="#1-“多光标”模式" class="headerlink" title="1.“多光标”模式"></a>1.“多光标”模式</h2><ul>
-<li><code>Alt</code> + <code>Shift</code> + <code>鼠标左键</code>即可出现多光标，按 <code>Esc</code>或者鼠标左键点任意位置退出<code>多光标模式</code></li>
+          <h2 id="1-“多光标”模式"><a href="#1-“多光标”模式" class="headerlink" title="1.“多光标”模式"></a>1.“多光标” 模式</h2><ul>
+<li><code>Alt</code> + <code>Shift</code> + <code>鼠标左键</code>即可出现多光标，按 <code>Esc</code> 或者鼠标左键点任意位置退出<code>多光标模式</code></li>
 </ul>
 <p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410021346052.gif" alt="datagrip多光标模式"></p>
           <!--noindex-->
@@ -816,7 +1075,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/10/02/%E8%A7%A3%E5%86%B3mac%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E6%8A%A5%E9%94%99-%E6%96%87%E4%BB%B6%E5%B7%B2%E6%8D%9F%E5%9D%8F/" class="post-title-link" itemprop="url">解决mac系统安装软件报错-文件已损坏</a>
+          <a href="/2024/10/02/%E8%A7%A3%E5%86%B3mac%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E6%8A%A5%E9%94%99-%E6%96%87%E4%BB%B6%E5%B7%B2%E6%8D%9F%E5%9D%8F/" class="post-title-link" itemprop="url">解决 mac 系统安装软件报错 - 文件已损坏</a>
         </h2>
 
         <div class="post-meta-container">
@@ -840,6 +1099,43 @@
     </span>
 
   
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">评论数：</span>
+  
+    <a title="waline" href="/2024/10/02/%E8%A7%A3%E5%86%B3mac%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E6%8A%A5%E9%94%99-%E6%96%87%E4%BB%B6%E5%B7%B2%E6%8D%9F%E5%9D%8F/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2024/10/02/%E8%A7%A3%E5%86%B3mac%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E6%8A%A5%E9%94%99-%E6%96%87%E4%BB%B6%E5%B7%B2%E6%8D%9F%E5%9D%8F/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-item" title="阅读数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读数：</span>
+      <span class="waline-pageview-count" data-path="/2024/10/02/%E8%A7%A3%E5%86%B3mac%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E6%8A%A5%E9%94%99-%E6%96%87%E4%BB%B6%E5%B7%B2%E6%8D%9F%E5%9D%8F/"></span>
+    </span>
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>435</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
 </div>
 
         </div>
@@ -849,7 +1145,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1.问题描述</h2><p>在 macos 上安装app 时提示，“文件已损坏，您应该将它移到废纸篓”。</p>
+          <h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在 macos 上安装 app 时提示，“文件已损坏，您应该将它移到废纸篓”。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2024/10/02/%E8%A7%A3%E5%86%B3mac%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E6%8A%A5%E9%94%99-%E6%96%87%E4%BB%B6%E5%B7%B2%E6%8D%9F%E5%9D%8F/#more" rel="contents">
@@ -901,7 +1197,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/10/01/hexo%E8%BF%81%E7%A7%BBmac%E5%88%B0mac/" class="post-title-link" itemprop="url">hexo迁移|mac到mac</a>
+          <a href="/2024/10/01/hexo%E8%BF%81%E7%A7%BBmac%E5%88%B0mac/" class="post-title-link" itemprop="url">hexo 迁移 | mac 到 mac</a>
         </h2>
 
         <div class="post-meta-container">
@@ -925,6 +1221,43 @@
     </span>
 
   
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">评论数：</span>
+  
+    <a title="waline" href="/2024/10/01/hexo%E8%BF%81%E7%A7%BBmac%E5%88%B0mac/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2024/10/01/hexo%E8%BF%81%E7%A7%BBmac%E5%88%B0mac/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-item" title="阅读数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读数：</span>
+      <span class="waline-pageview-count" data-path="/2024/10/01/hexo%E8%BF%81%E7%A7%BBmac%E5%88%B0mac/"></span>
+    </span>
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>356</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
 </div>
 
         </div>
@@ -934,7 +1267,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1.问题描述</h2><p>换了台新的 mac 机器，因为常用，所以将 hexo 迁移一下。</p>
+          <h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>换了台新的 mac 机器，因为常用，所以将 hexo 迁移一下。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2024/10/01/hexo%E8%BF%81%E7%A7%BBmac%E5%88%B0mac/#more" rel="contents">
@@ -1010,6 +1343,43 @@
     </span>
 
   
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">评论数：</span>
+  
+    <a title="waline" href="/2024/10/01/%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2024/10/01/%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-item" title="阅读数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读数：</span>
+      <span class="waline-pageview-count" data-path="/2024/10/01/%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/"></span>
+    </span>
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>426</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
 </div>
 
         </div>
@@ -1019,7 +1389,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="1-回顾面试流程"><a href="#1-回顾面试流程" class="headerlink" title="1.回顾面试流程"></a>1.<strong>回顾面试流程</strong></h2><p>①一面 8 月 10 日，测试主管面试。</p>
+          <h2 id="1-回顾面试流程"><a href="#1-回顾面试流程" class="headerlink" title="1.回顾面试流程"></a>1. <strong>回顾面试流程</strong></h2><p>①一面 8 月 10 日，测试主管面试。</p>
 <p>②二面 8 月 13 日，应该是技术总监面试。</p>
 <p>③三面 8 月 14 日，CEO 面试。</p>
           <!--noindex-->
@@ -1068,6 +1438,20 @@
     </span>
     <span class="author" itemprop="copyrightHolder">糖小豆</span>
   </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">20k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:13</span>
+  </span>
+</div>
 
     </div>
   </footer>
@@ -1110,6 +1494,17 @@
 
 
 
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"waline.tangxdou.com","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":true,"locale":{"placeholder":"无需登录·请留下邮箱以接收回复·来说两句吧~"},"highlighter":"WalineHighlighter","avatar":"mm","meta":["nick","mail"],"pageSize":10,"visitor":false,"comment_count":false,"requiredFields":["nick"],"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","login":"enable","dark":"auto","reaction":false,"el":"#waline","comment":true,"path":"/"}</script>
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => 
+    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
+  );
+});
+</script>
 
 
   <!-- 页面点击小红心 -->

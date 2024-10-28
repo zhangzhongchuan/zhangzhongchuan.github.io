@@ -21,12 +21,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.tangxdou.com","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="1.问题描述mumu模拟器pro 和常规的 Android 真机的证书安装不同，官网给出了相关文档，现做下整理，确保下次可以直接对照这个文档装，下面用Charles例子，安装相关证书。">
+    <meta name="description" content="1. 问题描述mumu模拟器pro 和常规的 Android 真机的证书安装不同，官网给出了相关文档，现做下整理，确保下次可以直接对照这个文档装，下面用 Charles 例子，安装相关证书。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="mumu模拟器pro如何安装证书">
+<meta property="og:title" content="mumu 模拟器 pro 如何安装证书">
 <meta property="og:url" content="https://www.tangxdou.com/2024/10/03/mumu%E6%A8%A1%E6%8B%9F%E5%99%A8pro%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E8%AF%81%E4%B9%A6/index.html">
 <meta property="og:site_name" content="糖小豆">
-<meta property="og:description" content="1.问题描述mumu模拟器pro 和常规的 Android 真机的证书安装不同，官网给出了相关文档，现做下整理，确保下次可以直接对照这个文档装，下面用Charles例子，安装相关证书。">
+<meta property="og:description" content="1. 问题描述mumu模拟器pro 和常规的 Android 真机的证书安装不同，官网给出了相关文档，现做下整理，确保下次可以直接对照这个文档装，下面用 Charles 例子，安装相关证书。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410032026344.png">
 <meta property="og:image" content="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410032034923.gif">
@@ -50,10 +50,10 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.tangxdou.com/2024/10/03/mumu%E6%A8%A1%E6%8B%9F%E5%99%A8pro%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E8%AF%81%E4%B9%A6/","path":"2024/10/03/mumu模拟器pro如何安装证书/","title":"mumu模拟器pro如何安装证书"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.tangxdou.com/2024/10/03/mumu%E6%A8%A1%E6%8B%9F%E5%99%A8pro%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E8%AF%81%E4%B9%A6/","path":"2024/10/03/mumu模拟器pro如何安装证书/","title":"mumu 模拟器 pro 如何安装证书"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>mumu模拟器pro如何安装证书 | 糖小豆</title>
+<title>mumu 模拟器 pro 如何安装证书 | 糖小豆</title>
   
 
 
@@ -62,7 +62,7 @@
 
 
 
-
+<link rel="dns-prefetch" href="waline.tangxdou.com">
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -152,7 +152,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="nav-text">1.问题描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%AE%89%E8%A3%85%E8%AF%81%E4%B9%A6%E6%93%8D%E4%BD%9C%E6%AD%A5%E9%AA%A4"><span class="nav-text">2.安装证书操作步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%881%EF%BC%89%E4%BB%8E%E6%8A%93%E5%8C%85%E8%BD%AF%E4%BB%B6%E4%B8%AD%E4%B8%8B%E8%BD%BD%E8%AF%81%E4%B9%A6"><span class="nav-text">（1）从抓包软件中下载证书</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%882%EF%BC%89%E5%BC%80%E5%90%AF%E5%8F%AF%E8%AF%BB%E5%86%99%E7%A3%81%E7%9B%98%E5%92%8C%E5%BC%80%E5%90%AF%E6%89%8B%E6%9C%BA-Root%E6%9D%83%E9%99%90"><span class="nav-text">（2）开启可读写磁盘和开启手机 Root权限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%883%EF%BC%89%E5%BC%80%E5%90%AF%E6%A8%A1%E6%8B%9F%E5%99%A8ADB"><span class="nav-text">（3）开启模拟器ADB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%884%EF%BC%89%E9%80%9A%E8%BF%87%E5%91%BD%E4%BB%A4%E8%AE%A1%E7%AE%97%E5%87%BA%E4%B8%80%E4%B8%AA%E5%93%88%E5%B8%8C%E5%80%BC"><span class="nav-text">（4）通过命令计算出一个哈希值</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%91%A0%E5%9C%A8%E5%88%9A%E6%89%8D%E5%BC%B9%E5%87%BA%E7%9A%84%E7%BB%88%E7%AB%AF%E4%B8%AD%E8%BE%93%E5%85%A5"><span class="nav-text">①在刚才弹出的终端中输入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%91%A1%E9%80%9A%E8%BF%87%E5%91%BD%E4%BB%A4%E8%AE%A1%E7%AE%97%E5%87%BA%E4%B8%80%E4%B8%AA%E5%93%88%E5%B8%8C%E5%80%BC"><span class="nav-text">②通过命令计算出一个哈希值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%91%A2%E5%B0%86charles-ssl-proxying-certificate-pem%E6%9B%B4%E5%90%8D%E4%B8%BA-81732dfc-0%EF%BC%88%E6%B3%A8%E6%84%8F%E7%AE%97%E5%87%BA%E5%95%A5%EF%BC%8C%E5%B0%B1%E6%94%B9%E6%88%90%E5%95%A5%EF%BC%89"><span class="nav-text">③将charles-ssl-proxying-certificate.pem更名为 81732dfc.0（注意算出啥，就改成啥）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%885%EF%BC%89%E5%B0%86%E8%BF%99%E4%B8%AA%E6%89%A9%E5%B1%95%E5%90%8D%E4%B8%BA-0-%E7%9A%84%E8%AF%81%E4%B9%A6%E5%A4%8D%E5%88%B6%E5%88%B0-system-etc-security-cacerts%E7%9B%AE%E5%BD%95%E4%B8%8B"><span class="nav-text">（5）将这个扩展名为 0 的证书复制到&#x2F;system&#x2F;etc&#x2F;security&#x2F;cacerts目录下</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%886%EF%BC%89%E5%AE%89%E8%A3%85%E8%AF%81%E4%B9%A6"><span class="nav-text">（6）安装证书</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E6%B5%8B%E8%AF%95%E6%8A%93%E5%8C%85"><span class="nav-text">3.测试抓包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%881%EF%BC%89Charles%E2%9E%A1%EF%B8%8FProxy%E2%9E%A1%EF%B8%8FSSL-Proxying-Settings-%E2%9E%A1%EF%B8%8Fadd"><span class="nav-text">（1）Charles➡️Proxy➡️SSL Proxying Settings...➡️add</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%882%EF%BC%89Host-Port"><span class="nav-text">（2）Host: * Port: *</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%883%EF%BC%89%E5%9C%A8%E6%A8%A1%E6%8B%9F%E5%99%A8%E4%B8%AD%E7%9A%84%E7%BD%91%E7%BB%9C%E8%AE%BE%E7%BD%AE"><span class="nav-text">（3）在模拟器中的网络设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%884%EF%BC%89Little-Snitch%E8%AE%BE%E7%BD%AE"><span class="nav-text">（4）Little Snitch设置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E7%9B%B8%E5%85%B3%E5%8F%82%E8%80%83"><span class="nav-text">4.相关参考</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="nav-text">1. 问题描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%AE%89%E8%A3%85%E8%AF%81%E4%B9%A6%E6%93%8D%E4%BD%9C%E6%AD%A5%E9%AA%A4"><span class="nav-text">2. 安装证书操作步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%881%EF%BC%89%E4%BB%8E%E6%8A%93%E5%8C%85%E8%BD%AF%E4%BB%B6%E4%B8%AD%E4%B8%8B%E8%BD%BD%E8%AF%81%E4%B9%A6"><span class="nav-text">（1）从抓包软件中下载证书</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%882%EF%BC%89%E5%BC%80%E5%90%AF%E5%8F%AF%E8%AF%BB%E5%86%99%E7%A3%81%E7%9B%98%E5%92%8C%E5%BC%80%E5%90%AF%E6%89%8B%E6%9C%BA-Root%E6%9D%83%E9%99%90"><span class="nav-text">（2）开启可读写磁盘和开启手机 Root权限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%883%EF%BC%89%E5%BC%80%E5%90%AF%E6%A8%A1%E6%8B%9F%E5%99%A8ADB"><span class="nav-text">（3）开启模拟器 ADB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%884%EF%BC%89%E9%80%9A%E8%BF%87%E5%91%BD%E4%BB%A4%E8%AE%A1%E7%AE%97%E5%87%BA%E4%B8%80%E4%B8%AA%E5%93%88%E5%B8%8C%E5%80%BC"><span class="nav-text">（4）通过命令计算出一个哈希值</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%91%A0%E5%9C%A8%E5%88%9A%E6%89%8D%E5%BC%B9%E5%87%BA%E7%9A%84%E7%BB%88%E7%AB%AF%E4%B8%AD%E8%BE%93%E5%85%A5"><span class="nav-text">①在刚才弹出的终端中输入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%91%A1%E9%80%9A%E8%BF%87%E5%91%BD%E4%BB%A4%E8%AE%A1%E7%AE%97%E5%87%BA%E4%B8%80%E4%B8%AA%E5%93%88%E5%B8%8C%E5%80%BC"><span class="nav-text">②通过命令计算出一个哈希值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%91%A2%E5%B0%86charles-ssl-proxying-certificate-pem%E6%9B%B4%E5%90%8D%E4%B8%BA-81732dfc-0%EF%BC%88%E6%B3%A8%E6%84%8F%E7%AE%97%E5%87%BA%E5%95%A5%EF%BC%8C%E5%B0%B1%E6%94%B9%E6%88%90%E5%95%A5%EF%BC%89"><span class="nav-text">③将 charles-ssl-proxying-certificate.pem 更名为 81732dfc.0（注意算出啥，就改成啥）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%885%EF%BC%89%E5%B0%86%E8%BF%99%E4%B8%AA%E6%89%A9%E5%B1%95%E5%90%8D%E4%B8%BA-0-%E7%9A%84%E8%AF%81%E4%B9%A6%E5%A4%8D%E5%88%B6%E5%88%B0-system-etc-security-cacerts%E7%9B%AE%E5%BD%95%E4%B8%8B"><span class="nav-text">（5）将这个扩展名为 0 的证书复制到 &#x2F;system&#x2F;etc&#x2F;security&#x2F;cacerts 目录下</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%886%EF%BC%89%E5%AE%89%E8%A3%85%E8%AF%81%E4%B9%A6"><span class="nav-text">（6）安装证书</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E6%B5%8B%E8%AF%95%E6%8A%93%E5%8C%85"><span class="nav-text">3. 测试抓包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%881%EF%BC%89Charles%E2%9E%A1%EF%B8%8FProxy%E2%9E%A1%EF%B8%8FSSL-Proxying-Settings-%E2%9E%A1%EF%B8%8Fadd"><span class="nav-text">（1）Charles➡️Proxy➡️SSL Proxying Settings...➡️add</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%882%EF%BC%89Host-Port"><span class="nav-text">（2）Host: * Port: *</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%883%EF%BC%89%E5%9C%A8%E6%A8%A1%E6%8B%9F%E5%99%A8%E4%B8%AD%E7%9A%84%E7%BD%91%E7%BB%9C%E8%AE%BE%E7%BD%AE"><span class="nav-text">（3）在模拟器中的网络设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%884%EF%BC%89Little-Snitch%E8%AE%BE%E7%BD%AE"><span class="nav-text">（4）Little Snitch 设置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E7%9B%B8%E5%85%B3%E5%8F%82%E8%80%83"><span class="nav-text">4. 相关参考</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -226,12 +226,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="mumu模拟器pro如何安装证书 | 糖小豆">
+      <meta itemprop="name" content="mumu 模拟器 pro 如何安装证书 | 糖小豆">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          mumu模拟器pro如何安装证书
+          mumu 模拟器 pro 如何安装证书
         </h1>
 
         <div class="post-meta-container">
@@ -255,6 +255,43 @@
     </span>
 
   
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">评论数：</span>
+  
+    <a title="waline" href="/2024/10/03/mumu%E6%A8%A1%E6%8B%9F%E5%99%A8pro%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E8%AF%81%E4%B9%A6/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2024/10/03/mumu%E6%A8%A1%E6%8B%9F%E5%99%A8pro%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E8%AF%81%E4%B9%A6/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-item" title="阅读数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读数：</span>
+      <span class="waline-pageview-count" data-path="/2024/10/03/mumu%E6%A8%A1%E6%8B%9F%E5%99%A8pro%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E8%AF%81%E4%B9%A6/"></span>
+    </span>
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>503</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
 </div>
 
         </div>
@@ -263,44 +300,44 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1.问题描述</h2><p><code>mumu模拟器pro</code> 和常规的 <code>Android</code> 真机的证书安装不同，官网给出了相关文档，现做下整理，确保下次可以直接对照这个文档装，下面用<code>Charles</code>例子，安装相关证书。</p>
+    <div class="post-body" itemprop="articleBody"><h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p><code>mumu模拟器pro</code> 和常规的 <code>Android</code> 真机的证书安装不同，官网给出了相关文档，现做下整理，确保下次可以直接对照这个文档装，下面用 <code>Charles</code> 例子，安装相关证书。</p>
 <span id="more"></span>
 
-<h2 id="2-安装证书操作步骤"><a href="#2-安装证书操作步骤" class="headerlink" title="2.安装证书操作步骤"></a>2.安装证书操作步骤</h2><h3 id="（1）从抓包软件中下载证书"><a href="#（1）从抓包软件中下载证书" class="headerlink" title="（1）从抓包软件中下载证书"></a>（1）从抓包软件中下载证书</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410032026344.png" alt="image-20241003202622282"></p>
+<h2 id="2-安装证书操作步骤"><a href="#2-安装证书操作步骤" class="headerlink" title="2.安装证书操作步骤"></a>2. 安装证书操作步骤</h2><h3 id="（1）从抓包软件中下载证书"><a href="#（1）从抓包软件中下载证书" class="headerlink" title="（1）从抓包软件中下载证书"></a>（1）从抓包软件中下载证书</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410032026344.png" alt="image-20241003202622282"></p>
 <ul>
-<li>我保存在这里<code>/Users/user1/Downloads/charles-ssl-proxying-certificate.pem</code>，记住这个路径</li>
+<li>我保存在这里 <code>/Users/user1/Downloads/charles-ssl-proxying-certificate.pem</code>，记住这个路径</li>
 </ul>
 <h3 id="（2）开启可读写磁盘和开启手机-Root权限"><a href="#（2）开启可读写磁盘和开启手机-Root权限" class="headerlink" title="（2）开启可读写磁盘和开启手机 Root权限"></a>（2）开启<code>可读写磁盘</code>和<code>开启手机 Root权限</code></h3><ul>
 <li><code>设置</code>➡️<code>数据</code>➡️<code>可读写磁盘</code>➡️<code>其他</code>➡️<code>开启手机 Root权限</code></li>
 <li>启动模拟器</li>
 </ul>
 <p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410032034923.gif" alt="mumu 模拟器修改2 个设置"></p>
-<h3 id="（3）开启模拟器ADB"><a href="#（3）开启模拟器ADB" class="headerlink" title="（3）开启模拟器ADB"></a>（3）开启模拟器<code>ADB</code></h3><ul>
+<h3 id="（3）开启模拟器ADB"><a href="#（3）开启模拟器ADB" class="headerlink" title="（3）开启模拟器ADB"></a>（3）开启模拟器 <code>ADB</code></h3><ul>
 <li>工具➡️<code>打开 ADB（XXXXX,5555）</code></li>
 </ul>
-<img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410032042332.png" alt="image-20241003204211304" style="zoom:50%;" />
+<img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410032042332.png" alt="image-20241003204211304" style="zoom:50%;">
 
 <p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410032059537.png" alt="image-20241003205913507"></p>
-<h3 id="（4）通过命令计算出一个哈希值"><a href="#（4）通过命令计算出一个哈希值" class="headerlink" title="（4）通过命令计算出一个哈希值"></a>（4）通过命令计算出一个哈希值</h3><h4 id="①在刚才弹出的终端中输入"><a href="#①在刚才弹出的终端中输入" class="headerlink" title="①在刚才弹出的终端中输入"></a>①在刚才弹出的终端中输入</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">exit</span></span><br></pre></td></tr></table></figure>
+<h3 id="（4）通过命令计算出一个哈希值"><a href="#（4）通过命令计算出一个哈希值" class="headerlink" title="（4）通过命令计算出一个哈希值"></a>（4）通过命令计算出一个哈希值</h3><h4 id="①在刚才弹出的终端中输入"><a href="#①在刚才弹出的终端中输入" class="headerlink" title="①在刚才弹出的终端中输入"></a>①在刚才弹出的终端中输入</h4><figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">exit</span></span><br></pre></td></tr></tbody></table></figure>
 
-<h4 id="②通过命令计算出一个哈希值"><a href="#②通过命令计算出一个哈希值" class="headerlink" title="②通过命令计算出一个哈希值"></a>②通过命令计算出一个哈希值</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -subject_hash_old -<span class="keyword">in</span> /Users/user1/Downloads/charles-ssl-proxying-certificate.pem</span><br></pre></td></tr></table></figure>
+<h4 id="②通过命令计算出一个哈希值"><a href="#②通过命令计算出一个哈希值" class="headerlink" title="②通过命令计算出一个哈希值"></a>②通过命令计算出一个哈希值</h4><figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -subject_hash_old -<span class="keyword">in</span> /Users/user1/Downloads/charles-ssl-proxying-certificate.pem</span><br></pre></td></tr></tbody></table></figure>
 
 <p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410032110999.png" alt="image-20241003211047970"></p>
-<h4 id="③将charles-ssl-proxying-certificate-pem更名为-81732dfc-0（注意算出啥，就改成啥）"><a href="#③将charles-ssl-proxying-certificate-pem更名为-81732dfc-0（注意算出啥，就改成啥）" class="headerlink" title="③将charles-ssl-proxying-certificate.pem更名为 81732dfc.0（注意算出啥，就改成啥）"></a>③将charles-ssl-proxying-certificate.pem更名为 <code>81732dfc.0</code>（注意算出啥，就改成啥）</h4><h3 id="（5）将这个扩展名为-0-的证书复制到-system-etc-security-cacerts目录下"><a href="#（5）将这个扩展名为-0-的证书复制到-system-etc-security-cacerts目录下" class="headerlink" title="（5）将这个扩展名为 0 的证书复制到/system/etc/security/cacerts目录下"></a>（5）将这个扩展名为 0 的证书复制到<code>/system/etc/security/cacerts</code>目录下</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb push /Users/user1/Downloads/81732dfc.0 /system/etc/security/cacerts</span><br></pre></td></tr></table></figure>
+<h4 id="③将charles-ssl-proxying-certificate-pem更名为-81732dfc-0（注意算出啥，就改成啥）"><a href="#③将charles-ssl-proxying-certificate-pem更名为-81732dfc-0（注意算出啥，就改成啥）" class="headerlink" title="③将charles-ssl-proxying-certificate.pem更名为 81732dfc.0（注意算出啥，就改成啥）"></a>③将 charles-ssl-proxying-certificate.pem 更名为 <code>81732dfc.0</code>（注意算出啥，就改成啥）</h4><h3 id="（5）将这个扩展名为-0-的证书复制到-system-etc-security-cacerts目录下"><a href="#（5）将这个扩展名为-0-的证书复制到-system-etc-security-cacerts目录下" class="headerlink" title="（5）将这个扩展名为 0 的证书复制到/system/etc/security/cacerts目录下"></a>（5）将这个扩展名为 0 的证书复制到 <code>/system/etc/security/cacerts</code> 目录下</h3><figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb push /Users/user1/Downloads/81732dfc.0 /system/etc/security/cacerts</span><br></pre></td></tr></tbody></table></figure>
 
-<h3 id="（6）安装证书"><a href="#（6）安装证书" class="headerlink" title="（6）安装证书"></a>（6）安装证书</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell <span class="string">&quot;chmod 664 /system/etc/security/cacerts/81732dfc.0&quot;</span></span><br></pre></td></tr></table></figure>
+<h3 id="（6）安装证书"><a href="#（6）安装证书" class="headerlink" title="（6）安装证书"></a>（6）安装证书</h3><figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell <span class="string">"chmod 664 /system/etc/security/cacerts/81732dfc.0"</span></span><br></pre></td></tr></tbody></table></figure>
 
-<h2 id="3-测试抓包"><a href="#3-测试抓包" class="headerlink" title="3.测试抓包"></a>3.测试抓包</h2><h3 id="（1）Charles➡️Proxy➡️SSL-Proxying-Settings-➡️add"><a href="#（1）Charles➡️Proxy➡️SSL-Proxying-Settings-➡️add" class="headerlink" title="（1）Charles➡️Proxy➡️SSL Proxying Settings...➡️add"></a>（1）<code>Charles</code>➡️<code>Proxy</code>➡️<code>SSL Proxying Settings...</code>➡️<code>add</code></h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410032133648.png" alt="image-20241003213306607"></p>
-<h3 id="（2）Host-Port"><a href="#（2）Host-Port" class="headerlink" title="（2）Host: * Port: *"></a>（2）<code>Host</code>: * <code>Port</code>: *</h3><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410032137975.png" alt="image-20241003213729933" style="zoom:50%;" />
+<h2 id="3-测试抓包"><a href="#3-测试抓包" class="headerlink" title="3.测试抓包"></a>3. 测试抓包</h2><h3 id="（1）Charles➡️Proxy➡️SSL-Proxying-Settings-➡️add"><a href="#（1）Charles➡️Proxy➡️SSL-Proxying-Settings-➡️add" class="headerlink" title="（1）Charles➡️Proxy➡️SSL Proxying Settings...➡️add"></a>（1）<code>Charles</code>➡️<code>Proxy</code>➡️<code>SSL Proxying Settings...</code>➡️<code>add</code></h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410032133648.png" alt="image-20241003213306607"></p>
+<h3 id="（2）Host-Port"><a href="#（2）Host-Port" class="headerlink" title="（2）Host: * Port: *"></a>（2）<code>Host</code>: * <code>Port</code>: *</h3><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410032137975.png" alt="image-20241003213729933" style="zoom:50%;">
 
-<h3 id="（3）在模拟器中的网络设置"><a href="#（3）在模拟器中的网络设置" class="headerlink" title="（3）在模拟器中的网络设置"></a>（3）在模拟器中的网络设置</h3><p>设置➡️网络和互联网➡️wlan0➡️点击右上角铅笔图标➡️代理选择手动代理，填入电脑IP、端口8888（默认），并将10.0.2.2填入“对以下网址不使用代理”中，保存。</p>
+<h3 id="（3）在模拟器中的网络设置"><a href="#（3）在模拟器中的网络设置" class="headerlink" title="（3）在模拟器中的网络设置"></a>（3）在模拟器中的网络设置</h3><p>设置➡️网络和互联网➡️wlan0➡️点击右上角铅笔图标➡️代理选择手动代理，填入电脑 IP、端口 8888（默认），并将 10.0.2.2 填入 “对以下网址不使用代理” 中，保存。</p>
 <p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410032213344.gif" alt="mumu 模拟器抓包网络设置"></p>
-<h3 id="（4）Little-Snitch设置"><a href="#（4）Little-Snitch设置" class="headerlink" title="（4）Little Snitch设置"></a>（4）<code>Little Snitch</code>设置</h3><ul>
-<li>在<code>Little Snitch</code>中关闭了<code>模拟器</code>的某些链接，连接<code>Charles</code>抓包后,需要把模拟器的链接在<code>Little Snitch</code>下的<code>Charles</code>的链接需要重新关闭一次。</li>
+<h3 id="（4）Little-Snitch设置"><a href="#（4）Little-Snitch设置" class="headerlink" title="（4）Little Snitch设置"></a>（4）<code>Little Snitch</code> 设置</h3><ul>
+<li>在 <code>Little Snitch</code> 中关闭了<code>模拟器</code>的某些链接，连接 <code>Charles</code> 抓包后，需要把模拟器的链接在 <code>Little Snitch</code> 下的 <code>Charles</code> 的链接需要重新关闭一次。</li>
 </ul>
-<img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410032229078.png" alt="image-20241003222909037" style="zoom:50%;" />
+<img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410032229078.png" alt="image-20241003222909037" style="zoom:50%;">
 
-<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4.相关参考</h2><p><a target="_blank" rel="noopener" href="https://mumu.163.com/mac/tutorials/certificates-and-packet-capture.html">https://mumu.163.com/mac/tutorials/certificates-and-packet-capture.html</a></p>
+<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p><a target="_blank" rel="noopener" href="https://mumu.163.com/mac/tutorials/certificates-and-packet-capture.html">https://mumu.163.com/mac/tutorials/certificates-and-packet-capture.html</a></p>
 
     </div>
 
@@ -336,7 +373,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://www.tangxdou.com/2024/10/03/mumu%E6%A8%A1%E6%8B%9F%E5%99%A8pro%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E8%AF%81%E4%B9%A6/" title="mumu模拟器pro如何安装证书">https://www.tangxdou.com/2024/10/03/mumu模拟器pro如何安装证书/</a>
+      <a href="https://www.tangxdou.com/2024/10/03/mumu%E6%A8%A1%E6%8B%9F%E5%99%A8pro%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E8%AF%81%E4%B9%A6/" title="mumu 模拟器 pro 如何安装证书">https://www.tangxdou.com/2024/10/03/mumu模拟器pro如何安装证书/</a>
   </li>
   <li class="post-copyright-license">
       <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -353,8 +390,8 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2024/10/02/scrcpy%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/" rel="prev" title="scrcpy的安装与使用">
-                  <i class="fa fa-angle-left"></i> scrcpy的安装与使用
+                <a href="/2024/10/02/scrcpy%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/" rel="prev" title="scrcpy 的安装与使用">
+                  <i class="fa fa-angle-left"></i> scrcpy 的安装与使用
                 </a>
             </div>
             <div class="post-nav-item">
@@ -372,6 +409,7 @@
 
 
 
+    <div class="comments" id="waline"></div>
 </div>
   </main>
 
@@ -389,6 +427,20 @@
     </span>
     <span class="author" itemprop="copyrightHolder">糖小豆</span>
   </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">20k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:13</span>
+  </span>
+</div>
 
     </div>
   </footer>
@@ -431,6 +483,17 @@
 
 
 
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"waline.tangxdou.com","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":true,"locale":{"placeholder":"无需登录·请留下邮箱以接收回复·来说两句吧~"},"highlighter":"WalineHighlighter","avatar":"mm","meta":["nick","mail"],"pageSize":10,"visitor":false,"comment_count":false,"requiredFields":["nick"],"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","login":"enable","dark":"auto","reaction":false,"el":"#waline","comment":true,"path":"/2024/10/03/mumu%E6%A8%A1%E6%8B%9F%E5%99%A8pro%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E8%AF%81%E4%B9%A6/"}</script>
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => 
+    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
+  );
+});
+</script>
 
 
   <!-- 页面点击小红心 -->

@@ -48,7 +48,7 @@
 
 
 
-
+<link rel="dns-prefetch" href="waline.tangxdou.com">
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -215,7 +215,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/08/10/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E5%9B%9B%EF%BC%89appium-pytest-aullure-PO%E6%A8%A1%E5%9E%8B%E8%87%AA%E5%8A%A8%E5%8C%96%E6%A1%86%E6%9E%B6/" class="post-title-link" itemprop="url">Appium2总结（四）appium-pytest-aullure-PO模型自动化框架</a>
+          <a href="/2024/08/10/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E5%9B%9B%EF%BC%89appium-pytest-aullure-PO%E6%A8%A1%E5%9E%8B%E8%87%AA%E5%8A%A8%E5%8C%96%E6%A1%86%E6%9E%B6/" class="post-title-link" itemprop="url">Appium2 总结（四）appium-pytest-aullure-PO 模型自动化框架</a>
         </h2>
 
         <div class="post-meta-container">
@@ -239,6 +239,43 @@
     </span>
 
   
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">评论数：</span>
+  
+    <a title="waline" href="/2024/08/10/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E5%9B%9B%EF%BC%89appium-pytest-aullure-PO%E6%A8%A1%E5%9E%8B%E8%87%AA%E5%8A%A8%E5%8C%96%E6%A1%86%E6%9E%B6/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2024/08/10/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E5%9B%9B%EF%BC%89appium-pytest-aullure-PO%E6%A8%A1%E5%9E%8B%E8%87%AA%E5%8A%A8%E5%8C%96%E6%A1%86%E6%9E%B6/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-item" title="阅读数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读数：</span>
+      <span class="waline-pageview-count" data-path="/2024/08/10/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E5%9B%9B%EF%BC%89appium-pytest-aullure-PO%E6%A8%A1%E5%9E%8B%E8%87%AA%E5%8A%A8%E5%8C%96%E6%A1%86%E6%9E%B6/"></span>
+    </span>
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.5k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>6 分钟</span>
+    </span>
 </div>
 
         </div>
@@ -248,8 +285,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="0-先展示成果"><a href="#0-先展示成果" class="headerlink" title="0.先展示成果"></a>0.先展示成果</h2><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/pico_pico.gif"></p>
-<h2 id="1-什么是自动化测试PO模型"><a href="#1-什么是自动化测试PO模型" class="headerlink" title="1.什么是自动化测试PO模型"></a>1.什么是自动化测试PO模型</h2><p>自动化测试PO模型，即页面对象(Page Object)模型，是一种在自动化测试中常用的设计模式。它主要用于提高测试代码的可维护性、可读性和复用性。PO模型的核心思想是将页面元素的定位器和操作封装到一个类中，这个类代表了页面的界面。</p>
+          <h2 id="0-先展示成果"><a href="#0-先展示成果" class="headerlink" title="0.先展示成果"></a>0. 先展示成果</h2><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/pico_pico.gif"></p>
+<h2 id="1-什么是自动化测试PO模型"><a href="#1-什么是自动化测试PO模型" class="headerlink" title="1.什么是自动化测试PO模型"></a>1. 什么是自动化测试 PO 模型</h2><p>自动化测试 PO 模型，即页面对象 (Page Object) 模型，是一种在自动化测试中常用的设计模式。它主要用于提高测试代码的可维护性、可读性和复用性。PO 模型的核心思想是将页面元素的定位器和操作封装到一个类中，这个类代表了页面的界面。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2024/08/10/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E5%9B%9B%EF%BC%89appium-pytest-aullure-PO%E6%A8%A1%E5%9E%8B%E8%87%AA%E5%8A%A8%E5%8C%96%E6%A1%86%E6%9E%B6/#more" rel="contents">
@@ -301,7 +338,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/08/09/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%89%EF%BC%89%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB%E5%AE%9A%E4%BD%8D/" class="post-title-link" itemprop="url">Appium2总结（三）图像识别定位</a>
+          <a href="/2024/08/09/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%89%EF%BC%89%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB%E5%AE%9A%E4%BD%8D/" class="post-title-link" itemprop="url">Appium2 总结（三）图像识别定位</a>
         </h2>
 
         <div class="post-meta-container">
@@ -325,6 +362,43 @@
     </span>
 
   
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">评论数：</span>
+  
+    <a title="waline" href="/2024/08/09/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%89%EF%BC%89%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB%E5%AE%9A%E4%BD%8D/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2024/08/09/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%89%EF%BC%89%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB%E5%AE%9A%E4%BD%8D/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-item" title="阅读数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读数：</span>
+      <span class="waline-pageview-count" data-path="/2024/08/09/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%89%EF%BC%89%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB%E5%AE%9A%E4%BD%8D/"></span>
+    </span>
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>298</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
 </div>
 
         </div>
@@ -334,7 +408,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="1-Appium-图像识别插件images安装"><a href="#1-Appium-图像识别插件images安装" class="headerlink" title="1.Appium 图像识别插件images安装"></a>1.Appium 图像识别插件images安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ appium plugin install images</span><br><span class="line">✔ Checking <span class="keyword">if</span> <span class="string">&#x27;@appium/images-plugin&#x27;</span> is compatible</span><br><span class="line">✔ Installing <span class="string">&#x27;images&#x27;</span> using NPM install spec <span class="string">&#x27;@appium/images-plugin&#x27;</span></span><br><span class="line">ℹ Plugin images@3.0.17 successfully installed</span><br></pre></td></tr></table></figure>
+          <h2 id="1-Appium-图像识别插件images安装"><a href="#1-Appium-图像识别插件images安装" class="headerlink" title="1.Appium 图像识别插件images安装"></a>1.Appium 图像识别插件 images 安装</h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ appium plugin install images</span><br><span class="line">✔ Checking <span class="keyword">if</span> <span class="string">'@appium/images-plugin'</span> is compatible</span><br><span class="line">✔ Installing <span class="string">'images'</span> using NPM install spec <span class="string">'@appium/images-plugin'</span></span><br><span class="line">ℹ Plugin images@3.0.17 successfully installed</span><br></pre></td></tr></tbody></table></figure>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2024/08/09/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%89%EF%BC%89%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB%E5%AE%9A%E4%BD%8D/#more" rel="contents">
@@ -386,7 +460,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/08/09/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89inspector%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AE%9A%E4%BD%8D%E6%93%8D%E4%BD%9C%E5%85%83%E7%B4%A0/" class="post-title-link" itemprop="url">Appium2总结（二）inspector工具使用及定位操作元素</a>
+          <a href="/2024/08/09/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89inspector%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AE%9A%E4%BD%8D%E6%93%8D%E4%BD%9C%E5%85%83%E7%B4%A0/" class="post-title-link" itemprop="url">Appium2 总结（二）inspector 工具使用及定位操作元素</a>
         </h2>
 
         <div class="post-meta-container">
@@ -410,6 +484,43 @@
     </span>
 
   
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">评论数：</span>
+  
+    <a title="waline" href="/2024/08/09/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89inspector%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AE%9A%E4%BD%8D%E6%93%8D%E4%BD%9C%E5%85%83%E7%B4%A0/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2024/08/09/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89inspector%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AE%9A%E4%BD%8D%E6%93%8D%E4%BD%9C%E5%85%83%E7%B4%A0/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-item" title="阅读数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读数：</span>
+      <span class="waline-pageview-count" data-path="/2024/08/09/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89inspector%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AE%9A%E4%BD%8D%E6%93%8D%E4%BD%9C%E5%85%83%E7%B4%A0/"></span>
+    </span>
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>436</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
 </div>
 
         </div>
@@ -419,7 +530,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>Appium Inspector 是Appium 的一个工具，<strong>用于帮助开发人员和测试人员分析和调试移动应用程序</strong>。 它提供了图形界面和交互式的功能，使您能够轻松地检查应用程序的UI 元素、获取元素属性、执行操作和生成自动化测试脚本。</p>
+          <p>Appium Inspector 是 Appium 的一个工具，<strong>用于帮助开发人员和测试人员分析和调试移动应用程序</strong>。 它提供了图形界面和交互式的功能，使您能够轻松地检查应用程序的 UI 元素、获取元素属性、执行操作和生成自动化测试脚本。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2024/08/09/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89inspector%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AE%9A%E4%BD%8D%E6%93%8D%E4%BD%9C%E5%85%83%E7%B4%A0/#more" rel="contents">
@@ -471,7 +582,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/08/09/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%80%EF%BC%89%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%BB%A5%E5%8F%8A%E7%AE%80%E5%8D%95%E8%84%9A%E6%9C%AC%E6%B5%8B%E8%AF%95/" class="post-title-link" itemprop="url">Appium2总结（一）环境搭建以及简单脚本测试</a>
+          <a href="/2024/08/09/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%80%EF%BC%89%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%BB%A5%E5%8F%8A%E7%AE%80%E5%8D%95%E8%84%9A%E6%9C%AC%E6%B5%8B%E8%AF%95/" class="post-title-link" itemprop="url">Appium2 总结（一）环境搭建以及简单脚本测试</a>
         </h2>
 
         <div class="post-meta-container">
@@ -495,6 +606,43 @@
     </span>
 
   
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">评论数：</span>
+  
+    <a title="waline" href="/2024/08/09/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%80%EF%BC%89%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%BB%A5%E5%8F%8A%E7%AE%80%E5%8D%95%E8%84%9A%E6%9C%AC%E6%B5%8B%E8%AF%95/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2024/08/09/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%80%EF%BC%89%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%BB%A5%E5%8F%8A%E7%AE%80%E5%8D%95%E8%84%9A%E6%9C%AC%E6%B5%8B%E8%AF%95/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-item" title="阅读数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读数：</span>
+      <span class="waline-pageview-count" data-path="/2024/08/09/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%80%EF%BC%89%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%BB%A5%E5%8F%8A%E7%AE%80%E5%8D%95%E8%84%9A%E6%9C%AC%E6%B5%8B%E8%AF%95/"></span>
+    </span>
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.5k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>6 分钟</span>
+    </span>
 </div>
 
         </div>
@@ -504,7 +652,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>Appium 是一个开源项目和相关软件的生态系统。 软件，旨在促进许多应用程序平台的UI自动化，包括移动平台（iOS、 Android、Tizen）、浏览器（Chrome、Firefox、Safari）、桌面（macOS、Windows）、电视（Roku、tvOS、 Android TV、三星）等，它还旨在支持用不同语言（JS、Java、Python等）编写的自动化代码。</p>
+          <p>Appium 是一个开源项目和相关软件的生态系统。 软件，旨在促进许多应用程序平台的 UI 自动化，包括移动平台（iOS、 Android、Tizen）、浏览器（Chrome、Firefox、Safari）、桌面（macOS、Windows）、电视（Roku、tvOS、 Android TV、三星）等，它还旨在支持用不同语言（JS、Java、Python 等）编写的自动化代码。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2024/08/09/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%80%EF%BC%89%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%BB%A5%E5%8F%8A%E7%AE%80%E5%8D%95%E8%84%9A%E6%9C%AC%E6%B5%8B%E8%AF%95/#more" rel="contents">
@@ -556,7 +704,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/08/07/python%E6%97%A5%E5%BF%97%E6%A8%A1%E5%9D%97%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">python日志模块总结</a>
+          <a href="/2024/08/07/python%E6%97%A5%E5%BF%97%E6%A8%A1%E5%9D%97%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">python 日志模块总结</a>
         </h2>
 
         <div class="post-meta-container">
@@ -580,6 +728,43 @@
     </span>
 
   
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">评论数：</span>
+  
+    <a title="waline" href="/2024/08/07/python%E6%97%A5%E5%BF%97%E6%A8%A1%E5%9D%97%E6%80%BB%E7%BB%93/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2024/08/07/python%E6%97%A5%E5%BF%97%E6%A8%A1%E5%9D%97%E6%80%BB%E7%BB%93/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-item" title="阅读数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读数：</span>
+      <span class="waline-pageview-count" data-path="/2024/08/07/python%E6%97%A5%E5%BF%97%E6%A8%A1%E5%9D%97%E6%80%BB%E7%BB%93/"></span>
+    </span>
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>4 分钟</span>
+    </span>
 </div>
 
         </div>
@@ -590,7 +775,7 @@
     
     <div class="post-body" itemprop="articleBody">
           <p>Python 的 <code>logging</code> 模块是 Python 标准库的一部分，它提供了一个灵活的框架来将日志信息发送到不同的目的地，如控制台、文件、远程服务器等。使用 <code>logging</code> 模块，你可以控制日志信息的级别，并且可以针对不同的应用模块进行日志管理。</p>
-<h2 id="1-日志级别"><a href="#1-日志级别" class="headerlink" title="1.日志级别"></a>1.日志级别</h2><ul>
+<h2 id="1-日志级别"><a href="#1-日志级别" class="headerlink" title="1.日志级别"></a>1. 日志级别</h2><ul>
 <li><code>DEBUG</code>: 调试信息，用于问题诊断。</li>
 <li><code>INFO</code>: 一般信息，用于记录程序运行状态。</li>
 <li><code>WARNING</code>: 警告信息，表示有潜在问题。</li>
@@ -652,7 +837,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/08/07/allure%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">allure简单使用</a>
+          <a href="/2024/08/07/allure%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">allure 简单使用</a>
         </h2>
 
         <div class="post-meta-container">
@@ -676,6 +861,43 @@
     </span>
 
   
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">评论数：</span>
+  
+    <a title="waline" href="/2024/08/07/allure%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2024/08/07/allure%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-item" title="阅读数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读数：</span>
+      <span class="waline-pageview-count" data-path="/2024/08/07/allure%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/"></span>
+    </span>
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>258</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
 </div>
 
         </div>
@@ -685,7 +907,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="1-allure-安装"><a href="#1-allure-安装" class="headerlink" title="1.allure 安装"></a>1.allure 安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install allure</span><br></pre></td></tr></table></figure>
+          <h2 id="1-allure-安装"><a href="#1-allure-安装" class="headerlink" title="1.allure 安装"></a>1.allure 安装</h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install allure</span><br></pre></td></tr></tbody></table></figure>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2024/08/07/allure%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/#more" rel="contents">
@@ -737,7 +959,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/08/07/pytest%E7%9B%B8%E5%85%B3%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">pytest相关总结</a>
+          <a href="/2024/08/07/pytest%E7%9B%B8%E5%85%B3%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">pytest 相关总结</a>
         </h2>
 
         <div class="post-meta-container">
@@ -761,6 +983,43 @@
     </span>
 
   
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">评论数：</span>
+  
+    <a title="waline" href="/2024/08/07/pytest%E7%9B%B8%E5%85%B3%E6%80%BB%E7%BB%93/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2024/08/07/pytest%E7%9B%B8%E5%85%B3%E6%80%BB%E7%BB%93/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-item" title="阅读数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读数：</span>
+      <span class="waline-pageview-count" data-path="/2024/08/07/pytest%E7%9B%B8%E5%85%B3%E6%80%BB%E7%BB%93/"></span>
+    </span>
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>8 分钟</span>
+    </span>
 </div>
 
         </div>
@@ -830,7 +1089,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/07/27/%E8%A7%A3%E5%86%B3appium%E6%8A%A5%E9%94%99java-lang-SecurityException%E7%9A%84%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">解决appium报错java.lang.SecurityException - Permission Denial- starting Intent的问题</a>
+          <a href="/2024/07/27/%E8%A7%A3%E5%86%B3appium%E6%8A%A5%E9%94%99java-lang-SecurityException%E7%9A%84%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">解决 appium 报错 java.lang.SecurityException - Permission Denial- starting Intent 的问题</a>
         </h2>
 
         <div class="post-meta-container">
@@ -854,6 +1113,43 @@
     </span>
 
   
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">评论数：</span>
+  
+    <a title="waline" href="/2024/07/27/%E8%A7%A3%E5%86%B3appium%E6%8A%A5%E9%94%99java-lang-SecurityException%E7%9A%84%E9%97%AE%E9%A2%98/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2024/07/27/%E8%A7%A3%E5%86%B3appium%E6%8A%A5%E9%94%99java-lang-SecurityException%E7%9A%84%E9%97%AE%E9%A2%98/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-item" title="阅读数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读数：</span>
+      <span class="waline-pageview-count" data-path="/2024/07/27/%E8%A7%A3%E5%86%B3appium%E6%8A%A5%E9%94%99java-lang-SecurityException%E7%9A%84%E9%97%AE%E9%A2%98/"></span>
+    </span>
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>226</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
 </div>
 
         </div>
@@ -863,8 +1159,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1.问题描述</h2><p>在使用 appium 时，出现以下问题：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">java.lang.SecurityException: Permission Denial: starting Intent &#123; act=android.intent.action.MAIN <span class="built_in">cat</span>=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=com.dreamfish.com.autocalc/.MainActivity &#125; from null (pid=9251, uid=2000) not exported from uid 10053</span><br><span class="line">	at com.android.server.am.ActivityStackSupervisor.checkStartAnyActivityPermission(ActivityStackSupervisor.java:1779)</span><br><span class="line">	at com.android.server.am.ActivityStarter.startActivity(ActivityStarter.java:725)</span><br><span class="line">	at com.android.server.am.ActivityStarter.startActivity(ActivityStarter.java:551)</span><br><span class="line">	at com.android.server.am.ActivityStarter.startActivityMayWait(ActivityStarter.java:1156)</span><br><span class="line">	at com.android.server.am.ActivityStarter.execute(ActivityStarter.java:490)</span><br></pre></td></tr></table></figure>
+          <h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在使用 appium 时，出现以下问题：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">java.lang.SecurityException: Permission Denial: starting Intent { act=android.intent.action.MAIN <span class="built_in">cat</span>=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=com.dreamfish.com.autocalc/.MainActivity } from null (pid=9251, uid=2000) not exported from uid 10053</span><br><span class="line">	at com.android.server.am.ActivityStackSupervisor.checkStartAnyActivityPermission(ActivityStackSupervisor.java:1779)</span><br><span class="line">	at com.android.server.am.ActivityStarter.startActivity(ActivityStarter.java:725)</span><br><span class="line">	at com.android.server.am.ActivityStarter.startActivity(ActivityStarter.java:551)</span><br><span class="line">	at com.android.server.am.ActivityStarter.startActivityMayWait(ActivityStarter.java:1156)</span><br><span class="line">	at com.android.server.am.ActivityStarter.execute(ActivityStarter.java:490)</span><br></pre></td></tr></tbody></table></figure>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2024/07/27/%E8%A7%A3%E5%86%B3appium%E6%8A%A5%E9%94%99java-lang-SecurityException%E7%9A%84%E9%97%AE%E9%A2%98/#more" rel="contents">
@@ -916,7 +1212,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/07/22/%E8%A7%A3%E5%86%B3gitea%E6%8A%A5%E9%94%99%E5%88%9D%E5%A7%8BURL%E5%92%8C%E8%AE%BF%E9%97%AEURL%E4%B8%8D%E5%90%8C%E7%9A%84%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">解决gitea报错初始URL和访问URL不同的问题</a>
+          <a href="/2024/07/22/%E8%A7%A3%E5%86%B3gitea%E6%8A%A5%E9%94%99%E5%88%9D%E5%A7%8BURL%E5%92%8C%E8%AE%BF%E9%97%AEURL%E4%B8%8D%E5%90%8C%E7%9A%84%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">解决 gitea 报错初始 URL 和访问 URL 不同的问题</a>
         </h2>
 
         <div class="post-meta-container">
@@ -940,6 +1236,43 @@
     </span>
 
   
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">评论数：</span>
+  
+    <a title="waline" href="/2024/07/22/%E8%A7%A3%E5%86%B3gitea%E6%8A%A5%E9%94%99%E5%88%9D%E5%A7%8BURL%E5%92%8C%E8%AE%BF%E9%97%AEURL%E4%B8%8D%E5%90%8C%E7%9A%84%E9%97%AE%E9%A2%98/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2024/07/22/%E8%A7%A3%E5%86%B3gitea%E6%8A%A5%E9%94%99%E5%88%9D%E5%A7%8BURL%E5%92%8C%E8%AE%BF%E9%97%AEURL%E4%B8%8D%E5%90%8C%E7%9A%84%E9%97%AE%E9%A2%98/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-item" title="阅读数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读数：</span>
+      <span class="waline-pageview-count" data-path="/2024/07/22/%E8%A7%A3%E5%86%B3gitea%E6%8A%A5%E9%94%99%E5%88%9D%E5%A7%8BURL%E5%92%8C%E8%AE%BF%E9%97%AEURL%E4%B8%8D%E5%90%8C%E7%9A%84%E9%97%AE%E9%A2%98/"></span>
+    </span>
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>221</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
 </div>
 
         </div>
@@ -949,7 +1282,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1.问题描述</h2><p>Your ROOT_URL in app.ini is <code>https://192.168.1.11:1234/</code> but you are visiting <code>https://192.168.1.12:1234/</code> You should set ROOT_URL correctly, otherwise the web may not work correctly.</p>
+          <h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>Your ROOT_URL in app.ini is <code>https://192.168.1.11:1234/</code> but you are visiting <code>https://192.168.1.12:1234/</code> You should set ROOT_URL correctly, otherwise the web may not work correctly.</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2024/07/22/%E8%A7%A3%E5%86%B3gitea%E6%8A%A5%E9%94%99%E5%88%9D%E5%A7%8BURL%E5%92%8C%E8%AE%BF%E9%97%AEURL%E4%B8%8D%E5%90%8C%E7%9A%84%E9%97%AE%E9%A2%98/#more" rel="contents">
@@ -1001,7 +1334,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/06/26/%E8%A7%A3%E5%86%B3SQLServer%E6%89%A7%E8%A1%8C%E8%B6%85%E6%97%B6%E5%B7%B2%E8%BF%87%E6%9C%9F%E5%AE%8C%E6%88%90%E6%93%8D%E4%BD%9C%E4%B9%8B%E5%89%8D%E5%B7%B2%E8%B6%85%E6%97%B6%E6%88%96%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9C%AA%E5%93%8D%E5%BA%94/" class="post-title-link" itemprop="url">解决SQLServer执行超时已过期完成操作之前已超时或服务器未响应</a>
+          <a href="/2024/06/26/%E8%A7%A3%E5%86%B3SQLServer%E6%89%A7%E8%A1%8C%E8%B6%85%E6%97%B6%E5%B7%B2%E8%BF%87%E6%9C%9F%E5%AE%8C%E6%88%90%E6%93%8D%E4%BD%9C%E4%B9%8B%E5%89%8D%E5%B7%B2%E8%B6%85%E6%97%B6%E6%88%96%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9C%AA%E5%93%8D%E5%BA%94/" class="post-title-link" itemprop="url">解决 SQLServer 执行超时已过期完成操作之前已超时或服务器未响应</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1025,6 +1358,43 @@
     </span>
 
   
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">评论数：</span>
+  
+    <a title="waline" href="/2024/06/26/%E8%A7%A3%E5%86%B3SQLServer%E6%89%A7%E8%A1%8C%E8%B6%85%E6%97%B6%E5%B7%B2%E8%BF%87%E6%9C%9F%E5%AE%8C%E6%88%90%E6%93%8D%E4%BD%9C%E4%B9%8B%E5%89%8D%E5%B7%B2%E8%B6%85%E6%97%B6%E6%88%96%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9C%AA%E5%93%8D%E5%BA%94/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2024/06/26/%E8%A7%A3%E5%86%B3SQLServer%E6%89%A7%E8%A1%8C%E8%B6%85%E6%97%B6%E5%B7%B2%E8%BF%87%E6%9C%9F%E5%AE%8C%E6%88%90%E6%93%8D%E4%BD%9C%E4%B9%8B%E5%89%8D%E5%B7%B2%E8%B6%85%E6%97%B6%E6%88%96%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9C%AA%E5%93%8D%E5%BA%94/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-item" title="阅读数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读数：</span>
+      <span class="waline-pageview-count" data-path="/2024/06/26/%E8%A7%A3%E5%86%B3SQLServer%E6%89%A7%E8%A1%8C%E8%B6%85%E6%97%B6%E5%B7%B2%E8%BF%87%E6%9C%9F%E5%AE%8C%E6%88%90%E6%93%8D%E4%BD%9C%E4%B9%8B%E5%89%8D%E5%B7%B2%E8%B6%85%E6%97%B6%E6%88%96%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9C%AA%E5%93%8D%E5%BA%94/"></span>
+    </span>
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>89</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
 </div>
 
         </div>
@@ -1034,7 +1404,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1.问题描述</h2><p>还原SQL Server数据库时，报错，信息：执行超时已过期。完成操作之前已超时或服务器未响应。</p>
+          <h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>还原 SQL Server 数据库时，报错，信息：执行超时已过期。完成操作之前已超时或服务器未响应。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2024/06/26/%E8%A7%A3%E5%86%B3SQLServer%E6%89%A7%E8%A1%8C%E8%B6%85%E6%97%B6%E5%B7%B2%E8%BF%87%E6%9C%9F%E5%AE%8C%E6%88%90%E6%93%8D%E4%BD%9C%E4%B9%8B%E5%89%8D%E5%B7%B2%E8%B6%85%E6%97%B6%E6%88%96%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9C%AA%E5%93%8D%E5%BA%94/#more" rel="contents">
@@ -1081,6 +1451,20 @@
     </span>
     <span class="author" itemprop="copyrightHolder">糖小豆</span>
   </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">20k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:13</span>
+  </span>
+</div>
 
     </div>
   </footer>
@@ -1123,6 +1507,17 @@
 
 
 
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"waline.tangxdou.com","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":true,"locale":{"placeholder":"无需登录·请留下邮箱以接收回复·来说两句吧~"},"highlighter":"WalineHighlighter","avatar":"mm","meta":["nick","mail"],"pageSize":10,"visitor":false,"comment_count":false,"requiredFields":["nick"],"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","login":"enable","dark":"auto","reaction":false,"el":"#waline","comment":true,"path":"/page/2/"}</script>
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => 
+    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
+  );
+});
+</script>
 
 
   <!-- 页面点击小红心 -->

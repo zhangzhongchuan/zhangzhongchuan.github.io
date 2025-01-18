@@ -235,60 +235,20 @@
       </tags>
   </entry>
   <entry>
-    <title>Appium2 总结（二）inspector 工具使用及定位操作元素</title>
-    <url>/2024/08/09/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89inspector%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AE%9A%E4%BD%8D%E6%93%8D%E4%BD%9C%E5%85%83%E7%B4%A0/</url>
-    <content><![CDATA[<p>Appium Inspector 是 Appium 的一个工具，<strong>用于帮助开发人员和测试人员分析和调试移动应用程序</strong>。 它提供了图形界面和交互式的功能，使您能够轻松地检查应用程序的 UI 元素、获取元素属性、执行操作和生成自动化测试脚本。</p>
+    <title>DataGrip 的使用</title>
+    <url>/2024/10/02/DataGrip%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h2 id="1-“多光标”模式"><a href="#1-“多光标”模式" class="headerlink" title="1.“多光标”模式"></a>1.“多光标” 模式</h2><ul>
+<li><code>Alt</code> + <code>Shift</code> + <code>鼠标左键</code>即可出现多光标，按 <code>Esc</code> 或者鼠标左键点任意位置退出<code>多光标模式</code></li>
+</ul>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410021346052.gif" alt="datagrip多光标模式"></p>
 <span id="more"></span>
 
-<h2 id="1-Appium-Inspector-下载"><a href="#1-Appium-Inspector-下载" class="headerlink" title="1.Appium Inspector 下载"></a>1.Appium Inspector 下载</h2><p><a href="https://github.com/appium/appium-inspector/releases">下载地址</a></p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240730200543128.png" alt="image-20240730200543128"></p>
-<p>选择相应版本下载后安装。</p>
-<h2 id="2-Appium-Inspector使用"><a href="#2-Appium-Inspector使用" class="headerlink" title="2.Appium Inspector使用"></a>2.Appium Inspector 使用</h2><p>（1）首先连接模拟器。</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">➜  ~ adb connect 192.168.XX.XX:5555</span><br><span class="line">connected to 192.168.XX.XX:5555</span><br></pre></td></tr></tbody></table></figure>
-
-<p>（2）启动 appium 服务</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">➜  ~ appium</span><br><span class="line">[Appium] Welcome to Appium v2.11.2</span><br><span class="line">......</span><br></pre></td></tr></tbody></table></figure>
-
-<p>（3）打开 Appium Inspector</p>
-<p>在 Capability Builder 中，填写</p>
-<p>platformName=’Android’</p>
-<p>automationName=’uiautomator2’</p>
-<p>然后点击 <code>Start Session</code> 按钮。</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240731112127407.png" alt="image-20240731112127407"></p>
-<p>界面看到模拟器的截图，说明连接成功。</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240731112511529.png" alt="image-20240731112511529"></p>
-<p>（4）安装 2 个 app 用于测试</p>
-<p><a href="https://github.com/appium/appium/raw/master/packages/appium/sample-code/apps/ApiDemos-debug.apk">appium 官方 Demo apk 下载地址</a></p>
-<p>使用 adb 命令安装：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">➜  ~ adb install /Users/user1/Downloads/ApiDemos-debug.apk</span><br><span class="line">Performing Streamed Install</span><br><span class="line">Success</span><br></pre></td></tr></tbody></table></figure>
-
-<p><a href="https://github.com/imengyu/AutoCalc/raw/master/app-debug.apk">计算器 AutoCalc</a></p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">➜  ~ adb install /Users/user1/Downloads/ApiDemos-debug.apk.apk</span><br><span class="line">Performing Streamed Install</span><br><span class="line">Success</span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<p>安装成功后，模拟器出现如下 app</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240731145423828.png" alt="image-20240731145423828"></p>
-<p>（5）打开 API Demos ，获取包名界面名（活动名）</p>
-<p>1️⃣通过 adb 命令获取</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">➜  ~ adb shell dumpsys window |grep mFocusedApp</span><br><span class="line">    mFocusedApp=Token{b14e783 ActivityRecord{3e73e32 u0 io.appium.android.apis/.ApiDemos t9}}</span><br><span class="line">    mFocusedApp=AppWindowToken{8c2ad00 token=Token{b14e783 ActivityRecord{3e73e32 u0 io.appium.android.apis/.ApiDemos t9}}}</span><br></pre></td></tr></tbody></table></figure>
-
-<p>2️⃣通过 Appium Inspector 获取</p>
-<p>获取包名 <code>Commands</code>→<code>App Management</code>→<code>getCurrentPackage</code></p>
-<p>获取界面名 <code>Commands</code>→<code>App Management</code>→<code>getCurrentPackage</code></p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/2024-07-31%2015.38.57.gif" alt="2024-07-31 15.38.57"></p>
-<h2 id="2-定位操作元素"><a href="#2-定位操作元素" class="headerlink" title="2.定位操作元素"></a>2. 定位操作元素</h2><p>（1）通过 Appium Inspector 获取元素的 id</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/2024-07-31%2018.12.29.gif" alt="2024-07-31 18.12.29"></p>
-<p>（2）通过 id 获取获取元素，操作元素</p>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># 通过 ID 找元素</span></span><br><span class="line"><span class="comment"># 分别获取计算器上按键 1+2= 四个按钮的按键，并且点击</span></span><br><span class="line">driver.find_element(AppiumBy.ID, <span class="string">'com.dreamfish.com.autocalc:id/btn_pad_number_1'</span>).click()</span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line">driver.find_element(AppiumBy.ID, <span class="string">'com.dreamfish.com.autocalc:id/btn_pad_plus'</span>).click()</span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line">driver.find_element(AppiumBy.ID, <span class="string">'com.dreamfish.com.autocalc:id/btn_pad_number_2'</span>).click()</span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line">driver.find_element(AppiumBy.ID, <span class="string">'com.dreamfish.com.autocalc:id/btn_pad_equal'</span>).click()</span><br></pre></td></tr></tbody></table></figure>
-
-<p>(2) 通过</p>
-<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2>]]></content>
+<h2 id="2-整理-sql-格式"><a href="#2-整理-sql-格式" class="headerlink" title="2.整理 sql 格式"></a>2. 整理 sql 格式</h2><h3 id="（1）选中需要整理的区域"><a href="#（1）选中需要整理的区域" class="headerlink" title="（1）选中需要整理的区域"></a>（1）选中需要整理的区域</h3><h3 id="（2）Command-Alt-L"><a href="#（2）Command-Alt-L" class="headerlink" title="（2）Command+Alt+L"></a>（2）<code>Command</code>+<code>Alt</code>+<code>L</code></h3><h2 id="3-执行-sql"><a href="#3-执行-sql" class="headerlink" title="3.执行 sql"></a>3. 执行 sql</h2><h3 id="（1）选中需要整理的区域-1"><a href="#（1）选中需要整理的区域-1" class="headerlink" title="（1）选中需要整理的区域"></a>（1）选中需要整理的区域</h3><h3 id="（2）Command-Enter"><a href="#（2）Command-Enter" class="headerlink" title="（2）Command+Enter"></a>（2）<code>Command</code>+<code>Enter</code></h3><h2 id="4-后续补充"><a href="#4-后续补充" class="headerlink" title="4.后续补充"></a>4. 后续补充</h2>]]></content>
       <categories>
-        <category>自动化测试</category>
+        <category>软件使用</category>
       </categories>
       <tags>
-        <tag>appium</tag>
+        <tag>datagrip</tag>
       </tags>
   </entry>
   <entry>
@@ -327,23 +287,6 @@
       </categories>
       <tags>
         <tag>appium</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>DataGrip 的使用</title>
-    <url>/2024/10/02/DataGrip%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h2 id="1-“多光标”模式"><a href="#1-“多光标”模式" class="headerlink" title="1.“多光标”模式"></a>1.“多光标” 模式</h2><ul>
-<li><code>Alt</code> + <code>Shift</code> + <code>鼠标左键</code>即可出现多光标，按 <code>Esc</code> 或者鼠标左键点任意位置退出<code>多光标模式</code></li>
-</ul>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410021346052.gif" alt="datagrip多光标模式"></p>
-<span id="more"></span>
-
-<h2 id="2-整理-sql-格式"><a href="#2-整理-sql-格式" class="headerlink" title="2.整理 sql 格式"></a>2. 整理 sql 格式</h2><h3 id="（1）选中需要整理的区域"><a href="#（1）选中需要整理的区域" class="headerlink" title="（1）选中需要整理的区域"></a>（1）选中需要整理的区域</h3><h3 id="（2）Command-Alt-L"><a href="#（2）Command-Alt-L" class="headerlink" title="（2）Command+Alt+L"></a>（2）<code>Command</code>+<code>Alt</code>+<code>L</code></h3><h2 id="3-执行-sql"><a href="#3-执行-sql" class="headerlink" title="3.执行 sql"></a>3. 执行 sql</h2><h3 id="（1）选中需要整理的区域-1"><a href="#（1）选中需要整理的区域-1" class="headerlink" title="（1）选中需要整理的区域"></a>（1）选中需要整理的区域</h3><h3 id="（2）Command-Enter"><a href="#（2）Command-Enter" class="headerlink" title="（2）Command+Enter"></a>（2）<code>Command</code>+<code>Enter</code></h3><h2 id="4-后续补充"><a href="#4-后续补充" class="headerlink" title="4.后续补充"></a>4. 后续补充</h2>]]></content>
-      <categories>
-        <category>软件使用</category>
-      </categories>
-      <tags>
-        <tag>datagrip</tag>
       </tags>
   </entry>
   <entry>
@@ -761,60 +704,6 @@
       </tags>
   </entry>
   <entry>
-    <title>mysql 实现 excel 中复制某一列，粘贴转置为行功能</title>
-    <url>/2021/05/31/group-concat%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>数据处理需要，需要将大批量的列，转置为行。</p>
-<p>尝试使用 excel，①选择需要转置的列→②在所需位置，右键→选择性粘贴→转置，发现只转置了一部分数据。</p>
-<span id="more"></span>
-
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>转置的长度超过了 excel 的最大长度。</p>
-<p>最大长度是多少没查到😂。</p>
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>百度后，发现可以使用 mysql 中 group_concat 函数。</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">SELECT GROUP_CONCAT(id separator ',') FROM `table` // id 为需要转换的列，separator后为以某字符为分割</span><br></pre></td></tr></tbody></table></figure>
-
-<p>发现又只转置了一部分数据。</p>
-<p>查资料发现，默认 GROUP_CONCAT 函数返回的结果大小被 MySQL 默认限制为 1024（字节）的长度。</p>
-<p>查看方式:</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">show variables like "group_concat_max_len";</span><br></pre></td></tr></tbody></table></figure>
-
-<p>解决方法有 2 种:</p>
-<h3 id="（1）临时解决方案："><a href="#（1）临时解决方案：" class="headerlink" title="（1）临时解决方案："></a>（1）临时解决方案：</h3><p>（该方法缺点是重启服务后设置失效，“group_concat_max_len = -1” 则为最大值，group_concat_max_len 的最大值为 4294967295 (2^32 - 1) 字节，因为处理数据量比较大，直接设置为最大值）</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">SET GLOBAL group_concat_max_len = -1;</span><br><span class="line"></span><br><span class="line">SET SESSION group_concat_max_len = -1;</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="（2）永久解决方案："><a href="#（2）永久解决方案：" class="headerlink" title="（2）永久解决方案："></a>（2）永久解决方案：</h3><p>在 Mysql 配置文件中加入如下配置 (推荐):</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">group_concat_max_len = -1</span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p>参考于该<a href="https://www.cnblogs.com/zjfblog/p/13658936.html">博客园博客</a></p>
-]]></content>
-      <categories>
-        <category>环境部署</category>
-      </categories>
-      <tags>
-        <tag>mysql</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>使用 hexo 搭建 GitHub Page 博客后，网页显示 404 的问题解决</title>
-    <url>/2019/08/14/hexo%E7%AC%AC%E4%B8%80%E6%AC%A1%E9%83%A8%E7%BD%B2%E7%BD%91%E9%A1%B5%E6%98%BE%E7%A4%BA404/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>使用 hexo 搭建 GitHub Page 博客后，第一次正常，第二次上传后，博客网页显示 404 页面。</p>
-<span id="more"></span>
-
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>因为绑定了域名，所以在 github 仓库根目录下有一个 CNAME 的文件，文件中写有需要绑定的域名。而使用 hexo 远程部署时会删除这个文件。所以页面会报 404 错误。</p>
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>只要在 github 仓库根目录下添加一个 CNAME 文件，且上传时不会被覆盖即可，方法如下：</p>
-<h3 id="3-1-在-hexo-指定文件夹下的-source-文件夹下添加-CNAME-文件，CNAME-文件中添加域名。"><a href="#3-1-在-hexo-指定文件夹下的-source-文件夹下添加-CNAME-文件，CNAME-文件中添加域名。" class="headerlink" title="3.1 在 hexo 指定文件夹下的 source 文件夹下添加 CNAME 文件，CNAME 文件中添加域名。"></a>3.1 在 hexo 指定文件夹下的 source 文件夹下添加 CNAME 文件，CNAME 文件中添加域名。</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2019-08-15_20-35-35.png"></p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2019-08-15_20-36-55.png"></p>
-<h3 id="3-2-然后在-Terminal-执行"><a href="#3-2-然后在-Terminal-执行" class="headerlink" title="3.2 然后在 Terminal 执行"></a>3.2 然后在 Terminal 执行</h3><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="3-3-查看-github-仓库根目录有该-CNAME-且博客可以正常访问"><a href="#3-3-查看-github-仓库根目录有该-CNAME-且博客可以正常访问" class="headerlink" title="3.3 查看 github 仓库根目录有该 CNAME 且博客可以正常访问"></a>3.3 查看 github 仓库根目录有该 CNAME 且博客可以正常访问</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2019-08-15_21-01-09.png"></p>
-]]></content>
-      <categories>
-        <category>环境部署</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Charles 相关总结</title>
     <url>/2024/11/16/charles%E7%9B%B8%E5%85%B3%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<h2 id="0-Charles简介"><a href="#0-Charles简介" class="headerlink" title="0.Charles简介"></a>0.Charles 简介</h2><p>Charles 是一款功能强大的 HTTP 代理服务器、HTTP 监视器和反转代理服务器，它可以帮助开发者和测试人员监控和分析 HTTP 和 HTTPS 网络通信。Charles 支持多种操作系统，包括 Windows、MacOS、iOS 和 Android。</p>
@@ -905,6 +794,27 @@
       </tags>
   </entry>
   <entry>
+    <title>使用 hexo 搭建 GitHub Page 博客后，网页显示 404 的问题解决</title>
+    <url>/2019/08/14/hexo%E7%AC%AC%E4%B8%80%E6%AC%A1%E9%83%A8%E7%BD%B2%E7%BD%91%E9%A1%B5%E6%98%BE%E7%A4%BA404/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>使用 hexo 搭建 GitHub Page 博客后，第一次正常，第二次上传后，博客网页显示 404 页面。</p>
+<span id="more"></span>
+
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>因为绑定了域名，所以在 github 仓库根目录下有一个 CNAME 的文件，文件中写有需要绑定的域名。而使用 hexo 远程部署时会删除这个文件。所以页面会报 404 错误。</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>只要在 github 仓库根目录下添加一个 CNAME 文件，且上传时不会被覆盖即可，方法如下：</p>
+<h3 id="3-1-在-hexo-指定文件夹下的-source-文件夹下添加-CNAME-文件，CNAME-文件中添加域名。"><a href="#3-1-在-hexo-指定文件夹下的-source-文件夹下添加-CNAME-文件，CNAME-文件中添加域名。" class="headerlink" title="3.1 在 hexo 指定文件夹下的 source 文件夹下添加 CNAME 文件，CNAME 文件中添加域名。"></a>3.1 在 hexo 指定文件夹下的 source 文件夹下添加 CNAME 文件，CNAME 文件中添加域名。</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2019-08-15_20-35-35.png"></p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2019-08-15_20-36-55.png"></p>
+<h3 id="3-2-然后在-Terminal-执行"><a href="#3-2-然后在-Terminal-执行" class="headerlink" title="3.2 然后在 Terminal 执行"></a>3.2 然后在 Terminal 执行</h3><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="3-3-查看-github-仓库根目录有该-CNAME-且博客可以正常访问"><a href="#3-3-查看-github-仓库根目录有该-CNAME-且博客可以正常访问" class="headerlink" title="3.3 查看 github 仓库根目录有该 CNAME 且博客可以正常访问"></a>3.3 查看 github 仓库根目录有该 CNAME 且博客可以正常访问</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2019-08-15_21-01-09.png"></p>
+]]></content>
+      <categories>
+        <category>环境部署</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo 迁移 | mac 到 mac</title>
     <url>/2024/10/01/hexo%E8%BF%81%E7%A7%BBmac%E5%88%B0mac/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>换了台新的 mac 机器，因为常用，所以将 hexo 迁移一下。</p>
@@ -969,23 +879,93 @@
       </tags>
   </entry>
   <entry>
-    <title>jmeter 通过 log4j2.xml 修改 log 文件位置</title>
-    <url>/2024/04/15/jmeter%E9%80%9A%E8%BF%87log4j2-xml%E4%BF%AE%E6%94%B9log%E6%96%87%E4%BB%B6%E4%BD%8D%E7%BD%AE/</url>
-    <content><![CDATA[<p>在 Apache JMeter 中，如果你使用的是 Log4j2 作为日志系统，并且想通过 <code>log4j2.xml</code> 配置文件修改日志文件的位置，你可以按照以下步骤操作：（文中使用 jmeter 版本为:apache-jmeter-5.6.3）</p>
-<ol>
-<li>找到 JMeter 安装目录下的 <code>log4j2.xml</code> 配置文件。在 JMeter 3.x 及以上版本中，这个文件通常位于 <code>apache-jmeter-X.XX/bin</code> 目录下。</li>
-<li>打开 <code>log4j2.xml</code> 文件，找到 <code>RollingFile</code> 或 <code>File</code> 类型的 Appender 配置部分。</li>
-</ol>
+    <title>mysql 实现 excel 中复制某一列，粘贴转置为行功能</title>
+    <url>/2021/05/31/group-concat%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>数据处理需要，需要将大批量的列，转置为行。</p>
+<p>尝试使用 excel，①选择需要转置的列→②在所需位置，右键→选择性粘贴→转置，发现只转置了一部分数据。</p>
 <span id="more"></span>
 
-<figure class="highlight xml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</span></span><br><span class="line"><span class="comment">&lt;!--......--&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">Configuration</span> <span class="attr">status</span>=<span class="string">"WARN"</span> <span class="attr">packages</span>=<span class="string">"org.apache.jmeter.gui.logging"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Appenders</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 修改这里，修改日志文件位置 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">File</span> <span class="attr">name</span>=<span class="string">"jmeter-log"</span> <span class="attr">fileName</span>=<span class="string">"/path/to/your/log/jmeter.log"</span> <span class="attr">append</span>=<span class="string">"false"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>%d %p %c{1.}: %m%n<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">File</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">GuiLogEvent</span> <span class="attr">name</span>=<span class="string">"gui-log-event"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>%d %p %c{1.}: %m%n<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">GuiLogEvent</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;/<span class="name">Appenders</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">Loggers</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Root</span> <span class="attr">level</span>=<span class="string">"info"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">AppenderRef</span> <span class="attr">ref</span>=<span class="string">"jmeter-log"</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">AppenderRef</span> <span class="attr">ref</span>=<span class="string">"gui-log-event"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Root</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Logger</span> <span class="attr">name</span>=<span class="string">"org.apache.jmeter.junit"</span> <span class="attr">level</span>=<span class="string">"debug"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;/<span class="name">Loggers</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">Configuration</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>转置的长度超过了 excel 的最大长度。</p>
+<p>最大长度是多少没查到😂。</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>百度后，发现可以使用 mysql 中 group_concat 函数。</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">SELECT GROUP_CONCAT(id separator ',') FROM `table` // id 为需要转换的列，separator后为以某字符为分割</span><br></pre></td></tr></tbody></table></figure>
 
+<p>发现又只转置了一部分数据。</p>
+<p>查资料发现，默认 GROUP_CONCAT 函数返回的结果大小被 MySQL 默认限制为 1024（字节）的长度。</p>
+<p>查看方式:</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">show variables like "group_concat_max_len";</span><br></pre></td></tr></tbody></table></figure>
+
+<p>解决方法有 2 种:</p>
+<h3 id="（1）临时解决方案："><a href="#（1）临时解决方案：" class="headerlink" title="（1）临时解决方案："></a>（1）临时解决方案：</h3><p>（该方法缺点是重启服务后设置失效，“group_concat_max_len = -1” 则为最大值，group_concat_max_len 的最大值为 4294967295 (2^32 - 1) 字节，因为处理数据量比较大，直接设置为最大值）</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">SET GLOBAL group_concat_max_len = -1;</span><br><span class="line"></span><br><span class="line">SET SESSION group_concat_max_len = -1;</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="（2）永久解决方案："><a href="#（2）永久解决方案：" class="headerlink" title="（2）永久解决方案："></a>（2）永久解决方案：</h3><p>在 Mysql 配置文件中加入如下配置 (推荐):</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">group_concat_max_len = -1</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p>参考于该<a href="https://www.cnblogs.com/zjfblog/p/13658936.html">博客园博客</a></p>
 ]]></content>
       <categories>
-        <category>性能测试</category>
+        <category>环境部署</category>
       </categories>
       <tags>
-        <tag>jmeter</tag>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Appium2 总结（二）inspector 工具使用及定位操作元素</title>
+    <url>/2024/08/09/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89inspector%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AE%9A%E4%BD%8D%E6%93%8D%E4%BD%9C%E5%85%83%E7%B4%A0/</url>
+    <content><![CDATA[<p>Appium Inspector 是 Appium 的一个工具，<strong>用于帮助开发人员和测试人员分析和调试移动应用程序</strong>。 它提供了图形界面和交互式的功能，使您能够轻松地检查应用程序的 UI 元素、获取元素属性、执行操作和生成自动化测试脚本。</p>
+<span id="more"></span>
+
+<h2 id="1-Appium-Inspector-下载"><a href="#1-Appium-Inspector-下载" class="headerlink" title="1.Appium Inspector 下载"></a>1.Appium Inspector 下载</h2><p><a href="https://github.com/appium/appium-inspector/releases">下载地址</a></p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240730200543128.png" alt="image-20240730200543128"></p>
+<p>选择相应版本下载后安装。</p>
+<h2 id="2-Appium-Inspector使用"><a href="#2-Appium-Inspector使用" class="headerlink" title="2.Appium Inspector使用"></a>2.Appium Inspector 使用</h2><p>（1）首先连接模拟器。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">➜  ~ adb connect 192.168.XX.XX:5555</span><br><span class="line">connected to 192.168.XX.XX:5555</span><br></pre></td></tr></tbody></table></figure>
+
+<p>（2）启动 appium 服务</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">➜  ~ appium</span><br><span class="line">[Appium] Welcome to Appium v2.11.2</span><br><span class="line">......</span><br></pre></td></tr></tbody></table></figure>
+
+<p>（3）打开 Appium Inspector</p>
+<p>在 Capability Builder 中，填写</p>
+<p>platformName=’Android’</p>
+<p>automationName=’uiautomator2’</p>
+<p>然后点击 <code>Start Session</code> 按钮。</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240731112127407.png" alt="image-20240731112127407"></p>
+<p>界面看到模拟器的截图，说明连接成功。</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240731112511529.png" alt="image-20240731112511529"></p>
+<p>（4）安装 2 个 app 用于测试</p>
+<p><a href="https://github.com/appium/appium/raw/master/packages/appium/sample-code/apps/ApiDemos-debug.apk">appium 官方 Demo apk 下载地址</a></p>
+<p>使用 adb 命令安装：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">➜  ~ adb install /Users/user1/Downloads/ApiDemos-debug.apk</span><br><span class="line">Performing Streamed Install</span><br><span class="line">Success</span><br></pre></td></tr></tbody></table></figure>
+
+<p><a href="https://github.com/imengyu/AutoCalc/raw/master/app-debug.apk">计算器 AutoCalc</a></p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">➜  ~ adb install /Users/user1/Downloads/ApiDemos-debug.apk.apk</span><br><span class="line">Performing Streamed Install</span><br><span class="line">Success</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<p>安装成功后，模拟器出现如下 app</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240731145423828.png" alt="image-20240731145423828"></p>
+<p>（5）打开 API Demos ，获取包名界面名（活动名）</p>
+<p>1️⃣通过 adb 命令获取</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">➜  ~ adb shell dumpsys window |grep mFocusedApp</span><br><span class="line">    mFocusedApp=Token{b14e783 ActivityRecord{3e73e32 u0 io.appium.android.apis/.ApiDemos t9}}</span><br><span class="line">    mFocusedApp=AppWindowToken{8c2ad00 token=Token{b14e783 ActivityRecord{3e73e32 u0 io.appium.android.apis/.ApiDemos t9}}}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>2️⃣通过 Appium Inspector 获取</p>
+<p>获取包名 <code>Commands</code>→<code>App Management</code>→<code>getCurrentPackage</code></p>
+<p>获取界面名 <code>Commands</code>→<code>App Management</code>→<code>getCurrentPackage</code></p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/2024-07-31%2015.38.57.gif" alt="2024-07-31 15.38.57"></p>
+<h2 id="2-定位操作元素"><a href="#2-定位操作元素" class="headerlink" title="2.定位操作元素"></a>2. 定位操作元素</h2><p>（1）通过 Appium Inspector 获取元素的 id</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/2024-07-31%2018.12.29.gif" alt="2024-07-31 18.12.29"></p>
+<p>（2）通过 id 获取获取元素，操作元素</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># 通过 ID 找元素</span></span><br><span class="line"><span class="comment"># 分别获取计算器上按键 1+2= 四个按钮的按键，并且点击</span></span><br><span class="line">driver.find_element(AppiumBy.ID, <span class="string">'com.dreamfish.com.autocalc:id/btn_pad_number_1'</span>).click()</span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line">driver.find_element(AppiumBy.ID, <span class="string">'com.dreamfish.com.autocalc:id/btn_pad_plus'</span>).click()</span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line">driver.find_element(AppiumBy.ID, <span class="string">'com.dreamfish.com.autocalc:id/btn_pad_number_2'</span>).click()</span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line">driver.find_element(AppiumBy.ID, <span class="string">'com.dreamfish.com.autocalc:id/btn_pad_equal'</span>).click()</span><br></pre></td></tr></tbody></table></figure>
+
+<p>(2) 通过</p>
+<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2>]]></content>
+      <categories>
+        <category>自动化测试</category>
+      </categories>
+      <tags>
+        <tag>appium</tag>
       </tags>
   </entry>
   <entry>
@@ -1039,34 +1019,23 @@
       </tags>
   </entry>
   <entry>
-    <title>mysql 按照分组筛选出时间倒序前三条记录</title>
-    <url>/2024/05/22/mysql%E6%8C%89%E7%85%A7%E5%88%86%E7%BB%84%E7%AD%9B%E9%80%89%E5%87%BA%E6%97%B6%E9%97%B4%E5%80%92%E5%BA%8F%E5%89%8D%E4%B8%89%E6%9D%A1%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在 MySQL 低版本 (5.7 以下) 中，如何按照分组筛选出时间倒序前三条记录？</p>
+    <title>jmeter 通过 log4j2.xml 修改 log 文件位置</title>
+    <url>/2024/04/15/jmeter%E9%80%9A%E8%BF%87log4j2-xml%E4%BF%AE%E6%94%B9log%E6%96%87%E4%BB%B6%E4%BD%8D%E7%BD%AE/</url>
+    <content><![CDATA[<p>在 Apache JMeter 中，如果你使用的是 Log4j2 作为日志系统，并且想通过 <code>log4j2.xml</code> 配置文件修改日志文件的位置，你可以按照以下步骤操作：（文中使用 jmeter 版本为:apache-jmeter-5.6.3）</p>
+<ol>
+<li>找到 JMeter 安装目录下的 <code>log4j2.xml</code> 配置文件。在 JMeter 3.x 及以上版本中，这个文件通常位于 <code>apache-jmeter-X.XX/bin</code> 目录下。</li>
+<li>打开 <code>log4j2.xml</code> 文件，找到 <code>RollingFile</code> 或 <code>File</code> 类型的 Appender 配置部分。</li>
+</ol>
 <span id="more"></span>
 
-<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> t.<span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> (</span><br><span class="line">  <span class="keyword">SELECT</span> <span class="operator">*</span>, </span><br><span class="line">    <span class="variable">@rn</span> :<span class="operator">=</span> IF(<span class="variable">@prev_group</span> <span class="operator">=</span> group_column, <span class="variable">@rn</span> <span class="operator">+</span> <span class="number">1</span>, <span class="number">1</span>) <span class="keyword">AS</span> rn,</span><br><span class="line">    <span class="variable">@prev_group</span> :<span class="operator">=</span> group_column</span><br><span class="line">  <span class="keyword">FROM</span> your_table, (<span class="keyword">SELECT</span> <span class="variable">@rn</span> :<span class="operator">=</span> <span class="number">0</span>, <span class="variable">@prev_group</span> :<span class="operator">=</span> <span class="keyword">NULL</span>) r</span><br><span class="line">  <span class="keyword">ORDER</span> <span class="keyword">BY</span> group_column, time_column <span class="keyword">DESC</span></span><br><span class="line">) t</span><br><span class="line"><span class="keyword">WHERE</span> rn <span class="operator">&lt;=</span> <span class="number">3</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> group_column, time_column <span class="keyword">DESC</span>;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight xml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</span></span><br><span class="line"><span class="comment">&lt;!--......--&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">Configuration</span> <span class="attr">status</span>=<span class="string">"WARN"</span> <span class="attr">packages</span>=<span class="string">"org.apache.jmeter.gui.logging"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Appenders</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 修改这里，修改日志文件位置 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">File</span> <span class="attr">name</span>=<span class="string">"jmeter-log"</span> <span class="attr">fileName</span>=<span class="string">"/path/to/your/log/jmeter.log"</span> <span class="attr">append</span>=<span class="string">"false"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>%d %p %c{1.}: %m%n<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">File</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">GuiLogEvent</span> <span class="attr">name</span>=<span class="string">"gui-log-event"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>%d %p %c{1.}: %m%n<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">GuiLogEvent</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;/<span class="name">Appenders</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">Loggers</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Root</span> <span class="attr">level</span>=<span class="string">"info"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">AppenderRef</span> <span class="attr">ref</span>=<span class="string">"jmeter-log"</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">AppenderRef</span> <span class="attr">ref</span>=<span class="string">"gui-log-event"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Root</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Logger</span> <span class="attr">name</span>=<span class="string">"org.apache.jmeter.junit"</span> <span class="attr">level</span>=<span class="string">"debug"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;/<span class="name">Loggers</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">Configuration</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
 
-<p>(1) 在子查询中，使用变量 <code>@rn</code> 和 <code>@prev_group</code> 来记录当前行的记录编号和前一行的分组。</p>
-<p>(2)<code>@rn := IF(@prev_group = group_column, @rn + 1, 1) AS rn</code> 这一行代码的作用是：如果当前行的分组与上一行相同，则记录编号 <code>rn</code> 递增 1, 否则从 1 开始计数。</p>
-<p>(3)<code>@prev_group := group_column</code> 这一行代码是更新上一行的分组。</p>
-<p>(4) 在外层查询中，使用 <code>WHERE rn &lt;= 3</code> 来筛选出每个分组中时间倒序的前 3 条记录。</p>
-<p>(5) 最后按分组 <code>group_column</code> 和时间 <code>time_column</code> 倒序排列输出结果。</p>
-<p>你可以将 <code>your_table</code> 替换成你自己的表名，<code>group_column</code> 替换成你表中的分组列名，<code>time_column</code> 替换成你表中的时间列名。</p>
-<p>这种方法在 MySQL 5.7 以下版本中都可以使用，不需要使用 <code>ROW_NUMBER()</code> 函数，性能也较好。</p>
-<p>在 MySQL8.0 及以上可以使用如下方法：</p>
-<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> t.<span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> (</span><br><span class="line">  <span class="keyword">SELECT</span> <span class="operator">*</span>, </span><br><span class="line">    <span class="built_in">ROW_NUMBER</span>() <span class="keyword">OVER</span> (<span class="keyword">PARTITION</span> <span class="keyword">BY</span> group_column <span class="keyword">ORDER</span> <span class="keyword">BY</span> time_column <span class="keyword">DESC</span>) <span class="keyword">AS</span> rn</span><br><span class="line">  <span class="keyword">FROM</span> your_table</span><br><span class="line">) t</span><br><span class="line"><span class="keyword">WHERE</span> rn <span class="operator">&lt;=</span> <span class="number">3</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> group_column, time_column <span class="keyword">DESC</span>;</span><br></pre></td></tr></tbody></table></figure>
-
-<p>（1）首先使用子查询，在每个分组 <code>group_column</code> 内根据时间列 <code>time_column</code> 使用 <code>ROW_NUMBER()</code> 函数给每条记录编号，按时间顺序倒序排列。</p>
-<p>（2）然后在外层查询中，使用 <code>WHERE rn &lt;= 3</code> 筛选出每个分组中时间倒序的前 3 条记录。</p>
-<p>（3）最后按分组 <code>group_column</code> 和时间 <code>time_column</code> 倒序排列输出结果。</p>
-<p>这样就可以实现按分组筛选出时间倒序前 3 条记录的功能。你可以将 <code>your_table</code> 替换成你自己的表名，<code>group_column</code> 替换成你表中的分组列名，<code>time_column</code> 替换成你表中的时间列名。</p>
-<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2><p><a href="https://kimi.moonshot.cn/">https://kimi.moonshot.cn/</a></p>
 ]]></content>
       <categories>
-        <category>数据库</category>
+        <category>性能测试</category>
       </categories>
       <tags>
-        <tag>mysql</tag>
+        <tag>jmeter</tag>
       </tags>
   </entry>
   <entry>
@@ -1094,6 +1063,37 @@
 <figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">group_concat_max_len = -1</span><br></pre></td></tr></tbody></table></figure>
 
 <h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p>参考于该<a href="https://www.cnblogs.com/zjfblog/p/13658936.html">博客园博客</a></p>
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>mysql 按照分组筛选出时间倒序前三条记录</title>
+    <url>/2024/05/22/mysql%E6%8C%89%E7%85%A7%E5%88%86%E7%BB%84%E7%AD%9B%E9%80%89%E5%87%BA%E6%97%B6%E9%97%B4%E5%80%92%E5%BA%8F%E5%89%8D%E4%B8%89%E6%9D%A1%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在 MySQL 低版本 (5.7 以下) 中，如何按照分组筛选出时间倒序前三条记录？</p>
+<span id="more"></span>
+
+<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> t.<span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> (</span><br><span class="line">  <span class="keyword">SELECT</span> <span class="operator">*</span>, </span><br><span class="line">    <span class="variable">@rn</span> :<span class="operator">=</span> IF(<span class="variable">@prev_group</span> <span class="operator">=</span> group_column, <span class="variable">@rn</span> <span class="operator">+</span> <span class="number">1</span>, <span class="number">1</span>) <span class="keyword">AS</span> rn,</span><br><span class="line">    <span class="variable">@prev_group</span> :<span class="operator">=</span> group_column</span><br><span class="line">  <span class="keyword">FROM</span> your_table, (<span class="keyword">SELECT</span> <span class="variable">@rn</span> :<span class="operator">=</span> <span class="number">0</span>, <span class="variable">@prev_group</span> :<span class="operator">=</span> <span class="keyword">NULL</span>) r</span><br><span class="line">  <span class="keyword">ORDER</span> <span class="keyword">BY</span> group_column, time_column <span class="keyword">DESC</span></span><br><span class="line">) t</span><br><span class="line"><span class="keyword">WHERE</span> rn <span class="operator">&lt;=</span> <span class="number">3</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> group_column, time_column <span class="keyword">DESC</span>;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p>(1) 在子查询中，使用变量 <code>@rn</code> 和 <code>@prev_group</code> 来记录当前行的记录编号和前一行的分组。</p>
+<p>(2)<code>@rn := IF(@prev_group = group_column, @rn + 1, 1) AS rn</code> 这一行代码的作用是：如果当前行的分组与上一行相同，则记录编号 <code>rn</code> 递增 1, 否则从 1 开始计数。</p>
+<p>(3)<code>@prev_group := group_column</code> 这一行代码是更新上一行的分组。</p>
+<p>(4) 在外层查询中，使用 <code>WHERE rn &lt;= 3</code> 来筛选出每个分组中时间倒序的前 3 条记录。</p>
+<p>(5) 最后按分组 <code>group_column</code> 和时间 <code>time_column</code> 倒序排列输出结果。</p>
+<p>你可以将 <code>your_table</code> 替换成你自己的表名，<code>group_column</code> 替换成你表中的分组列名，<code>time_column</code> 替换成你表中的时间列名。</p>
+<p>这种方法在 MySQL 5.7 以下版本中都可以使用，不需要使用 <code>ROW_NUMBER()</code> 函数，性能也较好。</p>
+<p>在 MySQL8.0 及以上可以使用如下方法：</p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> t.<span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> (</span><br><span class="line">  <span class="keyword">SELECT</span> <span class="operator">*</span>, </span><br><span class="line">    <span class="built_in">ROW_NUMBER</span>() <span class="keyword">OVER</span> (<span class="keyword">PARTITION</span> <span class="keyword">BY</span> group_column <span class="keyword">ORDER</span> <span class="keyword">BY</span> time_column <span class="keyword">DESC</span>) <span class="keyword">AS</span> rn</span><br><span class="line">  <span class="keyword">FROM</span> your_table</span><br><span class="line">) t</span><br><span class="line"><span class="keyword">WHERE</span> rn <span class="operator">&lt;=</span> <span class="number">3</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> group_column, time_column <span class="keyword">DESC</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>（1）首先使用子查询，在每个分组 <code>group_column</code> 内根据时间列 <code>time_column</code> 使用 <code>ROW_NUMBER()</code> 函数给每条记录编号，按时间顺序倒序排列。</p>
+<p>（2）然后在外层查询中，使用 <code>WHERE rn &lt;= 3</code> 筛选出每个分组中时间倒序的前 3 条记录。</p>
+<p>（3）最后按分组 <code>group_column</code> 和时间 <code>time_column</code> 倒序排列输出结果。</p>
+<p>这样就可以实现按分组筛选出时间倒序前 3 条记录的功能。你可以将 <code>your_table</code> 替换成你自己的表名，<code>group_column</code> 替换成你表中的分组列名，<code>time_column</code> 替换成你表中的时间列名。</p>
+<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2><p><a href="https://kimi.moonshot.cn/">https://kimi.moonshot.cn/</a></p>
 ]]></content>
       <categories>
         <category>数据库</category>
@@ -1263,24 +1263,6 @@
       </tags>
   </entry>
   <entry>
-    <title>python 加密总结</title>
-    <url>/2024/06/24/python%E5%8A%A0%E5%AF%86%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>每次都查系列，总结一下，以方便下次查。</p>
-<p>Md5 加密 </p>
-<p>Sha 加密</p>
-<p>Sha1</p>
-<p>Sha256</p>
-<p>Rsa 加密</p>
-<span id="more"></span>
-
-<h2 id="2-加密总结"><a href="#2-加密总结" class="headerlink" title="2.加密总结"></a>2. 加密总结</h2><p>（1）MD5 加密</p>
-<p>在 Python 中，可以使用内置的 <code>hashlib</code> 库来执行 MD5 加密。MD5 是一种广泛使用的哈希函数，它可以产生一个 128 位（16 字节）的哈希值，通常用一个 32 位的十六进制字符串表示。以下是🌰：</p>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line">复制</span><br><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">md5_encrypt</span>(<span class="params">text</span>):</span><br><span class="line">    <span class="comment"># 将文本转换为字节</span></span><br><span class="line">    text_bytes = text.encode(<span class="string">'utf-8'</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 创建hash对象</span></span><br><span class="line">    md5 = hashlib.md5()</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 对字节进行MD5加密</span></span><br><span class="line">    md5.update(text_bytes)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 获取加密后的二进制数据</span></span><br><span class="line">    digest = md5.digest()</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 将二进制数据转换为十六进制字符串</span></span><br><span class="line">    hex_dig = md5.hexdigest()</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> hex_dig</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用函数加密字符串</span></span><br><span class="line">text_to_encrypt = <span class="string">"Hello, World!"</span></span><br><span class="line">encrypted_text = md5_encrypt(text_to_encrypt)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f"The MD5 encrypted text is: <span class="subst">{encrypted_text}</span>"</span>)</span><br></pre></td></tr></tbody></table></figure>
-
-<p>MD5 已经不再被认为是安全的哈希函数，因为它容易受到多种攻击，如碰撞攻击。</p>
-<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2>]]></content>
-  </entry>
-  <entry>
     <title>python 创建虚拟环境</title>
     <url>/2021/06/29/python%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>python 如何创建虚拟环境？</p>
@@ -1302,6 +1284,24 @@
       <tags>
         <tag>python</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>python 加密总结</title>
+    <url>/2024/06/24/python%E5%8A%A0%E5%AF%86%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>每次都查系列，总结一下，以方便下次查。</p>
+<p>Md5 加密 </p>
+<p>Sha 加密</p>
+<p>Sha1</p>
+<p>Sha256</p>
+<p>Rsa 加密</p>
+<span id="more"></span>
+
+<h2 id="2-加密总结"><a href="#2-加密总结" class="headerlink" title="2.加密总结"></a>2. 加密总结</h2><p>（1）MD5 加密</p>
+<p>在 Python 中，可以使用内置的 <code>hashlib</code> 库来执行 MD5 加密。MD5 是一种广泛使用的哈希函数，它可以产生一个 128 位（16 字节）的哈希值，通常用一个 32 位的十六进制字符串表示。以下是🌰：</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line">复制</span><br><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">md5_encrypt</span>(<span class="params">text</span>):</span><br><span class="line">    <span class="comment"># 将文本转换为字节</span></span><br><span class="line">    text_bytes = text.encode(<span class="string">'utf-8'</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 创建hash对象</span></span><br><span class="line">    md5 = hashlib.md5()</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 对字节进行MD5加密</span></span><br><span class="line">    md5.update(text_bytes)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 获取加密后的二进制数据</span></span><br><span class="line">    digest = md5.digest()</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 将二进制数据转换为十六进制字符串</span></span><br><span class="line">    hex_dig = md5.hexdigest()</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> hex_dig</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用函数加密字符串</span></span><br><span class="line">text_to_encrypt = <span class="string">"Hello, World!"</span></span><br><span class="line">encrypted_text = md5_encrypt(text_to_encrypt)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f"The MD5 encrypted text is: <span class="subst">{encrypted_text}</span>"</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<p>MD5 已经不再被认为是安全的哈希函数，因为它容易受到多种攻击，如碰撞攻击。</p>
+<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2>]]></content>
   </entry>
   <entry>
     <title>python 日志模块总结</title>
@@ -1448,34 +1448,6 @@
       </tags>
   </entry>
   <entry>
-    <title>requirements 总结</title>
-    <url>/2021/05/21/requirements%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在搭建 Liunx 服务器时，需要在新的 Python 环境中安装项目需要的包的依赖，一条一条 pip install 太慢，有没有可以批量安装方法？</p>
-<span id="more"></span>
-
-<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><p>百度后，方法如下：</p>
-<p>在旧环境下执行:</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pip freeze &gt; requirements.txt</span><br></pre></td></tr></tbody></table></figure>
-
-<p>执行后，会在当前项目下生成一个 requirements.txt 的文件，然后将该文件上传到新的环境项目下，在新环境下执行:</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></tbody></table></figure>
-
-<p>有时执行上面命令会报错 (改错误是在 Jenkins 中执行 shell 时报错)</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">ERROR: Could not find a version that satisfies the requirement request==1.0.117 (from -r requirements.txt (line 6)) (from versions: none)</span><br></pre></td></tr></tbody></table></figure>
-
-<p>一般情况下是国外源的原因，将其临时替换为国内源：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple/</span><br></pre></td></tr></tbody></table></figure>
-
-]]></content>
-      <categories>
-        <category>环境部署</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>pycharm</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>scrcpy 的安装与使用</title>
     <url>/2024/10/02/scrcpy%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<h2 id="1-scrcpy简介"><a href="#1-scrcpy简介" class="headerlink" title="1.scrcpy简介"></a>1.scrcpy 简介</h2><p>scacpy 是一个可以将 Android 设备投屏（电脑上可以操作）到电脑上的一个开源工具。</p>
@@ -1566,6 +1538,34 @@
       </categories>
       <tags>
         <tag>scrcpy</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>requirements 总结</title>
+    <url>/2021/05/21/requirements%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在搭建 Liunx 服务器时，需要在新的 Python 环境中安装项目需要的包的依赖，一条一条 pip install 太慢，有没有可以批量安装方法？</p>
+<span id="more"></span>
+
+<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><p>百度后，方法如下：</p>
+<p>在旧环境下执行:</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pip freeze &gt; requirements.txt</span><br></pre></td></tr></tbody></table></figure>
+
+<p>执行后，会在当前项目下生成一个 requirements.txt 的文件，然后将该文件上传到新的环境项目下，在新环境下执行:</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></tbody></table></figure>
+
+<p>有时执行上面命令会报错 (改错误是在 Jenkins 中执行 shell 时报错)</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">ERROR: Could not find a version that satisfies the requirement request==1.0.117 (from -r requirements.txt (line 6)) (from versions: none)</span><br></pre></td></tr></tbody></table></figure>
+
+<p>一般情况下是国外源的原因，将其临时替换为国内源：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple/</span><br></pre></td></tr></tbody></table></figure>
+
+]]></content>
+      <categories>
+        <category>环境部署</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>pycharm</tag>
       </tags>
   </entry>
   <entry>
@@ -1738,6 +1738,72 @@
       </tags>
   </entry>
   <entry>
+    <title>《小强升职记：时间管理故事书》读书笔记</title>
+    <url>/2025/01/18/%E5%B0%8F%E5%BC%BA%E5%8D%87%E8%81%8C%E8%AE%B0%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86%E6%95%85%E4%BA%8B%E4%B9%A6%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h2 id="1-书摘"><a href="#1-书摘" class="headerlink" title="1.书摘"></a>1. 书摘</h2><ol>
+<li>时间管理，其实就是人生管理，是时间的管理方法或者说艺术，构成了不同的人生。</li>
+<li>做事靠系统，不是靠感觉！当你真正建立起来一套系统，并运转良好的时候，你就可以获得解放。</li>
+<li>我们应该在工作时尽量追求一种‘心静如水’的境界。</li>
+<li>时间管理管理的是承诺，履行承诺的能力就是时间管理的能力。</li>
+<li>自律即自由！</li>
+</ol>
+<span id="more"></span>
+
+<h2 id="2-读书心得"><a href="#2-读书心得" class="headerlink" title="2.读书心得"></a>2. 读书心得</h2><p>读完《小强升职记》，我深受启发，仿佛打开了一扇时间管理的新大门。这本书以小强和老付的交流故事为载体，深入浅出地介绍了时间管理的方法和技巧，让我意识到时间管理并非遥不可及，而是切实可行且能改变生活的有力工具。</p>
+<p>书中从寻找时间黑洞、明确价值观，到运用四象限法则、衣柜整理法等，为我们构建了一套完整的时间管理体系。它让我明白，只有先了解时间的去向，才能合理规划和利用时间。例如，通过记录时间日志，我开始审视自己的日常行为，发现原来很多时间都在无意义的琐事中悄然流逝。</p>
+<p>在实际应用方面，四象限法则帮助我重新审视任务的优先级，使我不再盲目地被紧急事务牵着走，而是将更多精力投入到重要但不紧急的事务中，从根源上减少紧急情况的发生。衣柜整理法更是让我学会了如何有条不紊地处理各种事务，从捕捉杂事到明确意义、组织整理，再到深思和行动，每一个步骤都让我的工作和生活变得更加清晰有序。</p>
+<p>同时，书中关于战胜拖延、养成习惯和让想法落地的内容也给我很大的鼓舞。我意识到拖延并非不可战胜，只要找到合适的方法，如番茄工作法，就能提高专注力和效率。培养习惯也需要技巧，要找到驱动力、及时奖励自己，并借助他人的力量。而让想法落地的过程，通过 S.M.A.R.T 法则、思维导图、甘特图和九宫格等工具，让我明白如何将模糊的想法转化为具体的目标和可行的计划。</p>
+<p>总的来说，这本书不仅提供了实用的时间管理方法，更改变了我的思维方式和生活态度。我相信，只要将书中的方法持续应用到实践中，不断优化和调整，我一定能够像小强一样，实现从忙碌到高效的转变，更好地掌控自己的人生。</p>
+<h2 id="3-知识积累"><a href="#3-知识积累" class="headerlink" title="3.知识积累"></a>3. 知识积累</h2><h3 id="（一）时间管理方法"><a href="#（一）时间管理方法" class="headerlink" title="（一）时间管理方法"></a>（一）时间管理方法</h3><h3 id="1️⃣四象限法则"><a href="#1️⃣四象限法则" class="headerlink" title="1️⃣四象限法则"></a>1️⃣四象限法则</h3><ul>
+<li>将事情按照重要和紧急程度划分为四个象限：重要而且紧急、重要但不紧急、不重要但紧急、不重要而且不紧急。</li>
+<li>处理原则：第一象限立即去做，但要尽量减少进入该象限的次数；第二象限有计划去做，是重点投入精力的象限；第三象限交给别人去做或委婉拒绝；第四象限尽量别去做。</li>
+</ul>
+<h3 id="2️⃣衣柜整理法"><a href="#2️⃣衣柜整理法" class="headerlink" title="2️⃣衣柜整理法"></a>2️⃣衣柜整理法</h3><ul>
+<li>对应时间管理的五个流程：捕捉、明确意义、组织整理、深思、行动，形成一个开放式循环。</li>
+<li>捕捉：把 “一切引起我们注意的事情” 都收集下来，放到头脑以外的地方，如使用工作篮、纸质记事簿、电子备忘录等工具，遵循捕捉工具越少越好、保证 5 秒钟进入录入状态、定期清空工具等原则。</li>
+<li>明确意义：迅速分辨收集篮里的杂事，分为 “可以行动” 和 “不能行动” 两类，“不能行动” 的任务又分为垃圾、将来某时、参考资料三类，“可以行动” 的任务分为 2 分钟行动、项目、任务、行动、指派给别人完成的事、特定时间做的事六类。</li>
+<li>组织整理：根据杂事的分类，将其放入相应的清单或日程表，如日程表存放特定时间要做的事情，将来清单管理较长时间后才执行的事情，行动清单是每天的主要清单，项目清单存放复杂项目相关内容。</li>
+<li>深思：对清单进行深思有孵化杂事、产生灵感、提升高度等好处，可在每天下班和每周回顾两个时间段进行。</li>
+<li>行动：根据四重标准（重要性、环境、时间、精力）选择最佳行动方案，同时要利用好 David Allen 提出的 “六个高度”（原则、愿景、目标、责任范围、任务、下一步行动）规划工作和人生。</li>
+</ul>
+<h3 id="（二）战胜拖延方法"><a href="#（二）战胜拖延方法" class="headerlink" title="（二）战胜拖延方法"></a>（二）战胜拖延方法</h3><h4 id="1️⃣番茄工作法"><a href="#1️⃣番茄工作法" class="headerlink" title="1️⃣番茄工作法"></a>1️⃣番茄工作法</h4><ul>
+<li>选择一个明确、可立即执行的行动，倒计时 25 分钟作为一个番茄时间，预估完成行动需要吃掉几个番茄，在番茄时间内不间断工作。</li>
+<li>每吃掉一个番茄休息 5 分钟，连续吃掉三个休息 15 分钟。</li>
+<li>处理被打断问题：若被打断，先问自己 “这些事情必须现在做吗？”，根据答案决定是放入收集篮还是中断番茄时间去处理，也可根据实际情况调整番茄钟时间。</li>
+</ul>
+<h3 id="（三）养成习惯方法"><a href="#（三）养成习惯方法" class="headerlink" title="（三）养成习惯方法"></a>（三）养成习惯方法</h3><ul>
+<li><p>培养习惯首先要找到驱动力，明确自己为什么要养成这个习惯，驱动力＞约束力。</p>
+</li>
+<li><p>再微不足道的成就都要大肆庆祝，给自己及时的奖励，赋予事情更多意义。</p>
+</li>
+<li><p>培养习惯不是一个人的事，可以借助社群或他人的力量，共同养成习惯。</p>
+</li>
+</ul>
+<h3 id="（四）让想法落地方法"><a href="#（四）让想法落地方法" class="headerlink" title="（四）让想法落地方法"></a>（四）让想法落地方法</h3><ul>
+<li><p>用 S.M.A.R.T 法则厘清目标，即目标要 Specific（明确）、Measurable（可衡量）、Attainable（可实现）、Relevant（相关）、Time - based（有截止期限）。</p>
+</li>
+<li><p>用思维导图梳理计划，通过三轮操作建立项目框架，第一轮写出创办社群需要考虑的因素，第二轮进行发散思维，第三轮做减法。</p>
+</li>
+<li><p>用甘特图掌控进度，确定项目的里程碑、任务、时间期限和负责人，可使甘特图具备进度跟踪功能。</p>
+</li>
+<li><p>用九宫格平衡人生，以心灵、健康、情感、心智、财务等需求为维度制定目标，中间格子可填个人价值观、使命和愿景，每个格子里的目标都可用思维导图和甘特图梳理和组织。</p>
+</li>
+</ul>
+<h2 id="4-思维导图"><a href="#4-思维导图" class="headerlink" title="4.思维导图"></a>4. 思维导图</h2><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202501181603751.png" alt="image-20250118160328702"></p>
+<h2 id="5-遗留问题"><a href="#5-遗留问题" class="headerlink" title="5.遗留问题"></a>5. 遗留问题</h2><p>（1）在实际应用四象限法则时，如何更准确地判断事务的重要程度和紧急程度，尤其是一些看似重要紧急程度不明显的任务？</p>
+<p>（2）使用衣柜整理法时，如何确保在深思环节能够真正有效地对清单进行 “修剪” 和 “孵化”，避免流于形式？</p>
+<p>（3）对于一些长期养成的拖延习惯，番茄工作法是否能完全解决问题，是否还需要结合其他方法进行综合治疗？</p>
+<p>（4）在养成习惯的过程中，如何保持驱动力的持久性，避免因时间推移而动力不足？</p>
+<p>（5）当多个目标同时存在时，如何利用九宫格更好地平衡各个目标之间的关系，确保不出现顾此失彼的情况？</p>
+]]></content>
+      <categories>
+        <category>读书笔记</category>
+      </categories>
+      <tags>
+        <tag>reading-notes</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>测试计划模板</title>
     <url>/2019/07/11/%E6%B5%8B%E8%AF%95%E8%AE%A1%E5%88%92%E6%A8%A1%E6%9D%BF/</url>
     <content><![CDATA[<h1 id="测试计划"><a href="#测试计划" class="headerlink" title="测试计划"></a>测试计划</h1><h1 id="XXX-项目测试计划"><a href="#XXX-项目测试计划" class="headerlink" title="XXX 项目测试计划"></a><center>XXX 项目测试计划</center></h1><h2 id="1-引言"><a href="#1-引言" class="headerlink" title="1.引言"></a>1. 引言</h2><h3 id="1-1-编写目的"><a href="#1-1-编写目的" class="headerlink" title="1.1 编写目的"></a>1.1 编写目的</h3><p>根据需求文档，提炼测试功能点、制定测试策略、评估测试风险，预估编写测试用例、执行功能测试和回归测试的工作量，进行人员和进度安排。</p>
@@ -1767,6 +1833,26 @@
       </tags>
   </entry>
   <entry>
+    <title>解决 Jenkins 插件安装失败 - 插件下载慢的问题</title>
+    <url>/2021/05/25/%E8%A7%A3%E5%86%B3Jenkins%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5-%E6%8F%92%E4%BB%B6%E4%B8%8B%E8%BD%BD%E6%85%A2%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在安装 Jenkins 的过程中，插件总是安装失败或者下载很慢。</p>
+<span id="more"></span>
+
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>安装源为国外的网站，所以下载速度慢。</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>直接把源换为国内的镜像站，步骤如下：</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2021-05-25_15-15-12.png" alt="p1"></p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2021-05-25_15-20-26.png" alt="p2"></p>
+<p>清华大学镜像站:</p>
+<p><a href="https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json">https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json</a></p>
+]]></content>
+      <categories>
+        <category>软件使用</category>
+      </categories>
+      <tags>
+        <tag>jenkins</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>群晖替换快到期证书</title>
     <url>/2024/10/08/%E7%BE%A4%E6%99%96%E6%9B%BF%E6%8D%A2%E5%BF%AB%E5%88%B0%E6%9C%9F%E8%AF%81%E4%B9%A6/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>由于免费的证书，现在有效期只有 3 个月，这意味着 1 年你要替换 4 次证书，记录一下，下次方便。</p>
@@ -1786,26 +1872,6 @@
       </categories>
       <tags>
         <tag>synology</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>解决 Jenkins 插件安装失败 - 插件下载慢的问题</title>
-    <url>/2021/05/25/%E8%A7%A3%E5%86%B3Jenkins%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5-%E6%8F%92%E4%BB%B6%E4%B8%8B%E8%BD%BD%E6%85%A2%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在安装 Jenkins 的过程中，插件总是安装失败或者下载很慢。</p>
-<span id="more"></span>
-
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>安装源为国外的网站，所以下载速度慢。</p>
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>直接把源换为国内的镜像站，步骤如下：</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2021-05-25_15-15-12.png" alt="p1"></p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2021-05-25_15-20-26.png" alt="p2"></p>
-<p>清华大学镜像站:</p>
-<p><a href="https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json">https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json</a></p>
-]]></content>
-      <categories>
-        <category>软件使用</category>
-      </categories>
-      <tags>
-        <tag>jenkins</tag>
       </tags>
   </entry>
   <entry>
@@ -1906,41 +1972,6 @@
       </tags>
   </entry>
   <entry>
-    <title>解决 hexoblog 标签点击没有响应的问题</title>
-    <url>/2024/05/23/%E8%A7%A3%E5%86%B3hexoblog%E6%A0%87%E7%AD%BE%E7%82%B9%E5%87%BB%E6%B2%A1%E6%9C%89%E5%93%8D%E5%BA%94%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>点击博客标签页面里面的标签，没有反应。</p>
-<span id="more"></span>
-
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523160533021.png" alt="image-20240523160533021"></p>
-<p>在本地测试，又没有问题。</p>
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>发现只有之前标签页面由之前的大写，改为小写的这些标签进不去。如原来标签叫 Hackintosh，为了标签的统一美观（其实就是强迫症），后面给改成 hackintosh。上 github 看了下，所有的内容都在 Hackintosh 中存储，而链接统一为小写。</p>
-<figure class="highlight http"><table><tbody><tr><td class="code"><pre><span class="line">https://www.zhangzhongchuan.top/tags/hackintosh/</span><br></pre></td></tr></tbody></table></figure>
-
-<p>将 hackintosh 改为大写，访问成功。</p>
-<figure class="highlight http"><table><tbody><tr><td class="code"><pre><span class="line">https://www.zhangzhongchuan.top/tags/Hackintosh/</span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>（1）进入博客项目的 <em>.deploy_git</em> 文件夹，修改 <em>.git</em> 下的 <em>config</em> 文件，将忽略大小配置写改为 false</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">ignorecase=<span class="literal">false</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>（2）删除博客项目中 <em>.deploy_git</em> 文件夹下所有文件，并 push 到 GitHub 上：（如果不清空其实也可以，就是 github 上有 2 个文件夹如 <code>Hackintosh</code> 和 <code>hackintosh</code>）</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> .deploy_git</span><br><span class="line">git <span class="built_in">rm</span> -rf *</span><br><span class="line">git commit -m <span class="string">'clean all file'</span></span><br><span class="line">git push</span><br></pre></td></tr></tbody></table></figure>
-
-<p>(3) 使用 hexo 再次生成文件并部署：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ..</span><br><span class="line"></span><br><span class="line">hexo clean &amp;&amp; hexo g -d</span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p>参考于该博客</p>
-<p><a href="https://metric-h.github.io/2021/03/30/hexo-da-xiao-xie-wen-ti/">https://metric-h.github.io/2021/03/30/hexo-da-xiao-xie-wen-ti/</a></p>
-]]></content>
-      <categories>
-        <category>环境部署</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>解决 hexo 部署出现 Error-ENOTEMPTY 的问题</title>
     <url>/2021/05/21/%E8%A7%A3%E5%86%B3hexo%E9%83%A8%E7%BD%B2%E5%87%BA%E7%8E%B0Error-ENOTEMPTY%E7%9A%84%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在 Terminal 执行 hexo deploy 后，报错如下：</p>
@@ -1988,6 +2019,26 @@
       </tags>
   </entry>
   <entry>
+    <title>macOS 中无法删除启动台的空白文件夹</title>
+    <url>/2024/05/09/%E8%A7%A3%E5%86%B3macOS%E4%B8%AD%E6%97%A0%E6%B3%95%E5%88%A0%E9%99%A4%E5%90%AF%E5%8A%A8%E5%8F%B0%E7%9A%84%E7%A9%BA%E7%99%BD%E6%96%87%E4%BB%B6%E5%A4%B9/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>今天下载了 Ryujinx，然后启动台自动把国际象棋 Ryujinx 放到了一个文件夹里面，然后手动拖出来之后，空文件夹没有消失，拖动其他图标进去后图标直接消失不见了，然后出现了一个虚线型的文件夹图标，图标可以显示，然后打开文件夹图标消失了，也无法拖出 App 图标。</p>
+<span id="more"></span>
+
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>macos12/13 系统 bug。</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>（1）在终端中输入以下，然后回车</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">open getconf DARWIN_USER_DIR</span><br></pre></td></tr></tbody></table></figure>
+
+<p>（2）然后删除 com.apple.dock.launchpad 文件夹</p>
+<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p><a href="https://discussionschinese.apple.com/thread/253648900?answerId=256835759322&amp;sortBy=best#256835759322">https://discussionschinese.apple.com/thread/253648900?answerId=256835759322&amp;sortBy=best#256835759322</a></p>
+]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>macos</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>解决 mac 上用 SourceTree 克隆 git 上的项目时长时间 clone 不下的问题</title>
     <url>/2024/10/02/%E8%A7%A3%E5%86%B3mac%E4%B8%8A%E7%94%A8SourceTree%E5%85%8B%E9%9A%86git%E4%B8%8A%E7%9A%84%E9%A1%B9%E7%9B%AE%E6%97%B6%E9%95%BF%E6%97%B6%E9%97%B4clone%E4%B8%8D%E4%B8%8B%E7%9A%84%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>IOS 开发推荐了 <code>Sourcetree</code>, 但是在 clone 时，发现进度条几乎满了，就是 clone 不下来。</p>
@@ -2006,26 +2057,6 @@
       </categories>
       <tags>
         <tag>sourcetree</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>macOS 中无法删除启动台的空白文件夹</title>
-    <url>/2024/05/09/%E8%A7%A3%E5%86%B3macOS%E4%B8%AD%E6%97%A0%E6%B3%95%E5%88%A0%E9%99%A4%E5%90%AF%E5%8A%A8%E5%8F%B0%E7%9A%84%E7%A9%BA%E7%99%BD%E6%96%87%E4%BB%B6%E5%A4%B9/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>今天下载了 Ryujinx，然后启动台自动把国际象棋 Ryujinx 放到了一个文件夹里面，然后手动拖出来之后，空文件夹没有消失，拖动其他图标进去后图标直接消失不见了，然后出现了一个虚线型的文件夹图标，图标可以显示，然后打开文件夹图标消失了，也无法拖出 App 图标。</p>
-<span id="more"></span>
-
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>macos12/13 系统 bug。</p>
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>（1）在终端中输入以下，然后回车</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">open getconf DARWIN_USER_DIR</span><br></pre></td></tr></tbody></table></figure>
-
-<p>（2）然后删除 com.apple.dock.launchpad 文件夹</p>
-<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p><a href="https://discussionschinese.apple.com/thread/253648900?answerId=256835759322&amp;sortBy=best#256835759322">https://discussionschinese.apple.com/thread/253648900?answerId=256835759322&amp;sortBy=best#256835759322</a></p>
-]]></content>
-      <categories>
-        <category>操作系统</category>
-      </categories>
-      <tags>
-        <tag>macos</tag>
       </tags>
   </entry>
   <entry>
@@ -2071,19 +2102,60 @@
       </tags>
   </entry>
   <entry>
-    <title>解决使用 chrome-inspect-devices 页面空白问题</title>
-    <url>/2024/10/02/%E8%A7%A3%E5%86%B3%E4%BD%BF%E7%94%A8chrome-inspect-devices%E9%A1%B5%E9%9D%A2%E7%A9%BA%E7%99%BD%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在使用 chrome://inspect/#devices，页面空白</p>
+    <title>解决 hexoblog 标签点击没有响应的问题</title>
+    <url>/2024/05/23/%E8%A7%A3%E5%86%B3hexoblog%E6%A0%87%E7%AD%BE%E7%82%B9%E5%87%BB%E6%B2%A1%E6%9C%89%E5%93%8D%E5%BA%94%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>点击博客标签页面里面的标签，没有反应。</p>
 <span id="more"></span>
 
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>需要科学上网</p>
-<h2 id="3-使用条件"><a href="#3-使用条件" class="headerlink" title="3.使用条件"></a>3. 使用条件</h2><h3 id="（1）能够访问google-com"><a href="#（1）能够访问google-com" class="headerlink" title="（1）能够访问google.com"></a>（1）能够访问 google.com</h3><h3 id="（2）手机开启usb调试模式"><a href="#（2）手机开启usb调试模式" class="headerlink" title="（2）手机开启usb调试模式"></a>（2）手机开启 usb 调试模式</h3><h3 id="（3）允许电脑访问手机"><a href="#（3）允许电脑访问手机" class="headerlink" title="（3）允许电脑访问手机"></a>（3）允许电脑访问手机</h3><h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p><a href="https://github.com/HuarenYu/note/issues/1">https://github.com/HuarenYu/note/issues/1</a></p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523160533021.png" alt="image-20240523160533021"></p>
+<p>在本地测试，又没有问题。</p>
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>发现只有之前标签页面由之前的大写，改为小写的这些标签进不去。如原来标签叫 Hackintosh，为了标签的统一美观（其实就是强迫症），后面给改成 hackintosh。上 github 看了下，所有的内容都在 Hackintosh 中存储，而链接统一为小写。</p>
+<figure class="highlight http"><table><tbody><tr><td class="code"><pre><span class="line">https://www.zhangzhongchuan.top/tags/hackintosh/</span><br></pre></td></tr></tbody></table></figure>
+
+<p>将 hackintosh 改为大写，访问成功。</p>
+<figure class="highlight http"><table><tbody><tr><td class="code"><pre><span class="line">https://www.zhangzhongchuan.top/tags/Hackintosh/</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>（1）进入博客项目的 <em>.deploy_git</em> 文件夹，修改 <em>.git</em> 下的 <em>config</em> 文件，将忽略大小配置写改为 false</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">ignorecase=<span class="literal">false</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>（2）删除博客项目中 <em>.deploy_git</em> 文件夹下所有文件，并 push 到 GitHub 上：（如果不清空其实也可以，就是 github 上有 2 个文件夹如 <code>Hackintosh</code> 和 <code>hackintosh</code>）</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> .deploy_git</span><br><span class="line">git <span class="built_in">rm</span> -rf *</span><br><span class="line">git commit -m <span class="string">'clean all file'</span></span><br><span class="line">git push</span><br></pre></td></tr></tbody></table></figure>
+
+<p>(3) 使用 hexo 再次生成文件并部署：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ..</span><br><span class="line"></span><br><span class="line">hexo clean &amp;&amp; hexo g -d</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p>参考于该博客</p>
+<p><a href="https://metric-h.github.io/2021/03/30/hexo-da-xiao-xie-wen-ti/">https://metric-h.github.io/2021/03/30/hexo-da-xiao-xie-wen-ti/</a></p>
 ]]></content>
       <categories>
-        <category>软件使用</category>
+        <category>环境部署</category>
       </categories>
       <tags>
-        <tag>chrome</tag>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解决使用 excel 打开 csv 文件时出现乱码的问题</title>
+    <url>/2020/06/11/%E8%A7%A3%E5%86%B3%E4%BD%BF%E7%94%A8excel%E6%89%93%E5%BC%80csv%E6%96%87%E4%BB%B6%E6%97%B6%E5%87%BA%E7%8E%B0%E4%B9%B1%E7%A0%81%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>使用 excel 打开 csv 文件时出现乱码</p>
+<span id="more"></span>
+
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>excel 默认识别的是带 BOM 格式的 csv 文档，而打开纯 UTF-8 的文件时，没有 BOM 的头，也就是第一行，所以打开是乱码。(开头多了一串字符”\ufeff”)</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>将”utf-8” 格式转换为”utf-8 with BOM”，python 中这个带 BOM 格式的叫做 UTF-8-SIG，都是 UTF-8 带签名的意思。</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> codecs</span><br><span class="line"><span class="keyword">import</span> chardet</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># from subFunc_tools import *</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">list_folders_files</span>(<span class="params">path</span>):</span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    返回 "文件夹" 和 "文件" 名字</span></span><br><span class="line"><span class="string">    :param path: "文件夹"和"文件"所在的路径</span></span><br><span class="line"><span class="string">    :return:  (list_folders, list_files)</span></span><br><span class="line"><span class="string">            :list_folders: 文件夹</span></span><br><span class="line"><span class="string">            :list_files: 文件</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    list_folders = []</span><br><span class="line">    list_files = []</span><br><span class="line">    <span class="keyword">for</span> file <span class="keyword">in</span> os.listdir(path):</span><br><span class="line">        file_path = os.path.join(path, file)</span><br><span class="line">        <span class="keyword">if</span> os.path.isdir(file_path):</span><br><span class="line">            list_folders.append(file)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            list_files.append(file)</span><br><span class="line">    <span class="keyword">return</span> (list_folders, list_files)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">convert</span>(<span class="params">file, in_enc=<span class="string">"GBK"</span>, out_enc=<span class="string">"UTF-8"</span></span>):</span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    该程序用于将目录下的文件从指定格式转换到指定格式，默认的是GBK转到utf-8</span></span><br><span class="line"><span class="string">    :param file:    文件路径</span></span><br><span class="line"><span class="string">    :param in_enc:  输入文件格式</span></span><br><span class="line"><span class="string">    :param out_enc: 输出文件格式</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    in_enc = in_enc.upper()</span><br><span class="line">    out_enc = out_enc.upper()</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"convert [ "</span> + file.split(<span class="string">'\\'</span>)[-<span class="number">1</span>] + <span class="string">" ].....From "</span> + in_enc + <span class="string">" --&gt; "</span> + out_enc)</span><br><span class="line">        f = codecs.<span class="built_in">open</span>(file, <span class="string">'r'</span>, in_enc)</span><br><span class="line">        new_content = f.read()</span><br><span class="line">        codecs.<span class="built_in">open</span>(file, <span class="string">'w'</span>, out_enc).write(new_content)</span><br><span class="line">    <span class="comment"># print (f.read())</span></span><br><span class="line">    <span class="keyword">except</span> IOError <span class="keyword">as</span> err:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"I/O error: {0}"</span>.<span class="built_in">format</span>(err))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将路径下面的所有文件，从原来的格式变为UTF-8的格式</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    path = <span class="string">r'G:\desktop\Convert-UTF8'</span></span><br><span class="line"></span><br><span class="line">    (list_folders, list_files) = list_folders_files(path)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Path: "</span> + path)</span><br><span class="line">    <span class="keyword">for</span> fileName <span class="keyword">in</span> list_files:</span><br><span class="line">        filePath = path + <span class="string">'\\'</span> + fileName</span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(filePath, <span class="string">"rb"</span>) <span class="keyword">as</span> f:</span><br><span class="line">            data = f.read()</span><br><span class="line">            codeType = chardet.detect(data)[<span class="string">'encoding'</span>]</span><br><span class="line">            convert(filePath, codeType, <span class="string">'UTF-8-SIG'</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p>代码参考于以下博客，自己做了相关调整：</p>
+<p><a href="https://www.cnblogs.com/monster-yher/p/13418600.html">https://www.cnblogs.com/monster-yher/p/13418600.html</a></p>
+]]></content>
+      <categories>
+        <category>测试脚本</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -2117,24 +2189,19 @@
       </tags>
   </entry>
   <entry>
-    <title>解决黑苹果系统无故重启的问题</title>
-    <url>/2024/05/21/%E8%A7%A3%E5%86%B3%E9%BB%91%E8%8B%B9%E6%9E%9C%E7%B3%BB%E7%BB%9F%E6%97%A0%E6%95%85%E9%87%8D%E5%90%AF%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>抄国光大佬作业搞了一台 chromebox3 CN65，刷上黑苹果，总是无规律重启。尝试重新刷了 最新的 bios，好了 2 天，后面又开始无规律重启，配置如下：</p>
+    <title>解决使用 chrome-inspect-devices 页面空白问题</title>
+    <url>/2024/10/02/%E8%A7%A3%E5%86%B3%E4%BD%BF%E7%94%A8chrome-inspect-devices%E9%A1%B5%E9%9D%A2%E7%A9%BA%E7%99%BD%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在使用 chrome://inspect/#devices，页面空白</p>
 <span id="more"></span>
 
-<p>CPU：Intel® Core™ i7-8550U Processor</p>
-<p>Graphic：Intel® HD Graphics 620</p>
-<p>内存：DDR4 JUHOR 玖合 2666MHZ 16G x 2 (这台机器官网是 4-16G，试了下 32G 能用，就用了)</p>
-<p>固态硬盘：台电（TECLAST）1TBPCle3.0*4</p>
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>内存条频率为 2666MHZ</p>
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>更换内存条为 2400MHZ（黑苹果对硬件的要求比较高）</p>
-<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p><a href="https://www.sqlsec.com/2023/07/macbox.html">https://www.sqlsec.com/2023/07/macbox.html</a></p>
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>需要科学上网</p>
+<h2 id="3-使用条件"><a href="#3-使用条件" class="headerlink" title="3.使用条件"></a>3. 使用条件</h2><h3 id="（1）能够访问google-com"><a href="#（1）能够访问google-com" class="headerlink" title="（1）能够访问google.com"></a>（1）能够访问 google.com</h3><h3 id="（2）手机开启usb调试模式"><a href="#（2）手机开启usb调试模式" class="headerlink" title="（2）手机开启usb调试模式"></a>（2）手机开启 usb 调试模式</h3><h3 id="（3）允许电脑访问手机"><a href="#（3）允许电脑访问手机" class="headerlink" title="（3）允许电脑访问手机"></a>（3）允许电脑访问手机</h3><h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p><a href="https://github.com/HuarenYu/note/issues/1">https://github.com/HuarenYu/note/issues/1</a></p>
 ]]></content>
       <categories>
-        <category>操作系统</category>
+        <category>软件使用</category>
       </categories>
       <tags>
-        <tag>hackintosh</tag>
+        <tag>chrome</tag>
       </tags>
   </entry>
   <entry>
@@ -2175,6 +2242,27 @@
       </tags>
   </entry>
   <entry>
+    <title>解决黑苹果系统无故重启的问题</title>
+    <url>/2024/05/21/%E8%A7%A3%E5%86%B3%E9%BB%91%E8%8B%B9%E6%9E%9C%E7%B3%BB%E7%BB%9F%E6%97%A0%E6%95%85%E9%87%8D%E5%90%AF%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>抄国光大佬作业搞了一台 chromebox3 CN65，刷上黑苹果，总是无规律重启。尝试重新刷了 最新的 bios，好了 2 天，后面又开始无规律重启，配置如下：</p>
+<span id="more"></span>
+
+<p>CPU：Intel® Core™ i7-8550U Processor</p>
+<p>Graphic：Intel® HD Graphics 620</p>
+<p>内存：DDR4 JUHOR 玖合 2666MHZ 16G x 2 (这台机器官网是 4-16G，试了下 32G 能用，就用了)</p>
+<p>固态硬盘：台电（TECLAST）1TBPCle3.0*4</p>
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>内存条频率为 2666MHZ</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>更换内存条为 2400MHZ（黑苹果对硬件的要求比较高）</p>
+<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p><a href="https://www.sqlsec.com/2023/07/macbox.html">https://www.sqlsec.com/2023/07/macbox.html</a></p>
+]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>hackintosh</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>面试总结</title>
     <url>/2024/10/01/%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<h2 id="1-回顾面试流程"><a href="#1-回顾面试流程" class="headerlink" title="1.回顾面试流程"></a>1. <strong>回顾面试流程</strong></h2><p>①一面 8 月 10 日，测试主管面试。</p>
@@ -2197,28 +2285,6 @@
       </categories>
       <tags>
         <tag>interview</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>解决使用 excel 打开 csv 文件时出现乱码的问题</title>
-    <url>/2020/06/11/%E8%A7%A3%E5%86%B3%E4%BD%BF%E7%94%A8excel%E6%89%93%E5%BC%80csv%E6%96%87%E4%BB%B6%E6%97%B6%E5%87%BA%E7%8E%B0%E4%B9%B1%E7%A0%81%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>使用 excel 打开 csv 文件时出现乱码</p>
-<span id="more"></span>
-
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>excel 默认识别的是带 BOM 格式的 csv 文档，而打开纯 UTF-8 的文件时，没有 BOM 的头，也就是第一行，所以打开是乱码。(开头多了一串字符”\ufeff”)</p>
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>将”utf-8” 格式转换为”utf-8 with BOM”，python 中这个带 BOM 格式的叫做 UTF-8-SIG，都是 UTF-8 带签名的意思。</p>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> codecs</span><br><span class="line"><span class="keyword">import</span> chardet</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># from subFunc_tools import *</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">list_folders_files</span>(<span class="params">path</span>):</span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    返回 "文件夹" 和 "文件" 名字</span></span><br><span class="line"><span class="string">    :param path: "文件夹"和"文件"所在的路径</span></span><br><span class="line"><span class="string">    :return:  (list_folders, list_files)</span></span><br><span class="line"><span class="string">            :list_folders: 文件夹</span></span><br><span class="line"><span class="string">            :list_files: 文件</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    list_folders = []</span><br><span class="line">    list_files = []</span><br><span class="line">    <span class="keyword">for</span> file <span class="keyword">in</span> os.listdir(path):</span><br><span class="line">        file_path = os.path.join(path, file)</span><br><span class="line">        <span class="keyword">if</span> os.path.isdir(file_path):</span><br><span class="line">            list_folders.append(file)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            list_files.append(file)</span><br><span class="line">    <span class="keyword">return</span> (list_folders, list_files)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">convert</span>(<span class="params">file, in_enc=<span class="string">"GBK"</span>, out_enc=<span class="string">"UTF-8"</span></span>):</span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    该程序用于将目录下的文件从指定格式转换到指定格式，默认的是GBK转到utf-8</span></span><br><span class="line"><span class="string">    :param file:    文件路径</span></span><br><span class="line"><span class="string">    :param in_enc:  输入文件格式</span></span><br><span class="line"><span class="string">    :param out_enc: 输出文件格式</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    in_enc = in_enc.upper()</span><br><span class="line">    out_enc = out_enc.upper()</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"convert [ "</span> + file.split(<span class="string">'\\'</span>)[-<span class="number">1</span>] + <span class="string">" ].....From "</span> + in_enc + <span class="string">" --&gt; "</span> + out_enc)</span><br><span class="line">        f = codecs.<span class="built_in">open</span>(file, <span class="string">'r'</span>, in_enc)</span><br><span class="line">        new_content = f.read()</span><br><span class="line">        codecs.<span class="built_in">open</span>(file, <span class="string">'w'</span>, out_enc).write(new_content)</span><br><span class="line">    <span class="comment"># print (f.read())</span></span><br><span class="line">    <span class="keyword">except</span> IOError <span class="keyword">as</span> err:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"I/O error: {0}"</span>.<span class="built_in">format</span>(err))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将路径下面的所有文件，从原来的格式变为UTF-8的格式</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    path = <span class="string">r'G:\desktop\Convert-UTF8'</span></span><br><span class="line"></span><br><span class="line">    (list_folders, list_files) = list_folders_files(path)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Path: "</span> + path)</span><br><span class="line">    <span class="keyword">for</span> fileName <span class="keyword">in</span> list_files:</span><br><span class="line">        filePath = path + <span class="string">'\\'</span> + fileName</span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(filePath, <span class="string">"rb"</span>) <span class="keyword">as</span> f:</span><br><span class="line">            data = f.read()</span><br><span class="line">            codeType = chardet.detect(data)[<span class="string">'encoding'</span>]</span><br><span class="line">            convert(filePath, codeType, <span class="string">'UTF-8-SIG'</span>)</span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p>代码参考于以下博客，自己做了相关调整：</p>
-<p><a href="https://www.cnblogs.com/monster-yher/p/13418600.html">https://www.cnblogs.com/monster-yher/p/13418600.html</a></p>
-]]></content>
-      <categories>
-        <category>测试脚本</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
       </tags>
   </entry>
 </search>

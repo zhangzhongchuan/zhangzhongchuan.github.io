@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="manifest" href="/manifest.json">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha256-wiz7ZSCn/btzhjKDQBms9Hx4sSeUYsDrTLg7roPstac=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.tangxdou.com","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Jinja2 是一个基于 Python 的模板引擎，广泛用于生成 HTML、XML 或其他标记语言。它被许多框架（如 Flask 和 Django）使用，具有灵活的语法和强大的功能。对比 Django 的模板，总结一下 Jinja2。 0. 官网 官方文档：Jinja2 官方文档  Flask 教程：Flask 框架中大量使用 Jinja2，学习 Flask 时可以顺便掌握 Jinja2。 在线练">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jinja2 模板与 Django 模板对比总结">
+<meta property="og:url" content="https://www.tangxdou.com/2025/02/10/jinja2%E6%A8%A1%E6%9D%BF%E4%B8%8EDjango%E6%A8%A1%E6%9D%BF%E5%AF%B9%E6%AF%94%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="糖小豆">
+<meta property="og:description" content="Jinja2 是一个基于 Python 的模板引擎，广泛用于生成 HTML、XML 或其他标记语言。它被许多框架（如 Flask 和 Django）使用，具有灵活的语法和强大的功能。对比 Django 的模板，总结一下 Jinja2。 0. 官网 官方文档：Jinja2 官方文档  Flask 教程：Flask 框架中大量使用 Jinja2，学习 Flask 时可以顺便掌握 Jinja2。 在线练">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-02-10T02:36:27.000Z">
+<meta property="article:modified_time" content="2025-02-10T09:14:27.819Z">
+<meta property="article:author" content="糖小豆">
+<meta property="article:tag" content="jinja2">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://www.tangxdou.com/2025/02/10/jinja2%E6%A8%A1%E6%9D%BF%E4%B8%8EDjango%E6%A8%A1%E6%9D%BF%E5%AF%B9%E6%AF%94%E6%80%BB%E7%BB%93/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.tangxdou.com/2025/02/10/jinja2%E6%A8%A1%E6%9D%BF%E4%B8%8EDjango%E6%A8%A1%E6%9D%BF%E5%AF%B9%E6%AF%94%E6%80%BB%E7%BB%93/","path":"2025/02/10/jinja2模板与Django模板对比总结/","title":"jinja2 模板与 Django 模板对比总结"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>jinja2 模板与 Django 模板对比总结 | 糖小豆</title>
+  
+
+
+
+
+
+
+
+<link rel="dns-prefetch" href="waline.tangxdou.com">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">糖小豆</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#0-%E5%AE%98%E7%BD%91"><span class="nav-text">0. 官网</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%AE%89%E8%A3%85"><span class="nav-text">1. 安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E8%AE%BE%E8%AE%A1%E7%90%86%E5%BF%B5"><span class="nav-text">2. 设计理念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%80%A7%E8%83%BD"><span class="nav-text">2. 性能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E6%89%A9%E5%B1%95%E6%80%A7"><span class="nav-text">3. 扩展性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-text">4. 使用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E8%AF%AD%E6%B3%95%E5%B7%AE%E5%BC%82"><span class="nav-text">5. 语法差异</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%881%EF%BC%89%E5%8F%98%E9%87%8F%E8%BE%93%E5%87%BA%EF%BC%9A"><span class="nav-text">（1）变量输出：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%882%EF%BC%89%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84%EF%BC%9A"><span class="nav-text">（2）控制结构：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1%EF%B8%8F%E2%83%A3%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD-if-%E8%AF%AD%E5%8F%A5"><span class="nav-text">1️⃣条件判断 if 语句</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Jinja2"><span class="nav-text">Jinja2</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Django-%E6%A8%A1%E6%9D%BF"><span class="nav-text">Django 模板</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B%EF%BC%9A"><span class="nav-text">示例：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2%EF%B8%8F%E2%83%A3%E5%BE%AA%E7%8E%AF-for-%E8%AF%AD%E5%8F%A5"><span class="nav-text">2️⃣循环 for 语句</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Jinja2-1"><span class="nav-text">Jinja2</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B%EF%BC%9A-1"><span class="nav-text">示例：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Django-%E6%A8%A1%E6%9D%BF-1"><span class="nav-text">Django 模板</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B%EF%BC%9A-2"><span class="nav-text">示例：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3%EF%B8%8F%E2%83%A3%E5%BE%AA%E7%8E%AF%E5%8F%98%E9%87%8F%E7%9A%84%E5%B7%AE%E5%BC%82"><span class="nav-text">3️⃣循环变量的差异</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Jinja2-%E7%9A%84-loop-%E5%8F%98%E9%87%8F"><span class="nav-text">Jinja2 的 loop 变量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Django-%E6%A8%A1%E6%9D%BF%E7%9A%84-forloop-%E5%8F%98%E9%87%8F"><span class="nav-text">Django 模板的 forloop 变量</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4%EF%B8%8F%E2%83%A3%E5%AF%B9%E5%A4%8D%E6%9D%82%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E6%94%AF%E6%8C%81"><span class="nav-text">4️⃣对复杂表达式的支持</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Jinja2-2"><span class="nav-text">Jinja2</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Django-%E6%A8%A1%E6%9D%BF-2"><span class="nav-text">Django 模板</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5%EF%B8%8F%E2%83%A3-else-%E5%88%86%E6%94%AF%E7%9A%84%E5%B7%AE%E5%BC%82"><span class="nav-text">5️⃣ else 分支的差异</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Jinja2-3"><span class="nav-text">Jinja2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Django-%E6%A8%A1%E6%9D%BF-3"><span class="nav-text">Django 模板</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%883%EF%BC%89%E8%BF%87%E6%BB%A4%E5%99%A8%EF%BC%9A"><span class="nav-text">（3）过滤器：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%884%EF%BC%89%E6%B3%A8%E9%87%8A%EF%BC%9A"><span class="nav-text">（4）注释：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%885%EF%BC%89%E6%A8%A1%E6%9D%BF%E7%BB%A7%E6%89%BF%EF%BC%9A"><span class="nav-text">（5）模板继承：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%886%EF%BC%89%E5%85%A8%E5%B1%80%E5%87%BD%E6%95%B0%E5%92%8C%E5%8F%98%E9%87%8F%EF%BC%9A"><span class="nav-text">（6）全局函数和变量：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E6%80%BB%E7%BB%93%E5%AF%B9%E6%AF%94%E8%A1%A8"><span class="nav-text">6. 总结对比表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-%E9%80%89%E6%8B%A9%E5%BB%BA%E8%AE%AE"><span class="nav-text">7. 选择建议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-%E7%9B%B8%E5%85%B3%E5%8F%82%E8%80%83"><span class="nav-text">8. 相关参考</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="糖小豆"
+      src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/tangdou500.png">
+  <p class="site-author-name" itemprop="name">糖小豆</p>
+  <div class="site-description" itemprop="description">测试大川de技术小站</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">57</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">33</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zhangzhongchuan" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;zhangzhongchuan" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:zhangzhongchuan@foxmail.com" title="E-Mail → mailto:zhangzhongchuan@foxmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.tangxdou.com/2025/02/10/jinja2%E6%A8%A1%E6%9D%BF%E4%B8%8EDjango%E6%A8%A1%E6%9D%BF%E5%AF%B9%E6%AF%94%E6%80%BB%E7%BB%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/tangdou500.png">
+      <meta itemprop="name" content="糖小豆">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="糖小豆">
+      <meta itemprop="description" content="测试大川de技术小站">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="jinja2 模板与 Django 模板对比总结 | 糖小豆">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          jinja2 模板与 Django 模板对比总结
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-02-10 10:36:27" itemprop="dateCreated datePublished" datetime="2025-02-10T10:36:27+08:00">2025-02-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" itemprop="url" rel="index"><span itemprop="name">自动化测试</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">评论数：</span>
+  
+    <a title="waline" href="/2025/02/10/jinja2%E6%A8%A1%E6%9D%BF%E4%B8%8EDjango%E6%A8%A1%E6%9D%BF%E5%AF%B9%E6%AF%94%E6%80%BB%E7%BB%93/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2025/02/10/jinja2%E6%A8%A1%E6%9D%BF%E4%B8%8EDjango%E6%A8%A1%E6%9D%BF%E5%AF%B9%E6%AF%94%E6%80%BB%E7%BB%93/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-item" title="阅读数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读数：</span>
+      <span class="waline-pageview-count" data-path="/2025/02/10/jinja2%E6%A8%A1%E6%9D%BF%E4%B8%8EDjango%E6%A8%A1%E6%9D%BF%E5%AF%B9%E6%AF%94%E6%80%BB%E7%BB%93/"></span>
+    </span>
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.6k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>6 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>Jinja2 是一个基于 Python 的模板引擎，广泛用于生成 HTML、XML 或其他标记语言。它被许多框架（如 Flask 和 Django）使用，具有灵活的语法和强大的功能。对比 Django 的模板，总结一下 Jinja2。</p>
+<h2 id="0-官网"><a href="#0-官网" class="headerlink" title="0.官网"></a>0. 官网</h2><ul>
+<li><strong>官方文档</strong>：<a target="_blank" rel="noopener" href="https://jinja.palletsprojects.com/en/3.1.x/">Jinja2 官方文档</a></li>
+<li><strong> Flask 教程</strong>：Flask 框架中大量使用 Jinja2，学习 Flask 时可以顺便掌握 Jinja2。</li>
+<li><strong>在线练习</strong>：使用在线 Python 环境（如 Replit）练习 Jinja2 模板渲染。</li>
+</ul>
+<h2 id="1-安装"><a href="#1-安装" class="headerlink" title="1.安装"></a>1. 安装</h2><figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install Jinja2</span><br></pre></td></tr></tbody></table></figure>
+
+<span id="more"></span>
+
+<h2 id="2-设计理念"><a href="#2-设计理念" class="headerlink" title="2. 设计理念"></a>2. <strong>设计理念</strong></h2><ul>
+<li><strong>Jinja2</strong>：<ul>
+<li>更接近 Python 语法，支持更复杂的表达式和逻辑。</li>
+<li>强调灵活性和扩展性，允许在模板中执行更多的逻辑操作。</li>
+<li>适合需要高度定制化的场景。</li>
+</ul>
+</li>
+<li><strong>Django 模板</strong>：<ul>
+<li>强调 “模板与逻辑分离”，鼓励将复杂的逻辑放在视图（View）中，而不是模板中。</li>
+<li>语法更简单，限制更多，适合遵循 Django 设计哲学的项目。</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-性能"><a href="#2-性能" class="headerlink" title="2. 性能"></a>2. <strong>性能</strong></h2><ul>
+<li><strong>Jinja2</strong>：<ul>
+<li>性能较高，尤其是在处理复杂逻辑和大规模数据时。</li>
+<li>支持模板预编译和缓存，适合高性能场景。</li>
+</ul>
+</li>
+<li><strong>Django 模板</strong>：<ul>
+<li>性能稍逊于 Jinja2，但在大多数场景下足够使用。</li>
+<li>由于设计上更简单，适合中小型项目。</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-扩展性"><a href="#3-扩展性" class="headerlink" title="3. 扩展性"></a>3. <strong>扩展性</strong></h2><ul>
+<li><strong>Jinja2</strong>：<ul>
+<li>支持自定义过滤器、全局函数和测试器。</li>
+<li>可以通过 Python 代码直接扩展功能。</li>
+</ul>
+</li>
+<li><strong>Django 模板</strong>：<ul>
+<li>支持自定义模板标签和过滤器，但扩展方式相对复杂。</li>
+<li>需要遵循 Django 的扩展机制。</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-使用场景"><a href="#4-使用场景" class="headerlink" title="4. 使用场景"></a>4. <strong>使用场景</strong></h2><ul>
+<li><strong>Jinja2</strong>：<ul>
+<li>适合需要高度灵活性和复杂逻辑的项目。</li>
+<li>常用于 Flask、FastAPI 等框架。</li>
+<li>适合开发者更喜欢 Python 风格的语法。</li>
+</ul>
+</li>
+<li><strong>Django 模板</strong>：<ul>
+<li>适合遵循 Django 设计哲学的项目。</li>
+<li>常用于 Django 框架，与 Django 的其他组件（如 ORM、表单）紧密集成。</li>
+<li>适合开发者更喜欢简单、限制较多的模板语法。</li>
+</ul>
+</li>
+</ul>
+<h2 id="5-语法差异"><a href="#5-语法差异" class="headerlink" title="5. 语法差异"></a>5. <strong>语法差异</strong></h2><h3 id="（1）变量输出："><a href="#（1）变量输出：" class="headerlink" title="（1）变量输出："></a>（1）<strong>变量输出</strong>：</h3><ul>
+<li>Jinja2：<code>{{ variable }}</code></li>
+<li>Django：<code>{{ variable }}</code></li>
+<li>两者在变量输出语法上完全相同。</li>
+</ul>
+<h3 id="（2）控制结构："><a href="#（2）控制结构：" class="headerlink" title="（2）控制结构："></a>（2）<strong>控制结构</strong>：</h3><h4 id="1️⃣条件判断-if-语句"><a href="#1️⃣条件判断-if-语句" class="headerlink" title="1️⃣条件判断 if 语句"></a>1️⃣<strong>条件判断 <code>if</code> 语句</strong></h4><h5 id="Jinja2"><a href="#Jinja2" class="headerlink" title="Jinja2"></a><strong>Jinja2</strong></h5><ul>
+<li>支持更复杂的表达式，可以直接在条件中组合逻辑操作。</li>
+<li>允许使用 <strong>Python 风格的条件表达式</strong>（如 <code>in</code>、<code>is</code>、数学运算等）。</li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">{% if user.is_admin and request.method == 'POST' %}</span><br><span class="line">    &lt;p&gt;Admin action submitted!&lt;/p&gt;</span><br><span class="line">{% elif user.age &gt;= 18 %}</span><br><span class="line">    &lt;p&gt;Welcome, adult user!&lt;/p&gt;</span><br><span class="line">{% else %}</span><br><span class="line">    &lt;p&gt;Access denied.&lt;/p&gt;</span><br><span class="line">{% endif %}</span><br></pre></td></tr></tbody></table></figure>
+
+<h5 id="Django-模板"><a href="#Django-模板" class="headerlink" title="Django 模板"></a><strong>Django 模板</strong></h5><ul>
+<li>语法更简单，但限制较多。</li>
+<li><strong>不支持复杂的表达式</strong>（如直接使用 <code>&gt;=</code>、<code>==</code> 等运算符），需依赖模板标签或过滤器。</li>
+</ul>
+<h5 id="示例："><a href="#示例：" class="headerlink" title="示例："></a><strong>示例</strong>：</h5><figure class="highlight django"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="template-tag">{% <span class="name"><span class="name">if</span></span> user.is_admin and request.method == "POST" %}</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>Admin action submitted!<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"></span><span class="template-tag">{% <span class="name"><span class="name">elif</span></span> user.age &gt; 17 %}</span><span class="language-xml">  </span><span class="comment">{# Django 中不能写 `&gt;= 18`，需用 `&gt; 17` #}</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>Welcome, adult user!<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"></span><span class="template-tag">{% <span class="name"><span class="name">else</span></span> %}</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>Access denied.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"></span><span class="template-tag">{% <span class="name"><span class="name">endif</span></span> %}</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="2️⃣循环-for-语句"><a href="#2️⃣循环-for-语句" class="headerlink" title="2️⃣循环 for 语句"></a>2️⃣<strong>循环 <code>for</code> 语句</strong></h4><h5 id="Jinja2-1"><a href="#Jinja2-1" class="headerlink" title="Jinja2"></a><strong>Jinja2</strong></h5><ul>
+<li>支持在 <code>for</code> 循环中直接添加条件（类似 Python 的列表推导式）。</li>
+<li>提供 <code>loop</code> 变量，包含丰富的循环元数据（如 <code>loop.index</code>、<code>loop.first</code> 等）。</li>
+</ul>
+<h5 id="示例：-1"><a href="#示例：-1" class="headerlink" title="示例："></a><strong>示例</strong>：</h5><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">{# 直接过滤循环项 #}</span><br><span class="line">{% for user in users if user.is_active %}</span><br><span class="line">    {{ loop.index }}. {{ user.name }} </span><br><span class="line">    {% if loop.first %} (First user!) {% endif %}</span><br><span class="line">{% endfor %}</span><br></pre></td></tr></tbody></table></figure>
+
+<h5 id="Django-模板-1"><a href="#Django-模板-1" class="headerlink" title="Django 模板"></a><strong>Django 模板</strong></h5><ul>
+<li><strong>不支持在 <code>for</code> 循环中直接添加条件</strong>，需在循环内部使用 <code>if</code> 标签过滤。</li>
+<li>提供 <code>forloop</code> 变量，功能类似但属性名不同（如 <code>forloop.counter</code>）。</li>
+</ul>
+<h5 id="示例：-2"><a href="#示例：-2" class="headerlink" title="示例："></a><strong>示例</strong>：</h5><figure class="highlight django"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="template-tag">{% <span class="name"><span class="name">for</span></span> user <span class="keyword">in</span> users %}</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">    </span><span class="template-tag">{% <span class="name"><span class="name">if</span></span> user.is_active %}</span><span class="language-xml">  </span><span class="comment">{# 条件需写在循环内部 #}</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">        </span><span class="template-variable">{{ forloop.counter }}</span><span class="language-xml">. </span><span class="template-variable">{{ user.name }}</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">        </span><span class="template-tag">{% <span class="name"><span class="name">if</span></span> forloop.first %}</span><span class="language-xml"> (First user!) </span><span class="template-tag">{% <span class="name"><span class="name">endif</span></span> %}</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">    </span><span class="template-tag">{% <span class="name"><span class="name">endif</span></span> %}</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"></span><span class="template-tag">{% <span class="name"><span class="name">endfor</span></span> %}</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"></span></span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="3️⃣循环变量的差异"><a href="#3️⃣循环变量的差异" class="headerlink" title="3️⃣循环变量的差异"></a>3️⃣<strong>循环变量的差异</strong></h4><h5 id="Jinja2-的-loop-变量"><a href="#Jinja2-的-loop-变量" class="headerlink" title="Jinja2 的 loop 变量"></a><strong>Jinja2 的 <code>loop</code> 变量</strong></h5><ul>
+<li><code>loop.index</code>：当前迭代的索引（从 1 开始）。</li>
+<li><code>loop.index0</code>：当前迭代的索引（从 0 开始）。</li>
+<li><code>loop.first</code>：是否是第一次迭代。</li>
+<li><code>loop.last</code>：是否是最后一次迭代。</li>
+<li><code>loop.length</code>：总迭代次数。</li>
+</ul>
+<p><strong>示例</strong>：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">{% for item in items %}</span><br><span class="line">    {{ loop.index }} of {{ loop.length }}: {{ item }}</span><br><span class="line">{% endfor %}</span><br><span class="line">&lt;hr&gt;</span><br><span class="line"></span><br><span class="line">{% for n in list3 %}</span><br><span class="line">    &lt;p&gt;列表第{{ loop.index }}位是{{ n }},列表总长度为{{ loop.length }}&lt;/p&gt;</span><br><span class="line">{% endfor %}</span><br><span class="line"></span><br><span class="line">&lt;hr&gt;</span><br><span class="line">{% for n in list3 %}</span><br><span class="line">    &lt;p&gt;列表第{{ loop.index0 }}位是{{ n }},列表总长度为{{ loop.length }}&lt;/p&gt;</span><br><span class="line">{% endfor %}</span><br></pre></td></tr></tbody></table></figure>
+
+<h5 id="Django-模板的-forloop-变量"><a href="#Django-模板的-forloop-变量" class="headerlink" title="Django 模板的 forloop 变量"></a><strong>Django 模板的 <code>forloop</code> 变量</strong></h5><ul>
+<li><code>forloop.counter</code>：当前迭代的索引（从 1 开始）。</li>
+<li><code>forloop.counter0</code>：当前迭代的索引（从 0 开始）。</li>
+<li><code>forloop.revcounter</code>：反向索引（从总长度到 1）。</li>
+<li><code>forloop.first</code>/<code>forloop.last</code>：同 Jinja2。</li>
+</ul>
+<p><strong>示例</strong>：</p>
+<figure class="highlight django"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="template-tag">{% <span class="name"><span class="name">for</span></span> item <span class="keyword">in</span> items %}</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">    </span><span class="template-variable">{{ forloop.counter }}</span><span class="language-xml"> of </span><span class="template-variable">{{ forloop.revcounter }}</span><span class="language-xml">: </span><span class="template-variable">{{ item }}</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"></span><span class="template-tag">{% <span class="name"><span class="name">endfor</span></span> %}</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="4️⃣对复杂表达式的支持"><a href="#4️⃣对复杂表达式的支持" class="headerlink" title="4️⃣对复杂表达式的支持"></a>4️⃣<strong>对复杂表达式的支持</strong></h4><h5 id="Jinja2-2"><a href="#Jinja2-2" class="headerlink" title="Jinja2"></a><strong>Jinja2</strong></h5><ul>
+<li>允许在控制结构中直接使用 <strong>Python 风格的表达式</strong>。</li>
+<li>支持数学运算、逻辑操作、函数调用等。</li>
+</ul>
+<p><strong>示例</strong>：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">{% if (user.score * 1.2) &gt; 100 and user.name.startswith('A') %}</span><br><span class="line">    &lt;p&gt;Special user!&lt;/p&gt;</span><br><span class="line">{% endif %}</span><br></pre></td></tr></tbody></table></figure>
+
+<h5 id="Django-模板-2"><a href="#Django-模板-2" class="headerlink" title="Django 模板"></a><strong>Django 模板</strong></h5><ul>
+<li><strong>不支持复杂的表达式</strong>，需通过自定义模板标签或过滤器实现。</li>
+<li>简单逻辑可以通过 <code>with</code> 标签或过滤器组合实现。</li>
+</ul>
+<p><strong>示例</strong>：</p>
+<figure class="highlight django"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="template-tag">{% <span class="name"><span class="name">with</span></span> multiplied_score=user.score|multiply:1.2 %}</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">    </span><span class="template-tag">{% <span class="name"><span class="name">if</span></span> multiplied_score &gt; 100 and user.name|startswith:<span class="string">'A'</span> %}</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>Special user!<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    </span><span class="template-tag">{% <span class="name"><span class="name">endif</span></span> %}</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"></span><span class="template-tag">{% <span class="name"><span class="name">endwith</span></span> %}</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="5️⃣-else-分支的差异"><a href="#5️⃣-else-分支的差异" class="headerlink" title="5️⃣ else 分支的差异"></a>5️⃣ <strong><code>else</code> 分支的差异</strong></h4><h4 id="Jinja2-3"><a href="#Jinja2-3" class="headerlink" title="Jinja2"></a><strong>Jinja2</strong></h4><ul>
+<li><code>for</code> 循环支持 <code>else</code> 分支，当循环未执行时触发。</li>
+</ul>
+<p><strong>示例</strong>：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">{% for user in users %}</span><br><span class="line">    {{ user.name }}</span><br><span class="line">{% else %}</span><br><span class="line">    &lt;p&gt;No users found.&lt;/p&gt;</span><br><span class="line">{% endfor %}</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="Django-模板-3"><a href="#Django-模板-3" class="headerlink" title="Django 模板"></a><strong>Django 模板</strong></h4><ul>
+<li>** 不支持 <code>for...else</code>**，需通过检查列表是否为空来实现类似功能。</li>
+</ul>
+<p><strong>示例</strong>：</p>
+<figure class="highlight django"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="template-tag">{% <span class="name"><span class="name">if</span></span> users %}</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">    </span><span class="template-tag">{% <span class="name"><span class="name">for</span></span> user <span class="keyword">in</span> users %}</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">        </span><span class="template-variable">{{ user.name }}</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">    </span><span class="template-tag">{% <span class="name"><span class="name">endfor</span></span> %}</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"></span><span class="template-tag">{% <span class="name"><span class="name">else</span></span> %}</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>No users found.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"></span><span class="template-tag">{% <span class="name"><span class="name">endif</span></span> %}</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h3 id="（3）过滤器："><a href="#（3）过滤器：" class="headerlink" title="（3）过滤器："></a>（3）<strong>过滤器</strong>：</h3><ul>
+<li>Jinja2：<code>{{ variable|filter }}</code></li>
+<li>Django：<code>{{ variable|filter }}</code></li>
+<li>Jinja2 提供了更多的内置过滤器，例如 <code>map</code>、<code>select</code>、<code>reject</code> 等。</li>
+<li>Django 的过滤器更简单，但可以通过自定义模板标签和过滤器扩展。</li>
+<li>两者都支持过滤器，但内置过滤器的名称和功能可能有所不同。</li>
+</ul>
+<h3 id="（4）注释："><a href="#（4）注释：" class="headerlink" title="（4）注释："></a>（4）<strong>注释</strong>：</h3><ul>
+<li>Jinja2：``</li>
+<li>Django：``</li>
+<li> 注释语法完全相同。</li>
+</ul>
+<h3 id="（5）模板继承："><a href="#（5）模板继承：" class="headerlink" title="（5）模板继承："></a>（5）<strong>模板继承</strong>：</h3><ul>
+<li>两者都支持模板继承，语法几乎相同：<ul>
+<li>Jinja2：<code>{% extends "base.html" %}</code></li>
+<li>Django：<code>{% extends "base.html" %}</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="（6）全局函数和变量："><a href="#（6）全局函数和变量：" class="headerlink" title="（6）全局函数和变量："></a>（6）<strong>全局函数和变量</strong>：</h3><ul>
+<li>Jinja2 支持在模板中定义全局函数和变量。</li>
+<li>Django 模板更依赖上下文处理器（Context Processors）来传递全局变量。</li>
+</ul>
+<h2 id="6-总结对比表"><a href="#6-总结对比表" class="headerlink" title="6.总结对比表"></a>6. <strong>总结对比表</strong></h2><table>
+<thead>
+<tr>
+<th align="left"><strong>功能</strong></th>
+<th align="left"><strong> Jinja2</strong></th>
+<th align="left"><strong>Django 模板</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">条件中的复杂表达式</td>
+<td align="left">支持（如 <code>&gt;=</code>, <code>in</code>, <code>is</code>）</td>
+<td align="left">不支持，需用简单逻辑或过滤器</td>
+</tr>
+<tr>
+<td align="left"><code>for</code> 循环中的条件</td>
+<td align="left">允许直接在 <code>for</code> 后添加条件</td>
+<td align="left">需在循环内部使用 <code>if</code> 标签</td>
+</tr>
+<tr>
+<td align="left">循环变量</td>
+<td align="left"><code>loop.index</code>, <code>loop.first</code> 等</td>
+<td align="left"><code>forloop.counter</code>, <code>forloop.first</code> 等</td>
+</tr>
+<tr>
+<td align="left"><code>for...else</code></td>
+<td align="left">支持</td>
+<td align="left">不支持，需用 <code>if</code> 检查列表是否为空</td>
+</tr>
+<tr>
+<td align="left">数学运算和函数调用</td>
+<td align="left">允许直接使用（如 <code>user.score * 1.2</code>）</td>
+<td align="left">需自定义过滤器或 <code>with</code> 标签</td>
+</tr>
+</tbody></table>
+<h2 id="7-选择建议"><a href="#7-选择建议" class="headerlink" title="7.选择建议"></a>7. <strong>选择建议</strong></h2><ul>
+<li><strong>Jinja2</strong>：适合需要灵活性和复杂逻辑的场景（如 Flask、FastAPI 项目）。</li>
+<li><strong>Django 模板</strong>：适合遵循 Django 设计哲学，强调模板与业务逻辑分离的项目。</li>
+</ul>
+<p>两者的差异主要体现在语法灵活性和功能扩展性上，根据项目需求选择即可！</p>
+<h2 id="8-相关参考"><a href="#8-相关参考" class="headerlink" title="8.相关参考"></a>8. 相关参考</h2><p><a target="_blank" rel="noopener" href="https://chat.deepseek.com/">https://chat.deepseek.com/</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/wechatpay.png" alt="糖小豆 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/alipay.png" alt="糖小豆 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>糖小豆
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://www.tangxdou.com/2025/02/10/jinja2%E6%A8%A1%E6%9D%BF%E4%B8%8EDjango%E6%A8%A1%E6%9D%BF%E5%AF%B9%E6%AF%94%E6%80%BB%E7%BB%93/" title="jinja2 模板与 Django 模板对比总结">https://www.tangxdou.com/2025/02/10/jinja2模板与Django模板对比总结/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/jinja2/" rel="tag"><i class="fa fa-tag"></i> jinja2</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/01/19/Django4.2%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E6%9D%BFTemplate%EF%BC%88%E4%B8%89%EF%BC%89/" rel="prev" title="Django4.2 学习 - 模板 Template（三）">
+                  <i class="fa fa-angle-left"></i> Django4.2 学习 - 模板 Template（三）
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="waline"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">蜀ICP备2024080138号 </a>
+      <img src="/images/beian_logo.png" alt=""><a href="https://beian.mps.gov.cn/#/query/webSearch?code=51011202000789" rel="noopener" target="_blank">川公网安备51011202000789号 </a>
+  </div>
+  <div class="copyright">
+    &copy; 2019 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">糖小豆</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">34k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">2:05</span>
+  </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/zhangzhongchuan" class="github-corner" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+<script class="next-config" data-name="chatra" type="application/json">{"enable":true,"async":true,"id":null}</script>
+<script src="/js/third-party/chat/chatra.js"></script>
+<script async src="https://call.chatra.io/chatra.js"></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"waline.tangxdou.com","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":true,"locale":{"placeholder":"无需登录·请留下邮箱以接收回复·来说两句吧~"},"highlighter":"WalineHighlighter","avatar":"mm","meta":["nick","mail"],"pageSize":10,"visitor":false,"comment_count":false,"requiredFields":["nick"],"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","login":"enable","dark":"auto","reaction":false,"el":"#waline","comment":true,"path":"/2025/02/10/jinja2%E6%A8%A1%E6%9D%BF%E4%B8%8EDjango%E6%A8%A1%E6%9D%BF%E5%AF%B9%E6%AF%94%E6%80%BB%E7%BB%93/"}</script>
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => 
+    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
+  );
+});
+</script>
+
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/my_js/clicklove.js"></script>
+</body>
+</html>

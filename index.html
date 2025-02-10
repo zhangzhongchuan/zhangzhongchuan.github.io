@@ -152,7 +152,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">54</span>
+          <span class="site-state-item-count">56</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -163,7 +163,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">31</span>
+        <span class="site-state-item-count">32</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -188,6 +188,141 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.tangxdou.com/2025/01/19/Django4.2%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E6%9D%BFTemplate%EF%BC%88%E4%B8%89%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/tangdou500.png">
+      <meta itemprop="name" content="糖小豆">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="糖小豆">
+      <meta itemprop="description" content="测试大川de技术小站">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 糖小豆">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/01/19/Django4.2%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E6%9D%BFTemplate%EF%BC%88%E4%B8%89%EF%BC%89/" class="post-title-link" itemprop="url">Django4.2 学习 - 模板 Template（三）</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-01-19 23:44:06" itemprop="dateCreated datePublished" datetime="2025-01-19T23:44:06+08:00">2025-01-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" itemprop="url" rel="index"><span itemprop="name">自动化测试</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">评论数：</span>
+  
+    <a title="waline" href="/2025/01/19/Django4.2%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E6%9D%BFTemplate%EF%BC%88%E4%B8%89%EF%BC%89/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2025/01/19/Django4.2%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E6%9D%BFTemplate%EF%BC%88%E4%B8%89%EF%BC%89/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-item" title="阅读数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读数：</span>
+      <span class="waline-pageview-count" data-path="/2025/01/19/Django4.2%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E6%9D%BFTemplate%EF%BC%88%E4%B8%89%EF%BC%89/"></span>
+    </span>
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>5.3k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>19 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在 <code>Django</code> 框架中，模板是可以帮助开发者快速生产呈现给用户页面的工具。</p>
+<p>模板的设计方式实现了我们 <code>MTV</code>（M:Model，V:View，T:Template） 中 <code>VT</code> 的解耦（解耦：是指降低软件模块之间的相互依赖程度），<code>VT</code> 有着 N:M 的关系，一个 <code>V</code> 可以调用任意 <code>T</code>，一个 <code>T</code> 可以工任意 <code>V</code> 使用。与 Java 的 <code>MVC</code> 很像，<code>M</code> 为 Model， V 为 View 界面， C 为 Controller 控制器。</p>
+<p>模板的处理分为 2 个过程：</p>
+<ul>
+<li>加载 HTML</li>
+<li> 渲染数据（render ( )）</li>
+</ul>
+<p>模板主要有 2 个部分</p>
+<ul>
+<li>HTML 静态代码</li>
+<li>模板语言，动态插入的代码段（“挖坑”，“填坑”）</li>
+</ul>
+<p>模板中的动态代码除了做基本的静态填充，还可以实现一些基本的运算，转换和逻辑。</p>
+<p>静态页面：页面数据是本地固定的。<br>动态页面：页面数据来源于后台服务器。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/01/19/Django4.2%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E6%9D%BFTemplate%EF%BC%88%E4%B8%89%EF%BC%89/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -417,6 +552,130 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2025/01/09/Django4.2%E5%AD%A6%E4%B9%A0-%E8%B7%AF%E7%94%B1Router%EF%BC%88%E4%BA%8C%EF%BC%89/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.tangxdou.com/2024/12/02/LocalSend%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/tangdou500.png">
+      <meta itemprop="name" content="糖小豆">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="糖小豆">
+      <meta itemprop="description" content="测试大川de技术小站">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 糖小豆">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/12/02/LocalSend%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">LocalSend 的安装与使用</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-12-02 14:03:05" itemprop="dateCreated datePublished" datetime="2024-12-02T14:03:05+08:00">2024-12-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">软件使用</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">评论数：</span>
+  
+    <a title="waline" href="/2024/12/02/LocalSend%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2024/12/02/LocalSend%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-item" title="阅读数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读数：</span>
+      <span class="waline-pageview-count" data-path="/2024/12/02/LocalSend%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/"></span>
+    </span>
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>139</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>由于现在使用的测试机较多，某一台测试机上发现了有一个 bug，需要截图发送到 <code>Mac</code> 上，<code>IOS</code> 还好可以使用<code>隔空投送</code>，<code>Android</code> 就比较麻烦了，之前在电脑上共享了一个文件夹，在各个 <code>Android</code> 上，使用软件连接这个文件夹，后面发现了一个无视平台 (支持 window/macos/linux/Android/ios) 的神器 <code>localsend</code>，果断将所有测试机和 <code>Mac</code> 上。</p>
+<h2 id="1-下载地址"><a href="#1-下载地址" class="headerlink" title="1.下载地址"></a>1. 下载地址</h2><p>github 地址：<code>https://github.com/localsend</code></p>
+<p>官网地址：<code>https://localsend.org/zh-CN/download?os=macos</code></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/12/02/LocalSend%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1189,250 +1448,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.tangxdou.com/2024/10/02/%E8%A7%A3%E5%86%B3mac%E4%B8%8A%E7%94%A8SourceTree%E5%85%8B%E9%9A%86git%E4%B8%8A%E7%9A%84%E9%A1%B9%E7%9B%AE%E6%97%B6%E9%95%BF%E6%97%B6%E9%97%B4clone%E4%B8%8D%E4%B8%8B%E7%9A%84%E9%97%AE%E9%A2%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/tangdou500.png">
-      <meta itemprop="name" content="糖小豆">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="糖小豆">
-      <meta itemprop="description" content="测试大川de技术小站">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 糖小豆">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/10/02/%E8%A7%A3%E5%86%B3mac%E4%B8%8A%E7%94%A8SourceTree%E5%85%8B%E9%9A%86git%E4%B8%8A%E7%9A%84%E9%A1%B9%E7%9B%AE%E6%97%B6%E9%95%BF%E6%97%B6%E9%97%B4clone%E4%B8%8D%E4%B8%8B%E7%9A%84%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">解决 mac 上用 SourceTree 克隆 git 上的项目时长时间 clone 不下的问题</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-10-02 18:04:19" itemprop="dateCreated datePublished" datetime="2024-10-02T18:04:19+08:00">2024-10-02</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">软件使用</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">评论数：</span>
-  
-    <a title="waline" href="/2024/10/02/%E8%A7%A3%E5%86%B3mac%E4%B8%8A%E7%94%A8SourceTree%E5%85%8B%E9%9A%86git%E4%B8%8A%E7%9A%84%E9%A1%B9%E7%9B%AE%E6%97%B6%E9%95%BF%E6%97%B6%E9%97%B4clone%E4%B8%8D%E4%B8%8B%E7%9A%84%E9%97%AE%E9%A2%98/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2024/10/02/%E8%A7%A3%E5%86%B3mac%E4%B8%8A%E7%94%A8SourceTree%E5%85%8B%E9%9A%86git%E4%B8%8A%E7%9A%84%E9%A1%B9%E7%9B%AE%E6%97%B6%E9%95%BF%E6%97%B6%E9%97%B4clone%E4%B8%8D%E4%B8%8B%E7%9A%84%E9%97%AE%E9%A2%98/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-item" title="阅读数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读数：</span>
-      <span class="waline-pageview-count" data-path="/2024/10/02/%E8%A7%A3%E5%86%B3mac%E4%B8%8A%E7%94%A8SourceTree%E5%85%8B%E9%9A%86git%E4%B8%8A%E7%9A%84%E9%A1%B9%E7%9B%AE%E6%97%B6%E9%95%BF%E6%97%B6%E9%97%B4clone%E4%B8%8D%E4%B8%8B%E7%9A%84%E9%97%AE%E9%A2%98/"></span>
-    </span>
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>145</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>IOS 开发推荐了 <code>Sourcetree</code>, 但是在 clone 时，发现进度条几乎满了，就是 clone 不下来。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2024/10/02/%E8%A7%A3%E5%86%B3mac%E4%B8%8A%E7%94%A8SourceTree%E5%85%8B%E9%9A%86git%E4%B8%8A%E7%9A%84%E9%A1%B9%E7%9B%AE%E6%97%B6%E9%95%BF%E6%97%B6%E9%97%B4clone%E4%B8%8D%E4%B8%8B%E7%9A%84%E9%97%AE%E9%A2%98/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.tangxdou.com/2024/10/02/%E8%A7%A3%E5%86%B3%E4%BD%BF%E7%94%A8chrome-inspect-devices%E9%A1%B5%E9%9D%A2%E7%A9%BA%E7%99%BD%E9%97%AE%E9%A2%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/tangdou500.png">
-      <meta itemprop="name" content="糖小豆">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="糖小豆">
-      <meta itemprop="description" content="测试大川de技术小站">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 糖小豆">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/10/02/%E8%A7%A3%E5%86%B3%E4%BD%BF%E7%94%A8chrome-inspect-devices%E9%A1%B5%E9%9D%A2%E7%A9%BA%E7%99%BD%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">解决使用 chrome-inspect-devices 页面空白问题</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-10-02 17:36:51" itemprop="dateCreated datePublished" datetime="2024-10-02T17:36:51+08:00">2024-10-02</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">软件使用</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">评论数：</span>
-  
-    <a title="waline" href="/2024/10/02/%E8%A7%A3%E5%86%B3%E4%BD%BF%E7%94%A8chrome-inspect-devices%E9%A1%B5%E9%9D%A2%E7%A9%BA%E7%99%BD%E9%97%AE%E9%A2%98/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2024/10/02/%E8%A7%A3%E5%86%B3%E4%BD%BF%E7%94%A8chrome-inspect-devices%E9%A1%B5%E9%9D%A2%E7%A9%BA%E7%99%BD%E9%97%AE%E9%A2%98/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-item" title="阅读数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读数：</span>
-      <span class="waline-pageview-count" data-path="/2024/10/02/%E8%A7%A3%E5%86%B3%E4%BD%BF%E7%94%A8chrome-inspect-devices%E9%A1%B5%E9%9D%A2%E7%A9%BA%E7%99%BD%E9%97%AE%E9%A2%98/"></span>
-    </span>
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>68</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在使用 chrome://inspect/#devices，页面空白</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2024/10/02/%E8%A7%A3%E5%86%B3%E4%BD%BF%E7%94%A8chrome-inspect-devices%E9%A1%B5%E9%9D%A2%E7%A9%BA%E7%99%BD%E9%97%AE%E9%A2%98/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -1459,13 +1474,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">27k</span>
+    <span title="站点总字数">33k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:38</span>
+    <span title="站点阅读时长">1:58</span>
   </span>
 </div>
 

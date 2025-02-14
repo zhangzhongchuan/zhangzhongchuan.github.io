@@ -152,7 +152,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">57</span>
+          <span class="site-state-item-count">58</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -188,6 +188,133 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.tangxdou.com/2025/02/10/Django4.2%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9E%8BModel%EF%BC%88%E5%9B%9B%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/tangdou500.png">
+      <meta itemprop="name" content="糖小豆">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="糖小豆">
+      <meta itemprop="description" content="测试大川de技术小站">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 糖小豆">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/02/10/Django4.2%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9E%8BModel%EF%BC%88%E5%9B%9B%EF%BC%89/" class="post-title-link" itemprop="url">Django4.2 学习 - 模型 Model（四）</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-02-10 17:51:09" itemprop="dateCreated datePublished" datetime="2025-02-10T17:51:09+08:00">2025-02-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" itemprop="url" rel="index"><span itemprop="name">自动化测试</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">评论数：</span>
+  
+    <a title="waline" href="/2025/02/10/Django4.2%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9E%8BModel%EF%BC%88%E5%9B%9B%EF%BC%89/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2025/02/10/Django4.2%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9E%8BModel%EF%BC%88%E5%9B%9B%EF%BC%89/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-item" title="阅读数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读数：</span>
+      <span class="waline-pageview-count" data-path="/2025/02/10/Django4.2%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9E%8BModel%EF%BC%88%E5%9B%9B%EF%BC%89/"></span>
+    </span>
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3.8k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>14 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Django 的模型（Model）是框架的核心组件之一，用于定义数据结构并与数据库进行交互。</p>
+<h2 id="1-模型的作用"><a href="#1-模型的作用" class="headerlink" title="1.模型的作用"></a>1. <strong>模型的作用</strong></h2><ul>
+<li>定义数据库表的结构（字段、关联关系等）。</li>
+<li>通过 Django ORM（对象关系映射）操作数据库，无需直接编写 SQL。</li>
+<li>支持数据验证、业务逻辑封装（如保存前后的操作）。</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/02/10/Django4.2%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9E%8BModel%EF%BC%88%E5%9B%9B%EF%BC%89/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -267,14 +394,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.9k</span>
+      <span>2.8k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>7 分钟</span>
+      <span>10 分钟</span>
     </span>
 </div>
 
@@ -1330,128 +1457,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.tangxdou.com/2024/10/03/mumu%E6%A8%A1%E6%8B%9F%E5%99%A8pro%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E8%AF%81%E4%B9%A6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/tangdou500.png">
-      <meta itemprop="name" content="糖小豆">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="糖小豆">
-      <meta itemprop="description" content="测试大川de技术小站">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 糖小豆">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/10/03/mumu%E6%A8%A1%E6%8B%9F%E5%99%A8pro%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E8%AF%81%E4%B9%A6/" class="post-title-link" itemprop="url">mumu 模拟器 pro 如何安装证书</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-10-03 19:57:06" itemprop="dateCreated datePublished" datetime="2024-10-03T19:57:06+08:00">2024-10-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">软件使用</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">评论数：</span>
-  
-    <a title="waline" href="/2024/10/03/mumu%E6%A8%A1%E6%8B%9F%E5%99%A8pro%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E8%AF%81%E4%B9%A6/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2024/10/03/mumu%E6%A8%A1%E6%8B%9F%E5%99%A8pro%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E8%AF%81%E4%B9%A6/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-item" title="阅读数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读数：</span>
-      <span class="waline-pageview-count" data-path="/2024/10/03/mumu%E6%A8%A1%E6%8B%9F%E5%99%A8pro%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E8%AF%81%E4%B9%A6/"></span>
-    </span>
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>503</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p><code>mumu模拟器pro</code> 和常规的 <code>Android</code> 真机的证书安装不同，官网给出了相关文档，现做下整理，确保下次可以直接对照这个文档装，下面用 <code>Charles</code> 例子，安装相关证书。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2024/10/03/mumu%E6%A8%A1%E6%8B%9F%E5%99%A8pro%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E8%AF%81%E4%B9%A6/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -1478,13 +1483,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">35k</span>
+    <span title="站点总字数">39k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:07</span>
+    <span title="站点阅读时长">2:23</span>
   </span>
 </div>
 

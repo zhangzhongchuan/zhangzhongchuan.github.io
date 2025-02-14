@@ -29,7 +29,7 @@
 <meta property="og:description" content="1. 路由 router在实际开发过程中，一个 Django 项目会包含很多的 app，这时如果我们只在主路由里进行配置就会显的杂乱无章，所以通常会在每个 app 里，创建各自的 urls.py 路由模块，然后从根路由出发，奖 app 所属的 url 请求，全部转发到相应的 urls.py 模块中，而这个从主路由转发到各个应用路由的过程叫做路由分发。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-01-09T06:23:34.000Z">
-<meta property="article:modified_time" content="2025-01-18T07:33:56.134Z">
+<meta property="article:modified_time" content="2025-02-14T07:12:54.020Z">
 <meta property="article:author" content="糖小豆">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="django">
@@ -157,7 +157,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">57</span>
+          <span class="site-state-item-count">58</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -298,7 +298,7 @@
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.contrib <span class="keyword">import</span> admin</span><br><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path, include</span><br><span class="line"><span class="keyword">from</span> App.views <span class="keyword">import</span> index</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">'admin/'</span>, admin.site.urls),</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 使用主路由</span></span><br><span class="line">    path(<span class="string">'index/'</span>, index),</span><br><span class="line"></span><br><span class="line">]</span><br></pre></td></tr></tbody></table></figure>
 
 <p>2️⃣子路由匹配</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.contrib <span class="keyword">import</span> admin</span><br><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path, include</span><br><span class="line"><span class="keyword">from</span> App.views <span class="keyword">import</span> index</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 使用子路由</span></span><br><span class="line">  	path(<span class="string">'app/'</span>, include(<span class="string">'App.urls'</span>)),</span><br><span class="line">  	</span><br><span class="line"> 		path(<span class="string">'app2/'</span>, include(<span class="string">'App2.urls'</span>)),</span><br><span class="line">  </span><br><span class="line">]</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.contrib <span class="keyword">import</span> admin</span><br><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path, include</span><br><span class="line"><span class="keyword">from</span> App.views <span class="keyword">import</span> index</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    <span class="comment"># 使用子路由</span></span><br><span class="line">  	path(<span class="string">'app/'</span>, include(<span class="string">'App.urls'</span>)),</span><br><span class="line"> 		path(<span class="string">'app2/'</span>, include(<span class="string">'App2.urls'</span>)),  </span><br><span class="line">]</span><br></pre></td></tr></tbody></table></figure>
 
 <figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/user/userlist/"</span>&gt;</span>用户列表<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
 
@@ -387,7 +387,9 @@
 
 <h3 id="（10）App-models-py"><a href="#（10）App-models-py" class="headerlink" title="（10）App/models.py"></a>（10）<code>App/models.py</code></h3><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> models</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create your models here.</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">UserModel</span>(models.Model):</span><br><span class="line">    username = models.CharField(max_length=<span class="number">100</span>)</span><br><span class="line">    age = models.PositiveIntegerField(default=<span class="number">18</span>) <span class="comment"># 非负数</span></span><br><span class="line">    <span class="comment"># 0: normal user, 1: admin</span></span><br></pre></td></tr></tbody></table></figure>
 
-<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1W34y1c7Rn?spm_id_from=333.788.videopod.episodes&amp;vd_source=fd555860cd7cf9b09d9279e5deaabb9d&amp;p=21">https://www.bilibili.com/video/BV1W34y1c7Rn?spm_id_from=333.788.videopod.episodes&amp;vd_source=fd555860cd7cf9b09d9279e5deaabb9d&amp;p=21</a></p>
+<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1W34y1c7Rn?spm_id_from=333.788.videopod.episodes&amp;vd_source=fd555860cd7cf9b09d9279e5deaabb9d&amp;p=21">bilibili</a></li>
+</ul>
 
     </div>
 
@@ -482,13 +484,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">35k</span>
+    <span title="站点总字数">39k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:07</span>
+    <span title="站点阅读时长">2:23</span>
   </span>
 </div>
 

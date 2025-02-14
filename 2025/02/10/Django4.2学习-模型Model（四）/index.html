@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="manifest" href="/manifest.json">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha256-wiz7ZSCn/btzhjKDQBms9Hx4sSeUYsDrTLg7roPstac=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.tangxdou.com","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Django 的模型（Model）是框架的核心组件之一，用于定义数据结构并与数据库进行交互。 1. 模型的作用 定义数据库表的结构（字段、关联关系等）。 通过 Django ORM（对象关系映射）操作数据库，无需直接编写 SQL。 支持数据验证、业务逻辑封装（如保存前后的操作）。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Django4.2 学习 - 模型 Model（四）">
+<meta property="og:url" content="https://www.tangxdou.com/2025/02/10/Django4.2%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9E%8BModel%EF%BC%88%E5%9B%9B%EF%BC%89/index.html">
+<meta property="og:site_name" content="糖小豆">
+<meta property="og:description" content="Django 的模型（Model）是框架的核心组件之一，用于定义数据结构并与数据库进行交互。 1. 模型的作用 定义数据库表的结构（字段、关联关系等）。 通过 Django ORM（对象关系映射）操作数据库，无需直接编写 SQL。 支持数据验证、业务逻辑封装（如保存前后的操作）。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-02-10T09:51:09.000Z">
+<meta property="article:modified_time" content="2025-02-14T07:10:44.431Z">
+<meta property="article:author" content="糖小豆">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="django">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://www.tangxdou.com/2025/02/10/Django4.2%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9E%8BModel%EF%BC%88%E5%9B%9B%EF%BC%89/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.tangxdou.com/2025/02/10/Django4.2%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9E%8BModel%EF%BC%88%E5%9B%9B%EF%BC%89/","path":"2025/02/10/Django4.2学习-模型Model（四）/","title":"Django4.2 学习 - 模型 Model（四）"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Django4.2 学习 - 模型 Model（四） | 糖小豆</title>
+  
+
+
+
+
+
+
+
+<link rel="dns-prefetch" href="waline.tangxdou.com">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">糖小豆</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E6%A8%A1%E5%9E%8B%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="nav-text">1. 模型的作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%88%9B%E5%BB%BA%E6%A8%A1%E5%9E%8B"><span class="nav-text">2. 创建模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%B8%B8%E7%94%A8%E5%AD%97%E6%AE%B5%E7%B1%BB%E5%9E%8B"><span class="nav-text">3. 常用字段类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%B1%BB%E5%AD%97%E6%AE%B5"><span class="nav-text">3.1 字符串类字段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-%E6%95%B0%E5%80%BC%E7%B1%BB%E5%AD%97%E6%AE%B5"><span class="nav-text">3.2 数值类字段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-%E6%97%A5%E6%9C%9F%E5%92%8C%E6%97%B6%E9%97%B4%E7%B1%BB%E5%AD%97%E6%AE%B5"><span class="nav-text">3.3 日期和时间类字段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-%E5%B8%83%E5%B0%94%E7%B1%BB%E5%AD%97%E6%AE%B5"><span class="nav-text">3.4 布尔类字段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-%E6%96%87%E4%BB%B6%E7%B1%BB%E5%AD%97%E6%AE%B5"><span class="nav-text">3.5 文件类字段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-6-%E5%85%B3%E8%81%94%E7%B1%BB%E5%AD%97%E6%AE%B5"><span class="nav-text">3.6 关联类字段</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E5%B8%B8%E7%94%A8%E5%AD%97%E6%AE%B5%E5%8F%82%E6%95%B0"><span class="nav-text">4. 常用字段参数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-%E9%80%9A%E7%94%A8%E5%8F%82%E6%95%B0"><span class="nav-text">4.1 通用参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-%E5%85%B3%E8%81%94%E5%AD%97%E6%AE%B5%E4%B8%93%E7%94%A8%E5%8F%82%E6%95%B0"><span class="nav-text">4.2 关联字段专用参数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%81%E7%A7%BB"><span class="nav-text">5. 数据库迁移</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-%E7%94%9F%E6%88%90%E8%BF%81%E7%A7%BB%E6%96%87%E4%BB%B6"><span class="nav-text">5.1 生成迁移文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-%E6%89%A7%E8%A1%8C%E8%BF%81%E7%A7%BB"><span class="nav-text">5.2 执行迁移</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-%E6%9F%A5%E7%9C%8B-SQL-%E8%AF%AD%E5%8F%A5"><span class="nav-text">5.3 查看 SQL 语句</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E6%93%8D%E4%BD%9C%E6%A8%A1%E5%9E%8B"><span class="nav-text">6. 操作模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-%E5%A2%9E"><span class="nav-text">6.1 增</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%B3%95-1%EF%BC%9A"><span class="nav-text">方法 1：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%B3%95-2%EF%BC%9A"><span class="nav-text">方法 2：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%B3%95-3%EF%BC%9A"><span class="nav-text">方法 3：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%B3%95-4%EF%BC%9A"><span class="nav-text">方法 4：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%B3%95-5%EF%BC%9A"><span class="nav-text">方法 5：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-%E5%88%A0"><span class="nav-text">6.2 删</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-3-%E6%94%B9"><span class="nav-text">6.3 改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-4-%E6%9F%A5"><span class="nav-text">6.4 查</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-5-%E5%88%86%E9%A1%B5"><span class="nav-text">6.5 分页</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-%E7%9B%B8%E5%85%B3%E5%8F%82%E8%80%83"><span class="nav-text">7. 相关参考</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="糖小豆"
+      src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/tangdou500.png">
+  <p class="site-author-name" itemprop="name">糖小豆</p>
+  <div class="site-description" itemprop="description">测试大川de技术小站</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">58</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">33</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zhangzhongchuan" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;zhangzhongchuan" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:zhangzhongchuan@foxmail.com" title="E-Mail → mailto:zhangzhongchuan@foxmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.tangxdou.com/2025/02/10/Django4.2%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9E%8BModel%EF%BC%88%E5%9B%9B%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/tangdou500.png">
+      <meta itemprop="name" content="糖小豆">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="糖小豆">
+      <meta itemprop="description" content="测试大川de技术小站">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Django4.2 学习 - 模型 Model（四） | 糖小豆">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Django4.2 学习 - 模型 Model（四）
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-02-10 17:51:09" itemprop="dateCreated datePublished" datetime="2025-02-10T17:51:09+08:00">2025-02-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" itemprop="url" rel="index"><span itemprop="name">自动化测试</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">评论数：</span>
+  
+    <a title="waline" href="/2025/02/10/Django4.2%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9E%8BModel%EF%BC%88%E5%9B%9B%EF%BC%89/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2025/02/10/Django4.2%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9E%8BModel%EF%BC%88%E5%9B%9B%EF%BC%89/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-item" title="阅读数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读数：</span>
+      <span class="waline-pageview-count" data-path="/2025/02/10/Django4.2%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9E%8BModel%EF%BC%88%E5%9B%9B%EF%BC%89/"></span>
+    </span>
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3.8k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>14 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>Django 的模型（Model）是框架的核心组件之一，用于定义数据结构并与数据库进行交互。</p>
+<h2 id="1-模型的作用"><a href="#1-模型的作用" class="headerlink" title="1.模型的作用"></a>1. <strong>模型的作用</strong></h2><ul>
+<li>定义数据库表的结构（字段、关联关系等）。</li>
+<li>通过 Django ORM（对象关系映射）操作数据库，无需直接编写 SQL。</li>
+<li>支持数据验证、业务逻辑封装（如保存前后的操作）。</li>
+</ul>
+<span id="more"></span>
+
+<h2 id="2-创建模型"><a href="#2-创建模型" class="headerlink" title="2.创建模型"></a>2. <strong>创建模型</strong></h2><p>在 Django 应用的 <code>models.py</code> 中定义模型类：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> models</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Book</span>(models.Model):</span><br><span class="line">    title = models.CharField(max_length=<span class="number">200</span>)</span><br><span class="line">    author = models.CharField(max_length=<span class="number">100</span>)</span><br><span class="line">    publish_date = models.DateField()</span><br><span class="line">    price = models.DecimalField(max_digits=<span class="number">5</span>, decimal_places=<span class="number">2</span>)</span><br><span class="line">    is_published = models.BooleanField(default=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__str__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">self</span>.title</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="3-常用字段类型"><a href="#3-常用字段类型" class="headerlink" title="3.常用字段类型"></a>3. <strong>常用字段类型</strong></h2><h3 id="3-1-字符串类字段"><a href="#3-1-字符串类字段" class="headerlink" title="3.1 字符串类字段"></a>3.1 <strong>字符串类字段</strong></h3><ul>
+<li><p><code>CharField</code></p>
+<ul>
+<li>作用：存储段文本（如标题、名称）</li>
+<li>必选参数：<code>max_length</code></li>
+<li>🌰：</li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">title = models.CharField(max_length=<span class="number">200</span>)</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p><code>TextField</code></p>
+<ul>
+<li>作用：存储长文本（如文章内容）</li>
+<li><strong>与 <code>CharField</code> 的区别</strong>：无需 <code>max_length</code>，适合大段文本。</li>
+<li>🌰：</li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">content = models.TextField()</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p><code>EmailField</code></p>
+<ul>
+<li>作用：存储邮箱地址，自动验证格式。</li>
+<li><strong>底层实现</strong>：继承自 <code>CharField</code>，但添加了邮箱格式验证。</li>
+<li>🌰：</li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">email = models.EmailField()</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p><code>URLField</code></p>
+<ul>
+<li>作用：存储 URL，自动验证格式。</li>
+<li>🌰：</li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">website = models.URLField()</span><br></pre></td></tr></tbody></table></figure></li>
+</ul>
+<h3 id="3-2-数值类字段"><a href="#3-2-数值类字段" class="headerlink" title="3.2 数值类字段"></a>3.2 <strong>数值类字段</strong></h3><ul>
+<li><p><code>IntegerField</code></p>
+<ul>
+<li>作用：存储整数。</li>
+<li>🌰：</li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">age = models.IntegerField()</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p><code>FloatField</code></p>
+<ul>
+<li>作用：存储浮点数。</li>
+<li>🌰：</li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rating = models.FloatField()</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p><code>DecimalField</code></p>
+<ul>
+<li>作用：存储精确小数（适用于金融数据）。</li>
+<li><strong>必选参数</strong>：<ul>
+<li><code>max_digits</code>：总位数（包括小数点后的位数）。</li>
+<li><code>decimal_places</code>：小数点后的位数。</li>
+</ul>
+</li>
+<li>🌰：</li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">price = models.DecimalField(max_digits=<span class="number">5</span>, decimal_places=<span class="number">2</span>)</span><br></pre></td></tr></tbody></table></figure></li>
+</ul>
+<h3 id="3-3-日期和时间类字段"><a href="#3-3-日期和时间类字段" class="headerlink" title="3.3 日期和时间类字段"></a>3.3 <strong>日期和时间类字段</strong></h3><ul>
+<li><p><strong><code>DateField</code></strong></p>
+<ul>
+<li>作用：存储日期（年月日）。</li>
+<li><strong>常用参数</strong>：<ul>
+<li><code>auto_now</code>：每次保存时自动更新为当前日期。</li>
+<li><code>auto_now_add</code>：仅在创建时设置为当前日期。</li>
+</ul>
+</li>
+<li>🌰：</li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">publish_date = models.DateField(auto_now_add=<span class="literal">True</span>)</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p><strong><code>DateTimeField</code></strong></p>
+<ul>
+<li><strong>作用</strong>：存储日期和时间。</li>
+<li>** 参数同 <code>DateField</code>**。</li>
+<li>🌰：</li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">created_at = models.DateTimeField(auto_now_add=<span class="literal">True</span>)</span><br></pre></td></tr></tbody></table></figure></li>
+</ul>
+<h3 id="3-4-布尔类字段"><a href="#3-4-布尔类字段" class="headerlink" title="3.4 布尔类字段"></a>3.4 <strong>布尔类字段</strong></h3><ul>
+<li><p><strong><code>BooleanField</code></strong></p>
+<ul>
+<li><p><strong>作用</strong>：存储布尔值（<code>True/False</code>）。</p>
+</li>
+<li><p><strong>注意</strong>：默认值为 <code>False</code>，可通过 <code>default=True</code> 修改。</p>
+</li>
+<li><p>🌰：</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">is_published = models.BooleanField(default=<span class="literal">True</span>)</span><br></pre></td></tr></tbody></table></figure></li>
+</ul>
+<h3 id="3-5-文件类字段"><a href="#3-5-文件类字段" class="headerlink" title="3.5 文件类字段"></a>3.5 <strong>文件类字段</strong></h3><ul>
+<li><p><strong><code>FileField</code></strong></p>
+<ul>
+<li><strong>作用</strong>：存储文件路径（如上传的文件）。</li>
+<li><strong>常用参数</strong>：<ul>
+<li><code>upload_to</code>：文件上传目录（如 <code>"documents/"</code>）。</li>
+</ul>
+</li>
+<li>🌰：</li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">document = models.FileField(upload_to=<span class="string">"documents/"</span>)</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p><strong><code>ImageField</code></strong></p>
+<ul>
+<li><strong>作用</strong>：存储图片路径，继承自 <code>FileField</code>，额外验证图片格式。</li>
+<li><strong>依赖</strong>：需安装 <code>Pillow</code> 库。</li>
+<li>🌰：</li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">photo = models.ImageField(upload_to=<span class="string">"photos/"</span>)</span><br></pre></td></tr></tbody></table></figure></li>
+</ul>
+<h3 id="3-6-关联类字段"><a href="#3-6-关联类字段" class="headerlink" title="3.6 关联类字段"></a>3.6 <strong>关联类字段</strong></h3><h2 id="4-常用字段参数"><a href="#4-常用字段参数" class="headerlink" title="4.常用字段参数"></a>4. <strong>常用字段参数</strong></h2><p>以下参数适用于大多数字段类型：</p>
+<h3 id="4-1-通用参数"><a href="#4-1-通用参数" class="headerlink" title="4.1 通用参数"></a>4.1 通用参数</h3><ul>
+<li><p><strong><code>null</code></strong></p>
+<ul>
+<li><strong>作用</strong>：是否允许数据库存储 <code>NULL</code> 值。</li>
+<li><strong>🌰</strong>：<code>null=True</code>（默认为 <code>False</code>）。</li>
+</ul>
+</li>
+<li><p><strong><code>blank</code></strong></p>
+<ul>
+<li><strong>作用</strong>：是否允许表单验证为空（与 <code>null</code> 无关）。</li>
+<li><strong>🌰</strong>：<code>blank=True</code>（默认为 <code>False</code>）。</li>
+</ul>
+</li>
+<li><p><strong><code>default</code></strong></p>
+<ul>
+<li><strong>作用</strong>：字段的默认值。</li>
+<li><strong>🌰</strong>：<code>default="draft"</code>。</li>
+</ul>
+</li>
+<li><p><strong><code>unique</code></strong></p>
+<ul>
+<li><strong>作用</strong>：是否要求字段值唯一。</li>
+<li><strong>🌰</strong>：<code>unique=True</code>。</li>
+</ul>
+</li>
+<li><p><strong><code>choices</code></strong></p>
+<ul>
+<li><strong>作用</strong>：限制字段值为预定义选项。</li>
+<li><strong>🌰</strong>：</li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">STATUS_CHOICES = [</span><br><span class="line">    (<span class="string">'D'</span>, <span class="string">'Draft'</span>), <span class="comment"># 数据库存储的是</span></span><br><span class="line">    (<span class="string">'P'</span>, <span class="string">'Published'</span>),</span><br><span class="line">]</span><br><span class="line">status = models.CharField(max_length=<span class="number">1</span>, choices=STATUS_CHOICES)</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p><strong><code>verbose_name</code></strong></p>
+<ul>
+<li><strong>作用</strong>：字段的人类可读名称（用于 Admin 后台）。</li>
+<li><strong>示例</strong>：<code>verbose_name="出版日期"</code>。</li>
+</ul>
+</li>
+<li><p><strong><code>help_text</code></strong></p>
+<ul>
+<li><strong>作用</strong>：字段的提示文本（用于 Admin 后台）。</li>
+<li><strong>示例</strong>：<code>help_text="请输入书籍标题"</code>。</li>
+</ul>
+</li>
+<li><p><strong><code>db_index</code></strong></p>
+<ul>
+<li><strong>作用</strong>：为字段创建数据库索引，加速查询。</li>
+<li><strong>示例</strong>：<code>db_index=True</code>。</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-2-关联字段专用参数"><a href="#4-2-关联字段专用参数" class="headerlink" title="4.2 关联字段专用参数"></a>4.2 <strong>关联字段专用参数</strong></h3><ul>
+<li>**<code>on_delete</code>**（用于 <code>ForeignKey</code> 和 <code>OneToOneField</code>）<ul>
+<li><strong>作用</strong>：定义关联对象删除时的行为。</li>
+<li><strong>常用选项</strong>：<ul>
+<li><code>models.CASCADE</code>：级联删除。</li>
+<li><code>models.PROTECT</code>：阻止删除关联对象。</li>
+<li><code>models.SET_NULL</code>：将字段设为 <code>NULL</code>（需 <code>null=True</code>）。</li>
+<li><code>models.SET_DEFAULT</code>：设为默认值（需 <code>default</code> 参数）。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="5-数据库迁移"><a href="#5-数据库迁移" class="headerlink" title="5.数据库迁移"></a>5. 数据库迁移</h2><h3 id="5-1-生成迁移文件"><a href="#5-1-生成迁移文件" class="headerlink" title="5.1 生成迁移文件"></a>5.1 生成迁移文件</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py makemigrations</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="5-2-执行迁移"><a href="#5-2-执行迁移" class="headerlink" title="5.2 执行迁移"></a>5.2 执行迁移</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py migrate</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="5-3-查看-SQL-语句"><a href="#5-3-查看-SQL-语句" class="headerlink" title="5.3 查看 SQL 语句"></a>5.3 查看 SQL 语句</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py sqlmigrate &lt;app_name&gt; &lt;migration_number&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="6-操作模型"><a href="#6-操作模型" class="headerlink" title="6.操作模型"></a>6. 操作模型</h2><p>以下是 Django 模型增删改查（CRUD）操作：</p>
+<h3 id="6-1-增"><a href="#6-1-增" class="headerlink" title="6.1 增"></a>6.1 增</h3><h4 id="方法-1："><a href="#方法-1：" class="headerlink" title="方法 1："></a>方法 1：</h4><p>方法 1 和方法 2 都是先实例化对象，然后再保存。</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># views.py</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">add</span>(<span class="params">request</span>):</span><br><span class="line">    <span class="comment"># 方式一：</span></span><br><span class="line">    message = <span class="string">'add success'</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        t = testModels6()</span><br><span class="line">        t.name = <span class="string">'测试增加1'</span></span><br><span class="line">        t.sex = <span class="string">'男'</span></span><br><span class="line">        t.age = <span class="string">'21'</span></span><br><span class="line">        t.save() <span class="comment"># 同步到数据库表中，显示保存</span></span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        <span class="built_in">print</span>(e)</span><br><span class="line">        message = <span class="string">'add error'</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> HttpResponse(message)</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="方法-2："><a href="#方法-2：" class="headerlink" title="方法 2："></a>方法 2：</h4><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># views.py</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">add</span>(<span class="params">request</span>):</span><br><span class="line">  </span><br><span class="line">    message = <span class="string">'add success'</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        t = testModels6(name=<span class="string">'测试增加方法二'</span>, sex=<span class="string">'男'</span>, age=<span class="string">'22'</span>)</span><br><span class="line">        t.save()  <span class="comment"># 同步到数据库表中，显示保存</span></span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        <span class="built_in">print</span>(e)</span><br><span class="line">        message = <span class="string">'add error'</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> HttpResponse(message)</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="方法-3："><a href="#方法-3：" class="headerlink" title="方法 3："></a>方法 3：</h4><p>使用 <code>create()</code> 直接创建并保存到数据库。</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># views.py</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">add</span>(<span class="params">request</span>):</span><br><span class="line"></span><br><span class="line">    message = <span class="string">'add success'</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">      	<span class="comment"># 直接创建并保存到数据库</span></span><br><span class="line">        testModels6.objects.create(name=<span class="string">'测试增加方法三'</span>, sex=<span class="string">'男'</span>, age=<span class="string">'23'</span>)</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        message = <span class="string">'add fail'</span></span><br><span class="line">    <span class="keyword">return</span> HttpResponse(message)</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="方法-4："><a href="#方法-4：" class="headerlink" title="方法 4："></a>方法 4：</h4><p>使用 <code>get_or_create()</code> 创建，与 <code>create()</code> 不同，<code>get_or_create()</code> 有返回值。</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># views.py</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">add</span>(<span class="params">request</span>):</span><br><span class="line"></span><br><span class="line">    message = <span class="string">'add success'</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">      	<span class="comment"># 直接创建并保存到数据库，z</span></span><br><span class="line">        ret = testModels6.objects.get_or_create(name=<span class="string">'测试增加方法四-5'</span>, sex=<span class="string">'女'</span>, age=<span class="string">' 44'</span>)</span><br><span class="line">        <span class="built_in">print</span>(ret)  <span class="comment">#  (&lt;testModels6: 测试增加方法四&gt;, True)  数据不存在时，返回</span></span><br><span class="line">        					  <span class="comment"># (&lt;testModels6: 测试增加方法四&gt;, False)  数据已存在时，返回</span></span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        message = <span class="string">'add fail'</span></span><br><span class="line">    <span class="keyword">return</span> HttpResponse(message)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="方法-5："><a href="#方法-5：" class="headerlink" title="方法 5："></a>方法 5：</h4><ul>
+<li>使用 <code>bulk_create()</code> 批量插入多条数据（减少数据库查询次数）</li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># views.py</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">add</span>(<span class="params">request</span>):</span><br><span class="line">    models6 = [</span><br><span class="line">        testModels6(name=<span class="string">'测试增加方法四-000'</span>, age=<span class="number">10</span>, sex=<span class="string">'1'</span>),</span><br><span class="line">        testModels6(name=<span class="string">'测试增加方法四-001'</span>, age=<span class="number">20</span>, sex=<span class="string">'2'</span>),</span><br><span class="line">        testModels6(name=<span class="string">'测试增加方法四-002'</span>, age=<span class="number">30</span>, sex=<span class="string">'2'</span>),</span><br><span class="line">        testModels6(name=<span class="string">'测试增加方法四-003'</span>, age=<span class="number">40</span>, sex=<span class="string">'1'</span>),</span><br><span class="line">        testModels6(name=<span class="string">'测试增加方法四-004'</span>, age=<span class="number">50</span>, sex=<span class="string">'2'</span>),</span><br><span class="line">    ]</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        testModels6.objects.bulk_create(models6)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        <span class="built_in">print</span>(e)</span><br><span class="line">        <span class="keyword">return</span> HttpResponse(<span class="string">'添加失败'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> HttpResponse(<span class="string">'添加成功'</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>循环添加多条 </li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># views.py</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">add</span>(<span class="params">request</span>):</span><br><span class="line">    user_list = [</span><br><span class="line">        {<span class="string">'name'</span>: <span class="string">'测试增加方法四-01'</span>, <span class="string">'sex'</span>: <span class="string">'女'</span>, <span class="string">'age'</span>: <span class="string">'41'</span>},</span><br><span class="line">        {<span class="string">'name'</span>: <span class="string">'测试增加方法四-02'</span>, <span class="string">'sex'</span>: <span class="string">'女'</span>, <span class="string">'age'</span>: <span class="string">'42'</span>},</span><br><span class="line">        {<span class="string">'name'</span>: <span class="string">'测试增加方法四-03'</span>, <span class="string">'sex'</span>: <span class="string">'女'</span>, <span class="string">'age'</span>: <span class="string">'43'</span>},</span><br><span class="line">        {<span class="string">'name'</span>: <span class="string">'测试增加方法四-04'</span>, <span class="string">'sex'</span>: <span class="string">'女'</span>, <span class="string">'age'</span>: <span class="string">'44'</span>},</span><br><span class="line">        {<span class="string">'name'</span>: <span class="string">'测试增加方法四-05'</span>, <span class="string">'sex'</span>: <span class="string">'女'</span>, <span class="string">'age'</span>: <span class="string">'44'</span>},</span><br><span class="line">    ]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> user <span class="keyword">in</span> user_list:</span><br><span class="line">        ret = testModels6.objects.get_or_create(name=user[<span class="string">'name'</span>], sex=user[<span class="string">'sex'</span>], age=user[<span class="string">'age'</span>])</span><br><span class="line">    <span class="keyword">return</span> HttpResponse(<span class="string">'添加成功'</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="6-2-删"><a href="#6-2-删" class="headerlink" title="6.2 删"></a>6.2 删</h3><ul>
+<li>删除单条 </li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># views.py</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">delete_user</span>(<span class="params">request</span>):</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="comment"># 删除单条</span></span><br><span class="line">        t = testModels6.objects.get(name=<span class="string">'测试增加方法四-5'</span>)</span><br><span class="line">        t.delete()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        <span class="built_in">print</span>(e)</span><br><span class="line">        <span class="keyword">return</span> HttpResponse(<span class="string">'删除失败'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> HttpResponse(<span class="string">'删除成功'</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>批量删除 </li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># views.py</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">delete_user</span>(<span class="params">request</span>):</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="comment"># 根据条件批量删除：找出age大于59的记录，然后删除</span></span><br><span class="line">        testModels6.objects.<span class="built_in">filter</span>(age__gt=<span class="number">59</span>).delete()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        <span class="built_in">print</span>(e)</span><br><span class="line">        <span class="keyword">return</span> HttpResponse(<span class="string">'删除失败'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> HttpResponse(<span class="string">'删除成功'</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>删除所有 </li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># views.py</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">delete_user</span>(<span class="params">request</span>):</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="comment"># 删除所有</span></span><br><span class="line">        testModels6.objects.<span class="built_in">all</span>().delete()</span><br><span class="line">        <span class="comment"># testModels6.objects.filter().delete() 这样也是可以的</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        <span class="built_in">print</span>(e)</span><br><span class="line">        <span class="keyword">return</span> HttpResponse(<span class="string">'删除失败'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> HttpResponse(<span class="string">'删除成功'</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="6-3-改"><a href="#6-3-改" class="headerlink" title="6.3 改"></a>6.3 改</h3><ul>
+<li>更新单条 </li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># views.py</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">update_user</span>(<span class="params">request</span>):</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="comment"># 普通方法：</span></span><br><span class="line">        user1 = testModels6.objects.get(name=<span class="string">'测试增加方法四-05'</span>)</span><br><span class="line">        user1.age = <span class="number">123</span></span><br><span class="line">        user1.save() <span class="comment"># 触发 save() 方法（会更新 auto_now 字段）</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        <span class="built_in">print</span>(e)</span><br><span class="line">        <span class="keyword">return</span> HttpResponse(<span class="string">'更新失败'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> HttpResponse(<span class="string">'更新成功'</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>提高效率减少数据操作 </li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># views.py</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">update_user</span>(<span class="params">request</span>):</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        user2 = testModels6.objects.get(name=<span class="string">'测试增加方法四-08'</span>)</span><br><span class="line">        user2.age = <span class="number">111</span>        </span><br><span class="line">        <span class="comment"># save()方法更新时会更新所有字段，如果只想更新某个字段，减少数据操作，可以这样</span></span><br><span class="line">        user2.save(update_fields=[<span class="string">'age'</span>]) <span class="comment"># 指定需要更新的字段，提高更新的效率</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        <span class="built_in">print</span>(e)</span><br><span class="line">        <span class="keyword">return</span> HttpResponse(<span class="string">'更新失败'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> HttpResponse(<span class="string">'更新成功'</span>)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>批量更新 </li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># views.py</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">update_user</span>(<span class="params">request</span>):</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="comment"># 直接更新（不触发 save() 方法和信号）</span></span><br><span class="line">        testModels6.objects.<span class="built_in">filter</span>(sex=<span class="string">'2'</span>).update(age=<span class="number">18</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        <span class="built_in">print</span>(e)</span><br><span class="line">        <span class="keyword">return</span> HttpResponse(<span class="string">'更新失败'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> HttpResponse(<span class="string">'更新成功'</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="6-4-查"><a href="#6-4-查" class="headerlink" title="6.4 查"></a>6.4 查</h3><ul>
+<li><p>获取单条数据</p>
+<ul>
+<li><code>get()</code>：精确匹配（找不到或找到多个会抛异常）</li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">get_user</span>(<span class="params">request</span>):</span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        m6 = testModels6.objects.get(name=<span class="string">'测试增加方法四-05'</span>)</span><br><span class="line">        <span class="built_in">print</span>(m6.name)</span><br><span class="line">        <span class="built_in">print</span>(m6.age)</span><br><span class="line">        <span class="built_in">print</span>(m6.sex)</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">except</span> testModels6.DoesNotExist <span class="keyword">as</span> e:</span><br><span class="line">        <span class="comment"># 处理不存在的情况</span></span><br><span class="line">        <span class="built_in">print</span>(e)</span><br><span class="line">    <span class="keyword">except</span> testModels6.MultipleObjectsReturned <span class="keyword">as</span> e:</span><br><span class="line">        <span class="comment"># 处理多个对象返回的情况</span></span><br><span class="line">        <span class="built_in">print</span>(e)</span><br><span class="line">    <span class="keyword">return</span> HttpResponse(<span class="string">'获取成功'</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>**<code>first()</code><strong>和</strong><code>last()</code>**：获取第一条或最后一条 </li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">get_user</span>(<span class="params">request</span>):</span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        m_first = testModels6.objects.first()</span><br><span class="line">        m_last = testModels6.objects.last()</span><br><span class="line">        <span class="built_in">print</span>(m_first)</span><br><span class="line">        <span class="built_in">print</span>(m_last)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        <span class="built_in">print</span>(e)</span><br><span class="line">        <span class="keyword">return</span> HttpResponse(<span class="string">'获取失败'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> HttpResponse(<span class="string">'获取成功'</span>)</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>过滤数据</p>
+<ul>
+<li>**<code>filter()</code>**：条件查询 </li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">users = testModels6.objects.<span class="built_in">filter</span>(age=<span class="number">18</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>**<code>exclude()</code>**：排除条件 </li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">users2 = testModels6.objects.exclude(age=<span class="number">18</span>)</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>统计</p>
+<ul>
+<li>**<code>count()</code>**：统计查询集中对象个数 </li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">num = testModels6.objects.count()</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>获取全部数据</p>
+<ul>
+<li>**<code>all()</code>**： 获取全部数据 </li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">all_data = testModels6.objects.<span class="built_in">all</span>()</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>获取指定列的值</p>
+<ul>
+<li>**<code>values()</code>**：获取指定列的值，可以传多个参数，返回字典列表（保存了字段名和对应的值）</li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">users = testModels6.objects.<span class="built_in">all</span>().values(<span class="string">'name'</span>, <span class="string">'age'</span>)</span><br><span class="line"><span class="built_in">print</span>(users)</span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">&lt;QuerySet [{'name': '测试增加方法四-01', 'age': 18}, {'name': '测试增加方法四-02', 'age': 18}, {'name': '测试增加方法四-03', 'age': 18}, {'name': '测试增加方法四-04', 'age': 18}, {'name': '测试增加方法四-05', 'age': 18}, {'name': '测试增加方法四-07', 'age': 18}, {'name': '测试增加方法四-08', 'age': 18}, {'name': '测试增加方法四-09', 'age': 18}, {'name': '测试增加方法四-10', 'age': 18}, {'name': '测试增加方法四-11', 'age': 18}, {'name': '测试增加方法四'age': 18}, {'name': '测试增加方法四-14', 'age': 18}, {'name': '测试增加方法四-15', 'age': 18}, {'name': '测试增加方法四-16', 'age': 18}, {'name': '测试增加方法四-17', 'age': 18}, {'name': '测试增加方法四-18', 'age': 18}, {'name': '测试增加方法四-20', 'age': 18}, '...(remaining elements truncated)...']&gt;</span></span><br><span class="line"><span class="string">"""</span></span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>**<code>values_list()</code>**：获取指定列的值，可以传多个参数，返回元组列表（只保存了值）</li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">users2 = testModels6.objects.<span class="built_in">all</span>().values_list(<span class="string">'name'</span>,<span class="string">'age'</span>)</span><br><span class="line"><span class="built_in">print</span>(users2)</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">&lt;QuerySet [('测试增加方法四-01', 18), ('测试增加方法四-02', 18), ('测试增加方法四-03', 18), ('测试增加方法四-04', 18), ('测试增加方法四-05', 18), ('测试增加方法四-06', 18), ('测试增加方法四-07', 18), ('测试增加方法四-08', 18), 8), ('测试增加方法四-12', 18), ('测试增加方法四-13', 18), ('测试增加方法四-14', 18), ('测试增加方法四-15', 18), ('测试增加方法四-16', 18), ('测试增加方法四-17', 18), ('测试增加方法四-18', 18), ('测试增加方法四-19', 18), ('测试增加方法四-20', 18), '...(remaining elements truncated)...']&gt;</span></span><br><span class="line"><span class="string">'''</span></span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>判断是否存在</p>
+<ul>
+<li><strong><code>exists()</code></strong></li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">user = testModels6.objects.<span class="built_in">filter</span>(name=<span class="string">'测试增加方法四-0511'</span>).exists()</span><br><span class="line"><span class="built_in">print</span>(user)</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>查找参数相关</p>
+<ol>
+<li><p><strong><code>__lt</code><strong>：</strong>Less Than</strong></p>
+<ul>
+<li>表示 “小于”。</li>
+<li>示例：<code>age__lt=18</code> 表示筛选出 年龄小于 18 的记录。</li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">user = testModels6.objects.<span class="built_in">filter</span>(age__lt=<span class="number">18</span>)</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p><strong><code>__gt</code><strong>：</strong>Greater Than</strong></p>
+<ul>
+<li>表示 “大于”。</li>
+<li>示例：<code>gt__lt=18</code> 表示筛选出年龄大于 18 的记录。</li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">user = testModels6.objects.<span class="built_in">filter</span>(gt__lt=<span class="number">18</span>)</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p><strong><code>__lte</code><strong>：</strong>Less Than or Equal to</strong></p>
+<ul>
+<li>表示 “小于等于”。</li>
+<li>示例：age__lte=18` 表示筛选出年龄小于等于 18 的记录。</li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">users = testModels6.objects.<span class="built_in">filter</span>(age__lte=<span class="number">18</span>)</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p><strong><code>__gte</code><strong>：</strong>Greater Than or Equal to</strong></p>
+<ul>
+<li>表示 “大于等于”。</li>
+<li>示例：<code>age__gte=18</code> 表示筛选出年龄大于等于 18 的记录。</li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">users = testModels6.objects.<span class="built_in">filter</span>(age__gte=<span class="number">18</span>)</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>**<code>__in</code>**：</p>
+<ul>
+<li>表示 “在某个列表中”。</li>
+<li>示例：age__in=[1, 2, 3] <code>表示筛选出 ID 在列表</code> [1, 2, 3]` 中的记录。</li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在列表</span></span><br><span class="line">users = testModels6.objects.<span class="built_in">filter</span>(age__in=[<span class="number">111</span>, <span class="number">222</span>])</span><br><span class="line"><span class="comment"># 元组也行 </span></span><br><span class="line">users = testModels6.objects.<span class="built_in">filter</span>(age__in=(<span class="number">111</span>, <span class="number">222</span>))</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>**<code>__isnull</code>**：</p>
+<ul>
+<li>表示 “是否为 null 值”。</li>
+<li>示例：<code>age__isnull</code> 表示筛选出年龄中是 null 的记录。</li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">users = testModels6.objects.<span class="built_in">filter</span>(age__isnull=<span class="literal">True</span>)</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>**<code>__range</code>**：</p>
+<ul>
+<li>表示：字段值在某个范围内的记录，有点像 <code>between... and..</code></li>
+<li>示例：<code>age__range</code> 表示筛选出年龄是 18～40（包含 18，包含 40）的记录 </li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">users = testModels6.objects.<span class="built_in">filter</span>(age__range=(<span class="number">18</span>,<span class="number">40</span>))</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>**<code>__contains</code>**：</p>
+<ul>
+<li>表示 “包含某个子字符串”，区分大小写。</li>
+<li>示例：<code>name__contains="Alice"</code> 表示筛选出名字中包含 “Ali” 的记录。</li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">users = testModels6.objects.<span class="built_in">filter</span>(name__contains=<span class="string">'Ali'</span>)</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>**<code>__icontains</code>**：</p>
+<ul>
+<li>表示 “包含某个子字符串”，不区分大小写。</li>
+<li>示例：<code>name__icontains="Alice"</code> 表示筛选出名字中包含 “ali” 的记录。</li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">users = testModels6.objects.<span class="built_in">filter</span>(name__icontains=<span class="string">'ali'</span>)</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>**<code>__regex</code>**：</p>
+<ul>
+<li>表示 “正则表达式匹配”。</li>
+<li>示例：<code>name__regex="^A.*"</code> 表示筛选出名字以大写字母 “A” 开头的记录。</li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">users = testModels6.objects.<span class="built_in">filter</span>(name__regex=<span class="string">'^A.*'</span>)</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>**<code>__iregex</code>**：</p>
+<ul>
+<li>表示 “不区分大小写的正则表达式匹配”。</li>
+<li>示例：<code>name__iregex="^a.*"</code> 表示筛选出名字以字母 “a” 开头（不区分大小写）的记录。</li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 以下 2 种格式查询结果相同</span></span><br><span class="line">users = testModels6.objects.<span class="built_in">filter</span>(name__iregex=<span class="string">'^A.*'</span>)</span><br><span class="line"></span><br><span class="line">users = testModels6.objects.<span class="built_in">filter</span>(name__iregex=<span class="string">'^a.*'</span>) </span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>**<code>__startswith</code>**：</p>
+<ul>
+<li>表示 “以某个字符串开头”。</li>
+<li>示例：<code>name__startswith="A"</code> 表示筛选出名字以 “A” 开头的记录。</li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">users = testModels6.objects.<span class="built_in">filter</span>(name__startswith=<span class="string">'A'</span>)</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>**<code>__istartswith</code>**：</p>
+<ul>
+<li>表示 “不区分大小写的以某个字符串开头”。</li>
+<li>示例：<code>name__istartswith="a"</code> 表示筛选出名字以 “a” 开头的记录（不区分大小写）。</li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">users = testModels6.objects.<span class="built_in">filter</span>(name__istartswith=<span class="string">'a'</span>)</span><br><span class="line">users = testModels6.objects.<span class="built_in">filter</span>(name__istartswith=<span class="string">'A'</span>)</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>**<code>__endswith</code>**：</p>
+<ul>
+<li>表示 “以某个字符串结尾”。</li>
+<li>示例：<code>name__endswith="a"</code> 表示筛选出名字以 “a” 结尾的记录。</li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">users = testModels6.objects.<span class="built_in">filter</span>(name__endswith=<span class="string">'a'</span>)</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>**<code>__iendswith</code>**：</p>
+<ul>
+<li>表示 “不区分大小写的以某个字符串结尾”。</li>
+<li>示例：<code>name__iendswith="smith"</code> 表示筛选出名字以 “Smith” 结尾的记录（不区分大小写）。</li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">users = testModels6.objects.<span class="built_in">filter</span>(name__iendswith=<span class="string">'a'</span>)  <span class="comment"># sqlite中不生效，需要改配置</span></span><br><span class="line">users = testModels6.objects.<span class="built_in">filter</span>(name__iendswith=<span class="string">'A'</span>) </span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>**<code>__exact</code>**：</p>
+<ul>
+<li>表示 “精确等于”。</li>
+<li>示例：<code>name__exact="Alice"</code> 表示筛选出名字精确等于 “Alice” 的记录。</li>
+<li>注意：在 Django 中，<code>__exact</code> 是默认的查找方式，如果不写查找参数，默认就是精确匹配。</li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">users = testModels6.objects.<span class="built_in">filter</span>(name__exact=<span class="string">'Alice test name'</span>)</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>**<code>__iexact</code>**：</p>
+<ul>
+<li>表示 “不区分大小写的精确等于”。</li>
+<li>示例：<code>name__iexact="alice"</code> 表示筛选出名字精确等于 “Alice” 的记录（不区分大小写）。</li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">users = testModels6.objects.<span class="built_in">filter</span>(name__exact=<span class="string">'alice test name'</span>)</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>**<code>__search</code>**：</p>
+<ul>
+<li>表示 “全文搜索”。</li>
+<li>示例：<code>name__search="Alice"</code> 表示筛选出名字中包含 “Alice” 的记录（通常用于全文搜索，具体行为可能依赖于数据库后端，<code>PostgreSQL</code> 数据库）。</li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># sqlite 不支持, postgresql 支持，mysql还没试应该也不支持</span></span><br><span class="line">users = testModels6.objects.<span class="built_in">filter</span>(name__search=<span class="string">'alice test name'</span>)</span><br></pre></td></tr></tbody></table></figure></li>
+</ol>
+</li>
+<li><p>排序和去重</p>
+<ul>
+<li><p>**<code>order_by()</code>**：排序</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 按照年龄正序排</span></span><br><span class="line">users = testModels6.objects.<span class="built_in">all</span>().order_by(<span class="string">'age'</span>)</span><br><span class="line"><span class="comment"># 按照年龄倒序排</span></span><br><span class="line">users = testModels6.objects.<span class="built_in">all</span>().order_by(<span class="string">'-age'</span>)</span><br><span class="line"><span class="comment"># 先按照年龄正序排，如果年龄相同，则按照 id 倒序排</span></span><br><span class="line">users = testModels6.objects.<span class="built_in">all</span>().order_by(<span class="string">'age'</span>, <span class="string">'-id'</span>)</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>**<code>distinct()</code>**：去重</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 按照年龄去重</span></span><br><span class="line">users = testModels6.objects.values(<span class="string">'age'</span>).distinct()</span><br></pre></td></tr></tbody></table></figure></li>
+</ul>
+</li>
+<li><p>聚合与分组</p>
+<ul>
+<li>**<code>Max()</code>**：求最大值 </li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">max_age = testModels6.objects.aggregate(Max(<span class="string">'age'</span>))</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>**<code>Min()</code>**：求最小值 </li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">min_age = testModels6.objects.aggregate(Min(<span class="string">'age'</span>))</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>**<code>Sum()</code>**：求和 </li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sum_age = testModels6.objects.aggregate(Sum(<span class="string">'age'</span>))</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>**<code>Avg()</code>**：求最大值 </li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">avg_age = testModels6.objects.aggregate(Avg(<span class="string">'age'</span>))</span><br></pre></td></tr></tbody></table></figure></li>
+</ul>
+<h3 id="6-5-分页"><a href="#6-5-分页" class="headerlink" title="6.5 分页"></a>6.5 分页</h3><ul>
+<li><p><strong><code>手动分页</code></strong></p>
+<p>思路：</p>
+<p>pageNum：页码</p>
+<p>pageSize：每页条数</p>
+<table>
+<thead>
+<tr>
+<th>页码</th>
+<th>每页显示</th>
+<th>下标范围</th>
+<th>切片范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td> 1</td>
+<td>1～10</td>
+<td>0~9</td>
+<td>0:10</td>
+</tr>
+<tr>
+<td>2</td>
+<td>11～20</td>
+<td>10~19</td>
+<td>10:20</td>
+</tr>
+<tr>
+<td>3</td>
+<td>21～30</td>
+<td>20~29</td>
+<td>20:30</td>
+</tr>
+<tr>
+<td>4</td>
+<td><code>(4-1)*10+1～(4-1)*10</code></td>
+<td><code>(4-1)*10 ~ 4*10-1</code></td>
+<td><code>(4-1)*10 : 4*10</code></td>
+</tr>
+<tr>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+</tr>
+<tr>
+<td>pageNum</td>
+<td><code>(pageNum-1)*pageSize+1～(pageNum-1)*pageSize</code></td>
+<td><code>(pageNum-1)*pageSize ~ pageNum*pageSize-1</code></td>
+<td><code>(pageNum-1)*pageSize : pageNum*pageSize</code></td>
+</tr>
+</tbody></table>
+<p><code>views.py</code></p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">manual_pagination</span>(<span class="params">request, pageNum</span>):</span><br><span class="line">    <span class="comment"># 页码</span></span><br><span class="line">    pageNum = <span class="built_in">int</span>(pageNum)</span><br><span class="line">    all_data = testModels7.objects.<span class="built_in">all</span>()</span><br><span class="line">    <span class="comment"># 总数据条数</span></span><br><span class="line">    total = all_data.count()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 每页显示的数据条数</span></span><br><span class="line">    pageSize = <span class="number">10</span></span><br><span class="line">    <span class="comment"># 总页码数，ceil 向上取整</span></span><br><span class="line">    totalPage = math.ceil(total / pageSize)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># all_data = all_data[pageNum * pageSize:(pageNum + 1) * pageSize]</span></span><br><span class="line">    all_data = all_data[(pageNum - <span class="number">1</span>) * pageSize: pageNum * pageSize]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> render(request, <span class="string">'manualPagination.html'</span>, {<span class="string">'all_data'</span>: all_data, <span class="string">'totalPage'</span>: totalPage + <span class="number">1</span>})</span><br></pre></td></tr></tbody></table></figure>
+
+<p><code>urls.py</code></p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">path(<span class="string">'manualPagination/&lt;int:pageNum&gt;'</span>, views.manual_pagination, name=<span class="string">'manualPagination'</span>),</span><br></pre></td></tr></tbody></table></figure>
+
+<p><code>manualPagination.html</code></p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang="en"&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset="UTF-8"&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;h2&gt;手动分页&lt;/h2&gt;</span><br><span class="line">&lt;hr&gt;</span><br><span class="line">&lt;ul&gt;</span><br><span class="line">    {% for item in all_data %}</span><br><span class="line">        &lt;li&gt;id:{{ item.id }}--名字：{{ item.name }}--年龄：{{ item.age }}--性别：{{ item.sex }} &lt;/li&gt;</span><br><span class="line">    {% endfor %}</span><br><span class="line">&lt;/ul&gt;</span><br><span class="line">&lt;hr&gt;</span><br><span class="line">{# django 模板 #}</span><br><span class="line">{#&lt;a href="{% url 'manualPagination' pageNum=1 %}"&gt;第一页&lt;/a&gt;#}</span><br><span class="line"></span><br><span class="line">{# Jinja2 模板 #}</span><br><span class="line">{#&lt;a href="{{ url('manualPagination', kwargs={'pageNum': 1}) }}"&gt;第1页&lt;/a&gt;#}</span><br><span class="line">{% for page in range(1,totalPage) %}</span><br><span class="line"></span><br><span class="line">    &lt;a href="{{ url('manualPagination', kwargs={'pageNum': page}) }}"&gt; 第{{ page }}页&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">{% endfor %}</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p><strong><code>Django分页器</code></strong></p>
+</li>
+</ul>
+<p><code>views.py</code></p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">django_pagination</span>(<span class="params">request, pageNum</span>):</span><br><span class="line">    all_data = testModels7.objects.<span class="built_in">all</span>()</span><br><span class="line">    <span class="comment"># 实例化分页对象，第一个参数是要分页的数据，第二个参数是每页显示的数据条数</span></span><br><span class="line">    paginator = Paginator(all_data, <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 获取指定页码的数据</span></span><br><span class="line">    page_data = paginator.page(pageNum)</span><br><span class="line"></span><br><span class="line">    page_data = page_data.object_list</span><br><span class="line">    <span class="built_in">print</span>(page_data)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 获取总页码数, 这里提前处理一下</span></span><br><span class="line">    totalPage = <span class="built_in">range</span>(<span class="number">1</span>, paginator.num_pages + <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> render(request, <span class="string">'djangoPagination.html'</span>, {<span class="string">'page_data'</span>: page_data, <span class="string">'totalPage'</span>: totalPage})</span><br></pre></td></tr></tbody></table></figure>
+
+<p><code>urls.py</code></p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">path(<span class="string">'djangoPagination/&lt;int:pageNum&gt;'</span>, views.django_pagination, name=<span class="string">'djangoPagination'</span>),</span><br></pre></td></tr></tbody></table></figure>
+
+<p><code>djangoPagination.html</code></p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang="en"&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset="UTF-8"&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;h2&gt;django 分页器&lt;/h2&gt;</span><br><span class="line">&lt;hr&gt;</span><br><span class="line">&lt;ul&gt;</span><br><span class="line">    {% for item in page_data %}</span><br><span class="line">        &lt;li&gt;id:{{ item.id }}--名字：{{ item.name }}--年龄：{{ item.age }}--性别：{{ item.sex }} &lt;/li&gt;</span><br><span class="line">    {% endfor %}</span><br><span class="line">&lt;/ul&gt;</span><br><span class="line">&lt;hr&gt;</span><br><span class="line"></span><br><span class="line">{% for page in totalPage %}</span><br><span class="line">    &lt;a href="{{ url('djangoPagination', kwargs={'pageNum': page}) }}"&gt; 第{{ page }}页&lt;/a&gt;</span><br><span class="line">{% endfor %}</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="7-相关参考"><a href="#7-相关参考" class="headerlink" title="7.相关参考"></a>7. 相关参考</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://chat.deepseek.com/">deepseek</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1W34y1c7Rn?spm_id_from=333.788.player.switch&amp;vd_source=fd555860cd7cf9b09d9279e5deaabb9d&amp;p=43">bilibili</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.djangoproject.com/zh-hans/4.2/ref/models/instances/">django 官网</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/wechatpay.png" alt="糖小豆 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/alipay.png" alt="糖小豆 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>糖小豆
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://www.tangxdou.com/2025/02/10/Django4.2%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9E%8BModel%EF%BC%88%E5%9B%9B%EF%BC%89/" title="Django4.2 学习 - 模型 Model（四）">https://www.tangxdou.com/2025/02/10/Django4.2学习-模型Model（四）/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
+              <a href="/tags/django/" rel="tag"><i class="fa fa-tag"></i> django</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/02/10/jinja2%E6%A8%A1%E6%9D%BF%E4%B8%8EDjango%E6%A8%A1%E6%9D%BF%E5%AF%B9%E6%AF%94%E6%80%BB%E7%BB%93/" rel="prev" title="jinja2 模板与 Django 模板对比总结">
+                  <i class="fa fa-angle-left"></i> jinja2 模板与 Django 模板对比总结
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="waline"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">蜀ICP备2024080138号 </a>
+      <img src="/images/beian_logo.png" alt=""><a href="https://beian.mps.gov.cn/#/query/webSearch?code=51011202000789" rel="noopener" target="_blank">川公网安备51011202000789号 </a>
+  </div>
+  <div class="copyright">
+    &copy; 2019 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">糖小豆</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">39k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">2:23</span>
+  </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/zhangzhongchuan" class="github-corner" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+<script class="next-config" data-name="chatra" type="application/json">{"enable":true,"async":true,"id":null}</script>
+<script src="/js/third-party/chat/chatra.js"></script>
+<script async src="https://call.chatra.io/chatra.js"></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"waline.tangxdou.com","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":true,"locale":{"placeholder":"无需登录·请留下邮箱以接收回复·来说两句吧~"},"highlighter":"WalineHighlighter","avatar":"mm","meta":["nick","mail"],"pageSize":10,"visitor":false,"comment_count":false,"requiredFields":["nick"],"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","login":"enable","dark":"auto","reaction":false,"el":"#waline","comment":true,"path":"/2025/02/10/Django4.2%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9E%8BModel%EF%BC%88%E5%9B%9B%EF%BC%89/"}</script>
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => 
+    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
+  );
+});
+</script>
+
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/my_js/clicklove.js"></script>
+</body>
+</html>

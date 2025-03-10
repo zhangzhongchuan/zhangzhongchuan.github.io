@@ -152,7 +152,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">59</span>
+          <span class="site-state-item-count">60</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -188,6 +188,145 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.tangxdou.com/2025/03/07/Django4-2%E5%AD%A6%E4%B9%A0-%E8%A7%86%E5%9B%BEView%EF%BC%88%E5%85%AD%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/tangdou500.png">
+      <meta itemprop="name" content="糖小豆">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="糖小豆">
+      <meta itemprop="description" content="测试大川de技术小站">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 糖小豆">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/03/07/Django4-2%E5%AD%A6%E4%B9%A0-%E8%A7%86%E5%9B%BEView%EF%BC%88%E5%85%AD%EF%BC%89/" class="post-title-link" itemprop="url">Django4.2 学习 - 视图 View（六）</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-03-07 14:39:13" itemprop="dateCreated datePublished" datetime="2025-03-07T14:39:13+08:00">2025-03-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" itemprop="url" rel="index"><span itemprop="name">自动化测试</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">评论数：</span>
+  
+    <a title="waline" href="/2025/03/07/Django4-2%E5%AD%A6%E4%B9%A0-%E8%A7%86%E5%9B%BEView%EF%BC%88%E5%85%AD%EF%BC%89/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2025/03/07/Django4-2%E5%AD%A6%E4%B9%A0-%E8%A7%86%E5%9B%BEView%EF%BC%88%E5%85%AD%EF%BC%89/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-item" title="阅读数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读数：</span>
+      <span class="waline-pageview-count" data-path="/2025/03/07/Django4-2%E5%AD%A6%E4%B9%A0-%E8%A7%86%E5%9B%BEView%EF%BC%88%E5%85%AD%EF%BC%89/"></span>
+    </span>
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>453</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="1-HttpRequest-和-HttpResponse"><a href="#1-HttpRequest-和-HttpResponse" class="headerlink" title="1.HttpRequest 和 HttpResponse"></a>1.HttpRequest 和 HttpResponse</h2><p>Django 中的视图主要用来接受 web 请求，并做出相应。<br>视图的本质就是一个 python 中的函数。<br>视图的响应分为两大类<br>（1）以 Json 数据形式返回（JsonResponse）<br>（2）以网页的形式返回<br>    重定向到另一个网页（HttpResponseRdirect）<br>    错误视图（4XX,5XX）（HttpResponseNotfound， HttpResponseForbidden， HttpResponsNotAllowed）</p>
+<p>视图的响应过程：</p>
+<p>浏览器输入 -&gt; urls 路由器匹配 -&gt; 视图响应 -&gt; 回馈到浏览器</p>
+<p>视图参数</p>
+<ul>
+<li>一个 httpRquest 的实例，一般命名为 request</li>
+<li> 通过 url 正则表达式传递过来的参数</li>
+</ul>
+<p>位置：</p>
+<p>​	通常在应用下的 views.py 中定义<br>​	错误视图：<br>​		(1) 404 视图<br>​		(2) 400 视图<br>​		(3) 500 视图</p>
+<p>HttpRequest<br>    服务器在接受到 http 请求后，会更具报文创建 HttpRequest 对象<br>    视图中的第一个参数就是 HttpRequest 对象<br>    Django 框架接受到 http 请求之后会将 http 请求 包装为 HttpRequest 对象，之后传递给视图。</p>
+<p>request 常用属性和方法<br>属性：</p>
+<p>path 请求的完整路径。<br>method 请求的方法，常用 GET，POST<br>GET 类似字典的参数，包含了 get 的所有参数<br>POST 类似字典的参数，包含了 post 所有参数<br>FILES 类似字典的参数，包含所有上传的文件<br>CooKIES 字典，就包含了所有 COOKIE<br>session 类似字典，表示会话<br>META[‘REMOTE_ADDR’]</p>
+<p>方法：</p>
+<p>is_ajax () 判断是否是 ajax ()，通常用在移动端和 JS 中</p>
+<p>get_full_path () 返回包含参数字符串的请求路径。</p>
+<p>QueryDict: 类字典的 对象<br>类似字典的数据结构。与字典的区别：可以存在相同的键。<br>QueryDict 中数据的获取方式<br>dict [‘uname’] 或 dict.get (‘uname’)<br>获取指定 key 对应的所有值</p>
+<p>Response 的属性和方法</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/03/07/Django4-2%E5%AD%A6%E4%B9%A0-%E8%A7%86%E5%9B%BEView%EF%BC%88%E5%85%AD%EF%BC%89/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1336,129 +1475,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.tangxdou.com/2024/10/13/%E8%A7%A3%E5%86%B3jmeter%E5%90%AF%E5%8A%A8%E6%97%B6%E6%8A%A5%E9%94%99Error-VM-optionUseG1GC%E9%97%AE%E9%A2%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/tangdou500.png">
-      <meta itemprop="name" content="糖小豆">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="糖小豆">
-      <meta itemprop="description" content="测试大川de技术小站">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 糖小豆">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/10/13/%E8%A7%A3%E5%86%B3jmeter%E5%90%AF%E5%8A%A8%E6%97%B6%E6%8A%A5%E9%94%99Error-VM-optionUseG1GC%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">解决 jmeter 启动时报错 Error VM option 'UseG1GC' is experimental 问题</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-10-13 00:24:46" itemprop="dateCreated datePublished" datetime="2024-10-13T00:24:46+08:00">2024-10-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/" itemprop="url" rel="index"><span itemprop="name">性能测试</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">评论数：</span>
-  
-    <a title="waline" href="/2024/10/13/%E8%A7%A3%E5%86%B3jmeter%E5%90%AF%E5%8A%A8%E6%97%B6%E6%8A%A5%E9%94%99Error-VM-optionUseG1GC%E9%97%AE%E9%A2%98/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2024/10/13/%E8%A7%A3%E5%86%B3jmeter%E5%90%AF%E5%8A%A8%E6%97%B6%E6%8A%A5%E9%94%99Error-VM-optionUseG1GC%E9%97%AE%E9%A2%98/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-item" title="阅读数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读数：</span>
-      <span class="waline-pageview-count" data-path="/2024/10/13/%E8%A7%A3%E5%86%B3jmeter%E5%90%AF%E5%8A%A8%E6%97%B6%E6%8A%A5%E9%94%99Error-VM-optionUseG1GC%E9%97%AE%E9%A2%98/"></span>
-    </span>
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>229</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>新电脑安装最新 <code>jmeter-5.6.3</code> 时报错如下：</p>
-<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ /Users/user1/Jmeter/apache-jmeter-5.6.3/bin/jmeter ; <span class="built_in">exit</span>;</span><br><span class="line">Error: VM option <span class="string">'UseG1GC'</span> is experimental and must be enabled via -XX:+UnlockExperimentalVMOptions.</span><br><span class="line">Error: Could not create the Java Virtual Machine.</span><br><span class="line">Error: A fatal exception has occurred. Program will <span class="built_in">exit</span>.</span><br><span class="line"></span><br><span class="line">Saving session...completed.</span><br><span class="line"></span><br><span class="line">[进程已完成]</span><br></pre></td></tr></tbody></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2024/10/13/%E8%A7%A3%E5%86%B3jmeter%E5%90%AF%E5%8A%A8%E6%97%B6%E6%8A%A5%E9%94%99Error-VM-optionUseG1GC%E9%97%AE%E9%A2%98/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -1485,13 +1501,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">42k</span>
+    <span title="站点总字数">43k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:34</span>
+    <span title="站点阅读时长">2:36</span>
   </span>
 </div>
 

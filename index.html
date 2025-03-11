@@ -267,7 +267,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>453</span>
+      <span>518</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -285,32 +285,56 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="1-HttpRequest-和-HttpResponse"><a href="#1-HttpRequest-和-HttpResponse" class="headerlink" title="1.HttpRequest 和 HttpResponse"></a>1.HttpRequest 和 HttpResponse</h2><p>Django 中的视图主要用来接受 web 请求，并做出相应。<br>视图的本质就是一个 python 中的函数。<br>视图的响应分为两大类<br>（1）以 Json 数据形式返回（JsonResponse）<br>（2）以网页的形式返回<br>    重定向到另一个网页（HttpResponseRdirect）<br>    错误视图（4XX,5XX）（HttpResponseNotfound， HttpResponseForbidden， HttpResponsNotAllowed）</p>
-<p>视图的响应过程：</p>
-<p>浏览器输入 -&gt; urls 路由器匹配 -&gt; 视图响应 -&gt; 回馈到浏览器</p>
-<p>视图参数</p>
-<ul>
-<li>一个 httpRquest 的实例，一般命名为 request</li>
-<li> 通过 url 正则表达式传递过来的参数</li>
+          <h2 id="1-视图主要作用"><a href="#1-视图主要作用" class="headerlink" title="1.视图主要作用"></a>1. 视图主要作用</h2><p>Django 视图（<code>View</code>）的主要作用可以概括为以下三点：</p>
+<h3 id="（1）请求处理中心"><a href="#（1）请求处理中心" class="headerlink" title="（1）请求处理中心"></a>（1）请求处理中心</h3><ul>
+<li>接收并处理 <code>HTTP</code> 请求，协调模型（<code>Model</code>）和模板（<code>Template</code>）之间的数据流动</li>
 </ul>
-<p>位置：</p>
-<p>​	通常在应用下的 views.py 中定义<br>​	错误视图：<br>​		(1) 404 视图<br>​		(2) 400 视图<br>​		(3) 500 视图</p>
-<p>HttpRequest<br>    服务器在接受到 http 请求后，会更具报文创建 HttpRequest 对象<br>    视图中的第一个参数就是 HttpRequest 对象<br>    Django 框架接受到 http 请求之后会将 http 请求 包装为 HttpRequest 对象，之后传递给视图。</p>
-<p>request 常用属性和方法<br>属性：</p>
-<p>path 请求的完整路径。<br>method 请求的方法，常用 GET，POST<br>GET 类似字典的参数，包含了 get 的所有参数<br>POST 类似字典的参数，包含了 post 所有参数<br>FILES 类似字典的参数，包含所有上传的文件<br>CooKIES 字典，就包含了所有 COOKIE<br>session 类似字典，表示会话<br>META[‘REMOTE_ADDR’]</p>
-<p>方法：</p>
-<p>is_ajax () 判断是否是 ajax ()，通常用在移动端和 JS 中</p>
-<p>get_full_path () 返回包含参数字符串的请求路径。</p>
-<p>QueryDict: 类字典的 对象<br>类似字典的数据结构。与字典的区别：可以存在相同的键。<br>QueryDict 中数据的获取方式<br>dict [‘uname’] 或 dict.get (‘uname’)<br>获取指定 key 对应的所有值</p>
-<p>Response 的属性和方法</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2025/03/07/Django4-2%E5%AD%A6%E4%B9%A0-%E8%A7%86%E5%9B%BEView%EF%BC%88%E4%B8%83%EF%BC%89/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
+<h4 id="1️⃣请求对象获取"><a href="#1️⃣请求对象获取" class="headerlink" title="1️⃣请求对象获取"></a>1️⃣请求对象获取</h4><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">handle_request</span>(<span class="params">request</span>):</span><br><span class="line">    <span class="comment"># 获取请求方法类型</span></span><br><span class="line">    method = request.method  <span class="comment"># GET/POST/PUT/DELETE</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 获取查询参数（适用于 GET）</span></span><br><span class="line">    query_param = request.GET.get(<span class="string">'param_name'</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 获取表单数据（适用于 POST）</span></span><br><span class="line">    form_data = request.POST.get(<span class="string">'field_name'</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 获取原始数据（适用于 JSON）</span></span><br><span class="line">    raw_data = json.loads(request.body)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 获取文件上传</span></span><br><span class="line">    uploaded_file = request.FILES.get(<span class="string">'file_field'</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="2️⃣请求类型处理"><a href="#2️⃣请求类型处理" class="headerlink" title="2️⃣请求类型处理"></a>2️⃣请求类型处理</h4><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">multi_method_view</span>(<span class="params">request</span>):</span><br><span class="line">    <span class="keyword">if</span> request.method == <span class="string">'GET'</span>:</span><br><span class="line">        <span class="comment"># 处理 GET 请求逻辑</span></span><br><span class="line">        <span class="keyword">return</span> HttpResponse(<span class="string">"Get Response"</span>)</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">elif</span> request.method == <span class="string">'POST'</span>:</span><br><span class="line">        <span class="comment"># 处理 POST 请求逻辑</span></span><br><span class="line">        <span class="keyword">return</span> HttpResponse(<span class="string">"Post Response"</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="3️⃣装饰器处理（推荐方式）"><a href="#3️⃣装饰器处理（推荐方式）" class="headerlink" title="3️⃣装饰器处理（推荐方式）"></a>3️⃣装饰器处理（推荐方式）</h4><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.views.decorators.http <span class="keyword">import</span> require_http_methods</span><br><span class="line"></span><br><span class="line"><span class="meta">@require_http_methods(<span class="params">[<span class="string">"GET"</span>, <span class="string">"POST"</span>]</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">decorated_view</span>(<span class="params">request</span>):</span><br><span class="line">    <span class="comment"># 同时处理 GET 和 POST 请求</span></span><br><span class="line">    <span class="keyword">if</span> request.method == <span class="string">'GET'</span>:</span><br><span class="line">        <span class="keyword">return</span> HttpResponse(<span class="string">"Get Data"</span>)</span><br><span class="line">    <span class="keyword">elif</span> request.method == <span class="string">'POST'</span>:</span><br><span class="line">        <span class="keyword">return</span> HttpResponse(<span class="string">"Post Received"</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="4️⃣类视图处理"><a href="#4️⃣类视图处理" class="headerlink" title="4️⃣类视图处理"></a>4️⃣类视图处理</h4><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.views <span class="keyword">import</span> View</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyView</span>(<span class="title class_ inherited__">View</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get</span>(<span class="params">self, request</span>):</span><br><span class="line">        <span class="comment"># 处理 GET 请求</span></span><br><span class="line">        <span class="keyword">return</span> HttpResponse(<span class="string">"GET Response"</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">post</span>(<span class="params">self, request</span>):</span><br><span class="line">        <span class="comment"># 处理 POST 请求</span></span><br><span class="line">        <span class="keyword">return</span> HttpResponse(<span class="string">"POST Response"</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h3 id="（2）业务逻辑承载"><a href="#（2）业务逻辑承载" class="headerlink" title="（2）业务逻辑承载"></a>（2）业务逻辑承载</h3><ul>
+<li>包含核心业务逻辑：</li>
+</ul>
+<h4 id="1️⃣数据库操作（增删改查）"><a href="#1️⃣数据库操作（增删改查）" class="headerlink" title="1️⃣数据库操作（增删改查）"></a>1️⃣数据库操作（增删改查）</h4><h4 id="2️⃣表单数据处理"><a href="#2️⃣表单数据处理" class="headerlink" title="2️⃣表单数据处理"></a>2️⃣表单数据处理</h4><h4 id="3️⃣权限验证"><a href="#3️⃣权限验证" class="headerlink" title="3️⃣权限验证"></a>3️⃣权限验证</h4><h4 id="4️⃣会话管理"><a href="#4️⃣会话管理" class="headerlink" title="4️⃣会话管理"></a>4️⃣会话管理</h4><h3 id="（3）响应生成器"><a href="#（3）响应生成器" class="headerlink" title="（3）响应生成器"></a>（3）响应生成器</h3><ul>
+<li>返回 HTTP 响应，支持多种格式，（）响应的常用方法</li>
+</ul>
+<h4 id="1️⃣基础文本响应"><a href="#1️⃣基础文本响应" class="headerlink" title="1️⃣基础文本响应"></a>1️⃣基础文本响应</h4><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> HttpResponse</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">text_response</span>(<span class="params">request</span>):</span><br><span class="line">    <span class="keyword">return</span> HttpResponse(<span class="string">"纯文本内容"</span>, content_type=<span class="string">'text/plain'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 带状态码的响应</span></span><br><span class="line"><span class="keyword">return</span> HttpResponse(<span class="string">"Created"</span>, status=<span class="number">201</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h4 id="2️⃣JSON-响应"><a href="#2️⃣JSON-响应" class="headerlink" title="2️⃣JSON 响应"></a>2️⃣JSON 响应</h4><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> JsonResponse</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">json_response</span>(<span class="params">request</span>):</span><br><span class="line">    data = {<span class="string">'status'</span>: <span class="string">'success'</span>, <span class="string">'code'</span>: <span class="number">200</span>}</span><br><span class="line">    <span class="keyword">return</span> JsonResponse(data)  <span class="comment"># 自动设置 Content-Type 为 application/json</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h4 id="3️⃣模板渲染响应"><a href="#3️⃣模板渲染响应" class="headerlink" title="3️⃣模板渲染响应"></a>3️⃣模板渲染响应</h4><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.shortcuts <span class="keyword">import</span> render</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">template_response</span>(<span class="params">request</span>):</span><br><span class="line">    context = {<span class="string">'name'</span>: <span class="string">'John'</span>}</span><br><span class="line">    <span class="keyword">return</span> render(request, <span class="string">'template.html'</span>, context)</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h4 id="4️⃣重定向响应"><a href="#4️⃣重定向响应" class="headerlink" title="4️⃣重定向响应"></a>4️⃣重定向响应</h4><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> HttpResponseRedirect</span><br><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> reverse</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">redirect_response</span>(<span class="params">request</span>):</span><br><span class="line">    <span class="keyword">return</span> HttpResponseRedirect(<span class="string">'/target-url/'</span>)  <span class="comment"># 硬编码方式</span></span><br><span class="line">    <span class="comment"># 或使用反向解析</span></span><br><span class="line">    <span class="keyword">return</span> HttpResponseRedirect(reverse(<span class="string">'view-name'</span>))</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h4 id="5️⃣文件流响应"><a href="#5️⃣文件流响应" class="headerlink" title="5️⃣文件流响应"></a>5️⃣文件流响应</h4><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> FileResponse</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">file_response</span>(<span class="params">request</span>):</span><br><span class="line">    <span class="keyword">return</span> FileResponse(<span class="built_in">open</span>(<span class="string">'file.pdf'</span>, <span class="string">'rb'</span>), </span><br><span class="line">                       filename=<span class="string">'document.pdf'</span>,</span><br><span class="line">                       content_type=<span class="string">'application/pdf'</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+
+
+<h2 id="2-视图的分类"><a href="#2-视图的分类" class="headerlink" title="2.视图的分类"></a>2. 视图的分类</h2><h3 id="（1）函数视图"><a href="#（1）函数视图" class="headerlink" title="（1）函数视图"></a>（1）函数视图</h3><ul>
+<li>适合简单逻辑</li>
+</ul>
+<h3 id="（2）类视图"><a href="#（2）类视图" class="headerlink" title="（2）类视图"></a>（2）类视图</h3><ul>
+<li>通过继承实现代码复用，适合复杂场景（如 ListView, DetailView）</li>
+</ul>
+<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1W34y1c7Rn?spm_id_from=333.788.videopod.episodes&amp;vd_source=fd555860cd7cf9b09d9279e5deaabb9d&amp;p=59">B 站视频</a></p>
+
       
     </div>
 
@@ -433,7 +457,7 @@
 <li>出版社：书籍 -&gt; n: n （一个出版社可以出版多本书， 一本书可以由多个出版社出版）</li>
 </ul>
 </li>
-<li><p><code>models.py</code></p>
+<li><p><code>models</code> 直接给出如下：</p>
 </li>
 </ul>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Author</span>(models.Model):</span><br><span class="line">    first_name = models.CharField(max_length=<span class="number">30</span>, verbose_name=<span class="string">"姓"</span>)</span><br><span class="line">    last_name = models.CharField(max_length=<span class="number">30</span>, verbose_name=<span class="string">"名"</span>)</span><br><span class="line">    email = models.EmailField(verbose_name=<span class="string">"电子邮箱"</span>)</span><br><span class="line">    gender = models.CharField(max_length=<span class="number">10</span>, verbose_name=<span class="string">"性别"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__str__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="string">f"<span class="subst">{self.first_name}</span> <span class="subst">{self.last_name}</span>"</span>  </span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Book</span>(models.Model):</span><br><span class="line">    title = models.CharField(max_length=<span class="number">100</span>, verbose_name=<span class="string">'书名'</span>)</span><br><span class="line">    publisher_date = models.DateField()</span><br><span class="line">    author = models.ForeignKey(Author, on_delete=models.CASCADE)</span><br><span class="line">    publisher = models.ManyToManyField(Publisher)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__str__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">self</span>.title</span><br><span class="line">      </span><br><span class="line"> <span class="keyword">class</span> <span class="title class_">Publisher</span>(models.Model):</span><br><span class="line">    name = models.CharField(max_length=<span class="number">30</span>, verbose_name=<span class="string">'出版社名'</span>)</span><br><span class="line">    state_province = models.CharField(max_length=<span class="number">30</span>, verbose_name=<span class="string">'省'</span>)</span><br><span class="line">    city = models.CharField(max_length=<span class="number">30</span>, verbose_name=<span class="string">'城市'</span>)</span><br><span class="line">    country = models.CharField(max_length=<span class="number">30</span>, verbose_name=<span class="string">'区'</span>)</span><br><span class="line">    address = models.CharField(max_length=<span class="number">120</span>, verbose_name=<span class="string">'地址'</span>)</span><br><span class="line">    website = models.URLField(verbose_name=<span class="string">'网址'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__str__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">self</span>.name</span><br><span class="line"> </span><br></pre></td></tr></tbody></table></figure>
@@ -1515,7 +1539,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:41</span>
+    <span title="站点阅读时长">2:42</span>
   </span>
 </div>
 

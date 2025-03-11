@@ -292,23 +292,6 @@
       </tags>
   </entry>
   <entry>
-    <title>DataGrip 的使用</title>
-    <url>/2024/10/02/DataGrip%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h2 id="1-“多光标”模式"><a href="#1-“多光标”模式" class="headerlink" title="1.“多光标”模式"></a>1.“多光标” 模式</h2><ul>
-<li><code>Alt</code> + <code>Shift</code> + <code>鼠标左键</code>即可出现多光标，按 <code>Esc</code> 或者鼠标左键点任意位置退出<code>多光标模式</code></li>
-</ul>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410021346052.gif" alt="datagrip多光标模式"></p>
-<span id="more"></span>
-
-<h2 id="2-整理-sql-格式"><a href="#2-整理-sql-格式" class="headerlink" title="2.整理 sql 格式"></a>2. 整理 sql 格式</h2><h3 id="（1）选中需要整理的区域"><a href="#（1）选中需要整理的区域" class="headerlink" title="（1）选中需要整理的区域"></a>（1）选中需要整理的区域</h3><h3 id="（2）Command-Alt-L"><a href="#（2）Command-Alt-L" class="headerlink" title="（2）Command+Alt+L"></a>（2）<code>Command</code>+<code>Alt</code>+<code>L</code></h3><h2 id="3-执行-sql"><a href="#3-执行-sql" class="headerlink" title="3.执行 sql"></a>3. 执行 sql</h2><h3 id="（1）选中需要整理的区域-1"><a href="#（1）选中需要整理的区域-1" class="headerlink" title="（1）选中需要整理的区域"></a>（1）选中需要整理的区域</h3><h3 id="（2）Command-Enter"><a href="#（2）Command-Enter" class="headerlink" title="（2）Command+Enter"></a>（2）<code>Command</code>+<code>Enter</code></h3><h2 id="4-后续补充"><a href="#4-后续补充" class="headerlink" title="4.后续补充"></a>4. 后续补充</h2>]]></content>
-      <categories>
-        <category>软件使用</category>
-      </categories>
-      <tags>
-        <tag>datagrip</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Appium2 总结（四）appium-pytest-aullure-PO 模型自动化框架</title>
     <url>/2024/08/10/Appium2%E6%80%BB%E7%BB%93%EF%BC%88%E5%9B%9B%EF%BC%89appium-pytest-aullure-PO%E6%A8%A1%E5%9E%8B%E8%87%AA%E5%8A%A8%E5%8C%96%E6%A1%86%E6%9E%B6/</url>
     <content><![CDATA[<h2 id="0-先展示成果"><a href="#0-先展示成果" class="headerlink" title="0.先展示成果"></a>0. 先展示成果</h2><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/pico_pico.gif"></p>
@@ -344,6 +327,23 @@
       </categories>
       <tags>
         <tag>appium</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DataGrip 的使用</title>
+    <url>/2024/10/02/DataGrip%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h2 id="1-“多光标”模式"><a href="#1-“多光标”模式" class="headerlink" title="1.“多光标”模式"></a>1.“多光标” 模式</h2><ul>
+<li><code>Alt</code> + <code>Shift</code> + <code>鼠标左键</code>即可出现多光标，按 <code>Esc</code> 或者鼠标左键点任意位置退出<code>多光标模式</code></li>
+</ul>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410021346052.gif" alt="datagrip多光标模式"></p>
+<span id="more"></span>
+
+<h2 id="2-整理-sql-格式"><a href="#2-整理-sql-格式" class="headerlink" title="2.整理 sql 格式"></a>2. 整理 sql 格式</h2><h3 id="（1）选中需要整理的区域"><a href="#（1）选中需要整理的区域" class="headerlink" title="（1）选中需要整理的区域"></a>（1）选中需要整理的区域</h3><h3 id="（2）Command-Alt-L"><a href="#（2）Command-Alt-L" class="headerlink" title="（2）Command+Alt+L"></a>（2）<code>Command</code>+<code>Alt</code>+<code>L</code></h3><h2 id="3-执行-sql"><a href="#3-执行-sql" class="headerlink" title="3.执行 sql"></a>3. 执行 sql</h2><h3 id="（1）选中需要整理的区域-1"><a href="#（1）选中需要整理的区域-1" class="headerlink" title="（1）选中需要整理的区域"></a>（1）选中需要整理的区域</h3><h3 id="（2）Command-Enter"><a href="#（2）Command-Enter" class="headerlink" title="（2）Command+Enter"></a>（2）<code>Command</code>+<code>Enter</code></h3><h2 id="4-后续补充"><a href="#4-后续补充" class="headerlink" title="4.后续补充"></a>4. 后续补充</h2>]]></content>
+      <categories>
+        <category>软件使用</category>
+      </categories>
+      <tags>
+        <tag>datagrip</tag>
       </tags>
   </entry>
   <entry>
@@ -466,6 +466,69 @@
       </tags>
   </entry>
   <entry>
+    <title>Django4.2 学习 - 视图 View（七）</title>
+    <url>/2025/03/07/Django4-2%E5%AD%A6%E4%B9%A0-%E8%A7%86%E5%9B%BEView%EF%BC%88%E4%B8%83%EF%BC%89/</url>
+    <content><![CDATA[<h2 id="1-视图主要作用"><a href="#1-视图主要作用" class="headerlink" title="1.视图主要作用"></a>1. 视图主要作用</h2><p>Django 视图（<code>View</code>）的主要作用可以概括为以下三点：</p>
+<h3 id="（1）请求处理中心"><a href="#（1）请求处理中心" class="headerlink" title="（1）请求处理中心"></a>（1）请求处理中心</h3><ul>
+<li>接收并处理 <code>HTTP</code> 请求，协调模型（<code>Model</code>）和模板（<code>Template</code>）之间的数据流动</li>
+</ul>
+<h4 id="1️⃣请求对象获取"><a href="#1️⃣请求对象获取" class="headerlink" title="1️⃣请求对象获取"></a>1️⃣请求对象获取</h4><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">handle_request</span>(<span class="params">request</span>):</span><br><span class="line">    <span class="comment"># 获取请求方法类型</span></span><br><span class="line">    method = request.method  <span class="comment"># GET/POST/PUT/DELETE</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 获取查询参数（适用于 GET）</span></span><br><span class="line">    query_param = request.GET.get(<span class="string">'param_name'</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 获取表单数据（适用于 POST）</span></span><br><span class="line">    form_data = request.POST.get(<span class="string">'field_name'</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 获取原始数据（适用于 JSON）</span></span><br><span class="line">    raw_data = json.loads(request.body)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 获取文件上传</span></span><br><span class="line">    uploaded_file = request.FILES.get(<span class="string">'file_field'</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<span id="more"></span>
+
+<h4 id="2️⃣请求类型处理"><a href="#2️⃣请求类型处理" class="headerlink" title="2️⃣请求类型处理"></a>2️⃣请求类型处理</h4><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">multi_method_view</span>(<span class="params">request</span>):</span><br><span class="line">    <span class="keyword">if</span> request.method == <span class="string">'GET'</span>:</span><br><span class="line">        <span class="comment"># 处理 GET 请求逻辑</span></span><br><span class="line">        <span class="keyword">return</span> HttpResponse(<span class="string">"Get Response"</span>)</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">elif</span> request.method == <span class="string">'POST'</span>:</span><br><span class="line">        <span class="comment"># 处理 POST 请求逻辑</span></span><br><span class="line">        <span class="keyword">return</span> HttpResponse(<span class="string">"Post Response"</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="3️⃣装饰器处理（推荐方式）"><a href="#3️⃣装饰器处理（推荐方式）" class="headerlink" title="3️⃣装饰器处理（推荐方式）"></a>3️⃣装饰器处理（推荐方式）</h4><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.views.decorators.http <span class="keyword">import</span> require_http_methods</span><br><span class="line"></span><br><span class="line"><span class="meta">@require_http_methods(<span class="params">[<span class="string">"GET"</span>, <span class="string">"POST"</span>]</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">decorated_view</span>(<span class="params">request</span>):</span><br><span class="line">    <span class="comment"># 同时处理 GET 和 POST 请求</span></span><br><span class="line">    <span class="keyword">if</span> request.method == <span class="string">'GET'</span>:</span><br><span class="line">        <span class="keyword">return</span> HttpResponse(<span class="string">"Get Data"</span>)</span><br><span class="line">    <span class="keyword">elif</span> request.method == <span class="string">'POST'</span>:</span><br><span class="line">        <span class="keyword">return</span> HttpResponse(<span class="string">"Post Received"</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="4️⃣类视图处理"><a href="#4️⃣类视图处理" class="headerlink" title="4️⃣类视图处理"></a>4️⃣类视图处理</h4><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.views <span class="keyword">import</span> View</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyView</span>(<span class="title class_ inherited__">View</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get</span>(<span class="params">self, request</span>):</span><br><span class="line">        <span class="comment"># 处理 GET 请求</span></span><br><span class="line">        <span class="keyword">return</span> HttpResponse(<span class="string">"GET Response"</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">post</span>(<span class="params">self, request</span>):</span><br><span class="line">        <span class="comment"># 处理 POST 请求</span></span><br><span class="line">        <span class="keyword">return</span> HttpResponse(<span class="string">"POST Response"</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h3 id="（2）业务逻辑承载"><a href="#（2）业务逻辑承载" class="headerlink" title="（2）业务逻辑承载"></a>（2）业务逻辑承载</h3><ul>
+<li>包含核心业务逻辑：</li>
+</ul>
+<h4 id="1️⃣数据库操作（增删改查）"><a href="#1️⃣数据库操作（增删改查）" class="headerlink" title="1️⃣数据库操作（增删改查）"></a>1️⃣数据库操作（增删改查）</h4><h4 id="2️⃣表单数据处理"><a href="#2️⃣表单数据处理" class="headerlink" title="2️⃣表单数据处理"></a>2️⃣表单数据处理</h4><h4 id="3️⃣权限验证"><a href="#3️⃣权限验证" class="headerlink" title="3️⃣权限验证"></a>3️⃣权限验证</h4><h4 id="4️⃣会话管理"><a href="#4️⃣会话管理" class="headerlink" title="4️⃣会话管理"></a>4️⃣会话管理</h4><h3 id="（3）响应生成器"><a href="#（3）响应生成器" class="headerlink" title="（3）响应生成器"></a>（3）响应生成器</h3><ul>
+<li>返回 HTTP 响应，支持多种格式，（）响应的常用方法</li>
+</ul>
+<h4 id="1️⃣基础文本响应"><a href="#1️⃣基础文本响应" class="headerlink" title="1️⃣基础文本响应"></a>1️⃣基础文本响应</h4><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> HttpResponse</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">text_response</span>(<span class="params">request</span>):</span><br><span class="line">    <span class="keyword">return</span> HttpResponse(<span class="string">"纯文本内容"</span>, content_type=<span class="string">'text/plain'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 带状态码的响应</span></span><br><span class="line"><span class="keyword">return</span> HttpResponse(<span class="string">"Created"</span>, status=<span class="number">201</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h4 id="2️⃣JSON-响应"><a href="#2️⃣JSON-响应" class="headerlink" title="2️⃣JSON 响应"></a>2️⃣JSON 响应</h4><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> JsonResponse</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">json_response</span>(<span class="params">request</span>):</span><br><span class="line">    data = {<span class="string">'status'</span>: <span class="string">'success'</span>, <span class="string">'code'</span>: <span class="number">200</span>}</span><br><span class="line">    <span class="keyword">return</span> JsonResponse(data)  <span class="comment"># 自动设置 Content-Type 为 application/json</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h4 id="3️⃣模板渲染响应"><a href="#3️⃣模板渲染响应" class="headerlink" title="3️⃣模板渲染响应"></a>3️⃣模板渲染响应</h4><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.shortcuts <span class="keyword">import</span> render</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">template_response</span>(<span class="params">request</span>):</span><br><span class="line">    context = {<span class="string">'name'</span>: <span class="string">'John'</span>}</span><br><span class="line">    <span class="keyword">return</span> render(request, <span class="string">'template.html'</span>, context)</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h4 id="4️⃣重定向响应"><a href="#4️⃣重定向响应" class="headerlink" title="4️⃣重定向响应"></a>4️⃣重定向响应</h4><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> HttpResponseRedirect</span><br><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> reverse</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">redirect_response</span>(<span class="params">request</span>):</span><br><span class="line">    <span class="keyword">return</span> HttpResponseRedirect(<span class="string">'/target-url/'</span>)  <span class="comment"># 硬编码方式</span></span><br><span class="line">    <span class="comment"># 或使用反向解析</span></span><br><span class="line">    <span class="keyword">return</span> HttpResponseRedirect(reverse(<span class="string">'view-name'</span>))</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h4 id="5️⃣文件流响应"><a href="#5️⃣文件流响应" class="headerlink" title="5️⃣文件流响应"></a>5️⃣文件流响应</h4><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> FileResponse</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">file_response</span>(<span class="params">request</span>):</span><br><span class="line">    <span class="keyword">return</span> FileResponse(<span class="built_in">open</span>(<span class="string">'file.pdf'</span>, <span class="string">'rb'</span>), </span><br><span class="line">                       filename=<span class="string">'document.pdf'</span>,</span><br><span class="line">                       content_type=<span class="string">'application/pdf'</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+
+
+<h2 id="2-视图的分类"><a href="#2-视图的分类" class="headerlink" title="2.视图的分类"></a>2. 视图的分类</h2><h3 id="（1）函数视图"><a href="#（1）函数视图" class="headerlink" title="（1）函数视图"></a>（1）函数视图</h3><ul>
+<li>适合简单逻辑</li>
+</ul>
+<h3 id="（2）类视图"><a href="#（2）类视图" class="headerlink" title="（2）类视图"></a>（2）类视图</h3><ul>
+<li>通过继承实现代码复用，适合复杂场景（如 ListView, DetailView）</li>
+</ul>
+<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2><p><a href="https://www.bilibili.com/video/BV1W34y1c7Rn?spm_id_from=333.788.videopod.episodes&amp;vd_source=fd555860cd7cf9b09d9279e5deaabb9d&amp;p=59">B 站视频</a></p>
+]]></content>
+      <categories>
+        <category>自动化测试</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>django</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Django4.2 学习 - 快速入门（一）</title>
     <url>/2024/10/14/Django4.2%E5%AD%A6%E4%B9%A0-%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/</url>
     <content><![CDATA[<h2 id="1-背景"><a href="#1-背景" class="headerlink" title="1.背景"></a>1. 背景</h2><p>由于公司的自动化工具是 <code>Django</code> 写的，之前一直用 <code>Flask</code>，对 <code>Django</code> 了解一点，但不多，现在学习一下，不忙的时候可以维护一下自动化项目，加一点新功能。</p>
@@ -576,67 +639,6 @@
 <p>3️⃣访问 admin 后台：</p>
 <p><a href="http://127.0.0.1:8000/admin">http://127.0.0.1:8000/admin</a></p>
 <h2 id="13-相关参考"><a href="#13-相关参考" class="headerlink" title="13.相关参考"></a>13. 相关参考</h2><p><a href="https://www.bilibili.com/video/BV1W34y1c7Rn?spm_id_from=333.788.player.switch&amp;vd_source=fd555860cd7cf9b09d9279e5deaabb9d&amp;p=15">https://www.bilibili.com/video/BV1W34y1c7Rn?spm_id_from=333.788.player.switch&amp;vd_source=fd555860cd7cf9b09d9279e5deaabb9d&amp;p=15</a></p>
-]]></content>
-      <categories>
-        <category>自动化测试</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>django</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Django4.2 学习 - 视图 View（七）</title>
-    <url>/2025/03/07/Django4-2%E5%AD%A6%E4%B9%A0-%E8%A7%86%E5%9B%BEView%EF%BC%88%E4%B8%83%EF%BC%89/</url>
-    <content><![CDATA[<h2 id="1-视图主要作用"><a href="#1-视图主要作用" class="headerlink" title="1.视图主要作用"></a>1. 视图主要作用</h2><p>Django 视图（<code>View</code>）的主要作用可以概括为以下三点：</p>
-<h3 id="（1）请求处理中心"><a href="#（1）请求处理中心" class="headerlink" title="（1）请求处理中心"></a>（1）请求处理中心</h3><ul>
-<li>接收并处理 <code>HTTP</code> 请求，协调模型（<code>Model</code>）和模板（<code>Template</code>）之间的数据流动</li>
-</ul>
-<h4 id="1️⃣请求对象获取"><a href="#1️⃣请求对象获取" class="headerlink" title="1️⃣请求对象获取"></a>1️⃣请求对象获取</h4><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">handle_request</span>(<span class="params">request</span>):</span><br><span class="line">    <span class="comment"># 获取请求方法类型</span></span><br><span class="line">    method = request.method  <span class="comment"># GET/POST/PUT/DELETE</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 获取查询参数（适用于 GET）</span></span><br><span class="line">    query_param = request.GET.get(<span class="string">'param_name'</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 获取表单数据（适用于 POST）</span></span><br><span class="line">    form_data = request.POST.get(<span class="string">'field_name'</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 获取原始数据（适用于 JSON）</span></span><br><span class="line">    raw_data = json.loads(request.body)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 获取文件上传</span></span><br><span class="line">    uploaded_file = request.FILES.get(<span class="string">'file_field'</span>)</span><br></pre></td></tr></tbody></table></figure>
-
-<h4 id="2️⃣请求类型处理"><a href="#2️⃣请求类型处理" class="headerlink" title="2️⃣请求类型处理"></a>2️⃣请求类型处理</h4><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">multi_method_view</span>(<span class="params">request</span>):</span><br><span class="line">    <span class="keyword">if</span> request.method == <span class="string">'GET'</span>:</span><br><span class="line">        <span class="comment"># 处理 GET 请求逻辑</span></span><br><span class="line">        <span class="keyword">return</span> HttpResponse(<span class="string">"Get Response"</span>)</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">elif</span> request.method == <span class="string">'POST'</span>:</span><br><span class="line">        <span class="comment"># 处理 POST 请求逻辑</span></span><br><span class="line">        <span class="keyword">return</span> HttpResponse(<span class="string">"Post Response"</span>)</span><br></pre></td></tr></tbody></table></figure>
-
-<h4 id="3️⃣装饰器处理（推荐方式）"><a href="#3️⃣装饰器处理（推荐方式）" class="headerlink" title="3️⃣装饰器处理（推荐方式）"></a>3️⃣装饰器处理（推荐方式）</h4><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.views.decorators.http <span class="keyword">import</span> require_http_methods</span><br><span class="line"></span><br><span class="line"><span class="meta">@require_http_methods(<span class="params">[<span class="string">"GET"</span>, <span class="string">"POST"</span>]</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">decorated_view</span>(<span class="params">request</span>):</span><br><span class="line">    <span class="comment"># 同时处理 GET 和 POST 请求</span></span><br><span class="line">    <span class="keyword">if</span> request.method == <span class="string">'GET'</span>:</span><br><span class="line">        <span class="keyword">return</span> HttpResponse(<span class="string">"Get Data"</span>)</span><br><span class="line">    <span class="keyword">elif</span> request.method == <span class="string">'POST'</span>:</span><br><span class="line">        <span class="keyword">return</span> HttpResponse(<span class="string">"Post Received"</span>)</span><br></pre></td></tr></tbody></table></figure>
-
-<h4 id="4️⃣类视图处理"><a href="#4️⃣类视图处理" class="headerlink" title="4️⃣类视图处理"></a>4️⃣类视图处理</h4><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.views <span class="keyword">import</span> View</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyView</span>(<span class="title class_ inherited__">View</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get</span>(<span class="params">self, request</span>):</span><br><span class="line">        <span class="comment"># 处理 GET 请求</span></span><br><span class="line">        <span class="keyword">return</span> HttpResponse(<span class="string">"GET Response"</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">post</span>(<span class="params">self, request</span>):</span><br><span class="line">        <span class="comment"># 处理 POST 请求</span></span><br><span class="line">        <span class="keyword">return</span> HttpResponse(<span class="string">"POST Response"</span>)</span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<h3 id="（2）业务逻辑承载"><a href="#（2）业务逻辑承载" class="headerlink" title="（2）业务逻辑承载"></a>（2）业务逻辑承载</h3><ul>
-<li>包含核心业务逻辑：</li>
-</ul>
-<h4 id="1️⃣数据库操作（增删改查）"><a href="#1️⃣数据库操作（增删改查）" class="headerlink" title="1️⃣数据库操作（增删改查）"></a>1️⃣数据库操作（增删改查）</h4><h4 id="2️⃣表单数据处理"><a href="#2️⃣表单数据处理" class="headerlink" title="2️⃣表单数据处理"></a>2️⃣表单数据处理</h4><h4 id="3️⃣权限验证"><a href="#3️⃣权限验证" class="headerlink" title="3️⃣权限验证"></a>3️⃣权限验证</h4><h4 id="4️⃣会话管理"><a href="#4️⃣会话管理" class="headerlink" title="4️⃣会话管理"></a>4️⃣会话管理</h4><h3 id="（3）响应生成器"><a href="#（3）响应生成器" class="headerlink" title="（3）响应生成器"></a>（3）响应生成器</h3><ul>
-<li>返回 HTTP 响应，支持多种格式，（）响应的常用方法</li>
-</ul>
-<h4 id="1️⃣基础文本响应"><a href="#1️⃣基础文本响应" class="headerlink" title="1️⃣基础文本响应"></a>1️⃣基础文本响应</h4><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> HttpResponse</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">text_response</span>(<span class="params">request</span>):</span><br><span class="line">    <span class="keyword">return</span> HttpResponse(<span class="string">"纯文本内容"</span>, content_type=<span class="string">'text/plain'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 带状态码的响应</span></span><br><span class="line"><span class="keyword">return</span> HttpResponse(<span class="string">"Created"</span>, status=<span class="number">201</span>)</span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<h4 id="2️⃣JSON-响应"><a href="#2️⃣JSON-响应" class="headerlink" title="2️⃣JSON 响应"></a>2️⃣JSON 响应</h4><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> JsonResponse</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">json_response</span>(<span class="params">request</span>):</span><br><span class="line">    data = {<span class="string">'status'</span>: <span class="string">'success'</span>, <span class="string">'code'</span>: <span class="number">200</span>}</span><br><span class="line">    <span class="keyword">return</span> JsonResponse(data)  <span class="comment"># 自动设置 Content-Type 为 application/json</span></span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<h4 id="3️⃣模板渲染响应"><a href="#3️⃣模板渲染响应" class="headerlink" title="3️⃣模板渲染响应"></a>3️⃣模板渲染响应</h4><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.shortcuts <span class="keyword">import</span> render</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">template_response</span>(<span class="params">request</span>):</span><br><span class="line">    context = {<span class="string">'name'</span>: <span class="string">'John'</span>}</span><br><span class="line">    <span class="keyword">return</span> render(request, <span class="string">'template.html'</span>, context)</span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<h4 id="4️⃣重定向响应"><a href="#4️⃣重定向响应" class="headerlink" title="4️⃣重定向响应"></a>4️⃣重定向响应</h4><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> HttpResponseRedirect</span><br><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> reverse</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">redirect_response</span>(<span class="params">request</span>):</span><br><span class="line">    <span class="keyword">return</span> HttpResponseRedirect(<span class="string">'/target-url/'</span>)  <span class="comment"># 硬编码方式</span></span><br><span class="line">    <span class="comment"># 或使用反向解析</span></span><br><span class="line">    <span class="keyword">return</span> HttpResponseRedirect(reverse(<span class="string">'view-name'</span>))</span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<h4 id="5️⃣文件流响应"><a href="#5️⃣文件流响应" class="headerlink" title="5️⃣文件流响应"></a>5️⃣文件流响应</h4><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> FileResponse</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">file_response</span>(<span class="params">request</span>):</span><br><span class="line">    <span class="keyword">return</span> FileResponse(<span class="built_in">open</span>(<span class="string">'file.pdf'</span>, <span class="string">'rb'</span>), </span><br><span class="line">                       filename=<span class="string">'document.pdf'</span>,</span><br><span class="line">                       content_type=<span class="string">'application/pdf'</span>)</span><br></pre></td></tr></tbody></table></figure>
-
-
-
-
-
-<h2 id="2-视图的分类"><a href="#2-视图的分类" class="headerlink" title="2.视图的分类"></a>2. 视图的分类</h2><h3 id="（1）函数视图"><a href="#（1）函数视图" class="headerlink" title="（1）函数视图"></a>（1）函数视图</h3><ul>
-<li>适合简单逻辑</li>
-</ul>
-<h3 id="（2）类视图"><a href="#（2）类视图" class="headerlink" title="（2）类视图"></a>（2）类视图</h3><ul>
-<li>通过继承实现代码复用，适合复杂场景（如 ListView, DetailView）</li>
-</ul>
-<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2><p><a href="https://www.bilibili.com/video/BV1W34y1c7Rn?spm_id_from=333.788.videopod.episodes&amp;vd_source=fd555860cd7cf9b09d9279e5deaabb9d&amp;p=59">B 站视频</a></p>
 ]]></content>
       <categories>
         <category>自动化测试</category>
@@ -1991,6 +1993,22 @@
       </tags>
   </entry>
   <entry>
+    <title>LocalSend 的安装与使用</title>
+    <url>/2024/12/02/LocalSend%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<p>由于现在使用的测试机较多，某一台测试机上发现了有一个 bug，需要截图发送到 <code>Mac</code> 上，<code>IOS</code> 还好可以使用<code>隔空投送</code>，<code>Android</code> 就比较麻烦了，之前在电脑上共享了一个文件夹，在各个 <code>Android</code> 上，使用软件连接这个文件夹，后面发现了一个无视平台 (支持 window/macos/linux/Android/ios) 的神器 <code>localsend</code>，果断将所有测试机和 <code>Mac</code> 上。</p>
+<h2 id="1-下载地址"><a href="#1-下载地址" class="headerlink" title="1.下载地址"></a>1. 下载地址</h2><p>github 地址：<code>https://github.com/localsend</code></p>
+<p>官网地址：<code>https://localsend.org/zh-CN/download?os=macos</code></p>
+<span id="more"></span>
+
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2>]]></content>
+      <categories>
+        <category>软件使用</category>
+      </categories>
+      <tags>
+        <tag>localsend</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MySQL 中的 DATE_ADD 函数基本使用</title>
     <url>/2024/06/13/MySQL%E4%B8%AD%E7%9A%84DATE-ADD%E5%87%BD%E6%95%B0%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>每次用到 MySQL 关于时间的计算，都跑不了 <code>DATE_ADD</code> 函数，每次都得查，特此记录下，下次用时直接看。</p>
@@ -2145,33 +2163,114 @@
       </tags>
   </entry>
   <entry>
-    <title>allure 简单使用</title>
-    <url>/2024/08/07/allure%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h2 id="1-allure-安装"><a href="#1-allure-安装" class="headerlink" title="1.allure 安装"></a>1.allure 安装</h2><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">brew install allure</span><br></pre></td></tr></tbody></table></figure>
-
+    <title>Charles 相关总结</title>
+    <url>/2024/11/16/charles%E7%9B%B8%E5%85%B3%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<h2 id="0-Charles简介"><a href="#0-Charles简介" class="headerlink" title="0.Charles简介"></a>0.Charles 简介</h2><p>Charles 是一款功能强大的 HTTP 代理服务器、HTTP 监视器和反转代理服务器，它可以帮助开发者和测试人员监控和分析 HTTP 和 HTTPS 网络通信。Charles 支持多种操作系统，包括 Windows、MacOS、iOS 和 Android。</p>
+<p>主要功能如下：</p>
+<ul>
+<li><strong>HTTP 和 HTTPS 代理</strong>：Charles 可以捕获和分析 HTTP 和 HTTPS 请求和响应。</li>
+<li><strong>流量控制</strong>：可以模拟不同的网络条件，如弱网测试。</li>
+<li><strong>接口并发请求</strong>：支持同时处理多个网络请求。</li>
+<li><strong>重发网络请求</strong>：方便开发者测试和调试。</li>
+<li><strong>断点调试</strong>：结合 Python 的 Flask 等工具进行 Mock Server 开发。</li>
+<li><strong>支持反向代理</strong>：可以将请求转发到不同的服务器。</li>
+<li><strong>网络限速</strong>：模拟不同网络类型下的应用表现。</li>
+<li><strong>解析 AMF 协议</strong>：支持解析高级消息格式协议。</li>
+</ul>
 <span id="more"></span>
 
-<h2 id="2-allure-pytest-安装"><a href="#2-allure-pytest-安装" class="headerlink" title="2.allure-pytest 安装"></a>2.allure-pytest 安装</h2><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line">pip install allure-pytest</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="1-Charles的下载安装"><a href="#1-Charles的下载安装" class="headerlink" title="1.Charles的下载安装"></a>1.Charles 的下载安装</h2><p>下载网址 <code>https://www.charlesproxy.com/download/</code></p>
+<p>根据自己操作系统，选择相应版本下载后，安装即可。</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202411162218964.png" alt="image-20241116221830807"></p>
+<p>这个是学习使用必备地址：</p>
+<p><code>https://www.zzzmode.com/mytools/charles/</code></p>
+<h2 id="2-PC-端抓包"><a href="#2-PC-端抓包" class="headerlink" title="2.PC 端抓包"></a>2.PC 端抓包</h2><ul>
+<li>Web 抓取 HTTPS 协议</li>
+</ul>
+<p>1️⃣Charles 不能直接抓取 https 协议的请求，需要安装 SSL 证书：</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202411170217002.png" alt="image-20241117021724846"></p>
+<p>2️⃣输入密码：</p>
+<img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202411170225102.png" alt="image-20241117022519034" style="zoom:50%;">
 
-<h2 id="3-pytest命令带上-allure-的参数"><a href="#3-pytest命令带上-allure-的参数" class="headerlink" title="3.pytest命令带上 allure 的参数"></a>3.pytest 命令带上 allure 的参数</h2><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pytest -vs -k=test_03 --alluredir ./allure-results</span><br></pre></td></tr></tbody></table></figure>
+<p>3️⃣双击证书，信任证书</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202411170219914.png" alt="image-20241117021952869"></p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202411170221240.png" alt="image-20241117022107192"></p>
+<p>4️⃣<code>Proxy</code>➡️<code>SSL Proxying Settings</code> , <code>Add</code> 添加相应端口。（记得勾选 <code>Enable SSL Proxying</code>, 截图中为标出）</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202411170407173.png" alt="image-20241117040705125"></p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202411170401068.png" alt="image-20241117040133009"></p>
+<p>5️⃣打开 <code>Charles</code> 代理（<code>Proxy</code>➡️<code>macOS Proxy</code>），测试抓 PC 端包。</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202411170432089.png" alt="image-20241117043238002"></p>
+<h2 id="3-移动端抓包"><a href="#3-移动端抓包" class="headerlink" title="3.移动端抓包"></a>3. 移动端抓包</h2><p>总体思路，移动端下载 Charles 证书➡️移动安装 Charles 证书➡️移动端信任 Charles 证书，不同的手机可能位置不同。</p>
+<h3 id="（0）在-Charles-中，查看自己IP地址和端口号和下载证书网址"><a href="#（0）在-Charles-中，查看自己IP地址和端口号和下载证书网址" class="headerlink" title="（0）在 Charles 中，查看自己IP地址和端口号和下载证书网址"></a>（0）在 Charles 中，查看自己 IP 地址和端口号和下载证书网址</h3><ul>
+<li><code>Help</code> ➡️ <code>SSl Proxying</code> ➡️ <code>Install Charles Root Certificate on a mobile Device or Remote Browser</code></li>
+</ul>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202411170449433.png" alt="image-20241117044931347"></p>
+<ul>
+<li>ip 地址：端口号为：<code>192.168.XX.XX:8888</code></li>
+<li>下载证书网址：<code>chls.pro/ssl</code></li>
+</ul>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202411170454617.png" alt="image-20241117045408556"></p>
+<h3 id="（1）IOS"><a href="#（1）IOS" class="headerlink" title="（1）IOS"></a>（1）IOS</h3><p>1️⃣连接网络（与 Charles 相同网络，并已打开 Charles）</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202411281518658.png" alt="image-20241128151800592"></p>
+<p>2️⃣配置 <code>Charles</code> 代理。</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202411281520196.png" alt="image-20241128152021131"></p>
+<p>3️⃣浏览器填写证书下载地址 <code>chls.pro/ssl</code>，</p>
+<ul>
+<li>点击<code>允许</code></li>
+</ul>
+<img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202411281536818.png" alt="image-20241128153654643" style="zoom:50%;">
 
-<p>这里将会在项目更目录下生产一个 allure-results 的文件夹用来存储 allure 生成的 json 文件</p>
-<h2 id="4-allure-命令将生成的-json-文件转换为测试报告"><a href="#4-allure-命令将生成的-json-文件转换为测试报告" class="headerlink" title="4.allure 命令将生成的 json 文件转换为测试报告"></a>4.allure 命令将生成的 json 文件转换为测试报告</h2><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">allure generate -o report</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>点击<code>安装</code></li>
+</ul>
+<img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202411281540485.png" alt="image-20241128154046402" style="zoom:50%;">
 
-<h2 id="5-相关代码"><a href="#5-相关代码" class="headerlink" title="5.相关代码"></a>5. 相关代码</h2><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># test_03.py</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Test03</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">test_03_01</span>(<span class="params">self, e_x_function</span>):</span><br><span class="line">        <span class="keyword">assert</span> <span class="number">3</span> &gt; <span class="number">2</span>, <span class="string">'为真，通过0301'</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">test_03_02</span>(<span class="params">self, e_x_class, e_x_function</span>):</span><br><span class="line">        <span class="keyword">assert</span> <span class="number">3</span> &lt; <span class="number">2</span>, <span class="string">'为假，不通过0302'</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">test_03_03</span>(<span class="params">self, e_x_class, e_x_module, e_x_function</span>):</span><br><span class="line">        <span class="keyword">assert</span> <span class="literal">True</span>, <span class="string">'为真，通过0303'</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test_03_04</span>(<span class="params">e_x_module, e_x_function</span>):</span><br><span class="line">    <span class="keyword">assert</span> <span class="literal">True</span>, <span class="string">'为真，通过 0304'</span></span><br></pre></td></tr></tbody></table></figure>
+<p>4️⃣<code>设置</code>➡️<code>通用</code>➡️<code>关于本机</code>➡️<code>证书信任设置</code>，信任证书。</p>
+<img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202411281555721.png" alt="image-20241128155539636" style="zoom:50%;">
 
-
-
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># conftest.py</span></span><br><span class="line"><span class="keyword">from</span> _pytest.fixtures <span class="keyword">import</span> fixture</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># fixture的作用范围:session &gt; module &gt; class &gt; function, 不写默认为 session</span></span><br><span class="line"><span class="meta">@fixture(<span class="params">scope=<span class="string">'function'</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">e_x_function</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'function级别开始'</span>)</span><br><span class="line">    <span class="keyword">yield</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'function级别结束'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@fixture(<span class="params">scope=<span class="string">'class'</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">e_x_class</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'class级别开始'</span>)</span><br><span class="line">    <span class="keyword">yield</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'class级别结束'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@fixture(<span class="params">scope=<span class="string">'module'</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">e_x_module</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'module级别开始'</span>)</span><br><span class="line">    <span class="keyword">yield</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'module级别结束'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@fixture(<span class="params">scope=<span class="string">'session'</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">e_x_session</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'session级别开始'</span>)</span><br><span class="line">    <span class="keyword">yield</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'session级别结束'</span>)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="6-allure-生成报告截图"><a href="#6-allure-生成报告截图" class="headerlink" title="6.allure 生成报告截图"></a>6.allure 生成报告截图</h2><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240807144530827.png" alt="image-20240807144530827"></p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240807144643429.png" alt="image-20240807144643429"></p>
+<p>然后就可以愉快的抓包了。</p>
+<h3 id="（2）Android"><a href="#（2）Android" class="headerlink" title="（2）Android"></a>（2）Android</h3><p>原理与 IOS 相同，也是在浏览器上下载证书，然后安装证书，然后信任证书。这里就不截图举例了。</p>
+<h2 id="4-其他问题。"><a href="#4-其他问题。" class="headerlink" title="4.其他问题。"></a>4. 其他问题。</h2><p>（1）在手机浏览器上登录 <code>chls.pro.ssl</code>, 无法下载证书。</p>
+<p>1️⃣<code>Charles</code> 菜单栏上点击 <code>Help</code>➡️<code>SSLProxying</code>➡️<code>Save Charles Root Certificate..</code></p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202411281603942.png" alt="image-20241128160332822"></p>
+<p>2️⃣下载证书（cer 和 pem 两个格式都下载一下）</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202411291047354.png" alt="image-20241129104708216"></p>
+<p>3️⃣然后将下载好的证书发送到手机，安装即可。</p>
+<ul>
+<li>ios 可以试试<code>隔空投送</code></li>
+<li>有些版本的 Android 可能装不上<code>.pem</code> 的证书，可以试试<code>.cer</code> 的证书。</li>
+</ul>
+<h2 id="5-常用功能。"><a href="#5-常用功能。" class="headerlink" title="5.常用功能。"></a>5. 常用功能。</h2><h3 id="（1）过滤"><a href="#（1）过滤" class="headerlink" title="（1）过滤"></a>（1）过滤</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202411291054476.png" alt="image-20241129105429369"></p>
+<ul>
+<li>其他功能用到了在整理。</li>
+</ul>
 ]]></content>
       <categories>
-        <category>自动化测试</category>
+        <category>软件使用</category>
       </categories>
       <tags>
-        <tag>allure</tag>
+        <tag>charles</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用 hexo 搭建 GitHub Page 博客后，网页显示 404 的问题解决</title>
+    <url>/2019/08/14/hexo%E7%AC%AC%E4%B8%80%E6%AC%A1%E9%83%A8%E7%BD%B2%E7%BD%91%E9%A1%B5%E6%98%BE%E7%A4%BA404/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>使用 hexo 搭建 GitHub Page 博客后，第一次正常，第二次上传后，博客网页显示 404 页面。</p>
+<span id="more"></span>
+
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>因为绑定了域名，所以在 github 仓库根目录下有一个 CNAME 的文件，文件中写有需要绑定的域名。而使用 hexo 远程部署时会删除这个文件。所以页面会报 404 错误。</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>只要在 github 仓库根目录下添加一个 CNAME 文件，且上传时不会被覆盖即可，方法如下：</p>
+<h3 id="3-1-在-hexo-指定文件夹下的-source-文件夹下添加-CNAME-文件，CNAME-文件中添加域名。"><a href="#3-1-在-hexo-指定文件夹下的-source-文件夹下添加-CNAME-文件，CNAME-文件中添加域名。" class="headerlink" title="3.1 在 hexo 指定文件夹下的 source 文件夹下添加 CNAME 文件，CNAME 文件中添加域名。"></a>3.1 在 hexo 指定文件夹下的 source 文件夹下添加 CNAME 文件，CNAME 文件中添加域名。</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2019-08-15_20-35-35.png"></p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2019-08-15_20-36-55.png"></p>
+<h3 id="3-2-然后在-Terminal-执行"><a href="#3-2-然后在-Terminal-执行" class="headerlink" title="3.2 然后在 Terminal 执行"></a>3.2 然后在 Terminal 执行</h3><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="3-3-查看-github-仓库根目录有该-CNAME-且博客可以正常访问"><a href="#3-3-查看-github-仓库根目录有该-CNAME-且博客可以正常访问" class="headerlink" title="3.3 查看 github 仓库根目录有该 CNAME 且博客可以正常访问"></a>3.3 查看 github 仓库根目录有该 CNAME 且博客可以正常访问</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2019-08-15_21-01-09.png"></p>
+]]></content>
+      <categories>
+        <category>环境部署</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -2205,27 +2304,6 @@
       </categories>
       <tags>
         <tag>mysql</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>使用 hexo 搭建 GitHub Page 博客后，网页显示 404 的问题解决</title>
-    <url>/2019/08/14/hexo%E7%AC%AC%E4%B8%80%E6%AC%A1%E9%83%A8%E7%BD%B2%E7%BD%91%E9%A1%B5%E6%98%BE%E7%A4%BA404/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>使用 hexo 搭建 GitHub Page 博客后，第一次正常，第二次上传后，博客网页显示 404 页面。</p>
-<span id="more"></span>
-
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>因为绑定了域名，所以在 github 仓库根目录下有一个 CNAME 的文件，文件中写有需要绑定的域名。而使用 hexo 远程部署时会删除这个文件。所以页面会报 404 错误。</p>
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>只要在 github 仓库根目录下添加一个 CNAME 文件，且上传时不会被覆盖即可，方法如下：</p>
-<h3 id="3-1-在-hexo-指定文件夹下的-source-文件夹下添加-CNAME-文件，CNAME-文件中添加域名。"><a href="#3-1-在-hexo-指定文件夹下的-source-文件夹下添加-CNAME-文件，CNAME-文件中添加域名。" class="headerlink" title="3.1 在 hexo 指定文件夹下的 source 文件夹下添加 CNAME 文件，CNAME 文件中添加域名。"></a>3.1 在 hexo 指定文件夹下的 source 文件夹下添加 CNAME 文件，CNAME 文件中添加域名。</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2019-08-15_20-35-35.png"></p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2019-08-15_20-36-55.png"></p>
-<h3 id="3-2-然后在-Terminal-执行"><a href="#3-2-然后在-Terminal-执行" class="headerlink" title="3.2 然后在 Terminal 执行"></a>3.2 然后在 Terminal 执行</h3><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="3-3-查看-github-仓库根目录有该-CNAME-且博客可以正常访问"><a href="#3-3-查看-github-仓库根目录有该-CNAME-且博客可以正常访问" class="headerlink" title="3.3 查看 github 仓库根目录有该 CNAME 且博客可以正常访问"></a>3.3 查看 github 仓库根目录有该 CNAME 且博客可以正常访问</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2019-08-15_21-01-09.png"></p>
-]]></content>
-      <categories>
-        <category>环境部署</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -2290,109 +2368,6 @@
       </categories>
       <tags>
         <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>jmeter 通过 log4j2.xml 修改 log 文件位置</title>
-    <url>/2024/04/15/jmeter%E9%80%9A%E8%BF%87log4j2-xml%E4%BF%AE%E6%94%B9log%E6%96%87%E4%BB%B6%E4%BD%8D%E7%BD%AE/</url>
-    <content><![CDATA[<p>在 Apache JMeter 中，如果你使用的是 Log4j2 作为日志系统，并且想通过 <code>log4j2.xml</code> 配置文件修改日志文件的位置，你可以按照以下步骤操作：（文中使用 jmeter 版本为:apache-jmeter-5.6.3）</p>
-<ol>
-<li>找到 JMeter 安装目录下的 <code>log4j2.xml</code> 配置文件。在 JMeter 3.x 及以上版本中，这个文件通常位于 <code>apache-jmeter-X.XX/bin</code> 目录下。</li>
-<li>打开 <code>log4j2.xml</code> 文件，找到 <code>RollingFile</code> 或 <code>File</code> 类型的 Appender 配置部分。</li>
-</ol>
-<span id="more"></span>
-
-<figure class="highlight xml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</span></span><br><span class="line"><span class="comment">&lt;!--......--&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">Configuration</span> <span class="attr">status</span>=<span class="string">"WARN"</span> <span class="attr">packages</span>=<span class="string">"org.apache.jmeter.gui.logging"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Appenders</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 修改这里，修改日志文件位置 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">File</span> <span class="attr">name</span>=<span class="string">"jmeter-log"</span> <span class="attr">fileName</span>=<span class="string">"/path/to/your/log/jmeter.log"</span> <span class="attr">append</span>=<span class="string">"false"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>%d %p %c{1.}: %m%n<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">File</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">GuiLogEvent</span> <span class="attr">name</span>=<span class="string">"gui-log-event"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>%d %p %c{1.}: %m%n<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">GuiLogEvent</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;/<span class="name">Appenders</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">Loggers</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Root</span> <span class="attr">level</span>=<span class="string">"info"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">AppenderRef</span> <span class="attr">ref</span>=<span class="string">"jmeter-log"</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">AppenderRef</span> <span class="attr">ref</span>=<span class="string">"gui-log-event"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Root</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Logger</span> <span class="attr">name</span>=<span class="string">"org.apache.jmeter.junit"</span> <span class="attr">level</span>=<span class="string">"debug"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;/<span class="name">Loggers</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">Configuration</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-
-]]></content>
-      <categories>
-        <category>性能测试</category>
-      </categories>
-      <tags>
-        <tag>jmeter</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>mumu 模拟器 pro 如何安装证书</title>
-    <url>/2024/10/03/mumu%E6%A8%A1%E6%8B%9F%E5%99%A8pro%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E8%AF%81%E4%B9%A6/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p><code>mumu模拟器pro</code> 和常规的 <code>Android</code> 真机的证书安装不同，官网给出了相关文档，现做下整理，确保下次可以直接对照这个文档装，下面用 <code>Charles</code> 例子，安装相关证书。</p>
-<span id="more"></span>
-
-<h2 id="2-安装证书操作步骤"><a href="#2-安装证书操作步骤" class="headerlink" title="2.安装证书操作步骤"></a>2. 安装证书操作步骤</h2><h3 id="（1）从抓包软件中下载证书"><a href="#（1）从抓包软件中下载证书" class="headerlink" title="（1）从抓包软件中下载证书"></a>（1）从抓包软件中下载证书</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410032026344.png" alt="image-20241003202622282"></p>
-<ul>
-<li>我保存在这里 <code>/Users/user1/Downloads/charles-ssl-proxying-certificate.pem</code>，记住这个路径</li>
-</ul>
-<h3 id="（2）开启可读写磁盘和开启手机-Root权限"><a href="#（2）开启可读写磁盘和开启手机-Root权限" class="headerlink" title="（2）开启可读写磁盘和开启手机 Root权限"></a>（2）开启<code>可读写磁盘</code>和<code>开启手机 Root权限</code></h3><ul>
-<li><code>设置</code>➡️<code>数据</code>➡️<code>可读写磁盘</code>➡️<code>其他</code>➡️<code>开启手机 Root权限</code></li>
-<li>启动模拟器</li>
-</ul>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410032034923.gif" alt="mumu 模拟器修改2 个设置"></p>
-<h3 id="（3）开启模拟器ADB"><a href="#（3）开启模拟器ADB" class="headerlink" title="（3）开启模拟器ADB"></a>（3）开启模拟器 <code>ADB</code></h3><ul>
-<li>工具➡️<code>打开 ADB（XXXXX,5555）</code></li>
-</ul>
-<img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410032042332.png" alt="image-20241003204211304" style="zoom:50%;">
-
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410032059537.png" alt="image-20241003205913507"></p>
-<h3 id="（4）通过命令计算出一个哈希值"><a href="#（4）通过命令计算出一个哈希值" class="headerlink" title="（4）通过命令计算出一个哈希值"></a>（4）通过命令计算出一个哈希值</h3><h4 id="①在刚才弹出的终端中输入"><a href="#①在刚才弹出的终端中输入" class="headerlink" title="①在刚才弹出的终端中输入"></a>①在刚才弹出的终端中输入</h4><figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">exit</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h4 id="②通过命令计算出一个哈希值"><a href="#②通过命令计算出一个哈希值" class="headerlink" title="②通过命令计算出一个哈希值"></a>②通过命令计算出一个哈希值</h4><figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">openssl x509 -subject_hash_old -<span class="keyword">in</span> /Users/user1/Downloads/charles-ssl-proxying-certificate.pem</span><br></pre></td></tr></tbody></table></figure>
-
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410032110999.png" alt="image-20241003211047970"></p>
-<h4 id="③将charles-ssl-proxying-certificate-pem更名为-81732dfc-0（注意算出啥，就改成啥）"><a href="#③将charles-ssl-proxying-certificate-pem更名为-81732dfc-0（注意算出啥，就改成啥）" class="headerlink" title="③将charles-ssl-proxying-certificate.pem更名为 81732dfc.0（注意算出啥，就改成啥）"></a>③将 charles-ssl-proxying-certificate.pem 更名为 <code>81732dfc.0</code>（注意算出啥，就改成啥）</h4><h3 id="（5）将这个扩展名为-0-的证书复制到-system-etc-security-cacerts目录下"><a href="#（5）将这个扩展名为-0-的证书复制到-system-etc-security-cacerts目录下" class="headerlink" title="（5）将这个扩展名为 0 的证书复制到/system/etc/security/cacerts目录下"></a>（5）将这个扩展名为 0 的证书复制到 <code>/system/etc/security/cacerts</code> 目录下</h3><figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">adb push /Users/user1/Downloads/81732dfc.0 /system/etc/security/cacerts</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="（6）安装证书"><a href="#（6）安装证书" class="headerlink" title="（6）安装证书"></a>（6）安装证书</h3><figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">adb shell <span class="string">"chmod 664 /system/etc/security/cacerts/81732dfc.0"</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="3-测试抓包"><a href="#3-测试抓包" class="headerlink" title="3.测试抓包"></a>3. 测试抓包</h2><h3 id="（1）Charles➡️Proxy➡️SSL-Proxying-Settings-➡️add"><a href="#（1）Charles➡️Proxy➡️SSL-Proxying-Settings-➡️add" class="headerlink" title="（1）Charles➡️Proxy➡️SSL Proxying Settings...➡️add"></a>（1）<code>Charles</code>➡️<code>Proxy</code>➡️<code>SSL Proxying Settings...</code>➡️<code>add</code></h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410032133648.png" alt="image-20241003213306607"></p>
-<h3 id="（2）Host-Port"><a href="#（2）Host-Port" class="headerlink" title="（2）Host: * Port: *"></a>（2）<code>Host</code>: * <code>Port</code>: *</h3><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410032137975.png" alt="image-20241003213729933" style="zoom:50%;">
-
-<h3 id="（3）在模拟器中的网络设置"><a href="#（3）在模拟器中的网络设置" class="headerlink" title="（3）在模拟器中的网络设置"></a>（3）在模拟器中的网络设置</h3><p>设置➡️网络和互联网➡️wlan0➡️点击右上角铅笔图标➡️代理选择手动代理，填入电脑 IP、端口 8888（默认），并将 10.0.2.2 填入 “对以下网址不使用代理” 中，保存。</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410032213344.gif" alt="mumu 模拟器抓包网络设置"></p>
-<h3 id="（4）Little-Snitch设置"><a href="#（4）Little-Snitch设置" class="headerlink" title="（4）Little Snitch设置"></a>（4）<code>Little Snitch</code> 设置</h3><ul>
-<li>在 <code>Little Snitch</code> 中关闭了<code>模拟器</code>的某些链接，连接 <code>Charles</code> 抓包后，需要把模拟器的链接在 <code>Little Snitch</code> 下的 <code>Charles</code> 的链接需要重新关闭一次。</li>
-</ul>
-<img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410032229078.png" alt="image-20241003222909037" style="zoom:50%;">
-
-<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p><a href="https://mumu.163.com/mac/tutorials/certificates-and-packet-capture.html">https://mumu.163.com/mac/tutorials/certificates-and-packet-capture.html</a></p>
-]]></content>
-      <categories>
-        <category>软件使用</category>
-      </categories>
-      <tags>
-        <tag>android</tag>
-        <tag>charles</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>mysql 实现 excel 中复制某一列，粘贴转置为行功能</title>
-    <url>/2021/05/31/mysql%E5%AE%9E%E7%8E%B0excel%E4%B8%AD%E5%A4%8D%E5%88%B6%E6%9F%90%E4%B8%80%E5%88%97%E7%B2%98%E8%B4%B4%E8%BD%AC%E7%BD%AE%E4%B8%BA%E8%A1%8C%E5%8A%9F%E8%83%BD/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>数据处理需要，需要将大批量的列，转置为行。</p>
-<p>尝试使用 excel，①选择需要转置的列→②在所需位置，右键→选择性粘贴→转置，发现只转置了一部分数据。</p>
-<span id="more"></span>
-
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>转置的长度超过了 excel 的最大长度。</p>
-<p>最大长度是多少没查到😂。</p>
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>百度后，发现可以使用 mysql 中 group_concat 函数。</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">SELECT GROUP_CONCAT(id separator ',') FROM `table` // id 为需要转换的列，separator后为以某字符为分割</span><br></pre></td></tr></tbody></table></figure>
-
-<p>发现又只转置了一部分数据。</p>
-<p>查资料发现，默认 GROUP_CONCAT 函数返回的结果大小被 MySQL 默认限制为 1024（字节）的长度。</p>
-<p>查看方式:</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">show variables like "group_concat_max_len";</span><br></pre></td></tr></tbody></table></figure>
-
-<p>解决方法有 2 种:</p>
-<h3 id="（1）临时解决方案："><a href="#（1）临时解决方案：" class="headerlink" title="（1）临时解决方案："></a>（1）临时解决方案：</h3><p>（该方法缺点是重启服务后设置失效，“group_concat_max_len = -1” 则为最大值，group_concat_max_len 的最大值为 4294967295 (2^32 - 1) 字节，因为处理数据量比较大，直接设置为最大值）</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">SET GLOBAL group_concat_max_len = -1;</span><br><span class="line"></span><br><span class="line">SET SESSION group_concat_max_len = -1;</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="（2）永久解决方案："><a href="#（2）永久解决方案：" class="headerlink" title="（2）永久解决方案："></a>（2）永久解决方案：</h3><p>在 Mysql 配置文件中加入如下配置 (推荐):</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">group_concat_max_len = -1</span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p>参考于该<a href="https://www.cnblogs.com/zjfblog/p/13658936.html">博客园博客</a></p>
-]]></content>
-      <categories>
-        <category>数据库</category>
-      </categories>
-      <tags>
-        <tag>mysql</tag>
       </tags>
   </entry>
   <entry>
@@ -2707,28 +2682,130 @@
       </tags>
   </entry>
   <entry>
-    <title>mysql 按照分组筛选出时间倒序前三条记录</title>
-    <url>/2024/05/22/mysql%E6%8C%89%E7%85%A7%E5%88%86%E7%BB%84%E7%AD%9B%E9%80%89%E5%87%BA%E6%97%B6%E9%97%B4%E5%80%92%E5%BA%8F%E5%89%8D%E4%B8%89%E6%9D%A1%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在 MySQL 低版本 (5.7 以下) 中，如何按照分组筛选出时间倒序前三条记录？</p>
+    <title>allure 简单使用</title>
+    <url>/2024/08/07/allure%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h2 id="1-allure-安装"><a href="#1-allure-安装" class="headerlink" title="1.allure 安装"></a>1.allure 安装</h2><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">brew install allure</span><br></pre></td></tr></tbody></table></figure>
+
 <span id="more"></span>
 
-<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> t.<span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> (</span><br><span class="line">  <span class="keyword">SELECT</span> <span class="operator">*</span>, </span><br><span class="line">    <span class="variable">@rn</span> :<span class="operator">=</span> IF(<span class="variable">@prev_group</span> <span class="operator">=</span> group_column, <span class="variable">@rn</span> <span class="operator">+</span> <span class="number">1</span>, <span class="number">1</span>) <span class="keyword">AS</span> rn,</span><br><span class="line">    <span class="variable">@prev_group</span> :<span class="operator">=</span> group_column</span><br><span class="line">  <span class="keyword">FROM</span> your_table, (<span class="keyword">SELECT</span> <span class="variable">@rn</span> :<span class="operator">=</span> <span class="number">0</span>, <span class="variable">@prev_group</span> :<span class="operator">=</span> <span class="keyword">NULL</span>) r</span><br><span class="line">  <span class="keyword">ORDER</span> <span class="keyword">BY</span> group_column, time_column <span class="keyword">DESC</span></span><br><span class="line">) t</span><br><span class="line"><span class="keyword">WHERE</span> rn <span class="operator">&lt;=</span> <span class="number">3</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> group_column, time_column <span class="keyword">DESC</span>;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<h2 id="2-allure-pytest-安装"><a href="#2-allure-pytest-安装" class="headerlink" title="2.allure-pytest 安装"></a>2.allure-pytest 安装</h2><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line">pip install allure-pytest</span><br></pre></td></tr></tbody></table></figure>
 
-<p>(1) 在子查询中，使用变量 <code>@rn</code> 和 <code>@prev_group</code> 来记录当前行的记录编号和前一行的分组。</p>
-<p>(2)<code>@rn := IF(@prev_group = group_column, @rn + 1, 1) AS rn</code> 这一行代码的作用是：如果当前行的分组与上一行相同，则记录编号 <code>rn</code> 递增 1, 否则从 1 开始计数。</p>
-<p>(3)<code>@prev_group := group_column</code> 这一行代码是更新上一行的分组。</p>
-<p>(4) 在外层查询中，使用 <code>WHERE rn &lt;= 3</code> 来筛选出每个分组中时间倒序的前 3 条记录。</p>
-<p>(5) 最后按分组 <code>group_column</code> 和时间 <code>time_column</code> 倒序排列输出结果。</p>
-<p>你可以将 <code>your_table</code> 替换成你自己的表名，<code>group_column</code> 替换成你表中的分组列名，<code>time_column</code> 替换成你表中的时间列名。</p>
-<p>这种方法在 MySQL 5.7 以下版本中都可以使用，不需要使用 <code>ROW_NUMBER()</code> 函数，性能也较好。</p>
-<p>在 MySQL8.0 及以上可以使用如下方法：</p>
-<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> t.<span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> (</span><br><span class="line">  <span class="keyword">SELECT</span> <span class="operator">*</span>, </span><br><span class="line">    <span class="built_in">ROW_NUMBER</span>() <span class="keyword">OVER</span> (<span class="keyword">PARTITION</span> <span class="keyword">BY</span> group_column <span class="keyword">ORDER</span> <span class="keyword">BY</span> time_column <span class="keyword">DESC</span>) <span class="keyword">AS</span> rn</span><br><span class="line">  <span class="keyword">FROM</span> your_table</span><br><span class="line">) t</span><br><span class="line"><span class="keyword">WHERE</span> rn <span class="operator">&lt;=</span> <span class="number">3</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> group_column, time_column <span class="keyword">DESC</span>;</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="3-pytest命令带上-allure-的参数"><a href="#3-pytest命令带上-allure-的参数" class="headerlink" title="3.pytest命令带上 allure 的参数"></a>3.pytest 命令带上 allure 的参数</h2><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pytest -vs -k=test_03 --alluredir ./allure-results</span><br></pre></td></tr></tbody></table></figure>
 
-<p>（1）首先使用子查询，在每个分组 <code>group_column</code> 内根据时间列 <code>time_column</code> 使用 <code>ROW_NUMBER()</code> 函数给每条记录编号，按时间顺序倒序排列。</p>
-<p>（2）然后在外层查询中，使用 <code>WHERE rn &lt;= 3</code> 筛选出每个分组中时间倒序的前 3 条记录。</p>
-<p>（3）最后按分组 <code>group_column</code> 和时间 <code>time_column</code> 倒序排列输出结果。</p>
-<p>这样就可以实现按分组筛选出时间倒序前 3 条记录的功能。你可以将 <code>your_table</code> 替换成你自己的表名，<code>group_column</code> 替换成你表中的分组列名，<code>time_column</code> 替换成你表中的时间列名。</p>
-<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2><p><a href="https://kimi.moonshot.cn/">https://kimi.moonshot.cn/</a></p>
+<p>这里将会在项目更目录下生产一个 allure-results 的文件夹用来存储 allure 生成的 json 文件</p>
+<h2 id="4-allure-命令将生成的-json-文件转换为测试报告"><a href="#4-allure-命令将生成的-json-文件转换为测试报告" class="headerlink" title="4.allure 命令将生成的 json 文件转换为测试报告"></a>4.allure 命令将生成的 json 文件转换为测试报告</h2><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">allure generate -o report</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="5-相关代码"><a href="#5-相关代码" class="headerlink" title="5.相关代码"></a>5. 相关代码</h2><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># test_03.py</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Test03</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">test_03_01</span>(<span class="params">self, e_x_function</span>):</span><br><span class="line">        <span class="keyword">assert</span> <span class="number">3</span> &gt; <span class="number">2</span>, <span class="string">'为真，通过0301'</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">test_03_02</span>(<span class="params">self, e_x_class, e_x_function</span>):</span><br><span class="line">        <span class="keyword">assert</span> <span class="number">3</span> &lt; <span class="number">2</span>, <span class="string">'为假，不通过0302'</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">test_03_03</span>(<span class="params">self, e_x_class, e_x_module, e_x_function</span>):</span><br><span class="line">        <span class="keyword">assert</span> <span class="literal">True</span>, <span class="string">'为真，通过0303'</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test_03_04</span>(<span class="params">e_x_module, e_x_function</span>):</span><br><span class="line">    <span class="keyword">assert</span> <span class="literal">True</span>, <span class="string">'为真，通过 0304'</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># conftest.py</span></span><br><span class="line"><span class="keyword">from</span> _pytest.fixtures <span class="keyword">import</span> fixture</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># fixture的作用范围:session &gt; module &gt; class &gt; function, 不写默认为 session</span></span><br><span class="line"><span class="meta">@fixture(<span class="params">scope=<span class="string">'function'</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">e_x_function</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'function级别开始'</span>)</span><br><span class="line">    <span class="keyword">yield</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'function级别结束'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@fixture(<span class="params">scope=<span class="string">'class'</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">e_x_class</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'class级别开始'</span>)</span><br><span class="line">    <span class="keyword">yield</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'class级别结束'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@fixture(<span class="params">scope=<span class="string">'module'</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">e_x_module</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'module级别开始'</span>)</span><br><span class="line">    <span class="keyword">yield</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'module级别结束'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@fixture(<span class="params">scope=<span class="string">'session'</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">e_x_session</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'session级别开始'</span>)</span><br><span class="line">    <span class="keyword">yield</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'session级别结束'</span>)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="6-allure-生成报告截图"><a href="#6-allure-生成报告截图" class="headerlink" title="6.allure 生成报告截图"></a>6.allure 生成报告截图</h2><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240807144530827.png" alt="image-20240807144530827"></p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240807144643429.png" alt="image-20240807144643429"></p>
+]]></content>
+      <categories>
+        <category>自动化测试</category>
+      </categories>
+      <tags>
+        <tag>allure</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>mumu 模拟器 pro 如何安装证书</title>
+    <url>/2024/10/03/mumu%E6%A8%A1%E6%8B%9F%E5%99%A8pro%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E8%AF%81%E4%B9%A6/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p><code>mumu模拟器pro</code> 和常规的 <code>Android</code> 真机的证书安装不同，官网给出了相关文档，现做下整理，确保下次可以直接对照这个文档装，下面用 <code>Charles</code> 例子，安装相关证书。</p>
+<span id="more"></span>
+
+<h2 id="2-安装证书操作步骤"><a href="#2-安装证书操作步骤" class="headerlink" title="2.安装证书操作步骤"></a>2. 安装证书操作步骤</h2><h3 id="（1）从抓包软件中下载证书"><a href="#（1）从抓包软件中下载证书" class="headerlink" title="（1）从抓包软件中下载证书"></a>（1）从抓包软件中下载证书</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410032026344.png" alt="image-20241003202622282"></p>
+<ul>
+<li>我保存在这里 <code>/Users/user1/Downloads/charles-ssl-proxying-certificate.pem</code>，记住这个路径</li>
+</ul>
+<h3 id="（2）开启可读写磁盘和开启手机-Root权限"><a href="#（2）开启可读写磁盘和开启手机-Root权限" class="headerlink" title="（2）开启可读写磁盘和开启手机 Root权限"></a>（2）开启<code>可读写磁盘</code>和<code>开启手机 Root权限</code></h3><ul>
+<li><code>设置</code>➡️<code>数据</code>➡️<code>可读写磁盘</code>➡️<code>其他</code>➡️<code>开启手机 Root权限</code></li>
+<li>启动模拟器</li>
+</ul>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410032034923.gif" alt="mumu 模拟器修改2 个设置"></p>
+<h3 id="（3）开启模拟器ADB"><a href="#（3）开启模拟器ADB" class="headerlink" title="（3）开启模拟器ADB"></a>（3）开启模拟器 <code>ADB</code></h3><ul>
+<li>工具➡️<code>打开 ADB（XXXXX,5555）</code></li>
+</ul>
+<img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410032042332.png" alt="image-20241003204211304" style="zoom:50%;">
+
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410032059537.png" alt="image-20241003205913507"></p>
+<h3 id="（4）通过命令计算出一个哈希值"><a href="#（4）通过命令计算出一个哈希值" class="headerlink" title="（4）通过命令计算出一个哈希值"></a>（4）通过命令计算出一个哈希值</h3><h4 id="①在刚才弹出的终端中输入"><a href="#①在刚才弹出的终端中输入" class="headerlink" title="①在刚才弹出的终端中输入"></a>①在刚才弹出的终端中输入</h4><figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">exit</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="②通过命令计算出一个哈希值"><a href="#②通过命令计算出一个哈希值" class="headerlink" title="②通过命令计算出一个哈希值"></a>②通过命令计算出一个哈希值</h4><figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">openssl x509 -subject_hash_old -<span class="keyword">in</span> /Users/user1/Downloads/charles-ssl-proxying-certificate.pem</span><br></pre></td></tr></tbody></table></figure>
+
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410032110999.png" alt="image-20241003211047970"></p>
+<h4 id="③将charles-ssl-proxying-certificate-pem更名为-81732dfc-0（注意算出啥，就改成啥）"><a href="#③将charles-ssl-proxying-certificate-pem更名为-81732dfc-0（注意算出啥，就改成啥）" class="headerlink" title="③将charles-ssl-proxying-certificate.pem更名为 81732dfc.0（注意算出啥，就改成啥）"></a>③将 charles-ssl-proxying-certificate.pem 更名为 <code>81732dfc.0</code>（注意算出啥，就改成啥）</h4><h3 id="（5）将这个扩展名为-0-的证书复制到-system-etc-security-cacerts目录下"><a href="#（5）将这个扩展名为-0-的证书复制到-system-etc-security-cacerts目录下" class="headerlink" title="（5）将这个扩展名为 0 的证书复制到/system/etc/security/cacerts目录下"></a>（5）将这个扩展名为 0 的证书复制到 <code>/system/etc/security/cacerts</code> 目录下</h3><figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">adb push /Users/user1/Downloads/81732dfc.0 /system/etc/security/cacerts</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="（6）安装证书"><a href="#（6）安装证书" class="headerlink" title="（6）安装证书"></a>（6）安装证书</h3><figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">adb shell <span class="string">"chmod 664 /system/etc/security/cacerts/81732dfc.0"</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="3-测试抓包"><a href="#3-测试抓包" class="headerlink" title="3.测试抓包"></a>3. 测试抓包</h2><h3 id="（1）Charles➡️Proxy➡️SSL-Proxying-Settings-➡️add"><a href="#（1）Charles➡️Proxy➡️SSL-Proxying-Settings-➡️add" class="headerlink" title="（1）Charles➡️Proxy➡️SSL Proxying Settings...➡️add"></a>（1）<code>Charles</code>➡️<code>Proxy</code>➡️<code>SSL Proxying Settings...</code>➡️<code>add</code></h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410032133648.png" alt="image-20241003213306607"></p>
+<h3 id="（2）Host-Port"><a href="#（2）Host-Port" class="headerlink" title="（2）Host: * Port: *"></a>（2）<code>Host</code>: * <code>Port</code>: *</h3><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410032137975.png" alt="image-20241003213729933" style="zoom:50%;">
+
+<h3 id="（3）在模拟器中的网络设置"><a href="#（3）在模拟器中的网络设置" class="headerlink" title="（3）在模拟器中的网络设置"></a>（3）在模拟器中的网络设置</h3><p>设置➡️网络和互联网➡️wlan0➡️点击右上角铅笔图标➡️代理选择手动代理，填入电脑 IP、端口 8888（默认），并将 10.0.2.2 填入 “对以下网址不使用代理” 中，保存。</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410032213344.gif" alt="mumu 模拟器抓包网络设置"></p>
+<h3 id="（4）Little-Snitch设置"><a href="#（4）Little-Snitch设置" class="headerlink" title="（4）Little Snitch设置"></a>（4）<code>Little Snitch</code> 设置</h3><ul>
+<li>在 <code>Little Snitch</code> 中关闭了<code>模拟器</code>的某些链接，连接 <code>Charles</code> 抓包后，需要把模拟器的链接在 <code>Little Snitch</code> 下的 <code>Charles</code> 的链接需要重新关闭一次。</li>
+</ul>
+<img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410032229078.png" alt="image-20241003222909037" style="zoom:50%;">
+
+<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p><a href="https://mumu.163.com/mac/tutorials/certificates-and-packet-capture.html">https://mumu.163.com/mac/tutorials/certificates-and-packet-capture.html</a></p>
+]]></content>
+      <categories>
+        <category>软件使用</category>
+      </categories>
+      <tags>
+        <tag>charles</tag>
+        <tag>android</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>jmeter 通过 log4j2.xml 修改 log 文件位置</title>
+    <url>/2024/04/15/jmeter%E9%80%9A%E8%BF%87log4j2-xml%E4%BF%AE%E6%94%B9log%E6%96%87%E4%BB%B6%E4%BD%8D%E7%BD%AE/</url>
+    <content><![CDATA[<p>在 Apache JMeter 中，如果你使用的是 Log4j2 作为日志系统，并且想通过 <code>log4j2.xml</code> 配置文件修改日志文件的位置，你可以按照以下步骤操作：（文中使用 jmeter 版本为:apache-jmeter-5.6.3）</p>
+<ol>
+<li>找到 JMeter 安装目录下的 <code>log4j2.xml</code> 配置文件。在 JMeter 3.x 及以上版本中，这个文件通常位于 <code>apache-jmeter-X.XX/bin</code> 目录下。</li>
+<li>打开 <code>log4j2.xml</code> 文件，找到 <code>RollingFile</code> 或 <code>File</code> 类型的 Appender 配置部分。</li>
+</ol>
+<span id="more"></span>
+
+<figure class="highlight xml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</span></span><br><span class="line"><span class="comment">&lt;!--......--&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">Configuration</span> <span class="attr">status</span>=<span class="string">"WARN"</span> <span class="attr">packages</span>=<span class="string">"org.apache.jmeter.gui.logging"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Appenders</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 修改这里，修改日志文件位置 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">File</span> <span class="attr">name</span>=<span class="string">"jmeter-log"</span> <span class="attr">fileName</span>=<span class="string">"/path/to/your/log/jmeter.log"</span> <span class="attr">append</span>=<span class="string">"false"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>%d %p %c{1.}: %m%n<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">File</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">GuiLogEvent</span> <span class="attr">name</span>=<span class="string">"gui-log-event"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>%d %p %c{1.}: %m%n<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">PatternLayout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">GuiLogEvent</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;/<span class="name">Appenders</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">Loggers</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Root</span> <span class="attr">level</span>=<span class="string">"info"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">AppenderRef</span> <span class="attr">ref</span>=<span class="string">"jmeter-log"</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">AppenderRef</span> <span class="attr">ref</span>=<span class="string">"gui-log-event"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Root</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Logger</span> <span class="attr">name</span>=<span class="string">"org.apache.jmeter.junit"</span> <span class="attr">level</span>=<span class="string">"debug"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;/<span class="name">Loggers</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">Configuration</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+]]></content>
+      <categories>
+        <category>性能测试</category>
+      </categories>
+      <tags>
+        <tag>jmeter</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>mysql 实现 excel 中复制某一列，粘贴转置为行功能</title>
+    <url>/2021/05/31/mysql%E5%AE%9E%E7%8E%B0excel%E4%B8%AD%E5%A4%8D%E5%88%B6%E6%9F%90%E4%B8%80%E5%88%97%E7%B2%98%E8%B4%B4%E8%BD%AC%E7%BD%AE%E4%B8%BA%E8%A1%8C%E5%8A%9F%E8%83%BD/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>数据处理需要，需要将大批量的列，转置为行。</p>
+<p>尝试使用 excel，①选择需要转置的列→②在所需位置，右键→选择性粘贴→转置，发现只转置了一部分数据。</p>
+<span id="more"></span>
+
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>转置的长度超过了 excel 的最大长度。</p>
+<p>最大长度是多少没查到😂。</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>百度后，发现可以使用 mysql 中 group_concat 函数。</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">SELECT GROUP_CONCAT(id separator ',') FROM `table` // id 为需要转换的列，separator后为以某字符为分割</span><br></pre></td></tr></tbody></table></figure>
+
+<p>发现又只转置了一部分数据。</p>
+<p>查资料发现，默认 GROUP_CONCAT 函数返回的结果大小被 MySQL 默认限制为 1024（字节）的长度。</p>
+<p>查看方式:</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">show variables like "group_concat_max_len";</span><br></pre></td></tr></tbody></table></figure>
+
+<p>解决方法有 2 种:</p>
+<h3 id="（1）临时解决方案："><a href="#（1）临时解决方案：" class="headerlink" title="（1）临时解决方案："></a>（1）临时解决方案：</h3><p>（该方法缺点是重启服务后设置失效，“group_concat_max_len = -1” 则为最大值，group_concat_max_len 的最大值为 4294967295 (2^32 - 1) 字节，因为处理数据量比较大，直接设置为最大值）</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">SET GLOBAL group_concat_max_len = -1;</span><br><span class="line"></span><br><span class="line">SET SESSION group_concat_max_len = -1;</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="（2）永久解决方案："><a href="#（2）永久解决方案：" class="headerlink" title="（2）永久解决方案："></a>（2）永久解决方案：</h3><p>在 Mysql 配置文件中加入如下配置 (推荐):</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">group_concat_max_len = -1</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p>参考于该<a href="https://www.cnblogs.com/zjfblog/p/13658936.html">博客园博客</a></p>
 ]]></content>
       <categories>
         <category>数据库</category>
@@ -2781,93 +2858,57 @@
       </tags>
   </entry>
   <entry>
-    <title>Charles 相关总结</title>
-    <url>/2024/11/16/charles%E7%9B%B8%E5%85%B3%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<h2 id="0-Charles简介"><a href="#0-Charles简介" class="headerlink" title="0.Charles简介"></a>0.Charles 简介</h2><p>Charles 是一款功能强大的 HTTP 代理服务器、HTTP 监视器和反转代理服务器，它可以帮助开发者和测试人员监控和分析 HTTP 和 HTTPS 网络通信。Charles 支持多种操作系统，包括 Windows、MacOS、iOS 和 Android。</p>
-<p>主要功能如下：</p>
-<ul>
-<li><strong>HTTP 和 HTTPS 代理</strong>：Charles 可以捕获和分析 HTTP 和 HTTPS 请求和响应。</li>
-<li><strong>流量控制</strong>：可以模拟不同的网络条件，如弱网测试。</li>
-<li><strong>接口并发请求</strong>：支持同时处理多个网络请求。</li>
-<li><strong>重发网络请求</strong>：方便开发者测试和调试。</li>
-<li><strong>断点调试</strong>：结合 Python 的 Flask 等工具进行 Mock Server 开发。</li>
-<li><strong>支持反向代理</strong>：可以将请求转发到不同的服务器。</li>
-<li><strong>网络限速</strong>：模拟不同网络类型下的应用表现。</li>
-<li><strong>解析 AMF 协议</strong>：支持解析高级消息格式协议。</li>
-</ul>
+    <title>mysql 按照分组筛选出时间倒序前三条记录</title>
+    <url>/2024/05/22/mysql%E6%8C%89%E7%85%A7%E5%88%86%E7%BB%84%E7%AD%9B%E9%80%89%E5%87%BA%E6%97%B6%E9%97%B4%E5%80%92%E5%BA%8F%E5%89%8D%E4%B8%89%E6%9D%A1%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在 MySQL 低版本 (5.7 以下) 中，如何按照分组筛选出时间倒序前三条记录？</p>
 <span id="more"></span>
 
-<h2 id="1-Charles的下载安装"><a href="#1-Charles的下载安装" class="headerlink" title="1.Charles的下载安装"></a>1.Charles 的下载安装</h2><p>下载网址 <code>https://www.charlesproxy.com/download/</code></p>
-<p>根据自己操作系统，选择相应版本下载后，安装即可。</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202411162218964.png" alt="image-20241116221830807"></p>
-<p>这个是学习使用必备地址：</p>
-<p><code>https://www.zzzmode.com/mytools/charles/</code></p>
-<h2 id="2-PC-端抓包"><a href="#2-PC-端抓包" class="headerlink" title="2.PC 端抓包"></a>2.PC 端抓包</h2><ul>
-<li>Web 抓取 HTTPS 协议</li>
-</ul>
-<p>1️⃣Charles 不能直接抓取 https 协议的请求，需要安装 SSL 证书：</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202411170217002.png" alt="image-20241117021724846"></p>
-<p>2️⃣输入密码：</p>
-<img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202411170225102.png" alt="image-20241117022519034" style="zoom:50%;">
+<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> t.<span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> (</span><br><span class="line">  <span class="keyword">SELECT</span> <span class="operator">*</span>, </span><br><span class="line">    <span class="variable">@rn</span> :<span class="operator">=</span> IF(<span class="variable">@prev_group</span> <span class="operator">=</span> group_column, <span class="variable">@rn</span> <span class="operator">+</span> <span class="number">1</span>, <span class="number">1</span>) <span class="keyword">AS</span> rn,</span><br><span class="line">    <span class="variable">@prev_group</span> :<span class="operator">=</span> group_column</span><br><span class="line">  <span class="keyword">FROM</span> your_table, (<span class="keyword">SELECT</span> <span class="variable">@rn</span> :<span class="operator">=</span> <span class="number">0</span>, <span class="variable">@prev_group</span> :<span class="operator">=</span> <span class="keyword">NULL</span>) r</span><br><span class="line">  <span class="keyword">ORDER</span> <span class="keyword">BY</span> group_column, time_column <span class="keyword">DESC</span></span><br><span class="line">) t</span><br><span class="line"><span class="keyword">WHERE</span> rn <span class="operator">&lt;=</span> <span class="number">3</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> group_column, time_column <span class="keyword">DESC</span>;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
 
-<p>3️⃣双击证书，信任证书</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202411170219914.png" alt="image-20241117021952869"></p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202411170221240.png" alt="image-20241117022107192"></p>
-<p>4️⃣<code>Proxy</code>➡️<code>SSL Proxying Settings</code> , <code>Add</code> 添加相应端口。（记得勾选 <code>Enable SSL Proxying</code>, 截图中为标出）</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202411170407173.png" alt="image-20241117040705125"></p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202411170401068.png" alt="image-20241117040133009"></p>
-<p>5️⃣打开 <code>Charles</code> 代理（<code>Proxy</code>➡️<code>macOS Proxy</code>），测试抓 PC 端包。</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202411170432089.png" alt="image-20241117043238002"></p>
-<h2 id="3-移动端抓包"><a href="#3-移动端抓包" class="headerlink" title="3.移动端抓包"></a>3. 移动端抓包</h2><p>总体思路，移动端下载 Charles 证书➡️移动安装 Charles 证书➡️移动端信任 Charles 证书，不同的手机可能位置不同。</p>
-<h3 id="（0）在-Charles-中，查看自己IP地址和端口号和下载证书网址"><a href="#（0）在-Charles-中，查看自己IP地址和端口号和下载证书网址" class="headerlink" title="（0）在 Charles 中，查看自己IP地址和端口号和下载证书网址"></a>（0）在 Charles 中，查看自己 IP 地址和端口号和下载证书网址</h3><ul>
-<li><code>Help</code> ➡️ <code>SSl Proxying</code> ➡️ <code>Install Charles Root Certificate on a mobile Device or Remote Browser</code></li>
-</ul>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202411170449433.png" alt="image-20241117044931347"></p>
-<ul>
-<li>ip 地址：端口号为：<code>192.168.XX.XX:8888</code></li>
-<li>下载证书网址：<code>chls.pro/ssl</code></li>
-</ul>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202411170454617.png" alt="image-20241117045408556"></p>
-<h3 id="（1）IOS"><a href="#（1）IOS" class="headerlink" title="（1）IOS"></a>（1）IOS</h3><p>1️⃣连接网络（与 Charles 相同网络，并已打开 Charles）</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202411281518658.png" alt="image-20241128151800592"></p>
-<p>2️⃣配置 <code>Charles</code> 代理。</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202411281520196.png" alt="image-20241128152021131"></p>
-<p>3️⃣浏览器填写证书下载地址 <code>chls.pro/ssl</code>，</p>
-<ul>
-<li>点击<code>允许</code></li>
-</ul>
-<img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202411281536818.png" alt="image-20241128153654643" style="zoom:50%;">
+<p>(1) 在子查询中，使用变量 <code>@rn</code> 和 <code>@prev_group</code> 来记录当前行的记录编号和前一行的分组。</p>
+<p>(2)<code>@rn := IF(@prev_group = group_column, @rn + 1, 1) AS rn</code> 这一行代码的作用是：如果当前行的分组与上一行相同，则记录编号 <code>rn</code> 递增 1, 否则从 1 开始计数。</p>
+<p>(3)<code>@prev_group := group_column</code> 这一行代码是更新上一行的分组。</p>
+<p>(4) 在外层查询中，使用 <code>WHERE rn &lt;= 3</code> 来筛选出每个分组中时间倒序的前 3 条记录。</p>
+<p>(5) 最后按分组 <code>group_column</code> 和时间 <code>time_column</code> 倒序排列输出结果。</p>
+<p>你可以将 <code>your_table</code> 替换成你自己的表名，<code>group_column</code> 替换成你表中的分组列名，<code>time_column</code> 替换成你表中的时间列名。</p>
+<p>这种方法在 MySQL 5.7 以下版本中都可以使用，不需要使用 <code>ROW_NUMBER()</code> 函数，性能也较好。</p>
+<p>在 MySQL8.0 及以上可以使用如下方法：</p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> t.<span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> (</span><br><span class="line">  <span class="keyword">SELECT</span> <span class="operator">*</span>, </span><br><span class="line">    <span class="built_in">ROW_NUMBER</span>() <span class="keyword">OVER</span> (<span class="keyword">PARTITION</span> <span class="keyword">BY</span> group_column <span class="keyword">ORDER</span> <span class="keyword">BY</span> time_column <span class="keyword">DESC</span>) <span class="keyword">AS</span> rn</span><br><span class="line">  <span class="keyword">FROM</span> your_table</span><br><span class="line">) t</span><br><span class="line"><span class="keyword">WHERE</span> rn <span class="operator">&lt;=</span> <span class="number">3</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> group_column, time_column <span class="keyword">DESC</span>;</span><br></pre></td></tr></tbody></table></figure>
 
-<ul>
-<li>点击<code>安装</code></li>
-</ul>
-<img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202411281540485.png" alt="image-20241128154046402" style="zoom:50%;">
-
-<p>4️⃣<code>设置</code>➡️<code>通用</code>➡️<code>关于本机</code>➡️<code>证书信任设置</code>，信任证书。</p>
-<img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202411281555721.png" alt="image-20241128155539636" style="zoom:50%;">
-
-<p>然后就可以愉快的抓包了。</p>
-<h3 id="（2）Android"><a href="#（2）Android" class="headerlink" title="（2）Android"></a>（2）Android</h3><p>原理与 IOS 相同，也是在浏览器上下载证书，然后安装证书，然后信任证书。这里就不截图举例了。</p>
-<h2 id="4-其他问题。"><a href="#4-其他问题。" class="headerlink" title="4.其他问题。"></a>4. 其他问题。</h2><p>（1）在手机浏览器上登录 <code>chls.pro.ssl</code>, 无法下载证书。</p>
-<p>1️⃣<code>Charles</code> 菜单栏上点击 <code>Help</code>➡️<code>SSLProxying</code>➡️<code>Save Charles Root Certificate..</code></p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202411281603942.png" alt="image-20241128160332822"></p>
-<p>2️⃣下载证书（cer 和 pem 两个格式都下载一下）</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202411291047354.png" alt="image-20241129104708216"></p>
-<p>3️⃣然后将下载好的证书发送到手机，安装即可。</p>
-<ul>
-<li>ios 可以试试<code>隔空投送</code></li>
-<li>有些版本的 Android 可能装不上<code>.pem</code> 的证书，可以试试<code>.cer</code> 的证书。</li>
-</ul>
-<h2 id="5-常用功能。"><a href="#5-常用功能。" class="headerlink" title="5.常用功能。"></a>5. 常用功能。</h2><h3 id="（1）过滤"><a href="#（1）过滤" class="headerlink" title="（1）过滤"></a>（1）过滤</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202411291054476.png" alt="image-20241129105429369"></p>
-<ul>
-<li>其他功能用到了在整理。</li>
-</ul>
+<p>（1）首先使用子查询，在每个分组 <code>group_column</code> 内根据时间列 <code>time_column</code> 使用 <code>ROW_NUMBER()</code> 函数给每条记录编号，按时间顺序倒序排列。</p>
+<p>（2）然后在外层查询中，使用 <code>WHERE rn &lt;= 3</code> 筛选出每个分组中时间倒序的前 3 条记录。</p>
+<p>（3）最后按分组 <code>group_column</code> 和时间 <code>time_column</code> 倒序排列输出结果。</p>
+<p>这样就可以实现按分组筛选出时间倒序前 3 条记录的功能。你可以将 <code>your_table</code> 替换成你自己的表名，<code>group_column</code> 替换成你表中的分组列名，<code>time_column</code> 替换成你表中的时间列名。</p>
+<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2><p><a href="https://kimi.moonshot.cn/">https://kimi.moonshot.cn/</a></p>
 ]]></content>
       <categories>
-        <category>软件使用</category>
+        <category>数据库</category>
       </categories>
       <tags>
-        <tag>charles</tag>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python 创建虚拟环境</title>
+    <url>/2021/06/29/python%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>python 如何创建虚拟环境？</p>
+<span id="more"></span>
+
+<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><p>使用 venv 命令，方法如下 (python3.5 以后)：</p>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">python3 -m venv /xx/xx/myvenv <span class="comment">#(myvenv环境名称)</span></span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>激活虚拟环境</p>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">source</span> myvenv/bin/activate</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>关闭虚拟环境</p>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">deactivate</span></span><br></pre></td></tr></tbody></table></figure>
+
+]]></content>
+      <categories>
+        <category>环境部署</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -2988,66 +3029,22 @@
       </tags>
   </entry>
   <entry>
-    <title>LocalSend 的安装与使用</title>
-    <url>/2024/12/02/LocalSend%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<p>由于现在使用的测试机较多，某一台测试机上发现了有一个 bug，需要截图发送到 <code>Mac</code> 上，<code>IOS</code> 还好可以使用<code>隔空投送</code>，<code>Android</code> 就比较麻烦了，之前在电脑上共享了一个文件夹，在各个 <code>Android</code> 上，使用软件连接这个文件夹，后面发现了一个无视平台 (支持 window/macos/linux/Android/ios) 的神器 <code>localsend</code>，果断将所有测试机和 <code>Mac</code> 上。</p>
-<h2 id="1-下载地址"><a href="#1-下载地址" class="headerlink" title="1.下载地址"></a>1. 下载地址</h2><p>github 地址：<code>https://github.com/localsend</code></p>
-<p>官网地址：<code>https://localsend.org/zh-CN/download?os=macos</code></p>
+    <title>python 加密总结</title>
+    <url>/2024/06/24/python%E5%8A%A0%E5%AF%86%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>每次都查系列，总结一下，以方便下次查。</p>
+<p>Md5 加密 </p>
+<p>Sha 加密</p>
+<p>Sha1</p>
+<p>Sha256</p>
+<p>Rsa 加密</p>
 <span id="more"></span>
 
-<h2 id=""><a href="#" class="headerlink" title=""></a></h2>]]></content>
-      <categories>
-        <category>软件使用</category>
-      </categories>
-      <tags>
-        <tag>localsend</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>python 日志模块总结</title>
-    <url>/2024/08/07/python%E6%97%A5%E5%BF%97%E6%A8%A1%E5%9D%97%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<p>Python 的 <code>logging</code> 模块是 Python 标准库的一部分，它提供了一个灵活的框架来将日志信息发送到不同的目的地，如控制台、文件、远程服务器等。使用 <code>logging</code> 模块，你可以控制日志信息的级别，并且可以针对不同的应用模块进行日志管理。</p>
-<h2 id="1-日志级别"><a href="#1-日志级别" class="headerlink" title="1.日志级别"></a>1. 日志级别</h2><ul>
-<li><code>DEBUG</code>: 调试信息，用于问题诊断。</li>
-<li><code>INFO</code>: 一般信息，用于记录程序运行状态。</li>
-<li><code>WARNING</code>: 警告信息，表示有潜在问题。</li>
-<li><code>ERROR</code>: 错误信息，表示严重问题。</li>
-<li><code>CRITICAL</code>: 临界信息，表示非常严重的问题。</li>
-</ul>
-<p>日志级别默认为<code> WARNING</code>，从大到小为：</p>
-<p>CRITICAL &gt; ERROR &gt; WARNING &gt; INFO &gt; DEBUG</p>
-<p>输出的日志是设置的日志级别及其以上级别：</p>
-<p>如果设置的日志级别为 WARNING，则只会显示 WARNING 及其以上级别的信息：<code>WARNING</code>,<code> ERROR</code>,<code> CRITICAL</code></p>
-<span id="more"></span>
+<h2 id="2-加密总结"><a href="#2-加密总结" class="headerlink" title="2.加密总结"></a>2. 加密总结</h2><p>（1）MD5 加密</p>
+<p>在 Python 中，可以使用内置的 <code>hashlib</code> 库来执行 MD5 加密。MD5 是一种广泛使用的哈希函数，它可以产生一个 128 位（16 字节）的哈希值，通常用一个 32 位的十六进制字符串表示。以下是🌰：</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line">复制</span><br><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">md5_encrypt</span>(<span class="params">text</span>):</span><br><span class="line">    <span class="comment"># 将文本转换为字节</span></span><br><span class="line">    text_bytes = text.encode(<span class="string">'utf-8'</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 创建hash对象</span></span><br><span class="line">    md5 = hashlib.md5()</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 对字节进行MD5加密</span></span><br><span class="line">    md5.update(text_bytes)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 获取加密后的二进制数据</span></span><br><span class="line">    digest = md5.digest()</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 将二进制数据转换为十六进制字符串</span></span><br><span class="line">    hex_dig = md5.hexdigest()</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> hex_dig</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用函数加密字符串</span></span><br><span class="line">text_to_encrypt = <span class="string">"Hello, World!"</span></span><br><span class="line">encrypted_text = md5_encrypt(text_to_encrypt)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f"The MD5 encrypted text is: <span class="subst">{encrypted_text}</span>"</span>)</span><br></pre></td></tr></tbody></table></figure>
 
-<h2 id="2-简单🌰"><a href="#2-简单🌰" class="headerlink" title="2.简单🌰"></a>2. 简单🌰</h2><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"></span><br><span class="line"><span class="comment"># log 文件路径</span></span><br><span class="line">log_file = <span class="string">'demo_log.log'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># log 输出格式,格式有很多，这个是常用的格式，不够用在查</span></span><br><span class="line">log_format = <span class="string">'%(asctime)s - %(filename)s[line:%(lineno)d] - %(levelname)s : %(message)s'</span></span><br><span class="line"></span><br><span class="line">logging.basicConfig(filename=log_file,  <span class="comment"># 设置 log 输出文件</span></span><br><span class="line">                    level=logging.DEBUG,  <span class="comment"># 输出等级</span></span><br><span class="line">                    <span class="built_in">format</span>=log_format,  <span class="comment"># 输出格式</span></span><br><span class="line">                    filemode=<span class="string">'w'</span>)  <span class="comment"># 日志文件打开模式 w是写入，a是追加</span></span><br><span class="line"></span><br><span class="line">logging.debug(<span class="string">'This is a debug message'</span>)</span><br><span class="line">logging.info(<span class="string">'This is an info message'</span>)</span><br><span class="line">logging.warning(<span class="string">'This is a warning message'</span>)</span><br><span class="line">logging.error(<span class="string">'This is an error message'</span>)</span><br><span class="line">logging.critical(<span class="string">'This is a critical message'</span>)</span><br></pre></td></tr></tbody></table></figure>
-
-<p>结果：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">2024-08-08 11:33:40,649 - demo_log0.py[line:16] - INFO : This is an info message</span><br><span class="line">2024-08-08 11:33:40,649 - demo_log0.py[line:17] - WARNING : This is a warning message</span><br><span class="line">2024-08-08 11:33:40,649 - demo_log0.py[line:18] - ERROR : This is an error message</span><br><span class="line">2024-08-08 11:33:40,649 - demo_log0.py[line:19] - CRITICAL : This is a critical message</span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="3-高级🌰"><a href="#3-高级🌰" class="headerlink" title="3.高级🌰"></a>3. 高级🌰</h2><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> logging, os</span><br><span class="line"></span><br><span class="line">log_path = os.path.join(os.path.dirname(__file__), <span class="string">'demo_log.log'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建一个 log 对象</span></span><br><span class="line">logger = logging.getLogger(<span class="string">'__name__'</span>)  <span class="comment"># 其中的__name__代表当前 py 文件的名称，也可以不写</span></span><br><span class="line"><span class="comment"># 设置 log 对象的等级，记录所有文件级别日志</span></span><br><span class="line">logger.setLevel(logging.DEBUG)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建一个 FileHandler，将写入文件</span></span><br><span class="line">fh = logging.FileHandler(log_path, mode=<span class="string">'w'</span>)</span><br><span class="line"><span class="comment"># 设置log 等级，记录所有文件级别日志</span></span><br><span class="line">fh.setLevel(logging.DEBUG)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建一个 StreamHandler, 将 log 输出到控制台</span></span><br><span class="line">ch = logging.StreamHandler()</span><br><span class="line"><span class="comment"># 设置 log 等级，控制台只记录 Error 以及以上的记录</span></span><br><span class="line">ch.setLevel(logging.ERROR)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置输出格式</span></span><br><span class="line">log_formatter = <span class="string">'%(asctime)s - %(filename)s[line:%(lineno)d] - %(levelname)s : %(message)s'</span></span><br><span class="line">formatter = logging.Formatter(log_formatter)</span><br><span class="line"></span><br><span class="line">ch.setFormatter(formatter)</span><br><span class="line">fh.setFormatter(formatter)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 把handler添加到 logger 里</span></span><br><span class="line">logger.addHandler(ch)</span><br><span class="line">logger.addHandler(fh)</span><br><span class="line"></span><br><span class="line">logger.error(<span class="string">'error message'</span>)</span><br><span class="line">logger.debug(<span class="string">'debug message'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 干完之后清理下，这里主要为了以后多次调用出现重复日志输出</span></span><br><span class="line"><span class="comment"># logger.removeHandler(ch)</span></span><br><span class="line"><span class="comment"># logger.removeHandler(fh)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># logger.error('error message')</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-
-<p>在这个示例中，我们创建了一个 <code>Logger</code> 对象，并设置了两个 Handler：一个输出到控制台的 <code>StreamHandler</code> 和一个输出到文件的 <code>FileHandler</code>。我们还定义了一个 <code>Formatter</code> 来格式化日志消息，并将其应用到了两个 Handler 上。最后，我们添加了日志消息，它们会根据设置的日志级别被输出到相应的目的地。</p>
-<h2 id="4-封装后使用"><a href="#4-封装后使用" class="headerlink" title="4.封装后使用"></a>4. 封装后使用</h2><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># demo_log2.py</span></span><br><span class="line"><span class="keyword">import</span> logging, os</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">demo_log2</span>():</span><br><span class="line">    log_path = os.path.join(os.path.dirname(__file__), <span class="string">'demo_log.log'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 创建一个 log 对象</span></span><br><span class="line">    logger = logging.getLogger(<span class="string">'__name__'</span>)  <span class="comment"># 其中的__name__代表当前 py 文件的名称，也可以不写</span></span><br><span class="line">    logger.handlers.clear()  <span class="comment"># 防止重复输出日志，因为添加一个 handler就会输出一次</span></span><br><span class="line">    <span class="comment"># 设置 log 对象的等级</span></span><br><span class="line">    logger.setLevel(logging.DEBUG)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 创建一个 handler，将写入文件</span></span><br><span class="line">    fh = logging.FileHandler(log_path, mode=<span class="string">'a'</span>)</span><br><span class="line">    <span class="comment"># 设置log 等级与前面保持一致</span></span><br><span class="line">    fh.setLevel(logging.DEBUG)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 创建一个 handler, 将 log 输出到控制台</span></span><br><span class="line">    ch = logging.StreamHandler()</span><br><span class="line">    <span class="comment"># 设置 log 等级与 log 对象保持一致</span></span><br><span class="line">    ch.setLevel(logging.ERROR)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 设置输出格式</span></span><br><span class="line">    log_formatter = <span class="string">'%(asctime)s - %(filename)s[line:%(lineno)d] - %(levelname)s : %(message)s'</span></span><br><span class="line">    formatter = logging.Formatter(log_formatter)</span><br><span class="line">    ch.setFormatter(formatter)</span><br><span class="line">    fh.setFormatter(formatter)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 把handler添加到 logger 里</span></span><br><span class="line">    <span class="comment"># print(logger.handlers) # 没添加时，logger.handlers == []</span></span><br><span class="line">    <span class="comment"># 如果 logger.handlers 为空，则添加 ch / fh ，防止重复输出日志，因为添加一个 handler就会输出一次</span></span><br><span class="line">    <span class="comment"># if logger.handlers.__len__() == 0:</span></span><br><span class="line">    logger.addHandler(ch)</span><br><span class="line">    logger.addHandler(fh)</span><br><span class="line">    <span class="comment"># print(logger.handlers)</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> logger</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># demo_user_log.py</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> demo_log2</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">calc_sum</span>(<span class="params">a, b</span>):</span><br><span class="line"></span><br><span class="line">    logger = demo_log2.demo_log2()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="built_in">sum</span> = a / b</span><br><span class="line">        logger.debug(<span class="string">f'<span class="subst">{a}</span> / <span class="subst">{b}</span> = <span class="subst">{<span class="built_in">sum</span>}</span> '</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">sum</span></span><br><span class="line">    <span class="keyword">except</span> ZeroDivisionError <span class="keyword">as</span> e:</span><br><span class="line">        logger.error(<span class="string">f'被除数不能为 0： <span class="subst">{e}</span>'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    calc_sum(<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line">    calc_sum(<span class="number">1</span>,<span class="number">0</span>)</span><br><span class="line"> </span><br></pre></td></tr></tbody></table></figure>
-
-<p>输出结果：</p>
-<p>控制台输出结果：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">2024-08-08 15:13:56,611 - demo_user_log.py[line:13] - ERROR : 被除数不能为 0： division by zero</span><br></pre></td></tr></tbody></table></figure>
-
-<p>日志文件输出结果：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">2024-08-08 15:13:56,611 - demo_user_log.py[line:10] - DEBUG : 1 / 1 = 1.0 </span><br><span class="line">2024-08-08 15:13:56,611 - demo_user_log.py[line:13] - ERROR : 被除数不能为 0： division by zero</span><br></pre></td></tr></tbody></table></figure>
-
-]]></content>
-      <categories>
-        <category>测试脚本</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
+<p>MD5 已经不再被认为是安全的哈希函数，因为它容易受到多种攻击，如碰撞攻击。</p>
+<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2>]]></content>
   </entry>
   <entry>
     <title>python 读写 csv 总结</title>
@@ -3148,6 +3145,80 @@
       </tags>
   </entry>
   <entry>
+    <title>python 日志模块总结</title>
+    <url>/2024/08/07/python%E6%97%A5%E5%BF%97%E6%A8%A1%E5%9D%97%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<p>Python 的 <code>logging</code> 模块是 Python 标准库的一部分，它提供了一个灵活的框架来将日志信息发送到不同的目的地，如控制台、文件、远程服务器等。使用 <code>logging</code> 模块，你可以控制日志信息的级别，并且可以针对不同的应用模块进行日志管理。</p>
+<h2 id="1-日志级别"><a href="#1-日志级别" class="headerlink" title="1.日志级别"></a>1. 日志级别</h2><ul>
+<li><code>DEBUG</code>: 调试信息，用于问题诊断。</li>
+<li><code>INFO</code>: 一般信息，用于记录程序运行状态。</li>
+<li><code>WARNING</code>: 警告信息，表示有潜在问题。</li>
+<li><code>ERROR</code>: 错误信息，表示严重问题。</li>
+<li><code>CRITICAL</code>: 临界信息，表示非常严重的问题。</li>
+</ul>
+<p>日志级别默认为<code> WARNING</code>，从大到小为：</p>
+<p>CRITICAL &gt; ERROR &gt; WARNING &gt; INFO &gt; DEBUG</p>
+<p>输出的日志是设置的日志级别及其以上级别：</p>
+<p>如果设置的日志级别为 WARNING，则只会显示 WARNING 及其以上级别的信息：<code>WARNING</code>,<code> ERROR</code>,<code> CRITICAL</code></p>
+<span id="more"></span>
+
+<h2 id="2-简单🌰"><a href="#2-简单🌰" class="headerlink" title="2.简单🌰"></a>2. 简单🌰</h2><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"></span><br><span class="line"><span class="comment"># log 文件路径</span></span><br><span class="line">log_file = <span class="string">'demo_log.log'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># log 输出格式,格式有很多，这个是常用的格式，不够用在查</span></span><br><span class="line">log_format = <span class="string">'%(asctime)s - %(filename)s[line:%(lineno)d] - %(levelname)s : %(message)s'</span></span><br><span class="line"></span><br><span class="line">logging.basicConfig(filename=log_file,  <span class="comment"># 设置 log 输出文件</span></span><br><span class="line">                    level=logging.DEBUG,  <span class="comment"># 输出等级</span></span><br><span class="line">                    <span class="built_in">format</span>=log_format,  <span class="comment"># 输出格式</span></span><br><span class="line">                    filemode=<span class="string">'w'</span>)  <span class="comment"># 日志文件打开模式 w是写入，a是追加</span></span><br><span class="line"></span><br><span class="line">logging.debug(<span class="string">'This is a debug message'</span>)</span><br><span class="line">logging.info(<span class="string">'This is an info message'</span>)</span><br><span class="line">logging.warning(<span class="string">'This is a warning message'</span>)</span><br><span class="line">logging.error(<span class="string">'This is an error message'</span>)</span><br><span class="line">logging.critical(<span class="string">'This is a critical message'</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<p>结果：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">2024-08-08 11:33:40,649 - demo_log0.py[line:16] - INFO : This is an info message</span><br><span class="line">2024-08-08 11:33:40,649 - demo_log0.py[line:17] - WARNING : This is a warning message</span><br><span class="line">2024-08-08 11:33:40,649 - demo_log0.py[line:18] - ERROR : This is an error message</span><br><span class="line">2024-08-08 11:33:40,649 - demo_log0.py[line:19] - CRITICAL : This is a critical message</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="3-高级🌰"><a href="#3-高级🌰" class="headerlink" title="3.高级🌰"></a>3. 高级🌰</h2><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> logging, os</span><br><span class="line"></span><br><span class="line">log_path = os.path.join(os.path.dirname(__file__), <span class="string">'demo_log.log'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建一个 log 对象</span></span><br><span class="line">logger = logging.getLogger(<span class="string">'__name__'</span>)  <span class="comment"># 其中的__name__代表当前 py 文件的名称，也可以不写</span></span><br><span class="line"><span class="comment"># 设置 log 对象的等级，记录所有文件级别日志</span></span><br><span class="line">logger.setLevel(logging.DEBUG)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建一个 FileHandler，将写入文件</span></span><br><span class="line">fh = logging.FileHandler(log_path, mode=<span class="string">'w'</span>)</span><br><span class="line"><span class="comment"># 设置log 等级，记录所有文件级别日志</span></span><br><span class="line">fh.setLevel(logging.DEBUG)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建一个 StreamHandler, 将 log 输出到控制台</span></span><br><span class="line">ch = logging.StreamHandler()</span><br><span class="line"><span class="comment"># 设置 log 等级，控制台只记录 Error 以及以上的记录</span></span><br><span class="line">ch.setLevel(logging.ERROR)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置输出格式</span></span><br><span class="line">log_formatter = <span class="string">'%(asctime)s - %(filename)s[line:%(lineno)d] - %(levelname)s : %(message)s'</span></span><br><span class="line">formatter = logging.Formatter(log_formatter)</span><br><span class="line"></span><br><span class="line">ch.setFormatter(formatter)</span><br><span class="line">fh.setFormatter(formatter)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 把handler添加到 logger 里</span></span><br><span class="line">logger.addHandler(ch)</span><br><span class="line">logger.addHandler(fh)</span><br><span class="line"></span><br><span class="line">logger.error(<span class="string">'error message'</span>)</span><br><span class="line">logger.debug(<span class="string">'debug message'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 干完之后清理下，这里主要为了以后多次调用出现重复日志输出</span></span><br><span class="line"><span class="comment"># logger.removeHandler(ch)</span></span><br><span class="line"><span class="comment"># logger.removeHandler(fh)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># logger.error('error message')</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p>在这个示例中，我们创建了一个 <code>Logger</code> 对象，并设置了两个 Handler：一个输出到控制台的 <code>StreamHandler</code> 和一个输出到文件的 <code>FileHandler</code>。我们还定义了一个 <code>Formatter</code> 来格式化日志消息，并将其应用到了两个 Handler 上。最后，我们添加了日志消息，它们会根据设置的日志级别被输出到相应的目的地。</p>
+<h2 id="4-封装后使用"><a href="#4-封装后使用" class="headerlink" title="4.封装后使用"></a>4. 封装后使用</h2><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># demo_log2.py</span></span><br><span class="line"><span class="keyword">import</span> logging, os</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">demo_log2</span>():</span><br><span class="line">    log_path = os.path.join(os.path.dirname(__file__), <span class="string">'demo_log.log'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 创建一个 log 对象</span></span><br><span class="line">    logger = logging.getLogger(<span class="string">'__name__'</span>)  <span class="comment"># 其中的__name__代表当前 py 文件的名称，也可以不写</span></span><br><span class="line">    logger.handlers.clear()  <span class="comment"># 防止重复输出日志，因为添加一个 handler就会输出一次</span></span><br><span class="line">    <span class="comment"># 设置 log 对象的等级</span></span><br><span class="line">    logger.setLevel(logging.DEBUG)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 创建一个 handler，将写入文件</span></span><br><span class="line">    fh = logging.FileHandler(log_path, mode=<span class="string">'a'</span>)</span><br><span class="line">    <span class="comment"># 设置log 等级与前面保持一致</span></span><br><span class="line">    fh.setLevel(logging.DEBUG)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 创建一个 handler, 将 log 输出到控制台</span></span><br><span class="line">    ch = logging.StreamHandler()</span><br><span class="line">    <span class="comment"># 设置 log 等级与 log 对象保持一致</span></span><br><span class="line">    ch.setLevel(logging.ERROR)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 设置输出格式</span></span><br><span class="line">    log_formatter = <span class="string">'%(asctime)s - %(filename)s[line:%(lineno)d] - %(levelname)s : %(message)s'</span></span><br><span class="line">    formatter = logging.Formatter(log_formatter)</span><br><span class="line">    ch.setFormatter(formatter)</span><br><span class="line">    fh.setFormatter(formatter)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 把handler添加到 logger 里</span></span><br><span class="line">    <span class="comment"># print(logger.handlers) # 没添加时，logger.handlers == []</span></span><br><span class="line">    <span class="comment"># 如果 logger.handlers 为空，则添加 ch / fh ，防止重复输出日志，因为添加一个 handler就会输出一次</span></span><br><span class="line">    <span class="comment"># if logger.handlers.__len__() == 0:</span></span><br><span class="line">    logger.addHandler(ch)</span><br><span class="line">    logger.addHandler(fh)</span><br><span class="line">    <span class="comment"># print(logger.handlers)</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> logger</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># demo_user_log.py</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> demo_log2</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">calc_sum</span>(<span class="params">a, b</span>):</span><br><span class="line"></span><br><span class="line">    logger = demo_log2.demo_log2()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="built_in">sum</span> = a / b</span><br><span class="line">        logger.debug(<span class="string">f'<span class="subst">{a}</span> / <span class="subst">{b}</span> = <span class="subst">{<span class="built_in">sum</span>}</span> '</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">sum</span></span><br><span class="line">    <span class="keyword">except</span> ZeroDivisionError <span class="keyword">as</span> e:</span><br><span class="line">        logger.error(<span class="string">f'被除数不能为 0： <span class="subst">{e}</span>'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    calc_sum(<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line">    calc_sum(<span class="number">1</span>,<span class="number">0</span>)</span><br><span class="line"> </span><br></pre></td></tr></tbody></table></figure>
+
+<p>输出结果：</p>
+<p>控制台输出结果：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">2024-08-08 15:13:56,611 - demo_user_log.py[line:13] - ERROR : 被除数不能为 0： division by zero</span><br></pre></td></tr></tbody></table></figure>
+
+<p>日志文件输出结果：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">2024-08-08 15:13:56,611 - demo_user_log.py[line:10] - DEBUG : 1 / 1 = 1.0 </span><br><span class="line">2024-08-08 15:13:56,611 - demo_user_log.py[line:13] - ERROR : 被除数不能为 0： division by zero</span><br></pre></td></tr></tbody></table></figure>
+
+]]></content>
+      <categories>
+        <category>测试脚本</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>requirements 总结</title>
+    <url>/2021/05/21/requirements%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在搭建 Liunx 服务器时，需要在新的 Python 环境中安装项目需要的包的依赖，一条一条 pip install 太慢，有没有可以批量安装方法？</p>
+<span id="more"></span>
+
+<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><p>百度后，方法如下：</p>
+<p>在旧环境下执行:</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pip freeze &gt; requirements.txt</span><br></pre></td></tr></tbody></table></figure>
+
+<p>执行后，会在当前项目下生成一个 requirements.txt 的文件，然后将该文件上传到新的环境项目下，在新环境下执行:</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></tbody></table></figure>
+
+<p>有时执行上面命令会报错 (改错误是在 Jenkins 中执行 shell 时报错)</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">ERROR: Could not find a version that satisfies the requirement request==1.0.117 (from -r requirements.txt (line 6)) (from versions: none)</span><br></pre></td></tr></tbody></table></figure>
+
+<p>一般情况下是国外源的原因，将其临时替换为国内源：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple/</span><br></pre></td></tr></tbody></table></figure>
+
+]]></content>
+      <categories>
+        <category>环境部署</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>pycharm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>scrcpy 的安装与使用</title>
     <url>/2024/10/02/scrcpy%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<h2 id="1-scrcpy简介"><a href="#1-scrcpy简介" class="headerlink" title="1.scrcpy简介"></a>1.scrcpy 简介</h2><p>scacpy 是一个可以将 Android 设备投屏（电脑上可以操作）到电脑上的一个开源工具。</p>
@@ -3241,75 +3312,6 @@
       </tags>
   </entry>
   <entry>
-    <title>requirements 总结</title>
-    <url>/2021/05/21/requirements%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在搭建 Liunx 服务器时，需要在新的 Python 环境中安装项目需要的包的依赖，一条一条 pip install 太慢，有没有可以批量安装方法？</p>
-<span id="more"></span>
-
-<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><p>百度后，方法如下：</p>
-<p>在旧环境下执行:</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pip freeze &gt; requirements.txt</span><br></pre></td></tr></tbody></table></figure>
-
-<p>执行后，会在当前项目下生成一个 requirements.txt 的文件，然后将该文件上传到新的环境项目下，在新环境下执行:</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></tbody></table></figure>
-
-<p>有时执行上面命令会报错 (改错误是在 Jenkins 中执行 shell 时报错)</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">ERROR: Could not find a version that satisfies the requirement request==1.0.117 (from -r requirements.txt (line 6)) (from versions: none)</span><br></pre></td></tr></tbody></table></figure>
-
-<p>一般情况下是国外源的原因，将其临时替换为国内源：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple/</span><br></pre></td></tr></tbody></table></figure>
-
-]]></content>
-      <categories>
-        <category>环境部署</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>pycharm</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>python 创建虚拟环境</title>
-    <url>/2021/06/29/python%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>python 如何创建虚拟环境？</p>
-<span id="more"></span>
-
-<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><p>使用 venv 命令，方法如下 (python3.5 以后)：</p>
-<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">python3 -m venv /xx/xx/myvenv <span class="comment">#(myvenv环境名称)</span></span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>激活虚拟环境</p>
-<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">source</span> myvenv/bin/activate</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>关闭虚拟环境</p>
-<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">deactivate</span></span><br></pre></td></tr></tbody></table></figure>
-
-]]></content>
-      <categories>
-        <category>环境部署</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>python 加密总结</title>
-    <url>/2024/06/24/python%E5%8A%A0%E5%AF%86%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>每次都查系列，总结一下，以方便下次查。</p>
-<p>Md5 加密 </p>
-<p>Sha 加密</p>
-<p>Sha1</p>
-<p>Sha256</p>
-<p>Rsa 加密</p>
-<span id="more"></span>
-
-<h2 id="2-加密总结"><a href="#2-加密总结" class="headerlink" title="2.加密总结"></a>2. 加密总结</h2><p>（1）MD5 加密</p>
-<p>在 Python 中，可以使用内置的 <code>hashlib</code> 库来执行 MD5 加密。MD5 是一种广泛使用的哈希函数，它可以产生一个 128 位（16 字节）的哈希值，通常用一个 32 位的十六进制字符串表示。以下是🌰：</p>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line">复制</span><br><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">md5_encrypt</span>(<span class="params">text</span>):</span><br><span class="line">    <span class="comment"># 将文本转换为字节</span></span><br><span class="line">    text_bytes = text.encode(<span class="string">'utf-8'</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 创建hash对象</span></span><br><span class="line">    md5 = hashlib.md5()</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 对字节进行MD5加密</span></span><br><span class="line">    md5.update(text_bytes)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 获取加密后的二进制数据</span></span><br><span class="line">    digest = md5.digest()</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 将二进制数据转换为十六进制字符串</span></span><br><span class="line">    hex_dig = md5.hexdigest()</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> hex_dig</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用函数加密字符串</span></span><br><span class="line">text_to_encrypt = <span class="string">"Hello, World!"</span></span><br><span class="line">encrypted_text = md5_encrypt(text_to_encrypt)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f"The MD5 encrypted text is: <span class="subst">{encrypted_text}</span>"</span>)</span><br></pre></td></tr></tbody></table></figure>
-
-<p>MD5 已经不再被认为是安全的哈希函数，因为它容易受到多种攻击，如碰撞攻击。</p>
-<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2>]]></content>
-  </entry>
-  <entry>
     <title>博客重新装修删除冗余内容</title>
     <url>/2024/05/06/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%96%B0%E8%A3%85%E4%BF%AE%E5%88%A0%E9%99%A4%E5%86%97%E4%BD%99%E5%86%85%E5%AE%B9/</url>
     <content><![CDATA[<p>最近有空闲时间，就重新装修了长时间没管过的博客，将以前的内容做了精简以及删除，后续会陆续将之前做的笔记整理后，写成 blog，大体做了如下改变。</p>
@@ -3321,63 +3323,6 @@
       </categories>
       <tags>
         <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何将 excel 相同行快速标注相同颜色</title>
-    <url>/2024/05/22/%E5%A6%82%E4%BD%95%E5%B0%86excel%E7%9B%B8%E5%90%8C%E8%A1%8C%E5%BF%AB%E9%80%9F%E6%A0%87%E6%B3%A8%E7%9B%B8%E5%90%8C%E9%A2%9C%E8%89%B2/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>如下图所示，相同的公司标注相同的颜色，相邻的公司使用不同的颜色标注。</p>
-<span id="more"></span>
-
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523105209093.png" alt="image-20240523105209093"></p>
-<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><p>这里提供一种不是最优解的解决方法，前提是会使用函数 <code>vlookup</code> 和 <code>isodd</code></p>
-<p>（0）将表格按照公司名字排序。</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523115128818.png" alt="image-20240523115128818"></p>
-<p>（1）将公司名这一列复制到一个新的 <code>sheet</code> 中，然后去重。</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523115554033.png" alt="image-20240523115554033"></p>
-<p>（2）在公司名右侧插入公司名编号。</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523115823986.png" alt="image-20240523115823986"></p>
-<p>（3）在原表中公司名后插入一列，使用 <code>vlookup</code> 公式去匹配公司名编号。</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523120017323.png" alt="image-20240523120017323"></p>
-<p>（4）在原表中公司名编号中插入一列，使用 <code>isodd</code> 公式计算是奇偶数。</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523120250045.png" alt="image-20240523120250045"></p>
-<p>（5）筛选奇偶数，分别标注颜色。</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523120436033.png" alt="image-20240523120436033"></p>
-<p>（6）删除辅助列即可</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523120606111.png" alt="image-20240523120606111"></p>
-]]></content>
-      <categories>
-        <category>软件使用</category>
-      </categories>
-      <tags>
-        <tag>excel</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何去除 macOS12-13 更新小红点</title>
-    <url>/2024/05/06/%E5%A6%82%E4%BD%95%E5%8E%BB%E9%99%A4macOS12-13%E6%9B%B4%E6%96%B0%E5%B0%8F%E7%BA%A2%E7%82%B9/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>2 个小红点位置如下：</p>
-<ul>
-<li>设置→通用→软件更新→红点 1</li>
-<li>Dock→红点 1</li>
-</ul>
-<span id="more"></span>
-
-<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><h3 id="（1）关闭自动更新"><a href="#（1）关闭自动更新" class="headerlink" title="（1）关闭自动更新"></a>（1）关闭自动更新</h3><h3 id="（2）host添加相关内容"><a href="#（2）host添加相关内容" class="headerlink" title="（2）host添加相关内容"></a>（2）host 添加相关内容</h3><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">127.0.0.1 swdist.apple.com</span><br><span class="line">127.0.0.1 swscan.apple.com</span><br><span class="line">127.0.0.1 swcdn.apple.com </span><br><span class="line">127.0.0.1 gdmf.apple.com</span><br><span class="line">127.0.0.1 mesu.apple.com</span><br><span class="line">127.0.0.1 xp.apple.com</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="（3）终端执行"><a href="#（3）终端执行" class="headerlink" title="（3）终端执行"></a>（3）终端执行</h3><p>先执行</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">defaults write com.apple.systempreferences AttentionPrefBundleIDs 0</span><br><span class="line">Killall Dock</span><br></pre></td></tr></tbody></table></figure>
-
-<p>如果无法去除，则执行</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">defaults delete com.apple.systempreferences AttentionPrefBundleIDs</span><br><span class="line">defaults delete com.apple.systempreferences DidShowPrefBundleIDs</span><br><span class="line">killall Dock</span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2><p><a href="https://sysin.org/blog/disable-macos-ventura-update/">https://sysin.org/blog/disable-macos-ventura-update/</a></p>
-]]></content>
-      <categories>
-        <category>操作系统</category>
-      </categories>
-      <tags>
-        <tag>macos</tag>
       </tags>
   </entry>
   <entry>
@@ -3410,6 +3355,33 @@
         <tag>ubuntu</tag>
         <tag>macos</tag>
         <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何去除 macOS12-13 更新小红点</title>
+    <url>/2024/05/06/%E5%A6%82%E4%BD%95%E5%8E%BB%E9%99%A4macOS12-13%E6%9B%B4%E6%96%B0%E5%B0%8F%E7%BA%A2%E7%82%B9/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>2 个小红点位置如下：</p>
+<ul>
+<li>设置→通用→软件更新→红点 1</li>
+<li>Dock→红点 1</li>
+</ul>
+<span id="more"></span>
+
+<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><h3 id="（1）关闭自动更新"><a href="#（1）关闭自动更新" class="headerlink" title="（1）关闭自动更新"></a>（1）关闭自动更新</h3><h3 id="（2）host添加相关内容"><a href="#（2）host添加相关内容" class="headerlink" title="（2）host添加相关内容"></a>（2）host 添加相关内容</h3><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">127.0.0.1 swdist.apple.com</span><br><span class="line">127.0.0.1 swscan.apple.com</span><br><span class="line">127.0.0.1 swcdn.apple.com </span><br><span class="line">127.0.0.1 gdmf.apple.com</span><br><span class="line">127.0.0.1 mesu.apple.com</span><br><span class="line">127.0.0.1 xp.apple.com</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="（3）终端执行"><a href="#（3）终端执行" class="headerlink" title="（3）终端执行"></a>（3）终端执行</h3><p>先执行</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">defaults write com.apple.systempreferences AttentionPrefBundleIDs 0</span><br><span class="line">Killall Dock</span><br></pre></td></tr></tbody></table></figure>
+
+<p>如果无法去除，则执行</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">defaults delete com.apple.systempreferences AttentionPrefBundleIDs</span><br><span class="line">defaults delete com.apple.systempreferences DidShowPrefBundleIDs</span><br><span class="line">killall Dock</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="3-相关参考"><a href="#3-相关参考" class="headerlink" title="3.相关参考"></a>3. 相关参考</h2><p><a href="https://sysin.org/blog/disable-macos-ventura-update/">https://sysin.org/blog/disable-macos-ventura-update/</a></p>
+]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>macos</tag>
       </tags>
   </entry>
   <entry>
@@ -3479,48 +3451,6 @@
       </tags>
   </entry>
   <entry>
-    <title>群晖替换快到期证书</title>
-    <url>/2024/10/08/%E7%BE%A4%E6%99%96%E6%9B%BF%E6%8D%A2%E5%BF%AB%E5%88%B0%E6%9C%9F%E8%AF%81%E4%B9%A6/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>由于免费的证书，现在有效期只有 3 个月，这意味着 1 年你要替换 4 次证书，记录一下，下次方便。</p>
-<span id="more"></span>
-
-<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><h3 id="（0）下载证书，类型选择“Nginx”"><a href="#（0）下载证书，类型选择“Nginx”" class="headerlink" title="（0）下载证书，类型选择“Nginx”"></a>（0）下载证书，类型选择 “Nginx”</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410081102614.jpg" alt="0 选择Nginx"></p>
-<h3 id="（1）打开控制面板"><a href="#（1）打开控制面板" class="headerlink" title="（1）打开控制面板"></a>（1）打开控制面板</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410081056134.jpg" alt="1.打开控制面板"></p>
-<h3 id="（2）打开网络"><a href="#（2）打开网络" class="headerlink" title="（2）打开网络"></a>（2）打开网络</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410081057607.jpg" alt="2 打开网络"></p>
-<h3 id="（3）打开安全性"><a href="#（3）打开安全性" class="headerlink" title="（3）打开安全性"></a>（3）打开安全性</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410081058342.jpg" alt="2 打开安全性"></p>
-<h3 id="（4）打开“新增”页面"><a href="#（4）打开“新增”页面" class="headerlink" title="（4）打开“新增”页面"></a>（4）打开 “新增” 页面</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410081108484.png" alt="image-20241008110800451"></p>
-<h3 id="（5）选择“替换已有证书”"><a href="#（5）选择“替换已有证书”" class="headerlink" title="（5）选择“替换已有证书”"></a>（5）选择 “替换已有证书”</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410081108599.png" alt="image-20241008110859574"></p>
-<h3 id="（6）选择“导入证书”"><a href="#（6）选择“导入证书”" class="headerlink" title="（6）选择“导入证书”"></a>（6）选择 “导入证书”</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410081102182.jpg" alt="5.选择导入证书"></p>
-<h3 id="（7）在相应位置选择相应的文件，点击“确定”"><a href="#（7）在相应位置选择相应的文件，点击“确定”" class="headerlink" title="（7）在相应位置选择相应的文件，点击“确定”"></a>（7）在相应位置选择相应的文件，点击 “确定”</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410081110276.png" alt="image-20241008111026250"></p>
-<h2 id=""><a href="#" class="headerlink" title=""></a></h2>]]></content>
-      <categories>
-        <category>环境部署</category>
-      </categories>
-      <tags>
-        <tag>synology</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>解决 Jenkins 插件安装失败 - 插件下载慢的问题</title>
-    <url>/2021/05/25/%E8%A7%A3%E5%86%B3Jenkins%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5-%E6%8F%92%E4%BB%B6%E4%B8%8B%E8%BD%BD%E6%85%A2%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在安装 Jenkins 的过程中，插件总是安装失败或者下载很慢。</p>
-<span id="more"></span>
-
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>安装源为国外的网站，所以下载速度慢。</p>
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>直接把源换为国内的镜像站，步骤如下：</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2021-05-25_15-15-12.png" alt="p1"></p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2021-05-25_15-20-26.png" alt="p2"></p>
-<p>清华大学镜像站:</p>
-<p><a href="https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json">https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json</a></p>
-]]></content>
-      <categories>
-        <category>软件使用</category>
-      </categories>
-      <tags>
-        <tag>jenkins</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>《小强升职记：时间管理故事书》读书笔记</title>
     <url>/2025/01/18/%E5%B0%8F%E5%BC%BA%E5%8D%87%E8%81%8C%E8%AE%B0%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86%E6%95%85%E4%BA%8B%E4%B9%A6%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h2 id="1-书摘"><a href="#1-书摘" class="headerlink" title="1.书摘"></a>1. 书摘</h2><ol>
@@ -3587,6 +3517,28 @@
       </tags>
   </entry>
   <entry>
+    <title>群晖替换快到期证书</title>
+    <url>/2024/10/08/%E7%BE%A4%E6%99%96%E6%9B%BF%E6%8D%A2%E5%BF%AB%E5%88%B0%E6%9C%9F%E8%AF%81%E4%B9%A6/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>由于免费的证书，现在有效期只有 3 个月，这意味着 1 年你要替换 4 次证书，记录一下，下次方便。</p>
+<span id="more"></span>
+
+<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><h3 id="（0）下载证书，类型选择“Nginx”"><a href="#（0）下载证书，类型选择“Nginx”" class="headerlink" title="（0）下载证书，类型选择“Nginx”"></a>（0）下载证书，类型选择 “Nginx”</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410081102614.jpg" alt="0 选择Nginx"></p>
+<h3 id="（1）打开控制面板"><a href="#（1）打开控制面板" class="headerlink" title="（1）打开控制面板"></a>（1）打开控制面板</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410081056134.jpg" alt="1.打开控制面板"></p>
+<h3 id="（2）打开网络"><a href="#（2）打开网络" class="headerlink" title="（2）打开网络"></a>（2）打开网络</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410081057607.jpg" alt="2 打开网络"></p>
+<h3 id="（3）打开安全性"><a href="#（3）打开安全性" class="headerlink" title="（3）打开安全性"></a>（3）打开安全性</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410081058342.jpg" alt="2 打开安全性"></p>
+<h3 id="（4）打开“新增”页面"><a href="#（4）打开“新增”页面" class="headerlink" title="（4）打开“新增”页面"></a>（4）打开 “新增” 页面</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410081108484.png" alt="image-20241008110800451"></p>
+<h3 id="（5）选择“替换已有证书”"><a href="#（5）选择“替换已有证书”" class="headerlink" title="（5）选择“替换已有证书”"></a>（5）选择 “替换已有证书”</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410081108599.png" alt="image-20241008110859574"></p>
+<h3 id="（6）选择“导入证书”"><a href="#（6）选择“导入证书”" class="headerlink" title="（6）选择“导入证书”"></a>（6）选择 “导入证书”</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410081102182.jpg" alt="5.选择导入证书"></p>
+<h3 id="（7）在相应位置选择相应的文件，点击“确定”"><a href="#（7）在相应位置选择相应的文件，点击“确定”" class="headerlink" title="（7）在相应位置选择相应的文件，点击“确定”"></a>（7）在相应位置选择相应的文件，点击 “确定”</h3><p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410081110276.png" alt="image-20241008111026250"></p>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2>]]></content>
+      <categories>
+        <category>环境部署</category>
+      </categories>
+      <tags>
+        <tag>synology</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>测试计划模板</title>
     <url>/2019/07/11/%E6%B5%8B%E8%AF%95%E8%AE%A1%E5%88%92%E6%A8%A1%E6%9D%BF/</url>
     <content><![CDATA[<h1 id="测试计划"><a href="#测试计划" class="headerlink" title="测试计划"></a>测试计划</h1><h1 id="XXX-项目测试计划"><a href="#XXX-项目测试计划" class="headerlink" title="XXX 项目测试计划"></a><center>XXX 项目测试计划</center></h1><h2 id="1-引言"><a href="#1-引言" class="headerlink" title="1.引言"></a>1. 引言</h2><h3 id="1-1-编写目的"><a href="#1-1-编写目的" class="headerlink" title="1.1 编写目的"></a>1.1 编写目的</h3><p>根据需求文档，提炼测试功能点、制定测试策略、评估测试风险，预估编写测试用例、执行功能测试和回归测试的工作量，进行人员和进度安排。</p>
@@ -3616,32 +3568,61 @@
       </tags>
   </entry>
   <entry>
-    <title>解决 appium 报错 java.lang.SecurityException - Permission Denial- starting Intent 的问题</title>
-    <url>/2024/07/27/%E8%A7%A3%E5%86%B3appium%E6%8A%A5%E9%94%99java-lang-SecurityException%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在使用 appium 时，出现以下问题：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">java.lang.SecurityException: Permission Denial: starting Intent { act=android.intent.action.MAIN <span class="built_in">cat</span>=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=com.dreamfish.com.autocalc/.MainActivity } from null (pid=9251, uid=2000) not exported from uid 10053</span><br><span class="line">	at com.android.server.am.ActivityStackSupervisor.checkStartAnyActivityPermission(ActivityStackSupervisor.java:1779)</span><br><span class="line">	at com.android.server.am.ActivityStarter.startActivity(ActivityStarter.java:725)</span><br><span class="line">	at com.android.server.am.ActivityStarter.startActivity(ActivityStarter.java:551)</span><br><span class="line">	at com.android.server.am.ActivityStarter.startActivityMayWait(ActivityStarter.java:1156)</span><br><span class="line">	at com.android.server.am.ActivityStarter.execute(ActivityStarter.java:490)</span><br></pre></td></tr></tbody></table></figure>
-
-
-
+    <title>解决 Jenkins 插件安装失败 - 插件下载慢的问题</title>
+    <url>/2021/05/25/%E8%A7%A3%E5%86%B3Jenkins%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5-%E6%8F%92%E4%BB%B6%E4%B8%8B%E8%BD%BD%E6%85%A2%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在安装 Jenkins 的过程中，插件总是安装失败或者下载很慢。</p>
 <span id="more"></span>
 
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>出现这样的错误一定是因为当前的 appActivity 设置的不是 app 首次进入的 appActivity.</p>
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>（1）首先获取该 <code>App</code> 的包名</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">➜  ~ adb shell dumpsys window | grep mFocusedApp</span><br><span class="line">    mFocusedApp=Token{2e61d6 ActivityRecord{a39b1f1 u0 com.dreamfish.com.autocalc/.MainActivity t32}}</span><br><span class="line">    mFocusedApp=AppWindowToken{7130c57 token=Token{2e61d6 ActivityRecord{a39b1f1 u0 com.dreamfish.com.autocalc/.MainActivity t32}}}</span><br></pre></td></tr></tbody></table></figure>
-
-<p>（2）通过 monkey 命令找到 <code>cmp=</code> 后面的 <code>activity</code>，本列中的 <code>activity</code> 为<code>.LauncherActivity</code></p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">➜  ~ adb shell monkey -p com.dreamfish.com.autocalc -v 1 | grep cmp=</span><br><span class="line">args: [-p, com.dreamfish.com.autocalc, -v, 1]</span><br><span class="line"> arg: <span class="string">"-p"</span></span><br><span class="line"> arg: <span class="string">"com.dreamfish.com.autocalc"</span></span><br><span class="line"> arg: <span class="string">"-v"</span></span><br><span class="line"> arg: <span class="string">"1"</span></span><br><span class="line">data=<span class="string">"com.dreamfish.com.autocalc"</span></span><br><span class="line">    // Allowing start of Intent { act=android.intent.action.MAIN <span class="built_in">cat</span>=[android.intent.category.LAUNCHER] cmp=com.dreamfish.com.autocalc/.LauncherActivity } <span class="keyword">in</span> package com.dreamfish.com.autocalc</span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p>代码参考于以下博客，自己做了相关调整：</p>
-<p><a href="https://blog.csdn.net/For_if_while/article/details/122946460">https://blog.csdn.net/For_if_while/article/details/122946460</a></p>
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>安装源为国外的网站，所以下载速度慢。</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>直接把源换为国内的镜像站，步骤如下：</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2021-05-25_15-15-12.png" alt="p1"></p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/Xnip2021-05-25_15-20-26.png" alt="p2"></p>
+<p>清华大学镜像站:</p>
+<p><a href="https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json">https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json</a></p>
 ]]></content>
       <categories>
-        <category>自动化测试</category>
+        <category>软件使用</category>
       </categories>
       <tags>
-        <tag>appium</tag>
+        <tag>jenkins</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解决 Mac 突然黑屏然后出现登录界面的问题</title>
+    <url>/2024/05/06/%E8%A7%A3%E5%86%B3Mac%E7%AA%81%E7%84%B6%E9%BB%91%E5%B1%8F%E7%84%B6%E5%90%8E%E5%87%BA%E7%8E%B0%E7%99%BB%E5%BD%95%E7%95%8C%E9%9D%A2%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>macOS 13 Ventura 后，经常出现下面的问题：</p>
+<span id="more"></span>
+
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240506165320062.png" alt="image-20240506165320062"></p>
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>未知</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>关闭了 2 个选项，不要全屏应用</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240506170557285.png" alt="image-20240506170557285"></p>
+<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p><a href="https://github.com/tobemaster56/draft/issues/108">https://github.com/tobemaster56/draft/issues/108</a></p>
+<p><a href="https://developer.apple.com/forums/thread/719033?answerId=735928022#735928022">https://developer.apple.com/forums/thread/719033?answerId=735928022#735928022</a></p>
+]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>macos</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解决 SQLServer 执行超时已过期完成操作之前已超时或服务器未响应</title>
+    <url>/2024/06/26/%E8%A7%A3%E5%86%B3SQLServer%E6%89%A7%E8%A1%8C%E8%B6%85%E6%97%B6%E5%B7%B2%E8%BF%87%E6%9C%9F%E5%AE%8C%E6%88%90%E6%93%8D%E4%BD%9C%E4%B9%8B%E5%89%8D%E5%B7%B2%E8%B6%85%E6%97%B6%E6%88%96%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9C%AA%E5%93%8D%E5%BA%94/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>还原 SQL Server 数据库时，报错，信息：执行超时已过期。完成操作之前已超时或服务器未响应。</p>
+<span id="more"></span>
+
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>数据库太大连接超时。</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><h4 id="（1）执行以下"><a href="#（1）执行以下" class="headerlink" title="（1）执行以下"></a>（1）执行以下</h4>  <figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">exec</span> sp_updatestats;</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="（2）收缩数据库，收缩日志。"><a href="#（2）收缩数据库，收缩日志。" class="headerlink" title="（2）收缩数据库，收缩日志。"></a>（2）收缩数据库，收缩日志。</h4><h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p><a href="https://blog.csdn.net/u012835032/article/details/110437581">https://blog.csdn.net/u012835032/article/details/110437581</a></p>
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>sqlserver</tag>
       </tags>
   </entry>
   <entry>
@@ -3672,44 +3653,6 @@
       <tags>
         <tag>synology</tag>
         <tag>gitea</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>解决 SQLServer 执行超时已过期完成操作之前已超时或服务器未响应</title>
-    <url>/2024/06/26/%E8%A7%A3%E5%86%B3SQLServer%E6%89%A7%E8%A1%8C%E8%B6%85%E6%97%B6%E5%B7%B2%E8%BF%87%E6%9C%9F%E5%AE%8C%E6%88%90%E6%93%8D%E4%BD%9C%E4%B9%8B%E5%89%8D%E5%B7%B2%E8%B6%85%E6%97%B6%E6%88%96%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9C%AA%E5%93%8D%E5%BA%94/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>还原 SQL Server 数据库时，报错，信息：执行超时已过期。完成操作之前已超时或服务器未响应。</p>
-<span id="more"></span>
-
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>数据库太大连接超时。</p>
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><h4 id="（1）执行以下"><a href="#（1）执行以下" class="headerlink" title="（1）执行以下"></a>（1）执行以下</h4>  <figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">exec</span> sp_updatestats;</span><br></pre></td></tr></tbody></table></figure>
-
-<h4 id="（2）收缩数据库，收缩日志。"><a href="#（2）收缩数据库，收缩日志。" class="headerlink" title="（2）收缩数据库，收缩日志。"></a>（2）收缩数据库，收缩日志。</h4><h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p><a href="https://blog.csdn.net/u012835032/article/details/110437581">https://blog.csdn.net/u012835032/article/details/110437581</a></p>
-]]></content>
-      <categories>
-        <category>数据库</category>
-      </categories>
-      <tags>
-        <tag>sqlserver</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>解决 Mac 突然黑屏然后出现登录界面的问题</title>
-    <url>/2024/05/06/%E8%A7%A3%E5%86%B3Mac%E7%AA%81%E7%84%B6%E9%BB%91%E5%B1%8F%E7%84%B6%E5%90%8E%E5%87%BA%E7%8E%B0%E7%99%BB%E5%BD%95%E7%95%8C%E9%9D%A2%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>macOS 13 Ventura 后，经常出现下面的问题：</p>
-<span id="more"></span>
-
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240506165320062.png" alt="image-20240506165320062"></p>
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>未知</p>
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>关闭了 2 个选项，不要全屏应用</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240506170557285.png" alt="image-20240506170557285"></p>
-<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p><a href="https://github.com/tobemaster56/draft/issues/108">https://github.com/tobemaster56/draft/issues/108</a></p>
-<p><a href="https://developer.apple.com/forums/thread/719033?answerId=735928022#735928022">https://developer.apple.com/forums/thread/719033?answerId=735928022#735928022</a></p>
-]]></content>
-      <categories>
-        <category>操作系统</category>
-      </categories>
-      <tags>
-        <tag>macos</tag>
       </tags>
   </entry>
   <entry>
@@ -3748,82 +3691,79 @@
       </tags>
   </entry>
   <entry>
-    <title>解决 mac 上用 SourceTree 克隆 git 上的项目时长时间 clone 不下的问题</title>
-    <url>/2024/10/02/%E8%A7%A3%E5%86%B3mac%E4%B8%8A%E7%94%A8SourceTree%E5%85%8B%E9%9A%86git%E4%B8%8A%E7%9A%84%E9%A1%B9%E7%9B%AE%E6%97%B6%E9%95%BF%E6%97%B6%E9%97%B4clone%E4%B8%8D%E4%B8%8B%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>IOS 开发推荐了 <code>Sourcetree</code>, 但是在 clone 时，发现进度条几乎满了，就是 clone 不下来。</p>
+    <title>如何将 excel 相同行快速标注相同颜色</title>
+    <url>/2024/05/22/%E5%A6%82%E4%BD%95%E5%B0%86excel%E7%9B%B8%E5%90%8C%E8%A1%8C%E5%BF%AB%E9%80%9F%E6%A0%87%E6%B3%A8%E7%9B%B8%E5%90%8C%E9%A2%9C%E8%89%B2/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>如下图所示，相同的公司标注相同的颜色，相邻的公司使用不同的颜色标注。</p>
 <span id="more"></span>
 
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>未知，按照其他人的方法试了下，就成功了，记录系下，以备下次。</p>
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>在终端输入以下指令：</p>
-<figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">mkdir</span> /usr/local/git  <span class="comment"># 确保上级目录存在，不然就 sudo mkdir -p /usr/local/git</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">mkdir</span> /usr/local/git/share</span><br><span class="line"></span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">mkdir</span> /usr/local/git/share/git-core</span><br><span class="line"></span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">mkdir</span> /usr/local/git/share/git-core/templates</span><br><span class="line"></span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">chmod</span> -R 755 /usr/local/git/share/git-core/templates</span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p><a href="https://blog.csdn.net/weixin_50990189/article/details/123617064">https://blog.csdn.net/weixin_50990189/article/details/123617064</a></p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523105209093.png" alt="image-20240523105209093"></p>
+<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2. 解决方法</h2><p>这里提供一种不是最优解的解决方法，前提是会使用函数 <code>vlookup</code> 和 <code>isodd</code></p>
+<p>（0）将表格按照公司名字排序。</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523115128818.png" alt="image-20240523115128818"></p>
+<p>（1）将公司名这一列复制到一个新的 <code>sheet</code> 中，然后去重。</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523115554033.png" alt="image-20240523115554033"></p>
+<p>（2）在公司名右侧插入公司名编号。</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523115823986.png" alt="image-20240523115823986"></p>
+<p>（3）在原表中公司名后插入一列，使用 <code>vlookup</code> 公式去匹配公司名编号。</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523120017323.png" alt="image-20240523120017323"></p>
+<p>（4）在原表中公司名编号中插入一列，使用 <code>isodd</code> 公式计算是奇偶数。</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523120250045.png" alt="image-20240523120250045"></p>
+<p>（5）筛选奇偶数，分别标注颜色。</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523120436033.png" alt="image-20240523120436033"></p>
+<p>（6）删除辅助列即可</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/image-20240523120606111.png" alt="image-20240523120606111"></p>
 ]]></content>
       <categories>
         <category>软件使用</category>
       </categories>
       <tags>
-        <tag>sourcetree</tag>
+        <tag>excel</tag>
       </tags>
   </entry>
   <entry>
-    <title>解决 mac 系统安装软件报错 - 文件已损坏</title>
-    <url>/2024/10/02/%E8%A7%A3%E5%86%B3mac%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E6%8A%A5%E9%94%99-%E6%96%87%E4%BB%B6%E5%B7%B2%E6%8D%9F%E5%9D%8F/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在 macos 上安装 app 时提示，“文件已损坏，您应该将它移到废纸篓”。</p>
+    <title>解决 jmeter 启动时报错 Error VM option &#39;UseG1GC&#39; is experimental 问题</title>
+    <url>/2024/10/13/%E8%A7%A3%E5%86%B3jmeter%E5%90%AF%E5%8A%A8%E6%97%B6%E6%8A%A5%E9%94%99Error-VM-optionUseG1GC%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>新电脑安装最新 <code>jmeter-5.6.3</code> 时报错如下：</p>
+<figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">➜  ~ /Users/user1/Jmeter/apache-jmeter-5.6.3/bin/jmeter ; <span class="built_in">exit</span>;</span><br><span class="line">Error: VM option <span class="string">'UseG1GC'</span> is experimental and must be enabled via -XX:+UnlockExperimentalVMOptions.</span><br><span class="line">Error: Could not create the Java Virtual Machine.</span><br><span class="line">Error: A fatal exception has occurred. Program will <span class="built_in">exit</span>.</span><br><span class="line"></span><br><span class="line">Saving session...completed.</span><br><span class="line"></span><br><span class="line">[进程已完成]</span><br></pre></td></tr></tbody></table></figure>
+
 <span id="more"></span>
 
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>安装完软件后，有时打开软件会提示软件无法打开，或者提示文件已损坏。通常这种情况，并非是你下载的文件真的损坏了，而是 mac 系统为了安全性，非应用商店下载的软件进行的限制。</p>
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><h3 id="（1）允许任何来源的应用运行："><a href="#（1）允许任何来源的应用运行：" class="headerlink" title="（1）允许任何来源的应用运行："></a>（1）<strong>允许任何来源的应用运行</strong>：</h3><ul>
-<li><p>打开终端（Terminal.app），输入以下命令并回车：</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">sudo spctl --master-disable</span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>输入开机密码，使 Mac 允许安装第三方来源的应用。</p>
-</li>
-</ul>
-<h3 id="（2）移除应用的安全隔离属性："><a href="#（2）移除应用的安全隔离属性：" class="headerlink" title="（2）移除应用的安全隔离属性："></a>（2）<strong>移除应用的安全隔离属性</strong>：</h3><ul>
-<li><p>打开终端，输入以下命令并回车（将 / Applications/xxxx.app 替换为实际的 App 路径）：</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">sudo xattr -r -d com.apple.quarantine /Applications/xxxx.app</span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>可以通过将 App 拖入终端来自动填充路径。</p>
-</li>
-</ul>
-<h3 id="（3）重新签名："><a href="#（3）重新签名：" class="headerlink" title="（3）重新签名："></a>（3）<strong>重新签名</strong>：</h3><ul>
-<li><p>如果软件因证书问题无法打开，可以尝试重新签名。首先安装 Command Line Tools for Xcode，然后在终端执行以下命令（将 / Applications/name.app 替换为实际的 App 路径）：</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">codesign --force --deep --sign - /Applications/name.app</span><br></pre></td></tr></tbody></table></figure></li>
-</ul>
-<h3 id="（4）覆盖恶意软件保护："><a href="#（4）覆盖恶意软件保护：" class="headerlink" title="（4）覆盖恶意软件保护："></a>（4）<strong>覆盖恶意软件保护</strong>：</h3><ul>
-<li>如果出现提示 “应用程序将对您的电脑造成伤害”，可以尝试覆盖恶意软件保护。在访达中找到应用程序，右键选择 “显示简介”，勾选 “覆盖恶意软件保护”。</li>
-</ul>
-<h3 id="（5）检查系统兼容性："><a href="#（5）检查系统兼容性：" class="headerlink" title="（5）检查系统兼容性："></a>（5）<strong>检查系统兼容性</strong>：</h3><ul>
-<li>如果以上方法都无法解决问题，可能是软件与当前系统不兼容。可以尝试下载软件的其他版本或联系软件开发商获取支持。</li>
-</ul>
-<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p><a href="https://www.jianshu.com/p/92cfd836a1e6">https://www.jianshu.com/p/92cfd836a1e6</a></p>
-<p><a href="https://blog.csdn.net/weixin_60605738/article/details/138607675">https://blog.csdn.net/weixin_60605738/article/details/138607675</a></p>
-<p><a href="https://kimi.moonshot.cn/">https://kimi.moonshot.cn/</a></p>
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>出现这个错误通常是因为 Java 虚拟机（JVM）尝试使用了一个实验性的 GC（垃圾收集）选项 <code>UseG1GC</code>，而这个选项需要通过 <code>-XX:+UnlockExperimentalVMOptions</code> 来启用。</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>总体思路：直接注释调这行配置。</p>
+<p>（1）到 <code>jmeter</code> 的安装目录 下的 <code>bin</code> 下，找到 <code>jmeter</code> 文件（这个文件就是没有扩展名的那个启动文件）</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410130033809.png" alt="image-20241013003324709"></p>
+<p>（2）搜索<code>: "${GC_ALGO:="-XX:+UseG1GC -XX:MaxGCPauseMillis=100 -XX:G1ReservePercent=20"}"</code>，定位，注释</p>
+<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410130035988.png" alt="image-20241013003512949"></p>
+<p>（3）保存后，重新双击 <code>jmeter</code>，正常启动。</p>
+<img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410130037583.png" alt="image-20241013003706554" style="zoom:50%;">
+
+<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p><a href="https://kimi.moonshot.cn/">https://kimi.moonshot.cn/</a></p>
+]]></content>
+      <categories>
+        <category>性能测试</category>
+      </categories>
+      <tags>
+        <tag>jmeter</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>macOS 中无法删除启动台的空白文件夹</title>
+    <url>/2024/05/09/%E8%A7%A3%E5%86%B3macOS%E4%B8%AD%E6%97%A0%E6%B3%95%E5%88%A0%E9%99%A4%E5%90%AF%E5%8A%A8%E5%8F%B0%E7%9A%84%E7%A9%BA%E7%99%BD%E6%96%87%E4%BB%B6%E5%A4%B9/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>今天下载了 Ryujinx，然后启动台自动把国际象棋 Ryujinx 放到了一个文件夹里面，然后手动拖出来之后，空文件夹没有消失，拖动其他图标进去后图标直接消失不见了，然后出现了一个虚线型的文件夹图标，图标可以显示，然后打开文件夹图标消失了，也无法拖出 App 图标。</p>
+<span id="more"></span>
+
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>macos12/13 系统 bug。</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>（1）在终端中输入以下，然后回车</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">open getconf DARWIN_USER_DIR</span><br></pre></td></tr></tbody></table></figure>
+
+<p>（2）然后删除 com.apple.dock.launchpad 文件夹</p>
+<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p><a href="https://discussionschinese.apple.com/thread/253648900?answerId=256835759322&amp;sortBy=best#256835759322">https://discussionschinese.apple.com/thread/253648900?answerId=256835759322&amp;sortBy=best#256835759322</a></p>
 ]]></content>
       <categories>
         <category>操作系统</category>
       </categories>
       <tags>
         <tag>macos</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>解决使用 chrome-inspect-devices 页面空白问题</title>
-    <url>/2024/10/02/%E8%A7%A3%E5%86%B3%E4%BD%BF%E7%94%A8chrome-inspect-devices%E9%A1%B5%E9%9D%A2%E7%A9%BA%E7%99%BD%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在使用 chrome://inspect/#devices，页面空白</p>
-<span id="more"></span>
-
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>需要科学上网</p>
-<h2 id="3-使用条件"><a href="#3-使用条件" class="headerlink" title="3.使用条件"></a>3. 使用条件</h2><h3 id="（1）能够访问google-com"><a href="#（1）能够访问google-com" class="headerlink" title="（1）能够访问google.com"></a>（1）能够访问 google.com</h3><h3 id="（2）手机开启usb调试模式"><a href="#（2）手机开启usb调试模式" class="headerlink" title="（2）手机开启usb调试模式"></a>（2）手机开启 usb 调试模式</h3><h3 id="（3）允许电脑访问手机"><a href="#（3）允许电脑访问手机" class="headerlink" title="（3）允许电脑访问手机"></a>（3）允许电脑访问手机</h3><h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p><a href="https://github.com/HuarenYu/note/issues/1">https://github.com/HuarenYu/note/issues/1</a></p>
-]]></content>
-      <categories>
-        <category>软件使用</category>
-      </categories>
-      <tags>
-        <tag>chrome</tag>
       </tags>
   </entry>
   <entry>
@@ -3848,23 +3788,91 @@
       </tags>
   </entry>
   <entry>
-    <title>macOS 中无法删除启动台的空白文件夹</title>
-    <url>/2024/05/09/%E8%A7%A3%E5%86%B3macOS%E4%B8%AD%E6%97%A0%E6%B3%95%E5%88%A0%E9%99%A4%E5%90%AF%E5%8A%A8%E5%8F%B0%E7%9A%84%E7%A9%BA%E7%99%BD%E6%96%87%E4%BB%B6%E5%A4%B9/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>今天下载了 Ryujinx，然后启动台自动把国际象棋 Ryujinx 放到了一个文件夹里面，然后手动拖出来之后，空文件夹没有消失，拖动其他图标进去后图标直接消失不见了，然后出现了一个虚线型的文件夹图标，图标可以显示，然后打开文件夹图标消失了，也无法拖出 App 图标。</p>
+    <title>解决 mac 上用 SourceTree 克隆 git 上的项目时长时间 clone 不下的问题</title>
+    <url>/2024/10/02/%E8%A7%A3%E5%86%B3mac%E4%B8%8A%E7%94%A8SourceTree%E5%85%8B%E9%9A%86git%E4%B8%8A%E7%9A%84%E9%A1%B9%E7%9B%AE%E6%97%B6%E9%95%BF%E6%97%B6%E9%97%B4clone%E4%B8%8D%E4%B8%8B%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>IOS 开发推荐了 <code>Sourcetree</code>, 但是在 clone 时，发现进度条几乎满了，就是 clone 不下来。</p>
 <span id="more"></span>
 
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>macos12/13 系统 bug。</p>
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>（1）在终端中输入以下，然后回车</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">open getconf DARWIN_USER_DIR</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>未知，按照其他人的方法试了下，就成功了，记录系下，以备下次。</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>在终端输入以下指令：</p>
+<figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">mkdir</span> /usr/local/git  <span class="comment"># 确保上级目录存在，不然就 sudo mkdir -p /usr/local/git</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">mkdir</span> /usr/local/git/share</span><br><span class="line"></span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">mkdir</span> /usr/local/git/share/git-core</span><br><span class="line"></span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">mkdir</span> /usr/local/git/share/git-core/templates</span><br><span class="line"></span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">chmod</span> -R 755 /usr/local/git/share/git-core/templates</span><br></pre></td></tr></tbody></table></figure>
 
-<p>（2）然后删除 com.apple.dock.launchpad 文件夹</p>
-<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p><a href="https://discussionschinese.apple.com/thread/253648900?answerId=256835759322&amp;sortBy=best#256835759322">https://discussionschinese.apple.com/thread/253648900?answerId=256835759322&amp;sortBy=best#256835759322</a></p>
+
+
+<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p><a href="https://blog.csdn.net/weixin_50990189/article/details/123617064">https://blog.csdn.net/weixin_50990189/article/details/123617064</a></p>
 ]]></content>
       <categories>
-        <category>操作系统</category>
+        <category>软件使用</category>
       </categories>
       <tags>
-        <tag>macos</tag>
+        <tag>sourcetree</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解决使用 chrome-inspect-devices 页面空白问题</title>
+    <url>/2024/10/02/%E8%A7%A3%E5%86%B3%E4%BD%BF%E7%94%A8chrome-inspect-devices%E9%A1%B5%E9%9D%A2%E7%A9%BA%E7%99%BD%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在使用 chrome://inspect/#devices，页面空白</p>
+<span id="more"></span>
+
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>需要科学上网</p>
+<h2 id="3-使用条件"><a href="#3-使用条件" class="headerlink" title="3.使用条件"></a>3. 使用条件</h2><h3 id="（1）能够访问google-com"><a href="#（1）能够访问google-com" class="headerlink" title="（1）能够访问google.com"></a>（1）能够访问 google.com</h3><h3 id="（2）手机开启usb调试模式"><a href="#（2）手机开启usb调试模式" class="headerlink" title="（2）手机开启usb调试模式"></a>（2）手机开启 usb 调试模式</h3><h3 id="（3）允许电脑访问手机"><a href="#（3）允许电脑访问手机" class="headerlink" title="（3）允许电脑访问手机"></a>（3）允许电脑访问手机</h3><h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p><a href="https://github.com/HuarenYu/note/issues/1">https://github.com/HuarenYu/note/issues/1</a></p>
+]]></content>
+      <categories>
+        <category>软件使用</category>
+      </categories>
+      <tags>
+        <tag>chrome</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解决 appium 报错 java.lang.SecurityException - Permission Denial- starting Intent 的问题</title>
+    <url>/2024/07/27/%E8%A7%A3%E5%86%B3appium%E6%8A%A5%E9%94%99java-lang-SecurityException%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在使用 appium 时，出现以下问题：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">java.lang.SecurityException: Permission Denial: starting Intent { act=android.intent.action.MAIN <span class="built_in">cat</span>=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=com.dreamfish.com.autocalc/.MainActivity } from null (pid=9251, uid=2000) not exported from uid 10053</span><br><span class="line">	at com.android.server.am.ActivityStackSupervisor.checkStartAnyActivityPermission(ActivityStackSupervisor.java:1779)</span><br><span class="line">	at com.android.server.am.ActivityStarter.startActivity(ActivityStarter.java:725)</span><br><span class="line">	at com.android.server.am.ActivityStarter.startActivity(ActivityStarter.java:551)</span><br><span class="line">	at com.android.server.am.ActivityStarter.startActivityMayWait(ActivityStarter.java:1156)</span><br><span class="line">	at com.android.server.am.ActivityStarter.execute(ActivityStarter.java:490)</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<span id="more"></span>
+
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>出现这样的错误一定是因为当前的 appActivity 设置的不是 app 首次进入的 appActivity.</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>（1）首先获取该 <code>App</code> 的包名</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">➜  ~ adb shell dumpsys window | grep mFocusedApp</span><br><span class="line">    mFocusedApp=Token{2e61d6 ActivityRecord{a39b1f1 u0 com.dreamfish.com.autocalc/.MainActivity t32}}</span><br><span class="line">    mFocusedApp=AppWindowToken{7130c57 token=Token{2e61d6 ActivityRecord{a39b1f1 u0 com.dreamfish.com.autocalc/.MainActivity t32}}}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>（2）通过 monkey 命令找到 <code>cmp=</code> 后面的 <code>activity</code>，本列中的 <code>activity</code> 为<code>.LauncherActivity</code></p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">➜  ~ adb shell monkey -p com.dreamfish.com.autocalc -v 1 | grep cmp=</span><br><span class="line">args: [-p, com.dreamfish.com.autocalc, -v, 1]</span><br><span class="line"> arg: <span class="string">"-p"</span></span><br><span class="line"> arg: <span class="string">"com.dreamfish.com.autocalc"</span></span><br><span class="line"> arg: <span class="string">"-v"</span></span><br><span class="line"> arg: <span class="string">"1"</span></span><br><span class="line">data=<span class="string">"com.dreamfish.com.autocalc"</span></span><br><span class="line">    // Allowing start of Intent { act=android.intent.action.MAIN <span class="built_in">cat</span>=[android.intent.category.LAUNCHER] cmp=com.dreamfish.com.autocalc/.LauncherActivity } <span class="keyword">in</span> package com.dreamfish.com.autocalc</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p>代码参考于以下博客，自己做了相关调整：</p>
+<p><a href="https://blog.csdn.net/For_if_while/article/details/122946460">https://blog.csdn.net/For_if_while/article/details/122946460</a></p>
+]]></content>
+      <categories>
+        <category>自动化测试</category>
+      </categories>
+      <tags>
+        <tag>appium</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解决使用 excel 打开 csv 文件时出现乱码的问题</title>
+    <url>/2020/06/11/%E8%A7%A3%E5%86%B3%E4%BD%BF%E7%94%A8excel%E6%89%93%E5%BC%80csv%E6%96%87%E4%BB%B6%E6%97%B6%E5%87%BA%E7%8E%B0%E4%B9%B1%E7%A0%81%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>使用 excel 打开 csv 文件时出现乱码</p>
+<span id="more"></span>
+
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>excel 默认识别的是带 BOM 格式的 csv 文档，而打开纯 UTF-8 的文件时，没有 BOM 的头，也就是第一行，所以打开是乱码。(开头多了一串字符”\ufeff”)</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>将”utf-8” 格式转换为”utf-8 with BOM”，python 中这个带 BOM 格式的叫做 UTF-8-SIG，都是 UTF-8 带签名的意思。</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> codecs</span><br><span class="line"><span class="keyword">import</span> chardet</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># from subFunc_tools import *</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">list_folders_files</span>(<span class="params">path</span>):</span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    返回 "文件夹" 和 "文件" 名字</span></span><br><span class="line"><span class="string">    :param path: "文件夹"和"文件"所在的路径</span></span><br><span class="line"><span class="string">    :return:  (list_folders, list_files)</span></span><br><span class="line"><span class="string">            :list_folders: 文件夹</span></span><br><span class="line"><span class="string">            :list_files: 文件</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    list_folders = []</span><br><span class="line">    list_files = []</span><br><span class="line">    <span class="keyword">for</span> file <span class="keyword">in</span> os.listdir(path):</span><br><span class="line">        file_path = os.path.join(path, file)</span><br><span class="line">        <span class="keyword">if</span> os.path.isdir(file_path):</span><br><span class="line">            list_folders.append(file)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            list_files.append(file)</span><br><span class="line">    <span class="keyword">return</span> (list_folders, list_files)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">convert</span>(<span class="params">file, in_enc=<span class="string">"GBK"</span>, out_enc=<span class="string">"UTF-8"</span></span>):</span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    该程序用于将目录下的文件从指定格式转换到指定格式，默认的是GBK转到utf-8</span></span><br><span class="line"><span class="string">    :param file:    文件路径</span></span><br><span class="line"><span class="string">    :param in_enc:  输入文件格式</span></span><br><span class="line"><span class="string">    :param out_enc: 输出文件格式</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    in_enc = in_enc.upper()</span><br><span class="line">    out_enc = out_enc.upper()</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"convert [ "</span> + file.split(<span class="string">'\\'</span>)[-<span class="number">1</span>] + <span class="string">" ].....From "</span> + in_enc + <span class="string">" --&gt; "</span> + out_enc)</span><br><span class="line">        f = codecs.<span class="built_in">open</span>(file, <span class="string">'r'</span>, in_enc)</span><br><span class="line">        new_content = f.read()</span><br><span class="line">        codecs.<span class="built_in">open</span>(file, <span class="string">'w'</span>, out_enc).write(new_content)</span><br><span class="line">    <span class="comment"># print (f.read())</span></span><br><span class="line">    <span class="keyword">except</span> IOError <span class="keyword">as</span> err:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"I/O error: {0}"</span>.<span class="built_in">format</span>(err))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将路径下面的所有文件，从原来的格式变为UTF-8的格式</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    path = <span class="string">r'G:\desktop\Convert-UTF8'</span></span><br><span class="line"></span><br><span class="line">    (list_folders, list_files) = list_folders_files(path)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Path: "</span> + path)</span><br><span class="line">    <span class="keyword">for</span> fileName <span class="keyword">in</span> list_files:</span><br><span class="line">        filePath = path + <span class="string">'\\'</span> + fileName</span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(filePath, <span class="string">"rb"</span>) <span class="keyword">as</span> f:</span><br><span class="line">            data = f.read()</span><br><span class="line">            codeType = chardet.detect(data)[<span class="string">'encoding'</span>]</span><br><span class="line">            convert(filePath, codeType, <span class="string">'UTF-8-SIG'</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p>代码参考于以下博客，自己做了相关调整：</p>
+<p><a href="https://www.cnblogs.com/monster-yher/p/13418600.html">https://www.cnblogs.com/monster-yher/p/13418600.html</a></p>
+]]></content>
+      <categories>
+        <category>测试脚本</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -3919,28 +3927,6 @@
       </tags>
   </entry>
   <entry>
-    <title>解决使用 excel 打开 csv 文件时出现乱码的问题</title>
-    <url>/2020/06/11/%E8%A7%A3%E5%86%B3%E4%BD%BF%E7%94%A8excel%E6%89%93%E5%BC%80csv%E6%96%87%E4%BB%B6%E6%97%B6%E5%87%BA%E7%8E%B0%E4%B9%B1%E7%A0%81%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>使用 excel 打开 csv 文件时出现乱码</p>
-<span id="more"></span>
-
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>excel 默认识别的是带 BOM 格式的 csv 文档，而打开纯 UTF-8 的文件时，没有 BOM 的头，也就是第一行，所以打开是乱码。(开头多了一串字符”\ufeff”)</p>
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>将”utf-8” 格式转换为”utf-8 with BOM”，python 中这个带 BOM 格式的叫做 UTF-8-SIG，都是 UTF-8 带签名的意思。</p>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> codecs</span><br><span class="line"><span class="keyword">import</span> chardet</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># from subFunc_tools import *</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">list_folders_files</span>(<span class="params">path</span>):</span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    返回 "文件夹" 和 "文件" 名字</span></span><br><span class="line"><span class="string">    :param path: "文件夹"和"文件"所在的路径</span></span><br><span class="line"><span class="string">    :return:  (list_folders, list_files)</span></span><br><span class="line"><span class="string">            :list_folders: 文件夹</span></span><br><span class="line"><span class="string">            :list_files: 文件</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    list_folders = []</span><br><span class="line">    list_files = []</span><br><span class="line">    <span class="keyword">for</span> file <span class="keyword">in</span> os.listdir(path):</span><br><span class="line">        file_path = os.path.join(path, file)</span><br><span class="line">        <span class="keyword">if</span> os.path.isdir(file_path):</span><br><span class="line">            list_folders.append(file)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            list_files.append(file)</span><br><span class="line">    <span class="keyword">return</span> (list_folders, list_files)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">convert</span>(<span class="params">file, in_enc=<span class="string">"GBK"</span>, out_enc=<span class="string">"UTF-8"</span></span>):</span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    该程序用于将目录下的文件从指定格式转换到指定格式，默认的是GBK转到utf-8</span></span><br><span class="line"><span class="string">    :param file:    文件路径</span></span><br><span class="line"><span class="string">    :param in_enc:  输入文件格式</span></span><br><span class="line"><span class="string">    :param out_enc: 输出文件格式</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    in_enc = in_enc.upper()</span><br><span class="line">    out_enc = out_enc.upper()</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"convert [ "</span> + file.split(<span class="string">'\\'</span>)[-<span class="number">1</span>] + <span class="string">" ].....From "</span> + in_enc + <span class="string">" --&gt; "</span> + out_enc)</span><br><span class="line">        f = codecs.<span class="built_in">open</span>(file, <span class="string">'r'</span>, in_enc)</span><br><span class="line">        new_content = f.read()</span><br><span class="line">        codecs.<span class="built_in">open</span>(file, <span class="string">'w'</span>, out_enc).write(new_content)</span><br><span class="line">    <span class="comment"># print (f.read())</span></span><br><span class="line">    <span class="keyword">except</span> IOError <span class="keyword">as</span> err:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"I/O error: {0}"</span>.<span class="built_in">format</span>(err))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将路径下面的所有文件，从原来的格式变为UTF-8的格式</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    path = <span class="string">r'G:\desktop\Convert-UTF8'</span></span><br><span class="line"></span><br><span class="line">    (list_folders, list_files) = list_folders_files(path)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Path: "</span> + path)</span><br><span class="line">    <span class="keyword">for</span> fileName <span class="keyword">in</span> list_files:</span><br><span class="line">        filePath = path + <span class="string">'\\'</span> + fileName</span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(filePath, <span class="string">"rb"</span>) <span class="keyword">as</span> f:</span><br><span class="line">            data = f.read()</span><br><span class="line">            codeType = chardet.detect(data)[<span class="string">'encoding'</span>]</span><br><span class="line">            convert(filePath, codeType, <span class="string">'UTF-8-SIG'</span>)</span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p>代码参考于以下博客，自己做了相关调整：</p>
-<p><a href="https://www.cnblogs.com/monster-yher/p/13418600.html">https://www.cnblogs.com/monster-yher/p/13418600.html</a></p>
-]]></content>
-      <categories>
-        <category>测试脚本</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>记录一个 mysql 存储过程模板</title>
     <url>/2024/06/14/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%AAmysql%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B%E6%A8%A1%E6%9D%BF/</url>
     <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>记录一个 mysql 存储过程模板，方便以后使用。</p>
@@ -3954,27 +3940,6 @@
       </categories>
       <tags>
         <tag>mysql</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>读书笔记模版</title>
-    <url>/2019/08/14/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E6%A8%A1%E7%89%88/</url>
-    <content><![CDATA[<h2 id="1-书摘"><a href="#1-书摘" class="headerlink" title="1.书摘"></a>1. 书摘</h2><p>读书要有所得，必须要有思考，而思考的最佳验收方式就是输出。不论是书评还是读书笔记，怎样都好，只要是经过你理解的输出，就非常有价值。</p>
-<span id="more"></span>
-
-<h2 id="2-读书心得"><a href="#2-读书心得" class="headerlink" title="2.读书心得"></a>2. 读书心得</h2><p>简单的阅读感受和启发，或者深入的书评，无论长短都可以，有收获最重要。</p>
-<h2 id="3-知识积累"><a href="#3-知识积累" class="headerlink" title="3.知识积累"></a>3. 知识积累</h2><p>使用 kindle 技巧：</p>
-<p>技巧 1：截屏<br>截屏的方法很简单，只要记住一个对角线原则就好。大家在 “左上右下” 或 “左下右上” 的角落位置同时按住，即可完成截图操作注意事项：①必须同时按到对角线两边的圆形区域；②当屏幕闪现一下则代表截屏成功，否则就再试一次。</p>
-<p>结束动作后，你的截屏将会在 Kindle 根目录中以图片的形式（png）出现，如果你想导出它们，只需要将 Kindle 连接电脑，从根目录中将图片拖出即可。</p>
-<p>技巧 2：字号拉伸字号拉伸是个比较隐蔽的功能，作用说大不大，说小不小，就是减少了大家放大或缩小字体的难度，增强了交互体验。那么应该如何操作呢？其实非常简单，只要我们进入了阅读模式，即点击进入某读物的时候，我们可以将两个手指同时放在屏幕中，通过向内或向外的同时位移来完成放大或缩小的操作。</p>
-<h2 id="4-思维导图"><a href="#4-思维导图" class="headerlink" title="4.思维导图"></a>4. 思维导图</h2><p>这里可以添加一个总结的思维导图。</p>
-<h2 id="5-遗留问题"><a href="#5-遗留问题" class="headerlink" title="5.遗留问题"></a>5. 遗留问题</h2><p>不懂的地方。</p>
-]]></content>
-      <categories>
-        <category>读书笔记</category>
-      </categories>
-      <tags>
-        <tag>templates</tag>
       </tags>
   </entry>
   <entry>
@@ -4003,29 +3968,66 @@
       </tags>
   </entry>
   <entry>
-    <title>解决 jmeter 启动时报错 Error VM option &#39;UseG1GC&#39; is experimental 问题</title>
-    <url>/2024/10/13/%E8%A7%A3%E5%86%B3jmeter%E5%90%AF%E5%8A%A8%E6%97%B6%E6%8A%A5%E9%94%99Error-VM-optionUseG1GC%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>新电脑安装最新 <code>jmeter-5.6.3</code> 时报错如下：</p>
-<figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">➜  ~ /Users/user1/Jmeter/apache-jmeter-5.6.3/bin/jmeter ; <span class="built_in">exit</span>;</span><br><span class="line">Error: VM option <span class="string">'UseG1GC'</span> is experimental and must be enabled via -XX:+UnlockExperimentalVMOptions.</span><br><span class="line">Error: Could not create the Java Virtual Machine.</span><br><span class="line">Error: A fatal exception has occurred. Program will <span class="built_in">exit</span>.</span><br><span class="line"></span><br><span class="line">Saving session...completed.</span><br><span class="line"></span><br><span class="line">[进程已完成]</span><br></pre></td></tr></tbody></table></figure>
-
+    <title>读书笔记模版</title>
+    <url>/2019/08/14/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E6%A8%A1%E7%89%88/</url>
+    <content><![CDATA[<h2 id="1-书摘"><a href="#1-书摘" class="headerlink" title="1.书摘"></a>1. 书摘</h2><p>读书要有所得，必须要有思考，而思考的最佳验收方式就是输出。不论是书评还是读书笔记，怎样都好，只要是经过你理解的输出，就非常有价值。</p>
 <span id="more"></span>
 
-<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>出现这个错误通常是因为 Java 虚拟机（JVM）尝试使用了一个实验性的 GC（垃圾收集）选项 <code>UseG1GC</code>，而这个选项需要通过 <code>-XX:+UnlockExperimentalVMOptions</code> 来启用。</p>
-<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><p>总体思路：直接注释调这行配置。</p>
-<p>（1）到 <code>jmeter</code> 的安装目录 下的 <code>bin</code> 下，找到 <code>jmeter</code> 文件（这个文件就是没有扩展名的那个启动文件）</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410130033809.png" alt="image-20241013003324709"></p>
-<p>（2）搜索<code>: "${GC_ALGO:="-XX:+UseG1GC -XX:MaxGCPauseMillis=100 -XX:G1ReservePercent=20"}"</code>，定位，注释</p>
-<p><img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410130035988.png" alt="image-20241013003512949"></p>
-<p>（3）保存后，重新双击 <code>jmeter</code>，正常启动。</p>
-<img src="https://zpic-bucket.oss-cn-chengdu.aliyuncs.com/blogImages/202410130037583.png" alt="image-20241013003706554" style="zoom:50%;">
-
-<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p><a href="https://kimi.moonshot.cn/">https://kimi.moonshot.cn/</a></p>
+<h2 id="2-读书心得"><a href="#2-读书心得" class="headerlink" title="2.读书心得"></a>2. 读书心得</h2><p>简单的阅读感受和启发，或者深入的书评，无论长短都可以，有收获最重要。</p>
+<h2 id="3-知识积累"><a href="#3-知识积累" class="headerlink" title="3.知识积累"></a>3. 知识积累</h2><p>使用 kindle 技巧：</p>
+<p>技巧 1：截屏<br>截屏的方法很简单，只要记住一个对角线原则就好。大家在 “左上右下” 或 “左下右上” 的角落位置同时按住，即可完成截图操作注意事项：①必须同时按到对角线两边的圆形区域；②当屏幕闪现一下则代表截屏成功，否则就再试一次。</p>
+<p>结束动作后，你的截屏将会在 Kindle 根目录中以图片的形式（png）出现，如果你想导出它们，只需要将 Kindle 连接电脑，从根目录中将图片拖出即可。</p>
+<p>技巧 2：字号拉伸字号拉伸是个比较隐蔽的功能，作用说大不大，说小不小，就是减少了大家放大或缩小字体的难度，增强了交互体验。那么应该如何操作呢？其实非常简单，只要我们进入了阅读模式，即点击进入某读物的时候，我们可以将两个手指同时放在屏幕中，通过向内或向外的同时位移来完成放大或缩小的操作。</p>
+<h2 id="4-思维导图"><a href="#4-思维导图" class="headerlink" title="4.思维导图"></a>4. 思维导图</h2><p>这里可以添加一个总结的思维导图。</p>
+<h2 id="5-遗留问题"><a href="#5-遗留问题" class="headerlink" title="5.遗留问题"></a>5. 遗留问题</h2><p>不懂的地方。</p>
 ]]></content>
       <categories>
-        <category>性能测试</category>
+        <category>读书笔记</category>
       </categories>
       <tags>
-        <tag>jmeter</tag>
+        <tag>templates</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解决 mac 系统安装软件报错 - 文件已损坏</title>
+    <url>/2024/10/02/%E8%A7%A3%E5%86%B3mac%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E6%8A%A5%E9%94%99-%E6%96%87%E4%BB%B6%E5%B7%B2%E6%8D%9F%E5%9D%8F/</url>
+    <content><![CDATA[<h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1. 问题描述</h2><p>在 macos 上安装 app 时提示，“文件已损坏，您应该将它移到废纸篓”。</p>
+<span id="more"></span>
+
+<h2 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2. 问题原因</h2><p>安装完软件后，有时打开软件会提示软件无法打开，或者提示文件已损坏。通常这种情况，并非是你下载的文件真的损坏了，而是 mac 系统为了安全性，非应用商店下载的软件进行的限制。</p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3. 解决方法</h2><h3 id="（1）允许任何来源的应用运行："><a href="#（1）允许任何来源的应用运行：" class="headerlink" title="（1）允许任何来源的应用运行："></a>（1）<strong>允许任何来源的应用运行</strong>：</h3><ul>
+<li><p>打开终端（Terminal.app），输入以下命令并回车：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">sudo spctl --master-disable</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>输入开机密码，使 Mac 允许安装第三方来源的应用。</p>
+</li>
+</ul>
+<h3 id="（2）移除应用的安全隔离属性："><a href="#（2）移除应用的安全隔离属性：" class="headerlink" title="（2）移除应用的安全隔离属性："></a>（2）<strong>移除应用的安全隔离属性</strong>：</h3><ul>
+<li><p>打开终端，输入以下命令并回车（将 / Applications/xxxx.app 替换为实际的 App 路径）：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">sudo xattr -r -d com.apple.quarantine /Applications/xxxx.app</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>可以通过将 App 拖入终端来自动填充路径。</p>
+</li>
+</ul>
+<h3 id="（3）重新签名："><a href="#（3）重新签名：" class="headerlink" title="（3）重新签名："></a>（3）<strong>重新签名</strong>：</h3><ul>
+<li><p>如果软件因证书问题无法打开，可以尝试重新签名。首先安装 Command Line Tools for Xcode，然后在终端执行以下命令（将 / Applications/name.app 替换为实际的 App 路径）：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">codesign --force --deep --sign - /Applications/name.app</span><br></pre></td></tr></tbody></table></figure></li>
+</ul>
+<h3 id="（4）覆盖恶意软件保护："><a href="#（4）覆盖恶意软件保护：" class="headerlink" title="（4）覆盖恶意软件保护："></a>（4）<strong>覆盖恶意软件保护</strong>：</h3><ul>
+<li>如果出现提示 “应用程序将对您的电脑造成伤害”，可以尝试覆盖恶意软件保护。在访达中找到应用程序，右键选择 “显示简介”，勾选 “覆盖恶意软件保护”。</li>
+</ul>
+<h3 id="（5）检查系统兼容性："><a href="#（5）检查系统兼容性：" class="headerlink" title="（5）检查系统兼容性："></a>（5）<strong>检查系统兼容性</strong>：</h3><ul>
+<li>如果以上方法都无法解决问题，可能是软件与当前系统不兼容。可以尝试下载软件的其他版本或联系软件开发商获取支持。</li>
+</ul>
+<h2 id="4-相关参考"><a href="#4-相关参考" class="headerlink" title="4.相关参考"></a>4. 相关参考</h2><p><a href="https://www.jianshu.com/p/92cfd836a1e6">https://www.jianshu.com/p/92cfd836a1e6</a></p>
+<p><a href="https://blog.csdn.net/weixin_60605738/article/details/138607675">https://blog.csdn.net/weixin_60605738/article/details/138607675</a></p>
+<p><a href="https://kimi.moonshot.cn/">https://kimi.moonshot.cn/</a></p>
+]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>macos</tag>
       </tags>
   </entry>
 </search>
